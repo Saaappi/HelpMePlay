@@ -31,6 +31,7 @@ local title = "";
 
 e:RegisterEvent("ADDON_LOADED");
 e:RegisterEvent("CINEMATIC_START");
+e:RegisterEvent("GOSSIP_SHOW");
 e:RegisterEvent("QUEST_ACCEPTED");
 e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
@@ -56,7 +57,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			for index = 1, numAutoQuestPopUps, 1 do
 				local id, pushType = GetAutoQuestPopUp(index);
 				if (pushType == "OFFER") then
-					title = select(2, C_QuestLine.GetQuestLineInfo(id, map));
+					title = C_QuestLog.GetTitleForQuestID(id);
 					AcknowledgeAutoAcceptQuest(); -- Stops the server from attempting to push the quest.
 				else
 					-- Complete the quest here.
