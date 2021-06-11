@@ -27,7 +27,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 		if (QuestFrame) then
 			local title = QuestInfoTitleHeader:GetText();
 			if (title) then
-				print(t.quests[title]["id"]);
+				print(t.quests[map][title]["id"]);
 			end
 		end
 	end
