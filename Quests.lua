@@ -116,7 +116,7 @@ local quests = {
 			["id"] = 27096,
 			["reward"] = 0,
 			["cancelCinematic"] = false,
-			["flightPath"] = 645, -- Forsaken High Command, Silverpine Forest
+			["flightPath"] = t.flightPaths["Forsaken High Command, Silverpine Forest"],
 		},
 		["Rise, Forsaken"] = {
 			["id"] = 27097,

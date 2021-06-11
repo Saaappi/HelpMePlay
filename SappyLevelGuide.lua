@@ -44,11 +44,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 		end
 	end
 	if (event == "QUEST_ACCEPTED") then
-		--[[
 		if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
 			shouldTakeFlightPath = true;
 		end
-		]]
 	end
 	if (event == "QUEST_DATA_LOAD_RESULT" or event == "QUEST_DETAIL") then
 		local id = ...;
