@@ -1885,6 +1885,92 @@ local quests = {
 			["flightPath"] = nil,
 		},
 	},
+	[525] = { -- Frostfire Ridge
+		["The Home of the Frostwolves"] = {
+			["id"] = 33868,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["A Song of Frost and Fire"] = {
+			["id"] = 33815,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Of Wolves and Warriors"] = {
+			["id"] = 34402,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["For the Horde!"] = {
+			["id"] = 34364,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Back to Work"] = {
+			["id"] = 34375,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["A Gronnling Problem"] = {
+			["id"] = 34592,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["The Den of Skog"] = {
+			["id"] = 34765,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Establish Your Garrison"] = {
+			["id"] = 34378,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["What We Need"] = {
+			["id"] = 34822,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["What We Got"] = {
+			["id"] = 37824,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Build Your Barracks"] = {
+			["id"] = 34461,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["We Need An Army"] = {
+			["id"] = 34861,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Winds of Change"] = {
+			["id"] = 34462,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Mission Probable"] = {
+			["id"] = 34775,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+	},
 	[572] = { -- Draenor (Cosmic)
 		["Azeroth's Last Stand"] = {
 			["id"] = 35933,
