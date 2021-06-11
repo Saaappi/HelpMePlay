@@ -56,7 +56,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			for index = 1, numAutoQuestPopUps, 1 do
 				local id, pushType = GetAutoQuestPopUp(index);
 				if (pushType == "OFFER") then
-					title = select(2, C_QuestLine.GetQuestLineInfo(id, map);
+					title = select(2, C_QuestLine.GetQuestLineInfo(id, map));
 					AcknowledgeAutoAcceptQuest(); -- Stops the server from attempting to push the quest.
 				else
 					-- Complete the quest here.
