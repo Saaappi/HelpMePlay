@@ -1,0 +1,10 @@
+## Author: Sappy (Alex)
+## Interface: 90005
+## Name: SappyLevelGuide
+## Notes: Automatically accepts quests and takes appropriate flight paths.
+## Title: SappyLevelGuide
+## Version: 0.0.0
+
+FlightPaths.lua
+Quests.lua
+SappyLevelGuide.lua
