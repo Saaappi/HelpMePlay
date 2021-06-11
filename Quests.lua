@@ -1454,7 +1454,114 @@ local quests = {
 		},
 	},
 	[70] = { -- Dustwallow Marsh
-	
+		["The Black Shield"] = {
+			["id"] = 27254,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Suspicious Hoofprints"] = {
+			["id"] = 27259,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Lieutenant Paval Reethe"] = {
+			["id"] = 27260,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Theramore Spies"] = {
+			["id"] = 1201,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["The Theramore Docks"] = {
+			["id"] = 1202,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["The Hermit of Witch Hill"] = {
+			["id"] = 27182,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["A Shambling Threat"] = {
+			["id"] = 26682,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Darkmist Extermination"] = {
+			["id"] = 25051,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["SMASH BROODQUEEN"] = {
+			["id"] = 27229,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["The Black Shield"] = {
+			["id"] = 27255,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Twilight of the Dawn Runner"] = {
+			["id"] = 9437,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["The Lost Report"] = {
+			["id"] = 27244,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Marsh Frog Legs"] = {
+			["id"] = 27183,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["What's Haunting Witch Hill?"] = {
+			["id"] = 27188,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["The Witch's Bane"] = {
+			["id"] = 27189,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Jarl Needs Eyes"] = {
+			["id"] = 27184,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Hungry as an Ogre!"] = {
+			["id"] = 27191,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Jarl Needs a Blade"] = {
+			["id"] = 27186,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
 	},
 	[199] = { -- Southern Barrens
 		["Clear the High Road"] = {
