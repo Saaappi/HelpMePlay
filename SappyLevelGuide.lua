@@ -11,6 +11,8 @@
 	- Figure out the event(s) that fire when a quest is auto accepted.
 	- Figure out how to automatically acknowledge and auto accepted quest so the notification clears from the quest objective tracker.
 	
+	- Figure out how to auto complete quests.
+	
 	- Figure out how to auto claim quest rewards.
 ]]--
 
