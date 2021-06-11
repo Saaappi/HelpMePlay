@@ -742,12 +742,6 @@ local quests = {
 			["cancelCinematic"] = false,
 			["flightPath"] = nil,
 		},
-		[""] = {
-			["id"] = ,
-			["reward"] = 0,
-			["cancelCinematic"] = false,
-			["flightPath"] = nil,
-		},
 		["Unyielding Servitors"] = {
 			["id"] = 27475,
 			["reward"] = 0,

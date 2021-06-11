@@ -51,9 +51,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 		end
 	end
 	if (event == "QUEST_DATA_LOAD_RESULT" or event == "QUEST_DETAIL") then
-		local id = ...;
 		local numAutoQuestPopUps = GetNumAutoQuestPopUps();
-		
 		if (numAutoQuestPopUps > 1) then -- A quest was pushed (for accept or completion) to the player by area trigger or by looting an item.
 			for index = 1, numAutoQuestPopUps, 1 do
 				local id, pushType = GetAutoQuestPopUp(index);
@@ -65,12 +63,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 				end
 			end
 		end
+		
 		if (QuestFrame) then
-			if (id) then -- The quest's ID is available, so let's use that.
-				title = select(2, C_QuestLine.GetQuestLineInfo(id, map); 
-			else
-				title = QuestInfoTitleHeader:GetText();
-			end
+			title = QuestInfoTitleHeader:GetText();
 			
 			if (t.quests[map][title]) then -- This is a quest in the Quests table, so it should be accepted.
 				AcceptQuest();
