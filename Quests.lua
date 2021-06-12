@@ -1268,6 +1268,12 @@ local quests = {
 			["cancelCinematic"] = false,
 			["flightPaths"] = nil,
 		},
+		["Seek and Destroy"] = {
+			["id"] = 26009,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPaths"] = nil,
+		},
 		["Dream of a Better Tomorrow"] = {
 			["id"] = 26026,
 			["reward"] = 0,
@@ -1364,7 +1370,7 @@ local quests = {
 			["cancelCinematic"] = false,
 			["flightPaths"] = nil,
 		},
-		["Fight on Their Stomachs"] = {
+		["Fight On Their Stomachs"] = {
 			["id"] = 26064,
 			["reward"] = 0,
 			["cancelCinematic"] = false,
