@@ -108,7 +108,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 		GetActiveQuests();
 	end
 	if (event == "QUEST_ACCEPTED") then
-		if (title) then
+		if (t.quests[map]) then
 			if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
 				shouldTakeFlightPath = true;
 			end
