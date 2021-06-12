@@ -29,10 +29,24 @@ local map = 0;
 local shouldTakeFlightPath = false;
 local title = "";
 
+-- Functions
+local function Max(tbl)
+	local highestItemIndex = 0;
+	local highestSellPrice = 0;
+	for itemIndex, itemSellPrice in ipairs(tbl) do
+		if (itemSellPrice > highestSellPrice) then
+			highestItemIndex = itemIndex;
+			highestSellPrice = itemSellPrice;
+		end
+	end
+	return highestItemIndex;
+end
+
 e:RegisterEvent("ADDON_LOADED");
 e:RegisterEvent("CINEMATIC_START");
 e:RegisterEvent("GOSSIP_SHOW");
 e:RegisterEvent("QUEST_ACCEPTED");
+e:RegisterEvent("QUEST_COMPLETE");
 e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
@@ -57,6 +71,20 @@ e:SetScript("OnEvent", function(self, event, addon)
 	if (event == "QUEST_ACCEPTED") then
 		if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
 			shouldTakeFlightPath = true;
+		end
+	end
+	if (event == "QUEST_COMPLETE") then
+		local numQuestChoices = GetNumQuestChoices();
+		if (numQuestChoices > 0) then
+			local sellPrices = {};
+			for i = 1, numQuestChoices, 1 do
+				local name, _, quantity = GetQuestItemInfo("choice", i);
+				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(name);
+				sellPrices[i] = (quantity*sellPrice);
+			end
+			GetQuestReward(Max(sellPrices));
+		else
+			QuestFrameCompleteQuestButton:Click();
 		end
 	end
 	if (event == "QUEST_DATA_LOAD_RESULT" or event == "QUEST_DETAIL") then
