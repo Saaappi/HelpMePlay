@@ -91,7 +91,11 @@ e:RegisterEvent("TAXIMAP_OPENED");
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
 e:SetScript("OnEvent", function(self, event, addon)
 	if (event == "ADDON_LOADED" and addon == addonName) then
-		map = C_Map.GetBestMapForUnit("player");
+		C_Timer.After(0, function()
+			C_Timer.After(3, function()
+				map = C_Map.GetBestMapForUnit("player");
+			end);
+		end);
 	end
 	if (event == "CINEMATIC_START") then
 		local canBeCancelled = CanCancelScene();
@@ -104,8 +108,10 @@ e:SetScript("OnEvent", function(self, event, addon)
 		GetActiveQuests();
 	end
 	if (event == "QUEST_ACCEPTED") then
-		if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
-			shouldTakeFlightPath = true;
+		if (title) then
+			if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
+				shouldTakeFlightPath = true;
+			end
 		end
 	end
 	if (event == "QUEST_COMPLETE") then
@@ -140,7 +146,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			end
 		end
 		
-		if (QuestFrame) then
+		if (QuestFrame:IsVisible()) then
 			title = QuestInfoTitleHeader:GetText();
 			
 			if (t.quests[map][title]) then -- This is a quest in the Quests table, so it should be accepted.
@@ -163,6 +169,10 @@ e:SetScript("OnEvent", function(self, event, addon)
 		end
 	end
 	if (event == "ZONE_CHANGED_NEW_AREA") then
-		map = C_Map.GetBestMapForUnit("player");
+		C_Timer.After(0, function()
+			C_Timer.After(3, function()
+				map = C_Map.GetBestMapForUnit("player");
+			end);
+		end);
 	end
 end);
