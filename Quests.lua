@@ -1400,7 +1400,7 @@ local quests = {
 			["cancelCinematic"] = false,
 			["flightPaths"] = nil,
 		},
-		["Kobold Fury"] = {
+		["Kobold Fury!"] = {
 			["id"] = 26068,
 			["reward"] = 0,
 			["cancelCinematic"] = false,
