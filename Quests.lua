@@ -616,7 +616,7 @@ local quests = {
 			["id"] = 27096,
 			["reward"] = 0,
 			["cancelCinematic"] = false,
-			["flightPath"] = t.flightPaths["Forsaken High Command, Silverpine Forest"],
+			["flightPath"] = t.flightPaths[1], -- Forsaken High Command, Silverpine Forest
 		},
 		["Rise, Forsaken"] = {
 			["id"] = 27097,
@@ -990,7 +990,7 @@ local quests = {
 			["id"] = 27012,
 			["reward"] = 0,
 			["cancelCinematic"] = false,
-			["flightPath"] = nil,
+			["flightPath"] = t.flightPaths[3], -- Brill, Tirisfal Glades
 		},
 	},
 	[25] = { -- Hillsbrad Foothills
@@ -1740,7 +1740,7 @@ local quests = {
 			["id"] = 24577,
 			["reward"] = 0,
 			["cancelCinematic"] = false,
-			["flightPath"] = t.flightPaths["Desolation Hold, Southern Barrens"],
+			["flightPath"] = t.flightPaths[2], -- Desolation Hold, Southern Barrens
 		},
 		["Changing of the Gar'dul"] = {
 			["id"] = 24591,

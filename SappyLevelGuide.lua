@@ -159,8 +159,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if (event == "TAXIMAP_OPENED") then
 		if (FlightMapFrame:IsVisible()) then
 			if (shouldTakeFlightPath) then
-				TakeTaxiNode(t.quests[map]["title"]["flightPath"]);
-				shouldTakeFlightPath = false;
+				for i = 1, NumTaxiNodes(), 1 do
+					if (TaxiNodeName(i) == t.quests[map]["title"]["flightPath"]) then
+						TakeTaxiNode(i);
+						shouldTakeFlightPath = false;
+					end
+				end
 			end
 		end
 	end
