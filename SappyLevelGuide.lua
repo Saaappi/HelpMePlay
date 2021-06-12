@@ -14,6 +14,7 @@ local addonName, t = ...;
 
 -- Variables
 local e = CreateFrame("Frame");
+local questID = 0;
 local map = 0;
 local shouldTakeFlightPath = false;
 local title = "";
@@ -89,13 +90,16 @@ e:RegisterEvent("QUEST_GREETING");
 e:RegisterEvent("QUEST_PROGRESS");
 e:RegisterEvent("TAXIMAP_OPENED");
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
-e:SetScript("OnEvent", function(self, event, addon)
-	if (event == "ADDON_LOADED" and addon == addonName) then
-		C_Timer.After(0, function()
-			C_Timer.After(3, function()
-				map = C_Map.GetBestMapForUnit("player");
+e:SetScript("OnEvent", function(self, event, ...)
+	if (event == "ADDON_LOADED") then
+		local name = ...;
+		if (name == addonName) then
+			C_Timer.After(0, function()
+				C_Timer.After(3, function()
+					map = C_Map.GetBestMapForUnit("player");
+				end);
 			end);
-		end);
+		end
 	end
 	if (event == "CINEMATIC_START") then
 		local canBeCancelled = CanCancelScene();
@@ -108,7 +112,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 		GetActiveQuests();
 	end
 	if (event == "QUEST_ACCEPTED") then
+		local id = ...;
 		if (t.quests[map]) then
+			title = C_QuestLog.GetTitleForQuestID(id);
 			if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
 				shouldTakeFlightPath = true;
 			end
@@ -137,12 +143,14 @@ e:SetScript("OnEvent", function(self, event, addon)
 		if (numAutoQuestPopUps > 0) then -- A quest was pushed (for accept or completion) to the player by area trigger or by looting an item.
 			for index = 1, numAutoQuestPopUps, 1 do
 				local id, pushType = GetAutoQuestPopUp(index);
+				questID = id;
 				if (pushType == "OFFER") then
 					title = C_QuestLog.GetTitleForQuestID(id);
-					AcknowledgeAutoAcceptQuest(); -- Stops the server from attempting to push the quest.
+					ShowQuestOffer(id);
 				else
-					-- Complete the quest here.
+					ShowQuestComplete(id);
 				end
+				AutoQuestPopupTracker_RemovePopUp(id);
 			end
 		end
 		
