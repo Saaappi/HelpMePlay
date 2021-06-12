@@ -80,7 +80,6 @@ local function Max(tbl)
 end
 
 e:RegisterEvent("ADDON_LOADED");
-e:RegisterEvent("CINEMATIC_START");
 e:RegisterEvent("GOSSIP_SHOW");
 e:RegisterEvent("QUEST_ACCEPTED");
 e:RegisterEvent("QUEST_COMPLETE");
@@ -99,12 +98,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 					map = C_Map.GetBestMapForUnit("player");
 				end);
 			end);
-		end
-	end
-	if (event == "CINEMATIC_START") then
-		local canBeCancelled = CanCancelScene();
-		if (canBeCancelled and t.quests[map][title]["cancelCinematic"]) then
-			StopCinematic();
 		end
 	end
 	if (event == "GOSSIP_SHOW") then
@@ -183,5 +176,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 				map = C_Map.GetBestMapForUnit("player");
 			end);
 		end);
+	end
+end);
+
+CinematicFrame:HookScript("OnShow", function(self, ...)
+	if (t.quests[map][title]["cancelCinematic"]) then
+		CinematicFrame_CancelCinematic();
 	end
 end);

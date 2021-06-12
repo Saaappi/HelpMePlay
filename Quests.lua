@@ -1175,7 +1175,7 @@ local quests = {
 		["Stormpike Rendezvous"] = {
 			["id"] = 28348,
 			["reward"] = 0,
-			["cancelCinematic"] = false,
+			["cancelCinematic"] = true,
 			["flightPath"] = nil,
 		},
 		["Preemptive Strike"] = { -- Drops from Daggerspine Naga, Starts from an Item.
