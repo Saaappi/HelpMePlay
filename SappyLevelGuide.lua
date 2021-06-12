@@ -3,8 +3,6 @@
 ]]--
 
 --[[ TODO
-	- Figure out the event(s) that fire when a quest is auto accepted.
-	- Figure out how to automatically acknowledge and auto accepted quest so the notification clears from the quest objective tracker.
 ]]--
 
 --[[
@@ -136,7 +134,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 	end
 	if (event == "QUEST_DETAIL") then
 		local numAutoQuestPopUps = GetNumAutoQuestPopUps();
-		if (numAutoQuestPopUps > 1) then -- A quest was pushed (for accept or completion) to the player by area trigger or by looting an item.
+		if (numAutoQuestPopUps > 0) then -- A quest was pushed (for accept or completion) to the player by area trigger or by looting an item.
 			for index = 1, numAutoQuestPopUps, 1 do
 				local id, pushType = GetAutoQuestPopUp(index);
 				if (pushType == "OFFER") then
