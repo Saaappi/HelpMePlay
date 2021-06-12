@@ -137,9 +137,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local id, pushType = GetAutoQuestPopUp(index);
 				if (pushType == "OFFER") then
 					title = C_QuestLog.GetTitleForQuestID(id);
-					ShowQuestOffer(id);
-				else
-					ShowQuestComplete(id);
 				end
 			end
 		end
