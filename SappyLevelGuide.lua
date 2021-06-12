@@ -14,7 +14,6 @@ local addonName, t = ...;
 
 -- Variables
 local e = CreateFrame("Frame");
-local questID = 0;
 local map = 0;
 local shouldTakeFlightPath = false;
 local title = "";
@@ -136,14 +135,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if (numAutoQuestPopUps > 0) then -- A quest was pushed (for accept or completion) to the player by area trigger or by looting an item.
 			for index = 1, numAutoQuestPopUps, 1 do
 				local id, pushType = GetAutoQuestPopUp(index);
-				questID = id;
 				if (pushType == "OFFER") then
 					title = C_QuestLog.GetTitleForQuestID(id);
 					ShowQuestOffer(id);
 				else
 					ShowQuestComplete(id);
 				end
-				AutoQuestPopupTracker_RemovePopUp(id);
 			end
 		end
 		
