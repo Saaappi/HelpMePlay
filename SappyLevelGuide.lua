@@ -46,6 +46,14 @@ e:SetScript("OnEvent", function(self, event, addon)
 			StopCinematic();
 		end
 	end
+	if (event == "GOSSIP_SHOW") then
+		local gossipQuestUIInfo = C_GossipInfo.GetAvailableQuests();
+		for index, questTable in ipairs(gossipQuestUIInfo) do
+			if (t.quests[map][questTable["title"]]) then
+				C_GossipInfo.SelectAvailableQuest(index);
+			end
+		end
+	end
 	if (event == "QUEST_ACCEPTED") then
 		if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
 			shouldTakeFlightPath = true;
