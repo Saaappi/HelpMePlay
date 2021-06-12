@@ -36,8 +36,10 @@ local function GetAvailableQuests()
 	local availableQuests = C_GossipInfo.GetAvailableQuests();
 	if (next(availableQuests)) then
 		for index, availableQuestsData in ipairs(availableQuests) do
-			if (t.quests[map][availableQuestsData["title"]]) then
-				C_GossipInfo.SelectAvailableQuest(index);
+			if (t.quests[map]) then
+				if (t.quests[map][availableQuestsData["title"]]) then
+					C_GossipInfo.SelectAvailableQuest(index);
+				end
 			end
 		end
 	end
