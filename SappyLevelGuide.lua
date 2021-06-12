@@ -49,6 +49,7 @@ e:RegisterEvent("QUEST_ACCEPTED");
 e:RegisterEvent("QUEST_COMPLETE");
 e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
+e:RegisterEvent("QUEST_PROGRESS");
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
 e:SetScript("OnEvent", function(self, event, addon)
 	if (event == "ADDON_LOADED" and addon == addonName) then
@@ -61,10 +62,20 @@ e:SetScript("OnEvent", function(self, event, addon)
 		end
 	end
 	if (event == "GOSSIP_SHOW") then
-		local gossipQuestUIInfo = C_GossipInfo.GetAvailableQuests();
-		for index, questTable in ipairs(gossipQuestUIInfo) do
-			if (t.quests[map][questTable["title"]]) then
-				C_GossipInfo.SelectAvailableQuest(index);
+		local availableQuests = C_GossipInfo.GetAvailableQuests();
+		local activeQuests = C_GossipInfo.GetActiveQuests();
+		if (availableQuests ~= nil or availableQuests ~= {}) then
+			for index, availableQuestsData in ipairs(availableQuests) do
+				if (t.quests[map][availableQuestsData["title"]]) then
+					C_GossipInfo.SelectAvailableQuest(index);
+				end
+			end
+		end
+		if (activeQuests ~= nil or activeQuests ~= {}) then
+			for index, activeQuestsData in ipairs(activeQuests) do
+				if (activeQuestsData["isComplete"]) then
+					C_GossipInfo.SelectActiveQuest(index);
+				end
 			end
 		end
 	end
@@ -108,6 +119,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 				AcceptQuest();
 			end
 		end
+	end
+	if (event == "QUEST_PROGRESS") then
+		QuestFrameCompleteButton:Click();
 	end
 	if (event == "ZONE_CHANGED_NEW_AREA") then
 		map = C_Map.GetBestMapForUnit("player");
