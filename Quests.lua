@@ -471,6 +471,44 @@ local quests = {
 			["flightPath"] = nil,
 		},
 	},
+	[18] = { -- Tirisfal Glades
+		["After the Crusade"] = {
+			["id"] = 26930,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Foxes and Hounds"] = {
+			["id"] = 26931,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Foes Before Hoes"] = {
+			["id"] = 26933,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Latent Disease"] = {
+			["id"] = 26934,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["Who Needs Cauldrons?"] = {
+			["id"] = 26978,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+		["The Menders' Stead"] = {
+			["id"] = 26952,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPath"] = nil,
+		},
+	},
 	[21] = { -- Silverpine Forest
 		["The Warchief Cometh"] = {
 			["id"] = 26965,
@@ -890,42 +928,6 @@ local quests = {
 		},
 		["Victory, For Now"] = {
 			["id"] = 26926,
-			["reward"] = 0,
-			["cancelCinematic"] = false,
-			["flightPath"] = nil,
-		},
-		["After the Crusade"] = {
-			["id"] = 26930,
-			["reward"] = 0,
-			["cancelCinematic"] = false,
-			["flightPath"] = nil,
-		},
-		["Foxes and Hounds"] = {
-			["id"] = 26931,
-			["reward"] = 0,
-			["cancelCinematic"] = false,
-			["flightPath"] = nil,
-		},
-		["Foes Before Hoes"] = {
-			["id"] = 26933,
-			["reward"] = 0,
-			["cancelCinematic"] = false,
-			["flightPath"] = nil,
-		},
-		["Latent Disease"] = {
-			["id"] = 26934,
-			["reward"] = 0,
-			["cancelCinematic"] = false,
-			["flightPath"] = nil,
-		},
-		["Who Needs Cauldrons?"] = {
-			["id"] = 26978,
-			["reward"] = 0,
-			["cancelCinematic"] = false,
-			["flightPath"] = nil,
-		},
-		["The Menders' Stead"] = {
-			["id"] = 26952,
 			["reward"] = 0,
 			["cancelCinematic"] = false,
 			["flightPath"] = nil,
