@@ -3,11 +3,6 @@
 ]]--
 
 --[[ TODO
-	- Figure out the event that fires when the flight path map is opened.
-	- Figure out how to take a flight path programmatically.
-	- Figure out the event that fires when a flight path is taken.
-		- Mark 'shouldTakeFlightPath' as false here.
-	
 	- Figure out the event(s) that fire when a quest is auto accepted.
 	- Figure out how to automatically acknowledge and auto accepted quest so the notification clears from the quest objective tracker.
 ]]--
@@ -92,6 +87,7 @@ e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
 e:RegisterEvent("QUEST_GREETING");
 e:RegisterEvent("QUEST_PROGRESS");
+e:RegisterEvent("TAXIMAP_OPENED");
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
 e:SetScript("OnEvent", function(self, event, addon)
 	if (event == "ADDON_LOADED" and addon == addonName) then
@@ -157,6 +153,14 @@ e:SetScript("OnEvent", function(self, event, addon)
 	end
 	if (event == "QUEST_PROGRESS") then
 		QuestFrameCompleteButton:Click();
+	end
+	if (event == "TAXIMAP_OPENED") then
+		if (FlightMapFrame:IsVisible()) then
+			if (shouldTakeFlightPath) then
+				TakeTaxiNode(t.quests[map]["title"]["flightPath"]);
+				shouldTakeFlightPath = false;
+			end
+		end
 	end
 	if (event == "ZONE_CHANGED_NEW_AREA") then
 		map = C_Map.GetBestMapForUnit("player");
