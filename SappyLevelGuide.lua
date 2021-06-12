@@ -99,7 +99,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 				if (link == nil) then
 					link = GetQuestItemLink_Callback(i);
 				end
-				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link); print(sellPrice);
+				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link);
 				sellPrices[i] = (quantity*sellPrice);
 			end
 			GetQuestReward(Max(sellPrices));
