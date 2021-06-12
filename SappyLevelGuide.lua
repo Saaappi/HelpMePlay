@@ -15,7 +15,6 @@ local addonName, t = ...;
 -- Variables
 local e = CreateFrame("Frame");
 local map = 0;
-local shouldTakeFlightPath = false;
 local title = "";
 
 -- Functions
@@ -107,8 +106,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local id = ...;
 		if (t.quests[map]) then
 			title = C_QuestLog.GetTitleForQuestID(id);
-			if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
-				shouldTakeFlightPath = true;
+			if (t.quests[map][title]["flightPaths"]) then -- The quest has a flight path that should be taken.
+				t.shouldTakeFlightPath = true;
 			end
 		end
 	end
@@ -158,11 +157,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if (event == "TAXIMAP_OPENED") then
 		if (FlightMapFrame:IsVisible()) then
-			if (shouldTakeFlightPath) then
+			if (t.shouldTakeFlightPath) then
 				for i = 1, NumTaxiNodes(), 1 do
-					if (TaxiNodeName(i) == t.quests[map]["title"]["flightPath"]) then
+					if (TaxiNodeName(i) == t.quests[map]["title"]["flightPaths"][2]) then
 						TakeTaxiNode(i);
-						shouldTakeFlightPath = false;
+						t.shouldTakeFlightPath = false;
 					end
 				end
 			end
