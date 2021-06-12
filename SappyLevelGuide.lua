@@ -26,6 +26,51 @@ local shouldTakeFlightPath = false;
 local title = "";
 
 -- Functions
+local function GetActiveQuests()
+	local activeQuests = C_GossipInfo.GetActiveQuests();
+	if (next(activeQuests)) then
+		for index, activeQuestsData in ipairs(activeQuests) do
+			if (activeQuestsData["isComplete"]) then
+				C_GossipInfo.SelectActiveQuest(index);
+			end
+		end
+	end
+end
+
+local function GetAvailableQuests()
+	local availableQuests = C_GossipInfo.GetAvailableQuests();
+	if (next(availableQuests)) then
+		for index, availableQuestsData in ipairs(availableQuests) do
+			if (t.quests[map][availableQuestsData["title"]]) then
+				C_GossipInfo.SelectAvailableQuest(index);
+			end
+		end
+	end
+end
+
+local function GetGreetingQuests()
+	local numAvailableQuests = GetNumAvailableQuests();
+	if (numAvailableQuests > 0) then
+		for index = 1, numAvailableQuests, 1 do
+			SelectAvailableQuest(index);
+		end
+	else
+		local numActiveQuests = GetNumActiveQuests();
+		for i = 1, numActiveQuests, 1 do
+			SelectActiveQuest(i);
+		end
+	end
+end
+
+local function GetQuestItemLink_Callback(index)
+	local link = GetQuestItemLink("choice", index)
+	if (link) then
+		return link;
+	else
+		GetQuestItemLink_Callback(index);
+	end
+end
+
 local function Max(tbl)
 	local highestItemIndex = 0;
 	local highestSellPrice = 0;
@@ -38,15 +83,6 @@ local function Max(tbl)
 	return highestItemIndex;
 end
 
-local function GetQuestItemLink_Callback(index)
-	local link = GetQuestItemLink("choice", index)
-	if (link) then
-		return link;
-	else
-		GetQuestItemLink_Callback(index);
-	end
-end
-
 e:RegisterEvent("ADDON_LOADED");
 e:RegisterEvent("CINEMATIC_START");
 e:RegisterEvent("GOSSIP_SHOW");
@@ -54,6 +90,7 @@ e:RegisterEvent("QUEST_ACCEPTED");
 e:RegisterEvent("QUEST_COMPLETE");
 e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
+e:RegisterEvent("QUEST_GREETING");
 e:RegisterEvent("QUEST_PROGRESS");
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
 e:SetScript("OnEvent", function(self, event, addon)
@@ -67,22 +104,8 @@ e:SetScript("OnEvent", function(self, event, addon)
 		end
 	end
 	if (event == "GOSSIP_SHOW") then
-		local availableQuests = C_GossipInfo.GetAvailableQuests();
-		local activeQuests = C_GossipInfo.GetActiveQuests();
-		if (availableQuests ~= nil or availableQuests ~= {}) then
-			for index, availableQuestsData in ipairs(availableQuests) do
-				if (t.quests[map][availableQuestsData["title"]]) then
-					C_GossipInfo.SelectAvailableQuest(index);
-				end
-			end
-		end
-		if (activeQuests ~= nil or activeQuests ~= {}) then
-			for index, activeQuestsData in ipairs(activeQuests) do
-				if (activeQuestsData["isComplete"]) then
-					C_GossipInfo.SelectActiveQuest(index);
-				end
-			end
-		end
+		GetAvailableQuests();
+		GetActiveQuests();
 	end
 	if (event == "QUEST_ACCEPTED") then
 		if (t.quests[map][title]["flightPath"]) then -- The quest has a flight path that should be taken.
@@ -128,6 +151,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 				AcceptQuest();
 			end
 		end
+	end
+	if (event == "QUEST_GREETING") then
+		GetGreetingQuests();
 	end
 	if (event == "QUEST_PROGRESS") then
 		QuestFrameCompleteButton:Click();
