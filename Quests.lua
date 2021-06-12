@@ -1199,7 +1199,7 @@ local quests = {
 		["The Road to Purgation"] = {
 			["id"] = 28375,
 			["reward"] = 0,
-			["cancelCinematic"] = false,
+			["cancelCinematic"] = true,
 			["flightPath"] = nil,
 		},
 	},
