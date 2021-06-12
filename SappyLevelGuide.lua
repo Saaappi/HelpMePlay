@@ -42,6 +42,15 @@ local function Max(tbl)
 	return highestItemIndex;
 end
 
+local function GetQuestItemLink_Callback(index)
+	local link = GetQuestItemLink("choice", index)
+	if (link) then
+		return link;
+	else
+		GetQuestItemLink_Callback(index);
+	end
+end
+
 e:RegisterEvent("ADDON_LOADED");
 e:RegisterEvent("CINEMATIC_START");
 e:RegisterEvent("GOSSIP_SHOW");
@@ -89,8 +98,12 @@ e:SetScript("OnEvent", function(self, event, addon)
 		if (numQuestChoices > 0) then
 			local sellPrices = {};
 			for i = 1, numQuestChoices, 1 do
-				local name, _, quantity = GetQuestItemInfo("choice", i);
-				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(name);
+				local _, _, quantity = GetQuestItemInfo("choice", i);
+				local link = GetQuestItemLink("choice", i);
+				if (link == nil) then
+					link = GetQuestItemLink_Callback(i);
+				end
+				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link); print(sellPrice);
 				sellPrices[i] = (quantity*sellPrice);
 			end
 			GetQuestReward(Max(sellPrices));
