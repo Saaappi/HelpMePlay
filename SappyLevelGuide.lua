@@ -132,7 +132,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			QuestFrameCompleteQuestButton:Click();
 		end
 	end
-	if (event == "QUEST_DATA_LOAD_RESULT" or event == "QUEST_DETAIL") then
+	if (event == "QUEST_DETAIL") then
 		local numAutoQuestPopUps = GetNumAutoQuestPopUps();
 		if (numAutoQuestPopUps > 1) then -- A quest was pushed (for accept or completion) to the player by area trigger or by looting an item.
 			for index = 1, numAutoQuestPopUps, 1 do
@@ -148,9 +148,10 @@ e:SetScript("OnEvent", function(self, event, addon)
 		
 		if (QuestFrame:IsVisible()) then
 			title = QuestInfoTitleHeader:GetText();
-			
-			if (t.quests[map][title]) then -- This is a quest in the Quests table, so it should be accepted.
-				AcceptQuest();
+			if (t.quests[map]) then -- Map is in the database.
+				if (t.quests[map][title]) then -- Quest is in the database.
+					AcceptQuest();
+				end
 			end
 		end
 	end
