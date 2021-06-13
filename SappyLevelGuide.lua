@@ -34,10 +34,8 @@ local function GetAvailableQuests()
 	local availableQuests = C_GossipInfo.GetAvailableQuests();
 	if (next(availableQuests)) then
 		for index, availableQuestsData in ipairs(availableQuests) do
-			if (t.quests[map]) then
-				if (t.quests[map][availableQuestsData["title"]]) then
-					C_GossipInfo.SelectAvailableQuest(index);
-				end
+			if (t.quests[availableQuestsData["title"]]) then
+				C_GossipInfo.SelectAvailableQuest(index);
 			end
 		end
 	end
@@ -103,17 +101,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		GetAvailableQuests();
 		GetActiveQuests();
 	end
-	if (event == "QUEST_ACCEPTED") then
+	--[[if (event == "QUEST_ACCEPTED") then
 		local id = ...;
-		if (t.quests[map]) then
-			title = C_QuestLog.GetTitleForQuestID(id);
-			if (title) then
-				if (t.quests[map][title]["flightPaths"][1]) then -- The quest has a flight path that should be taken.
-					flightPath = t.quests[map][title]["flightPaths"][2];
-				end
-			end
-		end
-	end
+	end]]
 	if (event == "QUEST_COMPLETE") then
 		local numQuestChoices = GetNumQuestChoices();
 		if (numQuestChoices > 0) then
@@ -145,10 +135,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		if (QuestFrame:IsVisible()) then
 			title = QuestInfoTitleHeader:GetText();
-			if (t.quests[map]) then -- Map is in the database.
-				if (t.quests[map][title]) then -- Quest is in the database.
-					AcceptQuest();
-				end
+			if (t.quests[title]) then
+				AcceptQuest();
 			end
 		end
 	end
@@ -182,8 +170,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 end);
 
-CinematicFrame:HookScript("OnShow", function(self, ...)
+--[[CinematicFrame:HookScript("OnShow", function(self, ...)
 	if (t.quests[map][title]["cancelCinematic"]) then
 		CinematicFrame_CancelCinematic();
 	end
-end);
+end);]]
