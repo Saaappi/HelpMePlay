@@ -1610,6 +1610,12 @@ local quests = {
 			["cancelCinematic"] = false,
 			["flightPaths"] = nil,
 		},
+		["Eye for an Eye"] = {
+			["id"] = 24513,
+			["reward"] = 0,
+			["cancelCinematic"] = false,
+			["flightPaths"] = nil,
+		},
 		["Raptor Scraps"] = {
 			["id"] = 24514,
 			["reward"] = 0,
