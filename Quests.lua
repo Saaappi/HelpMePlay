@@ -40,10 +40,6 @@ local quests = {
 	["Establish Your Garrison"] = 34378,
 	["What We Need"] = 34822,
 	["What We Got"] = 37824,
-	["Build Your Barracks"] = 34461,
-	["We Need An Army"] = 34861,
-	["Winds of Change"] = 34462,
-	["Mission Probable"] = 34775,
 	-- Silverpine Forest
 	["The Warchief Cometh"] = 26965,
 	["Warchief's Command: Hillsbrad Foothills!"] = 28089,
