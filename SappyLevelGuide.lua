@@ -16,6 +16,7 @@ local addonName, t = ...;
 -- Variables
 local e = CreateFrame("Frame");
 local map = 0;
+local skipNextCinematic = false;
 local title = "";
 
 -- Functions
@@ -101,9 +102,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		GetAvailableQuests();
 		GetActiveQuests();
 	end
-	--[[if (event == "QUEST_ACCEPTED") then
+	if (event == "QUEST_ACCEPTED") then
 		local id = ...;
-	end]]
+		if (t.questCinematics[id]) then
+			skipNextCinematic = true;
+		end
+	end
 	if (event == "QUEST_COMPLETE") then
 		local numQuestChoices = GetNumQuestChoices();
 		if (numQuestChoices > 0) then
@@ -173,8 +177,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 end);
 
---[[CinematicFrame:HookScript("OnShow", function(self, ...)
-	if (t.quests[map][title]["cancelCinematic"]) then
+CinematicFrame:HookScript("OnShow", function(self, ...)
+	if (skipNextCinematic) then
 		CinematicFrame_CancelCinematic();
+		skipNextCinematic = false;
 	end
-end);]]
+end);

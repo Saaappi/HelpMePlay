@@ -366,4 +366,14 @@ local quests = {
 	["Jarl Needs a Blade"] = 27186,
 };
 
+local questCinematics = {
+	[34398] = true;
+	[34393] = true;
+	[34423] = true;
+	[34429] = true;
+	[34741] = true;
+	[34445] = true;
+};
+
 t.quests = quests;
+t.questCinematics = questCinematics;
