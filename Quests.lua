@@ -335,7 +335,6 @@ local quests = {
 	["Flightmare"] = 24631,
 	["Tauren Vengeance"] = 24632,
 	["The Disturbed Earth"] = 24824,
-	["Feeling Thorny"] = 26908,
 	["Concern for Mankrik"] = 24604,
 	["Mahka's Plea"] = 24633,
 	["Don't Stop Bereavin'"] = 24603,
