@@ -365,6 +365,6 @@ local quests = {
 	["Jarl Needs Eyes"] = 27184,
 	["Hungry as an Ogre!"] = 27191,
 	["Jarl Needs a Blade"] = 27186,
-},
+};
 
 t.quests = quests;
