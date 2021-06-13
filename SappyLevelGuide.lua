@@ -84,7 +84,7 @@ e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
 e:RegisterEvent("QUEST_GREETING");
 e:RegisterEvent("QUEST_PROGRESS");
---e:RegisterEvent("TAXIMAP_OPENED");
+e:RegisterEvent("TAXIMAP_OPENED");
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
 e:SetScript("OnEvent", function(self, event, ...)
 	if (event == "ADDON_LOADED") then
@@ -146,21 +146,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if (event == "QUEST_PROGRESS") then
 		QuestFrameCompleteButton:Click();
 	end
-	--[[if (event == "TAXIMAP_OPENED") then
+	if (event == "TAXIMAP_OPENED") then
 		if (UnitLevel("player") < 50) then
 			if (FlightMapFrame:IsVisible()) then
-				if (t.shouldTakeFlightPath) then
-					for i = 1, NumTaxiNodes(), 1 do
-						if (TaxiNodeName(i) == flightPath) then
-							TakeTaxiNode(i);
-							flightPath = "";
-							t.shouldTakeFlightPath = false;
+				for questIndex = 1, GetNumQuestLogEntries(), 1 do
+					local questLogQuestTitle = GetQuestLogTitle(questIndex);
+					for questTitle, fp in pairs(t.flightPaths) do
+						if (questLogQuestTitle == questTitle) then
+							for taxiNodeID = 1, NumTaxiNodes(), 1 do
+								if (TaxiNodeName(taxiNodeID) == fp) then
+									TakeTaxiNode(taxiNodeID);
+								end
+							end
 						end
 					end
 				end
 			end
 		end
-	end]]
+	end
 	if (event == "ZONE_CHANGED_NEW_AREA") then
 		C_Timer.After(0, function()
 			C_Timer.After(3, function()
