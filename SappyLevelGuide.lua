@@ -3,6 +3,7 @@
 ]]--
 
 --[[ TODO
+	- Make a table of quest names to their respective IDs.
 ]]--
 
 --[[
@@ -14,6 +15,7 @@ local addonName, t = ...;
 
 -- Variables
 local e = CreateFrame("Frame");
+local flightPath = "";
 local map = 0;
 local title = "";
 
@@ -106,8 +108,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local id = ...;
 		if (t.quests[map]) then
 			title = C_QuestLog.GetTitleForQuestID(id);
-			if (t.quests[map][title]["flightPaths"]) then -- The quest has a flight path that should be taken.
-				t.shouldTakeFlightPath = true;
+			if (title) then
+				if (t.quests[map][title]["flightPaths"][1]) then -- The quest has a flight path that should be taken.
+					flightPath = t.quests[map][title]["flightPaths"][2];
+				end
 			end
 		end
 	end
@@ -156,12 +160,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		QuestFrameCompleteButton:Click();
 	end
 	if (event == "TAXIMAP_OPENED") then
-		if (FlightMapFrame:IsVisible()) then
-			if (t.shouldTakeFlightPath) then
-				for i = 1, NumTaxiNodes(), 1 do
-					if (TaxiNodeName(i) == t.quests[map]["title"]["flightPaths"][2]) then
-						TakeTaxiNode(i);
-						t.shouldTakeFlightPath = false;
+		if (UnitLevel("player") < 50) then
+			if (FlightMapFrame:IsVisible()) then
+				if (t.shouldTakeFlightPath) then
+					for i = 1, NumTaxiNodes(), 1 do
+						if (TaxiNodeName(i) == flightPath) then
+							TakeTaxiNode(i);
+							flightPath = "";
+							t.shouldTakeFlightPath = false;
+						end
 					end
 				end
 			end
