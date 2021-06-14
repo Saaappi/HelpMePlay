@@ -363,12 +363,13 @@ local quests = {
 };
 
 local questCinematics = {
-	[34398] = true;
-	[34393] = true;
-	[34423] = true;
-	[34429] = true;
-	[34741] = true;
-	[34445] = true;
+	[27098] = true,
+	[34398] = true,
+	[34393] = true,
+	[34423] = true,
+	[34429] = true,
+	[34445] = true,
+	[34741] = true,
 };
 
 t.quests = quests;
