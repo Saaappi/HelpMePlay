@@ -153,8 +153,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if (event == "TAXIMAP_OPENED") then
 		if (UnitLevel("player") < 50) then
 			if (FlightMapFrame:IsVisible()) then
-				for questIndex = 1, GetNumQuestLogEntries(), 1 do
-					local questLogQuestTitle = GetQuestLogTitle(questIndex);
+				for questIndex = 1, C_QuestLog.GetNumQuestLogEntries(), 1 do
+					local questLogQuestTitle = C_QuestLog.GetTitleForLogIndex(questIndex);
 					for questTitle, fp in pairs(t.flightPaths) do
 						if (questLogQuestTitle == questTitle) then
 							for taxiNodeID = 1, NumTaxiNodes(), 1 do
