@@ -367,7 +367,7 @@ local quests = {
 	["The Storm Gathers"] = 32680, -- Horde
 	-- Isle of Thunder
 	["The Assault on Shaol'mara"] = 32644, -- Alliance
-	["The Assault on Shaol'mara"] = 32212, -- Horde
+	["The Assault on Zeb'tula"] = 32212, -- Horde
 	["Tear Down This Wall!"] = 32654, -- Alliance
 	["Tear Down This Wall!"] = 32276, -- Horde
 	["To the Skies!"] = 32652, -- Alliance
