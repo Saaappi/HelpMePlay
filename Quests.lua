@@ -360,6 +360,22 @@ local quests = {
 	["Jarl Needs Eyes"] = 27184,
 	["Hungry as an Ogre!"] = 27191,
 	["Jarl Needs a Blade"] = 27186,
+	-- Vale of Eternal Blossoms
+	["Thunder Calls"] = 32678,
+	-- Townlong Steppes
+	["The Storm Gathers"] = 32681, -- Alliance
+	["The Storm Gathers"] = 32680, -- Horde
+	-- Isle of Thunder
+	["The Assault on Shaol'mara"] = 32644, -- Alliance
+	["The Assault on Shaol'mara"] = 32212, -- Horde
+	["Tear Down This Wall!"] = 32654, -- Alliance
+	["Tear Down This Wall!"] = 32276, -- Horde
+	["To the Skies!"] = 32652, -- Alliance
+	["To the Skies!"] = 32277, -- Horde
+	["A Bold Idea"] = 32655, -- Alliance
+	["Decisive Action"] = 32278, -- Horde
+	["The Fall of Shan Bu"] = 32656, -- Alliance
+	["The Fall of Shan Bu"] = 32279, -- Horde
 };
 
 local questCinematics = {
