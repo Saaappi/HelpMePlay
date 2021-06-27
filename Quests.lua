@@ -360,6 +360,17 @@ local quests = {
 	["Jarl Needs Eyes"] = 27184,
 	["Hungry as an Ogre!"] = 27191,
 	["Jarl Needs a Blade"] = 27186,
+	-- Shadowmoon Valley (Draenor)
+	["Finding a Foothold"] = 34582,
+	["For the Alliance!"] = 34583,
+	["Looking for Lumber"] = 34584,
+	["Ravenous Ravens"] = 34616,
+	["Quakefist"] = 34585,
+	["Establish Your Garrison"] = 34586,
+	["Keeping it Together"] = 35176,
+	["Ship Salvage"] = 35166,
+	["Pale Moonlight"] = 35174,
+	["Build Your Barracks"] = 34587,
 	-- Vale of Eternal Blossoms
 	["Thunder Calls"] = 32678,
 	-- Townlong Steppes
