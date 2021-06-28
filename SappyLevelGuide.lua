@@ -99,8 +99,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if (event == "GOSSIP_SHOW") then
-		GetAvailableQuests();
-		GetActiveQuests();
+		if (IsShiftKeyDown() == false) then
+			GetAvailableQuests();
+			GetActiveQuests();
+		end
 	end
 	if (event == "QUEST_ACCEPTED") then
 		local id = ...;
@@ -145,7 +147,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if (event == "QUEST_GREETING") then
-		GetGreetingQuests();
+		if (IsShiftKeyDown() == false) then
+			GetGreetingQuests();
+		end
 	end
 	if (event == "QUEST_PROGRESS") then
 		QuestFrameCompleteButton:Click();
