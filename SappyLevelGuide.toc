@@ -1,5 +1,5 @@
 ## Author: Sappy (Alex)
-## Interface: 90005
+## Interface: 90100
 ## Name: SappyLevelGuide
 ## Notes: Automatically accepts quests and takes appropriate flight paths.
 ## Title: SappyLevelGuide
