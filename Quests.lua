@@ -425,6 +425,7 @@ local quests = {
 	["WANTED: Redridge Gnolls"] = 26504,
 	["Franks and Beans"] = 26506,
 	["Parker's Report"] = 26505,
+	["Hero's Call: Duskwood"] = 26728,
 	["We Must Prepare!"] = 26510,
 	["Lake Everstill Clean Up"] = 26511,
 	["Nida's Necklace"] = 26508,
@@ -448,6 +449,8 @@ local quests = {
 	["And Last But Not Least... Danforth"] = 26562,
 	["Return of the Bravo Company"] = 26563,
 	["They Drew First Blood"] = 26607,
+	["Point of Contact: Brubaker"] = 26639,
+	["Unspeakable Atrocities"] = 26640,
 	-- Duskwood
 	["Wolves at Our Heels"] = 26618,
 	["Seasoned Wolf Kabobs"] = 26620,
