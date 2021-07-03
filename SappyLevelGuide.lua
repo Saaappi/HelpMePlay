@@ -76,6 +76,7 @@ local function Max(tbl)
 end
 
 e:RegisterEvent("GOSSIP_SHOW");
+e:RegisterEvent("MODIFIER_STATE_CHANGED");
 e:RegisterEvent("QUEST_COMPLETE");
 e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
@@ -86,6 +87,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if (IsShiftKeyDown() == false) then
 			GetAvailableQuests();
 			GetActiveQuests();
+		end
+	end
+	if (event == "MODIFIER_STATE_CHANGED") then
+		local key, isDown = ...;
+		if (key == "LALT" and isDown) then
+			if (QuestFrame:IsVisible()) then
+				QuestFrameAcceptButton:Click();
+			end
 		end
 	end
 	if (event == "QUEST_COMPLETE") then
