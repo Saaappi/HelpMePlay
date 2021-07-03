@@ -107,16 +107,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if (event == "QUEST_DETAIL") then
-		local numAutoQuestPopUps = GetNumAutoQuestPopUps();
-		if (numAutoQuestPopUps > 0) then -- A quest was pushed (for accept or completion) to the player by area trigger or by looting an item.
-			for index = 1, numAutoQuestPopUps, 1 do
-				local id, pushType = GetAutoQuestPopUp(index);
-				if (pushType == "OFFER") then
-					title = C_QuestLog.GetTitleForQuestID(id);
-				end
-			end
-		end
-		
 		if (QuestFrame:IsVisible()) then
 			title = QuestInfoTitleHeader:GetText();
 			if (t.quests[title]) then
