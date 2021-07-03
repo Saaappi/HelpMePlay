@@ -3,7 +3,6 @@
 ]]--
 
 --[[ TODO
-	- Make a table of quest names to their respective IDs.
 ]]--
 
 --[[
@@ -15,9 +14,6 @@ local addonName, t = ...;
 
 -- Variables
 local e = CreateFrame("Frame");
-local map = 0;
-local skipNextCinematic = false;
-local title = "";
 
 -- Functions
 local function GetActiveQuests()
@@ -33,10 +29,10 @@ end
 
 local function GetAvailableQuests()
 	local availableQuests = C_GossipInfo.GetAvailableQuests();
-	if (next(availableQuests)) then
-		for index, availableQuestsData in ipairs(availableQuests) do
-			if (t.quests[availableQuestsData["title"]]) then
-				C_GossipInfo.SelectAvailableQuest(index);
+	if (next(availableQuests)) then -- The NPC has an available quest to pick up. Let's check our database for a match.
+		for i, availableQuest in ipairs(availableQuests) do -- The quest is in the database. Let's pick it up!
+			if (t.quests[availableQuest.questID]) then
+				C_GossipInfo.SelectAvailableQuest(i);
 			end
 		end
 	end
@@ -45,8 +41,8 @@ end
 local function GetGreetingQuests()
 	local numAvailableQuests = GetNumAvailableQuests();
 	if (numAvailableQuests > 0) then
-		for index = 1, numAvailableQuests, 1 do
-			SelectAvailableQuest(index);
+		for i = 1, numAvailableQuests, 1 do
+			SelectAvailableQuest(i);
 		end
 	else
 		local numActiveQuests = GetNumActiveQuests();
@@ -77,7 +73,6 @@ local function Max(tbl)
 	return highestItemIndex;
 end
 
-e:RegisterEvent("ADDON_LOADED");
 e:RegisterEvent("GOSSIP_SHOW");
 e:RegisterEvent("QUEST_ACCEPTED");
 e:RegisterEvent("QUEST_COMPLETE");
@@ -85,19 +80,7 @@ e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
 e:RegisterEvent("QUEST_GREETING");
 e:RegisterEvent("QUEST_PROGRESS");
-e:RegisterEvent("TAXIMAP_OPENED");
-e:RegisterEvent("ZONE_CHANGED_NEW_AREA");
 e:SetScript("OnEvent", function(self, event, ...)
-	if (event == "ADDON_LOADED") then
-		local name = ...;
-		if (name == addonName) then
-			C_Timer.After(0, function()
-				C_Timer.After(3, function()
-					map = C_Map.GetBestMapForUnit("player");
-				end);
-			end);
-		end
-	end
 	if (event == "GOSSIP_SHOW") then
 		if (IsShiftKeyDown() == false) then
 			GetAvailableQuests();
@@ -171,19 +154,5 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 		end
-	end
-	if (event == "ZONE_CHANGED_NEW_AREA") then
-		C_Timer.After(0, function()
-			C_Timer.After(3, function()
-				map = C_Map.GetBestMapForUnit("player");
-			end);
-		end);
-	end
-end);
-
-CinematicFrame:HookScript("OnShow", function(self, ...)
-	if (skipNextCinematic) then
-		CinematicFrame_CancelCinematic();
-		skipNextCinematic = false;
 	end
 end);
