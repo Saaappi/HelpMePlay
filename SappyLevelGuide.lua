@@ -31,8 +31,10 @@ local function GetAvailableQuests()
 	local availableQuests = C_GossipInfo.GetAvailableQuests();
 	if (next(availableQuests)) then -- The NPC has an available quest to pick up. Let's check our database for a match.
 		for i, availableQuest in ipairs(availableQuests) do
-			if (t.quests[availableQuest.questID]) then -- The quest is in the database. Let's pick it up!
-				C_GossipInfo.SelectAvailableQuest(i);
+			for _, questID in ipairs(t.quests) do
+				if (availableQuest.questID == questID) then -- The quest is in the database. Let's pick it up!
+					C_GossipInfo.SelectAvailableQuest(i);
+				end
 			end
 		end
 	end
