@@ -107,11 +107,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if (event == "QUEST_DETAIL") then
-		if (QuestFrame:IsVisible()) then
-			title = QuestInfoTitleHeader:GetText();
-			if (t.quests[title]) then
-				AcceptQuest();
-			end
+		if (IsAltKeyDown()) then
+			AcceptQuest();
 		end
 	end
 	if (event == "QUEST_GREETING") then
