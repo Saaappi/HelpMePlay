@@ -74,7 +74,6 @@ local function Max(tbl)
 end
 
 e:RegisterEvent("GOSSIP_SHOW");
-e:RegisterEvent("QUEST_ACCEPTED");
 e:RegisterEvent("QUEST_COMPLETE");
 e:RegisterEvent("QUEST_DATA_LOAD_RESULT");
 e:RegisterEvent("QUEST_DETAIL");
@@ -85,12 +84,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if (IsShiftKeyDown() == false) then
 			GetAvailableQuests();
 			GetActiveQuests();
-		end
-	end
-	if (event == "QUEST_ACCEPTED") then
-		local id = ...;
-		if (t.questCinematics[id]) then
-			skipNextCinematic = true;
 		end
 	end
 	if (event == "QUEST_COMPLETE") then
@@ -136,23 +129,5 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if (event == "QUEST_PROGRESS") then
 		QuestFrameCompleteButton:Click();
-	end
-	if (event == "TAXIMAP_OPENED") then
-		if (UnitLevel("player") < 50) then
-			if (FlightMapFrame:IsVisible()) then
-				for questIndex = 1, C_QuestLog.GetNumQuestLogEntries(), 1 do
-					local questLogQuestTitle = C_QuestLog.GetTitleForLogIndex(questIndex);
-					for questTitle, fp in pairs(t.flightPaths) do
-						if (questLogQuestTitle == questTitle) then
-							for taxiNodeID = 1, NumTaxiNodes(), 1 do
-								if (TaxiNodeName(taxiNodeID) == fp) then
-									TakeTaxiNode(taxiNodeID);
-								end
-							end
-						end
-					end
-				end
-			end
-		end
 	end
 end);
