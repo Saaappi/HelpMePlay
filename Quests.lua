@@ -568,6 +568,8 @@ local quests = {
 	32278, -- Horde
 	32656, -- Alliance
 	32279, -- Horde
+	-- Chamber of Heart
+	52428,
 };
 
 t.quests = quests;
