@@ -75,6 +75,7 @@ local function Max(tbl)
 	return highestItemIndex;
 end
 
+e:RegisterEvent("CHAT_MSG_MONSTER_SAY");
 e:RegisterEvent("GOSSIP_SHOW");
 e:RegisterEvent("MODIFIER_STATE_CHANGED");
 e:RegisterEvent("QUEST_COMPLETE");
@@ -83,6 +84,24 @@ e:RegisterEvent("QUEST_DETAIL");
 e:RegisterEvent("QUEST_GREETING");
 e:RegisterEvent("QUEST_PROGRESS");
 e:SetScript("OnEvent", function(self, event, ...)
+	if (event == "CHAT_MSG_MONSTER_SAY") then
+		local msg, monster = ...
+		if (monster == "Playful Trickster") then
+			if (string.find(msg, "Not so much as a word of praise! Hmph!")) then
+				DoEmote("praise", nil)
+			elseif (string.find(msg, "The other spriggans were all cheering my name for days!")) then
+				DoEmote("cheer", nil)
+			elseif (string.find(msg, "Dance with me!")) then
+				DoEmote("dance", nil)
+			elseif (string.find(msg, "Introductions are an important part of first impressions!")) then
+				DoEmote("bow", nil)
+			elseif (string.find(msg, "some ask us permission and always thank us for our trouble")) then
+				DoEmote("thanks", nil)
+			elseif (string.find(msg, "How strong he must have been!")) then
+				DoEmote("flex", nil)
+			end
+		end
+	end
 	if (event == "GOSSIP_SHOW") then
 		if (IsShiftKeyDown() == false) then
 			GetAvailableQuests();
