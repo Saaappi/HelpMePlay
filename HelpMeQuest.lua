@@ -71,6 +71,20 @@ local function Max(tbl)
 	return highestItemIndex
 end
 
+SLASH_HelpMeQuest1 = "/hmq"
+SlashCmdList["HelpMeQuest"] = function(command, editbox)
+	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
+	if not command or command == "" then
+	elseif command == "abandon" then
+		local quests = C_QuestLog.GetQuestsOnMap(t.maps[arguments])
+		for _, v in ipairs(quests) do
+			C_QuestLog.SetSelectedQuest(v.questID)
+			C_QuestLog.SetAbandonQuest()
+			C_QuestLog.AbandonQuest()
+		end
+	end
+end
+
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DATA_LOAD_RESULT")
