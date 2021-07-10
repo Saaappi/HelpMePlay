@@ -1,0 +1,9 @@
+## Author: Sappy (Alex)
+## Interface: 90100
+## Name: HelpMeQuest
+## Notes: Automatically accepts quests. Allows the player to mass abandon quests in a zone.
+## Title: HelpMeQuest
+## Version: 0.0.0
+
+Speech.lua
+HelpMeQuest.lua
