@@ -7,5 +7,6 @@
 
 Maps.lua
 Confirmations.lua
+Emotes.lua
 Speech.lua
 HelpMeQuest.lua
