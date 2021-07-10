@@ -88,21 +88,23 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if (event == "QUEST_COMPLETE") then
-		local numQuestChoices = GetNumQuestChoices()
-		if (numQuestChoices > 0) then
-			local sellPrices = {}
-			for i = 1, numQuestChoices, 1 do
-				local _, _, quantity = GetQuestItemInfo("choice", i)
-				local link = GetQuestItemLink("choice", i)
-				if (link == nil) then
-					link = GetQuestItemLink_Callback(i)
+		if (IsShiftKeyDown() == false) then
+			local numQuestChoices = GetNumQuestChoices()
+			if (numQuestChoices > 0) then
+				local sellPrices = {}
+				for i = 1, numQuestChoices, 1 do
+					local _, _, quantity = GetQuestItemInfo("choice", i)
+					local link = GetQuestItemLink("choice", i)
+					if (link == nil) then
+						link = GetQuestItemLink_Callback(i)
+					end
+					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link)
+					sellPrices[i] = (quantity*sellPrice)
 				end
-				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link)
-				sellPrices[i] = (quantity*sellPrice)
+				GetQuestReward(Max(sellPrices))
+			else
+				QuestFrameCompleteQuestButton:Click()
 			end
-			GetQuestReward(Max(sellPrices))
-		else
-			QuestFrameCompleteQuestButton:Click()
 		end
 	end
 	if (event == "QUEST_DETAIL") then
