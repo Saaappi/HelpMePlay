@@ -1,11 +1,4 @@
---[[ TODO
-]]--
 
---[[
-	These variables are provided to the addon by Blizzard.
-		addonName	: This is self explanatory, but it's the name of the addon.
-		t			: This is an empty table. This is how the addon can communicate between files or local functions, sort of like traditional classes.
-]]--
 local addonName, t = ...;
 
 -- Variables
@@ -27,11 +20,7 @@ local function GetAvailableQuests()
 	local availableQuests = C_GossipInfo.GetAvailableQuests()
 	if (next(availableQuests)) then -- The NPC has an available quest to pick up. Let's check our database for a match.
 		for i, availableQuest in ipairs(availableQuests) do
-			for _, questID in ipairs(t.quests) do
-				if (availableQuest.questID == questID) then -- The quest is in the database. Let's pick it up!
-					C_GossipInfo.SelectAvailableQuest(i)
-				end
-			end
+			C_GossipInfo.SelectAvailableQuest(i)
 		end
 	end
 end
