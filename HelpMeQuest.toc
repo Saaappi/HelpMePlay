@@ -6,5 +6,6 @@
 ## Version: 0.0.0
 
 Maps.lua
+Confirmations.lua
 Speech.lua
 HelpMeQuest.lua
