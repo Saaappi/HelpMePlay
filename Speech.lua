@@ -15,7 +15,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				DoEmote("dance", nil)
 			elseif (string.find(msg, "Introductions are an important part of first impressions!")) then
 				DoEmote("bow", nil)
-			elseif (string.find(msg, "Some ask permission, and always thank us for our trouble.")) then
+			elseif (string.find(msg, "Some ask permission")) then
 				DoEmote("thanks", nil)
 			elseif (string.find(msg, "How strong he must have been!")) then
 				DoEmote("flex", nil)

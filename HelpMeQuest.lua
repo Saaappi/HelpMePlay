@@ -116,6 +116,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if (event == "QUEST_PROGRESS") then
-		QuestFrameCompleteButton:Click()
+		if (IsShiftKeyDown() == false) then
+			QuestFrameCompleteButton:Click()
+		end
 	end
 end)
