@@ -4,6 +4,12 @@ local e = CreateFrame("Frame")
 e:RegisterEvent("MERCHANT_SHOW")
 
 local merchants = {
+	[100437] = { -- Lanna Skyspark
+		[1] = {
+			["name"] = "Bottle of Airspark",
+			["quantity"] = 1,
+		},
+	},
 	[160601] = { -- Caretaker Mirene
 		[6] = {
 			["name"] = "Elysian Thread",
