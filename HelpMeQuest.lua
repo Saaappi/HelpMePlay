@@ -49,12 +49,11 @@ end
 local function GetOrCompleteQuests()
 	-- The priority of quest management should be NEW, COMPLETE, and IGNORE all else.
 	if IsModifierKeyDown() then return end -- The player is holding SHIFT, ALT, or CTRL, so don't process this function.
-	local availableQuests = C_GossipInfo.GetAvailableQuests()
 	local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
-	local activeQuests = C_GossipInfo.GetActiveQuests()
 	local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
-	if next(availableQuests) then
+	if numAvailableQuests > 0 then
 		-- The targeted NPC has quests that the player doesn't currently have.
+		local availableQuests = C_GossipInfo.GetAvailableQuests()
 		for i = 1, numAvailableQuests do
 			repeat
 				C_Timer.After(0, function()
@@ -66,38 +65,18 @@ local function GetOrCompleteQuests()
 		end
 	end
 	
-	if next(activeQuests) then
+	if numActiveQuests > 0 then
+		local activeQuests = C_GossipInfo.GetActiveQuests()
 		for i = 1, numActiveQuests do
-			repeat
-				C_Timer.After(0, function()
-					C_Timer.After(delay, function()
-						if activeQuests[i].isComplete then
-							-- The quest is complete, so complete it.
-							CompleteQuest()
-						end
-					end)
+			C_Timer.After(0, function()
+				C_Timer.After(delay, function()
+					if activeQuests[i].isComplete then
+						-- The quest is complete, so complete it.
+						C_GossipInfo.SelectActiveQuest(i)
+						CompleteQuest()
+					end
 				end)
-			until true
-		end
-	end
-end
-local function GetActiveQuests()
-	local activeQuests = C_GossipInfo.GetActiveQuests()
-	if next(activeQuests) then
-		for index, activeQuestsData in ipairs(activeQuests) do
-			if (activeQuestsData["isComplete"]) then
-				C_GossipInfo.SelectActiveQuest(index)
-			end
-		end
-	end
-end
-
-local function GetAvailableQuests()
-	-- Available quests are those that the player has yet to accept. These should have priority.
-	local availableQuests = C_GossipInfo.GetAvailableQuests()
-	if next(availableQuests) then -- The NPC has an available quest to pick up. Let's check our database for a match.
-		for i, availableQuest in ipairs(availableQuests) do
-			C_GossipInfo.SelectAvailableQuest(i)
+			end)
 		end
 	end
 end
