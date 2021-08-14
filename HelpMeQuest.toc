@@ -10,4 +10,5 @@ Confirmations.lua
 Merchants.lua
 Emotes.lua
 Speech.lua
+Dialog.lua
 HelpMeQuest.lua
