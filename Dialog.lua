@@ -54,10 +54,10 @@ local creatures = {
 		["gossips"] = {
 			"Tell me what happened."
 		}
-	}
+	},
 	-- Shadowlands: The Maw
 	[165918] = { -- Highlord Darion Mograine
-		["names"] = {
+		["gossips"] = {
 			"Make it talk.",
 		},
 		["cost"] = 0,
