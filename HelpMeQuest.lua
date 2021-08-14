@@ -58,7 +58,7 @@ local function GetOrCompleteQuests()
 		for i = 1, numAvailableQuests do
 			C_Timer.After(0, function()
 				C_Timer.After(delay, function()
-					C_GossipInfo.SelectAvailableQuest(availableQuests[i])
+					C_GossipInfo.SelectAvailableQuest(i)
 				end)
 			end)
 		end
