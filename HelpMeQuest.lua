@@ -141,7 +141,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_DETAIL" then
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
-				AcceptQuest()
+				QuestFrameAcceptButton:Click()
 			end)
 		end)
 	end
