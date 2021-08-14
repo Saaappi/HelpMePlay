@@ -49,6 +49,20 @@ local creatures = {
 		},
 		["cost"] = 10000
 	},
+	-- Kalimdor: Orgrimmar
+	[171791] = { -- Nazgrim
+		["gossips"] = {
+			"Tell me what happened."
+		}
+	}
+	-- Shadowlands: The Maw
+	[165918] = { -- Highlord Darion Mograine
+		["names"] = {
+			"Make it talk.",
+		},
+		["cost"] = 0,
+		["mod"] = "LALT",
+	},
 	[166980] = { -- Lady Jaina Proudmoore
 		["gossips"] = {
 			"Tell me about this place.",
@@ -57,11 +71,6 @@ local creatures = {
 			"<Lie low and observe.>",
 		}
 	},
-	[171791] = { -- Nazgrim, Orgrimmar
-		["gossips"] = {
-			"Tell me what happened."
-		}
-	}
 }
 
 e:SetScript("OnEvent", function(self, event, ...)
