@@ -1,0 +1,5 @@
+1.0.0
+	- Fixed an issue causing incomplete quests to take precedence over completed ones that were further down the list.
+	- Output is now available when using the /hmq command.
+	- Added a delay (0.1s) to the quest automation to reduce the likelihood of the addon getting "stuck".
+	- Any mod key can now be used to pause the automation.

@@ -28,6 +28,7 @@ local function GetQuestItemLink_Callback(index)
 end
 
 local function CompleteQuest()
+	if IsModifierKeyDown() then return end -- The player is holding SHIFT, ALT, or CTRL, so don't process this function.
 	local numQuestChoices = GetNumQuestChoices()
 	if (numQuestChoices > 0) then
 		local sellPrices = {}
@@ -55,13 +56,11 @@ local function GetOrCompleteQuests()
 		-- The targeted NPC has quests that the player doesn't currently have.
 		local availableQuests = C_GossipInfo.GetAvailableQuests()
 		for i = 1, numAvailableQuests do
-			repeat
-				C_Timer.After(0, function()
-					C_Timer.After(delay, function()
-						C_GossipInfo.SelectAvailableQuest(availableQuests[i])
-					end)
+			C_Timer.After(0, function()
+				C_Timer.After(delay, function()
+					C_GossipInfo.SelectAvailableQuest(availableQuests[i])
 				end)
-			until true
+			end)
 		end
 	end
 	
@@ -82,15 +81,22 @@ local function GetOrCompleteQuests()
 end
 
 local function GetGreetingQuests()
+	if IsModifierKeyDown() then return end -- The player is holding SHIFT, ALT, or CTRL, so don't process this function.
 	local numAvailableQuests = GetNumAvailableQuests()
-	if (numAvailableQuests > 0) then
-		for i = 1, numAvailableQuests, 1 do
+	local numActiveQuests = GetNumActiveQuests()
+	if numAvailableQuests > 0 then
+		for i = 1, numAvailableQuests do
 			SelectAvailableQuest(i)
 		end
-	else
-		local numActiveQuests = GetNumActiveQuests()
-		for i = 1, numActiveQuests, 1 do
-			SelectActiveQuest(i)
+	end
+	
+	if numActiveQuests > 0 then
+		for i = 1, numActiveQuests do
+			local _, isComplete = GetActiveTitle(i)
+			if isComplete then
+				-- The quest is complete, so select it.
+				SelectActiveQuest(i)
+			end
 		end
 	end
 end
@@ -113,13 +119,17 @@ end
 
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("QUEST_COMPLETE")
-e:RegisterEvent("QUEST_DATA_LOAD_RESULT")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_PROGRESS")
+
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
-		GetOrCompleteQuests()
+		C_Timer.After(0, function()
+			C_Timer.After(delay, function()
+				GetOrCompleteQuests()
+			end)
+		end)
 	end
 	if event == "QUEST_COMPLETE" then
 		C_Timer.After(0, function()
@@ -129,12 +139,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 	end
 	if event == "QUEST_DETAIL" then
-		AcceptQuest()
+		C_Timer.After(0, function()
+			C_Timer.After(delay, function()
+				AcceptQuest()
+			end)
+		end)
 	end
 	if event == "QUEST_GREETING" then
-		GetGreetingQuests()
+		C_Timer.After(0, function()
+			C_Timer.After(delay, function()
+				GetGreetingQuests()
+			end)
+		end)
 	end
 	if event == "QUEST_PROGRESS" then
-		QuestFrameCompleteButton:Click()
+		C_Timer.After(0, function()
+			C_Timer.After(delay, function()
+				QuestFrameCompleteButton:Click()
+			end)
+		end)
 	end
 end)
