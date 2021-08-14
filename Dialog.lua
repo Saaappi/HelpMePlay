@@ -47,17 +47,26 @@ local creatures = {
 		["gossips"] = {
 			"I'd like to heal and revive my battle pets.",
 		},
-		["cost"] = 10000,
+		["cost"] = 10000
+	},
+	[166980] = { -- Lady Jaina Proudmoore
+		["gossips"] = {
+			"Tell me about this place.",
+			"Tell me more of the Jailer.",
+			"What about the others who were taken?",
+			"<Lie low and observe.>",
+		}
 	},
 	[171791] = { -- Nazgrim, Orgrimmar
 		["gossips"] = {
 			"Tell me what happened."
-		},
+		}
 	}
 }
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
+		if IsModifierKeyDown() then return end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
