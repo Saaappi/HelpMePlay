@@ -103,6 +103,11 @@ local creatures = {
 			"Take the Windmaster's Totem.",
 		},
 	},
+	[96286] = { -- Navarrogg
+		["gossips"] = {
+			"Let's get out of here!",
+		},
+	},
 	[98773] = { -- Lasan Skyhorn
 		["gossips"] = {
 			"Yes!",
