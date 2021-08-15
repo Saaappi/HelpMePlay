@@ -41,6 +41,7 @@ local creatures = {
 			"I've heard this tale before.",
 			"<Show him the Word of Zul.>",
 			"<Show her the Word of Zul.>",
+			"Reshape me.",
 		}
 	},
 	[2] = { -- NPCs with Cost
@@ -56,9 +57,60 @@ local creatures = {
 		}
 	},
 	-- Broken Isles: Highmountain
-	[98825] = {
+	[98825] = { -- Spiritwalker Ebonhorn
 		["gossips"] = {
-			"Tell me the Story of Huln",
+			"Tell me the Story of Huln.",
+		},
+	},
+	[99745] = { -- Snazzle Shinyfinder
+		["gossips"] = {
+			"Go find shiny!",
+		},
+	},
+	[99746] = { -- Trytooth Hardchisel
+		["gossips"] = {
+			"You kill basilisk!",
+		},
+	},
+	[99747] = { -- Kindle Candlecrafter
+		["gossips"] = {
+			"Make big candle! Lots of wax!",
+		},
+	},
+	[99748] = { -- Dug Digger
+		["gossips"] = {
+			"Dig rocks, find pretties!",
+		},
+	},
+	[99781] = { -- Snazzle Shinyfinder
+		["gossips"] = {
+			"You keep one. I keep rest.",
+		},
+	},
+	[99782] = { -- Trytooth Hardchisel
+		["gossips"] = {
+			"Best kill job me seen!",
+			"Give Trytooth the boot.",
+		},
+	},
+	[99784] = { -- Kindle Candlecrafter
+		["gossips"] = {
+			"Me think me have just the right touch...",
+		},
+	},
+	[95403] = { -- Windmaster Julan
+		["gossips"] = {
+			"Take the Windmaster's Totem.",
+		},
+	},
+	[98773] = { -- Lasan Skyhorn
+		["gossips"] = {
+			"Yes!",
+		},
+	},
+	[94434] = { -- Addie Fizzlebog
+		["gossips"] = {
+			"Let's go hunting!",
 		},
 	},
 	-- Shadowlands: The Maw
