@@ -89,14 +89,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 				for id, _ in pairs(creatures) do
 					if id == npcID then -- The target's ID is in the table, so use its configuration.
 						for i = 1, #creatures[id]["gossips"] do
-							if (string.lower(string.find(gossipOptionsSubTable["name"])), string.lower(creatures[id]["gossips"][i])) then
+							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["gossips"][i])) then
 								C_GossipInfo.SelectOption(index)
 							end
 						end
 					else
 						for i = 1, 2 do
 							for j = 1, #creatures[i]["gossips"] do
-								if (string.lower(string.find(gossipOptionsSubTable["name"])), string.lower(creatures[i]["gossips"][j])) then
+								if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
 									C_GossipInfo.SelectOption(index)
 								end
 							end
