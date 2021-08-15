@@ -1,0 +1,14 @@
+## Author: Sappy (Alex)
+## Interface: 90100
+## Name: |cff00CCFFHelpMePlay|r
+## Notes: Automates tasks related to questing, dialog, vendors, and more.
+## Title: |cff00CCFFHelpMePlay|r
+## Version: 1.0.0
+
+Maps.lua
+Confirmations.lua
+Merchants.lua
+Emotes.lua
+Speech.lua
+Dialog.lua
+HelpMePlay.lua
