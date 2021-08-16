@@ -7,12 +7,12 @@ e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("MODIFIER_STATE_CHANGED")
 
 local creatures = {
-	[1] = { -- NPCs without Cost
+	[1] = { -- Gossip options used on two or more NPCs.
 		["gossips"] = {
 			"Are you enjoying yourself?", -- Quest: Mix, Mingle, and Meddle
+			"Go hunt somewhere else!", -- Quest: Amateur Hour (Highmountain)
 			"Begin pet battle.",
 			"Let's do battle!",
-			"I am ready to go.",
 			"I am ready.",
 			"I'm ready",
 			"There is no time left. Run!",
@@ -35,12 +35,7 @@ local creatures = {
 			"<Present Lajos's invitation>",
 			"We are ready",
 			"Take us back to Zuldazar.",
-			"Go hunt somewhere else!",
 			"Let's duel.",
-			"I have heard this story before.",
-			"I've heard this tale before.",
-			"<Show him the Word of Zul.>",
-			"<Show her the Word of Zul.>",
 			"Reshape me.",
 		}
 	},
@@ -113,6 +108,11 @@ local creatures = {
 			"Yes!",
 		},
 	},
+	[98825] = { -- Spiritwalker Ebonhorn
+		["gossips"] = {
+			"Tell me more of Huln Highmountain."
+		},
+	},
 	[94434] = { -- Addie Fizzlebog
 		["gossips"] = {
 			"Let's go hunting!",
@@ -143,19 +143,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
 			local gossipOptions = C_GossipInfo.GetOptions()
 			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
+				for i = 1, 2 do
+					for j = 1, #creatures[i]["gossips"] do
+						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
+							C_GossipInfo.SelectOption(index)
+						end
+					end
+				end
 				for id, _ in pairs(creatures) do
 					if id == npcID then -- The target's ID is in the table, so use its configuration.
 						for i = 1, #creatures[id]["gossips"] do
 							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["gossips"][i])) then
 								C_GossipInfo.SelectOption(index)
-							end
-						end
-					else
-						for i = 1, 2 do
-							for j = 1, #creatures[i]["gossips"] do
-								if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
-									C_GossipInfo.SelectOption(index)
-								end
 							end
 						end
 					end
