@@ -9,34 +9,10 @@ e:RegisterEvent("MODIFIER_STATE_CHANGED")
 local creatures = {
 	[1] = { -- Gossip options used on two or more NPCs.
 		["gossips"] = {
-			"Are you enjoying yourself?", -- Quest: Mix, Mingle, and Meddle
-			"Go hunt somewhere else!", -- Quest: Amateur Hour (Highmountain)
+			"Are you enjoying yourself?", -- Added from Quest: Mix, Mingle, and Meddle
+			"Go hunt somewhere else!", -- Added from Quest: Amateur Hour (Highmountain)
 			"Begin pet battle.",
 			"Let's do battle!",
-			"I am ready.",
-			"I'm ready",
-			"There is no time left. Run!",
-			"I will assist you.",
-			"Can you return me to the present time?",
-			"Let us begin.",
-			"Yes, I will help.",
-			"I would like to challenge both of you to a spar.",
-			"Will you spar with me?",
-			"Now tell me, did you see who killed the Furlbrows?",
-			"Is there any way I can help?",
-			"O.K.",
-			"Is there anything you need?",
-			"Very well. Let us fight.",
-			"Au'narim claims you owe her anima.",
-			"Maldraxxus needs your service. Will you fight?",
-			"The Lady of the Falls wanted to make sure you were safe.",
-			"<Ask about suspicious activity>",
-			"<Request tithe>",
-			"<Present Lajos's invitation>",
-			"We are ready",
-			"Take us back to Zuldazar.",
-			"Let's duel.",
-			"Reshape me.",
 		}
 	},
 	[2] = { -- NPCs with Cost
