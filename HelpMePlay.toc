@@ -3,7 +3,7 @@
 ## Name: |cff00CCFFHelpMePlay|r
 ## Notes: Automates tasks related to questing, dialog, vendors, and more.
 ## Title: |cff00CCFFHelpMePlay|r
-## Version: 1.0.0
+## Version: 1.0.1
 
 Maps.lua
 Confirmations.lua

@@ -1,10 +1,9 @@
-1.0.0
-	New Stuff:
-	- Output is now available when using the /hmq command.
-	- Added a delay (0.1s) to the quest automation to reduce the likelihood of the addon getting "stuck".
-	- Any mod key can now be used to pause the automation.
-	- The selection of Threads of Fate is now entirely automated.
-	
+1.0.1
+	Perks:
+		- HelpMePlay is no longer following the silent treatment when its slash command (hmp) is called. HelpMePlay will respond with available subcommands.
+		- Tired of always using left SHIFT to pause automations? Me too. HelpMePlay now supports the use of left CTRL, left SHIFT, left ALT, right CTRL, right SHIFT, and right ALT to pause its automations. It's completely MODular!
+		- When interacting with Fatescribe Roh-Tahl in Oribos upon departure from The Maw, HelpMePlay automatically selects Threads of Fate for the player. No need to type in FATE and press "ACCEPT". The game is that much easier.
 	Bug Fixes:
-	- Fixed an issue causing incomplete quests to take precedence over completed ones that were further down the list.
-	- Fixed an issue that should stop the addon from not purchasing quest items from merchants.
+		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
+		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
+		- Fixed an issue where incomplete quests took precedence over completed ones when submitting them. Some times you just want to complete a singular quest, am I right?
