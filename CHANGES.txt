@@ -7,3 +7,4 @@
 	
 	Bug Fixes:
 	- Fixed an issue causing incomplete quests to take precedence over completed ones that were further down the list.
+	- Fixed an issue that should stop the addon from not purchasing quest items from merchants.
