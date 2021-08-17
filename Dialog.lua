@@ -11,6 +11,7 @@ local creatures = {
 		["gossips"] = {
 			"Are you enjoying yourself?", -- Added from Quest: Mix, Mingle, and Meddle
 			"Go hunt somewhere else!", -- Added from Quest: Amateur Hour (Highmountain)
+			"There is no time left. Run!", -- Added from Quest: Evacuate Snowmane (Highmountain)
 			"Begin pet battle.",
 			"Let's do battle!",
 		}
@@ -20,6 +21,12 @@ local creatures = {
 			"I'd like to heal and revive my battle pets.",
 		},
 		["cost"] = 10000
+	},
+	-- Kalimdor: Durotar
+	[39380] = { -- Shin Stonepillar
+		["gossips"] = {
+			"Can you tell me your fable, Shin?",
+		},
 	},
 	-- Kalimdor: Orgrimmar
 	[171791] = { -- Nazgrim
