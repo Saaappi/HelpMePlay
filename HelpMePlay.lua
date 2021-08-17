@@ -30,12 +30,12 @@ end
 local function CompleteQuest()
 	if IsModifierKeyDown() then return end -- The player is holding SHIFT, ALT, or CTRL, so don't process this function.
 	local numQuestChoices = GetNumQuestChoices()
-	if (numQuestChoices > 0) then
+	if numQuestChoices > 0 then
 		local sellPrices = {}
 		for i = 1, numQuestChoices, 1 do
 			local _, _, quantity = GetQuestItemInfo("choice", i)
 			local link = GetQuestItemLink("choice", i)
-			if (link == nil) then
+			if link == nil then
 				link = GetQuestItemLink_Callback(i)
 			end
 			local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link)
