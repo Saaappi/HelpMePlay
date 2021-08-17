@@ -7,3 +7,4 @@
 		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
 		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
 		- Fixed an issue where incomplete quests took precedence over completed ones when submitting them. Some times you just want to complete a singular quest, am I right?
+		- Fixed an issue where quests were treated like yesterday's jam when the NPC also had a supported dialog option. No one wants to hear Shin Stonepillar's fable more than once, right?
