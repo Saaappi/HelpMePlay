@@ -122,31 +122,40 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if IsModifierKeyDown() then return end
 		local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
 		if numActiveQuests > 0 then
+			local activeQuests = C_GossipInfo.GetActiveQuests()
+			for i = 1, numActiveQuests do
+				if activeQuests[i].isComplete then
+					C_Timer.After(0, function()
+						C_Timer.After(0.1, function()
+							-- Do nothing here, we just want a slight delay to let active quests be handled first.
+						end)
+					end)
+				end
+			end
 			C_Timer.After(0, function()
 				C_Timer.After(0.5, function()
-					-- Do nothing here, we just want a slight delay to let active quests be handled first.
+					
 				end)
 			end)
-		else
-			local index = 1
-			local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
-			if unitGUID then
-				local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
-				local gossipOptions = C_GossipInfo.GetOptions()
-				for index, gossipOptionsSubTable in ipairs(gossipOptions) do
-					for i = 1, 2 do
-						for j = 1, #creatures[i]["gossips"] do
-							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
-								C_GossipInfo.SelectOption(index)
-							end
+		end
+		local index = 1
+		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		if unitGUID then
+			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			local gossipOptions = C_GossipInfo.GetOptions()
+			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
+				for i = 1, 2 do
+					for j = 1, #creatures[i]["gossips"] do
+						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
+							C_GossipInfo.SelectOption(index)
 						end
 					end
-					for id, _ in pairs(creatures) do
-						if id == npcID then -- The target's ID is in the table, so use its configuration.
-							for i = 1, #creatures[id]["gossips"] do
-								if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["gossips"][i])) then
-									C_GossipInfo.SelectOption(index)
-								end
+				end
+				for id, _ in pairs(creatures) do
+					if id == npcID then -- The target's ID is in the table, so use its configuration.
+						for i = 1, #creatures[id]["gossips"] do
+							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["gossips"][i])) then
+								C_GossipInfo.SelectOption(index)
 							end
 						end
 					end
