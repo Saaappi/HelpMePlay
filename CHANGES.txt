@@ -3,6 +3,7 @@
 		- HelpMePlay is no longer following the silent treatment when its slash command (hmp) is called. HelpMePlay will respond with available subcommands.
 		- Tired of always using left SHIFT to pause automations? Me too. HelpMePlay now supports the use of left CTRL, left SHIFT, left ALT, right CTRL, right SHIFT, and right ALT to pause its automations. It's completely MODular!
 		- When interacting with Fatescribe Roh-Tahl in Oribos upon departure from The Maw, HelpMePlay automatically selects Threads of Fate for the player. No need to type in FATE and press "ACCEPT". The game is that much easier.
+		- Fret not about choosing Chromie Time options, for HelpMePlay now automatically puts you in the Legion timeline if your character is level 49 or lower.
 	Bug Fixes:
 		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
 		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
