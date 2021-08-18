@@ -29,6 +29,11 @@ local creatures = {
 		},
 	},
 	-- Kalimdor: Orgrimmar
+	[167032] = { -- Chromie
+		["gossips"] = {
+			"Select a timeline."
+		}
+	},
 	[171791] = { -- Nazgrim
 		["gossips"] = {
 			"Tell me what happened."
