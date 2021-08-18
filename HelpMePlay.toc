@@ -6,6 +6,7 @@
 ## Version: 1.0.1
 
 Maps.lua
+ChromieTime.lua
 Confirmations.lua
 Merchants.lua
 Emotes.lua

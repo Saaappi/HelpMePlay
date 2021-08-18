@@ -1,4 +1,4 @@
-local addonName, t = ...
+local addonName, addonTable = ...
 
 local maps = {
 	-- Eastern Kingdoms
@@ -95,4 +95,4 @@ local maps = {
 	["The Maw"] = 1543,
 }
 
-t.maps = maps
+addonTable.maps = maps
