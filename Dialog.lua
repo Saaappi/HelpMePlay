@@ -16,6 +16,7 @@ local creatures = {
 			"I'm ready.", -- Added from Quest: Heroes of the Horde! (Hillsbrad Foothills)
 			"Let's duel.", -- Added from Quest: To Be Prepared (Durotar)
 			"I am ready.", -- Added from Quest: Cenarius, Keeper of the Grove (Val'sharah)
+			"Leave the Darkpens.", -- Added from Quest: Lieutenant of the Tower (Val'sharah)
 			"Begin pet battle.",
 			"Let's do battle!",
 		}
