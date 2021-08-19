@@ -5,7 +5,7 @@ e:RegisterEvent("ADVENTURE_MAP_OPEN")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
-		local mapID = C_AdventureMap.GetMapID(); print(mapID)
+		local mapID = C_AdventureMap.GetMapID()
 		if mapID == 1011 then -- Zandalar (The Great Seal)
 			C_AdventureMap.StartQuest(47514) -- Zuldazar
 		elseif mapID == 1014 then -- Kul Tiras (The Banshee's Wail)
