@@ -9,7 +9,7 @@ e:RegisterEvent("MODIFIER_STATE_CHANGED")
 local creatures = {
 	[1] = { -- Gossip options used on two or more NPCs.
 		["gossips"] = {
-			"Are you enjoying yourself?", -- Added from Quest: Mix, Mingle, and Meddle
+			"Are you enjoying yourself?", -- Added from Quest: Mix, Mingle, and Meddle (Revendreth)
 			"Go hunt somewhere else!", -- Added from Quest: Amateur Hour (Highmountain)
 			"There is no time left. Run!", -- Added from Quest: Evacuate Snowmane (Highmountain)
 			"Let's go!", -- Added from Quest: Lead the Way (Revendreth)
