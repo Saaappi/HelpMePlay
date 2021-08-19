@@ -7,6 +7,7 @@
 
 Maps.lua
 ChromieTime.lua
+AdventureMap.lua
 Confirmations.lua
 Merchants.lua
 Emotes.lua
