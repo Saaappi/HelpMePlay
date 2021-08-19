@@ -14,3 +14,4 @@
 	Roadmap:
 		- Localizing the addon to support more than English.
 		- Adding an options menu so players can opt in and out of the automations.
+		- Automate an Alliance route.
