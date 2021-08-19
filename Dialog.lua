@@ -106,6 +106,7 @@ local creatures = {
 	[167032] = { -- Chromie
 		["gossips"] = {
 			"Select a timeline."
+			"Select a different timeline."
 		}
 	},
 	[168431] = { -- Warlord Breka Grimaxe
