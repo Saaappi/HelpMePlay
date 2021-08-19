@@ -13,6 +13,7 @@ local creatures = {
 			"Go hunt somewhere else!", -- Added from Quest: Amateur Hour (Highmountain)
 			"There is no time left. Run!", -- Added from Quest: Evacuate Snowmane (Highmountain)
 			"Let's go!", -- Added from Quest: Lead the Way (Revendreth)
+			"I'm ready.", -- Added from Quest: Heroes of the Horde! (Hillsbrad Foothills)
 			"Begin pet battle.",
 			"Let's do battle!",
 		}
