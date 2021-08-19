@@ -98,6 +98,14 @@ local creatures = {
 		},
 	},
 	-- Kalimdor: Durotar
+	[4311] = {
+		["gossips"] = {
+			"I've heard this tale before...",
+		},
+		["confirms"] = {
+			"Are you sure you want to skip the Broken Shore introduction?",
+		},
+	},
 	[39380] = { -- Shin Stonepillar
 		["gossips"] = {
 			"Can you tell me your fable, Shin?",
@@ -555,6 +563,24 @@ local creatures = {
 }
 
 e:SetScript("OnEvent", function(self, event, ...)
+	if event == "GOSSIP_CONFIRM" then
+		local _, message = ...
+		if IsModifierKeyDown() then return end
+		local index = 1
+		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		if unitGUID then
+			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			for id, _ in pairs(creatures) do
+				if id == npcID then
+					for i = 1, #creatures[id]["confirms"] do
+						if string.find(string.lower(message), string.lower(creatures[id]["confirms"][i])) then
+							StaticPopup1Button1:Click()
+						end
+					end
+				end
+			end
+		end
+	end
 	if event == "GOSSIP_SHOW" then
 		if IsModifierKeyDown() then return end
 		local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
