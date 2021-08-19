@@ -43,7 +43,11 @@ local function CompleteQuest()
 		end
 		GetQuestReward(Max(sellPrices))
 	else
-		QuestFrameCompleteQuestButton:Click()
+		C_Timer.After(0, function()
+			C_Timer.After(delay, function()
+				QuestFrameCompleteQuestButton:Click()
+			end)
+		end)
 	end
 end
 
