@@ -17,6 +17,7 @@ local creatures = {
 			"Let's duel.", -- Added from Quest: To Be Prepared (Durotar)
 			"I am ready.", -- Added from Quest: Cenarius, Keeper of the Grove (Val'sharah)
 			"Leave the Darkpens.", -- Added from Quest: Lieutenant of the Tower (Val'sharah)
+			"Take us back to Zuldazar.", -- Added from Quest: Return to Zuldazar (Stormsong Valley)
 			"Begin pet battle.",
 			"Let's do battle!",
 		}
