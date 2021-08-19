@@ -143,6 +143,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 	end
 	if event == "QUEST_DETAIL" then
+		if IsModifierKeyDown() then return end
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
 				QuestFrameAcceptButton:Click()
