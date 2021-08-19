@@ -5,7 +5,7 @@
 		- When interacting with Fatescribe Roh-Tahl in Oribos upon departure from The Maw, HelpMePlay automatically selects Threads of Fate for the player. No need to type in FATE and press "ACCEPT". The game is that much easier.
 		- Fret not about choosing Chromie Time options, for HelpMePlay now automatically puts you in the Legion timeline if your character is level 49 or lower.
 		- HelpMePlay will now communicate on the player's behalf with specific NPCs, reducing the amount of time you need to play the game.
-		- The Adventure Map in Zandalar is now automated. Click the map once and the rest is history.
+		- The Battle for Azeroth Adventure Maps are now automated. Click the maps once and the rest is history.
 	Bug Fixes:
 		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
 		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
