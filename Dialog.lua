@@ -114,6 +114,11 @@ local creatures = {
 		},
 	},
 	-- Kalimdor: Orgrimmar
+	[135205] = { -- Nathanos Blightcaller
+		["gossips"] = {
+			"I have heard this story before.",
+		}
+	},
 	[167032] = { -- Chromie
 		["gossips"] = {
 			"Select a timeline.",
