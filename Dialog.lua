@@ -105,8 +105,8 @@ local creatures = {
 	-- Kalimdor: Orgrimmar
 	[167032] = { -- Chromie
 		["gossips"] = {
-			"Select a timeline."
-			"Select a different timeline."
+			"Select a timeline.",
+			"Select a different timeline.",
 		}
 	},
 	[168431] = { -- Warlord Breka Grimaxe
@@ -116,7 +116,7 @@ local creatures = {
 	},
 	[171791] = { -- Nazgrim
 		["gossips"] = {
-			"Tell me what happened."
+			"Tell me what happened.",
 		}
 	},
 	-- Draenor: Tanaan Jungle (Invasion)
