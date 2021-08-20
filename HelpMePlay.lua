@@ -112,7 +112,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		print(addonName .. "\n" ..
 		"abandon - Abandons all quests in the zone specified by the player (e.g. /hmq abandon Silverpine Forest).")
 	elseif command == "abandon" then
-		local quests = C_QuestLog.GetQuestsOnMap(t.maps[arguments])
+		local quests = C_QuestLog.GetQuestsOnMap(t.maps[string.upper(arguments)])
 		for _, v in ipairs(quests) do
 			C_QuestLog.SetSelectedQuest(v.questID)
 			C_QuestLog.SetAbandonQuest()
