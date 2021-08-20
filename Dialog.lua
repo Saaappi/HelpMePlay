@@ -18,6 +18,8 @@ local creatures = {
 			"I am ready.", -- Added from Quest: Cenarius, Keeper of the Grove (Val'sharah)
 			"Leave the Darkpens.", -- Added from Quest: Lieutenant of the Tower (Val'sharah)
 			"Take us back to Zuldazar.", -- Added from Quest: Return to Zuldazar (Stormsong Valley)
+			"<Reach inside and pull something out.>", -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
+			"<Reach inside and pull out something that feels more like a building.>", -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			"Begin pet battle.",
 			"Let's do battle!",
 		}
@@ -288,12 +290,6 @@ local creatures = {
 		["gossips"] = {
 			"Your friends were all tortured and killed by witches.",
 			"Sure.",
-		},
-	},
-	[137397] = { -- Wormhole
-		["gossips"] = {
-			"<Reach inside and pull something out.>",
-			"<Reach inside and pull out something that feels more like a building.>",
 		},
 	},
 	-- Kul Tiras: Stormsong Valley
