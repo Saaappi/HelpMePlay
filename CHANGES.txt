@@ -16,5 +16,6 @@
 		- Localizing the addon to support more than English.
 		- Adding an options menu so players can opt in and out of the automations.
 		- Automate the first Garrison mission for both factions.
+		- Automate the selection of the Savage Fight Club in Gorgrond.
 		- Automate an Alliance route. (This will follow Kraken Latte's leveling route.)
 		- Automate taking flight paths when appropriate. (This will follow Kraken Latte's leveling route.)
