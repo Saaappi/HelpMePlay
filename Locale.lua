@@ -28,7 +28,7 @@ if (locale == "enGB" or locale == "enUS") then
 		-- Strings
 		L["Red WARNING"]							= "|cffFF0000WARNING:|r "
 		-- Item Names (TODO)
-		-- Speech (TODO)
+		-- Speech
 		L["Playful Trickster: Praise"]				= "Not so much as a word of praise!"
 		L["Playful Trickster: Cheer"]				= "The other spriggans were all cheering my name for days!"
 		L["Playful Trickster: Dance"]				= "Dance with me!"
