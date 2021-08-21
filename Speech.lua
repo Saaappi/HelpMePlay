@@ -9,17 +9,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local msg, monster = ...
 		if monster == "Playful Trickster" then
 			-- Quest: The Games We Play (Ardenweald)
-			if string.find(msg, "Not so much as a word of praise!") then
+			if string.find(msg, L["Playful Trickster: Praise"]) then
 				DoEmote("praise", nil)
-			elseif string.find(msg, "The other spriggans were all cheering my name for days!") then
+			elseif string.find(msg, L["Playful Trickster: Cheer"]) then
 				DoEmote("cheer", nil)
-			elseif string.find(msg, "Dance with me!") then
+			elseif string.find(msg, L["Playful Trickster: Dance"]) then
 				DoEmote("dance", nil)
-			elseif string.find(msg, "Introductions are an important part of first impressions!") then
+			elseif string.find(msg, L["Playful Trickster: Introduce"]) then
 				DoEmote("bow", nil)
-			elseif string.find(msg, "Some ask permission, and always thank us for our trouble.") then
+			elseif string.find(msg, L["Playful Trickster: Thank"]) then
 				DoEmote("thank", nil)
-			elseif string.find(msg, "How strong he must have been!") then
+			elseif string.find(msg, L["Playful Trickster: Flex"]) then
 				DoEmote("flex", nil)
 			end
 		end

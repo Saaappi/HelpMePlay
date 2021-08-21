@@ -29,6 +29,12 @@ if (locale == "enGB" or locale == "enUS") then
 		L["Red WARNING"]							= "|cffFF0000WARNING:|r "
 		-- Item Names (TODO)
 		-- Speech (TODO)
+		L["Playful Trickster: Praise"]				= "Not so much as a word of praise!"
+		L["Playful Trickster: Cheer"]				= "The other spriggans were all cheering my name for days!"
+		L["Playful Trickster: Dance"]				= "Dance with me!"
+		L["Playful Trickster: Introduce"]			= "Introductions are an important part of first impressions!"
+		L["Playful Trickster: Thank"]				= "Some ask permission, and always thank us for our trouble."
+		L["Playful Trickster: Flex"]				= "How strong he must have been!"
 		-- Emotes (TODO)
 		-- Map Names (TODO)
 		-- Dialog (TODO)
