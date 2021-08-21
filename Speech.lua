@@ -8,6 +8,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_MONSTER_SAY" then
 		local msg, monster = ...
 		if monster == "Playful Trickster" then
+			-- Quest: The Games We Play (Ardenweald)
 			if string.find(msg, "Not so much as a word of praise!") then
 				DoEmote("praise", nil)
 			elseif string.find(msg, "The other spriggans were all cheering my name for days!") then

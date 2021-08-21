@@ -37,7 +37,7 @@ if (locale == "enGB" or locale == "enUS") then
 end
 
 if (isLocaleSupported == false) then
-	print(L["Red WARNING"] .. L["Locale Not Supported"])
+	print(L["Red WARNING"] .. L["Locale Not Supported"] .. " @" .. L["Discord"])
 end
 
 addonTable.L = L
