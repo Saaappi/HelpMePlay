@@ -35,7 +35,6 @@ if (locale == "enGB" or locale == "enUS") then
 		L["Playful Trickster: Introduce"]			= "Introductions are an important part of first impressions!"
 		L["Playful Trickster: Thank"]				= "Some ask permission, and always thank us for our trouble."
 		L["Playful Trickster: Flex"]				= "How strong he must have been!"
-		-- Emotes (TODO)
 		-- Map Names (TODO)
 		-- Dialog (TODO)
 		-- Other
