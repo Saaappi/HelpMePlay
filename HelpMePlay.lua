@@ -1,8 +1,7 @@
-
 local addonName, t = ...;
-
--- Variables
 local e = CreateFrame("Frame")
+local L = addonTable.L
+
 local delay = 0.1
 
 -- Functions

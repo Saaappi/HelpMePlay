@@ -1,5 +1,6 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
+local L = addonTable.L
 
 e:RegisterEvent("GOSSIP_SHOW")
 

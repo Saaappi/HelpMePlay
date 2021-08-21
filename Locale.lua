@@ -27,6 +27,11 @@ if (locale == "enGB" or locale == "enUS") then
 		L["Locale Not Supported"]					= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
 		-- Strings
 		L["Red WARNING"]							= "|cffFF0000WARNING:|r "
+		-- Item Names (TODO)
+		-- Speech (TODO)
+		-- Emotes (TODO)
+		-- Map Names (TODO)
+		-- Dialog (TODO)
 		-- Other
 		L["Discord"]								= "Lightsky#0658"
 end
