@@ -26,6 +26,7 @@ if (locale == "enGB" or locale == "enUS") then
 		-- Addon Messages
 		L["Locale Not Supported"]					= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
 		-- Strings
+		L["Abandon Command Description"]			= "Abandons all quests in the zone specified by the player (e.g. /hmq abandon Silverpine Forest)."
 		L["Discord"]								= "Lightsky#0658"
 		L["Red WARNING"]							= "|cffFF0000WARNING:|r "
 		-- Item Names

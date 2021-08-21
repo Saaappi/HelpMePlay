@@ -109,7 +109,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
 	if not command or command == "" then
 		print(addonName .. "\n" ..
-		"abandon - Abandons all quests in the zone specified by the player (e.g. /hmq abandon Silverpine Forest).")
+		L["Abandon Command"] .. ": " .. L["Abandon Command Description"])
 	elseif command == "abandon" then
 		local quests = C_QuestLog.GetQuestsOnMap(t.maps[string.upper(arguments)])
 		for _, v in ipairs(quests) do
