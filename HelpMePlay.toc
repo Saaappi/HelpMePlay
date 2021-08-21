@@ -5,13 +5,35 @@
 ## Title: |cff00CCFFHelpMePlay|r
 ## Version: 1.0.1
 
+# Addon localized strings.
+Locale.lua
+
+# Used to convert a map name to an ID.
 Maps.lua
+
+# Automates selecting Chromie Time expansion.
 ChromieTime.lua
+
+# Automates the adventure map from BfA and Shadowlands.
 AdventureMap.lua
+
+# [WIP] Automates the garrison mission table.
 GarrisonMissionTable.lua
-Confirmations.lua
+
+# Automates player choice options like Threads of Fate (and maybe the Gorgrond outpost selection).
+PlayerChoice.lua
+
+# Automates purchasing quest items from vendors.
 Merchants.lua
+
+# Automates handling emotes for specific NPCs.
 Emotes.lua
+
+# Automates interacting with speech for specific NPCs.
 Speech.lua
+
+# Automates speaking with specific NPCs.
 Dialog.lua
+
+# Automates accepting and completing quests (including taking rewards).
 HelpMePlay.lua
