@@ -1,4 +1,4 @@
-local addonName, t = ...;
+local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
 
@@ -111,7 +111,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		print(addonName .. "\n" ..
 		L["Abandon Command"] .. ": " .. L["Abandon Command Description"])
 	elseif command == L["Abandon Command"] then
-		local quests = C_QuestLog.GetQuestsOnMap(t.maps[string.upper(arguments)])
+		local quests = C_QuestLog.GetQuestsOnMap(addonTable.maps[string.upper(arguments)])
 		for _, v in ipairs(quests) do
 			C_QuestLog.SetSelectedQuest(v.questID)
 			C_QuestLog.SetAbandonQuest()
