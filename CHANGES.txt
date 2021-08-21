@@ -6,7 +6,7 @@
 		- Fret not about choosing Chromie Time options, for HelpMePlay now automatically puts you in the Legion timeline if your character is level 49 or lower.
 		- HelpMePlay will now communicate on the player's behalf with specific NPCs, reducing the amount of time you need to play the game.
 		- The Battle for Azeroth Adventure Maps are now automated. Click the maps once and the rest is history.
-		- The Garrison Mission Table is now automated. Click the Mission Table and watch as it closes on its own and your quest is completed. Do you even need to play?
+		- The initial missions for unlocking the garrison are now automated. Click the Mission Table and watch as it closes on its own and your quest is completed. Do you even need to play?
 	Bug Fixes:
 		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
 		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
