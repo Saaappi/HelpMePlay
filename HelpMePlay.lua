@@ -104,7 +104,7 @@ local function GetGreetingQuests()
 	end
 end
 
-SLASH_HelpMePlay1 = "/hmp"
+SLASH_HelpMePlay1 = L["Slash HMP"]
 SlashCmdList["HelpMePlay"] = function(command, editbox)
 	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
 	if not command or command == "" then
