@@ -10,24 +10,24 @@ e:RegisterEvent("MODIFIER_STATE_CHANGED")
 local creatures = {
 	[1] = { -- Gossip options used on two or more NPCs.
 		["gossips"] = {
-			"Are you enjoying yourself?", -- Added from Quest: Mix, Mingle, and Meddle (Revendreth)
-			"Go hunt somewhere else!", -- Added from Quest: Amateur Hour (Highmountain)
-			"There is no time left. Run!", -- Added from Quest: Evacuate Snowmane (Highmountain)
-			"Let's go!", -- Added from Quest: Lead the Way (Revendreth)
-			"I'm ready.", -- Added from Quest: Heroes of the Horde! (Hillsbrad Foothills)
-			"Let's duel.", -- Added from Quest: To Be Prepared (Durotar)
-			"I am ready.", -- Added from Quest: Cenarius, Keeper of the Grove (Val'sharah)
-			"Leave the Darkpens.", -- Added from Quest: Lieutenant of the Tower (Val'sharah)
-			"Take us back to Zuldazar.", -- Added from Quest: Return to Zuldazar (Stormsong Valley)
-			"<Reach inside and pull something out.>", -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
-			"<Reach inside and pull out something that feels more like a building.>", -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
-			"Begin pet battle.",
-			"Let's do battle!",
+			L["Are you enjoying yourself?"], -- Added from Quest: Mix, Mingle, and Meddle (Revendreth)
+			L["Go hunt somewhere else!"], -- Added from Quest: Amateur Hour (Highmountain)
+			L["There is no time left. Run!"], -- Added from Quest: Evacuate Snowmane (Highmountain)
+			L["Let's go!"], -- Added from Quest: Lead the Way (Revendreth)
+			L["I'm ready."], -- Added from Quest: Heroes of the Horde! (Hillsbrad Foothills)
+			L["Let's duel."], -- Added from Quest: To Be Prepared (Durotar)
+			L["I am ready."], -- Added from Quest: Cenarius, Keeper of the Grove (Val'sharah)
+			L["Leave the Darkpens."], -- Added from Quest: Lieutenant of the Tower (Val'sharah)
+			L["Take us back to Zuldazar."], -- Added from Quest: Return to Zuldazar (Stormsong Valley)
+			L["<Reach inside and pull something out.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
+			L["<Reach inside and pull out something that feels more like a building.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
+			L["Begin pet battle."],
+			L["Let's do battle!"],
 		}
 	},
 	[2] = { -- NPCs with Cost
 		["gossips"] = {
-			"I'd like to heal and revive my battle pets.",
+			L["I'd like to heal and revive my battle pets."],
 		},
 		["cost"] = 10000
 	},
