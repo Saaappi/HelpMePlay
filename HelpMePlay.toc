@@ -17,7 +17,10 @@ ChromieTime.lua
 # Automates the adventure map from BfA and Shadowlands.
 AdventureMap.lua
 
-# [WIP] Automates the garrison mission table.
+# Automates the purchase of mount training.
+MountTraining.lua
+
+# Automates the garrison mission table.
 GarrisonMissionTable.lua
 
 # Automates player choice options like Threads of Fate (and maybe the Gorgrond outpost selection).
