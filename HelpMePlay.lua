@@ -110,7 +110,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 	if not command or command == "" then
 		print(addonName .. "\n" ..
 		L["Abandon Command"] .. ": " .. L["Abandon Command Description"])
-	elseif command == "abandon" then
+	elseif command == L["Abandon Command"] then
 		local quests = C_QuestLog.GetQuestsOnMap(t.maps[string.upper(arguments)])
 		for _, v in ipairs(quests) do
 			C_QuestLog.SetSelectedQuest(v.questID)
