@@ -28,7 +28,10 @@ if (locale == "enGB" or locale == "enUS") then
 		-- Strings
 		L["Discord"]								= "Lightsky#0658"
 		L["Red WARNING"]							= "|cffFF0000WARNING:|r "
-		-- Item Names (TODO)
+		-- Item Names
+		L["Bottle of Airspark"]						= "Bottle of Airspark"
+		L["Elysian Thread"]							= "Elysian Thread"
+		L["Necessary Enhancers"]					= "Necessary Enhancers"
 		-- Speech
 		L["Playful Trickster: Praise"]				= "Not so much as a word of praise!"
 		L["Playful Trickster: Cheer"]				= "The other spriggans were all cheering my name for days!"

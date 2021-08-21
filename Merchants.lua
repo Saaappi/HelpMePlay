@@ -7,17 +7,17 @@ e:RegisterEvent("MERCHANT_SHOW")
 local merchants = {
 	[100437] = { -- Lanna Skyspark
 		["index"] = 1,
-		["name"] = "Bottle of Airspark",
+		["name"] = L["Bottle of Airspark"],
 		["quantity"] = 1,
 	},
 	[160601] = { -- Caretaker Mirene
 		["index"] = 6,
-		["name"] = "Elysian Thread",
+		["name"] = L["Elysian Thread"],
 		["quantity"] = 1,
 	},
 	[166640] = { -- Au'larrynar
 		["index"] = 1,
-		["name"] = "Necessary Enhancers",
+		["name"] = L["Necessary Enhancers"],
 		["quantity"] = 1,
 	},
 }
