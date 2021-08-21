@@ -29,7 +29,6 @@ local creatures = {
 		["gossips"] = {
 			L["I'd like to heal and revive my battle pets."],
 		},
-		["cost"] = 10000
 	},
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane
