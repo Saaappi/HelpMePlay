@@ -6,30 +6,34 @@ e:RegisterEvent("MERCHANT_SHOW")
 
 local merchants = {
 	[100437] = { -- Lanna Skyspark
-		["index"] = 1,
-		["name"] = L["Bottle of Airspark"],
+		["itemID"] = 132247,
 		["quantity"] = 1,
 	},
 	[160601] = { -- Caretaker Mirene
-		["index"] = 6,
-		["name"] = L["Elysian Thread"],
+		["itemID"] = 178891,
 		["quantity"] = 1,
 	},
 	[166640] = { -- Au'larrynar
-		["index"] = 1,
-		["name"] = L["Necessary Enhancers"],
+		["itemID"] = 177957,
 		["quantity"] = 1,
 	},
 }
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
-		local _, _, _, _, _, creatureID = strsplit("-", UnitGUID("target")); creatureID = tonumber(creatureID)
+		local _, _, _, _, _, npcID = strsplit("-", UnitGUID("target")); npcID = tonumber(npcID)
 		for id, _ in pairs(merchants) do
-			if id == creatureID then
-				if GetMerchantItemInfo(id.index) == id.name then
-					BuyMerchantItem(id.index, id.quantity)
-					break
+			if id == npcID then
+				local numMerchantItems = GetMerchantNumItems()
+				for i = 1, numMerchantItems do
+					local merchantItemLink = GetMerchantItemLink(i)
+					if merchantItemLink then
+						local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)
+						if itemID == merchants[id].itemID then
+							BuyMerchantItem(i, merchants[id].quantity)
+							break
+						end
+					end
 				end
 			end
 		end
