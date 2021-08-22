@@ -29,6 +29,8 @@ if (locale == "enGB" or locale == "enUS") then
 		L["Abandon Command Description"]					= "Abandons all quests in the zone specified by the player (e.g. /hmq abandon Silverpine Forest)."
 		L["Discord"]										= "Lightsky#0658"
 		L["Red WARNING"]									= "|cffFF0000WARNING:|r "
+		-- Skill Lines
+		L["Riding"]											= "Riding"
 		-- Item Names		
 		L["Bottle of Airspark"]								= "Bottle of Airspark"
 		L["Elysian Thread"]									= "Elysian Thread"

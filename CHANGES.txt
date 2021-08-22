@@ -1,5 +1,5 @@
 1.0.1
-	Perks:
+	New Stuff:
 		- HelpMePlay is no longer following the silent treatment when its slash command (hmp) is called. HelpMePlay will respond with available subcommands.
 		- Tired of always using left SHIFT to pause automations? Me too. HelpMePlay now supports the use of left CTRL, left SHIFT, left ALT, right CTRL, right SHIFT, and right ALT to pause its automations. It's completely MODular!
 		- When interacting with Fatescribe Roh-Tahl in Oribos upon departure from The Maw, HelpMePlay automatically selects Threads of Fate for the player. No need to type in FATE and press "ACCEPT". The game is that much easier.
@@ -7,6 +7,7 @@
 		- HelpMePlay will now communicate on the player's behalf with specific NPCs, reducing the amount of time you need to play the game.
 		- The Battle for Azeroth Adventure Maps are now automated. Click the maps once and the rest is history.
 		- The initial missions for unlocking the garrison are now automated. Click the Mission Table and watch as it closes on its own and your quest is completed. Do you even need to play?
+		- If you're richer than the Trade Prince himself, simply speak with a Riding trainer, and as long as you have twice the cost of the training, HelpMePlay will automatically purchase your mount training. I'm saving you at least 2 mouse clicks per character!
 	Bug Fixes:
 		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
 		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
