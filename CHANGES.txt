@@ -1,23 +1,27 @@
-1.0.1
-	New Stuff:
-		- HelpMePlay is no longer following the silent treatment when its slash command (hmp) is called. HelpMePlay will respond with available subcommands.
-		- Tired of always using left SHIFT to pause automations? Me too. HelpMePlay now supports the use of left CTRL, left SHIFT, left ALT, right CTRL, right SHIFT, and right ALT to pause its automations. It's completely MODular!
-		- When interacting with Fatescribe Roh-Tahl in Oribos upon departure from The Maw, HelpMePlay automatically selects Threads of Fate for the player. No need to type in FATE and press "ACCEPT". The game is that much easier.
-		- Fret not about choosing Chromie Time options, for HelpMePlay now automatically puts you in the Legion timeline if your character is level 49 or lower.
-		- HelpMePlay will now communicate on the player's behalf with specific NPCs, reducing the amount of time you need to play the game.
-		- The Battle for Azeroth Adventure Maps are now automated. Click the maps once and the rest is history.
-		- The initial missions for unlocking the garrison are now automated. Click the Mission Table and watch as it closes on its own and your quest is completed. Do you even need to play?
-		- If you're richer than the Trade Prince himself, simply speak with a Riding trainer, and as long as you have twice the cost of the training, HelpMePlay will automatically purchase your mount training. I'm saving you at least 2 mouse clicks per character!
-		- Always forgetting to fight for the Alliance or for the Horde? HelpMePlay, if eligible, will now automatically opt your character into War Mode!
+HelpMePlay | 1.0.1 | 2021-08-27
+	New Behaviors:
+		- The slash command (/hmp) now responds with available subcommands.
+		- Quest-related automations can now be paused using all modifier keys, both left and right.
+	New Features:
+		- The selection of Threads of Fate is automated.
+		- The selection of Legion Chromie Time is automated. (Applies to all characters level 49 or lower.)
+		- Many NPC dialog options are automated.
+		- The Battle for Azeroth War Campaign Adventure Map is automated. This feature includes the Adventure Map in The Great Seal and Boralus.
+			- Alliance: Vol'dun -> Nazmir -> Zuldazar (Boralus: Tiragarde Sound)
+			- Horde: Stormsong Valley -> Tiragarde Sound -> Drustvar (The Great Seal: Zuldazar)
+		- The initial mission on the Garrison Mission Table is automated.
+		- The purchase of all Riding is automated if the character has at least twice the cost of the training in gold.
+		- The player is opted into War Mode if they're at least level 20 and in Stormwind City or Orgrimmar.
 	Bug Fixes:
-		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
-		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
-		- Fixed an issue where incomplete quests took precedence over completed ones when submitting them. Some times you just want to complete a singular quest, am I right?
-		- Fixed an issue where quests were treated like yesterday's jam when the NPC also had a supported dialog option. No one wants to hear Shin Stonepillar's fable more than once, right?
-		- Fixed an issue that caused the modifier keys not to pause the quest automation when speaking with Trade Prince Gallywix on the boat in Zuldazar. We don't have time to invade the MOTHERLODE!!!
-	Roadmap:
-		- Localizing the addon to support more than English.
-		- Adding an options menu so players can opt in and out of the automations.
-		- Automate the selection of the Savage Fight Club in Gorgrond.
+		- Fixed an issue where the merchant window had to be open twice to purchase quest items if the merchant wasn't in the game's cache.
+		- Fixed an issue that prevented the 'thank' emote during the "The Games We Play" quest in Ardenweald.
+		- Fixed an issue that caused incomplete quests to take precedence over those that are complete.
+		- Fixed an issue where dialog options had priority over quests.
+		- Fixed an issue that prevented the pausing of the quest automations from taking effect when speaking with Gallywix on the boat in Zuldazar.
+	Feature Roadmap:
+		- Localize the addon to support more languages.
+		- Add an options panel for players to opt in and out of automations.
+		- Automate Flight Path selection where appropriate.
+	Automation Roadmap:
 		- Automate an Alliance route.
-		- Automate taking flight paths when appropriate.
+		- Automate the Savage Fight Club selection in Gorgrond. (Horde only!)
