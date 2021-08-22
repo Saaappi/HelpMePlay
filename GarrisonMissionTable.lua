@@ -4,6 +4,7 @@ local L = addonTable.L
 
 local supportedMissions = {
 	[2] 	= "Gronnlings Abound",
+	[66]	= "Killing the Corrupted",
 }
 
 e:RegisterEvent("GARRISON_MISSION_NPC_OPENED")
@@ -14,7 +15,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local missions = C_Garrison.GetAvailableMissions(1)
 			local faction = UnitFactionGroup("player")
 			if faction == "Alliance" then
-				-- TODO
+				for boardIndex, mission in pairs(missions) do
+					if supportedMissions[mission.missionID] then
+						if mission.inProgress == false then
+							-- Assigns Qiana Moonshadow to the Killing the Corrupted mission.
+							C_Garrison.AddFollowerToMission(mission.missionID, "TODO")
+							C_Garrison.StartMission(mission.missionID)
+							C_Garrison.CloseMissionNPC()
+						end
+					end
+				end
 			else
 				for boardIndex, mission in pairs(missions) do
 					if supportedMissions[mission.missionID] then
