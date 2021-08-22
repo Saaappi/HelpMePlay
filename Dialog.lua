@@ -191,6 +191,7 @@ local creatures = {
 	[98825] = { -- Spiritwalker Ebonhorn
 		["gossips"] = {
 			"Tell me the Story of Huln.",
+			"Tell me more of Huln Highmountain.",
 		},
 	},
 	[99745] = { -- Snazzle Shinyfinder
@@ -242,11 +243,6 @@ local creatures = {
 	[98773] = { -- Lasan Skyhorn
 		["gossips"] = {
 			"Yes!",
-		},
-	},
-	[98825] = { -- Spiritwalker Ebonhorn
-		["gossips"] = {
-			"Tell me more of Huln Highmountain."
 		},
 	},
 	[94434] = { -- Addie Fizzlebog
@@ -599,11 +595,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end)
 				end
 			end
-			C_Timer.After(0, function()
-				C_Timer.After(0.5, function()
-					
-				end)
-			end)
 		end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
