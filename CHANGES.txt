@@ -8,6 +8,7 @@
 		- The Battle for Azeroth Adventure Maps are now automated. Click the maps once and the rest is history.
 		- The initial missions for unlocking the garrison are now automated. Click the Mission Table and watch as it closes on its own and your quest is completed. Do you even need to play?
 		- If you're richer than the Trade Prince himself, simply speak with a Riding trainer, and as long as you have twice the cost of the training, HelpMePlay will automatically purchase your mount training. I'm saving you at least 2 mouse clicks per character!
+		- Always forgetting to fight for the Alliance or for the Horde? HelpMePlay, if eligible, will now automatically opt your character into War Mode!
 	Bug Fixes:
 		- Fixed an issue that caused HelpMePlay not to purchase quest items until the player spoke with the merchant a second time. That was annoying.
 		- Fixed an issue that caused HelpMePlay not to conduct the 'thank' emote during "The Games We Play" quest in Ardenweald. This is the last time that Playful Trickster tricks us into manually entering /thank in our chat boxes!
