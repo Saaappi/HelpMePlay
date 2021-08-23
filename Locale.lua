@@ -250,12 +250,12 @@ if (locale == "enGB" or locale == "enUS") then
 		L["Scout Captain Elsia 1"]													= ""
 		L["Taoshi 1"]																= ""
 		L["Taoshi 2"]																= ""
-		L["Garona Halforcen 1"]														= ""
-		L["Altar of the Daredevil 1"]												= ""
-		L["Altar of the Dark Imagination 1"]										= ""
-		L["Altar of the Pained 1"]													= ""
-		L["Altar of the Burned Bridge 1"]											= ""
-		L["Altar of the Long Night 1"]												= ""
+		L["Garona Halforcen 1"]														= "You have my aid. <Help Garona up>"
+		L["Altar of the Daredevil 1"]												= "Put on the Faceless Mask of the Daredevil."
+		L["Altar of the Dark Imagination 1"]										= "Put on the Faceless Mask of the Dark Imagination."
+		L["Altar of the Pained 1"]													= "Put on the Faceless Mask of the Pained."
+		L["Altar of the Burned Bridge 1"]											= "Put on the Faceless Mask of the Burned Bridge."
+		L["Altar of the Long Night 1"]												= "Put on the Faceless Mask of the Long Night."
 end
 
 if (isLocaleSupported == false) then

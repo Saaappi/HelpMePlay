@@ -521,32 +521,32 @@ local creatures = {
 	-- Instance: Horrific Visions
 	[152993] = { -- Garona Halforcen (Vision of Orgrimmar)
 		["gossips"] = {
-			"You have my aid. <Help Garona up>",
+			L["Garona Halforcen 1"],
 		},
 	},
 	[160998] = { -- Altar of the Daredevil
 		["gossips"] = {
-			"Put on the Faceless Mask of the Daredevil.",
+			L["Altar of the Daredevil 1"],
 		},
 	},
 	[160961] = { -- Altar of the Dark Imagination
 		["gossips"] = {
-			"Put on the Faceless Mask of the Dark Imagination.",
+			L["Altar of the Dark Imagination 1"],
 		},
 	},
 	[161000] = { -- Altar of the Pained
 		["gossips"] = {
-			"Put on the Faceless Mask of the Pained.",
+			L["Altar of the Pained 1"],
 		},
 	},
 	[160967] = { -- Altar of the Burned Bridge
 		["gossips"] = {
-			"Put on the Faceless Mask of the Burned Bridge.",
+			L["Altar of the Burned Bridge 1"],
 		},
 	},
 	[160999] = { -- Altar of the Long Night
 		["gossips"] = {
-			"Put on the Faceless Mask of the Long Night.",
+			L["Altar of the Long Night 1"],
 		},
 	},
 }
