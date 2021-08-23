@@ -242,72 +242,72 @@ local creatures = {
 	-- Broken Isles: Val'sharah
 	[92734] = { -- Penelope Heathrow
 		["gossips"] = {
-			"It's safe now.",
+			L["Penelope Heathrow 1"],
 		},
 	},
 	[94974] = { -- Sirius Ebonwing
 		["gossips"] = {
-			"Excuse me...",
+			L["Sirius Ebonwing 1"],
 		},
 	},
 	[94975] = { -- Asha Ravensong
 		["gossips"] = {
-			"Arduen sent me. You're free.",
+			L["Asha Ravensong 1"],
 		},
 	},
 	[94976] = { -- Cassiel Nightthorn
 		["gossips"] = {
-			"Be at peace.",
+			L["Cassiel Nightthorn 1"],
 		},
 	},
 	[104739] = { -- Tyrande Whisperwind
 		["gossips"] = {
-			"By my honor you will come to no harm, priestess.",
+			L["Tyrande Whisperwind 1"],
 		},
 	},
 	[108642] = { -- Keeper Remulos
 		["gossips"] = {
-			"Free Remulos from captivity.",
+			L["Keeper Remulos 1"],
 		},
 	},
 	-- Kul Tiras: Drustvar
 	[137613] = { -- Hobart Grapplehammer
 		["gossips"] = {
-			"Your friends were all tortured and killed by witches.",
-			"Sure.",
+			L["Hobart Grapplehammer 1"],
+			L["Hobart Grapplehammer 2"],
 		},
 	},
 	-- Kul Tiras: Stormsong Valley
 	[138137] = { -- Huelo
 		["gossips"] = {
-			"Pull the harpoon free.",
+			L["Huelo 1"],
 		},
 	},
 	-- Kul Tiras: Tiragarde Sound
 	[137675] = { -- Shadow Hunter Ty'jin
 		["gossips"] = {
-			"I'm ready to parley, Ty'jin.",
+			L["Shadow Hunter Ty'jin 1"],
 		},
 	},
 	[137798] = { -- Boatswain Taryn
 		["gossips"] = {
-			"Got some new orders from the captain for you, boatswain.",
+			L["Boatswain Taryn 1"],
 		},
 	},
 	[137800] = { -- Quartermaster Killian
 		["gossips"] = {
-			"We're saying no to the Ashvane.",
+			L["Quartermaster Killian 1"],
 		},
 	},
 	[137807] = { -- Navigator Swink
 		["gossips"] = {
-			"Orders from the captain, sir.",
+			L["Navigator Swink 1"],
 		},
 	},
 	-- Zandalar: Zuldazar
 	[135440] = { -- Princess Talanji
 		["gossips"] = {
-			"Take me to King Rastakhan.",
+			L["Princess Talanji 1"],
 		},
 	},
 	[135690] = { -- Dread-Admiral Tattersail
@@ -318,204 +318,204 @@ local creatures = {
 	-- Shadowlands: The Maw
 	[165918] = { -- Highlord Darion Mograine
 		["gossips"] = {
-			"Make it talk.",
+			L["Highlord Darion Mograine 1"],
 		},
 	},
 	[166980] = { -- Lady Jaina Proudmoore
 		["gossips"] = {
-			"Tell me about this place.",
-			"Tell me more of the Jailer.",
-			"What about the others who were taken?",
-			"<Lie low and observe.>",
+			L["Lady Jaina Proudmoore 1"],
+			L["Lady Jaina Proudmoore 2"],
+			L["Lady Jaina Proudmoore 3"],
+			L["Lady Jaina Proudmoore 4"],
 		}
 	},
 	-- Shadowlands: Oribos
 	[159478] = { -- Tal-Inara
 		["gossips"] = {
-			"Show me how I can help the Shadowlands.",
+			L["Tal-Inara 1"],
 		},
 	},
 	[164079] = { -- Highlord Bolvar Fordragon
 		["gossips"] = {
-			"Skip ahead to finish the Torghast chapter and have Torghast, Ve'nari, and the Runecarver unlocked.",
-			"Skip ahead to Korthia.",
+			L["Highlord Bolvar Fordragon 1"],
+			L["Highlord Bolvar Fordragon 2"],
 		},
 	},
 	[177136] = { -- Polemarch Adrestes
 		["gossips"] = {
-			"<Ask Adrestes what happened in Elysian Hold.>",
+			L["Polemarch Adrestes 1"],
 		},
 	},
 	-- Shadowlands: Bastion
 	[156327] = { -- Voitha
 		["gossips"] = {
-			"I will retrieve the scrolls.",
+			L["Voitha 1"],
 		},
 	},
 	[157696] = { -- Nemea
 		["gossips"] = {
-			"I choose the larion.",
+			L["Nemea 1"],
 		},
 	},
 	[158765] = { -- Pelodis
 		["gossips"] = {
-			"Everything is in place for the repair.",
+			L["Pelodis 1"],
 		},
 	},
 	[169027] = { -- Helpful Steward (for the fixes)
 		["gossips"] = {
-			"Can you help with this problem?",
+			L["Helpful Steward 1"],
 		},
 	},
 	[169078] = { -- Helpful Steward (to get them to follow you)
 		["gossips"] = {
-			"Can you help me with something?",
+			L["Helpful Steward 2"],
 		},
 	},
 	[172714] = { -- Trapped Caretaker
 		["gossips"] = {
-			"I've cleared a path for you. You should leave.",
+			L["Trapped Caretaker 1"],
 		},
 	},
 	-- Shadowlands: Maldraxxus
 	[159696] = { -- Rencissa the Dynamo
 		["gossips"] = {
-			"biggest rock",
+			L["Rencissa the Dynamo 1"],
 		},
 	},
 	[159827] = { -- Scrapper Minoire
 		["gossips"] = {
-			"Here are the enhancers you wanted.",
+			L["Scrapper Minoire 1"],
 		},
 	},
 	[160917] = { -- Grimshadow
 		["gossips"] = {
-			"<Ride Grimshadow.>",
+			L["Grimshadow 1"],
 		},
 	},
 	[161710] = { -- Marcel Mullby
 		["gossips"] = {
-			"I have some bloodtusk skulls for you.",
+			L["Marcel Mullby 1"],
 		},
 	},
 	[164492] = { -- Arena Spectator
 		["gossips"] = {
-			"Au'narim claims you owe her anima.",
+			L["Arena Spectator 1"],
 		},
 	},
 	[165966] = { -- Khaliiq
 		["gossips"] = {
-			"Hide me in the shadows, Khaliiq.",
+			L["Khaliiq 1"],
 		},
 	},
 	[166129] = { -- Specialist Entra
 		["gossips"] = {
-			"What should I do?",
+			L["Specialist Entra 1"],
 		},
 	},
 	[166657] = { -- Ta'eran
 		["gossips"] = {
-			"Tell me about this opportunity.",
+			L["Ta'eran 1"],
 		},
 	},
 	-- Shadowlands: Ardenweald
 	[158543] = { -- Attendant Sparkledew
 		["gossips"] = {
-			"Take me to the Queen's audience chamber, please.",
+			L["Attendant Sparkledew 1"],
 		},
 	},
 	[160121] = { -- Master Sha'lor
 		["gossips"] = {
-			"I need a flute.",
+			L["Master Sha'lor 1"],
 		},
 	},
 	[165550] = { -- Attendant Shimmerwing
 		["gossips"] = {
-			"I would like to leave the Queen's audience chamber, please.",
+			L["Attendant Shimmerwing 1"],
 		},
 	},
 	[169273] = { -- Silkstrider Caretaker
 		["gossips"] = {
-			"You're safe now.",
+			L["Silkstrider Caretaker 1"],
 		},
 	},
 	[172431] = { -- Lady Moonberry
 		["gossips"] = {
-			"Lead on.",
+			L["Lady Moonberry 1"],
 		},
 	},
 	-- Shadowlands: Revendreth
 	[159883] = { -- Chancellor Codrin
 		["gossips"] = {
-			"You stand accused of conspiring to overthrow The Countess.",
+			L["Chancellor Codrin 1"],
 		},
 	},
 	[159946] = { -- The Countess
 		["gossips"] = {
-			"House Darkvein",
+			L["The Countess 1"],
 		},
 	},
 	[160941] = { -- The Curator
 		["gossips"] = {
-			"What happened to the Medallion of Avarice?",
+			L["The Curator 1"],
 		},
 	},
 	[161056] = { -- Guard Captain Elizabeta
 		["gossips"] = {
-			"The Curator sent me. I'm looking for Watcher Emil.",
+			L["Guard Captain Elizabeta 1"],
 		},
 	},
 	[165662] = { -- The Countess
 		["gossips"] = {
-			"<Deliver Prince Renathal's invitation.>",
+			L["The Countess 2"],
 		},
 	},
 	[166541] = { -- Cobwobble
 		["gossips"] = {
-			"What are you all doing?",
+			L["Cobwobble 1"],
 		},
 	},
 	[166542] = { -- Slobwobble
 		["gossips"] = {
-			"Where does the Taskmaster keep the sinstones?",
+			L["Slobwobble 1"],
 		},
 	},
 	[166543] = { -- Dobwobble
 		["gossips"] = {
-			"Why are the ones with scribbles interesting?",
+			L["Dobwobble 1"],
 		},
 	},
 	[169238] = { -- Courier Araak
 		["gossips"] = {
-			"Dimwiddle sent me.",
+			L["Courier Araak 1"],
 		},
 	},
 	[169917] = { -- Avowed Ritualist
 		["gossips"] = {
-			"I have a soul for you.",
+			L["Avowed Ritualist 1"],
 		},
 	},
 	-- Instance: Mogu'shan Vaults
 	[61348] = { -- Lorewalker Cho
 		["gossips"] = {
-			"What are you waiting for? Let's go investigate!",
-			"Go ahead and turn this thing on.",
+			L["Lorewalker Cho 1"],
+			L["Lorewalker Cho 2"],
 		},
 	},
 	-- Instance: Isle of Thunder (Scenario)
 	[69565] = { -- Scout Captain Elsia
 		["gossips"] = {
-			"Here are the explosives, Elsia.",
+			L["Scout Captain Elsia 1"],
 		},
 	},
 	[69810] = { -- Taoshi
 		["gossips"] = {
-			"Alright. Let's go.",
+			L["Taoshi 1"],
 		},
 	},
 	[70297] = { -- Taoshi
 		["gossips"] = {
-			"I'm with you. Let's break into that shipyard! [Queue for solo instance.]",
+			L["Taoshi 2"],
 		},
 	},
 	-- Instance: Horrific Visions
