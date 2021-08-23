@@ -33,221 +33,210 @@ local creatures = {
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane
 		["gossips"] = {
-			"What does the Light wish of me?",
-			"I will do my best to serve the Light. I swear to it.",
+			L["Daelya Twilightsbane 1"],
+			L["Daelya Twilightsbane 2"],
 		},
 	},
 	[167298] = { -- Herbert Gloomburst
 		["gossips"] = {
-			"I'll fight the harpies that come.",
+			L["Herbert Gloomburst 1"],
 		},
 	},
 	[167663] = { -- Warlord Breka Grimaxe
 		["gossips"] = {
-			"Let's get out of the citadel and figure out how to get back home.",
+			L["Warlord Breka Grimaxe 1"],
 		},
 	},
 	-- Eastern Kingdoms: Blasted Lands
 	[78423] = { -- Archmage Khadgar
 		["gossips"] = {
-			"FOR AZEROTH!",
+			L["Archmage Khadgar 1"],
 		},
 	},
 	-- Eastern Kingdoms: Hillsbrad Foothills
 	[47442] = { -- Johnny Awesome
 		["gossips"] = {
-			"Well, we are having some problems at the Sludge Fields, located northeast of here. Warden Stillwater could use your help.",
-			"That's all.",
-			"THAT'S ALL, JOHNNY AWESOME. TAKE IT OR LEAVE IT!",
+			L["Johnny Awesome 1"],
+			L["Johnny Awesome 2"],
+			L["Johnny Awesome 3"],
 		},
 	},
 	[47443] = { -- Kingslayer Orkus
 		["gossips"] = {
-			"Um... Apparently there is some trouble at Southshore. Something about worgen insurgents. Maybe you could help with them?",
-			"None.",
-			"Right, thanks. Just go ahead and head southeast. More south than east. Probably off the coast.",
+			L["Kingslayer Orkus 1"],
+			L["Kingslayer Orkus 2"],
+			L["Kingslayer Orkus 3"],
 		},
 	},
 	[47444] = { -- Dumass
 		["gossips"] = {
-			"Maybe you should go take a nap or something.",
-			"Wait a minute. It looks like something just came up.",
+			L["Dumass 1"],
+			L["Dumass 2"],
 		},
 	},
 	[48218] = { -- Kingslayer Orkus
 		["gossips"] = {
-			"Your feet are touching the ground, Orkus.",
+			L["Kingslayer Orkus 4"]
 		},
 	},
 	-- Eastern Kingdoms: Silverpine Forest
 	[44825] = { -- Bat Handler Maggotbreath
 		["gossips"] = {
-			"I need to take a bat to the Dawning Isles.",
+			L["Bat Handler Maggotbreath 1"],
 		},
 	},
 	[45752] = { -- Ambermill Dimensional Portal
 		["gossips"] = {
-			"<Use the Ambermill Dimensional Portal.>",
+			L["Ambermill Dimensional Portal 1"],
 		},
 	},
 	-- Eastern Kingdoms: Stormwind City
 	[149626] = { -- Vanguard Battlemage (Alliance)
 		["gossips"] = {
-			"I must help Khadgar. Send me to the Blasted Lands!",
+			L["Vanguard Battlemage 1"],
 		},
 	},
 	-- Eastern Kingdoms: Tirisfal Glades
 	[141488] = { -- Zidormi
 		["gossips"] = {
-			"Can you show me what Tirisfal Glades was like before the Battle for Lordaeron?",
+			L["Zidormi 1"],
 		},
 	},
 	-- Kalimdor: Durotar
-	[4311] = {
+	[4311] = { -- Holgar Stormaxe
 		["gossips"] = {
-			"I've heard this tale before...",
+			L["Holgar Stormaxe 1"],
 		},
 		["confirms"] = {
-			"Are you sure you want to skip the Broken Shore introduction?",
-		},
-	},
-	[39380] = { -- Shin Stonepillar
-		["gossips"] = {
-			"Can you tell me your fable, Shin?",
+			L["Holgar Stormaxe 2"],
 		},
 	},
 	-- Kalimdor: Orgrimmar
 	[135205] = { -- Nathanos Blightcaller
 		["gossips"] = {
-			"I have heard this story before.",
+			L["Nathanos Blightcaller 1"],
 		}
 	},
 	[167032] = { -- Chromie
 		["gossips"] = {
-			"Select a timeline.",
-			"Select a different timeline.",
+			L["Chromie 1"],
+			L["Chromie 2"],
 		}
 	},
 	[168431] = { -- Warlord Breka Grimaxe
 		["gossips"] = {
-			"I know my way around Orgrimmar.",
+			L["Warlord Breka Grimaxe 2"],
 		},
 	},
 	[171791] = { -- Nazgrim
 		["gossips"] = {
-			"Tell me what happened.",
+			L["Nazgrim 1"],
 		}
-	},
-	-- Draenor: Tanaan Jungle (Invasion)
-	[78568] = { -- Thaelin Darkanvil
-		["gossips"] = {
-			"Yes. I need you to help me operate that enormous tank.",
-		},
 	},
 	-- Draenor: Garrison (Alliance)
 	[79243] = { -- Baros Alexston
 		["gossips"] = {
-			"We have everything we need. It's time to build the garrison.",
+			L["Baros Alexston 1"],
 		},
 	},
 	[84455] = { -- Assistant Brightstone
 		["gossips"] = {
-			"Time to get back to work.",
+			L["Assistant Brightstone 1"],
 		},
 	},
 	[81441] = { -- Shelly Hamby
 		["gossips"] = {
-			"Gather Shelly's report.",
+			L["Shelly Hamby 1"],
 		},
 	},
 	-- Draenor: Garrison (Horde)
 	[80225] = { -- Skaggit
 		["gossips"] = {
-			"Get the peons back to work.",
+			L["Skaggit 1"],
 		},
 	},
 	[86775] = { -- Senior Peon II
 		["gossips"] = {
-			"Gazlowe needs you.",
+			L["Senior Peon II 1"],
 		},
 	},
 	[88228] = { -- Sergeant Grimjaw
 		["gossips"] = {
-			"Prepare to battle the Gorens.",
+			L["Sergeant Grimjaw 1"],
 		},
 	},
 	-- Draenor: Shadowmoon Valley
 	[72871] = { -- All-Seeing Eye
 		["gossips"] = {
-			"Begin the compulsion of the All-Seeing Eye.",
+			L["All-Seeing Eye 1"],
 		},
 	},
 	[78556] = { -- Ariok
 		["gossips"] = {
-			"Khadgar has asked us to go distract the Eye of Kilrogg.",
+			L["Ariok 1"],
 		},
 	},
 	-- Broken Isles: Highmountain
 	[98825] = { -- Spiritwalker Ebonhorn
 		["gossips"] = {
-			"Tell me the Story of Huln.",
-			"Tell me more of Huln Highmountain.",
+			L["Spiritwalker Ebonhorn 1"],
+			L["Spiritwalker Ebonhorn 2"],
 		},
 	},
 	[99745] = { -- Snazzle Shinyfinder
 		["gossips"] = {
-			"Go find shiny!",
+			L["Snazzle Shinyfinder 1"],
 		},
 	},
 	[99746] = { -- Trytooth Hardchisel
 		["gossips"] = {
-			"You kill basilisk!",
+			L["Trytooth Hardchisel 1"],
 		},
 	},
 	[99747] = { -- Kindle Candlecrafter
 		["gossips"] = {
-			"Make big candle! Lots of wax!",
+			L["Kindle Candlecrafter 1"],
 		},
 	},
 	[99748] = { -- Dug Digger
 		["gossips"] = {
-			"Dig rocks, find pretties!",
+			L["Dug Digger 1"],
 		},
 	},
 	[99781] = { -- Snazzle Shinyfinder
 		["gossips"] = {
-			"You keep one. I keep rest.",
+			L["Snazzle Shinyfinder 2"],
 		},
 	},
 	[99782] = { -- Trytooth Hardchisel
 		["gossips"] = {
-			"Best kill job me seen!",
-			"Give Trytooth the boot.",
+			L["Trytooth Hardchisel 2"],
+			L["Trytooth Hardchisel 3"],
 		},
 	},
 	[99784] = { -- Kindle Candlecrafter
 		["gossips"] = {
-			"Me think me have just the right touch...",
+			L["Kindle Candlecrafter 2"],
 		},
 	},
 	[95403] = { -- Windmaster Julan
 		["gossips"] = {
-			"Take the Windmaster's Totem.",
+			L["Windmaster Julan 1"],
 		},
 	},
 	[96286] = { -- Navarrogg
 		["gossips"] = {
-			"Let's get out of here!",
+			L["Navarrogg 1"],
 		},
 	},
 	[98773] = { -- Lasan Skyhorn
 		["gossips"] = {
-			"Yes!",
+			L["Yes!"],
 		},
 	},
 	[94434] = { -- Addie Fizzlebog
 		["gossips"] = {
-			"Let's go hunting!",
+			L["Addie Fizzlebog 1"],
 		},
 	},
 	-- Broken Isles: Val'sharah
