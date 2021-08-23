@@ -312,7 +312,7 @@ local creatures = {
 	},
 	[135690] = { -- Dread-Admiral Tattersail
 		["gossips"] = {
-			"Quest",
+			L["Quest"],
 		},
 	},
 	-- Shadowlands: The Maw
