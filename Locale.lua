@@ -151,6 +151,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Daelya Twilightsbane 1"]													= "What does the Light wish of me?"
 	L["Daelya Twilightsbane 2"]													= "I will do my best to serve the Light. I swear to it."
 	L["Herbert Gloomburst 1"]													= "I'll fight the harpies that come."
+	L["Herbert Gloomburst 2"]													= "Herbert, do you have an ice mote I can use?"
 	L["Warlord Breka Grimaxe 1"]												= "Let's get out of the citadel and figure out how to get back home."
 	L["Warlord Breka Grimaxe 2"]												= "I know my way around Orgrimmar."
 	L["Archmage Khadgar 1"]														= "FOR AZEROTH!"

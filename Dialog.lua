@@ -42,6 +42,11 @@ local creatures = {
 			L["Herbert Gloomburst 1"],
 		},
 	},
+	[167309] = { -- Herbert Gloomburst
+		["gossips"] = {
+			L["Herbert Gloomburst 2"],
+		},
+	},
 	[167663] = { -- Warlord Breka Grimaxe
 		["gossips"] = {
 			L["Warlord Breka Grimaxe 1"],
