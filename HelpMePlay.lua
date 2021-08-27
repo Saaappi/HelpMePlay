@@ -140,6 +140,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 				CompleteQuest()
 			end)
 		end)
+		C_Timer.After(0, function()
+			C_Timer.After(2, function()
+				if QuestFrame:IsVisible() then
+					QuestFrame:Hide()
+				end
+			end)
+		end)
 	end
 	if event == "QUEST_DETAIL" then
 		if IsModifierKeyDown() then return end

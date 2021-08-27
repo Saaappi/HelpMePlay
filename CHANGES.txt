@@ -19,6 +19,7 @@ HelpMePlay | 1.0.1 | 2021-08-27
 		- Fixed an issue where dialog options had priority over quests.
 		- Fixed an issue that prevented the pausing of the quest automations from taking effect when speaking with Gallywix on the boat in Zuldazar.
 		- Fixed an issue for moments when a GUID wasn't available and dialog options were shown. (Fixes the gate to Ravencrest Cemetary in the Darkpens of Val'sharah.)
+		- Fixed an issue where the Quest Complete window would sometimes remain open. This was particularly noticable after interacting with Rexxar in Stormsong Valley to champion him.
 	Feature Roadmap:
 		- Localize the addon to support more languages.
 		- Add an options panel for players to opt in and out of automations.
