@@ -23,6 +23,9 @@ MountTraining.lua
 # Automates the garrison mission table.
 GarrisonMissionTable.lua
 
+# Automates the garrison architect table.
+GarrisonArchitectTable.lua
+
 # Automates placing the player into War Mode.
 WarMode.lua
 

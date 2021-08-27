@@ -13,6 +13,7 @@ HelpMePlay | 1.0.1 | 2021-08-27
 		- The purchase of all Riding is automated if the character has at least twice the cost of the training in gold.
 		- The player is opted into War Mode if they're at least level 20 and in Stormwind City or Orgrimmar.
 		- The selection of Tanaan Jungle from the Hero's Call Board is now automated.
+		- The Barracks in the Garrison are automatically plotted.
 	Bug Fixes:
 		- Fixed an issue where the merchant window had to be open twice to purchase quest items if the merchant wasn't in the game's cache.
 		- Fixed an issue that prevented the 'thank' emote during the "The Games We Play" quest in Ardenweald.
