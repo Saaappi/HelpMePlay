@@ -20,6 +20,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 					HideUIPanel(PlayerChoiceFrame)
 				end
+			elseif mapId == 543 then
+				-- Player is in Gorgrond.
+				local faction = UnitFactionGroup("player")
+				if faction == "Alliance" then
+				
+				else
+					local choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2) -- Savage Fight Club
+					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+					HideUIPanel(PlayerChoiceFrame)
+				end
 			end
 		end
 	end

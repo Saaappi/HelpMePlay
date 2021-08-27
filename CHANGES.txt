@@ -14,6 +14,7 @@ HelpMePlay | 1.0.1 | 2021-08-27
 		- The player is opted into War Mode if they're at least level 20 and in Stormwind City or Orgrimmar.
 		- The selection of Tanaan Jungle from the Hero's Call Board is now automated.
 		- The Barracks in the Garrison are automatically plotted. (Only applies to Level 1 garrisons.)
+		- The Savage Fight Club is automatically chosen as the command post in Gorgrond.
 	Bug Fixes:
 		- Fixed an issue where the merchant window had to be open twice to purchase quest items if the merchant wasn't in the game's cache.
 		- Fixed an issue that prevented the 'thank' emote during the "The Games We Play" quest in Ardenweald.
@@ -25,7 +26,6 @@ HelpMePlay | 1.0.1 | 2021-08-27
 	Feature Roadmap:
 		- Localize the addon to support more languages.
 		- Add an options panel for players to opt in and out of automations.
-		- Automate Flight Path selection where appropriate.
 	Automation Roadmap:
 		- Automate an Alliance route.
-		- Automate the Savage Fight Club selection in Gorgrond. (Horde only!)
+		- Automate Flight Path selection where appropriate.
