@@ -3,6 +3,7 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 
 local delay = 0.1
+local longerDelay = 2.75
 
 -- Functions
 local function Max(tbl)
@@ -141,7 +142,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end)
 		end)
 		C_Timer.After(0, function()
-			C_Timer.After(2, function()
+			C_Timer.After(longerDelay, function()
 				if QuestFrame:IsVisible() then
 					QuestFrame:Hide()
 				end
