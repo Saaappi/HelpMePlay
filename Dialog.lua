@@ -592,9 +592,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		local gossipOptions = C_GossipInfo.GetOptions()
 		if unitGUID then
 			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
-			local gossipOptions = C_GossipInfo.GetOptions()
 			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
 				for i = 1, 2 do
 					for j = 1, #creatures[i]["gossips"] do
@@ -609,6 +609,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["gossips"][i])) then
 								C_GossipInfo.SelectOption(index)
 							end
+						end
+					end
+				end
+			end
+		else
+			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
+				for i = 1, 2 do
+					for j = 1, #creatures[i]["gossips"] do
+						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
+							C_GossipInfo.SelectOption(index)
 						end
 					end
 				end
