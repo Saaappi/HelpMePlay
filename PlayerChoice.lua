@@ -10,6 +10,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local mapId = C_Map.GetBestMapForUnit("player")
 			if mapId == 1670 then
 				-- Player is in Oribos
+				if IsModifierKeyDown() then return end
 				local choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
 				SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 				HideUIPanel(PlayerChoiceFrame)

@@ -1,5 +1,6 @@
 HelpMePlay | 1.0.2
 	New Behaviors:
+		- Players can now hold any modifier key to prevent the automated selection of Threads of Fate.
 	New Features:
 		- Tanaan Jungle is now more reliably selected from the Hero's Call Board for the Alliance.
 	Bug Fixes:
