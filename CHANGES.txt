@@ -1,5 +1,5 @@
 HelpMePlay | 1.0.2
 	New Behaviors:
 	New Features:
-		- Tanaan Jungle is now automatically selected from the Hero's Call Board for Alliance.
+		- Tanaan Jungle is now more reliably selected from the Hero's Call Board for the Alliance.
 	Bug Fixes:
