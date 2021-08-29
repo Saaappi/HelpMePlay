@@ -13,12 +13,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
 				SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 				HideUIPanel(PlayerChoiceFrame)
-			elseif mapId == 85 or mapId == 86 then
+			elseif mapId == 84 or mapId == 85 then
 				-- Player is in Orgrimmar or Stormwind City.
-				local choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Enter the Dark Portal (Hopefully?)
-				if choiceOptionInfo.choiceArtID == 1851147 then -- This is the Dark Portal option for Draenor
-					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
+				local choiceOptionInfo = ""
+				for i = 1, 3 do
+					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
+					if choiceOptionInfo.choiceArtID == 1851147 then -- This is the Dark Portal option for Draenor
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[i].id)
+						HideUIPanel(PlayerChoiceFrame)
+						break
+					end
 				end
 			elseif mapId == 543 then
 				-- Player is in Gorgrond.
