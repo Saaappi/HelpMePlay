@@ -7,3 +7,4 @@ HelpMePlay | 1.0.2
 		- Only players below level 50 are now considered eligible for War Mode automation.
 	Bug Fixes:
 		- Fixed an issue where Alliance players weren't reliably opted in to War Mode.
+		- Fixed an issue where Alliance players were opted out of War Mode automatically.
