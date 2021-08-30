@@ -1,6 +1,8 @@
 HelpMePlay | 1.0.2
 	New Behaviors:
 		- Players can now hold any modifier key to prevent the automated selection of Threads of Fate.
-		- Tanaan Jungle is now more reliably selected from the Hero's Call Board for the Alliance.
 	New Features:
+	Changes:
+		- Tanaan Jungle is now more reliably selected from the Hero's Call Board for the Alliance.
+		- Only players below level 50 are now considered eligible for War Mode automation.
 	Bug Fixes:
