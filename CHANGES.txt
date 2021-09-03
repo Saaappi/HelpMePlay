@@ -5,8 +5,10 @@ HelpMePlay | 1.0.2
 	Changes:
 		- Tanaan Jungle is now more reliably selected from the Hero's Call Board for the Alliance.
 		- Only players below level 50 are now considered eligible for War Mode automation.
+	Dialogs:
+		- Added a dialog option for Thaelin Darkanvil during the Tanaan Jungle invasion scenario.
+		- Generalized the dialog for the Broken Shore skip. Now both factions will skip onward to new Dalaran.
 	Fixes:
 		- Fixed an issue where Alliance players weren't reliably opted in to War Mode.
 		- Fixed an issue where Alliance players were opted out of War Mode automatically.
 		- Fixed the confirmation with Khadgar in the Blasted Lands to start the Tanaan Jungle invasion scenario.
-		- Fixed the dialog with Thaelin Darkanvil during the Tanaan Jungle invasion scenario.
