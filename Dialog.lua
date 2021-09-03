@@ -23,6 +23,7 @@ local creatures = {
 			L["<Reach inside and pull out something that feels more like a building.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			L["Begin pet battle."],
 			L["Let's do battle!"],
+			L["I've heard this tale before..."],
 		}
 	},
 	[2] = { -- NPCs with Cost
@@ -99,6 +100,14 @@ local creatures = {
 		},
 	},
 	-- Eastern Kingdoms: Stormwind City
+	[107934] = { -- Recruiter Lee
+		["gossips"] = {
+			L["I've heard this tale before..."],
+		},
+		["confirms"] = {
+			L["Are you sure you want to skip the Broken Shore introduction?"],
+		},
+	},
 	[149626] = { -- Vanguard Battlemage (Alliance)
 		["gossips"] = {
 			L["Vanguard Battlemage 1"],
@@ -113,10 +122,10 @@ local creatures = {
 	-- Kalimdor: Durotar
 	[4311] = { -- Holgar Stormaxe
 		["gossips"] = {
-			L["Holgar Stormaxe 1"],
+			L["I've heard this tale before..."],
 		},
 		["confirms"] = {
-			L["Holgar Stormaxe 2"],
+			L["Are you sure you want to skip the Broken Shore introduction?"],
 		},
 	},
 	-- Kalimdor: Orgrimmar
