@@ -57,6 +57,9 @@ local creatures = {
 		["gossips"] = {
 			L["Archmage Khadgar 1"],
 		},
+		["confirms"] = {
+			L["Archmage Khadgar 2"],
+		},
 	},
 	-- Eastern Kingdoms: Hillsbrad Foothills
 	[47442] = { -- Johnny Awesome
@@ -152,6 +155,12 @@ local creatures = {
 	[81441] = { -- Shelly Hamby
 		["gossips"] = {
 			L["Shelly Hamby 1"],
+		},
+	},
+	-- Draenor: Tanaan Jungle
+	[78568] = { -- Thaelin Darkanvil
+		["gossips"] = {
+			L["Thaelin Darkanvil 1"],
 		},
 	},
 	-- Draenor: Garrison (Horde)
