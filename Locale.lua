@@ -202,6 +202,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Asha Ravensong 1"]														= "Arduen sent me. You're free."
 	L["Cassiel Nightthorn 1"]													= "Be at peace."
 	L["Tyrande Whisperwind 1"]													= "By my honor you will come to no harm, priestess."
+	L["Tyrande Whisperwind 2"]													= "Yes, Tyrande."
 	L["Keeper Remulos 1"]														= "Free Remulos from captivity."
 	L["Hobart Grapplehammer 1"]													= "Your friends were all tortured and killed by witches."
 	L["Hobart Grapplehammer 2"]													= "Sure."

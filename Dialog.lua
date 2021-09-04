@@ -286,6 +286,7 @@ local creatures = {
 	[104739] = { -- Tyrande Whisperwind
 		["gossips"] = {
 			L["Tyrande Whisperwind 1"],
+			L["Tyrande Whisperwind 2"],
 		},
 	},
 	[108642] = { -- Keeper Remulos
