@@ -29,7 +29,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- Player is in Gorgrond.
 				local faction = UnitFactionGroup("player")
 				if faction == "Alliance" then
-				
+					-- TODO
 				else
 					local choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2) -- Savage Fight Club
 					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)

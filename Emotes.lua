@@ -16,9 +16,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		local guid = UnitGUID("target")
 		if guid then
-			local _, _, _, _, _, creatureID = strsplit("-", guid); creatureID = tonumber(creatureID)
+			local _, _, _, _, _, npcID = strsplit("-", guid); npcID = tonumber(npcID)
 			for id, emote in pairs(creatures) do
-				if id == creatureID then
+				if id == npcID then
 					DoEmote(emote, nil)
 				end
 			end

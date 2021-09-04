@@ -4,6 +4,7 @@ local L = addonTable.L
 
 e:RegisterEvent("ADVENTURE_MAP_OPEN")
 
+-- TODO (Alliance)
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
 		local mapID = C_AdventureMap.GetMapID()

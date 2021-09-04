@@ -7,6 +7,8 @@ HelpMePlay | 1.0.2
 	Changes:
 		- Only players below level 50 are now considered eligible for War Mode automation.
 		- Generalized the dialog for the Broken Shore skip. Now both factions will skip onward to new Dalaran.
+		- When the quest frame is froze open, it should rely more on the Complete button instead of the frame itself.
+			- This addresses the issue of the quest frame closing prematurely after an internal timer expires.
 	Fixes:
 		- Tanaan Jungle is now more reliably selected from the Hero's Call Board for the Alliance.
 		- Fixed an issue where Alliance players weren't reliably opted in to War Mode.
