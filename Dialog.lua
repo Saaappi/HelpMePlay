@@ -345,6 +345,12 @@ local creatures = {
 			L["Captured Zandalari Troll 1"],
 		},
 	},
+	-- Zandalar: Vol'dun
+	[137559] = { -- Private James
+		["gossips"] = {
+			L["Private James 1"],
+		},
+	},
 	-- Kul Tiras: Boralus
 	[122370] = { -- Cyrus Crestfall
 		["gossips"] = {

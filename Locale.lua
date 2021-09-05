@@ -217,6 +217,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["7th Legion Magus 1"]														= "The local authority has given us permission to open portals here."
 	L["Halford Wyrmbane 1"]														= "What's your plan, High Commander?"
 	L["Captured Zandalari Troll 1"]												= "Tell us everything, Zandalari."
+	L["Private James 1"]														= "Is there anything in your pockets?"
 	L["Highlord Darion Mograine 1"]												= "Make it talk."
 	L["Lady Jaina Proudmoore 1"]												= "Tell me about this place."
 	L["Lady Jaina Proudmoore 2"]												= "Tell me more of the Jailer."
