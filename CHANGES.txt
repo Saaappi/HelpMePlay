@@ -10,9 +10,11 @@ HelpMePlay | 1.0.2
 		- Added a dialog option for the Captured Zandalari Troll in Zuldazar (Alliance).
 		- Added a dialog option for the NPCs that return the player to Boralus.
 		- Added a dialog option for Private James in Vol'dun.
+		- Added a dialog option for the Rangari NPCs in Gorgrond.
 		- Added automation for the selection of Tiragarde Sound in Boralus.
 		- Added automation for the Zandalar War Campaign (Alliance).
 		- Automated the confirmation for Khadgar in the Blasted Lands.
+		- Automated the selection of the Highpass Sparring Ring (Alliance) in Gorgrond.
 	Changes:
 		- Only players below level 50 are now considered eligible for War Mode automation.
 		- Generalized the dialog for the Broken Shore skip. Now both factions will skip onward to new Dalaran.

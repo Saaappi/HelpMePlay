@@ -151,6 +151,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Quest"]																	= "Quest"
 	L["I've heard this tale before..."]											= "I've heard this tale before..."
 	L["Are you sure you want to skip the Broken Shore introduction?"]			= "Are you sure you want to skip the Broken Shore introduction?"
+	L["D'kaan is coming with help."]											= "D'kaan is coming with help."
 	L["Daelya Twilightsbane 1"]													= "What does the Light wish of me?"
 	L["Daelya Twilightsbane 2"]													= "I will do my best to serve the Light. I swear to it."
 	L["Herbert Gloomburst 1"]													= "I'll fight the harpies that come."

@@ -22,9 +22,10 @@ local creatures = {
 			L["Take us back to Boralus."], -- Added from Quest: Return to Boralus (Zuldazar)
 			L["<Reach inside and pull something out.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			L["<Reach inside and pull out something that feels more like a building.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
+			L["D'kaan is coming with help."], -- Added from Quest: Rescue Rangari (Gorgrond)
+			L["I've heard this tale before..."], -- Added from Quest: ??? (Stormwind City/Orgrimmar)
 			L["Begin pet battle."],
 			L["Let's do battle!"],
-			L["I've heard this tale before..."],
 		}
 	},
 	[2] = { -- NPCs with Cost
