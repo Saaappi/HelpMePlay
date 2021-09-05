@@ -7,6 +7,7 @@ HelpMePlay | 1.0.2
 		- Added a dialog option for the 7th Legion Magus in Boralus.
 		- Added a dialog option for Grand Admiral Jes-Tereth in Boralus.
 		- Added a dialog option for the Captured Zandalari Troll in Zuldazar (Alliance).
+		- Added a dialog option for the NPCs that return the player to Boralus.
 		- Added automation for the selection of Tiragarde Sound in Boralus.
 		- Added automation for the Zandalar War Campaign (Alliance).
 		- Automated the confirmation for Khadgar in the Blasted Lands.

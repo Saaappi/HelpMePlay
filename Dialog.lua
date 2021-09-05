@@ -19,6 +19,7 @@ local creatures = {
 			L["I am ready."], -- Added from Quest: Cenarius, Keeper of the Grove (Val'sharah)
 			L["Leave the Darkpens."], -- Added from Quest: Lieutenant of the Tower (Val'sharah)
 			L["Take us back to Zuldazar."], -- Added from Quest: Return to Zuldazar (Stormsong Valley)
+			L["Take us back to Boralus."], -- Added from Quest: Return to Boralus (Zuldazar)
 			L["<Reach inside and pull something out.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			L["<Reach inside and pull out something that feels more like a building.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			L["Begin pet battle."],

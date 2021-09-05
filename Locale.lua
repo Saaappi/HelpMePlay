@@ -140,6 +140,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Let's duel."]															= "Let's duel."
 	L["I am ready."]															= "I am ready."
 	L["Leave the Darkpens."]													= "Leave the Darkpens."
+	L["Take us back to Boralus."]												= "Take us back to Boralus."
 	L["Take us back to Zuldazar."]												= "Take us back to Zuldazar."
 	L["<Reach inside and pull something out.>"] 								= "<Reach inside and pull something out.>"
 	L["<Reach inside and pull out something that feels more like a building.>"] = "<Reach inside and pull out something that feels more like a building.>"
