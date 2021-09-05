@@ -9,6 +9,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local faction = UnitFactionGroup("player")
 		local mapId = C_AdventureMap.GetMapID()
 		if mapId == 1011 then -- Zandalar
+			-- This map ID is used for both the Alliance map for footholds
+			-- and for the Horde zone map.
 			if faction == "Alliance" then
 				if C_QuestLog.IsQuestFlaggedCompleted(51570) == false then
 					C_AdventureMap.StartQuest(51570) -- Foothold: Zuldazar

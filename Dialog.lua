@@ -339,6 +339,11 @@ local creatures = {
 			L["Quest"],
 		},
 	},
+	[143690] = { -- Captured Zandalari Troll
+		["gossips"] = {
+			L["Captured Zandalari Troll 1"],
+		},
+	},
 	-- Kul Tiras: Boralus
 	[122370] = { -- Cyrus Crestfall
 		["gossips"] = {
@@ -353,6 +358,11 @@ local creatures = {
 	[135612] = { -- Halford Wyrmbane
 		["gossips"] = {
 			L["Halford Wyrmbane 1"],
+		},
+	},
+	[135681] = { -- Grand Admiral Jes-Tereth
+		["gossips"] = {
+			L["Quest"],
 		},
 	},
 	-- Shadowlands: The Maw
