@@ -5,6 +5,7 @@ HelpMePlay | 1.0.2
 		- Added a dialog option for Tyrande Whisperwind in Val'sharah (Alliance).
 		- Added a dialog option for Cyrus Crestfall in Boralus.
 		- Added a dialog option for the 7th Legion Magus in Boralus.
+		- Added a dialog option for Halford Wyrmbane in Boralus.
 		- Added a dialog option for Grand Admiral Jes-Tereth in Boralus.
 		- Added a dialog option for the Captured Zandalari Troll in Zuldazar (Alliance).
 		- Added a dialog option for the NPCs that return the player to Boralus.
