@@ -3,6 +3,10 @@ HelpMePlay | 1.0.2
 		- Players can now hold any modifier key to prevent the automated selection of Threads of Fate.
 		- Added a dialog option for Thaelin Darkanvil during the Tanaan Jungle invasion scenario.
 		- Added a dialog option for Tyrande Whisperwind in Val'sharah (Alliance).
+		- Added a dialog option for Cyrus Crestfall in Boralus.
+		- Added a dialog option for the 7th Legion Magus in Boralus.
+		- Added automation for the selection of Tiragarde Sound in Boralus.
+		- Added automation for the Zandalar War Campaign (Alliance).
 		- Automated the confirmation for Khadgar in the Blasted Lands.
 	Changes:
 		- Only players below level 50 are now considered eligible for War Mode automation.

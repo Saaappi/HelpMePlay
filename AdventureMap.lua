@@ -4,19 +4,35 @@ local L = addonTable.L
 
 e:RegisterEvent("ADVENTURE_MAP_OPEN")
 
--- TODO (Alliance)
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
-		local mapID = C_AdventureMap.GetMapID()
-		if mapID == 1011 then -- Zandalar (The Great Seal)
-			C_AdventureMap.StartQuest(47514) -- Zuldazar
-		elseif mapID == 1014 then -- Kul Tiras (The Banshee's Wail)
-			if C_QuestLog.IsQuestFlaggedCompleted(51802) == false then
-				C_AdventureMap.StartQuest(51802) -- Foothold: Stormsong Valley
-			elseif C_QuestLog.IsQuestFlaggedCompleted(51800) == false then
-				C_AdventureMap.StartQuest(51800) -- Foothold: Tiragarde Sound
+		local faction = UnitFactionGroup("player")
+		local mapId = C_AdventureMap.GetMapID()
+		if mapId == 1011 then -- Zandalar
+			if faction == "Alliance" then
+				if C_QuestLog.IsQuestFlaggedCompleted(51570) == false then
+					C_AdventureMap.StartQuest(51570) -- Foothold: Zuldazar
+				elseif C_QuestLog.IsQuestFlaggedCompleted(51571) == false then
+					C_AdventureMap.StartQuest(51571) -- Foothold: Nazmir
+				else
+					C_AdventureMap.StartQuest(51572) -- Foothold: Vol'dun
+				end
 			else
-				C_AdventureMap.StartQuest(51801) -- Foothold: Drustvar
+				C_AdventureMap.StartQuest(47514) -- Zuldazar
+			end
+		elseif mapId == 1014 then -- Kul Tiras
+			-- This map ID is used for both the Horde map for footholds
+			-- and for the Alliance zone map.
+			if faction == "Alliance" then
+				C_AdventureMap.StartQuest(47960) -- Tiragarde Sound
+			else
+				if C_QuestLog.IsQuestFlaggedCompleted(51802) == false then
+					C_AdventureMap.StartQuest(51802) -- Foothold: Stormsong Valley
+				elseif C_QuestLog.IsQuestFlaggedCompleted(51800) == false then
+					C_AdventureMap.StartQuest(51800) -- Foothold: Tiragarde Sound
+				else
+					C_AdventureMap.StartQuest(51801) -- Foothold: Drustvar
+				end
 			end
 		end
 	end

@@ -339,6 +339,22 @@ local creatures = {
 			L["Quest"],
 		},
 	},
+	-- Kul Tiras: Boralus
+	[122370] = { -- Cyrus Crestfall
+		["gossips"] = {
+			L["Cyrus Crestfall 1"],
+		},
+	},
+	[137066] = { -- 7th Legion Magus
+		["gossips"] = {
+			L["7th Legion Magus 1"],
+		},
+	},
+	[135612] = { -- Halford Wyrmbane
+		["gossips"] = {
+			L["Halford Wyrmbane 1"],
+		},
+	},
 	-- Shadowlands: The Maw
 	[165918] = { -- Highlord Darion Mograine
 		["gossips"] = {

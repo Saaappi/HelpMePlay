@@ -131,7 +131,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["MALDRAXXUS"] 				            								= "MALDRAXXUS"
 	L["REVENDRETH"] 				            								= "REVENDRETH"
 	L["THE MAW"]                                								= "THE MAW"      
-	-- Dialog (TODO)
+	-- Dialog
 	L["Are you enjoying yourself?"]												= "Are you enjoying yourself?"
 	L["Go hunt somewhere else!"]												= "Go hunt somewhere else!"
 	L["There is no time left. Run!"]											= "There is no time left. Run!"
@@ -212,6 +212,9 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Quartermaster Killian 1"]												= "We're saying no to the Ashvane."
 	L["Navigator Swink 1"]														= "Orders from the captain, sir."
 	L["Princess Talanji 1"]														= "Take me to King Rastakhan."
+	L["Cyrus Crestfall 1"]														= "<Shake his hand.>"
+	L["7th Legion Magus 1"]														= "The local authority has given us permission to open portals here."
+	L["Halford Wyrmbane 1"]														= "What's your plan, High Commander?"
 	L["Highlord Darion Mograine 1"]												= "Make it talk."
 	L["Lady Jaina Proudmoore 1"]												= "Tell me about this place."
 	L["Lady Jaina Proudmoore 2"]												= "Tell me more of the Jailer."
