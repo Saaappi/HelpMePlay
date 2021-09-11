@@ -168,6 +168,11 @@ local creatures = {
 			L["Shelly Hamby 1"],
 		},
 	},
+	[81103] = { -- Dungar Longdrink
+		["gossips"] = {
+			L["Dungar Longdrink 1"],
+		},
+	},
 	-- Draenor: Tanaan Jungle
 	[78568] = { -- Thaelin Darkanvil
 		["gossips"] = {

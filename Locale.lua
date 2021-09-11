@@ -219,6 +219,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Halford Wyrmbane 1"]														= "What's your plan, High Commander?"
 	L["Captured Zandalari Troll 1"]												= "Tell us everything, Zandalari."
 	L["Private James 1"]														= "Is there anything in your pockets?"
+	L["Dungar Longdrink 1"]														= "Take me to Stormshield in Ashran."
 	L["Highlord Darion Mograine 1"]												= "Make it talk."
 	L["Lady Jaina Proudmoore 1"]												= "Tell me about this place."
 	L["Lady Jaina Proudmoore 2"]												= "Tell me more of the Jailer."

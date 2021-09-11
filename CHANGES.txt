@@ -11,6 +11,7 @@ HelpMePlay | 1.0.2
 		- Added a dialog option for the NPCs that return the player to Boralus.
 		- Added a dialog option for Private James in Vol'dun.
 		- Added a dialog option for the Rangari NPCs in Gorgrond.
+		- Added a dialog option for Dungar Longdrink in the Garrison (Alliance).
 		- Added automation for the selection of Tiragarde Sound in Boralus.
 		- Added automation for the Zandalar War Campaign (Alliance).
 		- Automated the confirmation for Khadgar in the Blasted Lands.
