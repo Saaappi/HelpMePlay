@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 
 local delay = 0.1
-local longerDelay = 3
+local longerDelay = 4
 
 -- Functions
 local function Max(tbl)
