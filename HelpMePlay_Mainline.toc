@@ -44,5 +44,8 @@ Speech.lua
 # Automates speaking with specific NPCs.
 Dialog.lua
 
+# Automates operations with the mailbox system.
+Mail.lua
+
 # Automates accepting and completing quests (including taking rewards).
 HelpMePlay.lua
