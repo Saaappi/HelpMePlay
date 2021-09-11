@@ -115,6 +115,11 @@ local creatures = {
 			L["Vanguard Battlemage 1"],
 		},
 	},
+	[171789] = { -- High Inquisitor Whitemane
+		["gossips"] = {
+			L["High Inquisitor Whitemane 1"],
+		},
+	},
 	-- Eastern Kingdoms: Tirisfal Glades
 	[141488] = { -- Zidormi
 		["gossips"] = {
