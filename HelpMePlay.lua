@@ -109,8 +109,13 @@ SLASH_HelpMePlay1 = L["Slash HMP"]
 SlashCmdList["HelpMePlay"] = function(command, editbox)
 	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
 	if not command or command == "" then
-		print(addonName .. "\n" ..
-		L["Abandon Command"] .. ": " .. L["Abandon Command Description"])
+		if HelpMePlayOptionsFrame:IsVisible() then
+			HelpMePlayOptionsFrame:Hide()
+		else
+			HelpMePlayOptionsFrame:Show()
+		end
+		--print(addonName .. "\n" ..
+		--L["Abandon Command"] .. ": " .. L["Abandon Command Description"])
 	elseif command == L["Abandon Command"] then
 		local quests = C_QuestLog.GetQuestsOnMap(addonTable.maps[string.upper(arguments)])
 		for _, v in ipairs(quests) do

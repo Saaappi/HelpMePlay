@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <Name>HelpMePlay</Name>
+    <ProjectGuid>4a6f645d-4d87-451f-a2e8-5688a9a7dfd8</ProjectGuid>
+    <AssemblyName>HelpMePlay</AssemblyName>
+    <RootNamespace>HelpMePlay</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="AdventureMap.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="CHANGES.txt" />
+    <Content Include="ChromieTime.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Dialog.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Emotes.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="GarrisonArchitectTable.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="GarrisonMissionTable.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="HelpMePlay.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="HelpMePlay.toc">
+      <SubType>TableOfContents</SubType>
+    </Content>
+    <Content Include="Frame.xml">
+      <SubType>Frame</SubType>
+    </Content>
+    <Content Include="Frame.lua">
+      <SubType>Code</SubType>
+      <DependentUpon>Frame.xml</DependentUpon>
+    </Content>
+    <Content Include="Locale.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Mail.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Maps.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Merchants.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="MountTraining.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="PlayerChoice.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Speech.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="WarMode.lua">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(DevEnvDir)\Extensions\Tools\MSBuild\AddonStudio\Wow\3.0\WowAddonStudio.targets" />
+  <!--
+  To modify your build process, add your task inside one of the targets below and uncomment it.
+  <Target Name="BeforeClean"></Target>
+  <Target Name="AfterClean"></Target>
+  <Target Name="BeforeRebuild"></Target>
+  <Target Name="AfterRebuild"></Target>
+  <Target Name="BeforeDeploy"></Target>
+  <Target Name="AfterDeploy"></Target>
+  -->
+</Project>

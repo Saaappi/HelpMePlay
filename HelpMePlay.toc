@@ -8,6 +8,10 @@
 # Addon localized strings.
 Locale.lua
 
+# The frame code and its behaviors.
+Frame.xml
+Frame.lua
+
 # Used to convert a map name to an ID.
 Maps.lua
 
