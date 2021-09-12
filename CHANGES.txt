@@ -1,6 +1,6 @@
 HelpMePlay | 1.0.3
 	New:
-		
+		Automated the adventure map for Shadowlands. Zone Order: Bastion > Maldraxxus > Ardenweald > Revendreth
 	Changes:
 		
 	Fixes:

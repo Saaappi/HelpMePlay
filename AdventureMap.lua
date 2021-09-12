@@ -7,8 +7,9 @@ e:RegisterEvent("ADVENTURE_MAP_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
 		local faction = UnitFactionGroup("player")
-		local mapId = C_AdventureMap.GetMapID()
-		if mapId == 1011 then -- Zandalar
+		local mapId = C_AdventureMap.GetMapID(); print(mapId)
+		if mapId == 1011 then
+			-- Zandalar
 			-- This map ID is used for both the Alliance map for footholds
 			-- and for the Horde zone map.
 			if faction == "Alliance" then
@@ -22,7 +23,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			else
 				C_AdventureMap.StartQuest(47514) -- Zuldazar
 			end
-		elseif mapId == 1014 then -- Kul Tiras
+		elseif mapId == 1014 then
+			-- Kul Tiras
 			-- This map ID is used for both the Horde map for footholds
 			-- and for the Alliance zone map.
 			if faction == "Alliance" then
@@ -35,6 +37,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 				else
 					C_AdventureMap.StartQuest(51801) -- Foothold: Drustvar
 				end
+			end
+		elseif mapId == 1647 then
+			-- Shadowlands
+			if C_QuestLog.IsQuestFlaggedCompleted(62275) == false then
+				C_AdventureMap.StartQuest(62275) -- Bastion
+			elseif C_QuestLog.IsQuestFlaggedCompleted(62278) == false then
+				C_AdventureMap.StartQuest(62278) -- Maldraxxus
+			elseif C_QuestLog.IsQuestFlaggedCompleted(62277) == false then
+				C_AdventureMap.StartQuest(62277) -- Ardenweald
+			else
+				C_AdventureMap.StartQuest(62279) -- Revendreth
 			end
 		end
 	end
