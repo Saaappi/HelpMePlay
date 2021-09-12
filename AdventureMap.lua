@@ -7,7 +7,7 @@ e:RegisterEvent("ADVENTURE_MAP_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
 		local faction = UnitFactionGroup("player")
-		local mapId = C_AdventureMap.GetMapID(); print(mapId)
+		local mapId = C_AdventureMap.GetMapID()
 		if mapId == 1011 then
 			-- Zandalar
 			-- This map ID is used for both the Alliance map for footholds
