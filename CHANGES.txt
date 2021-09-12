@@ -1,29 +1,7 @@
-HelpMePlay | 1.0.2
+HelpMePlay | 1.0.3
 	New:
-		- Players can now hold any modifier key to prevent the automated selection of Threads of Fate.
-		- Added a dialog option for Thaelin Darkanvil during the Tanaan Jungle invasion scenario.
-		- Added a dialog option for Tyrande Whisperwind in Val'sharah (Alliance).
-		- Added a dialog option for Cyrus Crestfall in Boralus.
-		- Added a dialog option for the 7th Legion Magus in Boralus.
-		- Added a dialog option for Halford Wyrmbane in Boralus.
-		- Added a dialog option for Grand Admiral Jes-Tereth in Boralus.
-		- Added a dialog option for the Captured Zandalari Troll in Zuldazar (Alliance).
-		- Added a dialog option for the NPCs that return the player to Boralus.
-		- Added a dialog option for Private James in Vol'dun.
-		- Added a dialog option for the Rangari NPCs in Gorgrond.
-		- Added a dialog option for Dungar Longdrink in the Garrison (Alliance).
-		- Added a dialog option for High Inquisitor Whitemane in Stormwind City.
-		- Added automation for the selection of Tiragarde Sound in Boralus.
-		- Added automation for the Zandalar War Campaign (Alliance).
-		- Automated the confirmation for Khadgar in the Blasted Lands.
-		- Automated the selection of the Highpass Sparring Ring (Alliance) in Gorgrond.
-		- Automated the collection of gold from the player's mailbox. Note, this ONLY applies to gold.
+		
 	Changes:
-		- Only players below level 50 are now considered eligible for War Mode automation.
-		- Generalized the dialog for the Broken Shore skip. Now both factions will skip onward to new Dalaran.
-		- Players now only need at least 300 more gold than the cost of mount training for it to be automatically learned.
+		
 	Fixes:
-		- Tanaan Jungle is now more reliably selected from the Hero's Call Board for the Alliance.
-		- Fixed an issue where Alliance players weren't reliably opted in to War Mode.
-		- Fixed an issue where Alliance players were opted out of War Mode automatically.
-		- Fixed an issue that caused the quest frame to close prematurely after an internal timer expired.
+		
