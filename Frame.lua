@@ -1,3 +1,3 @@
-HelpMePlayOptionsFrameCloseButton:SetScript("OnClick", function(self)
-	self:GetParent():Hide()
-end)
+local addonName, addonTable = ...
+local e = CreateFrame("Frame")
+local L = addonTable.L

@@ -113,6 +113,9 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HelpMePlayOptionsFrame:Hide()
 		else
 			HelpMePlayOptionsFrame:Show()
+			HelpMePlayOptionsFrameCloseButton:SetScript("OnClick", function(self)
+				self:GetParent():Hide()
+			end)
 		end
 		--print(addonName .. "\n" ..
 		--L["Abandon Command"] .. ": " .. L["Abandon Command Description"])
