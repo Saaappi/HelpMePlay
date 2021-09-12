@@ -2,6 +2,7 @@ HelpMePlay | 1.0.3
 	New:
 		Automated the adventure map for Shadowlands. Zone Order: Bastion > Maldraxxus > Ardenweald > Revendreth
 	Changes:
-		
+		The modifier keys will now pause all decisions where the player makes a choice.
 	Fixes:
 		Fixed an issue with the player's covenant choice forcing Kyrian. This was the result of an issue with the PlayerChoice module.
+		Fixed an issue with Nemea's confirmation in Bastion.

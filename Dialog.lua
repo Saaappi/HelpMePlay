@@ -424,6 +424,9 @@ local creatures = {
 		["gossips"] = {
 			L["Nemea 1"],
 		},
+		["confirms"] = {
+			L["Nemea 2"],
+		},
 	},
 	[158765] = { -- Pelodis
 		["gossips"] = {

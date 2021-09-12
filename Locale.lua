@@ -232,6 +232,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Polemarch Adrestes 1"]													= "<Ask Adrestes what happened in Elysian Hold.>"
 	L["Voitha 1"]																= "I will retrieve the scrolls."
 	L["Nemea 1"]																= "I choose the larion."
+	L["Nemea 2"]																= "You will not be able to change your decision on this character."
 	L["Pelodis 1"]																= "Everything is in place for the repair."
 	L["Helpful Steward 1"]														= "Can you help with this problem?"
 	L["Helpful Steward 2"]														= "Can you help me with something?"
