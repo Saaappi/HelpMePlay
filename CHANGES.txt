@@ -4,4 +4,4 @@ HelpMePlay | 1.0.3
 	Changes:
 		
 	Fixes:
-		
+		The player's covenant is no longer selected to Kyrian automatically. This was the result of an issue with the PlayerChoice module.
