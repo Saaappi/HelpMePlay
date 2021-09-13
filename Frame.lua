@@ -23,6 +23,10 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		else
 			HMPOptionsFrame:Show()
 
+			-- SetText for FontStrings
+			HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
+			HMPAdvMapsText:SetText(L["Adventure Maps"])
+
 			-- Check settings first
 			if HelpMePlayOptionsDB.AdventureMaps then
 				HMPAdvMapsCB:SetChecked(true)
