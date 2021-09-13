@@ -22,7 +22,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 						C_AdventureMap.StartQuest(51572) -- Foothold: Vol'dun
 					end
 				else
-					C_AdventureMap.StartQuest(47514) -- Zuldazar
+					if C_QuestLog.IsQuestFlaggedCompleted(47514) == false then
+						C_AdventureMap.StartQuest(47514) -- Zuldazar
+					elseif C_QuestLog.IsQuestFlaggedCompleted(47512) == false then
+						C_AdventureMap.StartQuest(47512) -- Nazmir
+					else
+						C_AdventureMap.StartQuest(47513) -- Vol'dun
+					end
 				end
 			end
 			if mapId == 1014 then
@@ -30,7 +36,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- This map ID is used for both the Horde map for footholds
 				-- and for the Alliance zone map.
 				if faction == "Alliance" then
-					C_AdventureMap.StartQuest(47960) -- Tiragarde Sound
+					if C_QuestLog.IsQuestFlaggedCompleted(47960) == false then
+						C_AdventureMap.StartQuest(47960) -- Tiragarde Sound
+					elseif C_QuestLog.IsQuestFlaggedCompleted(47962) == false then
+						C_AdventureMap.StartQuest(47962) -- Stormsong Valley
+					else
+						C_AdventureMap.StartQuest(47961) -- Drustvar
+					end
 				else
 					if C_QuestLog.IsQuestFlaggedCompleted(51802) == false then
 						C_AdventureMap.StartQuest(51802) -- Foothold: Stormsong Valley
