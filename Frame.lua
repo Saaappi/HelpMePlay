@@ -18,30 +18,22 @@ SLASH_HelpMePlay1 = L["Slash HMP"]
 SlashCmdList["HelpMePlay"] = function(command, editbox)
 	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
 	if not command or command == "" then
-		if HelpMePlayOptionsFrame:IsVisible() then
-			HelpMePlayOptionsFrame:Hide()
+		if HMPOptionsFrame:IsVisible() then
+			HMPOptionsFrame:Hide()
 		else
-			HelpMePlayOptionsFrame:Show()
+			HMPOptionsFrame:Show()
 
-			HelpMePlayOptionsFrameCloseButton:SetScript("OnClick", function(self)
+			HMPOptionsFrameCloseButton:SetScript("OnClick", function(self)
 				self:GetParent():Hide()
 			end)
 
+			-- BFA Adventure Maps Check Button
 			HMPAdvMapsCB_BFA:SetScript("OnEnter", function(self)
 				ShowTooltip(self, L["BFA Adventure Maps Check Button"])
 			end)
 			HMPAdvMapsCB_BFA:SetScript("OnLeave", function(self)
 				HideTooltip(self)
 			end)
-
-			--[[HelpMePlayCommandsInfoHoverTexture:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Available Commands"] .. "\n" .. 
-					L["Abandon Command"] .. ": " .. L["Abandon Command Description"]
-				)
-			end)
-			HelpMePlayCommandsInfoHoverTexture:SetScript("OnLeave", function(self)
-				HideTooltip(self)
-			end)]]
 		end
 	elseif command == L["Abandon Command"] then
 		local quests = C_QuestLog.GetQuestsOnMap(addonTable.maps[string.upper(arguments)])
