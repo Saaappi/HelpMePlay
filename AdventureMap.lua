@@ -23,7 +23,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			else
 				C_AdventureMap.StartQuest(47514) -- Zuldazar
 			end
-		elseif mapId == 1014 then
+		end
+		if mapId == 1014 then
 			-- Kul Tiras
 			-- This map ID is used for both the Horde map for footholds
 			-- and for the Alliance zone map.
@@ -38,7 +39,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 					C_AdventureMap.StartQuest(51801) -- Foothold: Drustvar
 				end
 			end
-		elseif mapId == 1647 then
+		end
+		if mapId == 1647 then
 			-- Shadowlands
 			if C_QuestLog.IsQuestFlaggedCompleted(62275) == false then
 				C_AdventureMap.StartQuest(62275) -- Bastion

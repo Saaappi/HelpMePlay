@@ -33,6 +33,14 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPAdvMapsBFAText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="BFA Adventure Maps">
+					<Size x="128" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="67" y="-67" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -42,6 +50,12 @@
 					<Anchor point="TOPRIGHT" relativeTo="HelpMePlayOptionsFrame" x="-2" y="-3" />
 				</Anchors>
 			</Button>
+			<CheckButton name="HMPAdvMapsCB_BFA" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-61" />
+				</Anchors>
+			</CheckButton>
 		</Frames>
 	</Frame>
+	<GameTooltip inherits="GameTooltipTemplate" />
 </Ui>

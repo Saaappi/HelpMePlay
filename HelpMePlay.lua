@@ -105,30 +105,7 @@ local function GetGreetingQuests()
 	end
 end
 
-SLASH_HelpMePlay1 = L["Slash HMP"]
-SlashCmdList["HelpMePlay"] = function(command, editbox)
-	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
-	if not command or command == "" then
-		if HelpMePlayOptionsFrame:IsVisible() then
-			HelpMePlayOptionsFrame:Hide()
-		else
-			HelpMePlayOptionsFrame:Show()
-			HelpMePlayOptionsFrameCloseButton:SetScript("OnClick", function(self)
-				self:GetParent():Hide()
-			end)
-		end
-		--print(addonName .. "\n" ..
-		--L["Abandon Command"] .. ": " .. L["Abandon Command Description"])
-	elseif command == L["Abandon Command"] then
-		local quests = C_QuestLog.GetQuestsOnMap(addonTable.maps[string.upper(arguments)])
-		for _, v in ipairs(quests) do
-			C_QuestLog.SetSelectedQuest(v.questID)
-			C_QuestLog.SetAbandonQuest()
-			C_QuestLog.AbandonQuest()
-		end
-	end
-end
-
+e:RegisterEvent("ADDON_LOADED")
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
@@ -136,6 +113,14 @@ e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_PROGRESS")
 
 e:SetScript("OnEvent", function(self, event, ...)
+	if event == "ADDON_LOADED" then
+		local addonLoaded = ...
+		if addonLoaded == addonName then
+			if HelpMePlayOptionsDB == nil then
+				HelpMePlayOptionsDB = {}
+			end
+		end
+	end
 	if event == "GOSSIP_SHOW" then
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()

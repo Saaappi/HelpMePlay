@@ -26,9 +26,13 @@ if (locale == "enGB" or locale == "enUS") then
 	-- Addon Messages															
 	L["Locale Not Supported"]													= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
 	-- Strings																	
-	L["Abandon Command Description"]											= "Abandons all quests in the zone specified by the player (e.g. /hmq abandon Silverpine Forest)."
+	L["Abandon Command Description"]											= "Abandons all quests in the zone specified by the player."
+	L["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
 	L["Discord"]																= "Lightsky#0658"
 	L["Red WARNING"]															= "|cffFF0000WARNING:|r "
+	-- Options Panel Texts
+	L["BFA Adventure Maps"]														= "BFA Adventure Maps"
+	L["BFA Adventure Maps Check Button"]										= "Automates the zone selection and foothold order for the Battle for Azeroth adventure maps.\n|cffFFFFFFAlliance|r: Tiragarde Sound (Zuldazar, Nazmir, Vol'dun)\n|cffFFFFFFHorde|r: Zuldazar (Stormsong Valley, Tiragarde Sound, Drustvar)"
 	-- Skill Lines																
 	L["Riding"]																	= "Riding"
 	-- Speech																	
