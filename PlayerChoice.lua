@@ -7,7 +7,6 @@ e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if PlayerChoiceFrame:IsVisible() then
-			if IsModifierKeyDown() then return end
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceOptionInfo = ""
 			local unitGuid = UnitGUID("target") or UnitGUID("mouseover")
@@ -22,9 +21,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 						-- to control the selection of the covenant.
 					elseif npcId == 174871 then
 						-- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
-						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
-						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
+						if HelpMePlayOptionsDB.ThreadsOfFate then
+							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
+							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						else
+							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2) -- Story
+							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						end
 					end
 				elseif mapId == 84 or mapId == 85 then
 					-- Orgrimmar / Stormwind City

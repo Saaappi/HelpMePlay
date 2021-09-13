@@ -105,6 +105,22 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPToFText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Threads of Fate">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="377" y="-67" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPCRText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Crafted with |T135451:0|t by Lightsky">
+					<Size x="229" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="332" y="-311" />
+					</Anchors>
+					<FontHeight val="10" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -157,6 +173,11 @@
 			<CheckButton name="HMPWarModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-99" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="350" y="-61" />
 				</Anchors>
 			</CheckButton>
 		</Frames>

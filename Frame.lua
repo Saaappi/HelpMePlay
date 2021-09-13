@@ -24,6 +24,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HMPOptionsFrame:Show()
 
 			-- SetText for FontStrings
+			HMPCRText:SetText(L["CR Text"])
 			HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
 			HMPAdvMapsText:SetText(L["Adventure Maps"])
 			HMPDialogText:SetText(L["Dialog"])
@@ -34,6 +35,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HMPMountTrainingText:SetText(L["Mount Training"])
 			HMPSpeechText:SetText(L["Speech"])
 			HMPWarModeText:SetText(L["War Mode"])
+			HMPToFText:SetText(L["Threads of Fate"])
 
 			-- Check settings first
 			if HelpMePlayOptionsDB.AdventureMaps then
@@ -88,6 +90,12 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				HMPWarModeCB:SetChecked(true)
 			else
 				HMPWarModeCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.ThreadsOfFate then
+				HMPToFCB:SetChecked(true)
+			else
+				HMPToFCB:SetChecked(false)
 			end
 
 			-- Close Button
@@ -227,6 +235,21 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 					HelpMePlayOptionsDB.WarMode = true
 				else
 					HelpMePlayOptionsDB.WarMode = false
+				end
+			end)
+
+			-- Threads of Fate Check Button
+			HMPToFCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Threads of Fate Check Button"])
+			end)
+			HMPToFCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPToFCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.ThreadsOfFate = true
+				else
+					HelpMePlayOptionsDB.ThreadsOfFate = false
 				end
 			end)
 		end
