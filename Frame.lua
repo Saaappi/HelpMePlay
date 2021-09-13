@@ -23,16 +23,31 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		else
 			HMPOptionsFrame:Show()
 
+			-- Check settings first
+			if HelpMePlayOptionsDB.AdventureMaps then
+				HMPAdvMapsCB:SetChecked(true)
+			else
+				HMPAdvMapsCB:SetChecked(false)
+			end
+
+			-- Close Button
 			HMPOptionsFrameCloseButton:SetScript("OnClick", function(self)
 				self:GetParent():Hide()
 			end)
 
 			-- BFA Adventure Maps Check Button
-			HMPAdvMapsCB_BFA:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["BFA Adventure Maps Check Button"])
+			HMPAdvMapsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Adventure Maps Check Button"])
 			end)
-			HMPAdvMapsCB_BFA:SetScript("OnLeave", function(self)
+			HMPAdvMapsCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
+			end)
+			HMPAdvMapsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.AdventureMaps = true
+				else
+					HelpMePlayOptionsDB.AdventureMaps = false
+				end
 			end)
 		end
 	elseif command == L["Abandon Command"] then

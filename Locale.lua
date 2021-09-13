@@ -31,8 +31,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Discord"]																= "Lightsky#0658"
 	L["Red WARNING"]															= "|cffFF0000WARNING:|r "
 	-- Options Panel Texts
-	L["BFA Adventure Maps"]														= "BFA Adventure Maps"
-	L["BFA Adventure Maps Check Button"]										= "Automates the zone selection and foothold order for the Battle for Azeroth adventure maps.\n|cffFFFFFFAlliance|r: Tiragarde Sound (Zuldazar, Nazmir, Vol'dun)\n|cffFFFFFFHorde|r: Zuldazar (Stormsong Valley, Tiragarde Sound, Drustvar)"
+	L["Adventure Maps"]															= "BFA Adventure Maps"
+	L["Adventure Maps Check Button"]											= "Automates the selection of zones and footholds for the Battle for Azeroth and Shadowlands adventure maps.\n\n|cffFFFFFFAlliance|r: Tiragarde Sound (Zuldazar, Nazmir, Vol'dun)\n|cffFFFFFFHorde|r: Zuldazar (Stormsong Valley, Tiragarde Sound, Drustvar)\n\n|cffFFFFFFShadowlands|r: Bastion, Maldraxxus, Ardenweald, Revendreth"
 	-- Skill Lines																
 	L["Riding"]																	= "Riding"
 	-- Speech																	
