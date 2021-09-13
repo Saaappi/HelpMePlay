@@ -14,6 +14,7 @@ local creatures = {
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
+		if HelpMePlayOptionsDB.Emotes == false then return end
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcID = strsplit("-", guid); npcID = tonumber(npcID)

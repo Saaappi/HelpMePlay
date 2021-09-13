@@ -625,7 +625,7 @@ local creatures = {
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
 		local _, message = ...
-		if IsModifierKeyDown() then return end
+		if HelpMePlayOptionsDB.Dialog == false then return end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
@@ -642,7 +642,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
-		if IsModifierKeyDown() then return end
+		if HelpMePlayOptionsDB.Dialog == false then return end
 		local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
 		if numActiveQuests > 0 then
 			local activeQuests = C_GossipInfo.GetActiveQuests()

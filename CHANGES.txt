@@ -6,6 +6,7 @@ HelpMePlay | 1.0.3
 	Changes:
 		The modifier keys will now pause all decisions where the player makes a choice.
 		The player must have at least 300 gold more than the cost of mount training or twice the cost of mount training for it to be automatically learned.
+		Players can no longer hold modifier keys to pause Dialog automation, instead you must disable the Dialog setting.
 	Fixes:
 		Fixed an issue with the player's covenant choice forcing Kyrian. This was the result of an issue with the PlayerChoice module.
 		Fixed an issue with Nemea's confirmation in Bastion.

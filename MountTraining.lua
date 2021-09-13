@@ -6,6 +6,7 @@ e:RegisterEvent("TRAINER_SHOW")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "TRAINER_SHOW" then
+		if HelpMePlayOptionsDB.MountTraining == false then return end
 		local numTrainerServices = GetNumTrainerServices()
 		if numTrainerServices > 0 then
 			for i = 1, numTrainerServices do

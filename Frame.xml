@@ -41,6 +41,70 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPDialogText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Dialog">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="50" y="-105" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPEmotesText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Emotes">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="53" y="-143" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPGarrisonTblText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Garrison Tables">
+					<Size x="140" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="46" y="-181" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPMailText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Mail">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="45" y="-219" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPMerchantsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Merchants">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="62" y="-257" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPMountTrainingText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Mount Training">
+					<Size x="92" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="69" y="-295" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPSpeechText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Speech">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="235" y="-67" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPWarModeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="War Mode">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="244" y="-105" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -53,6 +117,46 @@
 			<CheckButton name="HMPAdvMapsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-61" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPDialogCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-99" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPEmotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-137" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPGarrTblCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-175" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPMailCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-213" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPMerchantsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-251" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPMountTrainingCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-289" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPSpeechCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="221" y="-61" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPWarModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="221" y="-99" />
 				</Anchors>
 			</CheckButton>
 		</Frames>

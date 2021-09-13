@@ -11,6 +11,7 @@ e:RegisterEvent("GARRISON_MISSION_NPC_OPENED")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GARRISON_MISSION_NPC_OPENED" then
+		if HelpMePlayOptionsDB.GarrisonTables == false then return end
 		if C_Garrison.IsAtGarrisonMissionNPC() then
 			local missions = C_Garrison.GetAvailableMissions(1)
 			local followers = C_Garrison.GetFollowers(1)

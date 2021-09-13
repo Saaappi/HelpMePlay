@@ -21,6 +21,7 @@ local merchants = {
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
+		if HelpMePlayOptionsDB.Merchants == false then return end
 		local _, _, _, _, _, npcID = strsplit("-", UnitGUID("target")); npcID = tonumber(npcID)
 		for id, _ in pairs(merchants) do
 			if id == npcID then

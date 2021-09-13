@@ -6,6 +6,7 @@ e:RegisterEvent("CHAT_MSG_MONSTER_SAY")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_MONSTER_SAY" then
+		if HelpMePlayOptionsDB.Speech == false then return end
 		local msg, monster = ...
 		if monster == "Playful Trickster" then
 			-- Quest: The Games We Play (Ardenweald)

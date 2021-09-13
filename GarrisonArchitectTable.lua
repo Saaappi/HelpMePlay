@@ -6,6 +6,7 @@ e:RegisterEvent("GARRISON_ARCHITECT_OPENED")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GARRISON_ARCHITECT_OPENED" then
+		if HelpMePlayOptionsDB.GarrisonTables == false then return end
 		local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
 		if garrisonLevel == 1 then
 			local _, _, _, _, _, isActive = C_Garrison.GetBuildingTooltip(26)
