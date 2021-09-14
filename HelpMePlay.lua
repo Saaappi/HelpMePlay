@@ -5,7 +5,6 @@ local L = addonTable.L
 local delay = 0.1
 local longerDelay = 4
 
--- Functions
 local function Max(tbl)
 	local highestItemIndex = 0
 	local highestSellPrice = 0
@@ -28,7 +27,6 @@ local function GetQuestItemLink_Callback(index)
 end
 
 local function CompleteQuest()
-	if IsModifierKeyDown() then return end -- The player is holding SHIFT, ALT, or CTRL, so don't process this function.
 	local numQuestChoices = GetNumQuestChoices()
 	if numQuestChoices > 0 then
 		local sellPrices = {}
@@ -53,7 +51,6 @@ end
 
 local function GetOrCompleteQuests()
 	-- The priority of quest management should be NEW, COMPLETE, and IGNORE all else.
-	if IsModifierKeyDown() then return end -- The player is holding SHIFT, ALT, or CTRL, so don't process this function.
 	local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
 	local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
 	if numAvailableQuests > 0 then
@@ -85,7 +82,6 @@ local function GetOrCompleteQuests()
 end
 
 local function GetGreetingQuests()
-	if IsModifierKeyDown() then return end -- The player is holding SHIFT, ALT, or CTRL, so don't process this function.
 	local numAvailableQuests = GetNumAvailableQuests()
 	local numActiveQuests = GetNumActiveQuests()
 	if numAvailableQuests > 0 then
@@ -122,6 +118,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
+		if HelpMePlayOptionsDB.Quests == false then return end
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
 				GetOrCompleteQuests()
@@ -129,6 +126,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 	end
 	if event == "QUEST_COMPLETE" then
+		if HelpMePlayOptionsDB.Quests == false then return end
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
 				CompleteQuest()
@@ -145,7 +143,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 	end
 	if event == "QUEST_DETAIL" then
-		if IsModifierKeyDown() then return end
+		if HelpMePlayOptionsDB.Quests == false then return end
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
 				QuestFrameAcceptButton:Click()
@@ -153,6 +151,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 	end
 	if event == "QUEST_GREETING" then
+		if HelpMePlayOptionsDB.Quests == false then return end
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
 				GetGreetingQuests()
@@ -160,6 +159,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 	end
 	if event == "QUEST_PROGRESS" then
+		if HelpMePlayOptionsDB.Quests == false then return end
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
 				QuestFrameCompleteButton:Click()
