@@ -108,7 +108,7 @@
 				<FontString name="HMPToFText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Threads of Fate">
 					<Size x="99" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="377" y="-67" />
+						<Anchor point="TOPLEFT" x="247" y="-181" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -119,6 +119,14 @@
 						<Anchor point="TOPLEFT" x="332" y="-311" />
 					</Anchors>
 					<FontHeight val="10" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPQuestsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Accept/Complete Quests">
+					<Size x="170" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="242" y="-143" />
+					</Anchors>
+					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
 			</Layer>
@@ -177,7 +185,13 @@
 			</CheckButton>
 			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="350" y="-61" />
+					<Anchor point="TOPLEFT" x="221" y="-175" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPQuestsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size x="32" y="32" />
+				<Anchors>
+					<Anchor point="TOPLEFT" x="221" y="-137" />
 				</Anchors>
 			</CheckButton>
 		</Frames>

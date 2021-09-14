@@ -35,6 +35,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HMPMountTrainingText:SetText(L["Mount Training"])
 			HMPSpeechText:SetText(L["Speech"])
 			HMPWarModeText:SetText(L["War Mode"])
+			HMPQuestsText:SetText(L["Accept/Complete Quests"])
 			HMPToFText:SetText(L["Threads of Fate"])
 
 			-- Check settings first
@@ -90,6 +91,12 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				HMPWarModeCB:SetChecked(true)
 			else
 				HMPWarModeCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Quests then
+				HMPQuestsCB:SetChecked(true)
+			else
+				HMPQuestsCB:SetChecked(false)
 			end
 
 			if HelpMePlayOptionsDB.ThreadsOfFate then
@@ -235,6 +242,21 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 					HelpMePlayOptionsDB.WarMode = true
 				else
 					HelpMePlayOptionsDB.WarMode = false
+				end
+			end)
+
+			-- Quests Check Button
+			HMPQuestsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Accept/Complete Quests Check Button"])
+			end)
+			HMPQuestsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPQuestsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Quests = true
+				else
+					HelpMePlayOptionsDB.Quests = false
 				end
 			end)
 
