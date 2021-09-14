@@ -433,6 +433,17 @@ local creatures = {
 			L["Pelodis 1"],
 		},
 	},
+	[159277] = { -- Aspirant Leda
+		["gossips"] = {
+			L["Aspirant Leda 1"],
+		},
+	},
+	[159278] = { -- Aspirant Ikaran
+		["gossips"] = {
+			L["Aspirant Ikaran 1"],
+		},
+	},
+	-- Sh
 	[169027] = { -- Helpful Steward (for the fixes)
 		["gossips"] = {
 			L["Helpful Steward 1"],

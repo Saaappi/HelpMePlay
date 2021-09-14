@@ -260,6 +260,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Pelodis 1"]																= "Everything is in place for the repair."
 	L["Helpful Steward 1"]														= "Can you help with this problem?"
 	L["Helpful Steward 2"]														= "Can you help me with something?"
+	L["Aspirant Leda 1"]														= "Do you have \"Worlds Beyond Counting\"?"
+	L["Aspirant Ikaran 1"]														= "Do you have \"The Infinite Treatises\"?"
 	L["Trapped Caretaker 1"]													= "I've cleared a path for you. You should leave."
 	L["Rencissa the Dynamo 1"]													= "biggest rock"
 	L["Scrapper Minoire 1"]														= "Here are the enhancers you wanted."
