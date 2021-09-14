@@ -26,6 +26,7 @@ local creatures = {
 			L["I've heard this tale before..."], -- Added from Quest: ??? (Stormwind City/Orgrimmar)
 			L["Is there any way I can help?"], -- Added from Quest: A Plague On Your House (Maldraxxus)
 			L["O.K."], -- Added from Quest: A Plague On Your House (Maldraxxus)
+			L["Is there anything you need?"], -- Added from Quest: ...Even The Most Ridiculous Request! (Maldraxxus)
 			L["Begin pet battle."],
 			L["Let's do battle!"],
 		}

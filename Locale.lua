@@ -170,6 +170,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["<Reach inside and pull out something that feels more like a building.>"] = "<Reach inside and pull out something that feels more like a building.>"
 	L["Is there any way I can help?"]											= "Is there any way I can help?"
 	L["O.K."]																	= "O.K."
+	L["Is there anything you need?"]											= "Is there anything you need?"
 	L["Begin pet battle."]														= "Begin pet battle."
 	L["Let's do battle!"]														= "Let's do battle!"
 	L["I'd like to heal and revive my battle pets."] 							= "I'd like to heal and revive my battle pets."
