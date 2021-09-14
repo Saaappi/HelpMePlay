@@ -27,6 +27,7 @@ local creatures = {
 			L["Is there any way I can help?"], -- Added from Quest: A Plague On Your House (Maldraxxus)
 			L["O.K."], -- Added from Quest: A Plague On Your House (Maldraxxus)
 			L["Is there anything you need?"], -- Added from Quest: ...Even The Most Ridiculous Request! (Maldraxxus)
+			L["Very well. Let us fight."], -- Added from Quest: Test Your Mettle (Maldraxxus)
 			L["Begin pet battle."],
 			L["Let's do battle!"],
 		}
