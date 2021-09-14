@@ -168,6 +168,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Take us back to Zuldazar."]												= "Take us back to Zuldazar."
 	L["<Reach inside and pull something out.>"] 								= "<Reach inside and pull something out.>"
 	L["<Reach inside and pull out something that feels more like a building.>"] = "<Reach inside and pull out something that feels more like a building.>"
+	L["Is there any way I can help?"]											= "Is there any way I can help?"
+	L["O.K."]																	= "O.K."
 	L["Begin pet battle."]														= "Begin pet battle."
 	L["Let's do battle!"]														= "Let's do battle!"
 	L["I'd like to heal and revive my battle pets."] 							= "I'd like to heal and revive my battle pets."

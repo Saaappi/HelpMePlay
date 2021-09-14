@@ -12,3 +12,4 @@ HelpMePlay | 1.0.3
 	Fixes:
 		Fixed an issue with the player's covenant choice forcing Kyrian. This was the result of an issue with the PlayerChoice module.
 		Fixed an issue with Nemea's confirmation in Bastion.
+		Fixed an issue with the dialogs during the A Plague On Your House quest in Maldraxxus.
