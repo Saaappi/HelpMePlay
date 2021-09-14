@@ -21,6 +21,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			for id, emote in pairs(creatures) do
 				if id == npcID then
 					DoEmote(emote, nil)
+					GossipFrame:Hide()
 				end
 			end
 		end
