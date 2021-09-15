@@ -39,7 +39,9 @@ local function CompleteQuest()
 			local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link)
 			sellPrices[i] = (quantity*sellPrice)
 		end
-		GetQuestReward(Max(sellPrices))
+		if HelpMePlayOptionsDB.QuestRewards then
+			GetQuestReward(Max(sellPrices))
+		end
 	else
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
