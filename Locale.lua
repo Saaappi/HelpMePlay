@@ -42,7 +42,9 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Speech"]																	= "Speech"
 	L["War Mode"]																= "War Mode"
 	L["Accept/Complete Quests"]													= "Accept/Complete Quests"
+	L["Quest Rewards"]															= "Quest Rewards"
 	L["Threads of Fate"]														= "Threads of Fate"
+	L["Current Expansion"]														= "Current Expansion"
 	-- Options Panel Descriptions
 	L["Adventure Maps Check Button"]											= "Automates the selection of zones and footholds for the Battle for Azeroth and Shadowlands adventure maps.\n\n|cffFFFFFFAlliance|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Tiragarde Sound, Stormsong Valley, Drustvar\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Zuldazar, Nazmir, Vol'dun\n|cffFFFFFFHorde|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Zuldazar, Nazmir, Vol'dun\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Stormsong Valley, Tiragarde Sound, Drustvar\n\n|cffFFFFFFShadowlands|r: Bastion, Maldraxxus, Ardenweald, Revendreth"
 	L["Dialog Check Button"]													= "Automates the selection of dialog options when speaking with NPCs. This does NOT apply to all dialogs."
@@ -54,7 +56,9 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\n|cffFFFFFFExample|r: The Playful Trickster during \"The Games We Play\" quest in Ardenweald."
 	L["War Mode Check Button"]													= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\nThis only applies to players above level 20, but below 50."
 	L["Accept/Complete Quests Check Button"]									= "Automates accepting and completing all quests in the game.\n|cffFFFFFFNote|r: This setting does NOT affect the automation for quest rewards."
+	L["Quest Rewards Check Button"]												= "Automates the selection of quest rewards. The selection is based on what sells for the most."
 	L["Threads of Fate Check Button"]											= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into Threads of Fate, but leaving it unchecked will opt the player into Story Mode."
+	L["Chromie Time EditBox"]													= "Enter one of the numeric values to automate which expansion to select for Chromie Time.\n\n|cffFFFFFF0|r: Battle for Azeroth (Current Timeline)\n|cffFFFFFF5|r: The Cataclysm (Classic)\n|cffFFFFFF6|r: The Burning Crusade\n|cffFFFFFF7|r: Wrath of the Lich King\n|cffFFFFFF8|r: Mists of Pandaria\n|cffFFFFFF9|r: Warlords of Draenor\n|cffFFFFFF10|r: Legion"
 	-- Skill Lines																
 	L["Riding"]																	= "Riding"
 	-- Speech																	

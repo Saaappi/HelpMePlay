@@ -1,6 +1,6 @@
 <Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="Frame.lua" />
-	<Frame name="HMPOptionsFrame" inherits="BackdropTemplate" hidden="true" parent="UIParent" toplevel="true" movable="true" enableMouse="true">
+	<Frame name="HMPOptionsFrame" inherits="BackdropTemplate" hidden="true" parent="UIParent" toplevel="true" movable="true" frameStrata="HIGH" enableMouse="true">
 		<Size x="542" y="343" />
 		<Anchors>
 			<Anchor point="CENTER" relativeTo="UIParent" x="0" y="325" />
@@ -108,7 +108,7 @@
 				<FontString name="HMPToFText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Threads of Fate">
 					<Size x="99" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="247" y="-181" />
+						<Anchor point="TOPLEFT" x="247" y="-219" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -125,6 +125,14 @@
 					<Size x="170" y="20" />
 					<Anchors>
 						<Anchor point="TOPLEFT" x="242" y="-143" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPQuestRewardsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Quest Rewards">
+					<Size x="92" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="251" y="-181" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -185,15 +193,25 @@
 			</CheckButton>
 			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-175" />
+					<Anchor point="TOPLEFT" x="221" y="-213" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPQuestsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Size x="32" y="32" />
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-137" />
 				</Anchors>
 			</CheckButton>
+			<CheckButton name="HMPQuestRewardsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="221" y="-175" />
+				</Anchors>
+			</CheckButton>
+			<EditBox name="HMPChromieTimeEditBox" inherits="InputBoxTemplate" letters="2" numeric="true" autoFocus="false">
+				<Size x="100" y="32" />
+				<Anchors>
+					<Anchor point="TOPLEFT" x="231" y="-257" />
+				</Anchors>
+			</EditBox>
 		</Frames>
 	</Frame>
 	<GameTooltip inherits="GameTooltipTemplate" />

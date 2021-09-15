@@ -8,9 +8,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHROMIE_TIME_OPEN" then
 		local playerLevel = UnitLevel("player")
 		if playerLevel <= 49 then
-			if UnitChromieTimeID("player") ~= 10 then
+			if UnitChromieTimeID("player") ~= HelpMePlayOptionsDB.ChromieTimeExpansion then
 				-- Select Legion for the player.
-				C_ChromieTime.SelectChromieTimeOption(10)
+				C_ChromieTime.SelectChromieTimeOption(HelpMePlayOptionsDB.ChromieTimeExpansion)
 			end
 		end
 	end

@@ -37,6 +37,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HMPWarModeText:SetText(L["War Mode"])
 			HMPQuestsText:SetText(L["Accept/Complete Quests"])
 			HMPToFText:SetText(L["Threads of Fate"])
+			HMPQuestRewardsText:SetText(L["Quest Rewards"])
 
 			-- Check settings first
 			if HelpMePlayOptionsDB.AdventureMaps then
@@ -97,6 +98,12 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				HMPQuestsCB:SetChecked(true)
 			else
 				HMPQuestsCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.QuestRewards then
+				HMPQuestRewardsCB:SetChecked(true)
+			else
+				HMPQuestRewardsCB:SetChecked(false)
 			end
 
 			if HelpMePlayOptionsDB.ThreadsOfFate then
@@ -260,6 +267,21 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end)
 
+			-- Quest Rewards Check Button
+			HMPQuestRewardsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Quest Rewards Check Button"])
+			end)
+			HMPQuestRewardsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPQuestRewardsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.QuestRewards = true
+				else
+					HelpMePlayOptionsDB.QuestRewards = false
+				end
+			end)
+
 			-- Threads of Fate Check Button
 			HMPToFCB:SetScript("OnEnter", function(self)
 				ShowTooltip(self, L["Threads of Fate Check Button"])
@@ -273,6 +295,18 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				else
 					HelpMePlayOptionsDB.ThreadsOfFate = false
 				end
+			end)
+
+			-- Chromie Time EditBox
+			HMPChromieTimeEditBox:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Current Expansion"] .. ": |cffFFFFFF" .. HelpMePlayOptionsDB.ChromieTimeExpansion .. "|r\n\n" .. L["Chromie Time EditBox"])
+			end)
+			HMPChromieTimeEditBox:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPChromieTimeEditBox:SetScript("OnEnterPressed", function(self)
+				HelpMePlayOptionsDB.ChromieTimeExpansion = tonumber(HMPChromieTimeEditBox:GetText())
+				HMPChromieTimeEditBox:SetText("")
 			end)
 		end
 	elseif command == L["Abandon Command"] then
