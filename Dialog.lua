@@ -495,6 +495,16 @@ local creatures = {
 			L["Khaliiq 1"],
 		},
 	},
+	[157130] = { -- Recruitable Animate
+		["gossips"] = {
+			L["Recruitable Animate 1"],
+		},
+	},
+	[157168] = { -- Stubborn Animate
+		["gossips"] = {
+			L["Stubborn Animate 1"],
+		},
+	},
 	[166129] = { -- Specialist Entra
 		["gossips"] = {
 			L["Specialist Entra 1"],

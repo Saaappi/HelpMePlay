@@ -276,6 +276,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Marcel Mullby 1"]														= "I have some bloodtusk skulls for you."
 	L["Arena Spectator 1"]														= "Au'narim claims you owe her anima."
 	L["Khaliiq 1"]																= "Hide me in the shadows, Khaliiq."
+	L["Recruitable Animate 1"]													= "Maldraxxus needs your service. Will you fight?"
+	L["Stubborn Animate 1"]													= "Maldraxxus needs your service. Will you fight?"
 	L["Specialist Entra 1"]														= "What should I do?"
 	L["Ta'eran 1"]																= "Tell me about this opportunity."
 	L["Attendant Sparkledew 1"]													= "Take me to the Queen's audience chamber, please."
