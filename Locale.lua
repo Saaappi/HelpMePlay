@@ -44,6 +44,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Accept/Complete Quests"]													= "Accept/Complete Quests"
 	L["Quest Rewards"]															= "Quest Rewards"
 	L["Threads of Fate"]														= "Threads of Fate"
+	L["Chromie Time"]															= "Chromie Time"
 	L["Current Expansion"]														= "Current Expansion"
 	-- Options Panel Descriptions
 	L["Adventure Maps Check Button"]											= "Automates the selection of zones and footholds for the Battle for Azeroth and Shadowlands adventure maps.\n\n|cffFFFFFFAlliance|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Tiragarde Sound, Stormsong Valley, Drustvar\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Zuldazar, Nazmir, Vol'dun\n|cffFFFFFFHorde|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Zuldazar, Nazmir, Vol'dun\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Stormsong Valley, Tiragarde Sound, Drustvar\n\n|cffFFFFFFShadowlands|r: Bastion, Maldraxxus, Ardenweald, Revendreth"

@@ -38,6 +38,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HMPQuestsText:SetText(L["Accept/Complete Quests"])
 			HMPToFText:SetText(L["Threads of Fate"])
 			HMPQuestRewardsText:SetText(L["Quest Rewards"])
+			HMPChromieTimeText:SetText(L["Chromie Time"])
 
 			-- Check settings first
 			if HelpMePlayOptionsDB.AdventureMaps then

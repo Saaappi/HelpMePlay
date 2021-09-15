@@ -137,6 +137,14 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPChromieTimeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Chromie Time">
+					<Size x="97" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="231" y="-263" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -209,7 +217,7 @@
 			<EditBox name="HMPChromieTimeEditBox" inherits="InputBoxTemplate" letters="2" numeric="true" autoFocus="false">
 				<Size x="100" y="32" />
 				<Anchors>
-					<Anchor point="TOPLEFT" x="231" y="-257" />
+					<Anchor point="TOPLEFT" x="231" y="-280" />
 				</Anchors>
 			</EditBox>
 		</Frames>
