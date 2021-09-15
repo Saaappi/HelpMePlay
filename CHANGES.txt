@@ -1,16 +1,7 @@
-HelpMePlay | 1.0.3
+HelpMePlay | 1.0.4
 	New:
-		Added an options panel. This panel is accessible by entering the addon's slash command (/hmp).
-		Automated the adventure map for Shadowlands.
-		Added the rest of the zones for the Battle for Azeroth maps for both factions.
-		Added a dialog option for Aspirant Leda and Aspirant Ikaran, the two NPCs involved in the Suggested Reading quest in Bastion.
+		
 	Changes:
-		The player must have at least 300 gold more than the cost of mount training or twice the cost of mount training for it to be automatically learned.
-		Players can no longer hold modifier keys to pause Dialog automation, instead you must disable the Dialog setting.
-		Players can no longer hold modifier keys to pause Player Choice automation (e.g. Threads or Story Mode), instead you must disable the corresponding setting.
-		Players can no longer hold modifier keys to pause Quest automation, instead you must disable the corresponding setting.
-		After conducting the emotes on the Runestones in Maldraxxus during the "Repeat After Me" quest, the gossip frame will be closed.
+		
 	Fixes:
-		Fixed an issue with the player's covenant choice forcing Kyrian. This was the result of an issue with the PlayerChoice module.
-		Fixed an issue with Nemea's confirmation in Bastion.
-		Fixed an issue with multiple dialogs in Maldraxxus.
+		
