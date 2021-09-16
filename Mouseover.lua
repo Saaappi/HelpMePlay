@@ -25,7 +25,7 @@ GameTooltip:HookScript("OnUpdate", function(self)
 						end
 					end
 					if hasBuff then
-						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note .. " (|cffFFFFFF" .. timeLeft .. "|r)")
+						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note .. " (|cffFFFFFF" .. string.format("%.2f", timeLeft) .. "|r)")
 						GameTooltip:Show()
 						hasBuff = false
 					else
