@@ -6,6 +6,11 @@ local startTime = 0
 local timeLeft = 0
 local hasBuff = false
 
+-- Add notes to the tooltip of select creatures and objects.
+-- Controlled by localized values in MouseoverDB.lua.
+--
+-- This will need to be reconsidered for creatures since
+-- an Id can be used for them opposed to a localized name.
 GameTooltip:HookScript("OnUpdate", function(self)
 	if GameTooltip:GetOwner():GetName() == "UIParent" then
 		mouseoverName = _G["GameTooltipTextLeft"..1]:GetText()

@@ -1,6 +1,6 @@
 <Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
 	<Script file="Frame.lua" />
-	<Frame name="HMPOptionsFrame" inherits="BackdropTemplate" hidden="true" parent="UIParent" toplevel="true" movable="true" frameStrata="HIGH" enableMouse="true">
+	<Frame name="HMPOptionsFrame" hidden="true" parent="UIParent" toplevel="true" frameStrata="HIGH" enableMouse="true">
 		<Size x="542" y="343" />
 		<Anchors>
 			<Anchor point="CENTER" relativeTo="UIParent" x="0" y="325" />
