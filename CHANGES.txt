@@ -1,6 +1,6 @@
 HelpMePlay | 1.0.4
 	New:
-		
+		Added functionality to add notes to the tooltips of creatures and objects.
 	Changes:
 		
 	Fixes:
