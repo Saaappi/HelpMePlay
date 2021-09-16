@@ -13,9 +13,11 @@ GameTooltip:HookScript("OnUpdate", function(self)
 				end
 				if data.buffId ~= 0 or data.buffId ~= nil then
 					for i = 1, 16 do
-						local _, _, _, _, duration, _, _, _, _, spellId = UnitAura("player", i)
+						local _, _, _, _, _, expiration, _, _, _, spellId = UnitAura("player", i)
 						if spellId == data.buffId then
-							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note .. " (|cffFFFFFF" .. duration/60 .. "|r)")
+							local startTime = GetTime()
+							local timeLeft = expiration - startTime
+							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note .. " (|cffFFFFFF" .. timeLeft .. "|r)")
 							GameTooltip:Show()
 						end
 					end
