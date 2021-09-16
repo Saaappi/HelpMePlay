@@ -29,6 +29,7 @@ local creatures = {
 			L["Is there anything you need?"], -- Added from Quest: ...Even The Most Ridiculous Request! (Maldraxxus)
 			L["Very well. Let us fight."], -- Added from Quest: Test Your Mettle (Maldraxxus)
 			L["Au'narim claims you owe her anima."], -- Added from Quest: Leave Me a Loan (Maldraxxus)
+			L["The Lady of the Falls wanted to make sure you were safe."], -- Added from Quest: Ages-Echoing Wisdom (Ardenweald)
 			L["Begin pet battle."],
 			L["Let's do battle!"],
 		}

@@ -4,4 +4,4 @@ HelpMePlay | 1.0.4
 	Changes:
 		
 	Fixes:
-		
+		Fixed an issue with dialogs in Ardenweald.

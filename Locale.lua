@@ -188,6 +188,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Is there anything you need?"]											= "Is there anything you need?"
 	L["Very well. Let us fight."]												= "Very well. Let us fight."
 	L["Au'narim claims you owe her anima."]										= "Au'narim claims you owe her anima."
+	L["The Lady of the Falls wanted to make sure you were safe."]				= "The Lady of the Falls wanted to make sure you were safe."
 	L["Begin pet battle."]														= "Begin pet battle."
 	L["Let's do battle!"]														= "Let's do battle!"
 	L["I'd like to heal and revive my battle pets."] 							= "I'd like to heal and revive my battle pets."
