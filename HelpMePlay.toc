@@ -52,5 +52,11 @@ Dialog.lua
 # Automates operations with the mailbox system.
 Mail.lua
 
+# Used by the Mouseover module.
+MouseoverDB.lua
+
+# Handles mouseover for objects and creatures. Allows the addition of notes from the addon, if desired.
+Mouseover.lua
+
 # Automates accepting and completing quests (including taking rewards).
 HelpMePlay.lua

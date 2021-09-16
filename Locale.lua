@@ -161,7 +161,15 @@ if (locale == "enGB" or locale == "enUS") then
 	L["BASTION"] 					            								= "BASTION"
 	L["MALDRAXXUS"] 				            								= "MALDRAXXUS"
 	L["REVENDRETH"] 				            								= "REVENDRETH"
-	L["THE MAW"]                                								= "THE MAW"      
+	L["THE MAW"]                                								= "THE MAW"
+	-- Mouseover Targets
+	L["Suspiciously Untouched Basket"]											= "Suspiciously Untouched Basket"
+	L["Suspiciously Untouched Harp"]											= "Suspiciously Untouched Harp"
+	L["Suspiciously Untouched Soulweb"]											= "Suspiciously Untouched Soulweb"
+	-- Mouseover Target Notes
+	L["Note: Suspiciously Untouched Basket"]									= "You need Shimmerdust Pile to activate this trap."
+	L["Note: Suspiciously Untouched Harp"]										= "You need Gossamer Thread to activate this trap."
+	L["Note: Suspiciously Untouched Soulweb"]									= "You need Freshleaf to activate this trap."
 	-- Dialog
 	L["Are you enjoying yourself?"]												= "Are you enjoying yourself?"
 	L["Go hunt somewhere else!"]												= "Go hunt somewhere else!"

@@ -18,6 +18,12 @@
     <Content Include="ChromieTime.lua">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="MouseoverDB.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Mouseover.lua">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Dialog.lua">
       <SubType>Code</SubType>
     </Content>
