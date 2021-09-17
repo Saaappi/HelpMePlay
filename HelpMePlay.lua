@@ -120,6 +120,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayOptionsDB.ChromieTimeExpansion == nil then
 				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 			end
+			if HelpMePlayPlayerDialogDB == nil then
+				HelpMePlayPlayerDialogDB = {}
+			end
 		end
 	end
 	if event == "GOSSIP_SHOW" then

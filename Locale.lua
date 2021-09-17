@@ -23,6 +23,7 @@ if (locale == "enGB" or locale == "enUS") then
 	-- Commands
 	L["Slash HMP"]																= "/hmp"
 	L["Abandon Command"]														= "abandon"
+	L["Dialog Command"]															= "dialog"
 	-- Addon Messages															
 	L["Locale Not Supported"]													= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
 	-- Strings																	

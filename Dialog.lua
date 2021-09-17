@@ -729,6 +729,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if unitGUID then
 			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
 			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
+				-- These are player submitted dialogs using the Dialog command.
+				for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
+					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(gossip)) then
+						C_GossipInfo.SelectOption(index)
+					end
+				end
+				-- These are general NPC dialogs. These are not directly associated
+				-- with a specific NPC.
 				for i = 1, 2 do
 					for j = 1, #creatures[i]["gossips"] do
 						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then

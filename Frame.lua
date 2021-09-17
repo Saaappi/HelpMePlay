@@ -363,5 +363,17 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 		end
+	elseif command == L["Dialog Command"] and arguments ~= "" then
+		-- Add the custom (player submitted) dialog to the
+		-- HelpMePlayPlayerDialogDB table.
+		-- But before we add it, let's see if it already exists.
+		-- If so, remove it from the table instead.
+		for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
+			if string.find(string.lower(gossip), string.lower(arguments)) then
+				table.remove(HelpMePlayPlayerDialogDB, id)
+				return
+			end
+		end
+		table.insert(HelpMePlayPlayerDialogDB, arguments)
 	end
 end
