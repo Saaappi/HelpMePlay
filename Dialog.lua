@@ -549,6 +549,31 @@ local creatures = {
 			L["Quest"],
 		},
 	},
+	[167918] = { -- Bela
+		["gossips"] = {
+			L["Quest"],
+		},
+	},
+	[167849] = { -- Soul of Keltesh
+		["gossips"] = {
+			L["Quest"],
+		},
+	},
+	[156295] = { -- Courier Rokalai
+		["gossips"] = {
+			L["Quest"],
+		},
+	},
+	[168237] = { -- Ilka
+		["gossips"] = {
+			L["<Present Lajos's invitation>"],
+		},
+	},
+	[168238] = { -- Samu
+		["gossips"] = {
+			L["<Present Lajos's invitation>"],
+		},
+	},
 	[159883] = { -- Chancellor Codrin
 		["gossips"] = {
 			L["Chancellor Codrin 1"],
@@ -577,21 +602,30 @@ local creatures = {
 	[166541] = { -- Cobwobble
 		["gossips"] = {
 			L["Cobwobble 1"],
+			L["Cobwobble 2"],
 		},
 	},
 	[166542] = { -- Slobwobble
 		["gossips"] = {
 			L["Slobwobble 1"],
+			L["Slobwobble 2"],
 		},
 	},
 	[166543] = { -- Dobwobble
 		["gossips"] = {
 			L["Dobwobble 1"],
+			L["Dobwobble 2"],
 		},
 	},
 	[169238] = { -- Courier Araak
 		["gossips"] = {
 			L["Courier Araak 1"],
+			L["Courier Araak 2"],
+		},
+	},
+	[165921] = { -- Courier Araak
+		["gossips"] = {
+			L["Courier Araak 2"],
 		},
 	},
 	[169917] = { -- Avowed Ritualist
