@@ -24,11 +24,11 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HMPOptionsFrame:Show()
 
 			-- Make the options frame movable.
-			--[[HMPOptionsFrame:SetMovable(true)
+			HMPOptionsFrame:SetMovable(true)
 			HMPOptionsFrame:EnableMouse(true)
 			HMPOptionsFrame:RegisterForDrag("LeftButton")
 			HMPOptionsFrame:SetScript("OnDragStart", HMPOptionsFrame.StartMoving)
-			HMPOptionsFrame:SetScript("OnDragStop", HMPOptionsFrame.StopMovingOrSizing)]]
+			HMPOptionsFrame:SetScript("OnDragStop", HMPOptionsFrame.StopMovingOrSizing)
 
 			-- SetText for FontStrings
 			HMPCRText:SetText(L["CR Text"])
