@@ -5,4 +5,5 @@ HelpMePlay | 1.0.4
 		Redesigned the options menu.
 		The options menu is now movable.
 	Fixes:
-		Fixed an issue with dialogs in Ardenweald.
+		Fixed multiple dialogs in Ardenweald.
+		Fixed multiple dialogs in Revendreth.
