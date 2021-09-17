@@ -58,6 +58,9 @@ MouseoverDB.lua
 # Handles mouseover for objects and creatures. Allows the addition of notes from the addon, if desired.
 Mouseover.lua
 
+# Automates tasks related to the Covenant Sanctums.
+CovenantSanctums.lua
+
 # Automates accepting and completing quests (including taking rewards).
 HelpMePlay.lua
 
