@@ -2,6 +2,7 @@ HelpMePlay | 1.0.4
 	New:
 		Added functionality to add notes to the tooltips of creatures and objects.
 	Changes:
+		Redesigned the options menu.
 		The options menu is now movable.
 	Fixes:
 		Fixed an issue with dialogs in Ardenweald.
