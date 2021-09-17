@@ -1,6 +1,6 @@
 HelpMePlay | 1.0.5
 	New:
-		
+		Added a dialog to skip the Covenant introduction for Night Fae.
 	Changes:
 		
 	Fixes:

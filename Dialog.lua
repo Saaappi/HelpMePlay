@@ -8,7 +8,7 @@ e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("MODIFIER_STATE_CHANGED")
 
 local creatures = {
-	[1] = { -- Gossip options used on two or more NPCs.
+	[1] = { -- Gossip and confirm options used on two or more NPCs.
 		["gossips"] = {
 			L["Are you enjoying yourself?"], -- Added from Quest: Mix, Mingle, and Meddle (Revendreth)
 			L["Go hunt somewhere else!"], -- Added from Quest: Amateur Hour (Highmountain)
@@ -31,13 +31,19 @@ local creatures = {
 			L["Au'narim claims you owe her anima."], -- Added from Quest: Leave Me a Loan (Maldraxxus)
 			L["The Lady of the Falls wanted to make sure you were safe."], -- Added from Quest: Ages-Echoing Wisdom (Ardenweald)
 			L["<Request tithe>"], -- Added from Quest: Bring Out Your Tithe (Revendreth)
+			L["I know my way around the Sanctum."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
 			L["Begin pet battle."],
 			L["Let's do battle!"],
-		}
+		},
+		["confirms"] = {
+			L["Are you sure? This action cannot be undone."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
+		},
 	},
 	[2] = { -- NPCs with Cost
 		["gossips"] = {
 			L["I'd like to heal and revive my battle pets."],
+		},
+		["confirms"] = {
 		},
 	},
 	-- Exile's Reach
@@ -633,6 +639,7 @@ local creatures = {
 			L["Avowed Ritualist 1"],
 		},
 	},
+	-- Shadowlands: Heart of the Forest (Covenant Sanctum)
 	-- Instance: Mogu'shan Vaults
 	[61348] = { -- Lorewalker Cho
 		["gossips"] = {
@@ -696,12 +703,29 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
-			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
 			for id, _ in pairs(creatures) do
-				if id == npcID then
+				-- First check to see if the General NPC options contain the
+				-- confirmation message before scanning the specific NPC.
+				for i = 1, 2 do
+					for j = 1, #creatures[i]["confirms"] do
+						-- First try to find the substring using string.find.
+						-- If that doesn't work, then try a literal match.
+						if string.find(string.lower(message), string.lower(creatures[i]["confirms"][j])) then
+							StaticPopup1Button1:Click()
+							return
+						end
+						if string.lower(message) == string.lower(creatures[i]["confirms"][j]) then
+							StaticPopup1Button1:Click()
+							return
+						end
+					end
+				end
+				if id == npcId then
 					for i = 1, #creatures[id]["confirms"] do
 						if string.find(string.lower(message), string.lower(creatures[id]["confirms"][i])) then
 							StaticPopup1Button1:Click()
+							return
 						end
 					end
 				end
@@ -727,12 +751,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		local gossipOptions = C_GossipInfo.GetOptions()
 		if unitGUID then
-			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
 			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
 				-- These are player submitted dialogs using the Dialog command.
 				for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
 					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(gossip)) then
 						C_GossipInfo.SelectOption(index)
+						return
 					end
 				end
 				-- These are general NPC dialogs. These are not directly associated
@@ -741,14 +766,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 					for j = 1, #creatures[i]["gossips"] do
 						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
 							C_GossipInfo.SelectOption(index)
+							return
 						end
 					end
 				end
 				for id, _ in pairs(creatures) do
-					if id == npcID then -- The target's ID is in the table, so use its configuration.
+					if id == npcId then -- The target's ID is in the table, so use its configuration.
 						for i = 1, #creatures[id]["gossips"] do
 							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["gossips"][i])) then
 								C_GossipInfo.SelectOption(index)
+								return
 							end
 						end
 					end

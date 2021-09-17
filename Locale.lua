@@ -196,6 +196,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["The Lady of the Falls wanted to make sure you were safe."]				= "The Lady of the Falls wanted to make sure you were safe."
 	L["<Request tithe>"]														= "<Request tithe>"
 	L["<Present Lajos's invitation>"]											= "<Present Lajos's invitation>"
+	L["I know my way around the Sanctum."]										= "I know my way around the Sanctum."
+	L["Are you sure? This action cannot be undone."]							= "Are you sure? This action cannot be undone."
 	L["Begin pet battle."]														= "Begin pet battle."
 	L["Let's do battle!"]														= "Let's do battle!"
 	L["I'd like to heal and revive my battle pets."] 							= "I'd like to heal and revive my battle pets."
