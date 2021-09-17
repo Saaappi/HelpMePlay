@@ -5,6 +5,9 @@ HelpMePlay | 1.0.4
 	Changes:
 		Redesigned the options menu.
 		The options menu is now movable.
+		Reworked the Abandon command.
+			Players can now omit the zone name to abandon all quests. A popup is provided to confirm the action.
+			Passing a zone name is much more reliable and players need only provide a partial name.
 	Fixes:
 		Fixed multiple dialogs in Ardenweald.
 		Fixed multiple dialogs in Revendreth.

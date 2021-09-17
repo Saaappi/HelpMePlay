@@ -329,10 +329,10 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			button2 = L["No"],
 			OnAccept = function()
 				for i = 1, C_QuestLog.GetNumQuestLogEntries() do
-					local questInfo = C_QuestLog.GetInfo(i)
-					local questId = questInfo.questID
+					local info = C_QuestLog.GetInfo(i)
+					local questId = info.questID
 
-					if not questInfo.isHeader and not questInfo.isHidden then
+					if not info.isHeader and not info.isHidden then
 						C_QuestLog.SetSelectedQuest(questId)
 						C_QuestLog.SetAbandonQuest()
 						C_QuestLog.AbandonQuest()
@@ -345,6 +345,23 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			preferredIndex = 3,
 		}
 		StaticPopup_Show ("HELPMEPLAY_ABANDON_ALL_QUESTS")
-		
+	elseif command == L["Abandon Command"] and arguments ~= "" then
+		-- Abandon the quests by header name.
+		local iter = 1
+		for i = 1, C_QuestLog.GetNumQuestLogEntries() do
+			local info = C_QuestLog.GetInfo(i)
+			if string.find(string.lower(info.title), string.lower(arguments)) then
+				for j = 1, 25 do
+					info = C_QuestLog.GetInfo(i+iter)
+					local questId = info.questID
+					if not info.isHeader and not info.isHidden then
+						C_QuestLog.SetSelectedQuest(questId)
+						C_QuestLog.SetAbandonQuest()
+						C_QuestLog.AbandonQuest()
+						iter = iter+1
+					end
+				end
+			end
+		end
 	end
 end
