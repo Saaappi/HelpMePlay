@@ -54,7 +54,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Garrison Tables Check Button"]											= "Automates the start of the first Garrison mission for both factions, as well as\nthe plotting of the Barracks building for Level 1 Garrisons."
 	L["Mail Check Button"]														= "Automates the collection of ONLY gold from your mailbox."
 	L["Merchants Check Button"]													= "Automates the purchase of specific items from specific merchants.\n|cffFFFFFFExample|r: The [Bottle of Airspark] from Lanna Skyspark in Highmountain."
-	L["Mount Training Check Button"]											= "Automates the purchase of mount training from trainers.\nThe player must have either double the cost of the training OR\nat least 300 more gold than the cost of the training."
+	L["Mount Training Check Button"]											= "Automates the purchase of mount training.\nThe player must have either double the cost of the training OR\nat least 300 more gold than the cost of the training."
 	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\n|cffFFFFFFExample|r: The Playful Trickster during \"The Games We Play\" quest in Ardenweald."
 	L["War Mode Check Button"]													= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\nThis only applies to players above level 20, but below 50."
 	L["Accept/Complete Quests Check Button"]									= "Automates accepting and completing all quests in the game."
