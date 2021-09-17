@@ -320,12 +320,31 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		else
 			HelpMePlayLoadSettings()
 		end
-	elseif command == L["Abandon Command"] then
-		local quests = C_QuestLog.GetQuestsOnMap(addonTable.maps[string.upper(arguments)])
-		for _, v in ipairs(quests) do
-			C_QuestLog.SetSelectedQuest(v.questID)
-			C_QuestLog.SetAbandonQuest()
-			C_QuestLog.AbandonQuest()
-		end
+	elseif command == L["Abandon Command"] and arguments == "" then
+		-- Abandon all quests, but offer a static popup to confirm the player's choice.
+		StaticPopupDialogs["HELPMEPLAY_ABANDON_ALL_QUESTS"] = 
+		{
+			text = L["Do you really want to abandon all quests?"],
+			button1 = L["Yes"],
+			button2 = L["No"],
+			OnAccept = function()
+				for i = 1, C_QuestLog.GetNumQuestLogEntries() do
+					local questInfo = C_QuestLog.GetInfo(i)
+					local questId = questInfo.questID
+
+					if not questInfo.isHeader and not questInfo.isHidden then
+						C_QuestLog.SetSelectedQuest(questId)
+						C_QuestLog.SetAbandonQuest()
+						C_QuestLog.AbandonQuest()
+					end
+				end
+			end,
+			timeout = 0,
+			whileDead = true,
+			hideOnEscape = true,
+			preferredIndex = 3,
+		}
+		StaticPopup_Show ("HELPMEPLAY_ABANDON_ALL_QUESTS")
+		
 	end
 end

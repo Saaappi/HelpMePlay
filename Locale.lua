@@ -31,6 +31,9 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Discord"]																= "Lightsky#0658"
 	L["Red WARNING"]															= "|cffFF0000WARNING:|r "
 	L["Open Settings"]															= "Open Settings"
+	L["Do you really want to abandon all quests?"]								= "|cff00FFFF"..addonName.."|r\n".."Do you really want to abandon all quests?"
+	L["Yes"]																	= "Yes"
+	L["No"]																		= "No"
 	-- Options Panel Text
 	L["CR Text"]																= "Crafted with |T135451:0|t by Lightsky"
 	L["Adventure Maps"]															= "Adventure Maps"
