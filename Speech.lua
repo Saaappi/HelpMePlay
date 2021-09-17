@@ -8,20 +8,37 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_MONSTER_SAY" then
 		if HelpMePlayOptionsDB.Speech == false then return end
 		local msg, monster = ...
-		if monster == "Playful Trickster" then
+		if monster == L["Playful Trickster"] then
 			-- Quest: The Games We Play (Ardenweald)
-			if string.find(msg, L["Playful Trickster: Praise"]) then
+			if string.find(string.lower(msg), string.lower(L["Playful Trickster: Praise"])) then
 				DoEmote("praise", nil)
-			elseif string.find(msg, L["Playful Trickster: Cheer"]) then
+			elseif string.find(string.lower(msg), string.lower(L["Playful Trickster: Cheer"])) then
 				DoEmote("cheer", nil)
-			elseif string.find(msg, L["Playful Trickster: Dance"]) then
+			elseif string.find(string.lower(msg), string.lower(L["Playful Trickster: Dance"])) then
 				DoEmote("dance", nil)
-			elseif string.find(msg, L["Playful Trickster: Introduce"]) then
+			elseif string.find(string.lower(msg), string.lower(L["Playful Trickster: Introduce"])) then
 				DoEmote("bow", nil)
-			elseif string.find(msg, L["Playful Trickster: Thank"]) then
+			elseif string.find(string.lower(msg), string.lower(L["Playful Trickster: Thank"])) then
 				DoEmote("thank", nil)
-			elseif string.find(msg, L["Playful Trickster: Flex"]) then
+			elseif string.find(string.lower(msg), string.lower(L["Playful Trickster: Flex"])) then
 				DoEmote("flex", nil)
+			end
+		elseif monster == L["Al'dalil"] then
+			if string.find(string.lower(msg), string.lower(L["Al'dalil: Buttons 1"])) or string.find(string.lower(msg), string.lower(L["Al'dalil: Buttons 2"])) then
+				ActionButton_ShowOverlayGlow(OverrideActionBarButton1)
+				C_Timer.After(3, function()
+					ActionButton_HideOverlayGlow(OverrideActionBarButton1)
+				end)
+			elseif string.find(string.lower(msg), string.lower(L["Al'dalil: Lever 1"])) or string.find(string.lower(msg), string.lower(L["Al'dalil: Lever 2"])) then
+				ActionButton_ShowOverlayGlow(OverrideActionBarButton2)
+				C_Timer.After(3, function()
+					ActionButton_HideOverlayGlow(OverrideActionBarButton2)
+				end)
+			elseif string.find(string.lower(msg), string.lower(L["Al'dalil: Bonk 1"])) or string.find(string.lower(msg), string.lower(L["Al'dalil: Bonk 2"])) then
+				ActionButton_ShowOverlayGlow(OverrideActionBarButton3)
+				C_Timer.After(3, function()
+					ActionButton_HideOverlayGlow(OverrideActionBarButton3)
+				end)
 			end
 		end
 	end

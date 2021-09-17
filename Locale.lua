@@ -67,6 +67,9 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Chromie Time EditBox"]													= "Enter one of the numeric values to automate which expansion to select for Chromie Time.\n\n|cffFFFFFF0|r: Battle for Azeroth (Current Timeline)\n|cffFFFFFF5|r: The Cataclysm (Classic)\n|cffFFFFFF6|r: The Burning Crusade\n|cffFFFFFF7|r: Wrath of the Lich King\n|cffFFFFFF8|r: Mists of Pandaria\n|cffFFFFFF9|r: Warlords of Draenor\n|cffFFFFFF10|r: Legion"
 	-- Skill Lines																
 	L["Riding"]																	= "Riding"
+	-- Speech Monsters
+	L["Al'dalil"]																= "Al'dalil"
+	L["Playful Trickster"]														= "Playful Trickster"
 	-- Speech																	
 	L["Playful Trickster: Praise"]												= "Not so much as a word of praise!"
 	L["Playful Trickster: Cheer"]												= "The other spriggans were all cheering my name for days!"
@@ -74,6 +77,12 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Playful Trickster: Introduce"]											= "Introductions are an important part of first impressions!"
 	L["Playful Trickster: Thank"]												= "Some ask permission, and always thank us for our trouble."
 	L["Playful Trickster: Flex"]												= "How strong he must have been!"
+	L["Al'dalil: Buttons 1"]													= "Buttons! Quickly, the buttons!"
+	L["Al'dalil: Buttons 2"]													= "Start pressing buttons!"
+	L["Al'dalil: Lever 1"]														= "Use the lever, Maw Walker!"
+	L["Al'dalil: Lever 2"]														= "Pull on one of the levers!"
+	L["Al'dalil: Bonk 1"]														= "A sharp strike to the head always works!"
+	L["Al'dalil: Bonk 2"]														= "There are no operating instructions! Try hitting it!"
 	-- Map Names																
 		-- Eastern Kingdoms														
 	L["ARATHI HIGHLANDS"]														= "ARATHI HIGHLANDS"
@@ -198,6 +207,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["<Present Lajos's invitation>"]											= "<Present Lajos's invitation>"
 	L["I know my way around the Sanctum."]										= "I know my way around the Sanctum."
 	L["Are you sure? This action cannot be undone."]							= "Are you sure? This action cannot be undone."
+	L["What can you tell me about Cartel So?"]									= "What can you tell me about Cartel So?"
 	L["Begin pet battle."]														= "Begin pet battle."
 	L["Let's do battle!"]														= "Let's do battle!"
 	L["I'd like to heal and revive my battle pets."] 							= "I'd like to heal and revive my battle pets."
@@ -283,6 +293,10 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Tal-Inara 1"]															= "Show me how I can help the Shadowlands."
 	L["Highlord Bolvar Fordragon 1"]											= "Skip ahead to finish the Torghast chapter and have Torghast, Ve'nari, and the Runecarver unlocked."
 	L["Highlord Bolvar Fordragon 2"]											= "Skip ahead to Korthia."
+	L["Ve'rayn 1"]																= "Yes, the Jailer's forces have grown more powerful since Denathrius's betrayal."
+	L["Ve'rayn 2"]																= "I'm sorry, what did you say this was for?"
+	L["Ve'rayn 3"]																= "Who is Ve'nari?"
+	L["Ve'rayn 4"]																= "I have never met anyone named Ve'nari."
 	L["Polemarch Adrestes 1"]													= "<Ask Adrestes what happened in Elysian Hold.>"
 	L["Voitha 1"]																= "I will retrieve the scrolls."
 	L["Nemea 1"]																= "I choose the larion."

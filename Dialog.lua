@@ -32,6 +32,7 @@ local creatures = {
 			L["The Lady of the Falls wanted to make sure you were safe."], -- Added from Quest: Ages-Echoing Wisdom (Ardenweald)
 			L["<Request tithe>"], -- Added from Quest: Bring Out Your Tithe (Revendreth)
 			L["I know my way around the Sanctum."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
+			L["What can you tell me about Cartel So?"], -- Added from Quest: Insider Trading (Oribos)
 			L["Begin pet battle."],
 			L["Let's do battle!"],
 		},
@@ -425,6 +426,14 @@ local creatures = {
 	[177136] = { -- Polemarch Adrestes
 		["gossips"] = {
 			L["Polemarch Adrestes 1"],
+		},
+	},
+	[168432] = { -- Ve'rayn
+		["gossips"] = {
+			L["Ve'rayn 1"],
+			L["Ve'rayn 2"],
+			L["Ve'rayn 3"],
+			L["Ve'rayn 4"],
 		},
 	},
 	-- Shadowlands: Bastion
