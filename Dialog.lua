@@ -544,6 +544,11 @@ local creatures = {
 		},
 	},
 	-- Shadowlands: Revendreth
+	[167838] = { -- Globknob
+		["gossips"] = {
+			L["Quest"],
+		},
+	},
 	[159883] = { -- Chancellor Codrin
 		["gossips"] = {
 			L["Chancellor Codrin 1"],
