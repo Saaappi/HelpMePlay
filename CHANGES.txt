@@ -1,6 +1,6 @@
 HelpMePlay | 1.0.4
 	New:
-		Added functionality for the author to add notes to the tooltips of creatures and objects.
+		Added functionality for the author to add notes to the tooltips of creatures and objects. (To begin, players may notice notes on the Suspiciously Untouched objects in Ardenweald during the, "The Sweat of Our Brow" quest.)
 		Players can now keybind the ability to open and close the options menu.
 	Changes:
 		Redesigned the options menu.
