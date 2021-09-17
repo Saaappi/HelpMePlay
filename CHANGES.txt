@@ -1,14 +1,7 @@
-HelpMePlay | 1.0.4
+HelpMePlay | 1.0.5
 	New:
-		Added functionality for the author to add notes to the tooltips of creatures and objects. (To begin, players may notice notes on the Suspiciously Untouched objects in Ardenweald during the, "The Sweat of Our Brow" quest.)
-		Players can now keybind the ability to open and close the options menu.
-		Players can now add their own dialog! Player submitted dialogs are always checked first.
+		
 	Changes:
-		Redesigned the options menu.
-		The options menu is now movable.
-		Reworked the Abandon command.
-			Players can now omit the zone name to abandon all quests. A popup is provided to confirm the action.
-			Passing a zone name is much more reliable and players need only provide a partial name.
+		
 	Fixes:
-		Fixed multiple dialogs in Ardenweald.
-		Fixed multiple dialogs in Revendreth.
+		

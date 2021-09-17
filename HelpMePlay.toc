@@ -4,7 +4,7 @@
 ## Notes: Automates tasks related to questing, dialog, vendors, and more.
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB
 ## Title: |cff00CCFFHelpMePlay|r
-## Version: 1.0.4
+## Version: 1.0.5
 
 # Addon localized strings.
 Locale.lua
