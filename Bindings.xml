@@ -1,0 +1,5 @@
+<Bindings>
+	<Binding name="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="ADDONS">
+		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_OPEN_SETTINGS"))
+	</Binding>
+</Bindings>

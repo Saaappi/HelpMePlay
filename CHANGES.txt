@@ -1,6 +1,7 @@
 HelpMePlay | 1.0.4
 	New:
 		Added functionality to add notes to the tooltips of creatures and objects.
+		Players can now keybind the ability to open and close the options menu.
 	Changes:
 		Redesigned the options menu.
 		The options menu is now movable.

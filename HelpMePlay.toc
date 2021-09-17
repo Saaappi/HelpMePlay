@@ -60,3 +60,6 @@ Mouseover.lua
 
 # Automates accepting and completing quests (including taking rewards).
 HelpMePlay.lua
+
+# Handles keybindings.
+Keybinding.lua
