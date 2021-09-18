@@ -70,6 +70,7 @@ if (locale == "enGB" or locale == "enUS") then
 	-- Speech Monsters
 	L["Al'dalil"]																= "Al'dalil"
 	L["Playful Trickster"]														= "Playful Trickster"
+	L["Trainer Ikaros"]															= "Trainer Ikaros"
 	-- Speech																	
 	L["Playful Trickster: Praise"]												= "Not so much as a word of praise!"
 	L["Playful Trickster: Cheer"]												= "The other spriggans were all cheering my name for days!"
@@ -83,6 +84,12 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Al'dalil: Lever 2"]														= "Pull on one of the levers!"
 	L["Al'dalil: Bonk 1"]														= "A sharp strike to the head always works!"
 	L["Al'dalil: Bonk 2"]														= "There are no operating instructions! Try hitting it!"
+	L["Trainer Ikaros: Dodge"]													= "Dodge"
+	L["Trainer Ikaros: Strike"]													= "Strike"
+	L["Trainer Ikaros: Jab"]													= "Jab"
+	L["Trainer Ikaros: Sweep"]													= "Sweep"
+	L["Trainer Ikaros: Kick"]													= "Kick"
+	L["Trainer Ikaros: Parry"]													= "Parry"
 	-- Map Names																
 		-- Eastern Kingdoms														
 	L["ARATHI HIGHLANDS"]														= "ARATHI HIGHLANDS"

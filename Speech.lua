@@ -41,6 +41,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 					ActionButton_HideOverlayGlow(OverrideActionBarButton3)
 				end)
 			end
+		elseif monster == L["Trainer Ikaros"] then
+			-- World Quest: We'll Make an Aspirant Out of You (Bastion)
+			if string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Jab"])) or string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Strike"])) then
+				ActionButton_ShowOverlayGlow(OverrideActionBarButton1)
+				C_Timer.After(3, function()
+					ActionButton_HideOverlayGlow(OverrideActionBarButton1)
+				end)
+			elseif string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Kick"])) or string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Sweep"])) then
+				ActionButton_ShowOverlayGlow(OverrideActionBarButton2)
+				C_Timer.After(3, function()
+					ActionButton_HideOverlayGlow(OverrideActionBarButton2)
+				end)
+			elseif string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Dodge"])) or string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Parry"])) then
+				ActionButton_ShowOverlayGlow(OverrideActionBarButton3)
+				C_Timer.After(3, function()
+					ActionButton_HideOverlayGlow(OverrideActionBarButton3)
+				end)
+			end
 		end
 	end
 end)
