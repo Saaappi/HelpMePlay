@@ -24,6 +24,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				DoEmote("flex", nil)
 			end
 		elseif monster == L["Al'dalil"] then
+			-- Quest: Dead Drop (Bastion)
 			if string.find(string.lower(msg), string.lower(L["Al'dalil: Buttons 1"])) or string.find(string.lower(msg), string.lower(L["Al'dalil: Buttons 2"])) then
 				ActionButton_ShowOverlayGlow(OverrideActionBarButton1)
 				C_Timer.After(3, function()
