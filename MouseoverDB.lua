@@ -6,7 +6,7 @@ local mouseoverDB = {
 	-- Creatures
 	[170080] = { -- Exposed Boggart
 		["note"] = L["Note: Exposed Boggart"],
-		["buffId"] = 0, -- Shimmerdusted
+		["buffId"] = 0,
 	},
 	-- Objects
 	[L["Suspiciously Untouched Basket"]] = {
