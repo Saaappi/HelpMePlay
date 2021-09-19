@@ -3,6 +3,11 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 
 local mouseoverDB = {
+	-- Creatures
+	[170080] = { -- Exposed Boggart
+		["note"] = L["Note: Exposed Boggart"],
+		["buffId"] = 0, -- Shimmerdusted
+	},
 	-- Objects
 	[L["Suspiciously Untouched Basket"]] = {
 		["note"] = L["Note: Suspiciously Untouched Basket"],

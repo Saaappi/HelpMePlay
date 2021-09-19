@@ -5,6 +5,7 @@ HelpMePlay | 1.0.5
 		Added multiple dialogs for Ve'rayn.
 		Added a glow to the corresponding button (based on what's called for) during the "Dead Drop" quest in Bastion.
 		Added a glow to the corresponding button (based on what's called for) during the "We'll Make an Aspirant Out of You" world quest in Bastion.
+		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
 	Changes:
 		
 	Fixes:
