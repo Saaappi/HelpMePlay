@@ -90,6 +90,10 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Trainer Ikaros: Sweep"]													= "Sweep"
 	L["Trainer Ikaros: Kick"]													= "Kick"
 	L["Trainer Ikaros: Parry"]													= "Parry"
+	-- Raid Boss Whispers (Event)
+	L["Taloned Flayedwing: Praise"]												= "The flayedwing is flying smoothly, praise them!"
+	L["Taloned Flayedwing: Scared"]												= "The flayedwing is scared, soothe it with gentle pats!"
+	L["Taloned Flayedwing: Shake"]												= "The flayedwing is trying to shake you off, hold on tight!"
 	-- Map Names																
 		-- Eastern Kingdoms														
 	L["ARATHI HIGHLANDS"]														= "ARATHI HIGHLANDS"
@@ -344,6 +348,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Courier Araak 1"]														= "Dimwiddle sent me."
 	L["Courier Araak 2"]														= "We are ready. Please tell the Taskmaster the Maw Walker is here."
 	L["Avowed Ritualist 1"]														= "I have a soul for you."
+	L["Project Lead Allen 1"]													= "I will assist you."
+	L["Taloned Flayedwing 1"]													= "<Ride the flayedwing back to the Wrangler Pit.>"
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"
 	L["Lorewalker Cho 2"]														= "Go ahead and turn this thing on."
 	L["Scout Captain Elsia 1"]													= "Here are the explosives, Elsia."

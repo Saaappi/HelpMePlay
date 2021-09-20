@@ -532,6 +532,16 @@ local creatures = {
 			L["Ta'eran 1"],
 		},
 	},
+	[171747] = { -- Project Lead Allen
+		["gossips"] = {
+			L["Project Lead Allen 1"],
+		},
+	},
+	[172871] = { -- Taloned Flayedwing
+		["gossips"] = {
+			L["Taloned Flayedwing 1"],
+		},
+	},
 	-- Shadowlands: Ardenweald
 	[158543] = { -- Attendant Sparkledew
 		["gossips"] = {
