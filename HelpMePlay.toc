@@ -13,9 +13,6 @@ Locale.lua
 Frame.xml
 Frame.lua
 
-# Used to convert a map name to an ID.
-Maps.lua
-
 # Automates selecting Chromie Time expansion.
 ChromieTime.lua
 
