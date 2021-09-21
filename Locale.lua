@@ -302,6 +302,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Lady Jaina Proudmoore 2"]												= "Tell me more of the Jailer."
 	L["Lady Jaina Proudmoore 3"]												= "What about the others who were taken?"
 	L["Lady Jaina Proudmoore 4"]												= "<Lie low and observe.>"
+	L["Shandris Feathermoon 1"]													= "We should be able to find Tyrande if we follow the trail of corpses."
+	L["Shandris Feathermoon 2"]													= "I can bring you and these souls to Ardenweald."
 	L["Tal-Inara 1"]															= "Show me how I can help the Shadowlands."
 	L["Highlord Bolvar Fordragon 1"]											= "Skip ahead to finish the Torghast chapter and have Torghast, Ve'nari, and the Runecarver unlocked."
 	L["Highlord Bolvar Fordragon 2"]											= "Skip ahead to Korthia."

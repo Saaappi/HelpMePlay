@@ -411,6 +411,22 @@ local creatures = {
 			L["Lady Jaina Proudmoore 4"],
 		}
 	},
+	[168836] = { -- Shandris Feathermoon
+		["gossips"] = {
+			L["Shandris Feathermoon 1"],
+		}
+	},
+	-- Shadowlands: Torghast
+	[175118] = { -- Shandris Feathermoon
+		["gossips"] = {
+			L["Quest"],
+		},
+	},
+	[164334] = { -- Shandris Feathermoon
+		["gossips"] = {
+			L["Shandris Feathermoon 2"],
+		},
+	},
 	-- Shadowlands: Oribos
 	[159478] = { -- Tal-Inara
 		["gossips"] = {

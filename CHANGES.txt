@@ -9,5 +9,6 @@ HelpMePlay | 1.0.5
 		Added a dialog for Project Lead Allen in Maldraxxus.
 		Added a dialog for the Taloned Flayedwing in Maldraxxus.
 		Added multiple dialogs for Ve'rayn.
+		Added multiple dialogs for Shandris Feathermoon.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
