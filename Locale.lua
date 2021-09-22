@@ -35,7 +35,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Do you really want to abandon all quests?"]								= "|cff00FFFF"..addonName.."|r\n".."Do you really want to abandon all quests?"
 	L["Yes"]																	= "Yes"
 	L["No"]																		= "No"
-	L["PICK"]																	= "PICK"
+	L["S TIER"]																	= "S TIER"
 	-- Options Panel Text
 	L["CR Text"]																= "Crafted with |T135451:0|t by Lightsky"
 	L["Adventure Maps"]															= "Adventure Maps"
