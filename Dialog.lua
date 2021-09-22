@@ -427,6 +427,26 @@ local creatures = {
 			L["Shandris Feathermoon 2"],
 		},
 	},
+	[152418] = { -- Gallath
+		["gossips"] = {
+			L["Gallath 1"],
+		},
+	},
+	[172264] = { -- Yira'lya
+		["gossips"] = {
+			L["Yira'lya 1"],
+		},
+	},
+	[178932] = { -- Ve'lor the Messenger
+		["gossips"] = {
+			L["Ve'lor the Messenger 1"],
+		},
+	},
+	[166147] = { -- Calix
+		["gossips"] = {
+			L["Calix 1"],
+		},
+	},
 	-- Shadowlands: Oribos
 	[159478] = { -- Tal-Inara
 		["gossips"] = {

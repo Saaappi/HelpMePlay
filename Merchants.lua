@@ -22,17 +22,22 @@ local merchants = {
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
 		if HelpMePlayOptionsDB.Merchants == false then return end
-		local _, _, _, _, _, npcID = strsplit("-", UnitGUID("target")); npcID = tonumber(npcID)
-		for id, _ in pairs(merchants) do
-			if id == npcID then
-				local numMerchantItems = GetMerchantNumItems()
-				for i = 1, numMerchantItems do
-					local merchantItemLink = GetMerchantItemLink(i)
-					if merchantItemLink then
-						local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)
-						if itemID == merchants[id].itemID then
-							BuyMerchantItem(i, merchants[id].quantity)
-							break
+		local guid = UnitGUID("target") or UnitGUID("mouseover")
+		if guid then
+			local _, _, _, _, _, npcId = strsplit("-", guid) or strsplit("-", guid); npcId = tonumber(npcId)
+			if npcId then
+				for id, _ in pairs(merchants) do
+					if id == npcId then
+						local numMerchantItems = GetMerchantNumItems()
+						for i = 1, numMerchantItems do
+							local merchantItemLink = GetMerchantItemLink(i)
+							if merchantItemLink then
+								local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)
+								if itemID == merchants[id].itemID then
+									BuyMerchantItem(i, merchants[id].quantity)
+									break
+								end
+							end
 						end
 					end
 				end

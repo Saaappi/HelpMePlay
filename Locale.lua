@@ -35,6 +35,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Do you really want to abandon all quests?"]								= "|cff00FFFF"..addonName.."|r\n".."Do you really want to abandon all quests?"
 	L["Yes"]																	= "Yes"
 	L["No"]																		= "No"
+	L["PICK"]																	= "PICK"
 	-- Options Panel Text
 	L["CR Text"]																= "Crafted with |T135451:0|t by Lightsky"
 	L["Adventure Maps"]															= "Adventure Maps"
@@ -57,7 +58,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Emotes Check Button"]													= "Automates emoting at specific NPCs.\n|cffFFFFFFExample|r: The runestones during the \"Repeat After Me\" quest in Maldraxxus."
 	L["Garrison Tables Check Button"]											= "Automates the start of the first Garrison mission for both factions, as well as\nthe plotting of the Barracks building for Level 1 Garrisons."
 	L["Mail Check Button"]														= "Automates the collection of ONLY gold from your mailbox."
-	L["Merchants Check Button"]													= "Automates the purchase of specific items from merchants.\n|cffFFFFFFExample|r: The [Bottle of Airspark] from Lanna Skyspark in Highmountain."
+	L["Merchants Check Button"]													= "Automates the purchase of specific items from merchants, as well\nas automatic repairs.\n|cffFFFFFFExample|r: The [Bottle of Airspark] from Lanna Skyspark in Highmountain."
 	L["Mount Training Check Button"]											= "Automates the purchase of mount training.\nThe player must have either double the cost of the training OR\nat least 300 more gold than the cost of the training."
 	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\n|cffFFFFFFExample|r: The Playful Trickster during \"The Games We Play\" quest in Ardenweald."
 	L["War Mode Check Button"]													= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\nThis only applies to players above level 20, but below 50."
@@ -94,7 +95,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Taloned Flayedwing: Praise"]												= "The flayedwing is flying smoothly, praise them!"
 	L["Taloned Flayedwing: Scared"]												= "The flayedwing is scared, soothe it with gentle pats!"
 	L["Taloned Flayedwing: Shake"]												= "The flayedwing is trying to shake you off, hold on tight!"
-	-- Map Names																
+	-- Map Names
+	L["Torghast"]																= "Torghast"
 		-- Eastern Kingdoms														
 	L["ARATHI HIGHLANDS"]														= "ARATHI HIGHLANDS"
 	L["BADLANDS"] 																= "BADLANDS"
@@ -350,6 +352,10 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Courier Araak 1"]														= "Dimwiddle sent me."
 	L["Courier Araak 2"]														= "We are ready. Please tell the Taskmaster the Maw Walker is here."
 	L["Avowed Ritualist 1"]														= "I have a soul for you."
+	L["Gallath 1"]																= "Yes, I will help."
+	L["Yira'lya 1"]																= "Do not worry, I will free you."
+	L["Ve'lor the Messenger 1"]													= "Yes, I will help."
+	L["Calix 1"]																= "Yes, I will help."
 	L["Project Lead Allen 1"]													= "I will assist you."
 	L["Taloned Flayedwing 1"]													= "<Ride the flayedwing back to the Wrangler Pit.>"
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"

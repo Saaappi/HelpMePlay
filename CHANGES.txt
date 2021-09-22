@@ -1,4 +1,7 @@
 HelpMePlay | 1.0.5
+	Features:
+		S Tier Anima Powers in Torghast are now identified to help players locate the best traits for classes they may not often play.
+		Repairing at a merchant is now automatically handled.
 	Quests:
 		Added a glow to the corresponding button during the "Dead Drop" quest in Bastion.
 		Added a glow to the corresponding button during the "Just Winging It" world quest in Maldraxxus.
@@ -10,5 +13,8 @@ HelpMePlay | 1.0.5
 		Added a dialog for the Taloned Flayedwing in Maldraxxus.
 		Added multiple dialogs for Ve'rayn.
 		Added multiple dialogs for Shandris Feathermoon.
+		Added dialogs for multiple NPCs in Torghast.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
+	Fixes:
+		Fixed an issue where sometimes the merchant ID would be nil and toss an error.

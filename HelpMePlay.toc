@@ -22,6 +22,9 @@ AdventureMap.lua
 # Automates the purchase of mount training.
 MountTraining.lua
 
+# Adds text to Anima powers in Torghast to help players pick.
+AnimaPowers.lua
+
 # Automates the garrison mission table.
 GarrisonMissionTable.lua
 
@@ -55,8 +58,8 @@ MouseoverDB.lua
 # Handles mouseover for objects and creatures. Allows the addition of notes from the addon, if desired.
 Mouseover.lua
 
-# Automates tasks related to the Covenant Sanctums.
-CovenantSanctums.lua
+# Automates repairing at merchants.
+Repairs.lua
 
 # Automates accepting and completing quests (including taking rewards).
 HelpMePlay.lua
