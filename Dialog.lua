@@ -614,6 +614,12 @@ local creatures = {
 			L["Lady Moonberry 1"],
 		},
 	},
+	[172185] = { -- Zayhad, The Builder
+		["gossips"] = {
+			L["Zayhad, The Builder 1"],
+			L["Zayhad, The Builder 2"],
+		},
+	},
 	-- Shadowlands: Revendreth
 	[167838] = { -- Globknob
 		["gossips"] = {

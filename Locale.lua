@@ -359,6 +359,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Calix 1"]																= "Yes, I will help."
 	L["Project Lead Allen 1"]													= "I will assist you."
 	L["Lord Herne 1"]															= "I will join the hunt, Lord Herne."
+	L["Zayhad, The Builder 1"]													= "I'll take this acorn and recover memories within Heartwood Grove."
+	L["Zayhad, The Builder 2"]													= "Here are the joyful memories I collected from Heartwood Grove."
 	L["Taloned Flayedwing 1"]													= "<Ride the flayedwing back to the Wrangler Pit.>"
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"
 	L["Lorewalker Cho 2"]														= "Go ahead and turn this thing on."
