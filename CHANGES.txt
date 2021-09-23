@@ -14,6 +14,7 @@ HelpMePlay | 1.0.5
 		Added multiple dialogs for Ve'rayn.
 		Added multiple dialogs for Shandris Feathermoon.
 		Added dialogs for multiple NPCs in Torghast.
+		Added dialogs for multiple NPCs in The Maw for the Night Fae assault.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
 	Fixes:

@@ -416,6 +416,16 @@ local creatures = {
 			L["Shandris Feathermoon 1"],
 		}
 	},
+	[178828] = { -- Lord Herne
+		["gossips"] = {
+			L["Lord Herne 1"],
+		}
+	},
+	[178943] = { -- Lady Moonberry
+		["gossips"] = {
+			L["Lady Moonberry 2"],
+		}
+	},
 	-- Shadowlands: Torghast
 	[175118] = { -- Shandris Feathermoon
 		["gossips"] = {
