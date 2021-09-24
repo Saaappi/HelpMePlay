@@ -853,22 +853,22 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- First check to see if the General NPC options contain the
 				-- confirmation message before scanning the specific NPC.
 				for i = 1, 2 do
-					for j = 1, #creatures[i]["confirms"] do
+					for j = 1, #creatures[i]["c"] do
 						-- First try to find the substring using string.find.
 						-- If that doesn't work, then try a literal match.
-						if string.find(string.lower(message), string.lower(creatures[i]["confirms"][j])) then
+						if string.find(string.lower(message), string.lower(creatures[i]["c"][j])) then
 							StaticPopup1Button1:Click()
 							return
 						end
-						if string.lower(message) == string.lower(creatures[i]["confirms"][j]) then
+						if string.lower(message) == string.lower(creatures[i]["c"][j]) then
 							StaticPopup1Button1:Click()
 							return
 						end
 					end
 				end
 				if id == npcId then
-					for i = 1, #creatures[id]["confirms"] do
-						if string.find(string.lower(message), string.lower(creatures[id]["confirms"][i])) then
+					for i = 1, #creatures[id]["c"] do
+						if string.find(string.lower(message), string.lower(creatures[id]["c"][i])) then
 							StaticPopup1Button1:Click()
 							return
 						end
@@ -908,8 +908,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- These are general NPC dialogs. These are not directly associated
 				-- with a specific NPC.
 				for i = 1, 2 do
-					for j = 1, #creatures[i]["gossips"] do
-						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
+					for j = 1, #creatures[i]["g"] do
+						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["g"][j])) then
 							C_GossipInfo.SelectOption(index)
 							return
 						end
@@ -917,8 +917,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 				for id, _ in pairs(creatures) do
 					if id == npcId then -- The target's ID is in the table, so use its configuration.
-						for i = 1, #creatures[id]["gossips"] do
-							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["gossips"][i])) then
+						for i = 1, #creatures[id]["g"] do
+							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["g"][i])) then
 								C_GossipInfo.SelectOption(index)
 								return
 							end
@@ -929,8 +929,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		else
 			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
 				for i = 1, 2 do
-					for j = 1, #creatures[i]["gossips"] do
-						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["gossips"][j])) then
+					for j = 1, #creatures[i]["g"] do
+						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["g"][j])) then
 							C_GossipInfo.SelectOption(index)
 						end
 					end
