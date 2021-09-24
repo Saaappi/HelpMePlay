@@ -16,7 +16,10 @@ HelpMePlay | 1.0.5
 		Added dialogs for multiple NPCs in Torghast.
 		Added dialogs for multiple NPCs in The Maw for the Night Fae assault.
 		Added multiple dialogs for Zayhad, The Builder.
+		Added support for more Stable Masters (and healing battle pets.)
+		Added multiple dialogs for the Sparring Aspirants involved in the "Let's Get Ready to Humble" world quest.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
 	Fixes:
 		Fixed an issue where sometimes the merchant ID would be nil and toss an error.
+		Fixed an issue that caused the merchant window to open when speaking with Stable Masters.

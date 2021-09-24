@@ -25,7 +25,6 @@ local creatures = {
 			L["D'kaan is coming with help."], -- Added from Quest: Rescue Rangari (Gorgrond)
 			L["I've heard this tale before..."], -- Added from Quest: ??? (Stormwind City/Orgrimmar)
 			L["Is there any way I can help?"], -- Added from Quest: A Plague On Your House (Maldraxxus)
-			L["O.K."], -- Added from Quest: A Plague On Your House (Maldraxxus)
 			L["Is there anything you need?"], -- Added from Quest: ...Even The Most Ridiculous Request! (Maldraxxus)
 			L["Very well. Let us fight."], -- Added from Quest: Test Your Mettle (Maldraxxus)
 			L["Au'narim claims you owe her anima."], -- Added from Quest: Leave Me a Loan (Maldraxxus)
@@ -45,6 +44,7 @@ local creatures = {
 			L["I'd like to heal and revive my battle pets."],
 		},
 		["confirms"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 	-- Exile's Reach
@@ -511,7 +511,6 @@ local creatures = {
 			L["Aspirant Ikaran 1"],
 		},
 	},
-	-- Sh
 	[169027] = { -- Helpful Steward (for the fixes)
 		["gossips"] = {
 			L["Helpful Steward 1"],
@@ -527,7 +526,40 @@ local creatures = {
 			L["Trapped Caretaker 1"],
 		},
 	},
+	[161279] = { -- Sparring Aspirant
+		["gossips"] = {
+			-- When there is only one Sparring Aspirant.
+			L["Sparring Aspirant 1"],
+		},
+	},
+	[159504] = { -- Sparring Aspirant
+		["gossips"] = {
+			L["Sparring Aspirant 1"],
+			L["Sparring Aspirant 2"],
+		},
+	},
+	[159505] = { -- Sparring Aspirant
+		["gossips"] = {
+			-- When there are Sparring Aspirants... sparring.
+			L["Sparring Aspirant 2"],
+		},
+	},
 	-- Shadowlands: Maldraxxus
+	[165052] = { -- Vial Master Lurgy
+		["gossips"] = {
+			L["O.K."],
+		},
+	},
+	[157313] = { -- Foul-Tongue Cyrlix
+		["gossips"] = {
+			L["O.K."],
+		},
+	},
+	[157945] = { -- Boil Master Yetch
+		["gossips"] = {
+			L["O.K."],
+		},
+	},
 	[159696] = { -- Rencissa the Dynamo
 		["gossips"] = {
 			L["Rencissa the Dynamo 1"],
