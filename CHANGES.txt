@@ -11,6 +11,10 @@ HelpMePlay | 1.0.5
 		Added a dialog for the NPCs involved in the "Insider Trading" quest in Oribos.
 		Added a dialog for Project Lead Allen in Maldraxxus.
 		Added a dialog for the Taloned Flayedwing in Maldraxxus.
+		Added a dialog for Dapperdew.
+		Added a dialog for Cortinarius.
+		Added a dialog for Marasmius.
+		Added multiple dialogs for NPCs involved in the Night Fae Campaign.
 		Added multiple dialogs for Ve'rayn.
 		Added multiple dialogs for Shandris Feathermoon.
 		Added dialogs for multiple NPCs in Torghast.

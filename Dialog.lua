@@ -32,6 +32,7 @@ local creatures = {
 			L["<Request tithe>"], -- Added from Quest: Bring Out Your Tithe (Revendreth)
 			L["I know my way around the Sanctum."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
 			L["What can you tell me about Cartel So?"], -- Added from Quest: Insider Trading (Oribos)
+			L["Let's ride."], -- Added from Quest: My Way or the Hyphae (Ardenweald)
 			L["Begin pet battle."],
 			L["Let's do battle!"],
 		},
@@ -621,6 +622,31 @@ local creatures = {
 		},
 	},
 	-- Shadowlands: Ardenweald
+	[171743] = { -- Dapperdew
+		["gossips"] = {
+			L["Dapperdew 1"],
+		},
+	},
+	[157710] = { -- Cortinarius
+		["gossips"] = {
+			L["Cortinarius 1"],
+		},
+	},
+	[160929] = { -- Guardian Molan
+		["gossips"] = {
+			L["The forces of Mueh'zala have invaded Ardenweald."],
+		},
+	},
+	[158921] = { -- Guardian Kota
+		["gossips"] = {
+			L["The forces of Mueh'zala have invaded Ardenweald."],
+		},
+	},
+	[158519] = { -- Sorcha
+		["gossips"] = {
+			L["The forces of Mueh'zala have invaded Ardenweald."],
+		},
+	},
 	[158543] = { -- Attendant Sparkledew
 		["gossips"] = {
 			L["Attendant Sparkledew 1"],
@@ -743,6 +769,22 @@ local creatures = {
 		},
 	},
 	-- Shadowlands: Heart of the Forest (Covenant Sanctum)
+	[156634] = { -- Winter Queen
+		["gossips"] = {
+			L["Winter Queen 1"],
+		},
+	},
+	[172886] = { -- Mask of Bwonsamdi
+		["gossips"] = {
+			L["Mask of Bwonsamdi 1"],
+		},
+	},
+	-- Instance: De Other Side
+	[166281] = { -- Bwonsamdi
+		["gossips"] = {
+			L["Bwonsamdi 1"],
+		},
+	},
 	-- Instance: Mogu'shan Vaults
 	[61348] = { -- Lorewalker Cho
 		["gossips"] = {
