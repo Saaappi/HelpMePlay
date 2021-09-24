@@ -36,7 +36,7 @@ local creatures = {
 			L["Begin pet battle."],
 			L["Let's do battle!"],
 		},
-		["confirms"] = {
+		["c"] = {
 			L["Are you sure? This action cannot be undone."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
 		},
 	},
@@ -44,7 +44,7 @@ local creatures = {
 		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
 		},
-		["confirms"] = {
+		["c"] = {
 			L["A small fee for supplies is required."],
 		},
 	},
@@ -75,7 +75,7 @@ local creatures = {
 		["g"] = {
 			L["Archmage Khadgar 1"],
 		},
-		["confirms"] = {
+		["c"] = {
 			L["Archmage Khadgar 2"],
 		},
 	},
@@ -121,7 +121,7 @@ local creatures = {
 		["g"] = {
 			L["I've heard this tale before..."],
 		},
-		["confirms"] = {
+		["c"] = {
 			L["Are you sure you want to skip the Broken Shore introduction?"],
 		},
 	},
@@ -146,7 +146,7 @@ local creatures = {
 		["g"] = {
 			L["I've heard this tale before..."],
 		},
-		["confirms"] = {
+		["c"] = {
 			L["Are you sure you want to skip the Broken Shore introduction?"],
 		},
 	},
@@ -493,7 +493,7 @@ local creatures = {
 		["g"] = {
 			L["Nemea 1"],
 		},
-		["confirms"] = {
+		["c"] = {
 			L["Nemea 2"],
 		},
 	},
