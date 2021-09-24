@@ -9,7 +9,7 @@ e:RegisterEvent("MODIFIER_STATE_CHANGED")
 
 local creatures = {
 	[1] = { -- Gossip and confirm options used on two or more NPCs.
-		["gossips"] = {
+		["g"] = {
 			L["Are you enjoying yourself?"], -- Added from Quest: Mix, Mingle, and Meddle (Revendreth)
 			L["Go hunt somewhere else!"], -- Added from Quest: Amateur Hour (Highmountain)
 			L["There is no time left. Run!"], -- Added from Quest: Evacuate Snowmane (Highmountain)
@@ -41,7 +41,7 @@ local creatures = {
 		},
 	},
 	[2] = { -- NPCs with Cost
-		["gossips"] = {
+		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
 		},
 		["confirms"] = {
@@ -50,29 +50,29 @@ local creatures = {
 	},
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane
-		["gossips"] = {
+		["g"] = {
 			L["Daelya Twilightsbane 1"],
 			L["Daelya Twilightsbane 2"],
 		},
 	},
 	[167298] = { -- Herbert Gloomburst
-		["gossips"] = {
+		["g"] = {
 			L["Herbert Gloomburst 1"],
 		},
 	},
 	[167309] = { -- Herbert Gloomburst
-		["gossips"] = {
+		["g"] = {
 			L["Herbert Gloomburst 2"],
 		},
 	},
 	[167663] = { -- Warlord Breka Grimaxe
-		["gossips"] = {
+		["g"] = {
 			L["Warlord Breka Grimaxe 1"],
 		},
 	},
 	-- Eastern Kingdoms: Blasted Lands
 	[78423] = { -- Archmage Khadgar
-		["gossips"] = {
+		["g"] = {
 			L["Archmage Khadgar 1"],
 		},
 		["confirms"] = {
@@ -81,44 +81,44 @@ local creatures = {
 	},
 	-- Eastern Kingdoms: Hillsbrad Foothills
 	[47442] = { -- Johnny Awesome
-		["gossips"] = {
+		["g"] = {
 			L["Johnny Awesome 1"],
 			L["Johnny Awesome 2"],
 			L["Johnny Awesome 3"],
 		},
 	},
 	[47443] = { -- Kingslayer Orkus
-		["gossips"] = {
+		["g"] = {
 			L["Kingslayer Orkus 1"],
 			L["Kingslayer Orkus 2"],
 			L["Kingslayer Orkus 3"],
 		},
 	},
 	[47444] = { -- Dumass
-		["gossips"] = {
+		["g"] = {
 			L["Dumass 1"],
 			L["Dumass 2"],
 		},
 	},
 	[48218] = { -- Kingslayer Orkus
-		["gossips"] = {
+		["g"] = {
 			L["Kingslayer Orkus 4"]
 		},
 	},
 	-- Eastern Kingdoms: Silverpine Forest
 	[44825] = { -- Bat Handler Maggotbreath
-		["gossips"] = {
+		["g"] = {
 			L["Bat Handler Maggotbreath 1"],
 		},
 	},
 	[45752] = { -- Ambermill Dimensional Portal
-		["gossips"] = {
+		["g"] = {
 			L["Ambermill Dimensional Portal 1"],
 		},
 	},
 	-- Eastern Kingdoms: Stormwind City
 	[107934] = { -- Recruiter Lee
-		["gossips"] = {
+		["g"] = {
 			L["I've heard this tale before..."],
 		},
 		["confirms"] = {
@@ -126,24 +126,24 @@ local creatures = {
 		},
 	},
 	[149626] = { -- Vanguard Battlemage (Alliance)
-		["gossips"] = {
+		["g"] = {
 			L["Vanguard Battlemage 1"],
 		},
 	},
 	[171789] = { -- High Inquisitor Whitemane
-		["gossips"] = {
+		["g"] = {
 			L["High Inquisitor Whitemane 1"],
 		},
 	},
 	-- Eastern Kingdoms: Tirisfal Glades
 	[141488] = { -- Zidormi
-		["gossips"] = {
+		["g"] = {
 			L["Zidormi 1"],
 		},
 	},
 	-- Kalimdor: Durotar
 	[4311] = { -- Holgar Stormaxe
-		["gossips"] = {
+		["g"] = {
 			L["I've heard this tale before..."],
 		},
 		["confirms"] = {
@@ -152,260 +152,260 @@ local creatures = {
 	},
 	-- Kalimdor: Orgrimmar
 	[135205] = { -- Nathanos Blightcaller
-		["gossips"] = {
+		["g"] = {
 			L["Nathanos Blightcaller 1"],
 		}
 	},
 	[167032] = { -- Chromie
-		["gossips"] = {
+		["g"] = {
 			L["Chromie 1"],
 			L["Chromie 2"],
 		}
 	},
 	[168431] = { -- Warlord Breka Grimaxe
-		["gossips"] = {
+		["g"] = {
 			L["Warlord Breka Grimaxe 2"],
 		},
 	},
 	[171791] = { -- Nazgrim
-		["gossips"] = {
+		["g"] = {
 			L["Nazgrim 1"],
 		}
 	},
 	-- Draenor: Garrison (Alliance)
 	[79243] = { -- Baros Alexston
-		["gossips"] = {
+		["g"] = {
 			L["Baros Alexston 1"],
 		},
 	},
 	[84455] = { -- Assistant Brightstone
-		["gossips"] = {
+		["g"] = {
 			L["Assistant Brightstone 1"],
 		},
 	},
 	[81441] = { -- Shelly Hamby
-		["gossips"] = {
+		["g"] = {
 			L["Shelly Hamby 1"],
 		},
 	},
 	[81103] = { -- Dungar Longdrink
-		["gossips"] = {
+		["g"] = {
 			L["Dungar Longdrink 1"],
 		},
 	},
 	-- Draenor: Tanaan Jungle
 	[78568] = { -- Thaelin Darkanvil
-		["gossips"] = {
+		["g"] = {
 			L["Thaelin Darkanvil 1"],
 		},
 	},
 	-- Draenor: Garrison (Horde)
 	[80225] = { -- Skaggit
-		["gossips"] = {
+		["g"] = {
 			L["Skaggit 1"],
 		},
 	},
 	[86775] = { -- Senior Peon II
-		["gossips"] = {
+		["g"] = {
 			L["Senior Peon II 1"],
 		},
 	},
 	[88228] = { -- Sergeant Grimjaw
-		["gossips"] = {
+		["g"] = {
 			L["Sergeant Grimjaw 1"],
 		},
 	},
 	-- Draenor: Shadowmoon Valley
 	[72871] = { -- All-Seeing Eye
-		["gossips"] = {
+		["g"] = {
 			L["All-Seeing Eye 1"],
 		},
 	},
 	[78556] = { -- Ariok
-		["gossips"] = {
+		["g"] = {
 			L["Ariok 1"],
 		},
 	},
 	-- Broken Isles: Highmountain
 	[98825] = { -- Spiritwalker Ebonhorn
-		["gossips"] = {
+		["g"] = {
 			L["Spiritwalker Ebonhorn 1"],
 			L["Spiritwalker Ebonhorn 2"],
 		},
 	},
 	[99745] = { -- Snazzle Shinyfinder
-		["gossips"] = {
+		["g"] = {
 			L["Snazzle Shinyfinder 1"],
 		},
 	},
 	[99746] = { -- Trytooth Hardchisel
-		["gossips"] = {
+		["g"] = {
 			L["Trytooth Hardchisel 1"],
 		},
 	},
 	[99747] = { -- Kindle Candlecrafter
-		["gossips"] = {
+		["g"] = {
 			L["Kindle Candlecrafter 1"],
 		},
 	},
 	[99748] = { -- Dug Digger
-		["gossips"] = {
+		["g"] = {
 			L["Dug Digger 1"],
 		},
 	},
 	[99781] = { -- Snazzle Shinyfinder
-		["gossips"] = {
+		["g"] = {
 			L["Snazzle Shinyfinder 2"],
 		},
 	},
 	[99782] = { -- Trytooth Hardchisel
-		["gossips"] = {
+		["g"] = {
 			L["Trytooth Hardchisel 2"],
 			L["Trytooth Hardchisel 3"],
 		},
 	},
 	[99784] = { -- Kindle Candlecrafter
-		["gossips"] = {
+		["g"] = {
 			L["Kindle Candlecrafter 2"],
 		},
 	},
 	[95403] = { -- Windmaster Julan
-		["gossips"] = {
+		["g"] = {
 			L["Windmaster Julan 1"],
 		},
 	},
 	[96286] = { -- Navarrogg
-		["gossips"] = {
+		["g"] = {
 			L["Navarrogg 1"],
 		},
 	},
 	[98773] = { -- Lasan Skyhorn
-		["gossips"] = {
+		["g"] = {
 			L["Yes!"],
 		},
 	},
 	[94434] = { -- Addie Fizzlebog
-		["gossips"] = {
+		["g"] = {
 			L["Addie Fizzlebog 1"],
 		},
 	},
 	-- Broken Isles: Val'sharah
 	[92734] = { -- Penelope Heathrow
-		["gossips"] = {
+		["g"] = {
 			L["Penelope Heathrow 1"],
 		},
 	},
 	[94974] = { -- Sirius Ebonwing
-		["gossips"] = {
+		["g"] = {
 			L["Sirius Ebonwing 1"],
 		},
 	},
 	[94975] = { -- Asha Ravensong
-		["gossips"] = {
+		["g"] = {
 			L["Asha Ravensong 1"],
 		},
 	},
 	[94976] = { -- Cassiel Nightthorn
-		["gossips"] = {
+		["g"] = {
 			L["Cassiel Nightthorn 1"],
 		},
 	},
 	[104739] = { -- Tyrande Whisperwind
-		["gossips"] = {
+		["g"] = {
 			L["Tyrande Whisperwind 1"],
 			L["Tyrande Whisperwind 2"],
 		},
 	},
 	[108642] = { -- Keeper Remulos
-		["gossips"] = {
+		["g"] = {
 			L["Keeper Remulos 1"],
 		},
 	},
 	-- Kul Tiras: Drustvar
 	[137613] = { -- Hobart Grapplehammer
-		["gossips"] = {
+		["g"] = {
 			L["Hobart Grapplehammer 1"],
 			L["Hobart Grapplehammer 2"],
 		},
 	},
 	-- Kul Tiras: Stormsong Valley
 	[138137] = { -- Huelo
-		["gossips"] = {
+		["g"] = {
 			L["Huelo 1"],
 		},
 	},
 	-- Kul Tiras: Tiragarde Sound
 	[137675] = { -- Shadow Hunter Ty'jin
-		["gossips"] = {
+		["g"] = {
 			L["Shadow Hunter Ty'jin 1"],
 		},
 	},
 	[137798] = { -- Boatswain Taryn
-		["gossips"] = {
+		["g"] = {
 			L["Boatswain Taryn 1"],
 		},
 	},
 	[137800] = { -- Quartermaster Killian
-		["gossips"] = {
+		["g"] = {
 			L["Quartermaster Killian 1"],
 		},
 	},
 	[137807] = { -- Navigator Swink
-		["gossips"] = {
+		["g"] = {
 			L["Navigator Swink 1"],
 		},
 	},
 	-- Zandalar: Zuldazar
 	[135440] = { -- Princess Talanji
-		["gossips"] = {
+		["g"] = {
 			L["Princess Talanji 1"],
 		},
 	},
 	[135690] = { -- Dread-Admiral Tattersail
-		["gossips"] = {
+		["g"] = {
 			L["Quest"],
 		},
 	},
 	[143690] = { -- Captured Zandalari Troll
-		["gossips"] = {
+		["g"] = {
 			L["Captured Zandalari Troll 1"],
 		},
 	},
 	-- Zandalar: Vol'dun
 	[137559] = { -- Private James
-		["gossips"] = {
+		["g"] = {
 			L["Private James 1"],
 		},
 	},
 	-- Kul Tiras: Boralus
 	[122370] = { -- Cyrus Crestfall
-		["gossips"] = {
+		["g"] = {
 			L["Cyrus Crestfall 1"],
 		},
 	},
 	[137066] = { -- 7th Legion Magus
-		["gossips"] = {
+		["g"] = {
 			L["7th Legion Magus 1"],
 		},
 	},
 	[135612] = { -- Halford Wyrmbane
-		["gossips"] = {
+		["g"] = {
 			L["Halford Wyrmbane 1"],
 		},
 	},
 	[135681] = { -- Grand Admiral Jes-Tereth
-		["gossips"] = {
+		["g"] = {
 			L["Quest"],
 		},
 	},
 	-- Shadowlands: The Maw
 	[165918] = { -- Highlord Darion Mograine
-		["gossips"] = {
+		["g"] = {
 			L["Highlord Darion Mograine 1"],
 		},
 	},
 	[166980] = { -- Lady Jaina Proudmoore
-		["gossips"] = {
+		["g"] = {
 			L["Lady Jaina Proudmoore 1"],
 			L["Lady Jaina Proudmoore 2"],
 			L["Lady Jaina Proudmoore 3"],
@@ -413,70 +413,70 @@ local creatures = {
 		}
 	},
 	[168836] = { -- Shandris Feathermoon
-		["gossips"] = {
+		["g"] = {
 			L["Shandris Feathermoon 1"],
 		}
 	},
 	[178828] = { -- Lord Herne
-		["gossips"] = {
+		["g"] = {
 			L["Lord Herne 1"],
 		}
 	},
 	[178943] = { -- Lady Moonberry
-		["gossips"] = {
+		["g"] = {
 			L["Lady Moonberry 2"],
 		}
 	},
 	-- Shadowlands: Torghast
 	[175118] = { -- Shandris Feathermoon
-		["gossips"] = {
+		["g"] = {
 			L["Quest"],
 		},
 	},
 	[164334] = { -- Shandris Feathermoon
-		["gossips"] = {
+		["g"] = {
 			L["Shandris Feathermoon 2"],
 		},
 	},
 	[152418] = { -- Gallath
-		["gossips"] = {
+		["g"] = {
 			L["Gallath 1"],
 		},
 	},
 	[172264] = { -- Yira'lya
-		["gossips"] = {
+		["g"] = {
 			L["Yira'lya 1"],
 		},
 	},
 	[178932] = { -- Ve'lor the Messenger
-		["gossips"] = {
+		["g"] = {
 			L["Ve'lor the Messenger 1"],
 		},
 	},
 	[166147] = { -- Calix
-		["gossips"] = {
+		["g"] = {
 			L["Calix 1"],
 		},
 	},
 	-- Shadowlands: Oribos
 	[159478] = { -- Tal-Inara
-		["gossips"] = {
+		["g"] = {
 			L["Tal-Inara 1"],
 		},
 	},
 	[164079] = { -- Highlord Bolvar Fordragon
-		["gossips"] = {
+		["g"] = {
 			L["Highlord Bolvar Fordragon 1"],
 			L["Highlord Bolvar Fordragon 2"],
 		},
 	},
 	[177136] = { -- Polemarch Adrestes
-		["gossips"] = {
+		["g"] = {
 			L["Polemarch Adrestes 1"],
 		},
 	},
 	[168432] = { -- Ve'rayn
-		["gossips"] = {
+		["g"] = {
 			L["Ve'rayn 1"],
 			L["Ve'rayn 2"],
 			L["Ve'rayn 3"],
@@ -485,12 +485,12 @@ local creatures = {
 	},
 	-- Shadowlands: Bastion
 	[156327] = { -- Voitha
-		["gossips"] = {
+		["g"] = {
 			L["Voitha 1"],
 		},
 	},
 	[157696] = { -- Nemea
-		["gossips"] = {
+		["g"] = {
 			L["Nemea 1"],
 		},
 		["confirms"] = {
@@ -498,344 +498,344 @@ local creatures = {
 		},
 	},
 	[158765] = { -- Pelodis
-		["gossips"] = {
+		["g"] = {
 			L["Pelodis 1"],
 		},
 	},
 	[159277] = { -- Aspirant Leda
-		["gossips"] = {
+		["g"] = {
 			L["Aspirant Leda 1"],
 		},
 	},
 	[159278] = { -- Aspirant Ikaran
-		["gossips"] = {
+		["g"] = {
 			L["Aspirant Ikaran 1"],
 		},
 	},
 	[169027] = { -- Helpful Steward (for the fixes)
-		["gossips"] = {
+		["g"] = {
 			L["Helpful Steward 1"],
 		},
 	},
 	[169078] = { -- Helpful Steward (to get them to follow you)
-		["gossips"] = {
+		["g"] = {
 			L["Helpful Steward 2"],
 		},
 	},
 	[172714] = { -- Trapped Caretaker
-		["gossips"] = {
+		["g"] = {
 			L["Trapped Caretaker 1"],
 		},
 	},
 	[161279] = { -- Sparring Aspirant
-		["gossips"] = {
+		["g"] = {
 			-- When there is only one Sparring Aspirant.
 			L["Sparring Aspirant 1"],
 		},
 	},
 	[159504] = { -- Sparring Aspirant
-		["gossips"] = {
+		["g"] = {
 			L["Sparring Aspirant 1"],
 			L["Sparring Aspirant 2"],
 		},
 	},
 	[159505] = { -- Sparring Aspirant
-		["gossips"] = {
+		["g"] = {
 			-- When there are Sparring Aspirants... sparring.
 			L["Sparring Aspirant 2"],
 		},
 	},
 	-- Shadowlands: Maldraxxus
 	[165052] = { -- Vial Master Lurgy
-		["gossips"] = {
+		["g"] = {
 			L["O.K."],
 		},
 	},
 	[157313] = { -- Foul-Tongue Cyrlix
-		["gossips"] = {
+		["g"] = {
 			L["O.K."],
 		},
 	},
 	[157945] = { -- Boil Master Yetch
-		["gossips"] = {
+		["g"] = {
 			L["O.K."],
 		},
 	},
 	[159696] = { -- Rencissa the Dynamo
-		["gossips"] = {
+		["g"] = {
 			L["Rencissa the Dynamo 1"],
 		},
 	},
 	[159827] = { -- Scrapper Minoire
-		["gossips"] = {
+		["g"] = {
 			L["Scrapper Minoire 1"],
 		},
 	},
 	[160917] = { -- Grimshadow
-		["gossips"] = {
+		["g"] = {
 			L["Grimshadow 1"],
 		},
 	},
 	[161710] = { -- Marcel Mullby
-		["gossips"] = {
+		["g"] = {
 			L["Marcel Mullby 1"],
 		},
 	},
 	[164492] = { -- Arena Spectator
-		["gossips"] = {
+		["g"] = {
 			L["Arena Spectator 1"],
 		},
 	},
 	[165966] = { -- Khaliiq
-		["gossips"] = {
+		["g"] = {
 			L["Khaliiq 1"],
 		},
 	},
 	[157130] = { -- Recruitable Animate
-		["gossips"] = {
+		["g"] = {
 			L["Recruitable Animate 1"],
 		},
 	},
 	[157168] = { -- Stubborn Animate
-		["gossips"] = {
+		["g"] = {
 			L["Stubborn Animate 1"],
 		},
 	},
 	[166129] = { -- Specialist Entra
-		["gossips"] = {
+		["g"] = {
 			L["Specialist Entra 1"],
 		},
 	},
 	[166657] = { -- Ta'eran
-		["gossips"] = {
+		["g"] = {
 			L["Ta'eran 1"],
 		},
 	},
 	[171747] = { -- Project Lead Allen
-		["gossips"] = {
+		["g"] = {
 			L["Project Lead Allen 1"],
 		},
 	},
 	[172871] = { -- Taloned Flayedwing
-		["gossips"] = {
+		["g"] = {
 			L["Taloned Flayedwing 1"],
 		},
 	},
 	-- Shadowlands: Ardenweald
 	[171743] = { -- Dapperdew
-		["gossips"] = {
+		["g"] = {
 			L["Dapperdew 1"],
 		},
 	},
 	[157710] = { -- Cortinarius
-		["gossips"] = {
+		["g"] = {
 			L["Cortinarius 1"],
 		},
 	},
 	[160929] = { -- Guardian Molan
-		["gossips"] = {
+		["g"] = {
 			L["The forces of Mueh'zala have invaded Ardenweald."],
 		},
 	},
 	[158921] = { -- Guardian Kota
-		["gossips"] = {
+		["g"] = {
 			L["The forces of Mueh'zala have invaded Ardenweald."],
 		},
 	},
 	[158519] = { -- Sorcha
-		["gossips"] = {
+		["g"] = {
 			L["The forces of Mueh'zala have invaded Ardenweald."],
 		},
 	},
 	[158543] = { -- Attendant Sparkledew
-		["gossips"] = {
+		["g"] = {
 			L["Attendant Sparkledew 1"],
 		},
 	},
 	[160121] = { -- Master Sha'lor
-		["gossips"] = {
+		["g"] = {
 			L["Master Sha'lor 1"],
 		},
 	},
 	[165550] = { -- Attendant Shimmerwing
-		["gossips"] = {
+		["g"] = {
 			L["Attendant Shimmerwing 1"],
 		},
 	},
 	[169273] = { -- Silkstrider Caretaker
-		["gossips"] = {
+		["g"] = {
 			L["Silkstrider Caretaker 1"],
 		},
 	},
 	[172431] = { -- Lady Moonberry
-		["gossips"] = {
+		["g"] = {
 			L["Lady Moonberry 1"],
 		},
 	},
 	[172185] = { -- Zayhad, The Builder
-		["gossips"] = {
+		["g"] = {
 			L["Zayhad, The Builder 1"],
 			L["Zayhad, The Builder 2"],
 		},
 	},
 	-- Shadowlands: Revendreth
 	[167838] = { -- Globknob
-		["gossips"] = {
+		["g"] = {
 			L["Quest"],
 		},
 	},
 	[167918] = { -- Bela
-		["gossips"] = {
+		["g"] = {
 			L["Quest"],
 		},
 	},
 	[167849] = { -- Soul of Keltesh
-		["gossips"] = {
+		["g"] = {
 			L["Quest"],
 		},
 	},
 	[156295] = { -- Courier Rokalai
-		["gossips"] = {
+		["g"] = {
 			L["Quest"],
 		},
 	},
 	[168237] = { -- Ilka
-		["gossips"] = {
+		["g"] = {
 			L["<Present Lajos's invitation>"],
 		},
 	},
 	[168238] = { -- Samu
-		["gossips"] = {
+		["g"] = {
 			L["<Present Lajos's invitation>"],
 		},
 	},
 	[159883] = { -- Chancellor Codrin
-		["gossips"] = {
+		["g"] = {
 			L["Chancellor Codrin 1"],
 		},
 	},
 	[159946] = { -- The Countess
-		["gossips"] = {
+		["g"] = {
 			L["The Countess 1"],
 		},
 	},
 	[160941] = { -- The Curator
-		["gossips"] = {
+		["g"] = {
 			L["The Curator 1"],
 		},
 	},
 	[161056] = { -- Guard Captain Elizabeta
-		["gossips"] = {
+		["g"] = {
 			L["Guard Captain Elizabeta 1"],
 		},
 	},
 	[165662] = { -- The Countess
-		["gossips"] = {
+		["g"] = {
 			L["The Countess 2"],
 		},
 	},
 	[166541] = { -- Cobwobble
-		["gossips"] = {
+		["g"] = {
 			L["Cobwobble 1"],
 			L["Cobwobble 2"],
 		},
 	},
 	[166542] = { -- Slobwobble
-		["gossips"] = {
+		["g"] = {
 			L["Slobwobble 1"],
 			L["Slobwobble 2"],
 		},
 	},
 	[166543] = { -- Dobwobble
-		["gossips"] = {
+		["g"] = {
 			L["Dobwobble 1"],
 			L["Dobwobble 2"],
 		},
 	},
 	[169238] = { -- Courier Araak
-		["gossips"] = {
+		["g"] = {
 			L["Courier Araak 1"],
 			L["Courier Araak 2"],
 		},
 	},
 	[165921] = { -- Courier Araak
-		["gossips"] = {
+		["g"] = {
 			L["Courier Araak 2"],
 		},
 	},
 	[169917] = { -- Avowed Ritualist
-		["gossips"] = {
+		["g"] = {
 			L["Avowed Ritualist 1"],
 		},
 	},
 	-- Shadowlands: Heart of the Forest (Covenant Sanctum)
 	[156634] = { -- Winter Queen
-		["gossips"] = {
+		["g"] = {
 			L["Winter Queen 1"],
 		},
 	},
 	[172886] = { -- Mask of Bwonsamdi
-		["gossips"] = {
+		["g"] = {
 			L["Mask of Bwonsamdi 1"],
 		},
 	},
 	-- Instance: De Other Side
 	[166281] = { -- Bwonsamdi
-		["gossips"] = {
+		["g"] = {
 			L["Bwonsamdi 1"],
 		},
 	},
 	-- Instance: Mogu'shan Vaults
 	[61348] = { -- Lorewalker Cho
-		["gossips"] = {
+		["g"] = {
 			L["Lorewalker Cho 1"],
 			L["Lorewalker Cho 2"],
 		},
 	},
 	-- Instance: Isle of Thunder (Scenario)
 	[69565] = { -- Scout Captain Elsia
-		["gossips"] = {
+		["g"] = {
 			L["Scout Captain Elsia 1"],
 		},
 	},
 	[69810] = { -- Taoshi
-		["gossips"] = {
+		["g"] = {
 			L["Taoshi 1"],
 		},
 	},
 	[70297] = { -- Taoshi
-		["gossips"] = {
+		["g"] = {
 			L["Taoshi 2"],
 		},
 	},
 	-- Instance: Horrific Visions
 	[152993] = { -- Garona Halforcen (Vision of Orgrimmar)
-		["gossips"] = {
+		["g"] = {
 			L["Garona Halforcen 1"],
 		},
 	},
 	[160998] = { -- Altar of the Daredevil
-		["gossips"] = {
+		["g"] = {
 			L["Altar of the Daredevil 1"],
 		},
 	},
 	[160961] = { -- Altar of the Dark Imagination
-		["gossips"] = {
+		["g"] = {
 			L["Altar of the Dark Imagination 1"],
 		},
 	},
 	[161000] = { -- Altar of the Pained
-		["gossips"] = {
+		["g"] = {
 			L["Altar of the Pained 1"],
 		},
 	},
 	[160967] = { -- Altar of the Burned Bridge
-		["gossips"] = {
+		["g"] = {
 			L["Altar of the Burned Bridge 1"],
 		},
 	},
 	[160999] = { -- Altar of the Long Night
-		["gossips"] = {
+		["g"] = {
 			L["Altar of the Long Night 1"],
 		},
 	},
