@@ -1,18 +1,27 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
-
 local animaPowers = {
 	-- Only supports S Tier powers!
-	[3] = { -- Hunter
-		[331367] = "", -- Sigil of Skoldus
-		[331197] = "", -- Soulforge Embers
-		[335541] = "", -- Sling of the Unseen
-		[319280] = "", -- Elethium Beacon
-		[331370] = "", -- Soulsteel Pinion
-		[305052] = "", -- Lens of Elchaver
-	},
+	--
+	-- Hunter Only?
+	331367, -- Sigil of Skoldus
+	331197, -- Soulforge Embers
+	335541, -- Sling of the Unseen
+	319280, -- Elethium Beacon
+	331370, -- Soulsteel Pinion
+	305052, -- Lens of Elchaver
 }
+
+local function AnimaPowerExistsForClass(classId, desiredSpellId)
+	for i = 1, #animaPowers do
+		if animaPowers[i] == desiredSpellId then
+			--print("|cff00CCFF" .. addonName .. "|r: |T" .. option.choiceArtID .. ":0|t" .. GetSpellLink(option.spellID) .. " " .. L["Torghast Power is S Tier"])
+			return true
+		end
+	end
+	return false
+end
 
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 
@@ -25,17 +34,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
 			if choiceInfo then
 				local _, _, classId = UnitClass("player")
-				--local currentSpecIndex = GetSpecialization()
 				for i = 1, choiceInfo.numOptions do
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
-					for class, tbl in pairs(animaPowers) do
-						if class == classId then
-							if tbl[choiceOptionInfo.spellID] then
-								local _, _, spellIcon = GetSpellInfo(choiceOptionInfo.spellID)
-								print("|cff00CCFF" .. addonName .. "|r: |T" .. spellIcon .. ":0|t" .. GetSpellLink(choiceOptionInfo.spellID) .. " " .. L["Torghast Power is S Tier"])
-								--SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-								--HideUIPanel(PlayerChoiceFrame)
-							end
+					local option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
+					if option then
+						if AnimaPowerExistsForClass(classId, option.spellID) then
+							SendPlayerChoiceResponse(option.buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
 						end
 					end
 				end
