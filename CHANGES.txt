@@ -2,6 +2,7 @@ HelpMePlay | 1.0.5
 	Features:
 		S Tier Anima Powers in Torghast are now automatically chosen based on the higher ranked power. (Players will need to opt in for this feature.)
 		Repairing at a merchant is now automatically handled.
+		Added support for adding achievement criteria info to the tooltips of creatures, items, and objects. (The database supporting this feature will expand over time.)
 	Quests:
 		Added a glow to the corresponding button during the "Dead Drop" quest in Bastion.
 		Added a glow to the corresponding button during the "Just Winging It" world quest in Maldraxxus.
@@ -22,6 +23,7 @@ HelpMePlay | 1.0.5
 		Added multiple dialogs for Zayhad, The Builder.
 		Added support for more Stable Masters (and healing battle pets.)
 		Added multiple dialogs for the Sparring Aspirants involved in the "Let's Get Ready to Humble" world quest.
+		Added multiple dialogs for the NPCs involved in the "We'll Workshop It" world quest.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
 	Fixes:

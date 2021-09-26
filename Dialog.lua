@@ -645,6 +645,32 @@ local creatures = {
 	[158519] = { -- Sorcha
 		["g"] = {
 			L["The forces of Mueh'zala have invaded Ardenweald."],
+			L["I would like you to have the supplies."],
+		},
+	},
+	[165382] = { -- Gormsmith Cavina
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[165703] = { -- Elder Finnan
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[158345] = { -- Lady of the Falls
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[165704] = { -- Elder Gwenna
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[165705] = { -- Groonoomcrooek
+		["g"] = {
+			L["I would like you to have the supplies."],
 		},
 	},
 	[158543] = { -- Attendant Sparkledew

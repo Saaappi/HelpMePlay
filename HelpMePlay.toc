@@ -13,6 +13,9 @@ Locale.lua
 Frame.xml
 Frame.lua
 
+# Assists the Mouseover logic to include a note if the target is a needed achievement criteria.
+Achievements.lua
+
 # Automates selecting Chromie Time expansion.
 ChromieTime.lua
 

@@ -6,7 +6,7 @@ local startTime = 0
 local timeLeft = 0
 local hasBuff = false
 
--- Add notes to the tooltip of select creatures and objects.
+-- Add ns to the tooltip of select creatures and objects.
 -- Controlled by localized values in MouseoverDB.lua.
 --
 -- This will need to be reconsidered for creatures since
@@ -22,7 +22,7 @@ GameTooltip:HookScript("OnUpdate", function(self)
 						for i = 1, self:NumLines() do
 							if string.find(_G[self:GetName().."TextLeft"..i]:GetText(), addonName) then return end
 						end
-						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note)
+						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
 						GameTooltip:Show()
 					end
 				end
@@ -44,15 +44,15 @@ GameTooltip:HookScript("OnUpdate", function(self)
 								end
 							end
 							if hasBuff then
-								GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note .. " (|cffFFFFFF" .. string.format("%.2f", timeLeft) .. "|r)")
+								GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n .. " (|cffFFFFFF" .. string.format("%.2f", timeLeft) .. "|r)")
 								GameTooltip:Show()
 								hasBuff = false
 							else
-								GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note)
+								GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
 								GameTooltip:Show()
 							end
 						else
-							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.note)
+							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
 							GameTooltip:Show()
 						end
 					end

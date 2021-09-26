@@ -35,7 +35,9 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Do you really want to abandon all quests?"]								= "|cff00FFFF"..addonName.."|r\n".."Do you really want to abandon all quests?"
 	L["Yes"]																	= "Yes"
 	L["No"]																		= "No"
-	L["Torghast Power is S Tier"]												= "is an |cff00CCFFS Tier|r power for your class!"
+	--L["Torghast Power is S Tier"]												= "is an |cff00CCFFS Tier|r power for your class!"
+	-- Symbols
+	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Options Panel Text
 	L["CR Text"]																= "Crafted with |T135451:0|t by Lightsky"
 	L["Adventure Maps"]															= "Adventure Maps"
@@ -140,6 +142,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Quest"]																	= "Quest"
 	L["I've heard this tale before..."]											= "I've heard this tale before..."
 	L["Are you sure you want to skip the Broken Shore introduction?"]			= "Are you sure you want to skip the Broken Shore introduction?"
+	L["I would like you to have the supplies."]									= "I would like you to have the supplies."
 	L["D'kaan is coming with help."]											= "D'kaan is coming with help."
 	L["Daelya Twilightsbane 1"]													= "What does the Light wish of me?"
 	L["Daelya Twilightsbane 2"]													= "I will do my best to serve the Light. I swear to it."
