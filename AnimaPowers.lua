@@ -3,14 +3,14 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 
 local animaPowers = {
+	-- Only supports S Tier powers!
 	[3] = { -- Hunter
-		-- S Tier
-		[331637] = L["S TIER"], -- Sigil of Skoldus
-		[336745] = L["S TIER"], -- Soulforge Embers
-		[335541] = L["S TIER"], -- Sling of the Unseen
-		[319280] = L["S TIER"], -- Elethium Beacon
-		[331370] = L["S TIER"], -- Soulsteel Pinion
-		[308193] = L["S TIER"], -- Lens of Elchaver
+		[331367] = "", -- Sigil of Skoldus
+		[331197] = "", -- Soulforge Embers
+		[335541] = "", -- Sling of the Unseen
+		[319280] = "", -- Elethium Beacon
+		[331370] = "", -- Soulsteel Pinion
+		[305052] = "", -- Lens of Elchaver
 	},
 }
 
@@ -24,12 +24,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if mapName == L["Torghast"] then
 			local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
 			if choiceInfo then
-				local classId = UnitClass("player").classIndex
+				local _, _, classId = UnitClass("player")
+				--local currentSpecIndex = GetSpecialization()
 				for i = 1, choiceInfo.numOptions do
 					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
-					for spellId, text in pairs(animaPowers) do
-						if spellId == choiceOptionInfo.spellID then
-							choiceOptionInfo.description = choiceOptionInfo.description .. " |cff5A93CC" .. text .. "|r"
+					for class, tbl in pairs(animaPowers) do
+						if class == classId then
+							if tbl[choiceOptionInfo.spellID] then
+								local _, _, spellIcon = GetSpellInfo(choiceOptionInfo.spellID)
+								print("|cff00CCFF" .. addonName .. "|r: |T" .. spellIcon .. ":0|t" .. GetSpellLink(choiceOptionInfo.spellID) .. " " .. L["Torghast Power is S Tier"])
+								--SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+								--HideUIPanel(PlayerChoiceFrame)
+							end
 						end
 					end
 				end

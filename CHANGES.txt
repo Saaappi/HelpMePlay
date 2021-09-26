@@ -1,6 +1,6 @@
 HelpMePlay | 1.0.5
 	Features:
-		S Tier Anima Powers in Torghast are now identified to help players locate the best traits for classes they may not often play.
+		S Tier Anima Powers in Torghast are now identified to help players locate the best traits for classes they may not often play. (Players will need to opt in for this feature.)
 		Repairing at a merchant is now automatically handled.
 	Quests:
 		Added a glow to the corresponding button during the "Dead Drop" quest in Bastion.

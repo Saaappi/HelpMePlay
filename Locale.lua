@@ -35,7 +35,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Do you really want to abandon all quests?"]								= "|cff00FFFF"..addonName.."|r\n".."Do you really want to abandon all quests?"
 	L["Yes"]																	= "Yes"
 	L["No"]																		= "No"
-	L["S TIER"]																	= "S TIER"
+	L["Torghast Power is S Tier"]												= "is an |cff00CCFFS Tier|r power for your class!"
 	-- Options Panel Text
 	L["CR Text"]																= "Crafted with |T135451:0|t by Lightsky"
 	L["Adventure Maps"]															= "Adventure Maps"
