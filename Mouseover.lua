@@ -6,7 +6,9 @@ local startTime = 0
 local timeLeft = 0
 local hasBuff = false
 
--- Add ns to the tooltip of select creatures and objects.
+e:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+
+-- Add notes to the tooltip of select creatures and objects.
 -- Controlled by localized values in MouseoverDB.lua.
 --
 -- This will need to be reconsidered for creatures since
@@ -14,47 +16,53 @@ local hasBuff = false
 GameTooltip:HookScript("OnUpdate", function(self)
 	if GameTooltip:IsVisible() then
 		if GameTooltip:GetOwner():GetName() == "UIParent" then
-			if UnitGUID("mouseover") ~= nil then
-				-- The mouseover target is a creature.
-				local _, _, _, _, _, npcId = strsplit("-", UnitGUID("mouseover")); npcId = tonumber(npcId)
-				for nameOrId, data in pairs(addonTable.mouseoverDB) do
-					if nameOrId == npcId then
-						for i = 1, self:NumLines() do
-							if string.find(_G[self:GetName().."TextLeft"..i]:GetText(), addonName) then return end
-						end
-						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
-						GameTooltip:Show()
+			mouseoverName = _G["GameTooltipTextLeft"..1]:GetText()
+			for nameOrId, data in pairs(addonTable.mouseoverDB) do
+				if nameOrId == mouseoverName then
+					for i = 1, self:NumLines() do
+						if string.find(_G[self:GetName().."TextLeft"..i]:GetText(), addonName) then return end
 					end
-				end
-			else
-				mouseoverName = _G["GameTooltipTextLeft"..1]:GetText()
-				for nameOrId, data in pairs(addonTable.mouseoverDB) do
-					if nameOrId == mouseoverName then
-						for i = 1, self:NumLines() do
-							if string.find(_G[self:GetName().."TextLeft"..i]:GetText(), addonName) then return end
+					if data.buffId ~= 0 or data.buffId ~= nil then
+						for i = 1, 16 do
+							local _, _, _, _, _, expiration, _, _, _, spellId = UnitAura("player", i)
+							if spellId == data.buffId and expiration > 0 then
+								startTime = GetTime()
+								timeLeft = expiration - startTime
+								hasBuff = true
+								break
+							end
 						end
-						if data.buffId ~= 0 or data.buffId ~= nil then
-							for i = 1, 16 do
-								local _, _, _, _, _, expiration, _, _, _, spellId = UnitAura("player", i)
-								if spellId == data.buffId and expiration > 0 then
-									startTime = GetTime()
-									timeLeft = expiration - startTime
-									hasBuff = true
-									break
-								end
-							end
-							if hasBuff then
-								GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n .. " (|cffFFFFFF" .. string.format("%.2f", timeLeft) .. "|r)")
-								GameTooltip:Show()
-								hasBuff = false
-							else
-								GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
-								GameTooltip:Show()
-							end
+						if hasBuff then
+							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n .. " (|cffFFFFFF" .. string.format("%.2f", timeLeft) .. "|r)")
+							GameTooltip:Show()
+							hasBuff = false
 						else
 							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
 							GameTooltip:Show()
 						end
+					else
+						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
+						GameTooltip:Show()
+					end
+				end
+			end
+		end
+	end
+end)
+
+e:SetScript("OnEvent", function(self, event, ...)
+	if event == "UPDATE_MOUSEOVER_UNIT" then
+		if UnitGUID("mouseover") then
+			local guid = UnitGUID("mouseover")
+			if guid then
+				local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
+				for nameOrId, data in pairs(addonTable.mouseoverDB) do
+					if nameOrId == npcId then
+						for i = 1, GameTooltip:NumLines() do
+							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), addonName) then return end
+						end
+						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
+						GameTooltip:Show()
 					end
 				end
 			end

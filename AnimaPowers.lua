@@ -29,17 +29,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		local choiceOptionInfo = ""
 		local mapId = C_Map.GetBestMapForUnit("player")
-		local mapName = C_Map.GetMapInfo(mapId).name
-		if mapName == L["Torghast"] then
-			local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
-			if choiceInfo then
-				local _, _, classId = UnitClass("player")
-				for i = 1, choiceInfo.numOptions do
-					local option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
-					if option then
-						if AnimaPowerExistsForClass(classId, option.spellID) then
-							SendPlayerChoiceResponse(option.buttons[1].id)
-							HideUIPanel(PlayerChoiceFrame)
+		if mapId then
+			local mapName = C_Map.GetMapInfo(mapId).name
+			if mapName == L["Torghast"] then
+				local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
+				if choiceInfo then
+					local _, _, classId = UnitClass("player")
+					for i = 1, choiceInfo.numOptions do
+						local option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
+						if option then
+							if AnimaPowerExistsForClass(classId, option.spellID) then
+								SendPlayerChoiceResponse(option.buttons[1].id)
+								HideUIPanel(PlayerChoiceFrame)
+							end
 						end
 					end
 				end

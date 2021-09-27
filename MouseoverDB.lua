@@ -5,27 +5,27 @@ local L = addonTable.L
 local mouseoverDB = {
 	-- Creatures
 	[158345] = { -- Lady of the Falls
-		["n"] = L.AchievementCriteriaInfoSingle(14672, 1), -- A Bit of This, A Bit of That: Faerie Pomander
+		["n"] = L.AchievementCriteriaInfoByID(14672, 49570), -- A Bit of This, A Bit of That: Faerie Pomander
 		["buffId"] = 0,
 	},
 	[165704] = { -- Elder Gwenna
-		["n"] = L.AchievementCriteriaInfoSingle(14672, 2), --  A Bit of This, A Bit of That: Slumberweb
+		["n"] = L.AchievementCriteriaInfoByID(14672, 49571), --  A Bit of This, A Bit of That: Slumberweb
 		["buffId"] = 0,
 	}, 
 	[158519] = { -- Sorcha
-		["n"] = L.AchievementCriteriaInfoSingle(14672, 3), --  A Bit of This, A Bit of That: Vorkai War Paint
+		["n"] = L.AchievementCriteriaInfoByID(14672, 49572), --  A Bit of This, A Bit of That: Vorkai War Paint
 		["buffId"] = 0,
 	}, 
 	[165382] = { -- Gormsmith Cavina
-		["n"] = L.AchievementCriteriaInfoSingle(14672, 4), --  A Bit of This, A Bit of That: Gorm Whisperer
+		["n"] = L.AchievementCriteriaInfoByID(14672, 49573), --  A Bit of This, A Bit of That: Gorm Whisperer
 		["buffId"] = 0, 
 	},
 	[165705] = { -- Groonoomcrooek
-		["n"] = L.AchievementCriteriaInfoSingle(14672, 5), --  A Bit of This, A Bit of That: Tirnenn Resilience
+		["n"] = L.AchievementCriteriaInfoByID(14672, 49574), --  A Bit of This, A Bit of That: Tirnenn Resilience
 		["buffId"] = 0,
 	},
 	[165703] = { -- Elder Finnan 
-		["n"] = L.AchievementCriteriaInfoSingle(14672, 6), --  A Bit of This, A Bit of That: Finnan's Luck
+		["n"] = L.AchievementCriteriaInfoByID(14672, 49575), --  A Bit of This, A Bit of That: Finnan's Luck
 		["buffId"] = 0,
 	},
 	[170080] = { -- Exposed Boggart
@@ -33,7 +33,11 @@ local mouseoverDB = {
 		["buffId"] = 0,
 	},
 	[173377] = { -- Faryl
-		["n"] = L.AchievementCriteriaInfoMultiple("Faryl"), -- Pet Battles (Family Exorcist)
+		["n"] = L.AchievementCriteriaInfoByCriteriaName("Faryl"), -- Pet Battles (Family Exorcist)
+		["buffId"] = 0,
+	},
+	[173129] = { -- Thenia
+		["n"] = L.AchievementCriteriaInfoByCriteriaName("Thenia"), -- Pet Battles (Family Exorcist)
 		["buffId"] = 0,
 	},
 	-- Objects

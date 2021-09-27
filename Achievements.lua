@@ -15,24 +15,39 @@ local achievements = {
 }
 local returnString = ""
 
-local function AchievementCriteriaInfoSingle(achievementId, criteriaIndex)
-	local _, _, isComplete = GetAchievementCriteriaInfo(achievementId, criteriaIndex)
-	if isComplete == false then
-		return L["Red X Raid Target"] .. " " .. GetAchievementLink(achievementId)
+local function AchievementCriteriaInfoByID(achievementId, criteriaId)
+	local _, achievementName = GetAchievementInfo(achievementId)
+	if achievementName then
+		local criteriaName, _, isComplete = GetAchievementCriteriaInfoByID(achievementId, criteriaId)
+		if criteriaName then
+			if isComplete == false then
+				if GetAchievementLink(achievementId) then
+					return L["Red X Raid Target"] .. " " .. GetAchievementLink(achievementId)
+				else
+					return L["Red X Raid Target"] .. " " .. achievementName
+				end
+			end
+		end
 	end
 end
 
-local function AchievementCriteriaInfoMultiple(criteriaName)
-	local numCriteria = 0
-	local criteriaString = ""
-	local isComplete = false
+local function AchievementCriteriaInfoByCriteriaName(desiredCriteriaName)
 	for i = 1, #achievements do
-		numCriteria = GetAchievementNumCriteria(achievements[i])
-		for j = 1, numCriteria do
-			criteriaString, _, isComplete = GetAchievementCriteriaInfo(achievements[i], j)
-			if criteriaString == criteriaName then
-				if isComplete == false then
-					returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. GetAchievementLink(achievements[i])
+		local _, achievementName = GetAchievementInfo(achievements[i])
+		local numCriteria = GetAchievementNumCriteria(achievements[i])
+		if achievementName then
+			print(achievementName)
+			for j = 1, numCriteria do
+				local criteriaName, _, isComplete = GetAchievementCriteriaInfo(achievements[i], j)
+				if criteriaName == desiredCriteriaName then
+					if isComplete == false then
+						--[[if GetAchievementLink(achievements[i]) then
+							returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. GetAchievementLink(achievements[i])
+						else
+							returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. achievementName
+						end]]
+						returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. GetAchievementLink(achievements[i])
+					end
 				end
 			end
 		end
@@ -40,5 +55,5 @@ local function AchievementCriteriaInfoMultiple(criteriaName)
 	return returnString
 end
 
-L.AchievementCriteriaInfoSingle = AchievementCriteriaInfoSingle
-L.AchievementCriteriaInfoMultiple = AchievementCriteriaInfoMultiple
+L.AchievementCriteriaInfoByID = AchievementCriteriaInfoByID
+L.AchievementCriteriaInfoByCriteriaName = AchievementCriteriaInfoByCriteriaName
