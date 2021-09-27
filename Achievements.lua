@@ -31,12 +31,17 @@ local function AchievementCriteriaInfoByID(achievementId, criteriaId)
 	end
 end
 
+-- TODO
+-- This is getting called when the addon
+-- loads and not when the Mouseover logic
+-- calls it. The addon is broken before
+-- it gets a chance to work the way it's
+-- supposed to...
 local function AchievementCriteriaInfoByCriteriaName(desiredCriteriaName)
 	for i = 1, #achievements do
 		local _, achievementName = GetAchievementInfo(achievements[i])
 		local numCriteria = GetAchievementNumCriteria(achievements[i])
 		if achievementName then
-			print(achievementName)
 			for j = 1, numCriteria do
 				local criteriaName, _, isComplete = GetAchievementCriteriaInfo(achievements[i], j)
 				if criteriaName == desiredCriteriaName then
