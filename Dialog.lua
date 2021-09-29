@@ -797,6 +797,7 @@ local creatures = {
 	[169865] = { -- Treasure Guardian
 		["g"] = {
 			L["Treasure Guardian 1"],
+			L["Treasure Guardian 2"],
 		},
 	},
 	-- Shadowlands: Heart of the Forest (Covenant Sanctum)
