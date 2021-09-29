@@ -437,6 +437,11 @@ local creatures = {
 			L["Gubbins 1"],
 		}
 	},
+	[177900] = { -- Xandria
+		["g"] = {
+			L["Xandria 1"],
+		}
+	},
 	-- Shadowlands: Torghast
 	[175118] = { -- Shandris Feathermoon
 		["g"] = {
