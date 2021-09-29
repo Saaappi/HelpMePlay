@@ -285,6 +285,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Taloned Flayedwing 1"]													= "<Ride the flayedwing back to the Wrangler Pit.>"
 	L["Treasure Guardian 1"]													= "How can I prove to you that I'm in House Grinchin?"
 	L["Treasure Guardian 2"]													= "<Show the House Grinchin Ring.>"
+	L["Orator Kloe 1"]															= "I will find the missing Vulpin."
+	L["Gubbins 1"]																= "I will take a parasol."
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"
 	L["Lorewalker Cho 2"]														= "Go ahead and turn this thing on."
 	L["Scout Captain Elsia 1"]													= "Here are the explosives, Elsia."

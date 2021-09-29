@@ -20,7 +20,8 @@ HelpMePlay | 1.0.5
 		Added multiple dialogs for Ve'rayn.
 		Added multiple dialogs for Shandris Feathermoon.
 		Added dialogs for multiple NPCs in Torghast.
-		Added dialogs for multiple NPCs in The Maw for the Night Fae assault.
+		Added dialogs for multiple NPCs in the Maw for the Night Fae assault.
+		Added dialogs for multiple NPCs in the Maw for the Kyrian assault.
 		Added multiple dialogs for Zayhad, The Builder.
 		Added support for more Stable Masters (and healing battle pets.)
 		Added multiple dialogs for the Sparring Aspirants involved in the "Let's Get Ready to Humble" world quest.
