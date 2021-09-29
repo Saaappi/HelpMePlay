@@ -283,6 +283,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Zayhad, The Builder 1"]													= "I'll take this acorn and recover memories within Heartwood Grove."
 	L["Zayhad, The Builder 2"]													= "Here are the joyful memories I collected from Heartwood Grove."
 	L["Taloned Flayedwing 1"]													= "<Ride the flayedwing back to the Wrangler Pit.>"
+	L["Treasure Guardian 1"]													= "How can I prove to you that I'm in House Grinchin?"
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"
 	L["Lorewalker Cho 2"]														= "Go ahead and turn this thing on."
 	L["Scout Captain Elsia 1"]													= "Here are the explosives, Elsia."

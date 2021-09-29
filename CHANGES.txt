@@ -13,6 +13,7 @@ HelpMePlay | 1.0.5
 		Added a dialog for Project Lead Allen in Maldraxxus.
 		Added a dialog for the Taloned Flayedwing in Maldraxxus.
 		Added a dialog for Dapperdew.
+		Added a dialog for Treasure Guardian.
 		Added a dialog for Cortinarius.
 		Added a dialog for Marasmius.
 		Added multiple dialogs for NPCs involved in the Night Fae Campaign.

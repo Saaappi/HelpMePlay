@@ -794,6 +794,11 @@ local creatures = {
 			L["Avowed Ritualist 1"],
 		},
 	},
+	[169865] = { -- Treasure Guardian
+		["g"] = {
+			L["Treasure Guardian 1"],
+		},
+	},
 	-- Shadowlands: Heart of the Forest (Covenant Sanctum)
 	[156634] = { -- Winter Queen
 		["g"] = {
