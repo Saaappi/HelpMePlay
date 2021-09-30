@@ -67,7 +67,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Accept/Complete Quests Check Button"]									= "Automates accepting and completing quests."
 	L["Quest Rewards Check Button"]												= "Automates the selection of quest rewards.\nThe selection is based on what sells for the most."
 	L["Threads of Fate Check Button"]											= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into Threads of Fate,\nbut leaving it unchecked will opt the player into Story Mode."
-	L["Chromie Time EditBox"]													= "Enter one of the numeric values to automate which expansion to select for Chromie Time.\n\n|cffFFFFFF0|r: Battle for Azeroth (Current Timeline)\n|cffFFFFFF5|r: The Cataclysm (Classic)\n|cffFFFFFF6|r: The Burning Crusade\n|cffFFFFFF7|r: Wrath of the Lich King\n|cffFFFFFF8|r: Mists of Pandaria\n|cffFFFFFF9|r: Warlords of Draenor\n|cffFFFFFF10|r: Legion"
+	L["Chromie Time EditBox"]													= "Enter one of the numeric values to automate the\nexpansion to select for Chromie Time.\n\n|cffFFFFFF0|r: Battle for Azeroth (Current Timeline)\n|cffFFFFFF5|r: The Cataclysm (Classic)\n|cffFFFFFF6|r: The Burning Crusade\n|cffFFFFFF7|r: Wrath of the Lich King\n|cffFFFFFF8|r: Mists of Pandaria\n|cffFFFFFF9|r: Warlords of Draenor\n|cffFFFFFF10|r: Legion"
 	-- Skill Lines																
 	L["Riding"]																	= "Riding"
 	-- Speech Monsters
