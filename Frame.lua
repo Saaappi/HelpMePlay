@@ -43,6 +43,7 @@ function HelpMePlayLoadSettings()
 		HMPToFText:SetText(L["Threads of Fate"])
 		HMPQuestRewardsText:SetText(L["Quest Rewards"])
 		HMPChromieTimeText:SetText(L["Chromie Time"])
+		HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
 
 		-- Check settings first
 		if HelpMePlayOptionsDB.AdventureMaps then

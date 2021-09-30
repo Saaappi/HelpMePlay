@@ -26,6 +26,8 @@ HelpMePlay | 1.0.5
 		Added support for more Stable Masters (and healing battle pets.)
 		Added multiple dialogs for the Sparring Aspirants involved in the "Let's Get Ready to Humble" world quest.
 		Added multiple dialogs for the NPCs involved in the "We'll Workshop It" world quest.
+	Options:
+		When opening the options, the player's chosen expansion for Chromie Time will show in the edit box.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
 	Fixes:
