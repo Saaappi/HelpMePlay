@@ -121,10 +121,10 @@
 					<FontHeight val="10" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
-				<FontString name="HMPQuestsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Accept/Complete Quests">
+				<FontString name="HMPQuestsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Quests">
 					<Size x="170" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="242" y="-143" />
+						<Anchor point="TOPLEFT" x="190" y="-143" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
