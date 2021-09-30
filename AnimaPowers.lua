@@ -41,6 +41,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							if AnimaPowerExistsForClass(classId, option.spellID) then
 								SendPlayerChoiceResponse(option.buttons[1].id)
 								HideUIPanel(PlayerChoiceFrame)
+								print("|cff00CCFF" .. addonName .. "|r: |T" .. option.choiceArtID .. ":0|t" .. GetSpellLink(option.spellID))
 							end
 						end
 					end

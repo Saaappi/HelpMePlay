@@ -473,6 +473,11 @@ local creatures = {
 			L["Calix 1"],
 		},
 	},
+	[157406] = { -- Renavyth
+		["g"] = {
+			L["Renavyth 1"],
+		},
+	},
 	-- Shadowlands: Oribos
 	[159478] = { -- Tal-Inara
 		["g"] = {
