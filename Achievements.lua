@@ -15,7 +15,7 @@ local achievements = {
 }
 local returnString = ""
 
-local function AchievementCriteriaInfoByID(achievementId, criteriaId)
+local function AchievementCriteriaInfoByCriteriaID(achievementId, criteriaId)
 	local _, achievementName = GetAchievementInfo(achievementId)
 	if achievementName then
 		local criteriaName, _, isComplete = GetAchievementCriteriaInfoByID(achievementId, criteriaId)
@@ -60,5 +60,5 @@ local function AchievementCriteriaInfoByCriteriaName(desiredCriteriaName)
 	return returnString
 end
 
-L.AchievementCriteriaInfoByID = AchievementCriteriaInfoByID
+L.AchievementCriteriaInfoByCriteriaID = AchievementCriteriaInfoByCriteriaID
 L.AchievementCriteriaInfoByCriteriaName = AchievementCriteriaInfoByCriteriaName

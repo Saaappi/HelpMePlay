@@ -316,6 +316,12 @@ local creatures = {
 			L["Tyrande Whisperwind 2"],
 		},
 	},
+	-- Argus
+	[121263] = { -- Grand Artificer Romuul
+		["g"] = {
+			L["Grand Artificer Romuul 1"],
+		},
+	},
 	[108642] = { -- Keeper Remulos
 		["g"] = {
 			L["Keeper Remulos 1"],
@@ -565,6 +571,12 @@ local creatures = {
 			L["Sparring Aspirant 2"],
 		},
 	},
+	[171834] = { -- Aspirant Thetes
+		["g"] = {
+			L["Aspirant Thetes 1"],
+		},
+	},
+	
 	-- Shadowlands: Maldraxxus
 	[165052] = { -- Vial Master Lurgy
 		["g"] = {

@@ -5,27 +5,27 @@ local L = addonTable.L
 local mouseoverDB = {
 	-- Creatures
 	[158345] = { -- Lady of the Falls
-		["n"] = L.AchievementCriteriaInfoByID(14672, 49570), -- A Bit of This, A Bit of That: Faerie Pomander
+		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49570), -- A Bit of This, A Bit of That: Faerie Pomander
 		["buffId"] = 0,
 	},
 	[165704] = { -- Elder Gwenna
-		["n"] = L.AchievementCriteriaInfoByID(14672, 49571), --  A Bit of This, A Bit of That: Slumberweb
+		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49571), --  A Bit of This, A Bit of That: Slumberweb
 		["buffId"] = 0,
 	}, 
 	[158519] = { -- Sorcha
-		["n"] = L.AchievementCriteriaInfoByID(14672, 49572), --  A Bit of This, A Bit of That: Vorkai War Paint
+		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49572), --  A Bit of This, A Bit of That: Vorkai War Paint
 		["buffId"] = 0,
 	}, 
 	[165382] = { -- Gormsmith Cavina
-		["n"] = L.AchievementCriteriaInfoByID(14672, 49573), --  A Bit of This, A Bit of That: Gorm Whisperer
+		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49573), --  A Bit of This, A Bit of That: Gorm Whisperer
 		["buffId"] = 0, 
 	},
 	[165705] = { -- Groonoomcrooek
-		["n"] = L.AchievementCriteriaInfoByID(14672, 49574), --  A Bit of This, A Bit of That: Tirnenn Resilience
+		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49574), --  A Bit of This, A Bit of That: Tirnenn Resilience
 		["buffId"] = 0,
 	},
 	[165703] = { -- Elder Finnan 
-		["n"] = L.AchievementCriteriaInfoByID(14672, 49575), --  A Bit of This, A Bit of That: Finnan's Luck
+		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49575), --  A Bit of This, A Bit of That: Finnan's Luck
 		["buffId"] = 0,
 	},
 	[170080] = { -- Exposed Boggart

@@ -10,22 +10,18 @@ HelpMePlay | 1.0.5
 	Dialog:
 		Added a dialog to skip the Covenant introduction for Night Fae.
 		Added a dialog for the NPCs involved in the "Insider Trading" quest in Oribos.
-		Added a dialog for Project Lead Allen in Maldraxxus.
-		Added a dialog for the Taloned Flayedwing in Maldraxxus.
-		Added a dialog for Dapperdew.
-		Added multiple dialogs for Treasure Guardian.
-		Added a dialog for Cortinarius.
-		Added a dialog for Marasmius.
+		Added dialogs for 1 or more NPCs in Bastion.
+		Added dialogs for 1 or more NPCs in Ardenweald.
+		Added dialogs for 1 or more NPCs in Revendreth.
+		Added dialogs for 1 or more NPCs in Maldraxxus.
 		Added multiple dialogs for NPCs involved in the Night Fae Campaign.
 		Added multiple dialogs for Ve'rayn.
 		Added multiple dialogs for Shandris Feathermoon.
 		Added dialogs for multiple NPCs in Torghast.
 		Added dialogs for multiple NPCs in the Maw for the Night Fae assault.
 		Added dialogs for multiple NPCs in the Maw for the Kyrian assault.
-		Added multiple dialogs for Zayhad, The Builder.
+		Added dialogs for NPCs in Argus zones.
 		Added support for more Stable Masters (and healing battle pets.)
-		Added multiple dialogs for the Sparring Aspirants involved in the "Let's Get Ready to Humble" world quest.
-		Added multiple dialogs for the NPCs involved in the "We'll Workshop It" world quest.
 	Options:
 		When opening the options, the player's chosen expansion for Chromie Time will show in the edit box.
 	Notes:

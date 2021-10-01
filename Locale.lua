@@ -289,6 +289,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Gubbins 1"]																= "I will take a parasol."
 	L["Xandria 1"]																= "Let's fly, Xandria."
 	L["Renavyth 1"]																= "I will assist you."
+	L["Aspirant Thetes 1"]														= "I will accompany you."
+	L["Grand Artificer Romuul 1"]												= "Take me to the surface."
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"
 	L["Lorewalker Cho 2"]														= "Go ahead and turn this thing on."
 	L["Scout Captain Elsia 1"]													= "Here are the explosives, Elsia."
