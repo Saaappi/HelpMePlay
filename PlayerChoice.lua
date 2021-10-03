@@ -43,9 +43,31 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				elseif mapId == 543 then
 					-- Gorgrond
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2) -- Savage Fight Club/Highpass Sparring Ring
-					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
+					if HelpMePlayOptionsDB.GarrisonTables then
+						-- Choose the Sparring Arena, otherwise
+						-- choose nothing.
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					end
+				elseif mapId == 535 then
+					-- Talador
+					if HelpMePlayOptionsDB.GarrisonTables then
+						-- Choose the Arsenal, otherwise
+						-- choose nothing.
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					end
+				elseif mapId == 542 then
+					-- Spires of Arak
+					if HelpMePlayOptionsDB.GarrisonTables then
+						-- Choose the Brewery, otherwise
+						-- choose nothing.
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					end
 				end
 			end
 		end
