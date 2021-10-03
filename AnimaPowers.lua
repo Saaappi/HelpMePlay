@@ -27,6 +27,7 @@ e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
+		if HelpMePlayOptionsDB.TorghastPowers == false then return end
 		local choiceOptionInfo = ""
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if mapId then

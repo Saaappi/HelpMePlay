@@ -25,7 +25,7 @@
 					<FontHeight val="15" />
 					<Color r="0" g="1" b="1" />
 				</FontString>
-				<FontString name="HMPVersionText" inherits="GameFontNormal" text="1.0.3">
+				<FontString name="HMPVersionText" inherits="GameFontNormal" text="1.0.5">
 					<Size x="80" y="20" />
 					<Anchors>
 						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="240" y="296" />
@@ -145,6 +145,14 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPTorghastPowersText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Torghast Powers">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="401" y="-67" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -220,6 +228,11 @@
 					<Anchor point="TOPLEFT" x="231" y="-280" />
 				</Anchors>
 			</EditBox>
+			<CheckButton name="HMPTorghastPowersCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="371" y="-61" />
+				</Anchors>
+			</CheckButton>
 		</Frames>
 	</Frame>
 	<GameTooltip inherits="GameTooltipTemplate" />

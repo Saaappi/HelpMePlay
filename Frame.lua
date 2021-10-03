@@ -44,6 +44,7 @@ function HelpMePlayLoadSettings()
 		HMPQuestRewardsText:SetText(L["Quest Rewards"])
 		HMPChromieTimeText:SetText(L["Chromie Time"])
 		HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
+		HMPTorghastPowersText:SetText(L["Torghast Powers"])
 
 		-- Check settings first
 		if HelpMePlayOptionsDB.AdventureMaps then
@@ -116,6 +117,12 @@ function HelpMePlayLoadSettings()
 			HMPToFCB:SetChecked(true)
 		else
 			HMPToFCB:SetChecked(false)
+		end
+		
+		if HelpMePlayOptionsDB.TorghastPowers then
+			HMPTorghastPowersCB:SetChecked(true)
+		else
+			HMPTorghastPowersCB:SetChecked(false)
 		end
 
 		-- Adventure Maps Check Button
@@ -308,6 +315,21 @@ function HelpMePlayLoadSettings()
 		HMPChromieTimeEditBox:SetScript("OnEnterPressed", function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = tonumber(HMPChromieTimeEditBox:GetText())
 			HMPChromieTimeEditBox:SetText("")
+		end)
+		
+		-- Torghast Powers Check Button
+		HMPTorghastPowersCB:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Torghast Powers Check Button"])
+		end)
+		HMPTorghastPowersCB:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		HMPTorghastPowersCB:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				HelpMePlayOptionsDB.TorghastPowers = true
+			else
+				HelpMePlayOptionsDB.TorghastPowers = false
+			end
 		end)
 	end
 end
