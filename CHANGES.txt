@@ -10,6 +10,7 @@ HelpMePlay | 1.0.5
 	Dialog:
 		Added a dialog to skip the Covenant introduction for Night Fae.
 		Added a dialog for the NPCs involved in the "Insider Trading" quest in Oribos.
+		Added a dialog for Archivist Roh-Suir in Korthia.
 		Added dialogs for 1 or more NPCs in Bastion.
 		Added dialogs for 1 or more NPCs in Ardenweald.
 		Added dialogs for 1 or more NPCs in Revendreth.

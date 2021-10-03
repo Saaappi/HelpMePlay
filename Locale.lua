@@ -290,6 +290,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Xandria 1"]																= "Let's fly, Xandria."
 	L["Renavyth 1"]																= "I will assist you."
 	L["Aspirant Thetes 1"]														= "I will accompany you."
+	L["Archivist Roh-Suir 1"]													= "I found more relics we can use for our cataloged research."
 	L["Grand Artificer Romuul 1"]												= "Take me to the surface."
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"
 	L["Lorewalker Cho 2"]														= "Go ahead and turn this thing on."

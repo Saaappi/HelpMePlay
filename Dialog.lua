@@ -832,6 +832,12 @@ local creatures = {
 			L["Treasure Guardian 2"],
 		},
 	},
+	-- Shadowlands: Korthia
+	[178257] = { -- Archivist Roh-Suir
+		["g"] = {
+			L["Archivist Roh-Suir 1"],
+		},
+	},
 	-- Shadowlands: Heart of the Forest (Covenant Sanctum)
 	[156634] = { -- Winter Queen
 		["g"] = {
