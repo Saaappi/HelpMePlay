@@ -33,6 +33,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				elseif mapId == 84 or mapId == 85 then
 					-- Orgrimmar / Stormwind City
+					if HelpMePlayOptionsDB.AdventureMaps == false then return end
 					for i = 1, 3 do
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
 						if choiceOptionInfo.choiceArtID == 1851147 then -- This is the Dark Portal option for Draenor
