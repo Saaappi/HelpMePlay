@@ -36,6 +36,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		elseif monster == L["Al'dalil"] then
 			-- Quest: Dead Drop (Bastion)
+			if HelpMePlayOptionsDB.Speech == false then return end
 			if string.find(string.lower(msg), string.lower(L["Al'dalil: Buttons 1"])) or string.find(string.lower(msg), string.lower(L["Al'dalil: Buttons 2"])) then
 				AddGlowToActionBarButton(OverrideActionBarButton1)
 			elseif string.find(string.lower(msg), string.lower(L["Al'dalil: Lever 1"])) or string.find(string.lower(msg), string.lower(L["Al'dalil: Lever 2"])) then
@@ -45,6 +46,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		elseif monster == L["Trainer Ikaros"] then
 			-- World Quest: We'll Make an Aspirant Out of You (Bastion)
+			if HelpMePlayOptionsDB.Speech == false then return end
 			if string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Jab"])) or string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Strike"])) then
 				AddGlowToActionBarButton(OverrideActionBarButton1)
 			elseif string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Kick"])) or string.find(string.lower(msg), string.lower(L["Trainer Ikaros: Sweep"])) then

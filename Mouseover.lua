@@ -15,6 +15,7 @@ e:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 -- an Id can be used for them opposed to a localized name.
 GameTooltip:HookScript("OnUpdate", function(self)
 	if GameTooltip:IsVisible() then
+		if HelpMePlayOptionsDB.Notes == false then return end
 		if GameTooltip:GetOwner():GetName() == "UIParent" then
 			mouseoverName = _G["GameTooltipTextLeft"..1]:GetText()
 			for nameOrId, data in pairs(addonTable.mouseoverDB) do
@@ -52,6 +53,7 @@ end)
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UPDATE_MOUSEOVER_UNIT" then
+		if HelpMePlayOptionsDB.Notes == false then return end
 		if UnitGUID("mouseover") then
 			local guid = UnitGUID("mouseover")
 			if guid then

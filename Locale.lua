@@ -52,9 +52,10 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Accept/Complete Quests"]													= "Quests"
 	L["Quest Rewards"]															= "Quest Rewards"
 	L["Threads of Fate"]														= "Threads of Fate"
-	L["Torghast Powers"]														= "Torghast Powers"
 	L["Chromie Time"]															= "Chromie Time"
 	L["Current Expansion"]														= "Current Expansion"
+	L["Torghast Powers"]														= "Torghast Powers"
+	L["Notes"]																	= "Notes"
 	-- Options Panel Descriptions
 	L["Adventure Maps Check Button"]											= "Automates the Hero's Call Board and the selection of zones and footholds\nfor the Battle for Azeroth and Shadowlands adventure maps.\n\n|cffFFFFFFHero's Call Board|r: Tanaan Jungle\n\n|cffFFFFFFAlliance|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Tiragarde Sound, Stormsong Valley, Drustvar\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Zuldazar, Nazmir, Vol'dun\n|cffFFFFFFHorde|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Zuldazar, Nazmir, Vol'dun\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Stormsong Valley, Tiragarde Sound, Drustvar\n\n|cffFFFFFFShadowlands|r: Bastion, Maldraxxus, Ardenweald, Revendreth"
 	L["Dialog Check Button"]													= "Automates the selection of dialog options when speaking with NPCs.\nThis does |cffFFFFFFNOT|r apply to all dialogs."
@@ -63,13 +64,14 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Mail Check Button"]														= "Automates the collection of ONLY gold from your mailbox."
 	L["Merchants Check Button"]													= "Automates the purchase of specific items from merchants, as well\nas automatic repairs.\n|cffFFFFFFExample|r: The [Bottle of Airspark] from Lanna Skyspark in Highmountain."
 	L["Mount Training Check Button"]											= "Automates the purchase of mount training.\nThe player must have either double the cost of the training OR\nat least 300 more gold than the cost of the training."
-	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\n|cffFFFFFFExample|r: The Playful Trickster during \"The Games We Play\" quest in Ardenweald."
+	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\nThis setting controls the glow effect on vehicle quests\nlike \"We'll Make an Aspirant Out of You\" in Bastion."
 	L["War Mode Check Button"]													= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\nThis only applies to players above level 20, but below 50."
 	L["Accept/Complete Quests Check Button"]									= "Automates accepting and completing quests."
 	L["Quest Rewards Check Button"]												= "Automates the selection of quest rewards.\nThe selection is based on what sells for the most."
 	L["Threads of Fate Check Button"]											= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into Threads of Fate,\nbut leaving it unchecked will opt the player into Story Mode."
-	L["Torghast Powers Check Button"]											= "Automates the selection of Torghast Powers. The powers are based\non a priority list.\nThe chosen power is recorded to the chat window."
 	L["Chromie Time EditBox"]													= "Enter one of the numeric values to automate the\nexpansion to select for Chromie Time.\n\n|cffFFFFFF0|r: Battle for Azeroth (Current Timeline)\n|cffFFFFFF5|r: The Cataclysm (Classic)\n|cffFFFFFF6|r: The Burning Crusade\n|cffFFFFFF7|r: Wrath of the Lich King\n|cffFFFFFF8|r: Mists of Pandaria\n|cffFFFFFF9|r: Warlords of Draenor\n|cffFFFFFF10|r: Legion"
+	L["Torghast Powers Check Button"]											= "Automates the selection of Torghast Powers. The powers are based\non a priority list.\nThe chosen power is recorded to the chat window."
+	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
 	-- Skill Lines																
 	L["Riding"]																	= "Riding"
 	-- Speech Monsters

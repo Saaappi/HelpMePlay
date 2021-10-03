@@ -153,6 +153,13 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPNotesText" inherits="GameFontNormal" text="Notes">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="381" y="-104" />
+					</Anchors>
+					<Color r="1" g="1" b="1" />
+				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -231,6 +238,11 @@
 			<CheckButton name="HMPTorghastPowersCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-61" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="371" y="-99" />
 				</Anchors>
 			</CheckButton>
 		</Frames>

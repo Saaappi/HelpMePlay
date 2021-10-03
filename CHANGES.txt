@@ -25,6 +25,7 @@ HelpMePlay | 1.0.5
 		Added dialogs for NPCs in Argus zones.
 		Added support for more Stable Masters (and healing battle pets.)
 	Options:
+		Added an option to disable Notes on tooltips.
 		When opening the options, the player's chosen expansion for Chromie Time will show in the edit box.
 		The "Garrison Tables" option now also controls the automation of outpost selection in Gorgrond, Talador, and Spires of Arak.
 		The "Adventure Maps" option now also controls Hero's Call Board automation.
