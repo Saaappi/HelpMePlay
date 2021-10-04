@@ -79,6 +79,12 @@ local creatures = {
 			L["Archmage Khadgar 2"],
 		},
 	},
+	-- Eastern Kingdoms: Elwynn Forest
+	[240] = { -- Marshal Dughan
+		["g"] = {
+			L["Marshal Dughan 1"],
+		},
+	},
 	-- Eastern Kingdoms: Hillsbrad Foothills
 	[47442] = { -- Johnny Awesome
 		["g"] = {
