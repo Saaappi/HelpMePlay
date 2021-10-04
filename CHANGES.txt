@@ -35,6 +35,7 @@ HelpMePlay | 1.0.5
 		All skills from trainers are now automatically learned if the player has +300 gold more than the cost or twice the cost.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
+		Notes on objects is no longer supported.
 	Fixes:
 		Fixed an issue where sometimes the merchant ID would be nil and toss an error.
 		Fixed an issue that caused the merchant window to open when speaking with Stable Masters.

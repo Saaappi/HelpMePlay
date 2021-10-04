@@ -34,21 +34,23 @@ end
 -- it gets a chance to work the way it's
 -- supposed to...
 local function AchievementCriteriaInfoByCriteriaName(desiredCriteriaName)
-	for i = 1, #achievements do
-		local _, achievementName = GetAchievementInfo(achievements[i])
-		local numCriteria = GetAchievementNumCriteria(achievements[i])
-		if achievementName then
-			for j = 1, numCriteria do
-				local criteriaName, _, isComplete = GetAchievementCriteriaInfo(achievements[i], j)
-				if criteriaName == desiredCriteriaName then
-					if isComplete == false then
-						returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. achievementName
+	if addonTable.AllowedToGetAchievementInfo then
+		for i = 1, #achievements do
+			local _, achievementName = GetAchievementInfo(achievements[i])
+			local numCriteria = GetAchievementNumCriteria(achievements[i])
+			if achievementName then
+				for j = 1, numCriteria do
+					local criteriaName, _, isComplete = GetAchievementCriteriaInfo(achievements[i], j)
+					if criteriaName == desiredCriteriaName then
+						if isComplete == false then
+							returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. achievementName
+						end
 					end
 				end
 			end
 		end
+		return returnString
 	end
-	return returnString
 end
 
 L.AchievementCriteriaInfoByCriteriaID = AchievementCriteriaInfoByCriteriaID
