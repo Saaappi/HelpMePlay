@@ -30,6 +30,8 @@ HelpMePlay | 1.0.5
 		When opening the options, the player's chosen expansion for Chromie Time will show in the edit box.
 		The "Garrison Tables" option now also controls the automation of outpost selection in Gorgrond, Talador, and Spires of Arak.
 		The "Adventure Maps" option now also controls Hero's Call Board automation.
+	Merchants:
+		All skills from trainers are now automatically learned if the player has +300 gold more than the cost or twice the cost.
 	Notes:
 		Added a note for exposing the Exposed Boggarts during the "Tough Crowd" world quest in Ardenweald.
 	Fixes:

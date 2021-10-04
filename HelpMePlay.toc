@@ -22,8 +22,8 @@ ChromieTime.lua
 # Automates the adventure map from BfA and Shadowlands.
 AdventureMap.lua
 
-# Automates the purchase of mount training.
-MountTraining.lua
+# Automates the purchase of skills from trainers.
+Merchants_Trainers.lua
 
 # Adds text to Anima powers in Torghast to help players pick.
 AnimaPowers.lua
@@ -41,7 +41,7 @@ WarMode.lua
 PlayerChoice.lua
 
 # Automates purchasing quest items from vendors.
-Merchants.lua
+Merchants_Vendors.lua
 
 # Automates handling emotes for specific NPCs.
 Emotes.lua
