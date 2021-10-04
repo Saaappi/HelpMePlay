@@ -538,12 +538,52 @@ local creatures = {
 			L["Aspirant Ikaran 1"],
 		},
 	},
-	[169027] = { -- Helpful Steward (for the fixes)
+	[169023] = { -- Helpful Steward
 		["g"] = {
 			L["Helpful Steward 1"],
 		},
 	},
-	[169078] = { -- Helpful Steward (to get them to follow you)
+	[169024] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169025] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169026] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169027] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169078] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169079] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169080] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169081] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169082] = { -- Helpful Steward
 		["g"] = {
 			L["Helpful Steward 2"],
 		},

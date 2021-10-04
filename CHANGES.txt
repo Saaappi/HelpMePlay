@@ -16,6 +16,7 @@ HelpMePlay | 1.0.5
 		Added dialogs for 1 or more NPCs in Ardenweald.
 		Added dialogs for 1 or more NPCs in Revendreth.
 		Added dialogs for 1 or more NPCs in Maldraxxus.
+		Added multiple dialogs for the Stewards involved in the "A Steward for Every Occasion" world quest in Bastion.
 		Added multiple dialogs for NPCs involved in the Night Fae Campaign.
 		Added multiple dialogs for Ve'rayn.
 		Added multiple dialogs for Shandris Feathermoon.
