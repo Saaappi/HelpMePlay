@@ -21,11 +21,7 @@ local function AchievementCriteriaInfoByCriteriaID(achievementId, criteriaId)
 		local criteriaName, _, isComplete = GetAchievementCriteriaInfoByID(achievementId, criteriaId)
 		if criteriaName then
 			if isComplete == false then
-				if GetAchievementLink(achievementId) then
-					return L["Red X Raid Target"] .. " " .. GetAchievementLink(achievementId)
-				else
-					return L["Red X Raid Target"] .. " " .. achievementName
-				end
+				return L["Red X Raid Target"] .. " " .. achievementName
 			end
 		end
 	end
@@ -46,12 +42,7 @@ local function AchievementCriteriaInfoByCriteriaName(desiredCriteriaName)
 				local criteriaName, _, isComplete = GetAchievementCriteriaInfo(achievements[i], j)
 				if criteriaName == desiredCriteriaName then
 					if isComplete == false then
-						--[[if GetAchievementLink(achievements[i]) then
-							returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. GetAchievementLink(achievements[i])
-						else
-							returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. achievementName
-						end]]
-						returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. GetAchievementLink(achievements[i])
+						returnString = returnString .. "\n" .. L["Red X Raid Target"] .. " " .. achievementName
 					end
 				end
 			end
