@@ -31,7 +31,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 							HideUIPanel(PlayerChoiceFrame)
 						end
 					end
-				elseif mapId == 84 or mapId == 85 then
+				end
+			else
+				-- Not every player choice is associated
+				-- with an NPC, so these will be the
+				-- player choices prompted by objects.
+				if mapId == 84 or mapId == 85 then
 					-- Orgrimmar / Stormwind City
 					if HelpMePlayOptionsDB.AdventureMaps == false then return end
 					for i = 1, 3 do
@@ -41,15 +46,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 							HideUIPanel(PlayerChoiceFrame)
 							break
 						end
-					end
-				elseif mapId == 543 then
-					-- Gorgrond
-					if HelpMePlayOptionsDB.GarrisonTables then
-						-- Choose the Sparring Arena, otherwise
-						-- choose nothing.
-						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2)
-						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
 					end
 				elseif mapId == 535 then
 					-- Talador
@@ -66,6 +62,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 						-- Choose the Brewery, otherwise
 						-- choose nothing.
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					end
+				elseif mapId == 543 then
+					-- Gorgrond
+					if HelpMePlayOptionsDB.GarrisonTables then
+						-- Choose the Sparring Arena, otherwise
+						-- choose nothing.
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
