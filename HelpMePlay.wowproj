@@ -18,6 +18,12 @@
     <Content Include="ChromieTime.lua">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Merchants_Trainers.lua">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Merchants_Vendors.lua">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="MouseoverDB.lua">
       <SubType>Code</SubType>
     </Content>
@@ -53,12 +59,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Mail.lua">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Merchants.lua">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="MountTraining.lua">
       <SubType>Code</SubType>
     </Content>
     <Content Include="PlayerChoice.lua">

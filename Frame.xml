@@ -81,14 +81,6 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
-				<FontString name="HMPMountTrainingText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Mount Training">
-					<Size x="92" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="69" y="-295" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
 				<FontString name="HMPSpeechText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Speech">
 					<Size x="80" y="20" />
 					<Anchors>
@@ -160,6 +152,14 @@
 					</Anchors>
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPTrainersV2Text" inherits="GameFontNormal" text="Trainers">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="54" y="-294" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -197,11 +197,6 @@
 			<CheckButton name="HMPMerchantsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-251" />
-				</Anchors>
-			</CheckButton>
-			<CheckButton name="HMPMountTrainingCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-289" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPSpeechCB" inherits="UICheckButtonTemplate" text="CheckButton1">
@@ -243,6 +238,11 @@
 			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-99" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-289" />
 				</Anchors>
 			</CheckButton>
 		</Frames>

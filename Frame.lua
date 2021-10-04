@@ -36,7 +36,7 @@ function HelpMePlayLoadSettings()
 		HMPGarrisonTblText:SetText(L["Garrison Tables"])
 		HMPMailText:SetText(L["Mail"])
 		HMPMerchantsText:SetText(L["Merchants"])
-		HMPMountTrainingText:SetText(L["Mount Training"])
+		HMPTrainersV2Text:SetText(L["Trainers"])
 		HMPSpeechText:SetText(L["Speech"])
 		HMPWarModeText:SetText(L["War Mode"])
 		HMPQuestsText:SetText(L["Accept/Complete Quests"])
@@ -84,10 +84,10 @@ function HelpMePlayLoadSettings()
 			HMPMerchantsCB:SetChecked(false)
 		end
 
-		if HelpMePlayOptionsDB.MountTraining then
-			HMPMountTrainingCB:SetChecked(true)
+		if HelpMePlayOptionsDB.Trainers then
+			HMPTrainersV2CB:SetChecked(true)
 		else
-			HMPMountTrainingCB:SetChecked(false)
+			HMPTrainersV2CB:SetChecked(false)
 		end
 
 		if HelpMePlayOptionsDB.Speech then
@@ -222,18 +222,18 @@ function HelpMePlayLoadSettings()
 			end
 		end)
 
-		-- Mount Training Check Button
-		HMPMountTrainingCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Mount Training Check Button"])
+		-- Trainers Check Button
+		HMPTrainersV2CB:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Trainers Check Button"])
 		end)
-		HMPMountTrainingCB:SetScript("OnLeave", function(self)
+		HMPTrainersV2CB:SetScript("OnLeave", function(self)
 			HideTooltip(self)
 		end)
-		HMPMountTrainingCB:SetScript("OnClick", function(self)
+		HMPTrainersV2CB:SetScript("OnClick", function(self)
 			if self:GetChecked() then
-				HelpMePlayOptionsDB.MountTraining = true
+				HelpMePlayOptionsDB.Trainers = true
 			else
-				HelpMePlayOptionsDB.MountTraining = false
+				HelpMePlayOptionsDB.Trainers = false
 			end
 		end)
 
