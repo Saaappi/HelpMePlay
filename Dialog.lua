@@ -569,6 +569,11 @@ local creatures = {
 			L["Helpful Steward 1"],
 		},
 	},
+	[169077] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
 	[169078] = { -- Helpful Steward
 		["g"] = {
 			L["Helpful Steward 2"],
