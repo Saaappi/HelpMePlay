@@ -50,7 +50,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UPDATE_MOUSEOVER_UNIT" then
 		if HelpMePlayOptionsDB.Notes == false then return end
 		if UnitGUID("mouseover") then
-			addonTable.AllowedToGetAchievementInfo = true
 			local guid = UnitGUID("mouseover")
 			if guid then
 				local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
@@ -59,12 +58,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 						for i = 1, GameTooltip:NumLines() do
 							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), addonName) then return end
 						end
-						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
-						GameTooltip:Show()
+						--GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
+						--GameTooltip:Show()
 					end
 				end
 			end
-			addonTable.AllowedToGetAchievementInfo = false
 		end
 	end
 end)
