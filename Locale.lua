@@ -306,6 +306,18 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Altar of the Pained 1"]													= "Put on the Faceless Mask of the Pained."
 	L["Altar of the Burned Bridge 1"]											= "Put on the Faceless Mask of the Burned Bridge."
 	L["Altar of the Long Night 1"]												= "Put on the Faceless Mask of the Long Night."
+	-- Creature Names
+	L["Sylla"]																	= "Sylla"
+	L["Thenia"]																	= "Thenia"
+	L["Stratios"]																= "Stratios"
+	L["Zolla"]																	= "Zolla"
+	L["Rotgut"]																	= "Rotgut"
+	L["Dundley Stickyfingers"]													= "Dundley Stickyfingers"
+	L["Caregiver Maximillian"]													= "Caregiver Maximillian"
+	L["Faryl"]																	= "Faryl"
+	L["Glitterdust"]															= "Glitterdust"
+	L["Addius the Tormentor"]													= "Addius the Tormentor"
+	L["Eyegor"]																	= "Eyegor"
 end
 
 if (isLocaleSupported == false) then

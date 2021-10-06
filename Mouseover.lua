@@ -46,12 +46,57 @@ local creatureDb = {
 	[173377] = { -- Faryl
 		["t"] = "achievement",
 		["aId"] = 14879,
-		["cId"] = "Faryl",
+		["cId"] = L["Faryl"],
 	},
 	[173129] = { -- Thenia
 		["t"] = "achievement",
 		["aId"] = 14879,
-		["cId"] = "Thenia",
+		["cId"] = L["Thenia"],
+	},
+	[173315] = { -- Sylla
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Sylla"],
+	},
+	[173324] = { -- Eyegor
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Eyegor"],
+	},
+	[173331] = { -- Addius the Tormenter
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Addius the Tormenter"],
+	},
+	[173263] = { -- Rotgut
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Rotgut"],
+	},
+	[173267] = { -- Dundley Stickyfingers
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Dundley Stickyfingers"],
+	},
+	[173257] = { -- Caregiver Maximillian
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Caregiver Maximillian"],
+	},
+	[173130] = { -- Zolla
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Zolla"],
+	},
+	[173131] = { -- Stratios
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Stratios"],
+	},
+	[173372] = { -- Glitterdust
+		["t"] = "achievement",
+		["aId"] = 14879,
+		["cId"] = L["Glitterdust"],
 	},
 }
 
