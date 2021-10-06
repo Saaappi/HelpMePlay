@@ -6,6 +6,8 @@ local achievements = {
 }
 local returnString = ""
 
+e:RegisterEvent("CRITERIA_EARNED")
+
 local function GetTrackedAchievementCriteriaCompletion()
 	local numCriteria, criteriaString, isComplete, assetId, criteriaId
 	for index, achievementId in ipairs(achievements) do
@@ -29,5 +31,20 @@ local function GetTrackedAchievementCriteriaCompletion()
 		end
 	end
 end
+
+e:SetScript("OnEvent", function(self, event, ...)
+	if event == "CRITERIA_EARNED" then
+		local achievementId, description = ...
+		for pAchievementId, cAchievementId in pairs(HelpMePlayAchievementDB) do
+			if cAchievementId == achievementId then
+				for criteriaId, criteriaData in pairs(cAchievementId) do
+					if criteriaData.name == description then
+						criteriaData.isComplete = true
+					end
+				end
+			end
+		end
+	end
+end)
 
 L.GetTrackedAchievementCriteriaCompletion = GetTrackedAchievementCriteriaCompletion
