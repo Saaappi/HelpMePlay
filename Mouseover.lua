@@ -46,12 +46,12 @@ local creatureDb = {
 	[173377] = { -- Faryl
 		["t"] = "achievement",
 		["aId"] = 14879,
-		["cId"] = 0,
+		["cId"] = "Faryl",
 	},
 	[173129] = { -- Thenia
 		["t"] = "achievement",
 		["aId"] = 14879,
-		["cId"] = 0,
+		["cId"] = "Thenia",
 	},
 }
 
@@ -66,11 +66,26 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
 				for nameOrId, data in pairs(creatureDb) do
 					if nameOrId == npcId then
+						local tooltipString = ""
 						for i = 1, GameTooltip:NumLines() do
 							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), addonName) then return end
 						end
 						if data.t == "achievement" then
-							
+							for pAchievementId, _ in pairs(HelpMePlayAchievementDB) do
+								if pAchievementId == data.aId then
+									for cAchievementId, cAchievementData in pairs(HelpMePlayAchievementDB[pAchievementId]) do
+										for criteriaId, criteriaData in pairs(HelpMePlayAchievementDB[pAchievementId][cAchievementId]) do
+											if criteriaData.name == data.cId then
+												if criteriaData.isComplete == false then
+													tooltipString = tooltipString .. "\n" .. L["Red X Raid Target"] .. cAchievementData.link
+												end
+											end
+										end
+									end
+								end
+							end
+							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. tooltipString)
+							GameTooltip:Show()
 						elseif data.t == "note" then
 							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
 							GameTooltip:Show()

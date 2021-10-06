@@ -126,29 +126,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayAchievementDB == nil then
 				HelpMePlayAchievementDB = {}
 			end
-			
-			--[[C_Timer.After(30, function()
-				local numCriteria = GetAchievementNumCriteria(14879)
-				local criteriaString = ""
-				local isComplete = false
-				local assetId = 0
-				for i = 1, numCriteria do
-					criteriaString, _, isComplete, _, _, _, _, assetId = GetAchievementCriteriaInfo(14879, i)
-					if isComplete == false then
-						if assetId ~= 0 then
-							local numSubCriteria = GetAchievementNumCriteria(assetId)
-							for j = 1, numSubCriteria do
-								criteriaString, _, isComplete = GetAchievementCriteriaInfo(14879, i)
-								if criteriaString == "Faryl" then
-									if isComplete == false then
-										print(GetAchievementLink(assetId))
-									end
-								end
-							end
-						end
-					end
-				end
-			end)]]
 		elseif addonLoaded == "Blizzard_AchievementUI" then
 			L.GetTrackedAchievementCriteriaCompletion()
 		end

@@ -21,6 +21,7 @@ local function GetTrackedAchievementCriteriaCompletion()
 				criteriaString, _, isComplete, _, _, _, _, _, _, criteriaId = GetAchievementCriteriaInfo(assetId, j)
 				if HelpMePlayAchievementDB[achievementId][assetId] == nil then
 					HelpMePlayAchievementDB[achievementId][assetId] = {}
+					HelpMePlayAchievementDB[achievementId][assetId].link = GetAchievementLink(assetId)
 				end
 				if HelpMePlayAchievementDB[achievementId][assetId][criteriaId] == nil then
 					HelpMePlayAchievementDB[achievementId][assetId][criteriaId] = {}
