@@ -6,6 +6,7 @@ local achievements = {
 }
 local returnString = ""
 
+e:RegisterEvent("ACHIEVEMENT_EARNED")
 e:RegisterEvent("CRITERIA_EARNED")
 
 local function GetTrackedAchievementCriteriaCompletion()
@@ -13,16 +14,17 @@ local function GetTrackedAchievementCriteriaCompletion()
 	for index, achievementId in ipairs(achievements) do
 		numCriteria = GetAchievementNumCriteria(achievementId)
 		for i = 1, numCriteria do
-			_, _, _, _, _, _, _, assetId = GetAchievementCriteriaInfo(achievementId, i)
+			_, _, isComplete, _, _, _, _, assetId = GetAchievementCriteriaInfo(achievementId, i)
 			for j = 1, GetAchievementNumCriteria(assetId) do
 				if HelpMePlayAchievementDB[achievementId] == nil then
 					HelpMePlayAchievementDB[achievementId] = {}
 				end
-				criteriaString, _, isComplete, _, _, _, _, _, _, criteriaId = GetAchievementCriteriaInfo(assetId, j)
 				if HelpMePlayAchievementDB[achievementId][assetId] == nil then
 					HelpMePlayAchievementDB[achievementId][assetId] = {}
 					HelpMePlayAchievementDB[achievementId][assetId].link = GetAchievementLink(assetId)
 				end
+				
+				criteriaString, _, isComplete, _, _, _, _, _, _, criteriaId = GetAchievementCriteriaInfo(assetId, j)
 				if HelpMePlayAchievementDB[achievementId][assetId][criteriaId] == nil then
 					HelpMePlayAchievementDB[achievementId][assetId][criteriaId] = {}
 				end
@@ -34,6 +36,14 @@ local function GetTrackedAchievementCriteriaCompletion()
 end
 
 e:SetScript("OnEvent", function(self, event, ...)
+	if event == "ACHIEVEMENT_EARNED" then
+		local achievementId = ...
+		for pAchievementId, cAchievementId in pairs(HelpMePlayAchievementDB) do
+			if pAchievementId == achievementId then
+				HelpMePlayAchievementDB[pAchievementId].isComplete = true
+			end
+		end
+	end
 	if event == "CRITERIA_EARNED" then
 		local achievementId, description = ...
 		for pAchievementId, cAchievementId in pairs(HelpMePlayAchievementDB) do

@@ -118,6 +118,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						if data.t == "achievement" then
 							for pAchievementId, _ in pairs(HelpMePlayAchievementDB) do
 								if pAchievementId == data.aId then
+									if HelpMePlayAchievementDB[pAchievementId].isComplete then return end
 									for cAchievementId, cAchievementData in pairs(HelpMePlayAchievementDB[pAchievementId]) do
 										for criteriaId, criteriaData in pairs(HelpMePlayAchievementDB[pAchievementId][cAchievementId]) do
 											if criteriaData.name == data.cId then
