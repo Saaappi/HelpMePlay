@@ -120,10 +120,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 								if pAchievementId == data.aId then
 									if HelpMePlayAchievementDB[pAchievementId].isComplete then return end
 									for cAchievementId, cAchievementData in pairs(HelpMePlayAchievementDB[pAchievementId]) do
-										for criteriaId, criteriaData in pairs(HelpMePlayAchievementDB[pAchievementId][cAchievementId]) do
-											if criteriaData.name == data.cId then
-												if criteriaData.isComplete == false then
-													tooltipString = tooltipString .. "\n" .. L["Red X Raid Target"] .. cAchievementData.link
+										if type(HelpMePlayAchievementDB[pAchievementId][cAchievementId]) == "table" then
+											for criteriaId, criteriaData in pairs(HelpMePlayAchievementDB[pAchievementId][cAchievementId]) do
+												if criteriaData.name == data.cId then
+													if criteriaData.isComplete == false then
+														tooltipString = tooltipString .. "\n" .. L["Red X Raid Target"] .. cAchievementData.link
+													end
 												end
 											end
 										end
