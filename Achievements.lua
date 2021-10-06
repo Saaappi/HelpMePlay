@@ -15,6 +15,8 @@ local function GetTrackedAchievementCriteriaCompletion()
 		_, _, _, isComplete = GetAchievementInfo(achievementId)
 		if isComplete then
 			HelpMePlayAchievementDB[achievementId].isComplete = true
+		else
+			HelpMePlayAchievementDB[achievementId].isComplete = false
 		end
 		numCriteria = GetAchievementNumCriteria(achievementId)
 		for i = 1, numCriteria do
