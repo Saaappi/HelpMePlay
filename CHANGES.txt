@@ -2,7 +2,7 @@ HelpMePlay | 1.0.5
 	Features:
 		S Tier Anima Powers in Torghast are now automatically chosen based on the higher ranked power. (Players will need to opt in for this feature.)
 		Repairing at a merchant is now automatically handled.
-		Added support for adding achievement criteria info to the tooltips of creatures, items, and objects. (The database supporting this feature will expand over time.)
+		Added support for adding achievement criteria info to the tooltips of creatures and items. (The database supporting this feature will expand over time.)
 		Added support for auto selecting the outpost in Talador and Spires of Arak.
 	Quests:
 		Added a glow to the corresponding button during the "Dead Drop" quest in Bastion.
