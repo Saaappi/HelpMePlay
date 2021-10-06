@@ -12,6 +12,10 @@ e:RegisterEvent("CRITERIA_EARNED")
 local function GetTrackedAchievementCriteriaCompletion()
 	local numCriteria, criteriaString, isComplete, assetId, criteriaId
 	for index, achievementId in ipairs(achievements) do
+		_, _, _, isComplete = GetAchievementInfo(achievementId)
+		if isComplete then
+			HelpMePlayAchievementDB[achievementId].isComplete = true
+		end
 		numCriteria = GetAchievementNumCriteria(achievementId)
 		for i = 1, numCriteria do
 			_, _, isComplete, _, _, _, _, assetId = GetAchievementCriteriaInfo(achievementId, i)
