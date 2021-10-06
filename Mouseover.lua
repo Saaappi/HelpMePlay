@@ -4,43 +4,46 @@ local L = addonTable.L
 
 e:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 
-local Db = {
-	-- Creatures
+-- t	: Valid options are 'achievement' or 'note'.
+-- n	: What is the tooltip supposed to say?
+-- aId	: Achievement ID.
+-- cId	: Achievement Criteria ID.
+local creatureDb = {
 	[158345] = { -- Lady of the Falls
-		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49570), -- A Bit of This, A Bit of That: Faerie Pomander
-		["buffId"] = 0,
+		["t"] = "achievement",
+		["aId"] = 14672, -- A Bit of This, A Bit of That: Faerie Pomander
 	},
 	[165704] = { -- Elder Gwenna
-		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49571), --  A Bit of This, A Bit of That: Slumberweb
-		["buffId"] = 0,
+		["t"] = "achievement",
+		["aId"] = 14672, --  A Bit of This, A Bit of That: Slumberweb
 	}, 
 	[158519] = { -- Sorcha
-		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49572), --  A Bit of This, A Bit of That: Vorkai War Paint
-		["buffId"] = 0,
+		["t"] = "achievement",
+		["aId"] = 14672, --  A Bit of This, A Bit of That: Vorkai War Paint
 	}, 
 	[165382] = { -- Gormsmith Cavina
-		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49573), --  A Bit of This, A Bit of That: Gorm Whisperer
-		["buffId"] = 0, 
+		["t"] = "achievement",
+		["aId"] = 14672, --  A Bit of This, A Bit of That: Gorm Whisperer
 	},
 	[165705] = { -- Groonoomcrooek
-		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49574), --  A Bit of This, A Bit of That: Tirnenn Resilience
-		["buffId"] = 0,
+		["t"] = "achievement",
+		["aId"] = 14672, --  A Bit of This, A Bit of That: Tirnenn Resilience
 	},
 	[165703] = { -- Elder Finnan 
-		["n"] = L.AchievementCriteriaInfoByCriteriaID(14672, 49575), --  A Bit of This, A Bit of That: Finnan's Luck
-		["buffId"] = 0,
+		["t"] = "achievement",
+		["aId"] = 14672, --  A Bit of This, A Bit of That: Finnan's Luck
 	},
 	[170080] = { -- Exposed Boggart
+		["t"] = "note",
 		["n"] = L["Note: Exposed Boggart"],
-		["buffId"] = 0,
 	},
 	[173377] = { -- Faryl
-		["n"] = L.AchievementCriteriaInfoByCriteriaName("Faryl"), -- Pet Battles (Family Exorcist)
-		["buffId"] = 0,
+		["t"] = "achievement",
+		["aId"] = 14879,
 	},
 	[173129] = { -- Thenia
-		["n"] = L.AchievementCriteriaInfoByCriteriaName("Thenia"), -- Pet Battles (Family Exorcist)
-		["buffId"] = 0,
+		["t"] = "achievement",
+		["aId"] = 14879,
 	},
 }
 
@@ -53,13 +56,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local guid = UnitGUID("mouseover")
 			if guid then
 				local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
-				for nameOrId, data in pairs(Db) do
+				for nameOrId, data in pairs(creatureDb) do
 					if nameOrId == npcId then
 						for i = 1, GameTooltip:NumLines() do
 							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), addonName) then return end
 						end
-						--GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
-						--GameTooltip:Show()
+						if data.t == "achievement" then
+							
+						elseif data.t == "note" then
+							GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. data.n)
+							GameTooltip:Show()
+						end
 					end
 				end
 			end
