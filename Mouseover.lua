@@ -12,26 +12,32 @@ local creatureDb = {
 	[158345] = { -- Lady of the Falls
 		["t"] = "achievement",
 		["aId"] = 14672, -- A Bit of This, A Bit of That: Faerie Pomander
+		["cId"] = 0,
 	},
 	[165704] = { -- Elder Gwenna
 		["t"] = "achievement",
 		["aId"] = 14672, --  A Bit of This, A Bit of That: Slumberweb
+		["cId"] = 0,
 	}, 
 	[158519] = { -- Sorcha
 		["t"] = "achievement",
 		["aId"] = 14672, --  A Bit of This, A Bit of That: Vorkai War Paint
+		["cId"] = 0,
 	}, 
 	[165382] = { -- Gormsmith Cavina
 		["t"] = "achievement",
 		["aId"] = 14672, --  A Bit of This, A Bit of That: Gorm Whisperer
+		["cId"] = 0,
 	},
 	[165705] = { -- Groonoomcrooek
 		["t"] = "achievement",
 		["aId"] = 14672, --  A Bit of This, A Bit of That: Tirnenn Resilience
+		["cId"] = 0,
 	},
 	[165703] = { -- Elder Finnan 
 		["t"] = "achievement",
 		["aId"] = 14672, --  A Bit of This, A Bit of That: Finnan's Luck
+		["cId"] = 0,
 	},
 	[170080] = { -- Exposed Boggart
 		["t"] = "note",
@@ -40,10 +46,12 @@ local creatureDb = {
 	[173377] = { -- Faryl
 		["t"] = "achievement",
 		["aId"] = 14879,
+		["cId"] = 0,
 	},
 	[173129] = { -- Thenia
 		["t"] = "achievement",
 		["aId"] = 14879,
+		["cId"] = 0,
 	},
 }
 
