@@ -38,6 +38,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 					local _, _, classId = UnitClass("player")
 					for i = 1, choiceInfo.numOptions do
 						local option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
+						if choiceInfo.numOptions == 1 then
+							SendPlayerChoiceResponse(option.buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						end
 						if option then
 							if AnimaPowerExistsForClass(classId, option.spellID) then
 								SendPlayerChoiceResponse(option.buttons[1].id)
