@@ -454,6 +454,11 @@ local creatures = {
 			L["Xandria 1"],
 		}
 	},
+	[178006] = { -- Prince Renathal
+		["g"] = {
+			L["Prince Renathal 1"],
+		}
+	},
 	-- Shadowlands: Torghast
 	[175118] = { -- Shandris Feathermoon
 		["g"] = {
@@ -473,6 +478,16 @@ local creatures = {
 	[172264] = { -- Yira'lya
 		["g"] = {
 			L["Yira'lya 1"],
+		},
+	},
+	[172261] = { -- Chalkyth
+		["g"] = {
+			L["Chalkyth 1"],
+		},
+	},
+	[157426] = { -- Indri the Treesinger
+		["g"] = {
+			L["Indri the Treesinger 1"],
 		},
 	},
 	[178932] = { -- Ve'lor the Messenger
