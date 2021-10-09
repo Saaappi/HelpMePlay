@@ -751,6 +751,12 @@ local creatures = {
 			L["I would like you to have the supplies."],
 		},
 	},
+	[161785] = { -- Thiernax
+		["g"] = {
+			L["Thiernax 1"],
+			L["Thiernax 2"],
+		},
+	},
 	[165382] = { -- Gormsmith Cavina
 		["g"] = {
 			L["I would like you to have the supplies."],
@@ -786,6 +792,11 @@ local creatures = {
 			L["Master Sha'lor 1"],
 		},
 	},
+	[158544] = { -- Lord Herne
+		["g"] = {
+			L["Lord Herne 2"],
+		},
+	},
 	[165550] = { -- Attendant Shimmerwing
 		["g"] = {
 			L["Attendant Shimmerwing 1"],
@@ -796,9 +807,20 @@ local creatures = {
 			L["Silkstrider Caretaker 1"],
 		},
 	},
+	[161509] = { -- Lady Moonberry
+		["g"] = {
+			L["Lady Moonberry 3"],
+		},
+	},
 	[172431] = { -- Lady Moonberry
 		["g"] = {
 			L["Lady Moonberry 1"],
+		},
+	},
+	[164023] = { -- Vesperbloom
+		["g"] = {
+			L["Vesperbloom 1"],
+			L["Vesperbloom 2"],
 		},
 	},
 	[172185] = { -- Zayhad, The Builder

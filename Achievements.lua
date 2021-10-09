@@ -2,6 +2,7 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
 local achievements = {
+	14672, -- A Bit of This, A Bit of That
 	14879, -- Family Exorcist
 }
 local returnString = ""
@@ -21,21 +22,31 @@ local function GetTrackedAchievementCriteriaCompletion()
 		numCriteria = GetAchievementNumCriteria(achievementId)
 		for i = 1, numCriteria do
 			_, _, isComplete, _, _, _, _, assetId = GetAchievementCriteriaInfo(achievementId, i)
-			for j = 1, GetAchievementNumCriteria(assetId) do
-				if HelpMePlayAchievementDB[achievementId] == nil then
-					HelpMePlayAchievementDB[achievementId] = {}
+			if assetId ~= 0 then
+				for j = 1, GetAchievementNumCriteria(assetId) do
+					if HelpMePlayAchievementDB[achievementId] == nil then
+						HelpMePlayAchievementDB[achievementId] = {}
+					end
+					if HelpMePlayAchievementDB[achievementId][assetId] == nil then
+						HelpMePlayAchievementDB[achievementId][assetId] = {}
+						HelpMePlayAchievementDB[achievementId][assetId].link = GetAchievementLink(assetId)
+					end
+					
+					criteriaString, _, isComplete, _, _, _, _, _, _, criteriaId = GetAchievementCriteriaInfo(assetId, j)
+					if HelpMePlayAchievementDB[achievementId][assetId][criteriaId] == nil then
+						HelpMePlayAchievementDB[achievementId][assetId][criteriaId] = {}
+					end
+					HelpMePlayAchievementDB[achievementId][assetId][criteriaId].name = criteriaString
+					HelpMePlayAchievementDB[achievementId][assetId][criteriaId].isComplete = isComplete
 				end
-				if HelpMePlayAchievementDB[achievementId][assetId] == nil then
-					HelpMePlayAchievementDB[achievementId][assetId] = {}
-					HelpMePlayAchievementDB[achievementId][assetId].link = GetAchievementLink(assetId)
+			else
+				HelpMePlayAchievementDB[achievementId].link = GetAchievementLink(achievementId)
+				criteriaString, _, isComplete, _, _, _, _, _, _, criteriaId = GetAchievementCriteriaInfo(achievementId, i)
+				if HelpMePlayAchievementDB[achievementId][criteriaId] == nil then
+					HelpMePlayAchievementDB[achievementId][criteriaId] = {}
 				end
-				
-				criteriaString, _, isComplete, _, _, _, _, _, _, criteriaId = GetAchievementCriteriaInfo(assetId, j)
-				if HelpMePlayAchievementDB[achievementId][assetId][criteriaId] == nil then
-					HelpMePlayAchievementDB[achievementId][assetId][criteriaId] = {}
-				end
-				HelpMePlayAchievementDB[achievementId][assetId][criteriaId].name = criteriaString
-				HelpMePlayAchievementDB[achievementId][assetId][criteriaId].isComplete = isComplete
+				HelpMePlayAchievementDB[achievementId][criteriaId].name = criteriaString
+				HelpMePlayAchievementDB[achievementId][criteriaId].isComplete = isComplete
 			end
 		end
 	end
