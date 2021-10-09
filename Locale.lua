@@ -107,9 +107,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Suspiciously Untouched Soulweb"]											= "Suspiciously Untouched Soulweb"
 	-- Mouseover Target Notes
 	L["Note: Exposed Boggart"]													= "This is a BOGGART!"
-	L["Note: Suspiciously Untouched Basket"]									= "You need |cffFFFFFFShimmerdust Pile|r to activate this trap."
-	L["Note: Suspiciously Untouched Harp"]										= "You need |cffFFFFFFGossamer Thread|r to activate this trap."
-	L["Note: Suspiciously Untouched Soulweb"]									= "You need |cffFFFFFFFreshleaf|r to activate this trap."
+	L["Note: Gatamatos"]														= "CLICK ME!"
 	-- Dialog
 	L["Are you enjoying yourself?"]												= "Are you enjoying yourself?"
 	L["Go hunt somewhere else!"]												= "Go hunt somewhere else!"

@@ -98,6 +98,10 @@ local creatureDb = {
 		["aId"] = 14879,
 		["cId"] = L["Glitterdust"],
 	},
+	[173806] = { -- Gatamatos
+		["t"] = "note",
+		["n"] = L["Note: Gatamatos"],
+	},
 }
 
 -- Add notes to the tooltip of select creatures
