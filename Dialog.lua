@@ -645,6 +645,7 @@ local creatures = {
 	[159505] = { -- Sparring Aspirant
 		["g"] = {
 			-- When there are Sparring Aspirants... sparring.
+			L["Sparring Aspirant 1"],
 			L["Sparring Aspirant 2"],
 		},
 	},
