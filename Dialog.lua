@@ -147,6 +147,12 @@ local creatures = {
 			L["Zidormi 1"],
 		},
 	},
+	-- Eastern Kingdoms: Twilight Highlands
+	[164012] = { -- Alexstrasza, the Life-Binder
+		["g"] = {
+			L["Alexstrasza, the Life-Binder 1"],
+		},
+	},
 	-- Kalimdor: Durotar
 	[4311] = { -- Holgar Stormaxe
 		["g"] = {

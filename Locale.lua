@@ -301,6 +301,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Thiernax 1"]																= "<Explain the situation and request help.>"
 	L["Thiernax 2"]																= "I do hear something..."
 	L["Aspirant Thetes 1"]														= "I will accompany you."
+	L["Alexstrasza, the Life-Binder 1"]											= "<Explain the situation to Alexstrasza and request a Token of Lost Love.>"
 	L["Archivist Roh-Suir 1"]													= "I found more relics we can use for our cataloged research."
 	L["Grand Artificer Romuul 1"]												= "Take me to the surface."
 	L["Marshal Dughan 1"]														= "I wish to ride the Stormwind charger, sir."

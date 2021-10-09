@@ -27,6 +27,7 @@ HelpMePlay | 1.0.5
 		Added dialogs for multiple NPCs in the Maw for the Kyrian assault.
 		Added dialogs for NPCs in Argus zones.
 		Added support for more Stable Masters (and healing battle pets.)
+		Added multiple dialogs for NPCs involved in Chapter 5 of the Night Fae campaign.
 	Options:
 		Added an option to control Notes on tooltips.
 		When opening the options, the player's chosen expansion for Chromie Time will show in the edit box.
