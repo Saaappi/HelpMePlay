@@ -61,6 +61,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		for pAchievementId, cAchievementId in pairs(HelpMePlayAchievementDB) do
 			if pAchievementId == achievementId then
 				HelpMePlayAchievementDB[pAchievementId].isComplete = true
+			elseif cAchievementId == achievementId then
+				HelpMePlayAchievementDB[pAchievementId][achievementId].isComplete = true
 			end
 		end
 	end
