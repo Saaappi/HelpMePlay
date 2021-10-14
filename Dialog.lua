@@ -191,6 +191,68 @@ local creatures = {
 			L["Zidormi 3"],
 		}
 	},
+	-- Pandaria: The Jade Forest
+	[66730] = { -- Hyuna of the Shrines
+		["g"] = {
+			L["Hyuna of the Shrines 1"],
+		},
+		["c"] = {
+			L["Let's do it!"],
+		},
+	},
+	[68464] = { -- Whispering Pandaren Spirit
+		["g"] = {
+			L["Whispering Pandaren Spirit 1"],
+		},
+		["c"] = {
+			L["Prepare yourself!"],
+		},
+	},
+	-- Pandaria: Valley of the Four Winds
+	[66734] = { -- Farmer Nishi
+		["g"] = {
+			L["Farmer Nishi 1"],
+		},
+		["c"] = {
+			L["Let's rumble!"],
+		},
+	},
+	-- Pandaria: Krasarang Wilds
+	[66733] = { -- Mo'ruk
+		["g"] = {
+			L["Mo'ruk 1"],
+		},
+		["c"] = {
+			L["Come at me!"],
+		},
+	},
+	-- Pandaria: Dread Wastes
+	[68462] = { -- Flowing Pandaren Spirit
+		["g"] = {
+			L["Flowing Pandaren Spirit 1"],
+		},
+		["c"] = {
+			L["Prepare yourself!"],
+		},
+	},
+	-- Pandaria: Vale of Eternal Blossoms
+	[66741] = { -- Aki the Chosen
+		["g"] = {
+			L["Aki the Chosen 1"],
+		},
+		["c"] = {
+			L["You're going down!"],
+		},
+	},
+	-- Pandaria: Kun-Lai Summit
+	[68465] = { -- Thundering Pandaren Spirit
+		["g"] = {
+			L["Thundering Pandaren Spirit 1"],
+		},
+		["c"] = {
+			L["Prepare yourself!"],
+		},
+	},
 	-- Draenor: Garrison (Alliance)
 	[79243] = { -- Baros Alexston
 		["g"] = {
