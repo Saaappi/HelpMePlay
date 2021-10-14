@@ -9,22 +9,17 @@ HelpMePlay | 1.0.5
 		Added a glow to the corresponding button during the "Just Winging It" world quest in Maldraxxus.
 		Added a glow to the corresponding button during the "We'll Make an Aspirant Out of You" world quest in Bastion.
 	Dialog:
+		Added multiple dialogs for NPCs involved in the Maw assaults.
+		Added dialogs for multiple NPCs in Torghast.
+		Added multiple dialogs for NPCs in all four Shadowlands zones.
 		Added a dialog to skip the Covenant introduction for Night Fae.
 		Added a dialog for the NPCs involved in the "Insider Trading" quest in Oribos.
 		Added a dialog for Archivist Roh-Suir in Korthia.
 		Added a dialog for Marshal Dughan in Elwynn Forest.
-		Added dialogs for 1 or more NPCs in Bastion.
-		Added dialogs for 1 or more NPCs in Ardenweald.
-		Added dialogs for 1 or more NPCs in Revendreth.
-		Added dialogs for 1 or more NPCs in Maldraxxus.
 		Added multiple dialogs for the Stewards involved in the "A Steward for Every Occasion" world quest in Bastion.
 		Added multiple dialogs for NPCs involved in the Night Fae Campaign.
 		Added multiple dialogs for Ve'rayn.
 		Added multiple dialogs for Shandris Feathermoon.
-		Added dialogs for multiple NPCs in Torghast.
-		Added dialogs for multiple NPCs in the Maw for the Night Fae assault.
-		Added dialogs for multiple NPCs in the Maw for the Venthyr assault.
-		Added dialogs for multiple NPCs in the Maw for the Kyrian assault.
 		Added dialogs for NPCs in Argus zones.
 		Added support for more Stable Masters (and healing battle pets.)
 		Added multiple dialogs for NPCs involved in Chapter 5 of the Night Fae campaign.
