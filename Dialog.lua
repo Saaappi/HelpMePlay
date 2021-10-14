@@ -184,6 +184,13 @@ local creatures = {
 			L["Nazgrim 1"],
 		}
 	},
+	-- Kalimdor: Darkshore
+	[141489] = { -- Zidormi
+		["g"] = {
+			L["Zidormi 2"],
+			L["Zidormi 3"],
+		}
+	},
 	-- Draenor: Garrison (Alliance)
 	[79243] = { -- Baros Alexston
 		["g"] = {
@@ -227,7 +234,18 @@ local creatures = {
 			L["Sergeant Grimjaw 1"],
 		},
 	},
+	-- Draenor: Frostfire Ridge
+	[87122] = { -- Gargra
+		["g"] = {
+			L["Gargra 1"],
+		},
+	},
 	-- Draenor: Shadowmoon Valley
+	[84372] = { -- Madari
+		["g"] = {
+			L["Madari 1"],
+		},
+	},
 	[72871] = { -- All-Seeing Eye
 		["g"] = {
 			L["All-Seeing Eye 1"],
@@ -236,6 +254,23 @@ local creatures = {
 	[78556] = { -- Ariok
 		["g"] = {
 			L["Ariok 1"],
+		},
+	},
+	[87124] = { -- Ashlei
+		["g"] = {
+			L["Ashlei 1"],
+		},
+	},
+	-- Draenor: Talador
+	[87125] = { -- Taralune
+		["g"] = {
+			L["Taralune 1"],
+		},
+	},
+	-- Draenor: Nagrand
+	[87110] = { -- Tarr the Terrible
+		["g"] = {
+			L["Tarr the Terrible 1"],
 		},
 	},
 	-- Broken Isles: Highmountain
