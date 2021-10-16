@@ -410,9 +410,9 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		end
 	elseif command == L["Dialog Command"] and arguments ~= "" then
 		-- Add the custom (player submitted) dialog to the
-		-- HelpMePlayPlayerDialogDB table.
-		-- But before we add it, let's see if it already exists.
-		-- If so, remove it from the table instead.
+		-- HelpMePlayPlayerDialogDB table. But before we
+		-- add it, let's see if it already exists. If so,
+		-- remove it from the table instead.
 		for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
 			if string.find(string.lower(gossip), string.lower(arguments)) then
 				table.remove(HelpMePlayPlayerDialogDB, id)
@@ -420,5 +420,14 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 		end
 		table.insert(HelpMePlayPlayerDialogDB, arguments)
+	elseif command == L["Quest Command"] or command == L["Q"] and arguments ~= "" then
+		-- A shorthand way to check if a given quest has
+		-- been completed by the current player.
+		--
+		-- The argument must be a number, else silently
+		-- fail out.
+		if tonumber(arguments) then
+			print("|cff00FFFF"..addonName.."|r: " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
+		end
 	end
 end

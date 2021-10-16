@@ -4,6 +4,7 @@ HelpMePlay | 1.0.5
 		Repairing at a merchant is now automatically handled.
 		Added support for adding achievement criteria info to the tooltips of creatures and items. (The database supporting this feature will expand over time.)
 		Added support for auto selecting the outpost in Talador and Spires of Arak.
+		Added a new command that players can use to determine whether they've completed a quest on a given character.
 	Quests:
 		Added a glow to the corresponding button during the "Dead Drop" quest in Bastion.
 		Added a glow to the corresponding button during the "Just Winging It" world quest in Maldraxxus.
