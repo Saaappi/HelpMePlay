@@ -253,6 +253,20 @@ local creatures = {
 			L["Prepare yourself!"],
 		},
 	},
+	-- Pandaria: Timeless Isle
+	[73626] = { -- Little Tommy Newcomer
+		["g"] = {
+			L["Little Tommy Newcomer 1"],
+		},
+		["c"] = {
+			L["Let's rumble!"],
+		},
+	},
+	[73082] = { -- Master Li
+		["g"] = {
+			L["Master Li 1"],
+		},
+	},
 	-- Draenor: Garrison (Alliance)
 	[79243] = { -- Baros Alexston
 		["g"] = {
