@@ -16,13 +16,9 @@ HelpMePlay | 1.0.5
 		Added a dialog for the NPCs involved in the "Insider Trading" quest in Oribos.
 		Added a dialog for Archivist Roh-Suir in Korthia.
 		Added a dialog for Marshal Dughan in Elwynn Forest.
-		Added multiple dialogs for the Stewards involved in the "A Steward for Every Occasion" world quest in Bastion.
 		Added multiple dialogs for NPCs involved in the Night Fae Campaign.
-		Added multiple dialogs for Ve'rayn.
-		Added multiple dialogs for Shandris Feathermoon.
 		Added dialogs for NPCs in Argus zones.
 		Added support for more Stable Masters (and healing battle pets.)
-		Added multiple dialogs for NPCs involved in Chapter 5 of the Night Fae campaign.
 	Options:
 		Added an option to control Notes on tooltips.
 		When opening the options, the player's chosen expansion for Chromie Time will show in the edit box.
@@ -37,4 +33,4 @@ HelpMePlay | 1.0.5
 	Fixes:
 		Fixed an issue where sometimes the merchant ID would be nil and toss an error.
 		Fixed an issue that caused the merchant window to open when speaking with Stable Masters.
-		Fixed an issue when speaking with the Hero's Call Board would sometimes have no effect.
+		Fixed an issue when interacting with the Hero's Call Board would sometimes have no effect.
