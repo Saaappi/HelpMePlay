@@ -587,6 +587,21 @@ local creatures = {
 			L["Shandris Feathermoon 2"],
 		},
 	},
+	[168979] = { -- Meatball
+		["g"] = {
+			L["Meatball 1"],
+		},
+	},
+	[167839] = { -- Partially-Infused Soul Remnant
+		["g"] = {
+			L["Partially-Infused Soul Remnant 1"],
+		},
+	},
+	[166123] = { -- Indigo
+		["g"] = {
+			L["Indigo 1"],
+		},
+	},
 	[152418] = { -- Gallath
 		["g"] = {
 			L["Gallath 1"],
