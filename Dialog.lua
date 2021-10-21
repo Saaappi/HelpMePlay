@@ -162,6 +162,12 @@ local creatures = {
 			L["Are you sure you want to skip the Broken Shore introduction?"],
 		},
 	},
+	-- Kalimdor: Northern Barrens
+	[116781] = { -- Muyani
+		["g"] = {
+			L["Muyani 1"],
+		}
+	},
 	-- Kalimdor: Orgrimmar
 	[135205] = { -- Nathanos Blightcaller
 		["g"] = {
