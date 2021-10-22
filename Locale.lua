@@ -329,6 +329,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Burning Pandaren Spirit 1"]												= "Another challenge?"
 	L["Little Tommy Newcomer 1"]												= "Think you can take me in a pet battle?"
 	L["Master Li 1"]															= "I'd like to enter the Celestial Tournament."
+	L["Marcus \"Bagman\" Brown 1"]												= "Take me into the Deadmines."
 	L["Muyani 1"]																= "Take me into the Wailing Caverns."
 	L["Madari 1"]																= "You look like an able fisherman, do you think you can help us out?"
 	L["Marshal Dughan 1"]														= "I wish to ride the Stormwind charger, sir."
