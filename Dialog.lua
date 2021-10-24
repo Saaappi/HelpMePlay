@@ -85,6 +85,12 @@ local creatures = {
 			L["Marshal Dughan 1"],
 		},
 	},
+	-- Eastern Kingdoms: Dun Morogh
+	[46293] = { -- Torben Zapblast
+		["g"] = {
+			L["Torben Zapblast 1"],
+		},
+	},
 	-- Eastern Kingdoms: Westfall
 	[119390] = { -- Marcus "Bagman" Brown
 		["g"] = {

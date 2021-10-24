@@ -2,7 +2,7 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
 
-BINDING_HEADER_HELPMEPLAY = addonName
+BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
 BINDING_NAME_HELPMEPLAY_OPEN_SETTINGS = L["Open Settings"]
 
 function HelpMePlayKeyPressHandler(key)

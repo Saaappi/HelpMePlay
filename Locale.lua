@@ -331,6 +331,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Master Li 1"]															= "I'd like to enter the Celestial Tournament."
 	L["Marcus \"Bagman\" Brown 1"]												= "Take me into the Deadmines."
 	L["Muyani 1"]																= "Take me into the Wailing Caverns."
+	L["Torben Zapblast 1"]														= ""
 	L["Madari 1"]																= "You look like an able fisherman, do you think you can help us out?"
 	L["Marshal Dughan 1"]														= "I wish to ride the Stormwind charger, sir."
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"
