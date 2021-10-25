@@ -91,6 +91,21 @@ local creatures = {
 			L["Torben Zapblast 1"],
 		},
 	},
+	[40991] = { -- Mountaineer Dunstan
+		["g"] = {
+			L["Mountaineer Dunstan 1"],
+		},
+	},
+	[40994] = { -- Mountaineer Lewin
+		["g"] = {
+			L["Mountaineer Lewin 1"],
+		},
+	},
+	[41056] = { -- Mountaineer Valgrum
+		["g"] = {
+			L["Mountaineer Valgrum 1"],
+		},
+	},
 	-- Eastern Kingdoms: Westfall
 	[119390] = { -- Marcus "Bagman" Brown
 		["g"] = {
