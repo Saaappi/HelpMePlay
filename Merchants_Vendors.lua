@@ -5,6 +5,10 @@ local L = addonTable.L
 e:RegisterEvent("MERCHANT_SHOW")
 
 local merchants = {
+	[1247] = { -- Innkeeper Belm
+		["itemID"] = 2894, -- Rhapsody Malt
+		["quantity"] = 1,
+	},
 	[100437] = { -- Lanna Skyspark
 		["itemID"] = 132247, -- Bottle of Airspark
 		["quantity"] = 1,
