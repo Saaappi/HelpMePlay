@@ -28,7 +28,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Merchants == false then return end
 		local guid = UnitGUID("target") or UnitGUID("mouseover")
 		if guid then
-			local _, _, _, _, _, npcId = strsplit("-", guid) or strsplit("-", guid); npcId = tonumber(npcId)
+			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
 			if npcId then
 				for id, _ in pairs(merchants) do
 					if id == npcId then

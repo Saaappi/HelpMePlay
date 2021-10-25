@@ -36,3 +36,4 @@ HelpMePlay | 1.0.5
 		Fixed an issue that caused the merchant window to open when speaking with Stable Masters.
 		Fixed an issue when interacting with the Hero's Call Board would sometimes have no effect.
 		Fixed an issue that caused the header for keybindings to be blank.
+		Fixed an issue that caused items not to be purchased from merchants.
