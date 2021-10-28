@@ -64,6 +64,11 @@ local creaturesEK = {
 			L["Micro Zoox 1"],
 		},
 	},
+	[146932] = { -- Door Control Console
+		["g"] = {
+			L["Door Control Console 1"],
+		},
+	},
 	-- Westfall
 	[119390] = { -- Marcus "Bagman" Brown
 		["g"] = {

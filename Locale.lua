@@ -325,6 +325,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Marcus \"Bagman\" Brown 1"]												= "Take me into the Deadmines."
 	L["Muyani 1"]																= "Take me into the Wailing Caverns."
 	L["Micro Zoox 1"]															= "I'm ready, send me into Gnomeregan!"
+	L["Door Control Console 1"]													= "<Pull Random Levers>"
 	L["Torben Zapblast 1"]														= "Send me to the surface, Torben."
 	L["Mountaineer Dunstan 1"]													= "Captain Tharran wants you to deploy your remote observation bots and withdraw to Kharanos."
 	L["Mountaineer Lewin 1"]													= "Captain Tharran wants you to deploy your remote observation bots and withdraw to Kharanos."
