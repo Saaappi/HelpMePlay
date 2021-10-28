@@ -29,6 +29,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Q"]																		= "q"
 	-- Addon Messages															
 	L["Locale Not Supported"]													= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
+	L["NPC Not Supported"]														= "|cff00FFFF"..addonName.."|r This NPC is not supported. Consider using the Dialog command to add automation to this NPC."
 	-- Strings																	
 	L["Abandon Command Description"]											= "Abandons all quests in the zone specified by the player."
 	L["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
@@ -104,10 +105,6 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Taloned Flayedwing: Shake"]												= "The flayedwing is trying to shake you off, hold on tight!"
 	-- Map Names
 	L["Torghast"]																= "Torghast"
-	-- Mouseover Targets
-	L["Suspiciously Untouched Basket"]											= "Suspiciously Untouched Basket"
-	L["Suspiciously Untouched Harp"]											= "Suspiciously Untouched Harp"
-	L["Suspiciously Untouched Soulweb"]											= "Suspiciously Untouched Soulweb"
 	-- Mouseover Target Notes
 	L["Note: Exposed Boggart"]													= "This is a BOGGART!"
 	L["Note: Gatamatos"]														= "CLICK ME!"
@@ -335,6 +332,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Mountaineer Dunstan 1"]													= "Captain Tharran wants you to deploy your remote observation bots and withdraw to Kharanos."
 	L["Mountaineer Lewin 1"]													= "Captain Tharran wants you to deploy your remote observation bots and withdraw to Kharanos."
 	L["Mountaineer Valgrum 1"]													= "Captain Tharran wants you to deploy your remote observation bots and withdraw to Kharanos."
+	L["Gryth Thurden 1"]														= "Mountaineer Barleybrew said you could help me get to Loch Modan."
 	L["Madari 1"]																= "You look like an able fisherman, do you think you can help us out?"
 	L["Marshal Dughan 1"]														= "I wish to ride the Stormwind charger, sir."
 	L["Lorewalker Cho 1"]														= "What are you waiting for? Let's go investigate!"

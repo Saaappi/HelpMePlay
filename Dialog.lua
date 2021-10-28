@@ -1,11 +1,219 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
+local parentMapId = 0
+local t = {}
 
 e:RegisterEvent("GOSSIP_CONFIRM")
 e:RegisterEvent("GOSSIP_CONFIRM_CANCEL")
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("MODIFIER_STATE_CHANGED")
+
+local creaturesEK = { -- Map ID: 13 (Eastern Kingdoms)
+	-- Blasted Lands
+	[78423] = { -- Archmage Khadgar
+		["g"] = {
+			L["Archmage Khadgar 1"],
+		},
+		["c"] = {
+			L["Archmage Khadgar 2"],
+		},
+	},
+	-- Elwynn Forest
+	[240] = { -- Marshal Dughan
+		["g"] = {
+			L["Marshal Dughan 1"],
+		},
+	},
+	-- Dun Morogh
+	[46293] = { -- Torben Zapblast
+		["g"] = {
+			L["Torben Zapblast 1"],
+		},
+	},
+	[40991] = { -- Mountaineer Dunstan
+		["g"] = {
+			L["Mountaineer Dunstan 1"],
+		},
+	},
+	[40994] = { -- Mountaineer Lewin
+		["g"] = {
+			L["Mountaineer Lewin 1"],
+		},
+	},
+	[41056] = { -- Mountaineer Valgrum
+		["g"] = {
+			L["Mountaineer Valgrum 1"],
+		},
+	},
+	-- Westfall
+	[119390] = { -- Marcus "Bagman" Brown
+		["g"] = {
+			L["Marcus \"Bagman\" Brown 1"],
+		},
+	},
+	-- Hillsbrad Foothills
+	[47442] = { -- Johnny Awesome
+		["g"] = {
+			L["Johnny Awesome 1"],
+			L["Johnny Awesome 2"],
+			L["Johnny Awesome 3"],
+		},
+	},
+	[47443] = { -- Kingslayer Orkus
+		["g"] = {
+			L["Kingslayer Orkus 1"],
+			L["Kingslayer Orkus 2"],
+			L["Kingslayer Orkus 3"],
+		},
+	},
+	[47444] = { -- Dumass
+		["g"] = {
+			L["Dumass 1"],
+			L["Dumass 2"],
+		},
+	},
+	[48218] = { -- Kingslayer Orkus
+		["g"] = {
+			L["Kingslayer Orkus 4"]
+		},
+	},
+	-- Silverpine Forest
+	[44825] = { -- Bat Handler Maggotbreath
+		["g"] = {
+			L["Bat Handler Maggotbreath 1"],
+		},
+	},
+	[45752] = { -- Ambermill Dimensional Portal
+		["g"] = {
+			L["Ambermill Dimensional Portal 1"],
+		},
+	},
+	-- Ironforge
+	[1573] = { -- Gryth Thurden
+		["g"] = {
+			L["Gryth Thurden 1"],
+		},
+	},
+	-- Stormwind City
+	[107934] = { -- Recruiter Lee
+		["g"] = {
+			L["I've heard this tale before..."],
+		},
+		["c"] = {
+			L["Are you sure you want to skip the Broken Shore introduction?"],
+		},
+	},
+	[149626] = { -- Vanguard Battlemage (Alliance)
+		["g"] = {
+			L["Vanguard Battlemage 1"],
+		},
+	},
+	[171789] = { -- High Inquisitor Whitemane
+		["g"] = {
+			L["High Inquisitor Whitemane 1"],
+		},
+	},
+	-- Tirisfal Glades
+	[141488] = { -- Zidormi
+		["g"] = {
+			L["Zidormi 1"],
+		},
+	},
+	-- Twilight Highlands
+	[164012] = { -- Alexstrasza, the Life-Binder
+		["g"] = {
+			L["Alexstrasza, the Life-Binder 1"],
+		},
+	},
+}
+
+local creaturesPandaria = { -- Map ID: 424 (Pandaria)
+	-- The Jade Forest
+	[66730] = { -- Hyuna of the Shrines
+		["g"] = {
+			L["Hyuna of the Shrines 1"],
+		},
+		["c"] = {
+			L["Let's do it!"],
+		},
+	},
+	[68464] = { -- Whispering Pandaren Spirit
+		["g"] = {
+			L["Whispering Pandaren Spirit 1"],
+		},
+		["c"] = {
+			L["Prepare yourself!"],
+		},
+	},
+	-- Valley of the Four Winds
+	[66734] = { -- Farmer Nishi
+		["g"] = {
+			L["Farmer Nishi 1"],
+		},
+		["c"] = {
+			L["Let's rumble!"],
+		},
+	},
+	-- Krasarang Wilds
+	[66733] = { -- Mo'ruk
+		["g"] = {
+			L["Mo'ruk 1"],
+		},
+		["c"] = {
+			L["Come at me!"],
+		},
+	},
+	-- Dread Wastes
+	[68462] = { -- Flowing Pandaren Spirit
+		["g"] = {
+			L["Flowing Pandaren Spirit 1"],
+		},
+		["c"] = {
+			L["Prepare yourself!"],
+		},
+	},
+	-- Vale of Eternal Blossoms
+	[66741] = { -- Aki the Chosen
+		["g"] = {
+			L["Aki the Chosen 1"],
+		},
+		["c"] = {
+			L["You're going down!"],
+		},
+	},
+	-- Kun-Lai Summit
+	[68465] = { -- Thundering Pandaren Spirit
+		["g"] = {
+			L["Thundering Pandaren Spirit 1"],
+		},
+		["c"] = {
+			L["Prepare yourself!"],
+		},
+	},
+	-- Timeless Isle
+	[73626] = { -- Little Tommy Newcomer
+		["g"] = {
+			L["Little Tommy Newcomer 1"],
+		},
+		["c"] = {
+			L["Let's rumble!"],
+		},
+	},
+	[73632] = { -- Cowardly Zue
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	[73082] = { -- Master Li
+		["g"] = {
+			L["Master Li 1"],
+		},
+	},
+}
 
 local creatures = {
 	[1] = { -- Gossip and confirm options used on two or more NPCs.
@@ -70,116 +278,6 @@ local creatures = {
 			L["Warlord Breka Grimaxe 1"],
 		},
 	},
-	-- Eastern Kingdoms: Blasted Lands
-	[78423] = { -- Archmage Khadgar
-		["g"] = {
-			L["Archmage Khadgar 1"],
-		},
-		["c"] = {
-			L["Archmage Khadgar 2"],
-		},
-	},
-	-- Eastern Kingdoms: Elwynn Forest
-	[240] = { -- Marshal Dughan
-		["g"] = {
-			L["Marshal Dughan 1"],
-		},
-	},
-	-- Eastern Kingdoms: Dun Morogh
-	[46293] = { -- Torben Zapblast
-		["g"] = {
-			L["Torben Zapblast 1"],
-		},
-	},
-	[40991] = { -- Mountaineer Dunstan
-		["g"] = {
-			L["Mountaineer Dunstan 1"],
-		},
-	},
-	[40994] = { -- Mountaineer Lewin
-		["g"] = {
-			L["Mountaineer Lewin 1"],
-		},
-	},
-	[41056] = { -- Mountaineer Valgrum
-		["g"] = {
-			L["Mountaineer Valgrum 1"],
-		},
-	},
-	-- Eastern Kingdoms: Westfall
-	[119390] = { -- Marcus "Bagman" Brown
-		["g"] = {
-			L["Marcus \"Bagman\" Brown 1"],
-		},
-	},
-	-- Eastern Kingdoms: Hillsbrad Foothills
-	[47442] = { -- Johnny Awesome
-		["g"] = {
-			L["Johnny Awesome 1"],
-			L["Johnny Awesome 2"],
-			L["Johnny Awesome 3"],
-		},
-	},
-	[47443] = { -- Kingslayer Orkus
-		["g"] = {
-			L["Kingslayer Orkus 1"],
-			L["Kingslayer Orkus 2"],
-			L["Kingslayer Orkus 3"],
-		},
-	},
-	[47444] = { -- Dumass
-		["g"] = {
-			L["Dumass 1"],
-			L["Dumass 2"],
-		},
-	},
-	[48218] = { -- Kingslayer Orkus
-		["g"] = {
-			L["Kingslayer Orkus 4"]
-		},
-	},
-	-- Eastern Kingdoms: Silverpine Forest
-	[44825] = { -- Bat Handler Maggotbreath
-		["g"] = {
-			L["Bat Handler Maggotbreath 1"],
-		},
-	},
-	[45752] = { -- Ambermill Dimensional Portal
-		["g"] = {
-			L["Ambermill Dimensional Portal 1"],
-		},
-	},
-	-- Eastern Kingdoms: Stormwind City
-	[107934] = { -- Recruiter Lee
-		["g"] = {
-			L["I've heard this tale before..."],
-		},
-		["c"] = {
-			L["Are you sure you want to skip the Broken Shore introduction?"],
-		},
-	},
-	[149626] = { -- Vanguard Battlemage (Alliance)
-		["g"] = {
-			L["Vanguard Battlemage 1"],
-		},
-	},
-	[171789] = { -- High Inquisitor Whitemane
-		["g"] = {
-			L["High Inquisitor Whitemane 1"],
-		},
-	},
-	-- Eastern Kingdoms: Tirisfal Glades
-	[141488] = { -- Zidormi
-		["g"] = {
-			L["Zidormi 1"],
-		},
-	},
-	-- Eastern Kingdoms: Twilight Highlands
-	[164012] = { -- Alexstrasza, the Life-Binder
-		["g"] = {
-			L["Alexstrasza, the Life-Binder 1"],
-		},
-	},
 	-- Kalimdor: Durotar
 	[4311] = { -- Holgar Stormaxe
 		["g"] = {
@@ -223,82 +321,6 @@ local creatures = {
 			L["Zidormi 2"],
 			L["Zidormi 3"],
 		}
-	},
-	-- Pandaria: The Jade Forest
-	[66730] = { -- Hyuna of the Shrines
-		["g"] = {
-			L["Hyuna of the Shrines 1"],
-		},
-		["c"] = {
-			L["Let's do it!"],
-		},
-	},
-	[68464] = { -- Whispering Pandaren Spirit
-		["g"] = {
-			L["Whispering Pandaren Spirit 1"],
-		},
-		["c"] = {
-			L["Prepare yourself!"],
-		},
-	},
-	-- Pandaria: Valley of the Four Winds
-	[66734] = { -- Farmer Nishi
-		["g"] = {
-			L["Farmer Nishi 1"],
-		},
-		["c"] = {
-			L["Let's rumble!"],
-		},
-	},
-	-- Pandaria: Krasarang Wilds
-	[66733] = { -- Mo'ruk
-		["g"] = {
-			L["Mo'ruk 1"],
-		},
-		["c"] = {
-			L["Come at me!"],
-		},
-	},
-	-- Pandaria: Dread Wastes
-	[68462] = { -- Flowing Pandaren Spirit
-		["g"] = {
-			L["Flowing Pandaren Spirit 1"],
-		},
-		["c"] = {
-			L["Prepare yourself!"],
-		},
-	},
-	-- Pandaria: Vale of Eternal Blossoms
-	[66741] = { -- Aki the Chosen
-		["g"] = {
-			L["Aki the Chosen 1"],
-		},
-		["c"] = {
-			L["You're going down!"],
-		},
-	},
-	-- Pandaria: Kun-Lai Summit
-	[68465] = { -- Thundering Pandaren Spirit
-		["g"] = {
-			L["Thundering Pandaren Spirit 1"],
-		},
-		["c"] = {
-			L["Prepare yourself!"],
-		},
-	},
-	-- Pandaria: Timeless Isle
-	[73626] = { -- Little Tommy Newcomer
-		["g"] = {
-			L["Little Tommy Newcomer 1"],
-		},
-		["c"] = {
-			L["Let's rumble!"],
-		},
-	},
-	[73082] = { -- Master Li
-		["g"] = {
-			L["Master Li 1"],
-		},
 	},
 	-- Draenor: Garrison (Alliance)
 	[79243] = { -- Baros Alexston
@@ -1170,6 +1192,76 @@ local creatures = {
 	},
 }
 
+local function SelectGossipOption(options, npcId, parentMapId)
+	-- Use the parent map ID to determine
+	-- which populated table to use.
+	--
+	-- If the parent map ID isn't supported
+	-- then set 't' to the default creatures
+	-- table.
+	if parentMapId == 13 then
+		t = creaturesEK
+	elseif parentMapId == 424 then
+		t = creaturesPandaria
+	else
+		t = creatures
+	end
+	
+	for index, gossipOptionsSubTable in ipairs(options) do
+		-- These are player submitted dialogs
+		-- using the Dialog command.
+		for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
+			if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(gossip)) then
+				C_GossipInfo.SelectOption(index)
+				return
+			end
+		end
+		
+		-- These are NPC dialogs associated
+		-- with a specific NPC that are explicitly
+		-- in the established table.
+		for id, _ in pairs(t) do
+			if id == npcId then
+				-- We found a match in the table
+				-- so let's move forward.
+				for i = 1, #t[id]["g"] do
+					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(t[id]["g"][i])) then
+						C_GossipInfo.SelectOption(index)
+						return
+					end
+				end
+			end
+		end
+	end
+end
+
+local function ConfirmConfirmationMessage(message, npcId)
+	-- Use the parent map ID to determine
+	-- which populated table to use.
+	--
+	-- If the parent map ID isn't supported
+	-- then set 't' to the default creatures
+	-- table.
+	if parentMapId == 13 then
+		t = creaturesEK
+	elseif parentMapId == 424 then
+		t = creaturesPandaria
+	else
+		t = creatures
+	end
+	
+	for id, _ in pairs(t) do
+		if id == npcId then
+			for i = 1, #t[id]["c"] do
+				if string.find(string.lower(message), string.lower(t[id]["c"][i])) then
+					StaticPopup1Button1:Click()
+					return
+				end
+			end
+		end
+	end
+end
+
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
 		local _, message = ...
@@ -1178,36 +1270,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
 			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-			for id, _ in pairs(creatures) do
-				-- First check to see if the General NPC options contain the
-				-- confirmation message before scanning the specific NPC.
-				for i = 1, 2 do
-					for j = 1, #creatures[i]["c"] do
-						-- First try to find the substring using string.find.
-						-- If that doesn't work, then try a literal match.
-						if string.find(string.lower(message), string.lower(creatures[i]["c"][j])) then
-							StaticPopup1Button1:Click()
-							return
-						end
-						if string.lower(message) == string.lower(creatures[i]["c"][j]) then
-							StaticPopup1Button1:Click()
-							return
-						end
-					end
-				end
-				if id == npcId then
-					for i = 1, #creatures[id]["c"] do
-						if string.find(string.lower(message), string.lower(creatures[id]["c"][i])) then
-							StaticPopup1Button1:Click()
-							return
-						end
-					end
-				end
-			end
+			ConfirmConfirmationMessage(message, npcId)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Dialog == false then return end
+		parentMapId = (C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player"))).parentMapID
 		local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
 		if numActiveQuests > 0 then
 			local activeQuests = C_GossipInfo.GetActiveQuests()
@@ -1215,7 +1283,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if activeQuests[i].isComplete then
 					C_Timer.After(0, function()
 						C_Timer.After(0.1, function()
-							-- Do nothing here, we just want a slight delay to let active quests be handled first.
+							-- Do nothing here, we just want a
+							-- slight delay to let active quests
+							-- be handled first.
 						end)
 					end)
 				end
@@ -1226,45 +1296,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local gossipOptions = C_GossipInfo.GetOptions()
 		if unitGUID then
 			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
-				-- These are player submitted dialogs using the Dialog command.
-				for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
-					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(gossip)) then
-						C_GossipInfo.SelectOption(index)
-						return
-					end
-				end
-				-- These are general NPC dialogs. These are not directly associated
-				-- with a specific NPC.
-				for i = 1, 2 do
-					for j = 1, #creatures[i]["g"] do
-						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["g"][j])) then
-							C_GossipInfo.SelectOption(index)
-							return
-						end
-					end
-				end
-				for id, _ in pairs(creatures) do
-					if id == npcId then -- The target's ID is in the table, so use its configuration.
-						for i = 1, #creatures[id]["g"] do
-							if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[id]["g"][i])) then
-								C_GossipInfo.SelectOption(index)
-								return
-							end
-						end
-					end
-				end
-			end
+			SelectGossipOption(gossipOptions, npcId, parentMapId)
 		else
-			for index, gossipOptionsSubTable in ipairs(gossipOptions) do
-				for i = 1, 2 do
-					for j = 1, #creatures[i]["g"] do
-						if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(creatures[i]["g"][j])) then
-							C_GossipInfo.SelectOption(index)
-						end
-					end
-				end
-			end
+			print(L["NPC Not Supported"])
 		end
 	end
 end)
