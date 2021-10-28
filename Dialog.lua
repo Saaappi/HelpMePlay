@@ -49,6 +49,11 @@ local creaturesEK = {
 			L["Mountaineer Valgrum 1"],
 		},
 	},
+	[124617] = { -- Environeer Bert
+		["g"] = {
+			L["Think you can take me in a pet battle?"],
+		},
+	},
 	-- Westfall
 	[119390] = { -- Marcus "Bagman" Brown
 		["g"] = {
@@ -139,7 +144,7 @@ local creaturesPandaria = {
 	-- The Jade Forest
 	[66730] = { -- Hyuna of the Shrines
 		["g"] = {
-			L["Hyuna of the Shrines 1"],
+			L["Think you can take me in a pet battle?"],
 		},
 		["c"] = {
 			L["Let's do it!"],
@@ -156,7 +161,7 @@ local creaturesPandaria = {
 	-- Valley of the Four Winds
 	[66734] = { -- Farmer Nishi
 		["g"] = {
-			L["Farmer Nishi 1"],
+			L["Think you can take me in a pet battle?"],
 		},
 		["c"] = {
 			L["Let's rumble!"],
@@ -165,7 +170,7 @@ local creaturesPandaria = {
 	-- Krasarang Wilds
 	[66733] = { -- Mo'ruk
 		["g"] = {
-			L["Mo'ruk 1"],
+			L["Think you can take me in a pet battle?"],
 		},
 		["c"] = {
 			L["Come at me!"],
@@ -183,7 +188,7 @@ local creaturesPandaria = {
 	-- Vale of Eternal Blossoms
 	[66741] = { -- Aki the Chosen
 		["g"] = {
-			L["Aki the Chosen 1"],
+			L["Think you can take me in a pet battle?"],
 		},
 		["c"] = {
 			L["You're going down!"],
