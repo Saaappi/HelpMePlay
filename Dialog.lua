@@ -12,6 +12,7 @@ e:RegisterEvent("MODIFIER_STATE_CHANGED")
 local creaturesEK = {
 	-- Supported Maps
 		-- 13: Eastern Kingdoms
+		-- 27: Dun Morogh (This is due to Environeer Bert in Gnomeregan.)
 	--
 	-- Blasted Lands
 	[78423] = { -- Archmage Khadgar
@@ -1226,7 +1227,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	-- If the parent map ID isn't supported
 	-- then set 't' to the default creatures
 	-- table.
-	if parentMapId == 13 then
+	if parentMapId == 13 or parentMapId == 27 then
 		t = creaturesEK
 	elseif parentMapId == 424 or parentMapId == 554 then
 		t = creaturesPandaria
@@ -1273,7 +1274,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 	-- If the parent map ID isn't supported
 	-- then set 't' to the default creatures
 	-- table.
-	if parentMapId == 13 then
+	if parentMapId == 13 or parentMapId == 27 then
 		t = creaturesEK
 	elseif parentMapId == 424 or parentMapId == 554 then
 		t = creaturesPandaria
