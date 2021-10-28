@@ -9,7 +9,10 @@ e:RegisterEvent("GOSSIP_CONFIRM_CANCEL")
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("MODIFIER_STATE_CHANGED")
 
-local creaturesEK = { -- Map ID: 13 (Eastern Kingdoms)
+local creaturesEK = {
+	-- Supported Maps
+		-- 13: Eastern Kingdoms
+	--
 	-- Blasted Lands
 	[78423] = { -- Archmage Khadgar
 		["g"] = {
@@ -128,7 +131,11 @@ local creaturesEK = { -- Map ID: 13 (Eastern Kingdoms)
 	},
 }
 
-local creaturesPandaria = { -- Map ID: 424 (Pandaria)
+local creaturesPandaria = {
+	-- Supported Maps
+		-- 424: Pandaria
+		-- 554: Timeless Isle (This is here due to Celestial Tournament.)
+	--
 	-- The Jade Forest
 	[66730] = { -- Hyuna of the Shrines
 		["g"] = {
@@ -213,6 +220,22 @@ local creaturesPandaria = { -- Map ID: 424 (Pandaria)
 			L["Master Li 1"],
 		},
 	},
+	-- Celestial Tournament
+	[71924] = { -- Wrathion
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[71927] = { -- Chen Stormstout
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[71931] = { -- Taran Zhu
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
 }
 
 local creatures = {
@@ -242,7 +265,6 @@ local creatures = {
 			L["What can you tell me about Cartel So?"], -- Added from Quest: Insider Trading (Oribos)
 			L["Let's ride."], -- Added from Quest: My Way or the Hyphae (Ardenweald)
 			L["Begin pet battle."],
-			L["Let's do battle!"],
 		},
 		["c"] = {
 			L["Are you sure? This action cannot be undone."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
@@ -1201,7 +1223,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	-- table.
 	if parentMapId == 13 then
 		t = creaturesEK
-	elseif parentMapId == 424 then
+	elseif parentMapId == 424 or parentMapId == 554 then
 		t = creaturesPandaria
 	else
 		t = creatures
@@ -1233,6 +1255,10 @@ local function SelectGossipOption(options, npcId, parentMapId)
 			end
 		end
 	end
+	
+	-- We're done with 't', so reset
+	-- it back to an empty table.
+	t = {}
 end
 
 local function ConfirmConfirmationMessage(message, npcId)
@@ -1244,7 +1270,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 	-- table.
 	if parentMapId == 13 then
 		t = creaturesEK
-	elseif parentMapId == 424 then
+	elseif parentMapId == 424 or parentMapId == 554 then
 		t = creaturesPandaria
 	else
 		t = creatures
@@ -1297,8 +1323,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if unitGUID then
 			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
 			SelectGossipOption(gossipOptions, npcId, parentMapId)
-		else
-			print(L["NPC Not Supported"])
 		end
 	end
 end)

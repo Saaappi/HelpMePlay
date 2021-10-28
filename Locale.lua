@@ -29,7 +29,6 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Q"]																		= "q"
 	-- Addon Messages															
 	L["Locale Not Supported"]													= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
-	L["NPC Not Supported"]														= "|cff00FFFF"..addonName.."|r This NPC is not supported. Consider using the Dialog command to add automation to this NPC."
 	-- Strings																	
 	L["Abandon Command Description"]											= "Abandons all quests in the zone specified by the player."
 	L["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
