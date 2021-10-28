@@ -50,9 +50,18 @@ local creaturesEK = {
 			L["Mountaineer Valgrum 1"],
 		},
 	},
+	-- Gnomeregan
 	[124617] = { -- Environeer Bert
 		["g"] = {
 			L["Think you can take me in a pet battle?"],
+		},
+		["c"] = {
+			L["Let's rumble!"],
+		},
+	},
+	[147070] = { -- Micro Zoox
+		["g"] = {
+			L["Micro Zoox 1"],
 		},
 	},
 	-- Westfall
