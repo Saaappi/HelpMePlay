@@ -693,7 +693,7 @@ local creatures = {
 	},
 	[168979] = { -- Meatball
 		["g"] = {
-			L["Meatball 1"],
+			L["Yes, I will help."],
 		},
 	},
 	[167839] = { -- Partially-Infused Soul Remnant
@@ -703,12 +703,12 @@ local creatures = {
 	},
 	[166123] = { -- Indigo
 		["g"] = {
-			L["Indigo 1"],
+			L["Yes, I will help."],
 		},
 	},
 	[152418] = { -- Gallath
 		["g"] = {
-			L["Gallath 1"],
+			L["Yes, I will help."],
 		},
 	},
 	[172264] = { -- Yira'lya
@@ -718,27 +718,27 @@ local creatures = {
 	},
 	[172261] = { -- Chalkyth
 		["g"] = {
-			L["Chalkyth 1"],
+			L["Yes, I will help."],
 		},
 	},
 	[157426] = { -- Indri the Treesinger
 		["g"] = {
-			L["Indri the Treesinger 1"],
+			L["Yes, I will help."],
 		},
 	},
 	[178932] = { -- Ve'lor the Messenger
 		["g"] = {
-			L["Ve'lor the Messenger 1"],
+			L["Yes, I will help."],
 		},
 	},
 	[166147] = { -- Calix
 		["g"] = {
-			L["Calix 1"],
+			L["Yes, I will help."],
 		},
 	},
 	[157406] = { -- Renavyth
 		["g"] = {
-			L["Renavyth 1"],
+			L["I will assist you."],
 		},
 	},
 	-- Shadowlands: Oribos
