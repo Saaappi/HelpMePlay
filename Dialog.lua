@@ -149,6 +149,50 @@ local Classic = {
 			L["Alexstrasza, the Life-Binder 1"],
 		},
 	},
+	-- Durotar
+	[4311] = { -- Holgar Stormaxe
+		["g"] = {
+			L["I've heard this tale before..."],
+		},
+		["c"] = {
+			L["Are you sure you want to skip the Broken Shore introduction?"],
+		},
+	},
+	-- Northern Barrens
+	[116781] = { -- Muyani
+		["g"] = {
+			L["Muyani 1"],
+		}
+	},
+	-- Orgrimmar
+	[135205] = { -- Nathanos Blightcaller
+		["g"] = {
+			L["Nathanos Blightcaller 1"],
+		}
+	},
+	[167032] = { -- Chromie
+		["g"] = {
+			L["Chromie 1"],
+			L["Chromie 2"],
+		}
+	},
+	[168431] = { -- Warlord Breka Grimaxe
+		["g"] = {
+			L["Warlord Breka Grimaxe 2"],
+		},
+	},
+	[171791] = { -- Nazgrim
+		["g"] = {
+			L["Nazgrim 1"],
+		}
+	},
+	-- Darkshore
+	[141489] = { -- Zidormi
+		["g"] = {
+			L["Zidormi 2"],
+			L["Zidormi 3"],
+		}
+	},
 }
 
 local MistsOfPandaria = {
@@ -305,14 +349,6 @@ local creatures = {
 			L["Are you sure? This action cannot be undone."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
 		},
 	},
-	[2] = { -- NPCs with Cost
-		["g"] = {
-			L["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L["A small fee for supplies is required."],
-		},
-	},
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane
 		["g"] = {
@@ -334,50 +370,6 @@ local creatures = {
 		["g"] = {
 			L["Warlord Breka Grimaxe 1"],
 		},
-	},
-	-- Kalimdor: Durotar
-	[4311] = { -- Holgar Stormaxe
-		["g"] = {
-			L["I've heard this tale before..."],
-		},
-		["c"] = {
-			L["Are you sure you want to skip the Broken Shore introduction?"],
-		},
-	},
-	-- Kalimdor: Northern Barrens
-	[116781] = { -- Muyani
-		["g"] = {
-			L["Muyani 1"],
-		}
-	},
-	-- Kalimdor: Orgrimmar
-	[135205] = { -- Nathanos Blightcaller
-		["g"] = {
-			L["Nathanos Blightcaller 1"],
-		}
-	},
-	[167032] = { -- Chromie
-		["g"] = {
-			L["Chromie 1"],
-			L["Chromie 2"],
-		}
-	},
-	[168431] = { -- Warlord Breka Grimaxe
-		["g"] = {
-			L["Warlord Breka Grimaxe 2"],
-		},
-	},
-	[171791] = { -- Nazgrim
-		["g"] = {
-			L["Nazgrim 1"],
-		}
-	},
-	-- Kalimdor: Darkshore
-	[141489] = { -- Zidormi
-		["g"] = {
-			L["Zidormi 2"],
-			L["Zidormi 3"],
-		}
 	},
 	-- Draenor: Garrison (Alliance)
 	[79243] = { -- Baros Alexston
