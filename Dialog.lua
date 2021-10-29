@@ -315,6 +315,107 @@ local Legion = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- Highmountain
+	[98825] = { -- Spiritwalker Ebonhorn
+		["g"] = {
+			L["Spiritwalker Ebonhorn 1"],
+			L["Spiritwalker Ebonhorn 2"],
+		},
+	},
+	[99745] = { -- Snazzle Shinyfinder
+		["g"] = {
+			L["Snazzle Shinyfinder 1"],
+		},
+	},
+	[99746] = { -- Trytooth Hardchisel
+		["g"] = {
+			L["Trytooth Hardchisel 1"],
+		},
+	},
+	[99747] = { -- Kindle Candlecrafter
+		["g"] = {
+			L["Kindle Candlecrafter 1"],
+		},
+	},
+	[99748] = { -- Dug Digger
+		["g"] = {
+			L["Dug Digger 1"],
+		},
+	},
+	[99781] = { -- Snazzle Shinyfinder
+		["g"] = {
+			L["Snazzle Shinyfinder 2"],
+		},
+	},
+	[99782] = { -- Trytooth Hardchisel
+		["g"] = {
+			L["Trytooth Hardchisel 2"],
+			L["Trytooth Hardchisel 3"],
+		},
+	},
+	[99784] = { -- Kindle Candlecrafter
+		["g"] = {
+			L["Kindle Candlecrafter 2"],
+		},
+	},
+	[95403] = { -- Windmaster Julan
+		["g"] = {
+			L["Windmaster Julan 1"],
+		},
+	},
+	[96286] = { -- Navarrogg
+		["g"] = {
+			L["Navarrogg 1"],
+		},
+	},
+	[98773] = { -- Lasan Skyhorn
+		["g"] = {
+			L["Yes!"],
+		},
+	},
+	[94434] = { -- Addie Fizzlebog
+		["g"] = {
+			L["Addie Fizzlebog 1"],
+		},
+	},
+	-- Val'sharah
+	[92734] = { -- Penelope Heathrow
+		["g"] = {
+			L["Penelope Heathrow 1"],
+		},
+	},
+	[94974] = { -- Sirius Ebonwing
+		["g"] = {
+			L["Sirius Ebonwing 1"],
+		},
+	},
+	[94975] = { -- Asha Ravensong
+		["g"] = {
+			L["Asha Ravensong 1"],
+		},
+	},
+	[94976] = { -- Cassiel Nightthorn
+		["g"] = {
+			L["Cassiel Nightthorn 1"],
+		},
+	},
+	[104739] = { -- Tyrande Whisperwind
+		["g"] = {
+			L["Tyrande Whisperwind 1"],
+			L["Tyrande Whisperwind 2"],
+		},
+	},
+	-- Argus
+	[121263] = { -- Grand Artificer Romuul
+		["g"] = {
+			L["Grand Artificer Romuul 1"],
+		},
+	},
+	[108642] = { -- Keeper Remulos
+		["g"] = {
+			L["Keeper Remulos 1"],
+		},
+	},
 }
 
 local creatures = {
@@ -451,107 +552,6 @@ local creatures = {
 	[87110] = { -- Tarr the Terrible
 		["g"] = {
 			L["Tarr the Terrible 1"],
-		},
-	},
-	-- Broken Isles: Highmountain
-	[98825] = { -- Spiritwalker Ebonhorn
-		["g"] = {
-			L["Spiritwalker Ebonhorn 1"],
-			L["Spiritwalker Ebonhorn 2"],
-		},
-	},
-	[99745] = { -- Snazzle Shinyfinder
-		["g"] = {
-			L["Snazzle Shinyfinder 1"],
-		},
-	},
-	[99746] = { -- Trytooth Hardchisel
-		["g"] = {
-			L["Trytooth Hardchisel 1"],
-		},
-	},
-	[99747] = { -- Kindle Candlecrafter
-		["g"] = {
-			L["Kindle Candlecrafter 1"],
-		},
-	},
-	[99748] = { -- Dug Digger
-		["g"] = {
-			L["Dug Digger 1"],
-		},
-	},
-	[99781] = { -- Snazzle Shinyfinder
-		["g"] = {
-			L["Snazzle Shinyfinder 2"],
-		},
-	},
-	[99782] = { -- Trytooth Hardchisel
-		["g"] = {
-			L["Trytooth Hardchisel 2"],
-			L["Trytooth Hardchisel 3"],
-		},
-	},
-	[99784] = { -- Kindle Candlecrafter
-		["g"] = {
-			L["Kindle Candlecrafter 2"],
-		},
-	},
-	[95403] = { -- Windmaster Julan
-		["g"] = {
-			L["Windmaster Julan 1"],
-		},
-	},
-	[96286] = { -- Navarrogg
-		["g"] = {
-			L["Navarrogg 1"],
-		},
-	},
-	[98773] = { -- Lasan Skyhorn
-		["g"] = {
-			L["Yes!"],
-		},
-	},
-	[94434] = { -- Addie Fizzlebog
-		["g"] = {
-			L["Addie Fizzlebog 1"],
-		},
-	},
-	-- Broken Isles: Val'sharah
-	[92734] = { -- Penelope Heathrow
-		["g"] = {
-			L["Penelope Heathrow 1"],
-		},
-	},
-	[94974] = { -- Sirius Ebonwing
-		["g"] = {
-			L["Sirius Ebonwing 1"],
-		},
-	},
-	[94975] = { -- Asha Ravensong
-		["g"] = {
-			L["Asha Ravensong 1"],
-		},
-	},
-	[94976] = { -- Cassiel Nightthorn
-		["g"] = {
-			L["Cassiel Nightthorn 1"],
-		},
-	},
-	[104739] = { -- Tyrande Whisperwind
-		["g"] = {
-			L["Tyrande Whisperwind 1"],
-			L["Tyrande Whisperwind 2"],
-		},
-	},
-	-- Argus
-	[121263] = { -- Grand Artificer Romuul
-		["g"] = {
-			L["Grand Artificer Romuul 1"],
-		},
-	},
-	[108642] = { -- Keeper Remulos
-		["g"] = {
-			L["Keeper Remulos 1"],
 		},
 	},
 	-- Kul Tiras: Drustvar
