@@ -74,6 +74,11 @@ local Classic = {
 			L["Plagued Critters 1"],
 		},
 	},
+	[155413] = { -- Postmaster Malown
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	-- Westfall
 	[119390] = { -- Marcus "Bagman" Brown
 		["g"] = {
@@ -324,6 +329,14 @@ local Legion = {
 		-- 905: Argus
 	--
 	-- Dalaran
+	[96507] = { -- Tassia Whisperglen
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[115287] = { -- Serr'ah
 		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
