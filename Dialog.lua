@@ -319,9 +319,118 @@ local MistsOfPandaria = {
 			L["Let's do battle!"],
 		},
 	},
+	-- Mogu'shan Vaults
+	[61348] = { -- Lorewalker Cho
+		["g"] = {
+			L["Lorewalker Cho 1"],
+			L["Lorewalker Cho 2"],
+		},
+	},
+	-- Isle of Thunder (Scenario)
+	[69565] = { -- Scout Captain Elsia
+		["g"] = {
+			L["Scout Captain Elsia 1"],
+		},
+	},
+	[69810] = { -- Taoshi
+		["g"] = {
+			L["Taoshi 1"],
+		},
+	},
+	[70297] = { -- Taoshi
+		["g"] = {
+			L["Taoshi 2"],
+		},
+	},
 }
 
-local WarlordsOfDraenor = {}
+local WarlordsOfDraenor = {
+	-- Supported Maps
+		-- 572: Draenor
+	--
+	-- Garrison (Alliance)
+	[79243] = { -- Baros Alexston
+		["g"] = {
+			L["Baros Alexston 1"],
+		},
+	},
+	[84455] = { -- Assistant Brightstone
+		["g"] = {
+			L["Assistant Brightstone 1"],
+		},
+	},
+	[81441] = { -- Shelly Hamby
+		["g"] = {
+			L["Shelly Hamby 1"],
+		},
+	},
+	[81103] = { -- Dungar Longdrink
+		["g"] = {
+			L["Dungar Longdrink 1"],
+		},
+	},
+	-- Garrison (Horde)
+	[80225] = { -- Skaggit
+		["g"] = {
+			L["Skaggit 1"],
+		},
+	},
+	[86775] = { -- Senior Peon II
+		["g"] = {
+			L["Senior Peon II 1"],
+		},
+	},
+	[88228] = { -- Sergeant Grimjaw
+		["g"] = {
+			L["Sergeant Grimjaw 1"],
+		},
+	},
+	-- Frostfire Ridge
+	[87122] = { -- Gargra
+		["g"] = {
+			L["Let's do this!"],
+		},
+	},
+	-- Shadowmoon Valley
+	[84372] = { -- Madari
+		["g"] = {
+			L["Madari 1"],
+		},
+	},
+	[72871] = { -- All-Seeing Eye
+		["g"] = {
+			L["All-Seeing Eye 1"],
+		},
+	},
+	[78556] = { -- Ariok
+		["g"] = {
+			L["Ariok 1"],
+		},
+	},
+	[87124] = { -- Ashlei
+		["g"] = {
+			L["Let's do this!"],
+		},
+	},
+	-- Talador
+	[87125] = { -- Taralune
+		["g"] = {
+			L["Let's do this!"],
+		},
+	},
+	-- Nagrand
+	[87110] = { -- Tarr the Terrible
+		["g"] = {
+			L["Let's do this!"],
+		},
+	},
+	-- Tanaan Jungle
+	[78568] = { -- Thaelin Darkanvil
+		["g"] = {
+			L["Thaelin Darkanvil 1"],
+		},
+	},
+}
 
 local Legion = {
 	-- Supported Maps
@@ -448,7 +557,120 @@ local Legion = {
 	},
 }
 
-local BattleForAzeroth = {}
+local BattleForAzeroth = {
+	-- Supported Maps
+		-- 875: Zandalar
+		-- 876: Kul Tiras
+	--
+	-- Drustvar
+	[137613] = { -- Hobart Grapplehammer
+		["g"] = {
+			L["Hobart Grapplehammer 1"],
+			L["Hobart Grapplehammer 2"],
+		},
+	},
+	-- Stormsong Valley
+	[138137] = { -- Huelo
+		["g"] = {
+			L["Huelo 1"],
+		},
+	},
+	-- Tiragarde Sound
+	[137675] = { -- Shadow Hunter Ty'jin
+		["g"] = {
+			L["Shadow Hunter Ty'jin 1"],
+		},
+	},
+	[137798] = { -- Boatswain Taryn
+		["g"] = {
+			L["Boatswain Taryn 1"],
+		},
+	},
+	[137800] = { -- Quartermaster Killian
+		["g"] = {
+			L["Quartermaster Killian 1"],
+		},
+	},
+	[137807] = { -- Navigator Swink
+		["g"] = {
+			L["Navigator Swink 1"],
+		},
+	},
+	-- Zuldazar
+	[135440] = { -- Princess Talanji
+		["g"] = {
+			L["Princess Talanji 1"],
+		},
+	},
+	[135690] = { -- Dread-Admiral Tattersail
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	[143690] = { -- Captured Zandalari Troll
+		["g"] = {
+			L["Captured Zandalari Troll 1"],
+		},
+	},
+	-- Vol'dun
+	[137559] = { -- Private James
+		["g"] = {
+			L["Private James 1"],
+		},
+	},
+	-- Boralus
+	[122370] = { -- Cyrus Crestfall
+		["g"] = {
+			L["Cyrus Crestfall 1"],
+		},
+	},
+	[137066] = { -- 7th Legion Magus
+		["g"] = {
+			L["7th Legion Magus 1"],
+		},
+	},
+	[135612] = { -- Halford Wyrmbane
+		["g"] = {
+			L["Halford Wyrmbane 1"],
+		},
+	},
+	[135681] = { -- Grand Admiral Jes-Tereth
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	-- Horrific Visions
+	[152993] = { -- Garona Halforcen
+		["g"] = {
+			L["Garona Halforcen 1"],
+		},
+	},
+	[160998] = { -- Altar of the Daredevil
+		["g"] = {
+			L["Altar of the Daredevil 1"],
+		},
+	},
+	[160961] = { -- Altar of the Dark Imagination
+		["g"] = {
+			L["Altar of the Dark Imagination 1"],
+		},
+	},
+	[161000] = { -- Altar of the Pained
+		["g"] = {
+			L["Altar of the Pained 1"],
+		},
+	},
+	[160967] = { -- Altar of the Burned Bridge
+		["g"] = {
+			L["Altar of the Burned Bridge 1"],
+		},
+	},
+	[160999] = { -- Altar of the Long Night
+		["g"] = {
+			L["Altar of the Long Night 1"],
+		},
+	},
+}
 
 local Shadowlands = {
 	-- Supported Maps
@@ -1015,6 +1237,28 @@ local Shadowlands = {
 			L["Bwonsamdi 1"],
 		},
 	},
+	-- Exile's Reach
+	[167179] = { -- Daelya Twilightsbane
+		["g"] = {
+			L["Daelya Twilightsbane 1"],
+			L["Daelya Twilightsbane 2"],
+		},
+	},
+	[167298] = { -- Herbert Gloomburst
+		["g"] = {
+			L["Herbert Gloomburst 1"],
+		},
+	},
+	[167309] = { -- Herbert Gloomburst
+		["g"] = {
+			L["Herbert Gloomburst 2"],
+		},
+	},
+	[167663] = { -- Warlord Breka Grimaxe
+		["g"] = {
+			L["Warlord Breka Grimaxe 1"],
+		},
+	},
 }
 
 local creatures = {
@@ -1043,245 +1287,9 @@ local creatures = {
 			L["I know my way around the Sanctum."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
 			L["What can you tell me about Cartel So?"], -- Added from Quest: Insider Trading (Oribos)
 			L["Let's ride."], -- Added from Quest: My Way or the Hyphae (Ardenweald)
-			L["Begin pet battle."],
 		},
 		["c"] = {
 			L["Are you sure? This action cannot be undone."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
-		},
-	},
-	-- Exile's Reach
-	[167179] = { -- Daelya Twilightsbane
-		["g"] = {
-			L["Daelya Twilightsbane 1"],
-			L["Daelya Twilightsbane 2"],
-		},
-	},
-	[167298] = { -- Herbert Gloomburst
-		["g"] = {
-			L["Herbert Gloomburst 1"],
-		},
-	},
-	[167309] = { -- Herbert Gloomburst
-		["g"] = {
-			L["Herbert Gloomburst 2"],
-		},
-	},
-	[167663] = { -- Warlord Breka Grimaxe
-		["g"] = {
-			L["Warlord Breka Grimaxe 1"],
-		},
-	},
-	-- Draenor: Garrison (Alliance)
-	[79243] = { -- Baros Alexston
-		["g"] = {
-			L["Baros Alexston 1"],
-		},
-	},
-	[84455] = { -- Assistant Brightstone
-		["g"] = {
-			L["Assistant Brightstone 1"],
-		},
-	},
-	[81441] = { -- Shelly Hamby
-		["g"] = {
-			L["Shelly Hamby 1"],
-		},
-	},
-	[81103] = { -- Dungar Longdrink
-		["g"] = {
-			L["Dungar Longdrink 1"],
-		},
-	},
-	-- Draenor: Tanaan Jungle
-	[78568] = { -- Thaelin Darkanvil
-		["g"] = {
-			L["Thaelin Darkanvil 1"],
-		},
-	},
-	-- Draenor: Garrison (Horde)
-	[80225] = { -- Skaggit
-		["g"] = {
-			L["Skaggit 1"],
-		},
-	},
-	[86775] = { -- Senior Peon II
-		["g"] = {
-			L["Senior Peon II 1"],
-		},
-	},
-	[88228] = { -- Sergeant Grimjaw
-		["g"] = {
-			L["Sergeant Grimjaw 1"],
-		},
-	},
-	-- Draenor: Frostfire Ridge
-	[87122] = { -- Gargra
-		["g"] = {
-			L["Let's do this!"],
-		},
-	},
-	-- Draenor: Shadowmoon Valley
-	[84372] = { -- Madari
-		["g"] = {
-			L["Madari 1"],
-		},
-	},
-	[72871] = { -- All-Seeing Eye
-		["g"] = {
-			L["All-Seeing Eye 1"],
-		},
-	},
-	[78556] = { -- Ariok
-		["g"] = {
-			L["Ariok 1"],
-		},
-	},
-	[87124] = { -- Ashlei
-		["g"] = {
-			L["Let's do this!"],
-		},
-	},
-	-- Draenor: Talador
-	[87125] = { -- Taralune
-		["g"] = {
-			L["Let's do this!"],
-		},
-	},
-	-- Draenor: Nagrand
-	[87110] = { -- Tarr the Terrible
-		["g"] = {
-			L["Let's do this!"],
-		},
-	},
-	-- Kul Tiras: Drustvar
-	[137613] = { -- Hobart Grapplehammer
-		["g"] = {
-			L["Hobart Grapplehammer 1"],
-			L["Hobart Grapplehammer 2"],
-		},
-	},
-	-- Kul Tiras: Stormsong Valley
-	[138137] = { -- Huelo
-		["g"] = {
-			L["Huelo 1"],
-		},
-	},
-	-- Kul Tiras: Tiragarde Sound
-	[137675] = { -- Shadow Hunter Ty'jin
-		["g"] = {
-			L["Shadow Hunter Ty'jin 1"],
-		},
-	},
-	[137798] = { -- Boatswain Taryn
-		["g"] = {
-			L["Boatswain Taryn 1"],
-		},
-	},
-	[137800] = { -- Quartermaster Killian
-		["g"] = {
-			L["Quartermaster Killian 1"],
-		},
-	},
-	[137807] = { -- Navigator Swink
-		["g"] = {
-			L["Navigator Swink 1"],
-		},
-	},
-	-- Zandalar: Zuldazar
-	[135440] = { -- Princess Talanji
-		["g"] = {
-			L["Princess Talanji 1"],
-		},
-	},
-	[135690] = { -- Dread-Admiral Tattersail
-		["g"] = {
-			L["Quest"],
-		},
-	},
-	[143690] = { -- Captured Zandalari Troll
-		["g"] = {
-			L["Captured Zandalari Troll 1"],
-		},
-	},
-	-- Zandalar: Vol'dun
-	[137559] = { -- Private James
-		["g"] = {
-			L["Private James 1"],
-		},
-	},
-	-- Kul Tiras: Boralus
-	[122370] = { -- Cyrus Crestfall
-		["g"] = {
-			L["Cyrus Crestfall 1"],
-		},
-	},
-	[137066] = { -- 7th Legion Magus
-		["g"] = {
-			L["7th Legion Magus 1"],
-		},
-	},
-	[135612] = { -- Halford Wyrmbane
-		["g"] = {
-			L["Halford Wyrmbane 1"],
-		},
-	},
-	[135681] = { -- Grand Admiral Jes-Tereth
-		["g"] = {
-			L["Quest"],
-		},
-	},
-	-- Instance: Mogu'shan Vaults
-	[61348] = { -- Lorewalker Cho
-		["g"] = {
-			L["Lorewalker Cho 1"],
-			L["Lorewalker Cho 2"],
-		},
-	},
-	-- Instance: Isle of Thunder (Scenario)
-	[69565] = { -- Scout Captain Elsia
-		["g"] = {
-			L["Scout Captain Elsia 1"],
-		},
-	},
-	[69810] = { -- Taoshi
-		["g"] = {
-			L["Taoshi 1"],
-		},
-	},
-	[70297] = { -- Taoshi
-		["g"] = {
-			L["Taoshi 2"],
-		},
-	},
-	-- Instance: Horrific Visions
-	[152993] = { -- Garona Halforcen (Vision of Orgrimmar)
-		["g"] = {
-			L["Garona Halforcen 1"],
-		},
-	},
-	[160998] = { -- Altar of the Daredevil
-		["g"] = {
-			L["Altar of the Daredevil 1"],
-		},
-	},
-	[160961] = { -- Altar of the Dark Imagination
-		["g"] = {
-			L["Altar of the Dark Imagination 1"],
-		},
-	},
-	[161000] = { -- Altar of the Pained
-		["g"] = {
-			L["Altar of the Pained 1"],
-		},
-	},
-	[160967] = { -- Altar of the Burned Bridge
-		["g"] = {
-			L["Altar of the Burned Bridge 1"],
-		},
-	},
-	[160999] = { -- Altar of the Long Night
-		["g"] = {
-			L["Altar of the Long Night 1"],
 		},
 	},
 }
