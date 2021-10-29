@@ -7,11 +7,11 @@ local t = {}
 e:RegisterEvent("GOSSIP_CONFIRM")
 e:RegisterEvent("GOSSIP_CONFIRM_CANCEL")
 e:RegisterEvent("GOSSIP_SHOW")
-e:RegisterEvent("MODIFIER_STATE_CHANGED")
 
 local Classic = {
 	-- Supported Maps
 		-- 13: Eastern Kingdoms
+		-- 23: Eastern Plaguelands 
 		-- 27: Dun Morogh (This is due to Environeer Bert in Gnomeregan.)
 	--
 	-- Blasted Lands
@@ -67,6 +67,12 @@ local Classic = {
 	[146932] = { -- Door Control Console
 		["g"] = {
 			L["Door Control Console 1"],
+		},
+	},
+	-- Stratholme
+	[155145] = { -- Plagued Critters
+		["g"] = {
+			L["Plagued Critters 1"],
 		},
 	},
 	-- Westfall
@@ -135,6 +141,12 @@ local Classic = {
 	[171789] = { -- High Inquisitor Whitemane
 		["g"] = {
 			L["High Inquisitor Whitemane 1"],
+		},
+	},
+	-- Eastern Plaguelands
+	[150987] = { -- Sean Wilkers
+		["g"] = {
+			L["Sean Wilkers 1"],
 		},
 	},
 	-- Tirisfal Glades
@@ -1253,6 +1265,21 @@ local creatures = {
 	},
 }
 
+local function GetParentMapID(mapId)
+	-- Get the parent map ID, then check
+	-- to see if it's a continent.
+	--
+	-- If not a continent, then recursively
+	-- scan the map relationship until the
+	-- first continent is found.
+	local mapInfo = C_Map.GetMapInfo(mapId)
+	if mapInfo.mapType ~= 2 then
+		GetParentMapID(mapInfo.parentMapID)
+	else
+		parentMapId = mapInfo.mapID
+	end
+end
+
 local function SelectGossipOption(options, npcId, parentMapId)
 	-- Use the parent map ID to determine
 	-- which populated table to use.
@@ -1260,9 +1287,9 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	-- If the parent map ID isn't supported
 	-- then set 't' to the default creatures
 	-- table.
-	if parentMapId == 13 or parentMapId == 27 then
+	if parentMapId == 12 or parentMapId == 13 then
 		t = Classic
-	elseif parentMapId == 424 or parentMapId == 554 then
+	elseif parentMapId == 424 then
 		t = MistsOfPandaria
 	elseif parentMapId == 619 then
 		t = Legion
@@ -1311,9 +1338,9 @@ local function ConfirmConfirmationMessage(message, npcId)
 	-- If the parent map ID isn't supported
 	-- then set 't' to the default creatures
 	-- table.
-	if parentMapId == 13 or parentMapId == 27 then
+	if parentMapId == 12 or parentMapId == 13 then
 		t = Classic
-	elseif parentMapId == 424 or parentMapId == 554 then
+	elseif parentMapId == 424 then
 		t = MistsOfPandaria
 	elseif parentMapId == 619 then
 		t = Legion
@@ -1348,7 +1375,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Dialog == false then return end
-		parentMapId = (C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player"))).parentMapID
+		GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
 		if numActiveQuests > 0 then
 			local activeQuests = C_GossipInfo.GetActiveQuests()
