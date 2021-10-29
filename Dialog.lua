@@ -211,7 +211,7 @@ local MistsOfPandaria = {
 	},
 	[68464] = { -- Whispering Pandaren Spirit
 		["g"] = {
-			L["Whispering Pandaren Spirit 1"],
+			L["Another challenge?"],
 		},
 		["c"] = {
 			L["Prepare yourself!"],
@@ -238,7 +238,7 @@ local MistsOfPandaria = {
 	-- Dread Wastes
 	[68462] = { -- Flowing Pandaren Spirit
 		["g"] = {
-			L["Flowing Pandaren Spirit 1"],
+			L["Another challenge?"],
 		},
 		["c"] = {
 			L["Prepare yourself!"],
@@ -256,7 +256,7 @@ local MistsOfPandaria = {
 	-- Kun-Lai Summit
 	[68465] = { -- Thundering Pandaren Spirit
 		["g"] = {
-			L["Thundering Pandaren Spirit 1"],
+			L["Another challenge?"],
 		},
 		["c"] = {
 			L["Prepare yourself!"],
@@ -518,7 +518,7 @@ local creatures = {
 	-- Draenor: Frostfire Ridge
 	[87122] = { -- Gargra
 		["g"] = {
-			L["Gargra 1"],
+			L["Let's do this!"],
 		},
 	},
 	-- Draenor: Shadowmoon Valley
@@ -539,19 +539,19 @@ local creatures = {
 	},
 	[87124] = { -- Ashlei
 		["g"] = {
-			L["Ashlei 1"],
+			L["Let's do this!"],
 		},
 	},
 	-- Draenor: Talador
 	[87125] = { -- Taralune
 		["g"] = {
-			L["Taralune 1"],
+			L["Let's do this!"],
 		},
 	},
 	-- Draenor: Nagrand
 	[87110] = { -- Tarr the Terrible
 		["g"] = {
-			L["Tarr the Terrible 1"],
+			L["Let's do this!"],
 		},
 	},
 	-- Kul Tiras: Drustvar
