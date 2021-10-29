@@ -22,6 +22,12 @@ local Classic = {
 			L["Archmage Khadgar 2"],
 		},
 	},
+	[88206] = { -- Zidormi
+		["g"] = {
+			L["Zidormi 4"],
+			L["Zidormi 5"],
+		},
+	},
 	-- Elwynn Forest
 	[240] = { -- Marshal Dughan
 		["g"] = {

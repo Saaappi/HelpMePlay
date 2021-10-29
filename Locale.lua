@@ -177,6 +177,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Zidormi 1"]																= "Can you show me what Tirisfal Glades was like before the Battle for Lordaeron?"
 	L["Zidormi 2"]																= "Can you show me what Darkshore was like before the battle?"
 	L["Zidormi 3"]																= "Can you return me to the present time?"
+	L["Zidormi 4"]																= "Show me the Blasted Lands before the invasion."
+	L["Zidormi 5"]																= "Take me back to the present."
 	L["Nathanos Blightcaller 1"]												= "I have heard this story before."
 	L["Chromie 1"]																= "Select a timeline."
 	L["Chromie 2"]																= "Select a different timeline."
