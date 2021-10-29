@@ -11,8 +11,7 @@ e:RegisterEvent("GOSSIP_SHOW")
 local Classic = {
 	-- Supported Maps
 		-- 13: Eastern Kingdoms
-		-- 23: Eastern Plaguelands 
-		-- 27: Dun Morogh (This is due to Environeer Bert in Gnomeregan.)
+		-- 948: The Maelstrom (This is here due to Cataclysm's zone, Deepholm.)
 	--
 	-- Blasted Lands
 	[78423] = { -- Archmage Khadgar
@@ -207,6 +206,9 @@ local Classic = {
 	},
 }
 
+local BurningCrusade = {}
+local WrathOfTheLichKing = {}
+
 local MistsOfPandaria = {
 	-- Supported Maps
 		-- 424: Pandaria
@@ -314,9 +316,12 @@ local MistsOfPandaria = {
 	},
 }
 
+local WarlordsOfDraenor = {}
+
 local Legion = {
 	-- Supported Maps
 		-- 619: Broken Isles
+		-- 905: Argus
 	--
 	-- Dalaran
 	[115287] = { -- Serr'ah
@@ -429,6 +434,8 @@ local Legion = {
 		},
 	},
 }
+
+local BattleForAzeroth = {}
 
 local Shadowlands = {
 	-- Supported Maps
@@ -1287,12 +1294,20 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	-- If the parent map ID isn't supported
 	-- then set 't' to the default creatures
 	-- table.
-	if parentMapId == 12 or parentMapId == 13 then
+	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
 		t = Classic
+	elseif parentMapId == 101 then
+		t = BurningCrusade
+	elseif parentMapId == 113 then
+		t = WrathOfTheLichKing
 	elseif parentMapId == 424 then
 		t = MistsOfPandaria
-	elseif parentMapId == 619 then
+	elseif parentMapId == 572 then
+		t = WarlordsOfDraenor
+	elseif parentMapId == 619 or parentMapId == 905 then
 		t = Legion
+	elseif parentMapId == 875 or parentMapId == 876 then
+		t = BattleForAzeroth
 	elseif parentMapId == 1550 then
 		t = Shadowlands
 	else
@@ -1338,12 +1353,20 @@ local function ConfirmConfirmationMessage(message, npcId)
 	-- If the parent map ID isn't supported
 	-- then set 't' to the default creatures
 	-- table.
-	if parentMapId == 12 or parentMapId == 13 then
+	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
 		t = Classic
+	elseif parentMapId == 101 then
+		t = BurningCrusade
+	elseif parentMapId == 113 then
+		t = WrathOfTheLichKing
 	elseif parentMapId == 424 then
 		t = MistsOfPandaria
-	elseif parentMapId == 619 then
+	elseif parentMapId == 572 then
+		t = WarlordsOfDraenor
+	elseif parentMapId == 619 or parentMapId == 905 then
 		t = Legion
+	elseif parentMapId == 875 or parentMapId == 876 then
+		t = BattleForAzeroth
 	elseif parentMapId == 1550 then
 		t = Shadowlands
 	else
