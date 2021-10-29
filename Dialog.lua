@@ -171,6 +171,14 @@ local Classic = {
 			L["Alexstrasza, the Life-Binder 1"],
 		},
 	},
+	[49767] = { -- Rukh Zumtarg
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Durotar
 	[4311] = { -- Holgar Stormaxe
 		["g"] = {
