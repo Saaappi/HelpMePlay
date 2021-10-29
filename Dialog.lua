@@ -933,6 +933,7 @@ local Shadowlands = {
 	},
 	[177900] = { -- Xandria
 		["g"] = {
+			L["I am ready."],
 			L["Xandria 1"],
 		}
 	},
