@@ -418,6 +418,572 @@ local Legion = {
 	},
 }
 
+local Shadowlands = {
+	-- Supported Maps
+		-- 1550: The Shadowlands
+	--
+	-- Oribos
+	[156791] = { -- Keeper Ta'saran
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	[159478] = { -- Tal-Inara
+		["g"] = {
+			L["Tal-Inara 1"],
+		},
+	},
+	[164079] = { -- Highlord Bolvar Fordragon
+		["g"] = {
+			L["Highlord Bolvar Fordragon 1"],
+			L["Highlord Bolvar Fordragon 2"],
+		},
+	},
+	[177136] = { -- Polemarch Adrestes
+		["g"] = {
+			L["Polemarch Adrestes 1"],
+		},
+	},
+	[168432] = { -- Ve'rayn
+		["g"] = {
+			L["Ve'rayn 1"],
+			L["Ve'rayn 2"],
+			L["Ve'rayn 3"],
+			L["Ve'rayn 4"],
+		},
+	},
+	-- Bastion
+	[156327] = { -- Voitha
+		["g"] = {
+			L["Voitha 1"],
+		},
+	},
+	[157696] = { -- Nemea
+		["g"] = {
+			L["Nemea 1"],
+		},
+		["c"] = {
+			L["Nemea 2"],
+		},
+	},
+	[158765] = { -- Pelodis
+		["g"] = {
+			L["Pelodis 1"],
+		},
+	},
+	[159277] = { -- Aspirant Leda
+		["g"] = {
+			L["Aspirant Leda 1"],
+		},
+	},
+	[159278] = { -- Aspirant Ikaran
+		["g"] = {
+			L["Aspirant Ikaran 1"],
+		},
+	},
+	[169022] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169023] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169024] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169025] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169026] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169027] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 1"],
+		},
+	},
+	[169077] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169078] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169079] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169080] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169081] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[169082] = { -- Helpful Steward
+		["g"] = {
+			L["Helpful Steward 2"],
+		},
+	},
+	[172714] = { -- Trapped Caretaker
+		["g"] = {
+			L["Trapped Caretaker 1"],
+		},
+	},
+	[161279] = { -- Sparring Aspirant
+		["g"] = {
+			-- When there is only one Sparring Aspirant.
+			L["Sparring Aspirant 1"],
+		},
+	},
+	[159504] = { -- Sparring Aspirant
+		["g"] = {
+			L["Sparring Aspirant 1"],
+			L["Sparring Aspirant 2"],
+		},
+	},
+	[159505] = { -- Sparring Aspirant
+		["g"] = {
+			-- When there are Sparring Aspirants... sparring.
+			L["Sparring Aspirant 1"],
+			L["Sparring Aspirant 2"],
+		},
+	},
+	[171834] = { -- Aspirant Thetes
+		["g"] = {
+			L["Aspirant Thetes 1"],
+		},
+	},
+	-- Maldraxxus
+	[165052] = { -- Vial Master Lurgy
+		["g"] = {
+			L["O.K."],
+		},
+	},
+	[157313] = { -- Foul-Tongue Cyrlix
+		["g"] = {
+			L["O.K."],
+		},
+	},
+	[157945] = { -- Boil Master Yetch
+		["g"] = {
+			L["O.K."],
+		},
+	},
+	[159696] = { -- Rencissa the Dynamo
+		["g"] = {
+			L["Rencissa the Dynamo 1"],
+		},
+	},
+	[159827] = { -- Scrapper Minoire
+		["g"] = {
+			L["Scrapper Minoire 1"],
+		},
+	},
+	[160917] = { -- Grimshadow
+		["g"] = {
+			L["Grimshadow 1"],
+		},
+	},
+	[161710] = { -- Marcel Mullby
+		["g"] = {
+			L["Marcel Mullby 1"],
+		},
+	},
+	[164492] = { -- Arena Spectator
+		["g"] = {
+			L["Arena Spectator 1"],
+		},
+	},
+	[165966] = { -- Khaliiq
+		["g"] = {
+			L["Khaliiq 1"],
+		},
+	},
+	[157130] = { -- Recruitable Animate
+		["g"] = {
+			L["Recruitable Animate 1"],
+		},
+	},
+	[157168] = { -- Stubborn Animate
+		["g"] = {
+			L["Stubborn Animate 1"],
+		},
+	},
+	[166129] = { -- Specialist Entra
+		["g"] = {
+			L["Specialist Entra 1"],
+		},
+	},
+	[166657] = { -- Ta'eran
+		["g"] = {
+			L["Ta'eran 1"],
+		},
+	},
+	[171747] = { -- Project Lead Allen
+		["g"] = {
+			L["Project Lead Allen 1"],
+		},
+	},
+	[172871] = { -- Taloned Flayedwing
+		["g"] = {
+			L["Taloned Flayedwing 1"],
+		},
+	},
+	-- Ardenweald
+	[171743] = { -- Dapperdew
+		["g"] = {
+			L["Dapperdew 1"],
+		},
+	},
+	[157710] = { -- Cortinarius
+		["g"] = {
+			L["Cortinarius 1"],
+		},
+	},
+	[160929] = { -- Guardian Molan
+		["g"] = {
+			L["The forces of Mueh'zala have invaded Ardenweald."],
+		},
+	},
+	[158921] = { -- Guardian Kota
+		["g"] = {
+			L["The forces of Mueh'zala have invaded Ardenweald."],
+		},
+	},
+	[158519] = { -- Sorcha
+		["g"] = {
+			L["The forces of Mueh'zala have invaded Ardenweald."],
+			L["I would like you to have the supplies."],
+		},
+	},
+	[161785] = { -- Thiernax
+		["g"] = {
+			L["Thiernax 1"],
+			L["Thiernax 2"],
+		},
+	},
+	[165382] = { -- Gormsmith Cavina
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[165703] = { -- Elder Finnan
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[158345] = { -- Lady of the Falls
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[165704] = { -- Elder Gwenna
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[165705] = { -- Groonoomcrooek
+		["g"] = {
+			L["I would like you to have the supplies."],
+		},
+	},
+	[158543] = { -- Attendant Sparkledew
+		["g"] = {
+			L["Attendant Sparkledew 1"],
+		},
+	},
+	[160121] = { -- Master Sha'lor
+		["g"] = {
+			L["Master Sha'lor 1"],
+		},
+	},
+	[158544] = { -- Lord Herne
+		["g"] = {
+			L["Lord Herne 2"],
+		},
+	},
+	[165550] = { -- Attendant Shimmerwing
+		["g"] = {
+			L["Attendant Shimmerwing 1"],
+		},
+	},
+	[169273] = { -- Silkstrider Caretaker
+		["g"] = {
+			L["Silkstrider Caretaker 1"],
+		},
+	},
+	[161509] = { -- Lady Moonberry
+		["g"] = {
+			L["Lady Moonberry 3"],
+		},
+	},
+	[172431] = { -- Lady Moonberry
+		["g"] = {
+			L["Lady Moonberry 1"],
+		},
+	},
+	[164023] = { -- Vesperbloom
+		["g"] = {
+			L["Vesperbloom 1"],
+			L["Vesperbloom 2"],
+		},
+	},
+	[172185] = { -- Zayhad, The Builder
+		["g"] = {
+			L["Zayhad, The Builder 1"],
+			L["Zayhad, The Builder 2"],
+		},
+	},
+	[156634] = { -- Winter Queen
+		["g"] = {
+			L["Winter Queen 1"],
+		},
+	},
+	[172886] = { -- Mask of Bwonsamdi
+		["g"] = {
+			L["Mask of Bwonsamdi 1"],
+		},
+	},
+	-- Revendreth
+	[167838] = { -- Globknob
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	[167918] = { -- Bela
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	[167849] = { -- Soul of Keltesh
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	[156295] = { -- Courier Rokalai
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	[168237] = { -- Ilka
+		["g"] = {
+			L["<Present Lajos's invitation>"],
+		},
+	},
+	[168238] = { -- Samu
+		["g"] = {
+			L["<Present Lajos's invitation>"],
+		},
+	},
+	[159883] = { -- Chancellor Codrin
+		["g"] = {
+			L["Chancellor Codrin 1"],
+		},
+	},
+	[159946] = { -- The Countess
+		["g"] = {
+			L["The Countess 1"],
+		},
+	},
+	[160941] = { -- The Curator
+		["g"] = {
+			L["The Curator 1"],
+		},
+	},
+	[161056] = { -- Guard Captain Elizabeta
+		["g"] = {
+			L["Guard Captain Elizabeta 1"],
+		},
+	},
+	[165662] = { -- The Countess
+		["g"] = {
+			L["The Countess 2"],
+		},
+	},
+	[166541] = { -- Cobwobble
+		["g"] = {
+			L["Cobwobble 1"],
+			L["Cobwobble 2"],
+		},
+	},
+	[166542] = { -- Slobwobble
+		["g"] = {
+			L["Slobwobble 1"],
+			L["Slobwobble 2"],
+		},
+	},
+	[166543] = { -- Dobwobble
+		["g"] = {
+			L["Dobwobble 1"],
+			L["Dobwobble 2"],
+		},
+	},
+	[169238] = { -- Courier Araak
+		["g"] = {
+			L["Courier Araak 1"],
+			L["Courier Araak 2"],
+		},
+	},
+	[165921] = { -- Courier Araak
+		["g"] = {
+			L["Courier Araak 2"],
+		},
+	},
+	[169917] = { -- Avowed Ritualist
+		["g"] = {
+			L["Avowed Ritualist 1"],
+		},
+	},
+	[169865] = { -- Treasure Guardian
+		["g"] = {
+			L["Treasure Guardian 1"],
+			L["Treasure Guardian 2"],
+		},
+	},
+	-- The Maw
+	[165918] = { -- Highlord Darion Mograine
+		["g"] = {
+			L["Highlord Darion Mograine 1"],
+		},
+	},
+	[166980] = { -- Lady Jaina Proudmoore
+		["g"] = {
+			L["Lady Jaina Proudmoore 1"],
+			L["Lady Jaina Proudmoore 2"],
+			L["Lady Jaina Proudmoore 3"],
+			L["Lady Jaina Proudmoore 4"],
+		}
+	},
+	[168836] = { -- Shandris Feathermoon
+		["g"] = {
+			L["Shandris Feathermoon 1"],
+		}
+	},
+	[178828] = { -- Lord Herne
+		["g"] = {
+			L["Lord Herne 1"],
+		}
+	},
+	[178943] = { -- Lady Moonberry
+		["g"] = {
+			L["Lady Moonberry 2"],
+		}
+	},
+	[179068] = { -- Orator Kloe
+		["g"] = {
+			L["Orator Kloe 1"],
+		}
+	},
+	[178033] = { -- Gubbins
+		["g"] = {
+			L["Gubbins 1"],
+		}
+	},
+	[177900] = { -- Xandria
+		["g"] = {
+			L["Xandria 1"],
+		}
+	},
+	[178006] = { -- Prince Renathal
+		["g"] = {
+			L["Prince Renathal 1"],
+		}
+	},
+	-- Korthia
+	[178257] = { -- Archivist Roh-Suir
+		["g"] = {
+			L["Archivist Roh-Suir 1"],
+		},
+	},
+	-- Torghast
+	[175118] = { -- Shandris Feathermoon
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	[164334] = { -- Shandris Feathermoon
+		["g"] = {
+			L["Shandris Feathermoon 2"],
+		},
+	},
+	[168979] = { -- Meatball
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[167839] = { -- Partially-Infused Soul Remnant
+		["g"] = {
+			L["Partially-Infused Soul Remnant 1"],
+		},
+	},
+	[166123] = { -- Indigo
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[152418] = { -- Gallath
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[172264] = { -- Yira'lya
+		["g"] = {
+			L["Yira'lya 1"],
+		},
+	},
+	[172261] = { -- Chalkyth
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[157426] = { -- Indri the Treesinger
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[178932] = { -- Ve'lor the Messenger
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[166147] = { -- Calix
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[157406] = { -- Renavyth
+		["g"] = {
+			L["I will assist you."],
+		},
+	},
+	-- De Other Side (Dungeon)
+	[166281] = { -- Bwonsamdi
+		["g"] = {
+			L["Bwonsamdi 1"],
+		},
+	},
+}
+
 local creatures = {
 	[1] = { -- Gossip and confirm options used on two or more NPCs.
 		["g"] = {
@@ -631,560 +1197,6 @@ local creatures = {
 			L["Quest"],
 		},
 	},
-	-- Shadowlands: The Maw
-	[165918] = { -- Highlord Darion Mograine
-		["g"] = {
-			L["Highlord Darion Mograine 1"],
-		},
-	},
-	[166980] = { -- Lady Jaina Proudmoore
-		["g"] = {
-			L["Lady Jaina Proudmoore 1"],
-			L["Lady Jaina Proudmoore 2"],
-			L["Lady Jaina Proudmoore 3"],
-			L["Lady Jaina Proudmoore 4"],
-		}
-	},
-	[168836] = { -- Shandris Feathermoon
-		["g"] = {
-			L["Shandris Feathermoon 1"],
-		}
-	},
-	[178828] = { -- Lord Herne
-		["g"] = {
-			L["Lord Herne 1"],
-		}
-	},
-	[178943] = { -- Lady Moonberry
-		["g"] = {
-			L["Lady Moonberry 2"],
-		}
-	},
-	[179068] = { -- Orator Kloe
-		["g"] = {
-			L["Orator Kloe 1"],
-		}
-	},
-	[178033] = { -- Gubbins
-		["g"] = {
-			L["Gubbins 1"],
-		}
-	},
-	[177900] = { -- Xandria
-		["g"] = {
-			L["Xandria 1"],
-		}
-	},
-	[178006] = { -- Prince Renathal
-		["g"] = {
-			L["Prince Renathal 1"],
-		}
-	},
-	-- Shadowlands: Torghast
-	[175118] = { -- Shandris Feathermoon
-		["g"] = {
-			L["Quest"],
-		},
-	},
-	[164334] = { -- Shandris Feathermoon
-		["g"] = {
-			L["Shandris Feathermoon 2"],
-		},
-	},
-	[168979] = { -- Meatball
-		["g"] = {
-			L["Yes, I will help."],
-		},
-	},
-	[167839] = { -- Partially-Infused Soul Remnant
-		["g"] = {
-			L["Partially-Infused Soul Remnant 1"],
-		},
-	},
-	[166123] = { -- Indigo
-		["g"] = {
-			L["Yes, I will help."],
-		},
-	},
-	[152418] = { -- Gallath
-		["g"] = {
-			L["Yes, I will help."],
-		},
-	},
-	[172264] = { -- Yira'lya
-		["g"] = {
-			L["Yira'lya 1"],
-		},
-	},
-	[172261] = { -- Chalkyth
-		["g"] = {
-			L["Yes, I will help."],
-		},
-	},
-	[157426] = { -- Indri the Treesinger
-		["g"] = {
-			L["Yes, I will help."],
-		},
-	},
-	[178932] = { -- Ve'lor the Messenger
-		["g"] = {
-			L["Yes, I will help."],
-		},
-	},
-	[166147] = { -- Calix
-		["g"] = {
-			L["Yes, I will help."],
-		},
-	},
-	[157406] = { -- Renavyth
-		["g"] = {
-			L["I will assist you."],
-		},
-	},
-	-- Shadowlands: Oribos
-	[159478] = { -- Tal-Inara
-		["g"] = {
-			L["Tal-Inara 1"],
-		},
-	},
-	[164079] = { -- Highlord Bolvar Fordragon
-		["g"] = {
-			L["Highlord Bolvar Fordragon 1"],
-			L["Highlord Bolvar Fordragon 2"],
-		},
-	},
-	[177136] = { -- Polemarch Adrestes
-		["g"] = {
-			L["Polemarch Adrestes 1"],
-		},
-	},
-	[168432] = { -- Ve'rayn
-		["g"] = {
-			L["Ve'rayn 1"],
-			L["Ve'rayn 2"],
-			L["Ve'rayn 3"],
-			L["Ve'rayn 4"],
-		},
-	},
-	-- Shadowlands: Bastion
-	[156327] = { -- Voitha
-		["g"] = {
-			L["Voitha 1"],
-		},
-	},
-	[157696] = { -- Nemea
-		["g"] = {
-			L["Nemea 1"],
-		},
-		["c"] = {
-			L["Nemea 2"],
-		},
-	},
-	[158765] = { -- Pelodis
-		["g"] = {
-			L["Pelodis 1"],
-		},
-	},
-	[159277] = { -- Aspirant Leda
-		["g"] = {
-			L["Aspirant Leda 1"],
-		},
-	},
-	[159278] = { -- Aspirant Ikaran
-		["g"] = {
-			L["Aspirant Ikaran 1"],
-		},
-	},
-	[169022] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 1"],
-		},
-	},
-	[169023] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 1"],
-		},
-	},
-	[169024] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 1"],
-		},
-	},
-	[169025] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 1"],
-		},
-	},
-	[169026] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 1"],
-		},
-	},
-	[169027] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 1"],
-		},
-	},
-	[169077] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 2"],
-		},
-	},
-	[169078] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 2"],
-		},
-	},
-	[169079] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 2"],
-		},
-	},
-	[169080] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 2"],
-		},
-	},
-	[169081] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 2"],
-		},
-	},
-	[169082] = { -- Helpful Steward
-		["g"] = {
-			L["Helpful Steward 2"],
-		},
-	},
-	[172714] = { -- Trapped Caretaker
-		["g"] = {
-			L["Trapped Caretaker 1"],
-		},
-	},
-	[161279] = { -- Sparring Aspirant
-		["g"] = {
-			-- When there is only one Sparring Aspirant.
-			L["Sparring Aspirant 1"],
-		},
-	},
-	[159504] = { -- Sparring Aspirant
-		["g"] = {
-			L["Sparring Aspirant 1"],
-			L["Sparring Aspirant 2"],
-		},
-	},
-	[159505] = { -- Sparring Aspirant
-		["g"] = {
-			-- When there are Sparring Aspirants... sparring.
-			L["Sparring Aspirant 1"],
-			L["Sparring Aspirant 2"],
-		},
-	},
-	[171834] = { -- Aspirant Thetes
-		["g"] = {
-			L["Aspirant Thetes 1"],
-		},
-	},
-	
-	-- Shadowlands: Maldraxxus
-	[165052] = { -- Vial Master Lurgy
-		["g"] = {
-			L["O.K."],
-		},
-	},
-	[157313] = { -- Foul-Tongue Cyrlix
-		["g"] = {
-			L["O.K."],
-		},
-	},
-	[157945] = { -- Boil Master Yetch
-		["g"] = {
-			L["O.K."],
-		},
-	},
-	[159696] = { -- Rencissa the Dynamo
-		["g"] = {
-			L["Rencissa the Dynamo 1"],
-		},
-	},
-	[159827] = { -- Scrapper Minoire
-		["g"] = {
-			L["Scrapper Minoire 1"],
-		},
-	},
-	[160917] = { -- Grimshadow
-		["g"] = {
-			L["Grimshadow 1"],
-		},
-	},
-	[161710] = { -- Marcel Mullby
-		["g"] = {
-			L["Marcel Mullby 1"],
-		},
-	},
-	[164492] = { -- Arena Spectator
-		["g"] = {
-			L["Arena Spectator 1"],
-		},
-	},
-	[165966] = { -- Khaliiq
-		["g"] = {
-			L["Khaliiq 1"],
-		},
-	},
-	[157130] = { -- Recruitable Animate
-		["g"] = {
-			L["Recruitable Animate 1"],
-		},
-	},
-	[157168] = { -- Stubborn Animate
-		["g"] = {
-			L["Stubborn Animate 1"],
-		},
-	},
-	[166129] = { -- Specialist Entra
-		["g"] = {
-			L["Specialist Entra 1"],
-		},
-	},
-	[166657] = { -- Ta'eran
-		["g"] = {
-			L["Ta'eran 1"],
-		},
-	},
-	[171747] = { -- Project Lead Allen
-		["g"] = {
-			L["Project Lead Allen 1"],
-		},
-	},
-	[172871] = { -- Taloned Flayedwing
-		["g"] = {
-			L["Taloned Flayedwing 1"],
-		},
-	},
-	-- Shadowlands: Ardenweald
-	[171743] = { -- Dapperdew
-		["g"] = {
-			L["Dapperdew 1"],
-		},
-	},
-	[157710] = { -- Cortinarius
-		["g"] = {
-			L["Cortinarius 1"],
-		},
-	},
-	[160929] = { -- Guardian Molan
-		["g"] = {
-			L["The forces of Mueh'zala have invaded Ardenweald."],
-		},
-	},
-	[158921] = { -- Guardian Kota
-		["g"] = {
-			L["The forces of Mueh'zala have invaded Ardenweald."],
-		},
-	},
-	[158519] = { -- Sorcha
-		["g"] = {
-			L["The forces of Mueh'zala have invaded Ardenweald."],
-			L["I would like you to have the supplies."],
-		},
-	},
-	[161785] = { -- Thiernax
-		["g"] = {
-			L["Thiernax 1"],
-			L["Thiernax 2"],
-		},
-	},
-	[165382] = { -- Gormsmith Cavina
-		["g"] = {
-			L["I would like you to have the supplies."],
-		},
-	},
-	[165703] = { -- Elder Finnan
-		["g"] = {
-			L["I would like you to have the supplies."],
-		},
-	},
-	[158345] = { -- Lady of the Falls
-		["g"] = {
-			L["I would like you to have the supplies."],
-		},
-	},
-	[165704] = { -- Elder Gwenna
-		["g"] = {
-			L["I would like you to have the supplies."],
-		},
-	},
-	[165705] = { -- Groonoomcrooek
-		["g"] = {
-			L["I would like you to have the supplies."],
-		},
-	},
-	[158543] = { -- Attendant Sparkledew
-		["g"] = {
-			L["Attendant Sparkledew 1"],
-		},
-	},
-	[160121] = { -- Master Sha'lor
-		["g"] = {
-			L["Master Sha'lor 1"],
-		},
-	},
-	[158544] = { -- Lord Herne
-		["g"] = {
-			L["Lord Herne 2"],
-		},
-	},
-	[165550] = { -- Attendant Shimmerwing
-		["g"] = {
-			L["Attendant Shimmerwing 1"],
-		},
-	},
-	[169273] = { -- Silkstrider Caretaker
-		["g"] = {
-			L["Silkstrider Caretaker 1"],
-		},
-	},
-	[161509] = { -- Lady Moonberry
-		["g"] = {
-			L["Lady Moonberry 3"],
-		},
-	},
-	[172431] = { -- Lady Moonberry
-		["g"] = {
-			L["Lady Moonberry 1"],
-		},
-	},
-	[164023] = { -- Vesperbloom
-		["g"] = {
-			L["Vesperbloom 1"],
-			L["Vesperbloom 2"],
-		},
-	},
-	[172185] = { -- Zayhad, The Builder
-		["g"] = {
-			L["Zayhad, The Builder 1"],
-			L["Zayhad, The Builder 2"],
-		},
-	},
-	-- Shadowlands: Revendreth
-	[167838] = { -- Globknob
-		["g"] = {
-			L["Quest"],
-		},
-	},
-	[167918] = { -- Bela
-		["g"] = {
-			L["Quest"],
-		},
-	},
-	[167849] = { -- Soul of Keltesh
-		["g"] = {
-			L["Quest"],
-		},
-	},
-	[156295] = { -- Courier Rokalai
-		["g"] = {
-			L["Quest"],
-		},
-	},
-	[168237] = { -- Ilka
-		["g"] = {
-			L["<Present Lajos's invitation>"],
-		},
-	},
-	[168238] = { -- Samu
-		["g"] = {
-			L["<Present Lajos's invitation>"],
-		},
-	},
-	[159883] = { -- Chancellor Codrin
-		["g"] = {
-			L["Chancellor Codrin 1"],
-		},
-	},
-	[159946] = { -- The Countess
-		["g"] = {
-			L["The Countess 1"],
-		},
-	},
-	[160941] = { -- The Curator
-		["g"] = {
-			L["The Curator 1"],
-		},
-	},
-	[161056] = { -- Guard Captain Elizabeta
-		["g"] = {
-			L["Guard Captain Elizabeta 1"],
-		},
-	},
-	[165662] = { -- The Countess
-		["g"] = {
-			L["The Countess 2"],
-		},
-	},
-	[166541] = { -- Cobwobble
-		["g"] = {
-			L["Cobwobble 1"],
-			L["Cobwobble 2"],
-		},
-	},
-	[166542] = { -- Slobwobble
-		["g"] = {
-			L["Slobwobble 1"],
-			L["Slobwobble 2"],
-		},
-	},
-	[166543] = { -- Dobwobble
-		["g"] = {
-			L["Dobwobble 1"],
-			L["Dobwobble 2"],
-		},
-	},
-	[169238] = { -- Courier Araak
-		["g"] = {
-			L["Courier Araak 1"],
-			L["Courier Araak 2"],
-		},
-	},
-	[165921] = { -- Courier Araak
-		["g"] = {
-			L["Courier Araak 2"],
-		},
-	},
-	[169917] = { -- Avowed Ritualist
-		["g"] = {
-			L["Avowed Ritualist 1"],
-		},
-	},
-	[169865] = { -- Treasure Guardian
-		["g"] = {
-			L["Treasure Guardian 1"],
-			L["Treasure Guardian 2"],
-		},
-	},
-	-- Shadowlands: Korthia
-	[178257] = { -- Archivist Roh-Suir
-		["g"] = {
-			L["Archivist Roh-Suir 1"],
-		},
-	},
-	-- Shadowlands: Heart of the Forest (Covenant Sanctum)
-	[156634] = { -- Winter Queen
-		["g"] = {
-			L["Winter Queen 1"],
-		},
-	},
-	[172886] = { -- Mask of Bwonsamdi
-		["g"] = {
-			L["Mask of Bwonsamdi 1"],
-		},
-	},
-	-- Instance: De Other Side
-	[166281] = { -- Bwonsamdi
-		["g"] = {
-			L["Bwonsamdi 1"],
-		},
-	},
 	-- Instance: Mogu'shan Vaults
 	[61348] = { -- Lorewalker Cho
 		["g"] = {
@@ -1254,6 +1266,8 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		t = MistsOfPandaria
 	elseif parentMapId == 619 then
 		t = Legion
+	elseif parentMapId == 1550 then
+		t = Shadowlands
 	else
 		t = creatures
 	end
@@ -1303,6 +1317,8 @@ local function ConfirmConfirmationMessage(message, npcId)
 		t = MistsOfPandaria
 	elseif parentMapId == 619 then
 		t = Legion
+	elseif parentMapId == 1550 then
+		t = Shadowlands
 	else
 		t = creatures
 	end
