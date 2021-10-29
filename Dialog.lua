@@ -9,7 +9,7 @@ e:RegisterEvent("GOSSIP_CONFIRM_CANCEL")
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("MODIFIER_STATE_CHANGED")
 
-local creaturesEK = {
+local Classic = {
 	-- Supported Maps
 		-- 13: Eastern Kingdoms
 		-- 27: Dun Morogh (This is due to Environeer Bert in Gnomeregan.)
@@ -151,7 +151,7 @@ local creaturesEK = {
 	},
 }
 
-local creaturesPandaria = {
+local MistsOfPandaria = {
 	-- Supported Maps
 		-- 424: Pandaria
 		-- 554: Timeless Isle (This is here due to Celestial Tournament.)
@@ -254,6 +254,21 @@ local creaturesPandaria = {
 	[71931] = { -- Taran Zhu
 		["g"] = {
 			L["Let's do battle!"],
+		},
+	},
+}
+
+local Legion = {
+	-- Supported Maps
+		-- 619: Broken Isles
+	--
+	-- Dalaran
+	[115287] = { -- Serr'ah
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 }
@@ -1242,9 +1257,11 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	-- then set 't' to the default creatures
 	-- table.
 	if parentMapId == 13 or parentMapId == 27 then
-		t = creaturesEK
+		t = Classic
 	elseif parentMapId == 424 or parentMapId == 554 then
-		t = creaturesPandaria
+		t = MistsOfPandaria
+	elseif parentMapId == 619 then
+		t = Legion
 	else
 		t = creatures
 	end
@@ -1289,9 +1306,11 @@ local function ConfirmConfirmationMessage(message, npcId)
 	-- then set 't' to the default creatures
 	-- table.
 	if parentMapId == 13 or parentMapId == 27 then
-		t = creaturesEK
+		t = Classic
 	elseif parentMapId == 424 or parentMapId == 554 then
-		t = creaturesPandaria
+		t = MistsOfPandaria
+	elseif parentMapId == 619 then
+		t = Legion
 	else
 		t = creatures
 	end
