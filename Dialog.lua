@@ -117,6 +117,49 @@ local Classic = {
 			L["Kingslayer Orkus 4"]
 		},
 	},
+	-- Mount Hyjal
+	[43408] = { -- Aili Greenwillow
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- Winterspring
+	[11119] = { -- Azzleby
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- Desolace
+	[11105] = { -- Aboda
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- Silithus
+	[128607] = { -- Zidormi
+		["g"] = {
+			L["Zidormi 3"],
+			L["Zidormi 6"],
+		},
+	},
+	-- Uldum
+	[48887] = { -- Darwishi
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Silverpine Forest
 	[44825] = { -- Bat Handler Maggotbreath
 		["g"] = {
