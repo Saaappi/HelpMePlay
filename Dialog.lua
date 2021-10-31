@@ -269,7 +269,37 @@ local Classic = {
 }
 
 local BurningCrusade = {}
-local WrathOfTheLichKing = {}
+local WrathOfTheLichKing = {
+	-- Supported Maps
+		-- 113: Northrend
+	--
+	-- Borean Tundra
+	[26044] = { -- Durkot Wolfbrother
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	[27194] = { -- Trapper Saghani
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- Zul'Drak
+	[28790] = { -- Fala Softhoof
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+}
 
 local MistsOfPandaria = {
 	-- Supported Maps
@@ -291,6 +321,22 @@ local MistsOfPandaria = {
 		},
 		["c"] = {
 			L["Prepare yourself!"],
+		},
+	},
+	[66243] = { -- Pan the Kind Hand
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	[66241] = { -- Hong the Kindly
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 	-- Valley of the Four Winds
