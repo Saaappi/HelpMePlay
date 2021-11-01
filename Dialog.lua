@@ -357,6 +357,14 @@ local MistsOfPandaria = {
 			L["Come at me!"],
 		},
 	},
+	[59310] = { -- Teve Dawnchaser
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Dread Wastes
 	[68462] = { -- Flowing Pandaren Spirit
 		["g"] = {
