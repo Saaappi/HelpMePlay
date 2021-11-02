@@ -1,5 +1,5 @@
 ## Author: iAmLiightsky
-## Interface: 90100
+## Interface: 90105
 ## Name: |cff00CCFFHelpMePlay|r
 ## Notes: Automates tasks related to questing, dialog, vendors, and more.
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayAchievementDB

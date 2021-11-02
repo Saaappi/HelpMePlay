@@ -1,4 +1,6 @@
 HelpMePlay | 1.0.5
+	Changes:
+		TOC Bump for Patch 9.1.5.
 	Features:
 		S Tier Anima Powers in Torghast are now automatically chosen based on the higher ranked power. (Players will need to opt in for this feature.)
 		Repairing at a merchant is now automatically handled.
