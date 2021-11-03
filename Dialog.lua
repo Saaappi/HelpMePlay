@@ -256,8 +256,11 @@ local Classic = {
 	},
 	[171791] = { -- Nazgrim
 		["g"] = {
-			L["Nazgrim 1"],
-		}
+			L["I have heard this tale before."],
+		},
+		["c"] = {
+			L["Are you sure? This action cannot be undone."],
+		},
 	},
 	-- Darkshore
 	[141489] = { -- Zidormi
@@ -824,6 +827,11 @@ local Shadowlands = {
 			L["Ve'rayn 2"],
 			L["Ve'rayn 3"],
 			L["Ve'rayn 4"],
+		},
+	},
+	[174871] = { -- Fatescribe Roh-Tahl
+		["g"] = {
+			L["Fatescribe Roh-Tahl 1"],
 		},
 	},
 	-- Bastion

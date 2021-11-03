@@ -1,3 +1,6 @@
 HelpMePlay | 1.0.6
 	Dialog:
 		- Added more pet tamers.
+		- Nazgrim, by default, will skip the Maw intro.
+	Fixes:
+		- Fatescribe Roh-Tahl is automated again.
