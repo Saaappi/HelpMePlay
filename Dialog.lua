@@ -193,7 +193,10 @@ local Classic = {
 	},
 	[171789] = { -- High Inquisitor Whitemane
 		["g"] = {
-			L["High Inquisitor Whitemane 1"],
+			L["I have heard this tale before."],
+		},
+		["c"] = {
+			L["Are you sure?"],
 		},
 	},
 	-- Eastern Plaguelands

@@ -2,5 +2,6 @@ HelpMePlay | 1.0.6
 	Dialog:
 		- Added more pet tamers.
 		- Nazgrim, if "Dialog" is enabled, will now auto skip The Maw intro.
+		- High Inquisitor Whitemane, if "Dialog" is enabled, will now auto skip The Maw intro.
 	Fixes:
 		- Fatescribe Roh-Tahl is automated again.
