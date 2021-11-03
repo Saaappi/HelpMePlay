@@ -655,6 +655,12 @@ local Legion = {
 			L["Tyrande Whisperwind 2"],
 		},
 	},
+	-- Stormheim
+	[105455] = { -- Trapper Jarrun
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
 	-- Argus
 	[121263] = { -- Grand Artificer Romuul
 		["g"] = {
