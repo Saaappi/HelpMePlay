@@ -1413,9 +1413,6 @@ local creatures = {
 			L["What can you tell me about Cartel So?"], -- Added from Quest: Insider Trading (Oribos)
 			L["Let's ride."], -- Added from Quest: My Way or the Hyphae (Ardenweald)
 		},
-		["c"] = {
-			L["Are you sure? This action cannot be undone."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
-		},
 	},
 }
 
@@ -1534,7 +1531,7 @@ end
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
-		local num, message = ...; print(num)
+		local _, message = ...
 		if HelpMePlayOptionsDB.Dialog == false then return end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
