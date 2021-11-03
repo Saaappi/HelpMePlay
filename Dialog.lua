@@ -259,7 +259,7 @@ local Classic = {
 			L["I have heard this tale before."],
 		},
 		["c"] = {
-			L["Are you sure? This action cannot be undone."],
+			L["Are you sure?"],
 		},
 	},
 	-- Darkshore
@@ -1500,7 +1500,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 	-- If the parent map ID isn't supported
 	-- then set 't' to the default creatures
 	-- table.
-	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
+	if parentMapId == 12 or parentMapId == 13 then
 		t = Classic
 	elseif parentMapId == 101 then
 		t = BurningCrusade
@@ -1524,7 +1524,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 		if id == npcId then
 			for i = 1, #t[id]["c"] do
 				if string.find(string.lower(message), string.lower(t[id]["c"][i])) then
-					StaticPopup1Button1:Click()
+					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
 			end
@@ -1534,7 +1534,7 @@ end
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
-		local _, message = ...
+		local num, message = ...; print(num)
 		if HelpMePlayOptionsDB.Dialog == false then return end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
