@@ -3,5 +3,7 @@ HelpMePlay | 1.0.6
 		- Added more pet tamers.
 		- Nazgrim, if "Dialog" is enabled, will now auto skip The Maw intro.
 		- High Inquisitor Whitemane, if "Dialog" is enabled, will now auto skip The Maw intro.
+	Quests:
+		- Gatamatos will now include a note during the "Tactical Formation" quest in Bastion, similar to the world quest.
 	Fixes:
 		- Fatescribe Roh-Tahl is automated again.

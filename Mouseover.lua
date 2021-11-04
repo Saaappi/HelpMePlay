@@ -98,6 +98,10 @@ local creatureDb = {
 		["aId"] = 14879,
 		["cId"] = L["Glitterdust"],
 	},
+	[159915] = { -- Gatamatos
+		["t"] = "note",
+		["n"] = L["Note: Gatamatos"],
+	},
 	[173806] = { -- Gatamatos
 		["t"] = "note",
 		["n"] = L["Note: Gatamatos"],
