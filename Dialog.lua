@@ -1089,6 +1089,19 @@ local Shadowlands = {
 			L["Au'narim claims you owe her anima."],
 		},
 	},
+	[161712] = { -- Nana Redcap
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	[157130] = { -- Recruitable Animate
+		["g"] = {
+			L["Au'narim claims you owe her anima."],
+		},
+	},
 	-- Ardenweald
 	[171743] = { -- Dapperdew
 		["g"] = {
@@ -1447,31 +1460,6 @@ local Shadowlands = {
 	},
 }
 
-local creatures = {
-	[1] = { -- Gossip and confirm options used on two or more NPCs.
-		["g"] = {
-			L["Are you enjoying yourself?"], -- Added from Quest: Mix, Mingle, and Meddle (Revendreth)
-			L["Go hunt somewhere else!"], -- Added from Quest: Amateur Hour (Highmountain)
-			L["There is no time left. Run!"], -- Added from Quest: Evacuate Snowmane (Highmountain)
-			L["Let's go!"], -- Added from Quest: Lead the Way (Revendreth)
-			L["I'm ready."], -- Added from Quest: Heroes of the Horde! (Hillsbrad Foothills)
-			L["Let's duel."], -- Added from Quest: To Be Prepared (Durotar)
-			L["I am ready."], -- Added from Quest: Cenarius, Keeper of the Grove (Val'sharah)
-			L["Leave the Darkpens."], -- Added from Quest: Lieutenant of the Tower (Val'sharah)
-			L["Take us back to Zuldazar."], -- Added from Quest: Return to Zuldazar (Stormsong Valley)
-			L["Take us back to Boralus."], -- Added from Quest: Return to Boralus (Zuldazar)
-			L["<Reach inside and pull something out.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
-			L["<Reach inside and pull out something that feels more like a building.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
-			L["D'kaan is coming with help."], -- Added from Quest: Rescue Rangari (Gorgrond)
-			L["The Lady of the Falls wanted to make sure you were safe."], -- Added from Quest: Ages-Echoing Wisdom (Ardenweald)
-			L["<Request tithe>"], -- Added from Quest: Bring Out Your Tithe (Revendreth)
-			L["I know my way around the Sanctum."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
-			L["What can you tell me about Cartel So?"], -- Added from Quest: Insider Trading (Oribos)
-			L["Let's ride."], -- Added from Quest: My Way or the Hyphae (Ardenweald)
-		},
-	},
-}
-
 local function GetParentMapID(mapId)
 	-- Get the parent map ID, then check
 	-- to see if it's a continent.
@@ -1510,8 +1498,6 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		t = BattleForAzeroth
 	elseif parentMapId == 1550 then
 		t = Shadowlands
-	else
-		t = creatures
 	end
 	
 	for index, gossipOptionsSubTable in ipairs(options) do
@@ -1569,8 +1555,6 @@ local function ConfirmConfirmationMessage(message, npcId)
 		t = BattleForAzeroth
 	elseif parentMapId == 1550 then
 		t = Shadowlands
-	else
-		t = creatures
 	end
 	
 	for id, _ in pairs(t) do
