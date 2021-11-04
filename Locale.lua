@@ -256,7 +256,6 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Scrapper Minoire 1"]														= "Here are the enhancers you wanted."
 	L["Grimshadow 1"]															= "<Ride Grimshadow.>"
 	L["Marcel Mullby 1"]														= "I have some bloodtusk skulls for you."
-	L["Arena Spectator 1"]														= "Au'narim claims you owe her anima."
 	L["Khaliiq 1"]																= "Hide me in the shadows, Khaliiq."
 	L["Recruitable Animate 1"]													= "Maldraxxus needs your service. Will you fight?"
 	L["Stubborn Animate 1"]														= "Maldraxxus needs your service. Will you fight?"

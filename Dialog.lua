@@ -1007,11 +1007,6 @@ local Shadowlands = {
 			L["Marcel Mullby 1"],
 		},
 	},
-	[164492] = { -- Arena Spectator
-		["g"] = {
-			L["Arena Spectator 1"],
-		},
-	},
 	[165966] = { -- Khaliiq
 		["g"] = {
 			L["Khaliiq 1"],
@@ -1077,6 +1072,11 @@ local Shadowlands = {
 	[163084] = { -- Tester Sahaari
 		["g"] = {
 			L["Very well. Let us fight."],
+		},
+	},
+	[164492] = { -- Arena Spectator
+		["g"] = {
+			L["Au'narim claims you owe her anima."],
 		},
 	},
 	-- Ardenweald
@@ -1453,7 +1453,6 @@ local creatures = {
 			L["<Reach inside and pull something out.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			L["<Reach inside and pull out something that feels more like a building.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			L["D'kaan is coming with help."], -- Added from Quest: Rescue Rangari (Gorgrond)
-			L["Au'narim claims you owe her anima."], -- Added from Quest: Leave Me a Loan (Maldraxxus)
 			L["The Lady of the Falls wanted to make sure you were safe."], -- Added from Quest: Ages-Echoing Wisdom (Ardenweald)
 			L["<Request tithe>"], -- Added from Quest: Bring Out Your Tithe (Revendreth)
 			L["I know my way around the Sanctum."], -- Added from Quest: Show. Don't Tell (Ardenweald), but applies to all Covenants.
