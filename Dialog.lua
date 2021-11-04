@@ -971,16 +971,19 @@ local Shadowlands = {
 	-- Maldraxxus
 	[165052] = { -- Vial Master Lurgy
 		["g"] = {
+			L["Is there any way I can help?"],
 			L["O.K."],
 		},
 	},
 	[157313] = { -- Foul-Tongue Cyrlix
 		["g"] = {
+			L["Is there any way I can help?"],
 			L["O.K."],
 		},
 	},
 	[157945] = { -- Boil Master Yetch
 		["g"] = {
+			L["Is there any way I can help?"],
 			L["O.K."],
 		},
 	},
@@ -1042,6 +1045,28 @@ local Shadowlands = {
 	[172871] = { -- Taloned Flayedwing
 		["g"] = {
 			L["Taloned Flayedwing 1"],
+		},
+	},
+	[173267] = { -- Dundley Stickyfingers
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[159824] = { -- Gunn Gorgebone
+		["g"] = {
+			L["Is there anything you need?"],
+		},
+	},
+	[159827] = { -- Scrapper Minoire
+		["g"] = {
+			L["Is there anything you need?"],
+			L["Scrapper Minoire 1"],
+		},
+	},
+	[159696] = { -- Rencissa the Dynamo
+		["g"] = {
+			L["Is there anything you need?"],
+			L["Rencissa the Dynamo 1"],
 		},
 	},
 	-- Ardenweald
@@ -1419,8 +1444,6 @@ local creatures = {
 			L["<Reach inside and pull out something that feels more like a building.>"], -- Added from Quest: Krazzlefrazz Outpost (Drustvar)
 			L["D'kaan is coming with help."], -- Added from Quest: Rescue Rangari (Gorgrond)
 			L["I've heard this tale before..."], -- Added from Quest: ??? (Stormwind City/Orgrimmar)
-			L["Is there any way I can help?"], -- Added from Quest: A Plague On Your House (Maldraxxus)
-			L["Is there anything you need?"], -- Added from Quest: ...Even The Most Ridiculous Request! (Maldraxxus)
 			L["Very well. Let us fight."], -- Added from Quest: Test Your Mettle (Maldraxxus)
 			L["Au'narim claims you owe her anima."], -- Added from Quest: Leave Me a Loan (Maldraxxus)
 			L["The Lady of the Falls wanted to make sure you were safe."], -- Added from Quest: Ages-Echoing Wisdom (Ardenweald)

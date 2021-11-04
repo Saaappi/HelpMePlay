@@ -8,3 +8,5 @@ HelpMePlay | 1.0.6
 		- Gatamatos will now include a note during the "Tactical Formation" quest in Bastion, similar to the world quest.
 	Fixes:
 		- Fatescribe Roh-Tahl is automated again.
+		- Fixed the dialogs for the NPCs involved in the "A Plague on Your House" quest in Maldraxxus.
+		- Fixed the dialogs for the NPCs involved in the "...Even the Most Ridiculous Request!" quest in Maldraxxus.
