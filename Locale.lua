@@ -149,6 +149,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["The forces of Mueh'zala have invaded Ardenweald."]						= "The forces of Mueh'zala have invaded Ardenweald."
 	L["Yes!"]																	= "Yes!"
 	L["Quest"]																	= "Quest"
+	L["Very well. Let us fight."]												= "Very well. Let us fight."
 	L["I have heard this tale before."]											= "I have heard this tale before."
 	L["I've heard this tale before..."]											= "I've heard this tale before..."
 	L["Are you sure you want to skip the Broken Shore introduction?"]			= "Are you sure you want to skip the Broken Shore introduction?"
