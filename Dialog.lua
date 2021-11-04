@@ -1099,7 +1099,12 @@ local Shadowlands = {
 	},
 	[157130] = { -- Recruitable Animate
 		["g"] = {
-			L["Au'narim claims you owe her anima."],
+			L["Maldraxxus needs your service. Will you fight?"],
+		},
+	},
+	[157168] = { -- Stubborn Animate
+		["g"] = {
+			L["Maldraxxus needs your service. Will you fight?"],
 		},
 	},
 	-- Ardenweald
