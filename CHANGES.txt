@@ -1,6 +1,7 @@
 HelpMePlay | 1.0.6
 	Dialog:
 		- Added more pet tamers.
+		- Added more stable masters.
 		- Nazgrim, if "Dialog" is enabled, will now auto skip The Maw intro.
 		- High Inquisitor Whitemane, if "Dialog" is enabled, will now auto skip The Maw intro.
 	Quests:

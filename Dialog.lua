@@ -955,6 +955,19 @@ local Shadowlands = {
 			L["Aspirant Thetes 1"],
 		},
 	},
+	[173131] = { -- Stratios
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[160598] = { -- Klystere
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Maldraxxus
 	[165052] = { -- Vial Master Lurgy
 		["g"] = {
