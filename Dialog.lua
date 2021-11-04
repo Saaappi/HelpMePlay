@@ -1079,6 +1079,16 @@ local Shadowlands = {
 			L["Au'narim claims you owe her anima."],
 		},
 	},
+	[164507] = { -- Arena Spectator
+		["g"] = {
+			L["Au'narim claims you owe her anima."],
+		},
+	},
+	[164508] = { -- Arena Spectator
+		["g"] = {
+			L["Au'narim claims you owe her anima."],
+		},
+	},
 	-- Ardenweald
 	[171743] = { -- Dapperdew
 		["g"] = {
