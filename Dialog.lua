@@ -1241,6 +1241,39 @@ local Shadowlands = {
 			L["Mask of Bwonsamdi 1"],
 		},
 	},
+	[157949] = { -- Heartwood Grove Holdout
+		["g"] = {
+			L["Evacuate, now!"],
+		},
+	},
+	[158006] = { -- Heartwood Grove Holdout
+		["g"] = {
+			L["Evacuate, now!"],
+		},
+	},
+	[159427] = { -- Elder Finnan
+		["g"] = {
+			L["The Lady of the Falls wanted to make sure you were safe."],
+		},
+	},
+	[159428] = { -- Groonoomcrooek
+		["g"] = {
+			L["The Lady of the Falls wanted to make sure you were safe."],
+		},
+	},
+	[159465] = { -- Elder Gwenna
+		["g"] = {
+			L["The Lady of the Falls wanted to make sure you were safe."],
+		},
+	},
+	[162434] = { -- Littlewing
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Revendreth
 	[167838] = { -- Globknob
 		["g"] = {

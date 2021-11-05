@@ -147,6 +147,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["I will assist you."]														= "I will assist you."
 	L["Let's ride."]															= "Let's ride."
 	L["The forces of Mueh'zala have invaded Ardenweald."]						= "The forces of Mueh'zala have invaded Ardenweald."
+	L["Evacuate, now!"]															= "Evacuate, now!"
 	L["Yes!"]																	= "Yes!"
 	L["Quest"]																	= "Quest"
 	L["Very well. Let us fight."]												= "Very well. Let us fight."
