@@ -310,7 +310,6 @@ local WrathOfTheLichKing = {
 local MistsOfPandaria = {
 	-- Supported Maps
 		-- 424: Pandaria
-		-- 554: Timeless Isle (This is here due to Celestial Tournament.)
 	--
 	-- The Jade Forest
 	[66730] = { -- Hyuna of the Shrines
@@ -431,7 +430,22 @@ local MistsOfPandaria = {
 			L["Let's do battle!"],
 		},
 	},
+	[71930] = { -- Shademaster Kiryn
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
 	[71931] = { -- Taran Zhu
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[71932] = { -- Wise Mari
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[71933] = { -- Blingtron 4000
 		["g"] = {
 			L["Let's do battle!"],
 		},
@@ -569,6 +583,11 @@ local Legion = {
 		},
 		["c"] = {
 			L["A small fee for supplies is required."],
+		},
+	},
+	[97804] = { -- Tiffany Nelson
+		["g"] = {
+			L["Let's do battle!"],
 		},
 	},
 	-- Highmountain
