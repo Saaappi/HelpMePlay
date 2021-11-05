@@ -1305,9 +1305,45 @@ local Shadowlands = {
 			L["<Present Lajos's invitation>"],
 		},
 	},
+	[167717] = { -- Darkhaven Villager
+		["g"] = {
+			L["<Request tithe>"],
+		},
+	},
+	[167744] = { -- Darkhaven Villager
+		["g"] = {
+			L["<Request tithe>"],
+		},
+	},
+	[167746] = { -- Darkhaven Villager
+		["g"] = {
+			L["<Request tithe>"],
+		},
+	},
+	[156291] = { -- Shadowrider Neralva
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	[156234] = { -- Horrormaster Damnik
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[159883] = { -- Chancellor Codrin
 		["g"] = {
 			L["Chancellor Codrin 1"],
+		},
+	},
+	[173324] = { -- Eyegor
+		["g"] = {
+			L["Begin pet battle."],
 		},
 	},
 	[159946] = { -- The Countess
@@ -1318,6 +1354,16 @@ local Shadowlands = {
 	[160941] = { -- The Curator
 		["g"] = {
 			L["The Curator 1"],
+		},
+	},
+	[160163] = { -- The Accuser
+		["g"] = {
+			L["The Accuser 1"],
+		},
+	},
+	[160233] = { -- The Accuser
+		["g"] = {
+			L["The Accuser 1"],
 		},
 	},
 	[161056] = { -- Guard Captain Elizabeta
@@ -1332,20 +1378,23 @@ local Shadowlands = {
 	},
 	[166541] = { -- Cobwobble
 		["g"] = {
-			L["Cobwobble 1"],
-			L["Cobwobble 2"],
+			L["Where does the Taskmaster keep the sinstones?"],
+			L["What are you all doing?"],
+			L["Why are the ones with scribbles interesting?"],
 		},
 	},
 	[166542] = { -- Slobwobble
 		["g"] = {
-			L["Slobwobble 1"],
-			L["Slobwobble 2"],
+			L["Where does the Taskmaster keep the sinstones?"],
+			L["What are you all doing?"],
+			L["Why are the ones with scribbles interesting?"],
 		},
 	},
 	[166543] = { -- Dobwobble
 		["g"] = {
-			L["Dobwobble 1"],
-			L["Dobwobble 2"],
+			L["Where does the Taskmaster keep the sinstones?"],
+			L["What are you all doing?"],
+			L["Why are the ones with scribbles interesting?"],
 		},
 	},
 	[169238] = { -- Courier Araak

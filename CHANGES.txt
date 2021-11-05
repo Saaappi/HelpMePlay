@@ -13,3 +13,5 @@ HelpMePlay | 1.0.6
 		- Fixed the dialogs for the NPCs involved in the "...Even the Most Ridiculous Request!" quest in Maldraxxus.
 		- Fixed the dialogs for the NPCs involved in the "Test Your Mettle" quest in Maldraxxus.
 		- Fixed the dialogs for the NPCs involved in the "Ages-Echoing Wisdom" quest in Ardenweald.
+		- Fixed the dialogs for the NPCs involved in the "Bring Out Your Tithe" quest in Revendreth.
+		- Fixed the dialogs for the NPCs involved in the "Finders-Keepers, Sinners-Weepers" quest in Revendreth.
