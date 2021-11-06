@@ -30,10 +30,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			-- The Box of Many Things
 			local talentRank = 0
 			local talents = C_Garrison.GetTalentTreeInfo(talentTreeId).talents
-			for _, t in ipairs(talents) do
+			--[[for _, t in ipairs(talents) do
 				talentRank = C_Garrison.GetTalentInfo(t.id).talentRank
 				print(C_Garrison.GetTalentInfo(t.id).name .. ": " .. t.id)
-			end
+			end]]
 		end
 	end
 end)
