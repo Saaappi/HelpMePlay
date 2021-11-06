@@ -11,7 +11,6 @@ e:RegisterEvent("GOSSIP_SHOW")
 local Classic = {
 	-- Supported Maps
 		-- 13: Eastern Kingdoms
-		-- 948: The Maelstrom (This is here due to Cataclysm's zone, Deepholm.)
 	--
 	-- Blasted Lands
 	[78423] = { -- Archmage Khadgar
