@@ -22,6 +22,9 @@ ChromieTime.lua
 # Automates the adventure map from BfA and Shadowlands.
 AdventureMap.lua
 
+# Controls for talent NPCs like the Box of Many Things.
+GarrisonTalentNPC.lua
+
 # Automates the purchase of skills from trainers.
 Merchants_Trainers.lua
 
