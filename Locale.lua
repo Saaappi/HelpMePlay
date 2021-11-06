@@ -151,6 +151,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Yes!"]																	= "Yes!"
 	L["Quest"]																	= "Quest"
 	L["Show me my Renown."]														= "Show me my Renown."
+	L["Show me the Sanctum."]													= "Show me the Sanctum."
 	L["Very well. Let us fight."]												= "Very well. Let us fight."
 	L["Maldraxxus needs your service. Will you fight?"]							= "Maldraxxus needs your service. Will you fight?"
 	L["I have heard this tale before."]											= "I have heard this tale before."

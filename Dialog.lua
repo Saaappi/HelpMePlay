@@ -1423,6 +1423,11 @@ local Shadowlands = {
 			L["Show me my Renown."],
 		},
 	},
+	[172605] = { -- Foreman Flatfinger
+		["g"] = {
+			L["Show me the Sanctum."],
+		},
+	},
 	[165419] = { -- Grand Marshal Mudrag
 		["g"] = {
 			L["I'm ready."],
