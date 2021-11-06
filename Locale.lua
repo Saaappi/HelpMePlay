@@ -107,6 +107,7 @@ if (locale == "enGB" or locale == "enUS") then
 	-- Mouseover Target Notes
 	L["Note: Exposed Boggart"]													= "This is a BOGGART!"
 	L["Note: Gatamatos"]														= "CLICK ME!"
+	L["Note: Torghast Lever"]													= "Order: Left -> Right\n|cffFFFFFF1, 2, 1, 3, 1, 2, 1, 4, 1, 2, 1, 3, 1, 2, 1|r"
 	-- Dialog
 	L["Are you enjoying yourself?"]												= "Are you enjoying yourself?"
 	L["Go hunt somewhere else!"]												= "Go hunt somewhere else!"
@@ -248,6 +249,8 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Ve'rayn 4"]																= "I have never met anyone named Ve'nari."
 	L["Ve'nari 1"]																= "What are your ground rules for working together?"
 	L["Ve'nari 2"]																= "Deal. I will tell no one about you in exchange for the Soulkeeper."
+	L["Ve'nari 3"]																= "How do I enter Torghast?"
+	L["Wayfinder 1"]															= "Wayfinder"
 	L["Polemarch Adrestes 1"]													= "<Ask Adrestes what happened in Elysian Hold.>"
 	L["Voitha 1"]																= "I will retrieve the scrolls."
 	L["Nemea 1"]																= "I choose the larion."

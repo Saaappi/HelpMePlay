@@ -1,1 +1,3 @@
 HelpMePlay | 1.0.7
+	Torghast:
+		- Added a note to the Levers for the Lever-Locked Chest to identify a quick order to solve the puzzle.

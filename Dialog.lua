@@ -1495,6 +1495,7 @@ local Shadowlands = {
 		["g"] = {
 			L["Ve'nari 1"],
 			L["Ve'nari 2"],
+			L["Ve'nari 3"],
 		}
 	},
 	-- Korthia
@@ -1504,6 +1505,11 @@ local Shadowlands = {
 		},
 	},
 	-- Torghast
+	[175127] = { -- Wayfinder
+		["g"] = {
+			L["Wayfinder 1"],
+		},
+	},
 	[175118] = { -- Shandris Feathermoon
 		["g"] = {
 			L["Quest"],

@@ -106,6 +106,10 @@ local creatureDb = {
 		["t"] = "note",
 		["n"] = L["Note: Gatamatos"],
 	},
+	[164675] = { -- Lever (Torghast Chest)
+		["t"] = "note",
+		["n"] = L["Note: Torghast Lever"],
+	},
 }
 
 -- Add notes to the tooltip of select creatures
