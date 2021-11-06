@@ -25,7 +25,7 @@ AdventureMap.lua
 # Automates the purchase of skills from trainers.
 Merchants_Trainers.lua
 
-# Adds text to Anima powers in Torghast to help players pick.
+# Automates the selection of Anima Powers in Torghast.
 AnimaPowers.lua
 
 # Automates the garrison mission table.
@@ -37,7 +37,7 @@ GarrisonArchitectTable.lua
 # Automates placing the player into War Mode.
 WarMode.lua
 
-# Automates player choice options like Threads of Fate (and maybe the Gorgrond outpost selection).
+# Automates player choice selections like Story or Threads of Fate modes.
 PlayerChoice.lua
 
 # Automates purchasing quest items from vendors.
