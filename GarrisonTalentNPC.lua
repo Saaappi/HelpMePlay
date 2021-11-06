@@ -1,7 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
-local boxTalents = {
+local boxOfManyThingsTalents = {
 	[1783] = {}, -- Blessing of the Ancients
 	[1784] = {}, -- Freed from Torment
 	[1785] = {}, -- Empowered Perseverence
