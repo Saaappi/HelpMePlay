@@ -201,10 +201,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 					--
 					-- Reset the highest priority back to 10 to
 					-- prevent taint between Anima Powers.
-					SendPlayerChoiceResponse(responseId)
-					HideUIPanel(PlayerChoiceFrame)
-					print("|cff00CCFF" .. addonName .. "|r: |T" .. option.choiceArtID .. ":0|t" .. GetSpellLink(option.spellID))
-					highestPriority = 10
+					if responseId ~= 0 then
+						SendPlayerChoiceResponse(responseId)
+						HideUIPanel(PlayerChoiceFrame)
+						print("|cff00CCFF" .. addonName .. "|r: |T" .. option.choiceArtID .. ":0|t" .. GetSpellLink(option.spellID))
+						highestPriority = 10
+					end
 				end
 			end
 		end
