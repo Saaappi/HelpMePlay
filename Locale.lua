@@ -31,6 +31,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Locale Not Supported"]													= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
 	-- Strings																	
 	L["Abandon Command Description"]											= "Abandons all quests in the zone specified by the player."
+	L["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
 	L["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
 	L["Discord"]																= "Lightsky#0658"
 	L["Red WARNING"]															= "|cffFF0000WARNING:|r "
@@ -38,7 +39,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Do you really want to abandon all quests?"]								= "|cff00FFFF"..addonName.."|r\n".."Do you really want to abandon all quests?"
 	L["Yes"]																	= "Yes"
 	L["No"]																		= "No"
-	--L["Torghast Power is S Tier"]												= "is an |cff00CCFFS Tier|r power for your class!"
+	L["Box Of Many Things Purchase Text"]										= "Purchase the following talent: "
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Options Panel Text
@@ -145,6 +146,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Let's do this!"]															= "Let's do this!"
 	L["Another challenge?"]														= "Another challenge?"
 	L["Yes, I will help."]														= "Yes, I will help."
+	L["I will free you."]														= "I will free you."
 	L["I will assist you."]														= "I will assist you."
 	L["Let's ride."]															= "Let's ride."
 	L["The forces of Mueh'zala have invaded Ardenweald."]						= "The forces of Mueh'zala have invaded Ardenweald."
@@ -294,7 +296,6 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Courier Araak 2"]														= "We are ready. Please tell the Taskmaster the Maw Walker is here."
 	L["Avowed Ritualist 1"]														= "I have a soul for you."
 	L["Partially-Infused Soul Remnant 1"]										= "Free the Soul Remnant."
-	L["Yira'lya 1"]																= "Do not worry, I will free you."
 	L["Project Lead Allen 1"]													= "I will assist you."
 	L["Fatescribe Roh-Tahl 1"]													= "I am ready to choose my fate in the Shadowlands."
 	L["Sparring Aspirant 1"]													= "Will you spar with me?"

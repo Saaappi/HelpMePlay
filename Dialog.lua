@@ -1547,9 +1547,14 @@ local Shadowlands = {
 			L["Yes, I will help."],
 		},
 	},
+	[171901] = { -- Kaletar
+		["g"] = {
+			L["I will free you."],
+		},
+	},
 	[172264] = { -- Yira'lya
 		["g"] = {
-			L["Yira'lya 1"],
+			L["I will free you."],
 		},
 	},
 	[172261] = { -- Chalkyth
