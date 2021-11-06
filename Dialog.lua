@@ -1418,6 +1418,24 @@ local Shadowlands = {
 			L["Treasure Guardian 2"],
 		},
 	},
+	[175772] = { -- Rahel
+		["g"] = {
+			L["Show me my Renown."],
+		},
+	},
+	[165419] = { -- Grand Marshal Mudrag
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[166092] = { -- Rasvan
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- The Maw
 	[165918] = { -- Highlord Darion Mograine
 		["g"] = {
@@ -1466,6 +1484,12 @@ local Shadowlands = {
 	[178006] = { -- Prince Renathal
 		["g"] = {
 			L["Prince Renathal 1"],
+		}
+	},
+	[162804] = { -- Ve'nari
+		["g"] = {
+			L["Ve'nari 1"],
+			L["Ve'nari 2"],
 		}
 	},
 	-- Korthia

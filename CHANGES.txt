@@ -5,6 +5,10 @@ HelpMePlay | 1.0.6
 		- Nazgrim, if "Dialog" is enabled, will now auto skip The Maw intro.
 		- High Inquisitor Whitemane, if "Dialog" is enabled, will now auto skip The Maw intro.
 		- Added the Holdouts during the "The Waning Grove" bonus objective in Ardenweald.
+		- Added more dialogs for various NPCs throughout the Shadowlands campaigns.
+	Merchants:
+		- Added support for extended costs (currencies like Stygia). Items with an extended cost are checked before purchase so valuable currencies aren't spent needlessly.
+		- Added the Cypher of Relocation from Ve'nari.
 	Quests:
 		- Gatamatos will now include a note during the "Tactical Formation" quest in Bastion, similar to the world quest.
 	Fixes:
