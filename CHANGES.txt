@@ -1,4 +1,8 @@
 HelpMePlay | 1.0.7
+	Dialog:
+		- Added more NPCs involved in various Shadowlands campaigns.
 	Torghast:
 		- Anima Powers across all tiers are now auto selected for the Hunter class.
 		- Added a note to the Levers for the Lever-Locked Chest to identify a quick order to solve the puzzle.
+	Merchants:
+		- Added the Anima Supricifer from Ve'nari.

@@ -250,6 +250,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Ve'nari 1"]																= "What are your ground rules for working together?"
 	L["Ve'nari 2"]																= "Deal. I will tell no one about you in exchange for the Soulkeeper."
 	L["Ve'nari 3"]																= "How do I enter Torghast?"
+	L["Runecarver 1"]															= "Who are you?"
 	L["Wayfinder 1"]															= "Wayfinder"
 	L["Polemarch Adrestes 1"]													= "<Ask Adrestes what happened in Elysian Hold.>"
 	L["Voitha 1"]																= "I will retrieve the scrolls."

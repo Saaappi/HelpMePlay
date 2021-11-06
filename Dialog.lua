@@ -1493,6 +1493,7 @@ local Shadowlands = {
 	},
 	[162804] = { -- Ve'nari
 		["g"] = {
+			L["Quest"],
 			L["Ve'nari 1"],
 			L["Ve'nari 2"],
 			L["Ve'nari 3"],
@@ -1505,6 +1506,11 @@ local Shadowlands = {
 		},
 	},
 	-- Torghast
+	[164937] = { -- Runecarver
+		["g"] = {
+			L["Runecarver 1"],
+		},
+	},
 	[175127] = { -- Wayfinder
 		["g"] = {
 			L["Wayfinder 1"],
