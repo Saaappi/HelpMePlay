@@ -1509,6 +1509,7 @@ local Shadowlands = {
 	[164937] = { -- Runecarver
 		["g"] = {
 			L["Runecarver 1"],
+			L["Runecarver 2"],
 		},
 	},
 	[175127] = { -- Wayfinder
