@@ -1547,6 +1547,16 @@ local Shadowlands = {
 			L["Yes, I will help."],
 		},
 	},
+	[166151] = { -- Moriaz the Red
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
+	[171920] = { -- Ayeleth
+		["g"] = {
+			L["Yes, I will help."],
+		},
+	},
 	[171901] = { -- Kaletar
 		["g"] = {
 			L["I will free you."],

@@ -3,6 +3,7 @@ HelpMePlay | 1.0.7
 		- Added support for suggesting which talents to purchase from the Box of Many Things in Torghast.
 	Dialog:
 		- Added more NPCs involved in various Shadowlands campaigns.
+		- Added more NPCs from Torghast.
 	Torghast:
 		- Anima Powers across all tiers are now auto selected for the Hunter class.
 		- Added a note to the Levers for the Lever-Locked Chest to identify a quick order to solve the puzzle.
