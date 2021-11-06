@@ -147,6 +147,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					for i = 1, choiceInfo.numOptions do
 						option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
 						if choiceInfo.numOptions == 1 then
+							responseId = option.buttons[1].id
 							SendPlayerChoiceResponse(option.buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end
