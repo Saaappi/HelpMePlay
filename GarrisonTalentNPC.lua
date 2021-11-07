@@ -70,7 +70,7 @@ local function GetTalentTreeInfo(talentTreeId)
 					-- more Tower Knowledge the player
 					-- will need for the next talent,
 					-- then break from the loop.
-					print(L["Colored Addon Name"] .. ": " .. L["Box Of Many Things Not Enough Text"] .. "|T" .. talentInfo.icon .. ":0|t" .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-towerKnowledge)
+					print(L["Colored Addon Name"] .. ": " .. L["Box Of Many Things Not Enough Text"] .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-towerKnowledge .. " " .. "|T4037125:0|t (" .. talentInfo.name .. ")")
 					break
 				end
 			end
