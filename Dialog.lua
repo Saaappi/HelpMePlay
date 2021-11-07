@@ -856,6 +856,14 @@ local Shadowlands = {
 		},
 	},
 	-- Bastion
+	[175444] = { -- Beastkeeper Ismene
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[156327] = { -- Voitha
 		["g"] = {
 			L["Voitha 1"],
@@ -1368,6 +1376,11 @@ local Shadowlands = {
 	[161056] = { -- Guard Captain Elizabeta
 		["g"] = {
 			L["Guard Captain Elizabeta 1"],
+		},
+	},
+	[170291] = { -- Alchemist Leticia
+		["g"] = {
+			L["I am ready."],
 		},
 	},
 	[165662] = { -- The Countess

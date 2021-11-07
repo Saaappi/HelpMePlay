@@ -2,6 +2,7 @@ HelpMePlay | 1.0.7
 	Features:
 		- Added support for suggesting which talents to purchase from the Box of Many Things in Torghast.
 	Dialog:
+		- Added more stable masters.
 		- Added more NPCs involved in various Shadowlands campaigns.
 		- Added more NPCs from Torghast.
 	Torghast:

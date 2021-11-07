@@ -62,13 +62,15 @@ local function GetTalentTreeInfo(talentTreeId)
 					if talentInfo.perkSpellID ~= 0 then
 						print(L["Colored Addon Name"] .. ": " .. L["Box Of Many Things Purchase Text"] .. "\n" .. GetSpellLink(talentInfo.perkSpellID))
 					else
-						print(L["Colored Addon Name"] .. ": " .. L["Box Of Many Things Purchase Text"] .. "\n" .. talentInfo.name)
+						print(L["Colored Addon Name"] .. ": " .. L["Box Of Many Things Purchase Text"] .. talentInfo.name)
 					end
 					break
 				else
-					-- The player no longer has enough
-					-- Tower Knowledge, so break from
-					-- the loop.
+					-- Print to the chat frame how much
+					-- more Tower Knowledge the player
+					-- will need for the next talent,
+					-- then break from the loop.
+					print(L["Colored Addon Name"] .. ": " .. L["Box Of Many Things Not Enough Text"] .. "|T" .. talentInfo.icon .. ":0|t" .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-towerKnowledge)
 					break
 				end
 			end

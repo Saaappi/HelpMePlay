@@ -40,6 +40,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Yes"]																	= "Yes"
 	L["No"]																		= "No"
 	L["Box Of Many Things Purchase Text"]										= "Purchase the following talent: "
+	L["Box Of Many Things Not Enough Text"]										= "You need more |cff0070ddTower Knowledge|r! Amount Needed: "
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Options Panel Text
