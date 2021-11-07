@@ -1226,6 +1226,11 @@ local Shadowlands = {
 			L["Lady Moonberry 1"],
 		},
 	},
+	[170705] = { -- Ara'lon
+		["g"] = {
+			L["Ara'lon 1"],
+		},
+	},
 	[164023] = { -- Vesperbloom
 		["g"] = {
 			L["Vesperbloom 1"],

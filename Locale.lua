@@ -280,6 +280,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Lady Moonberry 1"]														= "Lead on."
 	L["Lady Moonberry 2"]														= "Keep us hidden while we search for our friends."
 	L["Lady Moonberry 3"]														= "Do you know anything about curses?"
+	L["Ara'lon 1"]																= "I am looking for Kivarr."
 	L["Vesperbloom 1"]															= "<Explain why Lady Moonberry sent you to get a Secret Never Spoken.>"
 	L["Vesperbloom 2"]															= "I was able to recover your book."
 	L["Dapperdew 1"]															= "If you insist. The show must go on!"
