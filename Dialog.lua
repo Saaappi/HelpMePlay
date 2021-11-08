@@ -759,6 +759,17 @@ local BattleForAzeroth = {
 			L["Private James 1"],
 		},
 	},
+	-- Nazmir
+	[122688] = { -- Bwonsamdi
+		["g"] = {
+			L["Bwonsamdi 2"],
+		},
+	},
+	[166110] = { -- Spirit of Vol'jin
+		["g"] = {
+			L["Spirit of Vol'jin 1"],
+		},
+	},
 	-- Boralus
 	[122370] = { -- Cyrus Crestfall
 		["g"] = {
@@ -1133,6 +1144,11 @@ local Shadowlands = {
 			L["Maldraxxus needs your service. Will you fight?"],
 		},
 	},
+	[173257] = { -- Caregiver Maximillian
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	-- Ardenweald
 	[171743] = { -- Dapperdew
 		["g"] = {
@@ -1204,6 +1220,7 @@ local Shadowlands = {
 	[158544] = { -- Lord Herne
 		["g"] = {
 			L["Lord Herne 2"],
+			L["Lord Herne 3"],
 		},
 	},
 	[165550] = { -- Attendant Shimmerwing
@@ -1246,6 +1263,24 @@ local Shadowlands = {
 	[156634] = { -- Winter Queen
 		["g"] = {
 			L["Winter Queen 1"],
+			L["Winter Queen 2"],
+		},
+	},
+	[166887] = { -- Winter Queen
+		["g"] = {
+			L["Winter Queen 3"],
+			L["Winter Queen 4"],
+			L["I am ready to go."],
+		},
+	},
+	[171992] = { -- Lady Moonberry
+		["g"] = {
+			L["Lady Moonberry 4"],
+		},
+	},
+	[172091] = { -- Lord Herne
+		["g"] = {
+			L["I am ready."],
 		},
 	},
 	[172886] = { -- Mask of Bwonsamdi
@@ -1253,14 +1288,32 @@ local Shadowlands = {
 			L["Mask of Bwonsamdi 1"],
 		},
 	},
+	[173372] = { -- Glitterdust
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	[157949] = { -- Heartwood Grove Holdout
 		["g"] = {
 			L["Evacuate, now!"],
 		},
 	},
+	[161354] = { -- Huln Highmountain
+		["g"] = {
+			L["I am ready."],
+		},
+	},
 	[158006] = { -- Heartwood Grove Holdout
 		["g"] = {
 			L["Evacuate, now!"],
+		},
+	},
+	[170924] = { -- Nortera
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 	[159427] = { -- Elder Finnan
@@ -1276,6 +1329,11 @@ local Shadowlands = {
 	[159465] = { -- Elder Gwenna
 		["g"] = {
 			L["The Lady of the Falls wanted to make sure you were safe."],
+		},
+	},
+	[160262] = { -- Ysera
+		["g"] = {
+			L["Ysera 1"],
 		},
 	},
 	[162434] = { -- Littlewing
@@ -1451,6 +1509,19 @@ local Shadowlands = {
 			L["I'm ready."],
 		},
 	},
+	[173331] = { -- Addius the Tormentor
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[163163] = { -- Ogburn
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[166092] = { -- Rasvan
 		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
@@ -1515,6 +1586,21 @@ local Shadowlands = {
 			L["Ve'nari 1"],
 			L["Ve'nari 2"],
 			L["Ve'nari 3"],
+		}
+	},
+	[166280] = { -- Ashamane
+		["g"] = {
+			L["Ashamane 1"],
+		}
+	},
+	[166315] = { -- Ashamane
+		["g"] = {
+			L["Ashamane 2"],
+		}
+	},
+	[166461] = { -- Spirit of Vol'jin
+		["g"] = {
+			L["Spirit of Vol'jin 2"],
 		}
 	},
 	-- Korthia
