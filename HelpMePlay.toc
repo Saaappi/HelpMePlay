@@ -52,6 +52,9 @@ Emotes.lua
 # Automates interacting with speech for specific NPCs.
 Speech.lua
 
+# Suggests talents to select when the player reaches talent level milestones.
+Talents.lua
+
 # Automates speaking with specific NPCs.
 Dialog.lua
 
