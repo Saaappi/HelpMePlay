@@ -33,6 +33,22 @@ local Classic = {
 			L["Marshal Dughan 1"],
 		},
 	},
+	[6749] = { -- Erma
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	[64330] = { -- Julia Stevens
+		["g"] = {
+			L["Think you can take me in a pet battle?"],
+		},
+		["c"] = {
+			L["Let's rumble!"],
+		},
+	},
 	-- Dun Morogh
 	[46293] = { -- Torben Zapblast
 		["g"] = {
@@ -88,6 +104,51 @@ local Classic = {
 	[119390] = { -- Marcus "Bagman" Brown
 		["g"] = {
 			L["Marcus \"Bagman\" Brown 1"],
+		},
+	},
+	[42383] = { -- Transient
+		["g"] = {
+			L["Maybe a couple copper will loosen your tongue."],
+		},
+		["c"] = {
+			L["Are you sure you want to give this hobo money?"],
+		},
+	},
+	[42384] = { -- Homeless Stormwind Citizen
+		["g"] = {
+			L["Maybe a couple copper will loosen your tongue."],
+		},
+		["c"] = {
+			L["Are you sure you want to give this hobo money?"],
+		},
+	},
+	[42386] = { -- Homeless Stormwind Citizen
+		["g"] = {
+			L["Maybe a couple copper will loosen your tongue."],
+		},
+		["c"] = {
+			L["Are you sure you want to give this hobo money?"],
+		},
+	},
+	[42391] = { -- West Plains Drifter
+		["g"] = {
+			L["Maybe a couple copper will loosen your tongue."],
+		},
+		["c"] = {
+			L["Are you sure you want to give this hobo money?"],
+		},
+	},
+	[523] = { -- Thor
+		["g"] = {
+			L["I need a ride."],
+		},
+	},
+	[10045] = { -- Kirk Maxwell
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 	-- Hillsbrad Foothills
@@ -1160,6 +1221,14 @@ local Shadowlands = {
 			L["Cortinarius 1"],
 		},
 	},
+	[170571] = { -- Timaeron
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[160929] = { -- Guardian Molan
 		["g"] = {
 			L["The forces of Mueh'zala have invaded Ardenweald."],
@@ -1282,6 +1351,11 @@ local Shadowlands = {
 	[172091] = { -- Lord Herne
 		["g"] = {
 			L["I am ready."],
+		},
+	},
+	[173377] = { -- Faryl
+		["g"] = {
+			L["Begin pet battle."],
 		},
 	},
 	[172886] = { -- Mask of Bwonsamdi

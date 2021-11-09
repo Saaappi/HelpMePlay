@@ -5,6 +5,7 @@ HelpMePlay | 1.0.7
 		- Added more stable masters.
 		- Added more NPCs involved in various Shadowlands campaigns.
 		- Added more NPCs from Torghast.
+		- Added various NPCs from the world (outside Shadowlands.)
 	Torghast:
 		- Anima Powers across all tiers are now auto selected for the Hunter class.
 		- Added a note to the Levers for the Lever-Locked Chest to identify a quick order to solve the puzzle.
