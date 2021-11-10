@@ -178,31 +178,31 @@ local classTalents = {
 	},
 	[7] = { -- Shaman
 		[262] = { -- Elemental
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 170374,	-- Earthen Rage
+			[25] = 273221,	-- Aftershock
+			[30] = 974,		-- Earth Shield
+			[35] = 16166,	-- Master of the Elements
+			[40] = 30884,	-- Nature's Guardian
+			[45] = 117013,	-- Primal Elementalist
+			[50] = 191634,	-- Stormkeeper
 		},
 		[263] = { -- Enhancement
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 334046,	-- Lashing Flames
+			[25] = 344357,	-- Stormflurry
+			[30] = 260878,	-- Spirit Wolf
+			[35] = 334195,	-- Hailstorm
+			[40] = 30884,	-- Nature's Guardian
+			[45] = 197214,	-- Sundering
+			[50] = 114051,	-- Ascendance
 		},
 		[264] = { -- Restoration
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 200072,	-- Torrent
+			[25] = 108283,	-- Echo of the Elements
+			[30] = 260878,	-- Spirit Wolf
+			[35] = 198838,	-- Earthen Wall Totem
+			[40] = 30884,	-- Nature's Guardian
+			[45] = 280614,	-- Flash Flood
+			[50] = 114052,	-- Ascendance
 		},
 	},
 	[8] = { -- Mage
