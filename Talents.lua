@@ -362,19 +362,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 			-- by 5, so let's see if they have unspent
 			-- talents.
 			if GetNumUnspentTalents() > 0 then
-				-- First, congratulate the player for
-				-- reaching a talent level.
-				print(L["Colored Addon Name"] .. " " .. string.format(L["Level Congrats Text"], newLevel))
-				
 				-- The player has an unspent talent,
 				-- so let's get their class and spec.
 				local _, _, classId = UnitClass("player")
 				local specIndex = GetSpecialization()
 				local specId = GetSpecializationInfo(specIndex)
 				
-				-- Let's print out the suggested talent
-				-- for the player's current class/spec.
-				print(GetSpellLink(classTalents[classId][specId][newLevel]))
+				-- Congratulate the player for reaching a talent
+				-- level, then print the suggested talent.
+				print(L["Colored Addon Name"] .. " " .. string.format(L["Level Congrats Text"], newLevel, GetSpellLink(classTalents[classId][specId][newLevel])))
 			end
 		end
 	end
