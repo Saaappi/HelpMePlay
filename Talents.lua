@@ -120,31 +120,31 @@ local classTalents = {
 	},
 	[5] = { -- Priest
 		[256] = { -- Discipline
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 214621,	-- Schism
+			[25] = 121536,	-- Angelic Feather
+			[30] = 129250,	-- Power Word: Solace
+			[35] = 204263,	-- Shining Force
+			[40] = 280391,	-- Sins of the Many
+			[45] = 204197,	-- Purge the Wicked
+			[50] = 238063,	-- Lenience
 		},
 		[257] = { -- Holy
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 200128,	-- Trail of Light
+			[25] = 121536,	-- Angelic Feather
+			[30] = 200209,	-- Guardian Angel
+			[35] = 200199,	-- Censure
+			[40] = 109186,	-- Surge of Light
+			[45] = 110744,	-- Divine Star
+			[50] = 200183,	-- Apotheosis
 		},
 		[258] = { -- Shadow
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 321291,	-- Death and Madness
+			[25] = 64129,	-- Body and Soul
+			[30] = 341385,	-- Searing Nightmare
+			[35] = 64044,	-- Psychic Horror
+			[40] = 205385,	-- Shadow Crash
+			[45] = 263165,	-- Void Torrent
+			[50] = 341240,	-- Ancient Madness
 		},
 	},
 	[6] = { -- Death Knight
