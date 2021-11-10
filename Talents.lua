@@ -332,22 +332,22 @@ local classTalents = {
 	},
 	[12] = { -- Demon Hunter
 		[577] = { -- Havoc
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 206478,	-- Demonic Appetite
+			[25] = 258876,	-- Insatiable Hunger
+			[30] = 347461,	-- Unbound Chaos
+			[35] = 204909,	-- Soul Rending
+			[40] = 206416,	-- First Blood
+			[45] = 203556,	-- Master of the Glaive
+			[50] = 213410,	-- Demonic
 		},
 		[581] = { -- Vengeance
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 207550,	-- Abyssal Strike
+			[25] = 227174,	-- Fallout
+			[30] = 247454,	-- Spirit Bomb
+			[35] = 263642,	-- Fracture
+			[40] = 202138,	-- Sigil of Chains
+			[45] = 321453,	-- Demonic
+			[50] = 209258,	-- Last Resort
 		},
 	},
 }
