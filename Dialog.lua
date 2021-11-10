@@ -27,6 +27,15 @@ local Classic = {
 			L["Zidormi 5"],
 		},
 	},
+	-- Loch Modan
+	[9989] = { -- Lina Hearthstove
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Elwynn Forest
 	[240] = { -- Marshal Dughan
 		["g"] = {
