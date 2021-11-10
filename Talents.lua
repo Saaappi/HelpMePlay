@@ -62,31 +62,31 @@ local classTalents = {
 	},
 	[3] = { -- Hunter
 		[253] = { -- Beast Mastery
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 273887,	-- Killer Instinct
+			[25] = 193532,	-- Scent of Blood
+			[30] = 199921,	-- Trailblazer
+			[35] = 131894,	-- A Murder of Crows
+			[40] = 109215,	-- Posthaste
+			[45] = 199530,	-- Stomp
+			[50] = 191384,	-- Aspect of the Beast
 		},
 		[254] = { -- Marksmanship
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 260309,	-- Master Marksman
+			[25] = 120360,	-- Barrage
+			[30] = 199921,	-- Trailblazer
+			[35] = 342049,	-- Chimaera Shot
+			[40] = 109215,	-- Posthaste
+			[45] = 260402,	-- Double Tap
+			[50] = 260243,	-- Volley
 		},
 		[255] = { -- Survival
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 265895,	-- Terms of Engagement
+			[25] = 264332,	-- Guerrilla Tactics
+			[30] = 199921,	-- Trailblazer
+			[35] = 260248,	-- Bloodseeker
+			[40] = 109215,	-- Posthaste
+			[45] = 269751,	-- Flanking Strike
+			[50] = 271014,	-- Wildfire Infusion
 		},
 	},
 	[4] = { -- Rogue
