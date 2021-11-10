@@ -356,6 +356,7 @@ e:RegisterEvent("PLAYER_LEVEL_CHANGED")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LEVEL_CHANGED" then
+		if HelpMePlayOptionsDB.Talents == false then return end
 		local _, newLevel = ...
 		if newLevel % 5 == 0 then
 			-- The player's level is evenly divisible

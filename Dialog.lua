@@ -89,6 +89,15 @@ local Classic = {
 			L["Door Control Console 1"],
 		},
 	},
+	-- Redridge Mountains
+	[9982] = { -- Penny
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Stratholme
 	[155145] = { -- Plagued Critters
 		["g"] = {

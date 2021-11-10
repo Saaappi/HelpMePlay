@@ -152,6 +152,13 @@
 					</Anchors>
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPTalentsText" inherits="GameFontNormal" text="Talents">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="385" y="-142" />
+					</Anchors>
+					<Color r="1" g="1" b="1" />
+				</FontString>
 				<FontString name="HMPTrainersV2Text" inherits="GameFontNormal" text="Trainers">
 					<Size x="80" y="20" />
 					<Anchors>
@@ -238,6 +245,11 @@
 			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-99" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPTalentsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="371" y="-137" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">

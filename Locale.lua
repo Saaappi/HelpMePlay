@@ -62,6 +62,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Current Expansion"]														= "Current Expansion"
 	L["Torghast Powers"]														= "Torghast Powers"
 	L["Notes"]																	= "Notes"
+	L["Talents"]																= "Talents"
 	-- Options Panel Descriptions
 	L["Adventure Maps Check Button"]											= "Automates the Hero's Call Board and the selection of zones and footholds\nfor the Battle for Azeroth and Shadowlands adventure maps.\n\n|cffFFFFFFHero's Call Board|r: Tanaan Jungle\n\n|cffFFFFFFAlliance|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Tiragarde Sound, Stormsong Valley, Drustvar\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Zuldazar, Nazmir, Vol'dun\n|cffFFFFFFHorde|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Zuldazar, Nazmir, Vol'dun\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Stormsong Valley, Tiragarde Sound, Drustvar\n\n|cffFFFFFFShadowlands|r: Bastion, Maldraxxus, Ardenweald, Revendreth"
 	L["Dialog Check Button"]													= "Automates the selection of dialog options when speaking with NPCs.\nThis does |cffFFFFFFNOT|r apply to all dialogs.\nUse the |cffFFFFFF/dialog|r command to add your own automation."
@@ -78,6 +79,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Chromie Time EditBox"]													= "Enter one of the numeric values to automate the\nexpansion to select for Chromie Time.\n\n|cffFFFFFF0|r: Battle for Azeroth (Current Timeline)\n|cffFFFFFF5|r: The Cataclysm (Classic)\n|cffFFFFFF6|r: The Burning Crusade\n|cffFFFFFF7|r: Wrath of the Lich King\n|cffFFFFFF8|r: Mists of Pandaria\n|cffFFFFFF9|r: Warlords of Draenor\n|cffFFFFFF10|r: Legion"
 	L["Torghast Powers Check Button"]											= "Automates the selection of Torghast Powers. The powers are based\non a priority list.\nThe chosen power is recorded to the chat window."
 	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
+	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels."
 	-- Speech Monsters
 	L["Al'dalil"]																= "Al'dalil"
 	L["Playful Trickster"]														= "Playful Trickster"
