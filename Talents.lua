@@ -236,31 +236,31 @@ local classTalents = {
 	},
 	[9] = { -- Warlock
 		[265] = { -- Affliction
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 108558,	-- Nightfall
+			[25] = 196103,	-- Absolute Corruption
+			[30] = 111400,	-- Burning Rush
+			[35] = 205179,	-- Phantom Singularity
+			[40] = 6789,	-- Mortal Coil
+			[45] = 48181,	-- Haunt
+			[50] = 215941,	-- Soul Conduit
 		},
 		[266] = { -- Demonology
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 267211,	-- Bilescourge Bombers
+			[25] = 205145,	-- Demonic Calling
+			[30] = 111400,	-- Burning Rush
+			[35] = 264057,	-- Soul Strike
+			[40] = 6789,	-- Mortal Coil
+			[45] = 267216,	-- Inner Demons
+			[50] = 267215,	-- Demonic Consumption
 		},
 		[267] = { -- Destruction
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 6353,	-- Soul Fire
+			[25] = 17877,	-- Shadowburn
+			[30] = 111400,	-- Burning Rush
+			[35] = 196408,	-- Fire and Brimstone
+			[40] = 6789,	-- Mortal Coil
+			[45] = 266086,	-- Rain of Chaos
+			[50] = 196447,	-- Channel Demonfire
 		},
 	},
 	[10] = { -- Monk
