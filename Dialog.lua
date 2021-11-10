@@ -36,6 +36,14 @@ local Classic = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[43979] = { -- Gravin Steelbeard
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Elwynn Forest
 	[240] = { -- Marshal Dughan
 		["g"] = {
