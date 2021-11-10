@@ -149,31 +149,31 @@ local classTalents = {
 	},
 	[6] = { -- Death Knight
 		[250] = { -- Blood
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 221536,	-- Heartbreaker
+			[25] = 273946,	-- Hemostasis
+			[30] = 317610,	-- Relish in Blood
+			[35] = 206967,	-- Will of the Necropolis
+			[40] = 212552,	-- Wraith Walk
+			[45] = 195679,	-- Bloodworms
+			[50] = 114556,	-- Purgatory
 		},
 		[251] = { -- Frost
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 281208,	-- Cold Heart
+			[25] = 207104,	-- Runic Attenuation
+			[30] = 108194,	-- Asphyxiate
+			[35] = 207142,	-- Avalanche
+			[40] = 212552,	-- Wraith Walk
+			[45] = 194912,	-- Gathering Storm
+			[50] = 281238,	-- Obliteration
 		},
 		[252] = { -- Unholy
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 194916,	-- All Will Serve
+			[25] = 115989,	-- Unholy Blight
+			[30] = 108194,	-- Asphyxiate
+			[35] = 343294,	-- Soul Reaper
+			[40] = 212552,	-- Wraith Walk
+			[45] = 319230,	-- Unholy Pact
+			[50] = 207289,	-- Unholy Assault
 		},
 	},
 	[7] = { -- Shaman
