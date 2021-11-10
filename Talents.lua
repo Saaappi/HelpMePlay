@@ -371,7 +371,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				
 				-- Congratulate the player for reaching a talent
 				-- level, then print the suggested talent.
-				print(L["Colored Addon Name"] .. " " .. string.format(L["Level Congrats Text"], newLevel, GetSpellLink(classTalents[classId][specId][newLevel])))
+				print(L["Colored Addon Name"] .. ": " .. string.format(L["Level Congrats Text"], newLevel, GetSpellLink(classTalents[classId][specId][newLevel])))
 			end
 		end
 	end
