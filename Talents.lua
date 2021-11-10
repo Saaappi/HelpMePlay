@@ -91,31 +91,31 @@ local classTalents = {
 	},
 	[4] = { -- Rogue
 		[259] = { -- Assassination
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 196864,	-- Master Poisoner
+			[25] = 108208,	-- Subterfuge
+			[30] = 137619,	-- Marked for Death
+			[35] = 280716,	-- Leeching Poison
+			[40] = 154904,	-- Internal Bleeding
+			[45] = 193539,	-- Alacrity
+			[50] = 255544,	-- Poison Bomb
 		},
 		[260] = { -- Outlaw
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 196938,	-- Quick Draw
+			[25] = 196922,	-- Hit and Run
+			[30] = 137619,	-- Marked for Death
+			[35] = 193546,	-- Iron Stomach
+			[40] = 131511,	-- Prey on the Weak
+			[45] = 193539,	-- Alacrity
+			[50] = 271877,	-- Blade Rush
 		},
 		[261] = { -- Subtlety
-			[15] = 0,
-			[25] = 0,
-			[30] = 0,
-			[35] = 0,
-			[40] = 0,
-			[45] = 0,
-			[50] = 0,
+			[15] = 193537,	-- Weaponmaster
+			[25] = 108208,	-- Subterfuge
+			[30] = 137619,	-- Marked for Death
+			[35] = 200759,	-- Soothing Darkness
+			[40] = 277953,	-- Night Terrors
+			[45] = 238104,	-- Enveloping Shadows
+			[50] = 280719,	-- Secret Technique
 		},
 	},
 	[5] = { -- Priest
