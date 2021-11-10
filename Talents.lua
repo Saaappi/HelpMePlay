@@ -371,6 +371,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local _, _, classId = UnitClass("player")
 				local specIndex = GetSpecialization()
 				local specId = GetSpecializationInfo(specIndex)
+				
+				-- Let's print out the suggested talent
+				-- for the player's current class/spec.
+				print(GetSpellLink(classTalents[classId][specId][newLevel]))
 			end
 		end
 	end
