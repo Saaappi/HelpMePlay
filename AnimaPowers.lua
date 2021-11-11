@@ -198,15 +198,15 @@ local animaPowers = {
 			[332409] = 3, -- Winged Medallion
 			[313841] = 3, -- Highlord's Lesson
 			-- C Tier Powers
-			[332407] = 3, -- Defiled Prayer Beads (better for Night Fae)
-			[334730] = 3, -- Pendrake's Locket (better in a group)
-			[332808] = 3, -- Pendrake's Shattered Aegis (better in a group)
-			[332947] = 3, -- Pendrake's Brooch (better in a group)
-			[332541] = 3, -- Radiant Essence
-			[334992] = 3, -- Thread of Beads
-			[313840] = 3, -- Highlord's Gift
-			[313843] = 3, -- Highlord's Legacy
-			[313844] = 3, -- Highlord's Mythos
+			[332407] = 4, -- Defiled Prayer Beads (better for Night Fae)
+			[334730] = 4, -- Pendrake's Locket (better in a group)
+			[332808] = 4, -- Pendrake's Shattered Aegis (better in a group)
+			[332947] = 4, -- Pendrake's Brooch (better in a group)
+			[332541] = 4, -- Radiant Essence
+			[334992] = 4, -- Thread of Beads
+			[313840] = 4, -- Highlord's Gift
+			[313843] = 4, -- Highlord's Legacy
+			[313844] = 4, -- Highlord's Mythos
 		},
 		[66] = { -- Protection
 		
