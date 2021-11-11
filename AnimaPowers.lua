@@ -262,6 +262,19 @@ local animaPowers = {
 			[313844] = 4, -- Highlord's Mythos
 		},
 		[67] = { -- Retribution
+			-- S Tier Powers
+			[314262] = 1, -- Belt of the Mawsworn Avenger (Kyrian)
+			[314260] = 1, -- Ember of the Carillon (Kyrian)
+			[314264] = 1, -- Big Clapper (Kyrian)
+			[336489] = 1, -- Hallowed Candle (Venthyr)
+			[336485] = 1, -- Undead Bone Ash (Venthyr)
+			[336549] = 1, -- Hallowed Silverglass (Venthyr)
+			[336615] = 1, -- Darkened Ember (Necrolord)
+			[336612] = 1, -- Worn Leather Strap (Necrolord)
+			[336625] = 1, -- Tome of the Vanquished (Necrolord)
+			[336493] = 1, -- Pristine Fallen Leaf (Night Fae)
+			[336492] = 1, -- Dried Fire Flower (Night Fae)
+			[336643] = 1, -- Calibrated Sextant (Night Fae)
 			-- A Tier Powers
 			[335441] = 2, -- Golden Plume
 			[332806] = 2, -- Badge of the Mad Paragon
