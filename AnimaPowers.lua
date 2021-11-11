@@ -155,6 +155,66 @@ local animaPowers = {
 			[322023] = 5, -- Champion's Decree
 		},
 	},
+	[2] = { -- Paladin
+		[65] = { -- Holy
+			-- S Tier Powers
+			[314262] = 1, -- Belt of the Mawsworn Avenger (Kyrian)
+			[314260] = 1, -- Ember of the Carillon (Kyrian)
+			[314264] = 1, -- Big Clapper (Kyrian)
+			[336489] = 1, -- Hallowed Candle (Venthyr)
+			[336485] = 1, -- Undead Bone Ash (Venthyr)
+			[336549] = 1, -- Hallowed Silverglass (Venthyr)
+			[336615] = 1, -- Darkened Ember (Necrolord)
+			[336612] = 1, -- Worn Leather Strap (Necrolord)
+			[336625] = 1, -- Tome of the Vanquished (Necrolord)
+			[336493] = 1, -- Pristine Fallen Leaf (Night Fae)
+			[336492] = 1, -- Dried Fire Flower (Night Fae)
+			[336643] = 1, -- Calibrated Sextant (Night Fae)
+			-- A Tier Powers
+			[332540] = 2, -- Ancient Writ of Order
+			[332806] = 2, -- Badge of the Mad Paragon
+			[332799] = 2, -- Blood Beacon 
+			[335054] = 2, -- Faintly Glowing Ember
+			[332803] = 2, -- Gavel of True Judgment
+			[335441] = 2, -- Golden Plume
+			[332800] = 2, -- Pendrake's Visor
+			[332545] = 2, -- Ring of Unburdening
+			[332398] = 2, -- Shattered Gauntlet
+			[335095] = 2, -- Shard of Milkglass
+			[335088] = 2, -- Small Smooth Spike
+			[332534] = 2, -- Soulforged Censer
+			[305004] = 2, -- Words of Incomprehensible Glory
+			[313839] = 2, -- Highlord's Cypher
+			[313845] = 2, -- Highlord's Ultimatum
+			-- B Tier Powers
+			[332807] = 3, -- Coldheart Plume
+			[332939] = 3, -- Mark of Conk-quest
+			[333121] = 3, -- Of Dusk and Dawn
+			[332842] = 3, -- Soulsteel Hasp
+			[335424] = 3, -- Soul-Touched Spurs
+			[332539] = 3, -- Soul-Touched Reins
+			[332592] = 3, -- Theory of Justice
+			[332401] = 3, -- Vestige of Hope
+			[332409] = 3, -- Winged Medallion
+			[313841] = 3, -- Highlord's Lesson
+			-- C Tier Powers
+			[332407] = 3, -- Defiled Prayer Beads (better for Night Fae)
+			[334730] = 3, -- Pendrake's Locket (better in a group)
+			[332808] = 3, -- Pendrake's Shattered Aegis (better in a group)
+			[332947] = 3, -- Pendrake's Brooch (better in a group)
+			[332541] = 3, -- Radiant Essence
+			[334992] = 3, -- Thread of Beads
+			[313840] = 3, -- Highlord's Gift
+			[313843] = 3, -- Highlord's Legacy
+			[313844] = 3, -- Highlord's Mythos
+		},
+		[66] = { -- Protection
+		
+		},
+		[67] = { -- Retribution
+		
+		},
+	},
 	[3] = { -- Hunter
 		[253] = { -- Beast Mastery
 			-- S Tier Powers
