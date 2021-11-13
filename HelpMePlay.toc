@@ -9,6 +9,9 @@
 # Addon localized strings.
 Locale.lua
 
+# Controls the libraries that HelpMePlay embeds into its code.
+Lib\lib.xml
+
 # The frame code and its behaviors.
 Frame.xml
 Frame.lua
