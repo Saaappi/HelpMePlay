@@ -2,6 +2,8 @@ HelpMePlay | 1.0.7
 	Features:
 		- Added support for suggesting which talents to purchase from the Box of Many Things in Torghast.
 		- Added support for suggesting talents (while leveling) for every specialization.
+	Changes:
+		- Active (and complete) and available quests should be prioritized over selecting dialogs.
 	Dialog:
 		- Added more stable masters.
 		- Added more NPCs involved in various Shadowlands campaigns.
