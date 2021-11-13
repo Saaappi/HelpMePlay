@@ -1964,20 +1964,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local activeQuests = C_GossipInfo.GetActiveQuests()
 			for i = 1, numActiveQuests do
 				if activeQuests[i].isComplete then
-					C_Timer.After(0.1, function()
-						-- Do nothing here, we just want a
-						-- slight delay to let active quests
-						-- be handled first.
-					end)
+					-- Do nothing here, we just want a
+					-- slight delay to let active quests
+					-- be handled first.
 				end
 			end
-		end
-		local index = 1
-		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
-		local gossipOptions = C_GossipInfo.GetOptions()
-		if unitGUID then
-			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-			SelectGossipOption(gossipOptions, npcId, parentMapId)
+		else
+			local index = 1
+			local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+			local gossipOptions = C_GossipInfo.GetOptions()
+			if unitGUID then
+				local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
+				SelectGossipOption(gossipOptions, npcId, parentMapId)
+			end
 		end
 	end
 end)
