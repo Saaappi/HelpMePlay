@@ -1960,6 +1960,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Dialog == false then return end
 		GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
+		local numAvailableQuests = GetNumAvailableQuests()
 		if numActiveQuests > 0 then
 			local activeQuests = C_GossipInfo.GetActiveQuests()
 			for i = 1, numActiveQuests do
@@ -1969,14 +1970,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- be handled first.
 				end
 			end
-		else
-			local index = 1
-			local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
-			local gossipOptions = C_GossipInfo.GetOptions()
-			if unitGUID then
-				local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-				SelectGossipOption(gossipOptions, npcId, parentMapId)
+		elseif numAvailableQuests > 0 then
+			for i = 1, numAvailableQuests do
+				SelectAvailableQuest(i)
 			end
+		end
+		local index = 1
+		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		local gossipOptions = C_GossipInfo.GetOptions()
+		if unitGUID then
+			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
+			SelectGossipOption(gossipOptions, npcId, parentMapId)
 		end
 	end
 end)
