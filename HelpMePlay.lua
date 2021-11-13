@@ -124,7 +124,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					tooltip:AddLine(L["Minimap Icon Subtext"])
 					tooltip:Show()
 				end,
-				OnClick = function() print("TEST") end,
+				OnClick = function() HelpMePlayLoadSettings() end,
 			})
 			
 			-- Create the minimap icon.
