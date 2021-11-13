@@ -32,7 +32,7 @@ if (locale == "enGB" or locale == "enUS") then
 	-- Strings																	
 	L["Abandon Command Description"]											= "Abandons all quests in the zone specified by the player."
 	L["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
-	L["Minimap Icon Subtext"]													= "Configure the addon's settings.\nTailor an automated gaming experience that best fits you."
+	L["Minimap Icon Subtext"]													= "Configure the addon's settings.\nTailor an automated experience that best fits you."
 	L["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
 	L["Discord"]																= "Lightsky#0658"
 	L["Red WARNING"]															= "|cffFF0000WARNING:|r "
