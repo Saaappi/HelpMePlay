@@ -114,13 +114,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
 		local addonLoaded = ...
 		if addonLoaded == addonName then
-			-- Create a Lib DB first to
-			-- hold all the controls for
-			-- the minimap button.
+			-- Create a Lib DB first to hold all the
+			-- controls for the minimap button.
 			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
-				type = "data source",
-				text = addonName,
+				type = "launcher",
 				icon = "Interface\\Icons\\achievement_reputation_08",
+				OnTooltipShow = function(tooltip)
+					tooltip:SetText(L["Colored Addon Name"] .. " |cffFFFFFFv" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:AddLine(L["Minimap Icon Subtext"])
+					tooltip:Show()
+				end,
 				OnClick = function() print("TEST") end,
 			})
 			
