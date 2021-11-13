@@ -132,52 +132,40 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Quests == false then return end
-		C_Timer.After(0, function()
-			C_Timer.After(delay, function()
-				GetOrCompleteQuests()
-			end)
+		C_Timer.After(delay, function()
+			GetOrCompleteQuests()
 		end)
 	end
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayOptionsDB.Quests == false then return end
-		C_Timer.After(0, function()
-			C_Timer.After(delay, function()
-				CompleteQuest()
-			end)
+		C_Timer.After(delay, function()
+			CompleteQuest()
 		end)
-		C_Timer.After(0, function()
-			C_Timer.After(longerDelay, function()
-				-- If the quest complete button is still visible
-				-- after the delay, then the frame is likely frozen
-				-- at this state, so hide it.
-				if QuestFrameCompleteQuestButton:IsVisible() then
-					QuestFrame:Hide()
-				end
-			end)
+		C_Timer.After(longerDelay, function()
+			-- If the quest complete button is still visible
+			-- after the delay, then the frame is likely frozen
+			-- at this state, so hide it.
+			if QuestFrameCompleteQuestButton:IsVisible() then
+				QuestFrame:Hide()
+			end
 		end)
 	end
 	if event == "QUEST_DETAIL" then
 		if HelpMePlayOptionsDB.Quests == false then return end
-		C_Timer.After(0, function()
-			C_Timer.After(delay, function()
-				QuestFrameAcceptButton:Click()
-			end)
+		C_Timer.After(delay, function()
+			QuestFrameAcceptButton:Click()
 		end)
 	end
 	if event == "QUEST_GREETING" then
 		if HelpMePlayOptionsDB.Quests == false then return end
-		C_Timer.After(0, function()
-			C_Timer.After(delay, function()
-				GetGreetingQuests()
-			end)
+		C_Timer.After(delay, function()
+			GetGreetingQuests()
 		end)
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayOptionsDB.Quests == false then return end
-		C_Timer.After(0, function()
-			C_Timer.After(delay, function()
-				QuestFrameCompleteButton:Click()
-			end)
+		C_Timer.After(delay, function()
+			QuestFrameCompleteButton:Click()
 		end)
 	end
 end)

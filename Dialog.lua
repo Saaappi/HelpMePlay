@@ -1964,12 +1964,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local activeQuests = C_GossipInfo.GetActiveQuests()
 			for i = 1, numActiveQuests do
 				if activeQuests[i].isComplete then
-					C_Timer.After(0, function()
-						C_Timer.After(0.1, function()
-							-- Do nothing here, we just want a
-							-- slight delay to let active quests
-							-- be handled first.
-						end)
+					C_Timer.After(0.1, function()
+						-- Do nothing here, we just want a
+						-- slight delay to let active quests
+						-- be handled first.
 					end)
 				end
 			end
