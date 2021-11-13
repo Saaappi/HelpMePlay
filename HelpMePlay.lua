@@ -147,8 +147,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 		C_Timer.After(0, function()
 			C_Timer.After(longerDelay, function()
-				-- If the quest complete button is still visible after the delay,
-				-- then the frame is likely frozen at this state, so hide it.
+				-- If the quest complete button is still visible
+				-- after the delay, then the frame is likely frozen
+				-- at this state, so hide it.
 				if QuestFrameCompleteQuestButton:IsVisible() then
 					QuestFrame:Hide()
 				end
