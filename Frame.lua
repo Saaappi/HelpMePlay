@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
+local icon = ""
 
 local function ShowTooltip(self, text)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
@@ -11,6 +12,35 @@ end
 local function HideTooltip(self)
 	if GameTooltip:GetOwner() == self then
 		GameTooltip:Hide()
+	end
+end
+
+function HelpMePlayShowMinimapIcon(show)
+	if show then
+		if icon ~= "" then
+			icon:Show(addonName)
+		else
+			icon = LibStub("LibDBIcon-1.0")
+			-- Create a Lib DB first to hold all the
+			-- information for the minimap icon.
+			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
+				type = "launcher",
+				icon = "Interface\\Icons\\achievement_reputation_08",
+				OnTooltipShow = function(tooltip)
+					tooltip:SetText(L["Colored Addon Name"] .. " |cffFFFFFFv" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:AddLine(L["Minimap Icon Subtext"])
+					tooltip:Show()
+				end,
+				OnClick = function() HelpMePlayLoadSettings() end,
+			})
+			
+			-- Register the minimap button with the
+			-- LDB.
+			icon:Register(addonName, iconLDB, HelpMePlayOptionsDB)
+			icon:Show(addonName)
+		end
+	else
+		icon:Hide(addonName)
 	end
 end
 
@@ -393,8 +423,10 @@ function HelpMePlayLoadSettings()
 		HMPMinimapIconCB:SetScript("OnClick", function(self)
 			if self:GetChecked() then
 				HelpMePlayOptionsDB.MinimapIcon = true
+				HelpMePlayShowMinimapIcon(true)
 			else
 				HelpMePlayOptionsDB.MinimapIcon = false
+				HelpMePlayShowMinimapIcon(false)
 			end
 		end)
 	end
