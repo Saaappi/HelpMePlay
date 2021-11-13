@@ -55,7 +55,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 		if mapId == 1647 then
 			-- Shadowlands
-			if C_QuestLog.IsQuestFlaggedCompleted(62275) == false then
+			if C_QuestLog.IsQuestFlaggedCompleted(64846) == false then
+				C_AdventureMap.StartQuest(64846) -- Torghast
+			elseif C_QuestLog.IsQuestFlaggedCompleted(62275) == false then
 				C_AdventureMap.StartQuest(62275) -- Bastion
 			elseif C_QuestLog.IsQuestFlaggedCompleted(62278) == false then
 				C_AdventureMap.StartQuest(62278) -- Maldraxxus
