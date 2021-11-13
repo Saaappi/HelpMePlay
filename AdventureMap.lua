@@ -57,12 +57,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 			-- Shadowlands
 			if C_QuestLog.IsQuestFlaggedCompleted(64846) == false then
 				C_AdventureMap.StartQuest(64846) -- Torghast
+			elseif C_QuestLog.IsQuestFlaggedCompleted(62277) == false then
+				C_AdventureMap.StartQuest(62277) -- Ardenweald
 			elseif C_QuestLog.IsQuestFlaggedCompleted(62275) == false then
 				C_AdventureMap.StartQuest(62275) -- Bastion
 			elseif C_QuestLog.IsQuestFlaggedCompleted(62278) == false then
 				C_AdventureMap.StartQuest(62278) -- Maldraxxus
-			elseif C_QuestLog.IsQuestFlaggedCompleted(62277) == false then
-				C_AdventureMap.StartQuest(62277) -- Ardenweald
 			else
 				C_AdventureMap.StartQuest(62279) -- Revendreth
 			end
