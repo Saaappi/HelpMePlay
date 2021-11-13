@@ -124,6 +124,15 @@ local Classic = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- Wetlands
+	[10046] = { -- Bethaine Flinthammer
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Stratholme
 	[155145] = { -- Plagued Critters
 		["g"] = {
