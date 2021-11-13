@@ -47,6 +47,7 @@ function HelpMePlayLoadSettings()
 		HMPTorghastPowersText:SetText(L["Torghast Powers"])
 		HMPNotesText:SetText(L["Notes"])
 		HMPTalentsText:SetText(L["Talents"])
+		HMPMinimapIconText:SetText(L["Minimap Icon"])
 
 		-- Check settings first
 		if HelpMePlayOptionsDB.AdventureMaps then
@@ -137,6 +138,12 @@ function HelpMePlayLoadSettings()
 			HMPTalentsCB:SetChecked(true)
 		else
 			HMPTalentsCB:SetChecked(false)
+		end
+		
+		if HelpMePlayOptionsDB.MinimapIcon then
+			HMPMinimapIconCB:SetChecked(true)
+		else
+			HMPMinimapIconCB:SetChecked(false)
 		end
 
 		-- Adventure Maps Check Button
@@ -373,6 +380,21 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.Talents = true
 			else
 				HelpMePlayOptionsDB.Talents = false
+			end
+		end)
+		
+		-- Minimap Icon Check Button
+		HMPMinimapIconCB:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Minimap Icon Check Button"])
+		end)
+		HMPMinimapIconCB:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		HMPMinimapIconCB:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				HelpMePlayOptionsDB.MinimapIcon = true
+			else
+				HelpMePlayOptionsDB.MinimapIcon = false
 			end
 		end)
 	end

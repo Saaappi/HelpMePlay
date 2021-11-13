@@ -114,26 +114,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
 		local addonLoaded = ...
 		if addonLoaded == addonName then
-			-- Create a Lib DB first to hold all the
-			-- controls for the minimap button.
-			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
-				type = "launcher",
-				icon = "Interface\\Icons\\achievement_reputation_08",
-				OnTooltipShow = function(tooltip)
-					tooltip:SetText(L["Colored Addon Name"] .. " |cffFFFFFFv" .. GetAddOnMetadata(addonName, "Version") .. "|r")
-					tooltip:AddLine(L["Minimap Icon Subtext"])
-					tooltip:Show()
-				end,
-				OnClick = function() HelpMePlayLoadSettings() end,
-			})
-			
-			-- Create the minimap icon.
-			local icon = LibStub("LibDBIcon-1.0")
-			
-			-- Register the minimap button with the
-			-- LDB.
-			icon:Register(addonName, iconLDB, HelpMePlayOptionsDB)
-			
 			if HelpMePlayOptionsDB == nil then
 				HelpMePlayOptionsDB = {}
 			end
@@ -145,6 +125,29 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 			if HelpMePlayAchievementDB == nil then
 				HelpMePlayAchievementDB = {}
+			end
+			-- Minimap Icon.
+			if HelpMePlayOptionsDB.MinimapIcon then
+				-- Create a Lib DB first to hold all the
+				-- controls for the minimap button.
+				local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
+					type = "launcher",
+					icon = "Interface\\Icons\\achievement_reputation_08",
+					OnTooltipShow = function(tooltip)
+						tooltip:SetText(L["Colored Addon Name"] .. " |cffFFFFFFv" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+						tooltip:AddLine(L["Minimap Icon Subtext"])
+						tooltip:Show()
+					end,
+					OnClick = function() HelpMePlayLoadSettings() end,
+				})
+				
+				-- Create the minimap icon.
+				local icon = LibStub("LibDBIcon-1.0")
+				L.icon = icon
+				
+				-- Register the minimap button with the
+				-- LDB.
+				icon:Register(addonName, iconLDB, HelpMePlayOptionsDB)
 			end
 		elseif addonLoaded == "Blizzard_AchievementUI" then
 			L.GetTrackedAchievementCriteriaCompletion()

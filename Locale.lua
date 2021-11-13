@@ -64,6 +64,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Torghast Powers"]														= "Torghast Powers"
 	L["Notes"]																	= "Notes"
 	L["Talents"]																= "Talents"
+	L["Minimap Icon"]															= "Minimap Icon"
 	-- Options Panel Descriptions
 	L["Adventure Maps Check Button"]											= "Automates the Hero's Call Board and the selection of zones and footholds\nfor the Battle for Azeroth and Shadowlands adventure maps.\n\n|cffFFFFFFHero's Call Board|r: Tanaan Jungle\n\n|cffFFFFFFAlliance|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Tiragarde Sound, Stormsong Valley, Drustvar\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Zuldazar, Nazmir, Vol'dun\n|cffFFFFFFHorde|r:\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFZones|r: Zuldazar, Nazmir, Vol'dun\n|TInterface\\Buttons\\UI-SpellbookIcon-NextPage-Up:12|t |cffFFFFFFFootholds|r: Stormsong Valley, Tiragarde Sound, Drustvar\n\n|cffFFFFFFShadowlands|r: Bastion, Maldraxxus, Ardenweald, Revendreth"
 	L["Dialog Check Button"]													= "Automates the selection of dialog options when speaking with NPCs.\nThis does |cffFFFFFFNOT|r apply to all dialogs.\nUse the |cffFFFFFF/dialog|r command to add your own automation."
@@ -81,6 +82,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Torghast Powers Check Button"]											= "Automates the selection of Torghast Powers. The powers are based\non a priority list.\nThe chosen power is recorded to the chat window."
 	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
+	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
 	-- Speech Monsters
 	L["Al'dalil"]																= "Al'dalil"
 	L["Playful Trickster"]														= "Playful Trickster"
