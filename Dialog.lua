@@ -316,6 +316,14 @@ local Classic = {
 			L["Are you sure you want to skip the Broken Shore introduction?"],
 		},
 	},
+	[120590] = { -- Lady Jaina Proudmoore
+		["g"] = {
+			L["I've heard this tale before..."],
+		},
+		["c"] = {
+			L["Are you sure you want to skip the Kul Tiras introductory quests?"],
+		},
+	},
 	[149626] = { -- Vanguard Battlemage (Alliance)
 		["g"] = {
 			L["Vanguard Battlemage 1"],

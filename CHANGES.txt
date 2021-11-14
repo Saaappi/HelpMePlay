@@ -19,3 +19,5 @@ HelpMePlay | 1.0.7
 		- Added a note to the Levers for the Lever-Locked Chest in Torghast to identify a quick order to solve the puzzle.
 	Merchants:
 		- Added the Anima Supricifer from Ve'nari.
+	Fixes:
+		- Players will once again default skip the Kul Tiras introductory quests.

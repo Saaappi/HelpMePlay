@@ -168,6 +168,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["I have heard this tale before."]											= "I have heard this tale before."
 	L["I've heard this tale before..."]											= "I've heard this tale before..."
 	L["Are you sure you want to skip the Broken Shore introduction?"]			= "Are you sure you want to skip the Broken Shore introduction?"
+	L["Are you sure you want to skip the Kul Tiras introductory quests?"]		= "Are you sure you want to skip the Kul Tiras introductory quests?"
 	L["I would like you to have the supplies."]									= "I would like you to have the supplies."
 	L["Maybe a couple copper will loosen your tongue."]							= "Maybe a couple copper will loosen your tongue."
 	L["Are you sure you want to give this hobo money?"]							= "Are you sure you want to give this hobo money?"
