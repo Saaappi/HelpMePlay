@@ -903,6 +903,11 @@ local BattleForAzeroth = {
 			L["Private James 1"],
 		},
 	},
+	[135383] = { -- Barnard "The Smasher" Baysworth
+		["g"] = {
+			L["Take us back to Boralus."],
+		},
+	},
 	-- Nazmir
 	[122688] = { -- Bwonsamdi
 		["g"] = {
