@@ -887,6 +887,11 @@ local BattleForAzeroth = {
 			L["Quest"],
 		},
 	},
+	[143334] = { -- Daria Smithson
+		["g"] = {
+			L["Take us back to Boralus."],
+		},
+	},
 	[143690] = { -- Captured Zandalari Troll
 		["g"] = {
 			L["Captured Zandalari Troll 1"],
@@ -907,6 +912,11 @@ local BattleForAzeroth = {
 	[166110] = { -- Spirit of Vol'jin
 		["g"] = {
 			L["Spirit of Vol'jin 1"],
+		},
+	},
+	[139620] = { -- Desha Stormwallow
+		["g"] = {
+			L["Take us back to Boralus."],
 		},
 	},
 	-- Boralus
