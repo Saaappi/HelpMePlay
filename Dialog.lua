@@ -1706,6 +1706,7 @@ local Shadowlands = {
 	},
 	[166980] = { -- Lady Jaina Proudmoore
 		["g"] = {
+			L["I am ready."],
 			L["Lady Jaina Proudmoore 1"],
 			L["Lady Jaina Proudmoore 2"],
 			L["Lady Jaina Proudmoore 3"],

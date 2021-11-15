@@ -102,7 +102,7 @@ local animaPowers = {
 			[313858] = 4, -- Battlord's Mythos
 			[314293] = 4, -- Ancient Prolegomenon (Kyrian)
 			[314291] = 4, -- Elysian Shoulderwrap (Kyrian)
-			[314290] = 3, -- Kyrian Warhelm (Kyrian)
+			[314290] = 4, -- Kyrian Warhelm (Kyrian)
 			[314292] = 4, -- Stonepiercer Signet
 			[333620] = 4, -- Distillation of Sin (Venthyr)
 			[333598] = 4, -- Pridebreaker's Anvil
@@ -654,7 +654,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							if AnimaPowerExistsForClass(classId, specId, option.spellID) then
 								-- The spell exists in the table, so
 								-- let's check its assigned priority.
-								local priority = animaPowers[classId][option.spellID]
+								local priority = animaPowers[classId][specId][option.spellID]
 								
 								-- If the priority is higher than the
 								-- previous spell, then assign the
