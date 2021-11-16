@@ -26,7 +26,7 @@ local function GetQuestItemLink_Callback(index)
 	end
 end
 
-local function CompleteQuest()
+function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
 	if numQuestChoices > 0 then
 		local sellPrices = {}
@@ -75,7 +75,7 @@ local function GetOrCompleteQuests()
 					if activeQuests[i].isComplete then
 						-- The quest is complete, so complete it.
 						C_GossipInfo.SelectActiveQuest(i)
-						CompleteQuest()
+						HMP_CompleteQuest()
 					end
 				end)
 			end)
@@ -142,7 +142,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayOptionsDB.Quests == false then return end
 		C_Timer.After(delay, function()
-			CompleteQuest()
+			HMP_CompleteQuest()
 		end)
 		C_Timer.After(longerDelay, function()
 			-- If the quest complete button is still visible

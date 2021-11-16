@@ -2023,19 +2023,21 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Dialog == false then return end
 		GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
 		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
-		if numActiveQuests > 0 then
-			local activeQuests = C_GossipInfo.GetActiveQuests()
-			for i = 1, numActiveQuests do
+		local activeQuests = C_GossipInfo.GetActiveQuests()
+		if next(activeQuests) then
+			-- If the table of active quests
+			-- isn't empty or nil, then continue.
+			for i = 1, #activeQuests do
 				if activeQuests[i].isComplete then
-					-- Do nothing here, we just want a
-					-- slight delay to let active quests
-					-- be handled first.
+					HMP_CompleteQuest()
 				end
 			end
-		end
-		if numAvailableQuests > 0 then
+			-- After all active quests have
+			-- been processed, close the
+			-- gossip window.
+			--C_GossipInfo.CloseGossip()
+		elseif numAvailableQuests > 0 then
 			for i = 1, numAvailableQuests do
 				SelectAvailableQuest(i)
 			end
