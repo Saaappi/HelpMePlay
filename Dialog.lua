@@ -2033,10 +2033,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 					HMP_CompleteQuest()
 				end
 			end
-			-- After all active quests have
-			-- been processed, close the
-			-- gossip window.
-			--C_GossipInfo.CloseGossip()
 		elseif numAvailableQuests > 0 then
 			for i = 1, numAvailableQuests do
 				SelectAvailableQuest(i)
