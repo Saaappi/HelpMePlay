@@ -1,1 +1,3 @@
 HelpMePlay | 1.0.8
+	Fixes:
+		- Fixed an issue during the "Ages-Echoing Wisdom" quest in Ardenweald that caused dialog loop.
