@@ -2035,12 +2035,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
 		local activeQuests = C_GossipInfo.GetActiveQuests()
-		for i = 1, #activeQuests do
-			if activeQuests[i].isComplete then
-				HMP_CompleteQuest()
+		if next(activeQuests) then
+			for i = 1, #activeQuests do
+				if activeQuests[i].isComplete then
+					HMP_CompleteQuest()
+				end
 			end
-		end
-		if numAvailableQuests > 0 then
+			ProcessDialogTree()
+		elseif numAvailableQuests > 0 then
 			for i = 1, numAvailableQuests do
 				SelectAvailableQuest(i)
 			end
