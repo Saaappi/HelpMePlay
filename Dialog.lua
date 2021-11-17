@@ -1972,6 +1972,16 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	t = {}
 end
 
+local function ProcessDialogTree()
+	local index = 1
+	local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+	local gossipOptions = C_GossipInfo.GetOptions()
+	if unitGUID then
+		local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
+		SelectGossipOption(gossipOptions, npcId, parentMapId)
+	end
+end
+
 local function ConfirmConfirmationMessage(message, npcId)
 	-- Use the parent map ID to determine
 	-- which populated table to use.
@@ -2033,18 +2043,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 					HMP_CompleteQuest()
 				end
 			end
+			ProcessDialogTree()
 		elseif numAvailableQuests > 0 then
 			for i = 1, numAvailableQuests do
 				SelectAvailableQuest(i)
 			end
 		else
-			local index = 1
-			local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
-			local gossipOptions = C_GossipInfo.GetOptions()
-			if unitGUID then
-				local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-				SelectGossipOption(gossipOptions, npcId, parentMapId)
-			end
+			ProcessDialogTree()
 		end
 	end
 end)
