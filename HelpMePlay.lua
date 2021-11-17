@@ -32,6 +32,8 @@ function HMP_CompleteQuest()
 		if HelpMePlayOptionsDB.QuestRewards then
 			GetQuestReward(Max(sellPrices))
 		end
+	elseif numQuestChoices == 1 then
+		GetQuestReward(1)
 	else
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
