@@ -1029,6 +1029,14 @@ local Shadowlands = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[160178] = { -- Eumelia
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[156327] = { -- Voitha
 		["g"] = {
 			L["Voitha 1"],

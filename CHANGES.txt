@@ -1,5 +1,6 @@
 HelpMePlay | 1.0.8
 	Dialog:
+		- Added more stable masters.
 		- Added more pet tamers.
 	Fixes:
 		- Fixed the issue where quests should officially be processed before dialogs.
