@@ -2023,8 +2023,8 @@ local function CheckActiveQuests(activeQuests)
 				HMP_CompleteQuest()
 			end
 		end
+		ProcessDialogTree()
 	end
-	ProcessDialogTree()
 end
 
 local function ConfirmConfirmationMessage(message, npcId)
