@@ -50,7 +50,7 @@ local classTalents = {
 			[45] = 204054,	-- Consecrated Ground
 			[50] = 171648,	-- Sanctified Wrath
 		},
-		[67] = { -- Retribution
+		[70] = { -- Retribution
 			[15] = 343527,	-- Execution Sentence
 			[25] = 231832,	-- Blade of Wrath
 			[30] = 20066,	-- Repentance
