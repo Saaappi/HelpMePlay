@@ -71,7 +71,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 								local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)
 								for _, t in ipairs(merchants[id]) do
 									if itemID == t.itemID then
-										if t["extendedCost"] ~= {} then
+										if next(t["extendedCost"]) then
 											-- Some items will have an extended cost,
 											-- which needs to be logically accounted
 											-- for.
