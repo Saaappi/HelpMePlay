@@ -17,25 +17,17 @@ local function Max(tbl)
 	return highestItemIndex
 end
 
-local function GetQuestItemLink_Callback(index)
-	local link = GetQuestItemLink("choice", index)
-	if link then
-		return link
-	end
-end
-
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
-	if numQuestChoices > 0 then
+	if numQuestChoices > 1 then
 		local sellPrices = {}
-		for i = 1, numQuestChoices, 1 do
+		for i = 1, numQuestChoices do
 			local _, _, quantity = GetQuestItemInfo("choice", i)
 			local link = GetQuestItemLink("choice", i)
-			if link == nil then
-				link = GetQuestItemLink_Callback(i)
+			if link then
+				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link)
+				sellPrices[i] = (quantity*sellPrice)
 			end
-			local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link)
-			sellPrices[i] = (quantity*sellPrice)
 		end
 		if HelpMePlayOptionsDB.QuestRewards then
 			GetQuestReward(Max(sellPrices))
