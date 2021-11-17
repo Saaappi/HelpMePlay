@@ -2011,11 +2011,20 @@ local function ProcessDialogTree()
 end
 
 local function CheckActiveQuests(activeQuests)
-	for i = 1, #activeQuests do
-		if activeQuests[i].isComplete then
+	if #activeQuests == 1 then
+		if activeQuests[1].isComplete then
 			HMP_CompleteQuest()
+		else
+			ProcessDialogTree()
+		end
+	else
+		for i = 1, #activeQuests do
+			if activeQuests[i].isComplete then
+				HMP_CompleteQuest()
+			end
 		end
 	end
+	ProcessDialogTree()
 end
 
 local function ConfirmConfirmationMessage(message, npcId)
