@@ -365,7 +365,7 @@ function HelpMePlayLoadSettings()
 		end)
 		HMPChromieTimeEditBox:SetScript("OnEnterPressed", function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = tonumber(HMPChromieTimeEditBox:GetText())
-			HMPChromieTimeEditBox:SetText("")
+			HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
 		end)
 		
 		-- Torghast Powers Check Button
