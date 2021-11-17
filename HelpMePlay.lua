@@ -21,8 +21,6 @@ local function GetQuestItemLink_Callback(index)
 	local link = GetQuestItemLink("choice", index)
 	if link then
 		return link
-	else
-		GetQuestItemLink_Callback(index)
 	end
 end
 
