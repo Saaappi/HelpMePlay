@@ -1,4 +1,6 @@
 HelpMePlay | 1.0.8
+	Dialog:
+		- Added more pet tamers.
 	Fixes:
 		- Fixed the issue where quests should officially be processed before dialogs.
 		- Fixed an issue where items from merchants were being processed with an extended cost even when they didn't have one.

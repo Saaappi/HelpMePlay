@@ -1042,6 +1042,11 @@ local Shadowlands = {
 			L["Nemea 2"],
 		},
 	},
+	[173129] = { -- Thenia
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	[158765] = { -- Pelodis
 		["g"] = {
 			L["Pelodis 1"],
