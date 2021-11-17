@@ -1982,6 +1982,14 @@ local function ProcessDialogTree()
 	end
 end
 
+local function CheckActiveQuests(activeQuests)
+	for i = 1, #activeQuests do
+		if activeQuests[i].isComplete then
+			HMP_CompleteQuest()
+		end
+	end
+end
+
 local function ConfirmConfirmationMessage(message, npcId)
 	-- Use the parent map ID to determine
 	-- which populated table to use.
@@ -2036,12 +2044,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
 		local activeQuests = C_GossipInfo.GetActiveQuests()
 		if next(activeQuests) then
-			for i = 1, #activeQuests do
-				if activeQuests[i].isComplete then
-					HMP_CompleteQuest()
-				end
-			end
-			ProcessDialogTree()
+			CheckActiveQuests(activeQuests)
 		elseif numAvailableQuests > 0 then
 			for i = 1, numAvailableQuests do
 				SelectAvailableQuest(i)
