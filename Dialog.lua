@@ -1037,6 +1037,21 @@ local Shadowlands = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[168742] = { -- Polemarch Adrestes
+		["g"] = {
+			L["I am."],
+		},
+	},
+	[168906] = { -- Polemarch Adrestes
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[176100] = { -- Iona Skyblade
+		["g"] = {
+			L["Iona Skyblade 1"],
+		},
+	},
 	[156327] = { -- Voitha
 		["g"] = {
 			L["Voitha 1"],
