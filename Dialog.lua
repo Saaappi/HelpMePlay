@@ -792,6 +792,11 @@ local Legion = {
 		},
 	},
 	-- Val'sharah
+	[91462] = { -- Malfurion Stormrage
+		["g"] = {
+			L["I am ready."],
+		},
+	},
 	[92734] = { -- Penelope Heathrow
 		["g"] = {
 			L["Penelope Heathrow 1"],
