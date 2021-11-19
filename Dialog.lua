@@ -706,6 +706,12 @@ local Legion = {
 		-- 619: Broken Isles
 		-- 905: Argus
 	--
+	-- Objects
+	[0] = {
+		["g"] = {
+			L["Leave the Darkpens."],
+		},
+	},
 	-- Dalaran
 	[96507] = { -- Tassia Whisperglen
 		["g"] = {
@@ -797,9 +803,29 @@ local Legion = {
 			L["I am ready."],
 		},
 	},
+	[91109] = { -- Malfurion Stormrage
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[92742] = { -- Ysera
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[104799] = { -- Tyrande Whisperwind
+		["g"] = {
+			L["I am ready."],
+		},
+	},
 	[92734] = { -- Penelope Heathrow
 		["g"] = {
 			L["Penelope Heathrow 1"],
+		},
+	},
+	[92620] = { -- Commander Jarod Shadowsong
+		["g"] = {
+			L["I am ready."],
 		},
 	},
 	[94974] = { -- Sirius Ebonwing
@@ -2012,6 +2038,10 @@ local function ProcessDialogTree()
 	if unitGUID then
 		local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
 		SelectGossipOption(gossipOptions, npcId, parentMapId)
+	else
+		-- This must be an object with a
+		-- dialog table.
+		SelectGossipOption(gossipOptions, 0, parentMapId)
 	end
 end
 
