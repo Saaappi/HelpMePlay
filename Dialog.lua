@@ -709,7 +709,7 @@ local Legion = {
 	-- Objects
 	[0] = {
 		["g"] = {
-			L["Leave the Darkpens."],
+			L["Leave the Darkpens."], -- Ravencrest Cemetary
 		},
 	},
 	-- Dalaran
