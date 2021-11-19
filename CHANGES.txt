@@ -5,5 +5,5 @@ HelpMePlay | 1.0.8
 	Fixes:
 		- Talents should now suggest properly for Retribution Paladin.
 		- Fixed multiple dialogs that previously worked.
-		- Fixed the issue where quests should officially be processed before dialogs.
+		- Fixed an issue so quests are officially processed before dialogs.
 		- Fixed an issue where items from merchants were being processed with an extended cost even when they didn't have one.
