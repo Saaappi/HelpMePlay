@@ -2,6 +2,7 @@ HelpMePlay | 1.0.8
 	Dialog:
 		- Added more stable masters.
 		- Added more pet tamers.
+		- Reverted a previous change that skipped the Kul Tiras introduction, instead players will default playing the scenario. (Alliance only)
 	Fixes:
 		- Talents should now suggest properly for Retribution Paladin.
 		- Fixed multiple dialogs that previously worked.

@@ -318,10 +318,7 @@ local Classic = {
 	},
 	[120590] = { -- Lady Jaina Proudmoore
 		["g"] = {
-			L["I've heard this tale before..."],
-		},
-		["c"] = {
-			L["Are you sure you want to skip the Kul Tiras introductory quests?"],
+			L["I'm ready to set sail!"],
 		},
 	},
 	[149626] = { -- Vanguard Battlemage (Alliance)
@@ -735,6 +732,14 @@ local Legion = {
 		},
 	},
 	-- Highmountain
+	[97854] = { -- Liza Galestride
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[98825] = { -- Spiritwalker Ebonhorn
 		["g"] = {
 			L["Spiritwalker Ebonhorn 1"],
@@ -792,9 +797,39 @@ local Legion = {
 			L["Yes!"],
 		},
 	},
+	[99619] = { -- Navarrogg
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[96591] = { -- Amateur Hunter
+		["g"] = {
+			L["Go hunt somewhere else!"],
+		},
+	},
+	[98804] = { -- Amateur Hunter
+		["g"] = {
+			L["Go hunt somewhere else!"],
+		},
+	},
 	[94434] = { -- Addie Fizzlebog
 		["g"] = {
 			L["Addie Fizzlebog 1"],
+		},
+	},
+	[106153] = { -- Tarvim Daywalker
+		["g"] = {
+			L["There is no time left. Run!"],
+		},
+	},
+	[106115] = { -- Red Skymane
+		["g"] = {
+			L["There is no time left. Run!"],
+		},
+	},
+	[106191] = { -- Old Nefu
+		["g"] = {
+			L["There is no time left. Run!"],
 		},
 	},
 	-- Val'sharah
