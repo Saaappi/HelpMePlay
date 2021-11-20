@@ -8,3 +8,4 @@ HelpMePlay | 1.0.8
 		- Fixed multiple dialogs that previously worked.
 		- Fixed an issue so quests are officially processed before dialogs.
 		- Fixed an issue where items from merchants were being processed with an extended cost even when they didn't have one.
+		- Fixed an issue with the Hero's Call Board.

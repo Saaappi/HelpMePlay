@@ -42,7 +42,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					for i = 1, 3 do
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
 						if choiceOptionInfo.choiceArtID == 1851147 then -- This is the Dark Portal option for Draenor
-							SendPlayerChoiceResponse(choiceOptionInfo.buttons[i].id)
+							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 							break
 						end
