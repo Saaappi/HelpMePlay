@@ -119,6 +119,7 @@ if (locale == "enGB" or locale == "enUS") then
 	-- Dialog
 	L["Are you enjoying yourself?"]												= "Are you enjoying yourself?"
 	L["Go hunt somewhere else!"]												= "Go hunt somewhere else!"
+	L["I challenge you, death knight!"]											= "I challenge you, death knight!"
 	L["There is no time left. Run!"]											= "There is no time left. Run!"
 	L["Let's go!"]																= "Let's go!"
 	L["I'm ready."]																= "I'm ready."

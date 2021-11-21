@@ -44,7 +44,17 @@ local Classic = {
 			L["A small fee for supplies is required."],
 		},
 	},
-	-- Arathi Highlands
+	-- Eastern Plaguelands
+	[28406] = { -- Death Knight Initiate
+		["g"] = {
+			L["I challenge you, death knight!"],
+		},
+	},
+	[29173] = { -- Highlord Darion Mograine
+		["g"] = {
+			L["I am ready."],
+		},
+	},
 	-- Loch Modan
 	[44123] = { -- Emily Jackson
 		["g"] = {
