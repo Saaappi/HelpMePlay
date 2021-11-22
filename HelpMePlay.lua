@@ -133,9 +133,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayOptionsDB.Quests == false then return end
-		C_Timer.After(delay, function()
-			HMP_CompleteQuest()
-		end)
+		HMP_CompleteQuest()
 		C_Timer.After(longerDelay, function()
 			-- If the quest complete button is still visible
 			-- after the delay, then the frame is likely frozen
