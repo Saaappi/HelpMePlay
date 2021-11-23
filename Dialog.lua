@@ -911,6 +911,47 @@ local Legion = {
 			L["Keeper Remulos 1"],
 		},
 	},
+	-- The Nighthold
+	[110677] = { -- Image of Khadgar
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[116662] = { -- Suramar Portal (Bottom Floor)
+		["g"] = {
+			L["Suramar Portal 1"],
+		},
+	},
+	[116667] = { -- Suramar Portal (After Elisande)
+		["g"] = {
+			L["Suramar Portal 2"],
+		},
+	},
+	-- Antorus, the Burning Throne
+	[122500] = { -- Essence of Eonar
+		["g"] = {
+			L["Essence of Eonar 1"],
+			L["Essence of Eonar 2"],
+		},
+		["c"] = {
+			L["Do you want to start the encounter?"],
+		},
+	},
+	[125720] = { -- Lightforged Beacon
+		["g"] = {
+			L["Lightforged Beacon 1"],
+		},
+	},
+	[128303] = { -- Lightforged Beacon
+		["g"] = {
+			L["Lightforged Beacon 2"],
+		},
+	},
+	[128169] = { -- Magni Bronzebeard
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
 }
 
 local BattleForAzeroth = {
