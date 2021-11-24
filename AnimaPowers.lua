@@ -261,7 +261,7 @@ local animaPowers = {
 			[334992] = 4, -- Thread of Beads
 			[313844] = 4, -- Highlord's Mythos
 		},
-		[67] = { -- Retribution
+		[70] = { -- Retribution
 			-- S Tier Powers
 			[314262] = 1, -- Belt of the Mawsworn Avenger (Kyrian)
 			[314260] = 1, -- Ember of the Carillon (Kyrian)
@@ -586,6 +586,426 @@ local animaPowers = {
 			[314247] = 7, -- Pact of the Soulstalkers (Kyrian, Solo)
 			[306609] = 7, -- Disemboweler's Hook
 			[319276] = 7, -- Elethium Muzzle
+		},
+	},
+	[4] = { -- Rogue
+		[259] = { -- Assassination
+			[15] = 196864,	-- Master Poisoner
+			[25] = 108208,	-- Subterfuge
+			[30] = 137619,	-- Marked for Death
+			[35] = 280716,	-- Leeching Poison
+			[40] = 154904,	-- Internal Bleeding
+			[45] = 193539,	-- Alacrity
+			[50] = 255544,	-- Poison Bomb
+		},
+		[260] = { -- Outlaw
+			[15] = 196938,	-- Quick Draw
+			[25] = 196922,	-- Hit and Run
+			[30] = 137619,	-- Marked for Death
+			[35] = 193546,	-- Iron Stomach
+			[40] = 131511,	-- Prey on the Weak
+			[45] = 193539,	-- Alacrity
+			[50] = 271877,	-- Blade Rush
+		},
+		[261] = { -- Subtlety
+			[15] = 193537,	-- Weaponmaster
+			[25] = 108208,	-- Subterfuge
+			[30] = 137619,	-- Marked for Death
+			[35] = 200759,	-- Soothing Darkness
+			[40] = 277953,	-- Night Terrors
+			[45] = 238104,	-- Enveloping Shadows
+			[50] = 280719,	-- Secret Technique
+		},
+	},
+	[5] = { -- Priest
+		[256] = { -- Discipline
+			-- S Tier Powers
+			[320868] = 1, -- Horrific Dictionary
+			[329428] = 1, -- Scales of Trauma
+			-- A Tier Powers
+			[320887] = 2, -- Painbreaker Psalm
+			[320880] = 2, -- Painwheel
+			[329605] = 2, -- Power Overwhelming
+			[342399] = 2, -- Fae-bliss Lantern
+			[342390] = 2, -- Maldo's Soul Exploder
+			[342413] = 2, -- Cracked Mindscreecher
+			[327513] = 2, -- Feathered Fetters
+			[327468] = 2, -- Second Chorus
+			[327363] = 2, -- Torch of Humility
+			[321189] = 2, -- Dead Mawrat
+			[329416] = 2, -- Death Harvester
+			[320884] = 2, -- Impulsor
+			[320888] = 2, -- Mind Exploder
+			[313892] = 2, -- High Priest's Legacy
+			[344566] = 2, -- Rapid Contagion
+			-- B Tier Powers
+			[320886] = 3, -- Catharstick
+			[342397] = 3, -- Pixie Dust
+			[342387] = 3, -- Baroness' Lost Plagueloop
+			[342411] = 3, -- Mindmancer Handgloves
+			[342412] = 3, -- Earworm
+			[327469] = 3, -- Deeply-Held Vow
+			[329241] = 3, -- Volatile Phantasm
+			[320886] = 3, -- Catharstick
+			[320892] = 3, -- Puppetmaster's Strings
+			[320889] = 3, -- Diary of Necrotic Thoughts
+			[320896] = 3, -- Enchanted Shroud
+			[320872] = 3, -- Flashbox
+			[320885] = 3, -- Modified Impulsor
+			[320895] = 3, -- Thick Burlap Sash
+			[313888] = 3, -- High Priest's Cypher
+			-- C Tier Powers
+			[320890] = 4, -- Psychic Wallet
+			[342409] = 4, -- Dreamspun Mushrooms
+			[342382] = 4, -- Necromight Infusion
+			[327370] = 4, -- Faithstone
+			[327536] = 4, -- Glorious Prayer
+			[313894] = 4, -- High Priest's Ultimatum
+			[313893] = 4, -- High Priest's Mythos
+			[313890] = 4, -- High Priest's Lesson
+			[313889] = 4, -- High Priest's Gift
+			[313891] = 4, -- High Priest's Invocation
+			[329689] = 4, -- Wailing Visage
+			[320871] = 4, -- Vandal's Zeal
+			[320881] = 4, -- Schaden Fluorite
+			[321289] = 4, -- Power Word: Snuggle
+			[329300] = 4, -- Pandemonium Loop
+			[320869] = 4, -- Light-Tinged Scraps
+			[320879] = 4, -- Idea Eater
+			[329588] = 4, -- Fragments of Obscurity
+			[320870] = 4, -- Flash-Echo Focus
+			[320893] = 4, -- Cruelty Censer
+			[320874] = 4, -- Art of Phantasmal Healing
+		},
+		[257] = { -- Holy
+			-- S Tier Powers
+			[320886] = 1, -- Catharstick
+			[321189] = 1, -- Dead Mawrat
+			[329416] = 1, -- Death Harvester
+			[320876] = 1, -- Holyfire Draught
+			[320868] = 1, -- Horrific Dictionary
+			[329300] = 1, -- Pandemonium Loop
+			[320890] = 1, -- Psychic Wallet
+			[344566] = 1, -- Rapid Contagion
+			[329241] = 1, -- Volatile Phantasm
+			[342413] = 1, -- Cracked Mindscreecher
+			[342390] = 1, -- Maldo's Soul Exploder
+			-- A Tier Powers
+			[320889] = 2, -- Diary of Necrotic Thoughts
+			[320875] = 2, -- Consuming Refrain
+			[320893] = 2, -- Cruelty Censer
+			[320878] = 2, -- Holy Hellstone
+			[313891] = 2, -- High Priest's Invocation
+			[320884] = 2, -- Impulsor
+			[320885] = 2, -- Modified Impulsor
+			[320887] = 2, -- Painbreaker Psalm
+			[320880] = 2, -- Painwheel
+			[320882] = 2, -- Red-Hot Mindpokers
+			[327513] = 2, -- Feathered Fetters
+			[327363] = 2, -- Torch of Humility
+			[342382] = 2, -- Necromight Infusion
+			-- B Tier Powers
+			[313889] = 3, -- High Priest's Gift
+			[313894] = 3, -- High Priest's Ultimatum
+			[342387] = 3, -- Baroness' Lost Plagueloop
+			[320896] = 3, -- Enchanted Shroud
+			[320872] = 3, -- Flashbox
+			[329588] = 3, -- Fragments of Obscurity
+			[320877] = 3, -- Mark of Righteous Protection
+			[320892] = 3, -- Puppetmaster's Strings
+			[329428] = 3, -- Scales of Trauma
+			[320873] = 3, -- Searing Lantern
+			[329689] = 3, -- Wailing Visage
+			[327536] = 3, -- Glorious Prayer
+			[327469] = 3, -- Deeply-Held Vow
+			[342412] = 3, -- Earworm
+			[342399] = 3, -- Fae-bliss Lantern
+			-- C Tier Powers
+			[342409] = 4, -- Dreamspun Mushrooms
+			[342397] = 4, -- Pixie Dust
+			[321289] = 4, -- Power Word: Snuggle
+			[320879] = 4, -- Idea Eater
+			[320869] = 4, -- Light-Tinged Scraps
+			[327370] = 4, -- Faithstone
+			[320870] = 4, -- Flash-Echo Focus
+			[320874] = 4, -- Art of Phantasmal Healing
+			[342411] = 4, -- Mindmancer Handgloves
+			[320881] = 4, -- Schaden Fluorite
+			[320895] = 4, -- Thick Burlap Sash
+			[320871] = 4, -- Vandal's Zeal
+			[313888] = 4, -- High Priest's Cypher
+			[313892] = 4, -- High Priest's Legacy
+			[313890] = 4, -- High Priest's Lesson
+			[313893] = 4, -- High Priest's Mythos
+		},
+		[258] = { -- Shadow
+			-- S Tier Powers
+			[320893] = 1, -- Cruelty Censer
+			[342409] = 1, -- Dreamspun Mushrooms
+			[342399] = 1, -- Fae-bliss Lantern
+			[342390] = 1, -- Maldo's Soul Exploder
+			[329605] = 1, -- Power Overwhelming
+			[329416] = 1, -- Death Harvester
+			[350068] = 1, -- Fallen Priest's Blessing
+			[350140] = 1, -- Voidwraith Signet
+			[350117] = 1, -- Soul of an Archon
+			[320868] = 1, -- Horrific Dictionary
+			-- A Tier Powers
+			[342387] = 2, -- Baroness' Lost Plagueloop
+			[342413] = 2, -- Cracked Mindscreecher
+			[320884] = 2, -- Impulsor
+			[313892] = 2, -- High Priest's Legacy
+			[313890] = 2, -- High Priest's Lesson
+			[329237] = 2, -- Mask of Sheer Terror
+			[342382] = 2, -- Necromight Infusion
+			[329241] = 2, -- Volatile Phantasm
+			[329689] = 2, -- Wailing Visage
+			[321189] = 2, -- Dead Mawrat
+			[320886] = 2, -- Catharstick
+			[320880] = 2, -- Painwheel
+			[320871] = 2, -- Vandal's Zeal
+			[350129] = 2, -- Dark Technique
+			[329632] = 2, -- Light-Infused Egg
+			-- B Tier Powers
+			[320882] = 3, -- Red-Hot Mindpokers
+			[327469] = 3, -- Deeply-Held Vow
+			[327513] = 3, -- Feathered Fetters
+			[320872] = 3, -- Flashbox
+			[313891] = 3, -- High Priest's Invocation
+			[313893] = 3, -- High Priest's Mythos
+			[313894] = 3, -- High Priest's Ultimatum
+			[320879] = 3, -- Idea Eater
+			[320888] = 3, -- Mind Exploder
+			[320885] = 3, -- Modified Impulsor
+			[320887] = 3, -- Painbreaker Psalm
+			[329300] = 3, -- Pandemonium Loop
+			[321289] = 3, -- Power Word: Snuggle
+			[349859] = 3, -- Cowl of Influence
+			[320892] = 3, -- Puppetmaster's Strings
+			[329428] = 3, -- Scales of Trauma
+			[320873] = 3, -- Searing Lantern
+			[320895] = 3, -- Thick Burlap Sash
+			[327363] = 3, -- Torch of Humility
+			[329588] = 3, -- Fragments of Obscurity
+			[342411] = 3, -- Mindmancer Handgloves
+			-- C Tier Powers
+			[320889] = 4, -- Diary of Necrotic Thoughts
+			[342412] = 4, -- Earworm
+			[320896] = 4, -- Enchanted Shroud
+			[327370] = 4, -- Faithstone
+			[327536] = 4, -- Glorious Prayer
+			[313888] = 4, -- High Priest's Cypher
+			[313889] = 4, -- High Priest's Gift
+			[313892] = 4, -- High Priest's Legacy
+			[329510] = 4, -- Life Barrier
+			[320869] = 4, -- Light-Tinged Scraps
+			[342397] = 4, -- Pixie Dust
+			[344566] = 4, -- Rapid Contagion
+			[320881] = 4, -- Schaden Fluorite
+			[327468] = 4, -- Second Chorus
+		},
+	},
+	[6] = { -- Death Knight
+		[250] = { -- Blood
+			[15] = 221536,	-- Heartbreaker
+			[25] = 273946,	-- Hemostasis
+			[30] = 317610,	-- Relish in Blood
+			[35] = 206967,	-- Will of the Necropolis
+			[40] = 212552,	-- Wraith Walk
+			[45] = 195679,	-- Bloodworms
+			[50] = 114556,	-- Purgatory
+		},
+		[251] = { -- Frost
+			[15] = 281208,	-- Cold Heart
+			[25] = 207104,	-- Runic Attenuation
+			[30] = 108194,	-- Asphyxiate
+			[35] = 207142,	-- Avalanche
+			[40] = 212552,	-- Wraith Walk
+			[45] = 194912,	-- Gathering Storm
+			[50] = 281238,	-- Obliteration
+		},
+		[252] = { -- Unholy
+			[15] = 194916,	-- All Will Serve
+			[25] = 115989,	-- Unholy Blight
+			[30] = 108194,	-- Asphyxiate
+			[35] = 343294,	-- Soul Reaper
+			[40] = 212552,	-- Wraith Walk
+			[45] = 319230,	-- Unholy Pact
+			[50] = 207289,	-- Unholy Assault
+		},
+	},
+	[7] = { -- Shaman
+		[262] = { -- Elemental
+			[15] = 170374,	-- Earthen Rage
+			[25] = 273221,	-- Aftershock
+			[30] = 974,		-- Earth Shield
+			[35] = 16166,	-- Master of the Elements
+			[40] = 30884,	-- Nature's Guardian
+			[45] = 117013,	-- Primal Elementalist
+			[50] = 191634,	-- Stormkeeper
+		},
+		[263] = { -- Enhancement
+			[15] = 334046,	-- Lashing Flames
+			[25] = 344357,	-- Stormflurry
+			[30] = 260878,	-- Spirit Wolf
+			[35] = 334195,	-- Hailstorm
+			[40] = 30884,	-- Nature's Guardian
+			[45] = 197214,	-- Sundering
+			[50] = 114051,	-- Ascendance
+		},
+		[264] = { -- Restoration
+			[15] = 200072,	-- Torrent
+			[25] = 108283,	-- Echo of the Elements
+			[30] = 260878,	-- Spirit Wolf
+			[35] = 198838,	-- Earthen Wall Totem
+			[40] = 30884,	-- Nature's Guardian
+			[45] = 280614,	-- Flash Flood
+			[50] = 114052,	-- Ascendance
+		},
+	},
+	[8] = { -- Mage
+		[62] = { -- Arcane
+			[15] = 236628, 	-- Amplification
+			[25] = 212653, 	-- Shimmer
+			[30] = 1463,	-- Incanter's Flow
+			[35] = 342231,	-- Arcane Echo
+			[40] = 235711,	-- Chrono Shift
+			[45] = 153626,	-- Arcane Orb
+			[50] = 321387,	-- Enlightened
+		},
+		[63] = { -- Fire
+			[15] = 269644,	-- Searing Touch
+			[25] = 212653, 	-- Shimmer
+			[30] = 1463,	-- Incanter's Flow
+			[35] = 205029,	-- Flame On
+			[40] = 236058,	-- Frenetic Speed
+			[45] = 205023,	-- Conflagration
+			[50] = 153561,	-- Meteor
+		},
+		[64] = { -- Frost
+			[15] = 205027,	-- Bone Chilling
+			[25] = 212653, 	-- Shimmer
+			[30] = 1463,	-- Incanter's Flow
+			[35] = 205030,	-- Frozen Touch
+			[40] = 235224,	-- Frigid Winds
+			[45] = 56377,	-- Splitting Ice
+			[50] = 155149,	-- Thermal Void
+		},
+	},
+	[9] = { -- Warlock
+		[265] = { -- Affliction
+			[15] = 108558,	-- Nightfall
+			[25] = 196103,	-- Absolute Corruption
+			[30] = 111400,	-- Burning Rush
+			[35] = 205179,	-- Phantom Singularity
+			[40] = 6789,	-- Mortal Coil
+			[45] = 48181,	-- Haunt
+			[50] = 215941,	-- Soul Conduit
+		},
+		[266] = { -- Demonology
+			[15] = 267211,	-- Bilescourge Bombers
+			[25] = 205145,	-- Demonic Calling
+			[30] = 111400,	-- Burning Rush
+			[35] = 264057,	-- Soul Strike
+			[40] = 6789,	-- Mortal Coil
+			[45] = 267216,	-- Inner Demons
+			[50] = 267215,	-- Demonic Consumption
+		},
+		[267] = { -- Destruction
+			[15] = 6353,	-- Soul Fire
+			[25] = 17877,	-- Shadowburn
+			[30] = 111400,	-- Burning Rush
+			[35] = 196408,	-- Fire and Brimstone
+			[40] = 6789,	-- Mortal Coil
+			[45] = 266086,	-- Rain of Chaos
+			[50] = 196447,	-- Channel Demonfire
+		},
+	},
+	[10] = { -- Monk
+		[268] = { -- Brewmaster
+			[15] = 123986,	-- Chi Burst
+			[25] = 115008,	-- Chi Torpedo
+			[30] = 115399,	-- Black Ox Brew
+			[35] = 115315,	-- Summon Black Ox Statue
+			[40] = 122281,	-- Healing Elixir
+			[45] = 116847,	-- Rushing Jade Wind
+			[50] = 196737,	-- High Tolerance
+		},
+		[269] = { -- Windwalker
+			[15] = 123986,	-- Chi Burst
+			[25] = 115173,  -- Celerity
+			[30] = 261947,  -- Fist of the White Tiger
+			[35] = 280195,  -- Good Karma
+			[40] = 261767,  -- Inner Strength
+			[45] = 196740,  -- Hit Combo
+			[50] = 152175,  -- Whirling Dragon Punch
+		},
+		[270] = { -- Mistweaver
+			[15] = 123986,	-- Chi Burst
+			[25] = 115008,	-- Chi Torpedo
+			[30] = 210802,	-- Spirit of the Crane
+			[35] = 116844,	-- Ring of Peace
+			[40] = 122278,	-- Dampen Harm
+			[45] = 325197,	-- Invoke Chi-Ji, the Red Crane
+			[50] = 197895,	-- Focused Thunder
+		},
+	},
+	[11] = { -- Druid
+		[102] = { -- Balance
+			[15] = 202430,	-- Nature's Balance
+			[25] = 102401,	-- Wild Charge
+			[30] = 197492,	-- Restoration Affinity
+			[35] = 5211,	-- Mighty Bash
+			[40] = 114107,	-- Soul of the Forest
+			[45] = 202354,	-- Stellar Drift
+			[50] = 343647,	-- Solstice
+		},
+		[103] = { -- Feral
+			[15] = 202021,	-- Predator
+			[25] = 252216,	-- Tiger Dash
+			[30] = 197492,	-- Restoration Affinity
+			[35] = 5211,	-- Mighty Bash
+			[40] = 158476,	-- Soul of the Forest
+			[45] = 285381,	-- Primal Wrath
+			[50] = 274837,	-- Feral Frenzy
+		},
+		[104] = { -- Guardian
+			[15] = 203953,	-- Brambles
+			[25] = 102401,	-- Wild Charge
+			[30] = 197492,	-- Restoration Affinity
+			[35] = 319454,	-- Heart of the Wild
+			[40] = 203964,	-- Galactic Guardian
+			[45] = 203965,	-- Survival of the Fittest
+			[50] = 135288,	-- Tooth and Claw
+		},
+		[105] = { -- Restoration
+			[15] = 102351,	-- Cenarion Ward
+			[25] = 102401,	-- Wild Charge
+			[30] = 197490,	-- Feral Affinity
+			[35] = 319454,	-- Heart of the Wild
+			[40] = 158478,	-- Soul of the Forest
+			[45] = 203651,	-- Overgrowth
+			[50] = 274902,	-- Photosynthesis
+		},
+	},
+	[12] = { -- Demon Hunter
+		[577] = { -- Havoc
+			[15] = 206478,	-- Demonic Appetite
+			[25] = 258876,	-- Insatiable Hunger
+			[30] = 347461,	-- Unbound Chaos
+			[35] = 204909,	-- Soul Rending
+			[40] = 206416,	-- First Blood
+			[45] = 203556,	-- Master of the Glaive
+			[50] = 213410,	-- Demonic
+		},
+		[581] = { -- Vengeance
+			[15] = 207550,	-- Abyssal Strike
+			[25] = 227174,	-- Fallout
+			[30] = 247454,	-- Spirit Bomb
+			[35] = 263642,	-- Fracture
+			[40] = 202138,	-- Sigil of Chains
+			[45] = 321453,	-- Demonic
+			[50] = 209258,	-- Last Resort
 		},
 	},
 }

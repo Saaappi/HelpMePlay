@@ -4,7 +4,7 @@ HelpMePlay | 1.0.8
 		- Added more pet tamers.
 		- Reverted a previous change that skipped the Kul Tiras introduction, instead players will default playing the scenario. (Alliance only)
 	Fixes:
-		- Talents should now suggest properly for Retribution Paladin.
+		- Talents and Anima Powers should now suggest properly for Retribution Paladin.
 		- Fixed multiple dialogs that previously worked.
 		- Fixed an issue so quests are officially processed before dialogs.
 		- Fixed an issue where items from merchants were being processed with an extended cost even when they didn't have one.
