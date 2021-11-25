@@ -1,13 +1,1 @@
-HelpMePlay | 1.0.8
-	Torghast:
-		- Added Anima Powers across all tiers for most, if not all, specializations of the following classes: Priest, Death Knight, Shaman, Mage, Warlock, Monk, Druid, and Demon Hunter. 
-	Dialog:
-		- Added more stable masters.
-		- Added more pet tamers.
-		- Reverted a previous change that skipped the Kul Tiras introduction, instead players will default playing the scenario. (Alliance only)
-	Fixes:
-		- Talents and Anima Powers should now handle properly for Retribution Paladin.
-		- Fixed multiple dialogs that previously worked.
-		- Fixed an issue so quests are officially processed before dialogs.
-		- Fixed an issue where items from merchants were being processed with an extended cost even when they didn't have one.
-		- Fixed an issue with the Hero's Call Board.
+HelpMePlay | 1.0.9
