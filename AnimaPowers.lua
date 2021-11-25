@@ -590,31 +590,16 @@ local animaPowers = {
 	},
 	[4] = { -- Rogue
 		[259] = { -- Assassination
-			[15] = 196864,	-- Master Poisoner
-			[25] = 108208,	-- Subterfuge
-			[30] = 137619,	-- Marked for Death
-			[35] = 280716,	-- Leeching Poison
-			[40] = 154904,	-- Internal Bleeding
-			[45] = 193539,	-- Alacrity
-			[50] = 255544,	-- Poison Bomb
+			-- Powers for Assassination Rogue aren't
+			-- listed in tiers like the other specializations.
 		},
 		[260] = { -- Outlaw
-			[15] = 196938,	-- Quick Draw
-			[25] = 196922,	-- Hit and Run
-			[30] = 137619,	-- Marked for Death
-			[35] = 193546,	-- Iron Stomach
-			[40] = 131511,	-- Prey on the Weak
-			[45] = 193539,	-- Alacrity
-			[50] = 271877,	-- Blade Rush
+			-- Powers for Outlaw Rogue aren't listed in
+			-- tiers like the other specializations.
 		},
 		[261] = { -- Subtlety
-			[15] = 193537,	-- Weaponmaster
-			[25] = 108208,	-- Subterfuge
-			[30] = 137619,	-- Marked for Death
-			[35] = 200759,	-- Soothing Darkness
-			[40] = 277953,	-- Night Terrors
-			[45] = 238104,	-- Enveloping Shadows
-			[50] = 280719,	-- Secret Technique
+			-- Powers for Subtlety Rogue aren't listed
+			-- in tiers like the other specializations.
 		},
 	},
 	[5] = { -- Priest
@@ -1198,147 +1183,284 @@ local animaPowers = {
 	},
 	[8] = { -- Mage
 		[62] = { -- Arcane
-			[15] = 236628, 	-- Amplification
-			[25] = 212653, 	-- Shimmer
-			[30] = 1463,	-- Incanter's Flow
-			[35] = 342231,	-- Arcane Echo
-			[40] = 235711,	-- Chrono Shift
-			[45] = 153626,	-- Arcane Orb
-			[50] = 321387,	-- Enlightened
+			-- S Tier Powers
+			[320915] = 1, -- Grisly Icicle
+			[320926] = 1, -- Art of the Blinkmage
+			[320927] = 1, -- Clouded Diamond
+			[320907] = 1, -- Highly-Polished Handmirror
+			[320898] = 1, -- Seeker's Scroll
+			[320912] = 1, -- Tundrid Phial
+			[342376] = 1, -- Maliced Rumination
+			[320914] = 1, -- Chronomancer's Hourglass
+			-- A Tier Powers
+			[330630] = 2, -- Gravity Dynamo
+			[350267] = 2, -- Incanter's Ward
+			[320927] = 2, -- Clouded Diamond
+			[320898] = 2, -- Seeker's Scroll
+			[320921] = 2, -- Runecloth Wrappings
+			[320907] = 2, -- Highly-Polished Handmirror
+			[320911] = 2, -- Resolute Medallion
+			[320906] = 2, -- Scroll of Explosure
+			[313870] = 2, -- Archmage's Invocation
+			[320924] = 2, -- Spaceweaver's Thread
+			[342376] = 2, -- Maliced Rumination
+			-- B Tier Powers
+			[320926] = 3, -- Art of the Blinkmage
+			[320912] = 3, -- Tundrid Phial
+			[320909] = 3, -- Eldritch Teachings
+			[320903] = 3, -- Chaos Invitation
+			[321445] = 3, -- Mad Wizard's Intellect
+			[320900] = 3, -- Pandemonium Lens
+			[333373] = 3, -- Triune Ward
+			[320901] = 3, -- Whizzard Hat
+			[313867] = 3, -- Archmage's Cypher
+			[313871] = 3, -- Archmage's Legacy
+			[313869] = 3, -- Archmage's Lesson
+			[313872] = 3, -- Archmage's Mythos
+			[314253] = 3, -- Wizard's Prayer
+			[342371] = 3, -- Fae Concentration
+			[342372] = 3, -- Fae Tendrils
+			-- C Tier Powers
+			[320902] = 4, -- Bombardier's Etching
+			[350267] = 4, -- Incanter's Ward
+			[320910] = 4, -- Constellation Shield
+			[320919] = 4, -- Echoes of Elisande
+			[320905] = 4, -- Sapphire Prism
+			[330551] = 4, -- Spellweaver's Mojo
+			[320899] = 4, -- Wand Grease
+			[313873] = 4, -- Archmage's Ultimatum
+			[314251] = 4, -- Long-Forbidden Words
+			[314249] = 4, -- Scroll of the Arcane Meditator
+			[314252] = 4, -- Urael's Finality
+			[342377] = 4, -- Malevolence
+			[342360] = 4, -- One With Death
+			[330579] = 4, -- Fire Juggler
+			[313868] = 4, -- Archmage's Gift
+			[320908] = 4, -- Sorceror's Frozen Soul
+			-- D Tier Powers
+			[320923] = 5, -- Arcanic Pulse Detector
+			[320903] = 5, -- Chaos Invitation
+			[320925] = 5, -- Dimensional Blade
+			[320909] = 5, -- Maldo's Enchanted Cane
+			[320924] = 5, -- Spaceweaver's Thread
+			[320920] = 5, -- Timebreaker's Paradox
+			[320914] = 5, -- Tome of Zoomancy
+			[314248] = 5, -- Anima-Flecked Topaz
+			[314250] = 5, -- Winged Curio
+			[285212] = 5, -- Chilling Touch
+			[342359] = 5, -- Power Overwhelming
+			-- E Tier Powers
+			[320917] = 6, -- Bottled Tesseract
+			[320913] = 6, -- Everwarm Socks
+			[320915] = 6, -- Grisly Icicle
+			[320908] = 6, -- Polymorbid Rat Liver
+			[330745] = 6, -- Timeweaver's Needle
+			[300796] = 6, -- Touch of the Unseen
+			[342374] = 6, -- Lingering Torments
+			[342370] = 6, -- Infinite Power
+			[320904] = 6, -- Manascale
 		},
 		[63] = { -- Fire
-			[15] = 269644,	-- Searing Touch
-			[25] = 212653, 	-- Shimmer
-			[30] = 1463,	-- Incanter's Flow
-			[35] = 205029,	-- Flame On
-			[40] = 236058,	-- Frenetic Speed
-			[45] = 205023,	-- Conflagration
-			[50] = 153561,	-- Meteor
+			-- S Tier Powers
+			[330630] = 1, -- Gravity Dynamo
+			[320914] = 1, -- Chronomancer's Hourglass
+			[320915] = 1, -- Grisly Icicle
+			[320926] = 1, -- Art of the Blinkmage
+			[320927] = 1, -- Clouded Diamond
+			[320907] = 1, -- Highly-Polished Handmirror
+			[320898] = 1, -- Seeker's Scroll
+			[320912] = 1, -- Tundrid Phial
+			[342376] = 1, -- Maliced Rumination
+			[330579] = 1, -- Fire Juggler
+			[330630] = 1, -- Gravity Dynamo
+			[330579] = 1, -- Fire Juggler
+			-- A Tier Powers
+			[350267] = 2, -- Incanter's Ward
+			[320909] = 2, -- Eldritch Teachings
+			[320927] = 2, -- Clouded Diamond
+			[320921] = 2, -- Runecloth Wrappings
+			[320907] = 2, -- Highly-Polished Handmirror
+			[320911] = 2, -- Resolute Medallion
+			[320906] = 2, -- Scroll of Explosure
+			[313870] = 2, -- Archmage's Invocation
+			[320924] = 2, -- Spaceweaver's Thread
+			[342376] = 2, -- Maliced Rumination
+			-- B Tier Powers
+			[320926] = 3, -- Art of the Blinkmage
+			[320912] = 3, -- Tundrid Phial
+			[313868] = 3, -- Archmage's Gift
+			[320903] = 3, -- Chaos Invitation
+			[321445] = 3, -- Mad Wizard's Intellect
+			[320904] = 3, -- Manascale
+			[320900] = 3, -- Pandemonium Lens
+			[320916] = 3, -- Triune Ward
+			[320901] = 3, -- Whizzard Hat
+			[313867] = 3, -- Archmage's Cypher
+			[313871] = 3, -- Archmage's Legacy
+			[313869] = 3, -- Archmage's Lesson
+			[313872] = 3, -- Archmage's Mythos
+			[314253] = 3, -- Wizard's Prayer
+			[342371] = 3, -- Fae Concentration
+			[342372] = 3, -- Fae Tendrils
+			[320898] = 3, -- Seeker's Scroll
+			-- C Tier Powers
+			[350267] = 4, -- Incanter's Ward
+			[320902] = 4, -- Bombardier's Etching
+			[320910] = 4, -- Constellation Shield
+			[320919] = 4, -- Echoes of Elisande
+			[320905] = 4, -- Sapphire Prism
+			[330551] = 4, -- Spellweaver's Mojo
+			[320899] = 4, -- Wand Grease
+			[313873] = 4, -- Archmage's Ultimatum
+			[314251] = 4, -- Long-Forbidden Words
+			[314249] = 4, -- Scroll of the Arcane Meditator
+			[314252] = 4, -- Urael's Finality
+			[342377] = 4, -- Malevolence
+			[342360] = 4, -- One With Death
+			[320908] = 4, -- Sorceror's Frozen Soul
+			-- D Tier Powers
+			[320923] = 5, -- Arcanic Pulse Detector
+			[320903] = 5, -- Chaos Invitation
+			[320925] = 5, -- Dimensional Blade
+			[320909] = 5, -- Maldo's Enchanted Cane
+			[320924] = 5, -- Spaceweaver's Thread
+			[320920] = 5, -- Timebreaker's Paradox
+			[320914] = 5, -- Tome of Zoomancy
+			[314248] = 5, -- Anima-Flecked Topaz
+			[314250] = 5, -- Winged Curio
+			[285212] = 5, -- Chilling Touch
+			[342359] = 5, -- Power Overwhelming
+			-- E Tier Powers
+				-- No powers are in this tier for this specialization.
+			-- F Tier Powers
+			[320917] = 7, -- Bottled Tesseract
+			[320913] = 7, -- Everwarm Socks
+			[320915] = 7, -- Grisly Icicle
+			[320908] = 7, -- Polymorbid Rat Liver
+			[330745] = 7, -- Timeweaver's Needle
+			[300796] = 7, -- Touch of the Unseen
+			[342374] = 7, -- Lingering Torments
+			[342370] = 7, -- Infinite Power
 		},
 		[64] = { -- Frost
-			[15] = 205027,	-- Bone Chilling
-			[25] = 212653, 	-- Shimmer
-			[30] = 1463,	-- Incanter's Flow
-			[35] = 205030,	-- Frozen Touch
-			[40] = 235224,	-- Frigid Winds
-			[45] = 56377,	-- Splitting Ice
-			[50] = 155149,	-- Thermal Void
+			-- Powers for Frost Mage aren't listed in
+			-- tiers like the other specializations.
 		},
 	},
 	[9] = { -- Warlock
 		[265] = { -- Affliction
-			[15] = 108558,	-- Nightfall
-			[25] = 196103,	-- Absolute Corruption
-			[30] = 111400,	-- Burning Rush
-			[35] = 205179,	-- Phantom Singularity
-			[40] = 6789,	-- Mortal Coil
-			[45] = 48181,	-- Haunt
-			[50] = 215941,	-- Soul Conduit
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[266] = { -- Demonology
-			[15] = 267211,	-- Bilescourge Bombers
-			[25] = 205145,	-- Demonic Calling
-			[30] = 111400,	-- Burning Rush
-			[35] = 264057,	-- Soul Strike
-			[40] = 6789,	-- Mortal Coil
-			[45] = 267216,	-- Inner Demons
-			[50] = 267215,	-- Demonic Consumption
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[267] = { -- Destruction
-			[15] = 6353,	-- Soul Fire
-			[25] = 17877,	-- Shadowburn
-			[30] = 111400,	-- Burning Rush
-			[35] = 196408,	-- Fire and Brimstone
-			[40] = 6789,	-- Mortal Coil
-			[45] = 266086,	-- Rain of Chaos
-			[50] = 196447,	-- Channel Demonfire
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 	},
 	[10] = { -- Monk
 		[268] = { -- Brewmaster
-			[15] = 123986,	-- Chi Burst
-			[25] = 115008,	-- Chi Torpedo
-			[30] = 115399,	-- Black Ox Brew
-			[35] = 115315,	-- Summon Black Ox Statue
-			[40] = 122281,	-- Healing Elixir
-			[45] = 116847,	-- Rushing Jade Wind
-			[50] = 196737,	-- High Tolerance
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[269] = { -- Windwalker
-			[15] = 123986,	-- Chi Burst
-			[25] = 115173,  -- Celerity
-			[30] = 261947,  -- Fist of the White Tiger
-			[35] = 280195,  -- Good Karma
-			[40] = 261767,  -- Inner Strength
-			[45] = 196740,  -- Hit Combo
-			[50] = 152175,  -- Whirling Dragon Punch
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[270] = { -- Mistweaver
-			[15] = 123986,	-- Chi Burst
-			[25] = 115008,	-- Chi Torpedo
-			[30] = 210802,	-- Spirit of the Crane
-			[35] = 116844,	-- Ring of Peace
-			[40] = 122278,	-- Dampen Harm
-			[45] = 325197,	-- Invoke Chi-Ji, the Red Crane
-			[50] = 197895,	-- Focused Thunder
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 	},
 	[11] = { -- Druid
 		[102] = { -- Balance
-			[15] = 202430,	-- Nature's Balance
-			[25] = 102401,	-- Wild Charge
-			[30] = 197492,	-- Restoration Affinity
-			[35] = 5211,	-- Mighty Bash
-			[40] = 114107,	-- Soul of the Forest
-			[45] = 202354,	-- Stellar Drift
-			[50] = 343647,	-- Solstice
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[103] = { -- Feral
-			[15] = 202021,	-- Predator
-			[25] = 252216,	-- Tiger Dash
-			[30] = 197492,	-- Restoration Affinity
-			[35] = 5211,	-- Mighty Bash
-			[40] = 158476,	-- Soul of the Forest
-			[45] = 285381,	-- Primal Wrath
-			[50] = 274837,	-- Feral Frenzy
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[104] = { -- Guardian
-			[15] = 203953,	-- Brambles
-			[25] = 102401,	-- Wild Charge
-			[30] = 197492,	-- Restoration Affinity
-			[35] = 319454,	-- Heart of the Wild
-			[40] = 203964,	-- Galactic Guardian
-			[45] = 203965,	-- Survival of the Fittest
-			[50] = 135288,	-- Tooth and Claw
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[105] = { -- Restoration
-			[15] = 102351,	-- Cenarion Ward
-			[25] = 102401,	-- Wild Charge
-			[30] = 197490,	-- Feral Affinity
-			[35] = 319454,	-- Heart of the Wild
-			[40] = 158478,	-- Soul of the Forest
-			[45] = 203651,	-- Overgrowth
-			[50] = 274902,	-- Photosynthesis
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 	},
 	[12] = { -- Demon Hunter
 		[577] = { -- Havoc
-			[15] = 206478,	-- Demonic Appetite
-			[25] = 258876,	-- Insatiable Hunger
-			[30] = 347461,	-- Unbound Chaos
-			[35] = 204909,	-- Soul Rending
-			[40] = 206416,	-- First Blood
-			[45] = 203556,	-- Master of the Glaive
-			[50] = 213410,	-- Demonic
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 		[581] = { -- Vengeance
-			[15] = 207550,	-- Abyssal Strike
-			[25] = 227174,	-- Fallout
-			[30] = 247454,	-- Spirit Bomb
-			[35] = 263642,	-- Fracture
-			[40] = 202138,	-- Sigil of Chains
-			[45] = 321453,	-- Demonic
-			[50] = 209258,	-- Last Resort
+			-- S Tier Powers
+			-- A Tier Powers
+			-- B Tier Powers
+			-- C Tier Powers
+			-- D Tier Powers
+			-- E Tier Powers
+			-- F Tier Powers
 		},
 	},
 }
