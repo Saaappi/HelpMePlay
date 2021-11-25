@@ -1677,30 +1677,175 @@ local animaPowers = {
 	[10] = { -- Monk
 		[268] = { -- Brewmaster
 			-- S Tier Powers
+			[331528] = 1, -- Corrosive Dosage
 			-- A Tier Powers
+			[331511] = 2, -- 36 Pressure Point Technique
+			[314258] = 2, -- Balancing Stave
+			[331528] = 2, -- Corrosive Dosage
+			[344581] = 2, -- Fading Memory Shards
+			[331679] = 2, -- Fatal Flying Guillotine
+			[343461] = 2, -- Scales of Order
+			[331655] = 2, -- Stroke of Elegance
+			[342453] = 2, -- Unfiltered Bone Broth
+			[331667] = 2, -- Tiger and Crane Figurines
 			-- B Tier Powers
+			[342458] = 3, -- Fae Aftershock
+			[331390] = 3, -- Feathers of a Hundred Flocks
+			[314254] = 3, -- Haven's Breath
+			[331622] = 3, -- Hit Scheme
+			[331512] = 3, -- Shadowboxing Treads
+			[343468] = 3, -- Staggered Stomps
+			[344588] = 3, -- Tattered Teachings
+			[343795] = 3, -- Wrist Wraps of the Zen Master
 			-- C Tier Powers
+			[331654] = 4, -- Amplified Samples
+			[331660] = 4, -- Bad Karma
+			[343793] = 4, -- Bottled Wind
+			[342444] = 4, -- Bulging Brew
+			[343822] = 4, -- Celestial Lasso
+			[331641] = 4, -- Constellation Star-Chart
+			[331647] = 4, -- Deathtouched Brew
+			[331650] = 4, -- Flowing Chi Rolls
+			[314256] = 4, -- Maw-Darkened Slippers
+			[344580] = 4, -- Deep Reflection
+			[313860] = 4, -- Grandmaster's Cypher
+			[313865] = 4, -- Grandmaster's Mythos
+			[313866] = 4, -- Grandmaster's Ultimatum
 			-- D Tier Powers
+			[343790] = 5, -- Cloud of Feathers
+			[342446] = 5, -- Corrosive Carbonation
+			[343458] = 5, -- Fae Footwraps
+			[331439] = 5, -- Fortified Leg Braces
+			[313863] = 5, -- Grandmaster's Invocation
+			[313864] = 5, -- Grandmaster's Legacy
+			[331426] = 5, -- Technique of the Rushing Tiger
 			-- E Tier Powers
+			[343788] = 6, -- Ever-tumbling Stone
+			[331663] = 6, -- Rolling Tigers
+			[331514] = 6, -- Tumbling Rollstone
+			[313861] = 6, -- Grandmaster's Gift
+			[313862] = 6, -- Grandmaster's Lesson
 			-- F Tier Powers
+				-- No powers are in this tier for this specialization.
 		},
 		[269] = { -- Windwalker
 			-- S Tier Powers
+			[331528] = 1, -- Corrosive Dosage
 			-- A Tier Powers
+			[331511] = 2, -- 36 Pressure Point Technique
+			[331834] = 2, -- Balance of the Ox
+			[331830] = 2, -- Caught by the Dropkicks
+			[331641] = 2, -- Constellation Star-Chart
+			[331679] = 2, -- Fatal Flying Guillotine
+			[331390] = 2, -- Feathers of a Hundred Flocks
+			[331650] = 2, -- Flowing Chi Rolls
+			[331622] = 2, -- Hit Scheme
+			[331655] = 2, -- Stroke of Elegance
+			[314258] = 2, -- Balancing Stave
+			[343454] = 2, -- Celestial Weapon-Chains
+			[314254] = 2, -- Haven's Breath
+			[343461] = 2, -- Scales of Order
+			[344581] = 2, -- Fading Memory Shards
 			-- B Tier Powers
+			[331654] = 3, -- Amplified Samples
+			[331660] = 3, -- Bad Karma
+			[343822] = 3, -- Celestial Lasso
+			[331647] = 3, -- Deathtouched Brew
+			[331512] = 3, -- Shadowboxing Treads
+			[331426] = 3, -- Technique of the Rushing Tiger
+			[331667] = 3, -- Tiger and Crane Figurines
+			[331823] = 3, -- Whirling Stormgem
+			[343795] = 3, -- Wrist Wraps of the Zen Master
+			[313860] = 3, -- Grandmaster's Cypher
+			[313862] = 3, -- Grandmaster's Lesson
+			[313865] = 3, -- Grandmaster's Mythos
+			[314255] = 3, -- Anima-Tinged Weapon Oil
+			[314256] = 3, -- Maw-Darkened Slippers
+			[344580] = 3, -- Deep Reflection
+			[342444] = 3, -- Bulging Brew
+			[342446] = 3, -- Corrosive Carbonation
+			[342453] = 3, -- Unfiltered Bone Broth
+			[343468] = 3, -- Staggered Stomps
 			-- C Tier Powers
+			[331655] = 4, -- Stroke of Elegance
+			[313866] = 4, -- Grandmaster's Ultimatum
+			[344590] = 4, -- Dowsing Rod
+			[342458] = 4, -- Fae Aftershock
+			[343458] = 4, -- Fae Footwraps
 			-- D Tier Powers
+			[313861] = 5, -- Grandmaster's Gift
+			[313863] = 5, -- Grandmaster's Invocation
+			[313864] = 5, -- Grandmaster's Legacy
+			[314257] = 5, -- Forgotten Armor of Order
+			[343790] = 5, -- Cloud of Feathers
+			[343788] = 5, -- Ever-tumbling Stone
+			[331439] = 5, -- Fortified Leg Braces
+			[331826] = 5, -- Katamawri
+			[331663] = 5, -- Rolling Tigers
+			[331514] = 5, -- Tumbling Rollstone
+			[343793] = 5, -- Bottled Wind
+			[333917] = 5, -- Shadowy Essence
 			-- E Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- F Tier Powers
+				-- No powers are in this tier for this specialization.
 		},
 		[270] = { -- Mistweaver
 			-- S Tier Powers
+			[331528] = 1, -- Corrosive Dosage
 			-- A Tier Powers
+			[331442] = 2, -- Celestial Dynasty
+			[343822] = 2, -- Celestial Lasso
+			[331641] = 2, -- Constellation Star-Chart
+			[331390] = 2, -- Feathers of a Hundred Flocks
+			[331512] = 2, -- Shadowboxing Treads
+			[314258] = 2, -- Balancing Stave
+			[314256] = 2, -- Maw-Darkened Slippers
+			[344581] = 2, -- Fading Memory Shards
+			[342446] = 2, -- Corrosive Carbonation
+			[331660] = 2, -- Bad Karma
+			[331834] = 2, -- Balance of the Ox
+			[331830] = 2, -- Caught by the Dropkicks
+			[343790] = 2, -- Cloud of Feathers
+			[107270] = 2, -- Spinning Crane Kick
+			[331679] = 2, -- Fatal Flying Guillotine
+			[331667] = 2, -- Tiger and Crane Figurines
+			[343461] = 2, -- Scales of Order
+			[344588] = 2, -- Tattered Teachings
 			-- B Tier Powers
+			[331511] = 3, -- 36 Pressure Point Technique
+			[331654] = 3, -- Amplified Samples
+			[343793] = 3, -- Bottled Wind
+			[343788] = 3, -- Ever-tumbling Stone
+			[331439] = 3, -- Fortified Leg Braces
+			[331826] = 3, -- Katamawri
+			[331655] = 3, -- Stroke of Elegance
+			[331426] = 3, -- Technique of the Rushing Tiger
+			[331823] = 3, -- Whirling Stormgem
+			[107270] = 3, -- Spinning Crane Kick
+			[343454] = 3, -- Celestial Weapon-Chains
+			[314257] = 3, -- Forgotten Armor of Order
+			[314254] = 3, -- Haven's Breath
+			[344580] = 3, -- Deep Reflection
+			[342444] = 3, -- Bulging Brew
+			[342453] = 3, -- Unfiltered Bone Broth
+			[342458] = 3, -- Fae Aftershock
+			[343468] = 3, -- Staggered Stomps
 			-- C Tier Powers
+			[331647] = 4, -- Deathtouched Brew
+			[331622] = 4, -- Hit Scheme
+			[331663] = 4, -- Rolling Tigers
+			[331514] = 4, -- Tumbling Rollstone
+			[343795] = 4, -- Wrist Wraps of the Zen Master
+			[314255] = 4, -- Anima-Tinged Weapon Oil
+			[343456] = 4, -- Bladed Knuckle-Punchers
+			[344590] = 4, -- Dowsing Rod
 			-- D Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- E Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- F Tier Powers
+				-- No powers are in this tier for this specialization.
 		},
 	},
 	[11] = { -- Druid
