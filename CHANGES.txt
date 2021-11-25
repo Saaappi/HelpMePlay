@@ -1,6 +1,6 @@
 HelpMePlay | 1.0.8
 	Torghast:
-		- Added Anima Powers across all tiers for most specializations of the following classes: Priest, Death Knight, Shaman, Mage, Warlock, Monk, Druid, and Demon Hunter. 
+		- Added Anima Powers across all tiers for most, if not all, specializations of the following classes: Priest, Death Knight, Shaman, Mage, Warlock, Monk, Druid, and Demon Hunter. 
 	Dialog:
 		- Added more stable masters.
 		- Added more pet tamers.

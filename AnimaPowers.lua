@@ -1851,39 +1851,321 @@ local animaPowers = {
 	[11] = { -- Druid
 		[102] = { -- Balance
 			-- S Tier Powers
+			[329970] = 1, -- Orbit Breaker
+			[313829] = 1, -- Archdruid's Mythos
+			[335771] = 1, -- Energy Focusing Crystal
+			[295732] = 1, -- Golden Idol
+			[330274] = 1, -- Lycara's Sash
 			-- A Tier Powers
+			[330915] = 2, -- Draught of Midnight Blazes
+			[313828] = 2, -- Archdruid's Legacy
+			[313831] = 2, -- Archdruid's Ultimatum
+			[330652] = 2, -- Bottle of Moonshine
+			[294719] = 2, -- Bottled Enigma
+			[306625] = 2, -- Cilice of Denathrius
+			[329799] = 2, -- Circlet of Weeds
+			[335766] = 2, -- Coalesced Spirit Droplet
+			[334393] = 2, -- Draught of Waning Twilight
+			[335643] = 2, -- Dried Blood of the Beast
+			[337881] = 2, -- Fallen Armaments
+			[285479] = 2, -- Flame Jet
+			[306573] = 2, -- Gift of Ardenweald
+			[299049] = 2, -- Heart of the Forge
+			[306563] = 2, -- Kyrian Blessing
+			[329960] = 2, -- Lycara's Bargain
+			[329968] = 2, -- Oath of Druids
+			[338922] = 2, -- Soulward Clasp
+			[304998] = 2, -- Stormcycle Peridot
+			[329796] = 2, -- String of Fangs and Talons
 			-- B Tier Powers
+			[329815] = 3, -- Affinity Stones
+			[334314] = 3, -- Draught of Midday Calm
+			[313824] = 3, -- Archdruid's Cypher
+			[308196] = 3, -- Corruption Antenna
+			[308204] = 3, -- Crumbling Aegis
+			[342779] = 3, -- Crystallized Dreams
+			[337878] = 3, -- Dark Fortress
+			[320800] = 3, -- Edgelurker
+			[337613] = 3, -- Erratic Howler
+			[337728] = 3, -- Kerim's Amulet of Laceration
+			[296141] = 3, -- Knowledge of Mortality
+			[306571] = 3, -- Maldraxxian Repayment
+			[329802] = 3, -- Moon-Spirit Essence
+			[330904] = 3, -- Rootwood Scarab
+			[336387] = 3, -- Sealed Essence Sphere
+			[295694] = 3, -- Secret Spices
+			[335601] = 3, -- Shard of Silvered Glass
+			[315319] = 3, -- Spectral Oats
+			[329800] = 3, -- Steelwood Slab
+			[325887] = 3, -- Strigidium
+			[297721] = 3, -- Subjugator's Manacles
+			[329969] = 3, -- Sylvatican Charm
+			[337585] = 3, -- The Stone Ward
+			[306575] = 3, -- Venthyr's Gratitude
 			-- C Tier Powers
+			[300771] = 4, -- Blade of the Lifetaker
+			[337645] = 4, -- Brittle Bone Dust
+			[330670] = 4, -- Curious Bramblepatch
+			[295978] = 4, -- Echo of Azeroth
+			[308194] = 4, -- Finger of Frozen Fury
+			[304996] = 4, -- Frostchipper
+			[337719] = 4, -- Heart-Seeking Fang
+			[308193] = 4, -- Lens of Elchaver
+			[330666] = 4, -- Lycara's Twig
+			[342818] = 4, -- Mask of Withering
+			[338705] = 4, -- Overgrowth Seedling
+			[335645] = 4, -- Perfectly Preserved Insect
+			[329959] = 4, -- Petrus Ring
+			[325800] = 4, -- Phial of Light
+			[325801] = 4, -- Phial of Pain
+			[337928] = 4, -- Potent Acid Gland
+			[338616] = 4, -- Pulsing Rot-hive
+			[331375] = 4, -- Revitalizing Spirit
+			[306615] = 4, -- Roots of the Dreamtree
+			[300733] = 4, -- Sated Guillotine
+			[305006] = 4, -- Scroll of Elchaver
+			[321155] = 4, -- Searing Luminosity
+			[334459] = 4, -- Silent Spirit
+			[335741] = 4, -- Twin Friendship Ring
+			[337620] = 4, -- Unstable Form
+			[338948] = 4, -- V'lara's Cape of Subterfuge
+			[342710] = 4, -- Volatile Flesh
+			[305050] = 4, -- Watchful Lightfly
+			[330657] = 4, -- Writings of Lycara
 			-- D Tier Powers
+			[313827] = 5, -- Archdruid's Invocation
+			[313826] = 5, -- Archdruid's Lesson
+			[294422] = 5, -- Bloating Fodder
+			[330672] = 5, -- Blood-Tinged Teeth
+			[330653] = 5, -- Cloak of Thorns
+			[308201] = 5, -- Curious Miasma
+			[305274] = 5, -- Dark Armaments
+			[338596] = 5, -- Defiance of Death
+			[306609] = 5, -- Disemboweler's Hook
+			[335689] = 5, -- Dried Flower Petal
+			[315288] = 5, -- Frostbite Wand
+			[315175] = 5, -- Grasping Tendrils
+			[338072] = 5, -- Gruul's Shattered Toenail
+			[335747] = 5, -- Hardened Bark Sliver
+			[338023] = 5, -- Irritating Moth Dust
+			[342632] = 5, -- Malevolent Stitching
+			[305293] = 5, -- Prisoner's Concord
+			[338029] = 5, -- Shimmering Wingcape
+			[334592] = 5, -- Soulborne Clasp
+			[338062] = 5, -- Stoneflesh Figurine
+			[338631] = 5, -- Swarm Form
+			[297576] = 5, -- Tremorbeast Tusk
+			[335644] = 5, -- White Pollen Mote
+			[305054] = 5, -- Yel'Shir's Powerglove
 			-- E Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- F Tier Powers
+				-- No powers are in this tier for this specialization.
 		},
 		[103] = { -- Feral
 			-- S Tier Powers
+			[305274] = 1, -- Dark Armaments
+			[334393] = 1, -- Draught of Waning Twilight
+			[329960] = 1, -- Lycara's Bargain
+			[330666] = 1, -- Lycara's Twig
 			-- A Tier Powers
+			[313831] = 2, -- Archdruid's Ultimatum
+			[329799] = 2, -- Circlet of Weeds
+			[330653] = 2, -- Cloak of Thorns
+			[335643] = 2, -- Dried Blood of the Beast
+			[319279] = 2, -- Elethium Alembic
+			[319280] = 2, -- Elethium Beacon
+			[319288] = 2, -- Elethium Censer
+			[319287] = 2, -- Elethium Lantern
+			[319285] = 2, -- Elethium Teardrop
+			[335771] = 2, -- Energy Focusing Crystal
+			[306573] = 2, -- Gift of Ardenweald
+			[308194] = 2, -- Finger of Frozen Fury
+			[315288] = 2, -- Frostbite Wand
+			[306563] = 2, -- Kyrian Blessing
+			[308195] = 2, -- Lightning Dust
+			[330274] = 2, -- Lycara's Sash
+			[342818] = 2, -- Mask of Withering
+			[306571] = 2, -- Maldraxxian Repayment
+			[335607] = 2, -- Mote of Blood Thirst
+			[325801] = 2, -- Phial of Pain
+			[336387] = 2, -- Sealed Essence Sphere
+			[295694] = 2, -- Secret Spices
+			[334459] = 2, -- Silent Spirit
+			[334592] = 2, -- Soulborne Clasp
+			[315319] = 2, -- Spectral Oats
+			[297721] = 2, -- Subjugator's Manacles
+			[329969] = 2, -- Sylvatican Charm
+			[306575] = 2, -- Venthyr's Gratitude
+			[300730] = 2, -- Vitality Guillotine
 			-- B Tier Powers
+			[313824] = 3, -- Archdruid's Cypher
+			[313827] = 3, -- Archdruid's Invocation
+			[313828] = 3, -- Archdruid's Legacy
+			[329815] = 3, -- Affinity Stones
+			[300771] = 3, -- Blade of the Lifetaker
+			[294719] = 3, -- Bottled Enigma
+			[335766] = 3, -- Coalesced Spirit Droplet
+			[308196] = 3, -- Corruption Antenna
+			[342779] = 3, -- Crystallized Dreams
+			[330670] = 3, -- Curious Bramblepatch
+			[334314] = 3, -- Draught of Midday Calm
+			[330915] = 3, -- Draught of Midnight Blazes
+			[335689] = 3, -- Dried Flower Petal
+			[338023] = 3, -- Irritating Moth Dust
+			[334604] = 3, -- Leaf on the Water
+			[308193] = 3, -- Lens of Elchaver
+			[329968] = 3, -- Oath of Druids
+			[335645] = 3, -- Perfectly Preserved Insect
+			[337928] = 3, -- Potent Acid Gland
+			[338616] = 3, -- Pulsing Rot-hive
+			[335601] = 3, -- Shard of Silvered Glass
+			[329800] = 3, -- Steelwood Slab
+			[304998] = 3, -- Stormcycle Peridot
+			[329796] = 3, -- String of Fangs and Talons
+			[335741] = 3, -- Twin Friendship Ring
+			[305050] = 3, -- Watchful Lightfly
+			[335644] = 3, -- White Pollen Mote
+			[330657] = 3, -- Writings of Lycara
 			-- C Tier Powers
+			[313829] = 4, -- Archdruid's Mythos
+			[294422] = 4, -- Bloating Fodder
+			[330652] = 4, -- Bottle of Moonshine
+			[308201] = 4, -- Curious Miasma
+			[337878] = 4, -- Dark Fortress
+			[325890] = 4, -- Darksight Orbs
+			[319041] = 4, -- Elethium Weights
+			[315175] = 4, -- Grasping Tendrils
+			[335747] = 4, -- Hardened Bark Sliver
+			[342793] = 4, -- Murmuring Shawl
+			[300793] = 4, -- Open Doors
+			[295754] = 4, -- Purifier's Flame
+			[325800] = 4, -- Phial of Light
+			[342789] = 4, -- Smuggled Wildseed
+			[325887] = 4, -- Strigidium
+			[338631] = 4, -- Swarm Form
+			[342710] = 4, -- Volatile Flesh
+			[305054] = 4, -- Yel'Shir's Powerglove
 			-- D Tier Powers
+			[313826] = 5, -- Archdruid's Lesson
+			[313825] = 5, -- Archdruid's Gift
+			[342757] = 5, -- Clinging Fog
+			[308204] = 5, -- Crumbling Aegis
+			[306609] = 5, -- Disemboweler's Hook
+			[342799] = 5, -- Gnarled Key
+			[325867] = 5, -- Parliament Stone
+			[329959] = 5, -- Petrus Ring
+			[331375] = 5, -- Revitalizing Spirit
+			[330904] = 5, -- Rootwood Scarab
+			[315314] = 5, -- Spectral Bridle
 			-- E Tier Powers
+			[304996] = 6, -- Frostchipper
+			[316693] = 6, -- Irresistible Cheese
+			[342632] = 6, -- Malevolent Stitching
+			[295187] = 6, -- Mawrat Harness
+			[304845] = 6, -- Mawrat Stirrups
+			[342664] = 6, -- Musophobic Femur
+			[329970] = 6, -- Orbit Breaker
+			[329803] = 6, -- Plague-Hardened Hide
+			[305006] = 6, -- Scroll of Elchaver
+			[297576] = 6, -- Tremorbeast Tusk
 			-- F Tier Powers
+			[325830] = 7, -- Bottomless Chalice
+			[335754] = 7, -- Coil of Wire
+			[320800] = 7, -- Edgelurker
+			[319276] = 7, -- Elethium Muzzle
+			[327761] = 7, -- Negation Well
+			[334412] = 7, -- Preserved Ironwood Seed
 		},
 		[104] = { -- Guardian
 			-- S Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- A Tier Powers
+			[335643] = 2, -- Dried Blood of the Beast
+			[335689] = 2, -- Dried Flower Petal
+			[335771] = 2, -- Energy Focusing Crystal
+			[335607] = 2, -- Mote of Blood Thirst
+			[335645] = 2, -- Perfectly Preserved Insect
+			[336387] = 2, -- Sealed Essence Sphere
+			[330653] = 2, -- Cloak of Thorns
+			[329800] = 2, -- Steelwood Slab
+			[335601] = 2, -- Shard of Silvered Glass
+			[334314] = 2, -- Draught of Midday Calm
+			[330915] = 2, -- Draught of Midnight Blazes
+			[334393] = 2, -- Draught of Waning Twilight
+			[335644] = 2, -- White Pollen Mote
+			[334592] = 2, -- Soulborne Clasp
+			[329968] = 2, -- Oath of Druids
+			[330666] = 2, -- Lycara's Twig
+			[329960] = 2, -- Lycara's Bargain
+			[330274] = 2, -- Lycara's Sash
+			[329796] = 2, -- String of Fangs and Talons
 			-- B Tier Powers
+			[335766] = 3, -- Coalesced Spirit Droplet
+			[313828] = 3, -- Archdruid's Legacy
+			[313826] = 3, -- Archdruid's Lesson
+			[313831] = 3, -- Archdruid's Ultimatum
+			[335747] = 3, -- Hardened Bark Sliver
+			[334459] = 3, -- Silent Spirit
+			[329799] = 3, -- Circlet of Weeds
+			[329815] = 3, -- Affinity Stones
+			[334604] = 3, -- Leaf on the Water
+			[329802] = 3, -- Moon-Spirit Essence
+			[330657] = 3, -- Writings of Lycara
 			-- C Tier Powers
+			[335754] = 4, -- Coil of Wire
+			[313825] = 4, -- Archdruid's Gift
+			[313827] = 4, -- Archdruid's Invocation
+			[313829] = 4, -- Archdruid's Mythos
+			[330670] = 4, -- Curious Bramblepatch
+			[315175] = 4, -- Grasping Tendrils
+			[335741] = 4, -- Twin Friendship Ring
+			[329959] = 4, -- Petrus Ring
+			[329803] = 4, -- Plague-Hardened Hide
+			[334412] = 4, -- Preserved Ironwood Seed
+			[330904] = 4, -- Rootwood Scarab
+			[329969] = 4, -- Sylvatican Charm
+			[330672] = 4, -- Blood-Tinged Teeth
 			-- D Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- E Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- F Tier Powers
+				-- No powers are in this tier for this specialization.
 		},
 		[105] = { -- Restoration
 			-- S Tier Powers
+			[329970] = 1, -- Orbit Breaker
+			[330666] = 1, -- Lycara's Twig
+			[335766] = 1, -- Coalesced Spirit Droplet
+			[329960] = 1, -- Lycara's Bargain
+			[306625] = 1, -- Cilice of Denathrius
 			-- A Tier Powers
+			[329968] = 2, -- Oath of Druids
+			[334393] = 2, -- Draught of Waning Twilight
+			[330915] = 2, -- Draught of Midnight Blazes
+			[329799] = 2, -- Circlet of Weeds
+			[335771] = 2, -- Energy Focusing Crystal
+			[335643] = 2, -- Dried Blood of the Beast
+			[337613] = 2, -- Erratic Howler
+			[334459] = 2, -- Silent Spirit
 			-- B Tier Powers
+			[329815] = 3, -- Affinity Stones
+			[329796] = 3, -- String of Fangs and Talons
+			[330657] = 3, -- Writings of Lycara
+			[330670] = 3, -- Curious Bramblepatch
 			-- C Tier Powers
+			[308194] = 4, -- Finger of Frozen Fury
+			[285479] = 4, -- Flame Jet
+			[329800] = 4, -- Steelwood Slab
+			[335601] = 4, -- Shard of Silvered Glass
+			[338512] = 4, -- Gaze of Death
 			-- D Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- E Tier Powers
+				-- No powers are in this tier for this specialization.
 			-- F Tier Powers
+				-- No powers are in this tier for this specialization.
 		},
 	},
 	[12] = { -- Demon Hunter
