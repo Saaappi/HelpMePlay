@@ -80,6 +80,12 @@ function HelpMePlayLoadSettings()
 		HMPMinimapIconText:SetText(L["Minimap Icon"])
 
 		-- Check settings first
+		if HelpMePlayOptionsDB.DisableAll then
+			HMPDisableAllCB:SetChecked(true)
+		else
+			HMPDisableAllCB:SetChecked(false)
+		end
+		
 		if HelpMePlayOptionsDB.AdventureMaps then
 			HMPAdvMapsCB:SetChecked(true)
 		else
@@ -175,6 +181,123 @@ function HelpMePlayLoadSettings()
 		else
 			HMPMinimapIconCB:SetChecked(false)
 		end
+		
+		-- Disable All Check Button
+		HMPDisableAllCB:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Disable All Check Button"])
+		end)
+		HMPDisableAllCB:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		HMPDisableAllCB:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				HelpMePlayOptionsDB.DisableAll = true
+				-- Create an empty table to store the current
+				-- state of the settings. We'll use the current
+				-- states to return the settings back to their
+				-- original state when the button is unchecked.
+				HelpMePlayOptionsDB["TempSettings"] = {}
+				HelpMePlayOptionsDB["TempSettings"].AdventureMaps = HelpMePlayOptionsDB.AdventureMaps
+				HelpMePlayOptionsDB["TempSettings"].Dialog = HelpMePlayOptionsDB.Dialog
+				HelpMePlayOptionsDB["TempSettings"].Emotes = HelpMePlayOptionsDB.Emotes
+				HelpMePlayOptionsDB["TempSettings"].GarrisonTables = HelpMePlayOptionsDB.GarrisonTables
+				HelpMePlayOptionsDB["TempSettings"].Mail = HelpMePlayOptionsDB.Mail
+				HelpMePlayOptionsDB["TempSettings"].Merchants = HelpMePlayOptionsDB.Merchants
+				HelpMePlayOptionsDB["TempSettings"].Trainers = HelpMePlayOptionsDB.Trainers
+				HelpMePlayOptionsDB["TempSettings"].Speech = HelpMePlayOptionsDB.Speech
+				HelpMePlayOptionsDB["TempSettings"].WarMode = HelpMePlayOptionsDB.WarMode
+				HelpMePlayOptionsDB["TempSettings"].Quests = HelpMePlayOptionsDB.Quests
+				HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
+				HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate = HelpMePlayOptionsDB.ThreadsOfFate
+				HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
+				HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
+				HelpMePlayOptionsDB["TempSettings"].Notes = HelpMePlayOptionsDB.Notes
+				HelpMePlayOptionsDB["TempSettings"].Talents = HelpMePlayOptionsDB.Talents
+				HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
+				
+				-- Flag the settings as false.
+				HelpMePlayOptionsDB.AdventureMaps = false
+				HelpMePlayOptionsDB.Dialog = false
+				HelpMePlayOptionsDB.Emotes = false
+				HelpMePlayOptionsDB.GarrisonTables = false
+				HelpMePlayOptionsDB.Mail = false
+				HelpMePlayOptionsDB.Merchants = false
+				HelpMePlayOptionsDB.Trainers = false
+				HelpMePlayOptionsDB.Speech = false
+				HelpMePlayOptionsDB.WarMode = false
+				HelpMePlayOptionsDB.Quests = false
+				HelpMePlayOptionsDB.QuestRewards = false
+				HelpMePlayOptionsDB.ThreadsOfFate = false
+				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
+				HelpMePlayOptionsDB.TorghastPowers = false
+				HelpMePlayOptionsDB.Notes = false
+				HelpMePlayOptionsDB.Talents = false
+				HelpMePlayOptionsDB.MinimapIcon = false
+				
+				-- Uncheck the buttons.
+				-- Set Chromie Time's editbox to 0.
+				HMPAdvMapsCB:SetChecked(false)
+				HMPDialogCB:SetChecked(false)
+				HMPEmotesCB:SetChecked(false)
+				HMPGarrTblCB:SetChecked(false)
+				HMPMailCB:SetChecked(false)
+				HMPMerchantsCB:SetChecked(false)
+				HMPTrainersV2CB:SetChecked(false)
+				HMPSpeechCB:SetChecked(false)
+				HMPWarModeCB:SetChecked(false)
+				HMPQuestsCB:SetChecked(false)
+				HMPQuestRewardsCB:SetChecked(false)
+				HMPToFCB:SetChecked(false)
+				HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
+				HMPTorghastPowersCB:SetChecked(false)
+				HMPNotesCB:SetChecked(false)
+				HMPTalentsCB:SetChecked(false)
+				HMPMinimapIconCB:SetChecked(false)
+			else
+				-- Return the settings to their original
+				-- states.
+				--
+				-- Recheck the buttons that were previously
+				-- checked.
+				HelpMePlayOptionsDB.DisableAll = false
+				HelpMePlayOptionsDB.AdventureMaps = HelpMePlayOptionsDB["TempSettings"].AdventureMaps
+				HelpMePlayOptionsDB.Dialog = HelpMePlayOptionsDB["TempSettings"].Dialog
+				HelpMePlayOptionsDB.Emotes = HelpMePlayOptionsDB["TempSettings"].Emotes
+				HelpMePlayOptionsDB.GarrisonTables = HelpMePlayOptionsDB["TempSettings"].GarrisonTables
+				HelpMePlayOptionsDB.Mail = HelpMePlayOptionsDB["TempSettings"].Mail
+				HelpMePlayOptionsDB.Merchants = HelpMePlayOptionsDB["TempSettings"].Merchants
+				HelpMePlayOptionsDB.Trainers = HelpMePlayOptionsDB["TempSettings"].Trainers
+				HelpMePlayOptionsDB.Speech = HelpMePlayOptionsDB["TempSettings"].Speech
+				HelpMePlayOptionsDB.WarMode = HelpMePlayOptionsDB["TempSettings"].WarMode
+				HelpMePlayOptionsDB.Quests = HelpMePlayOptionsDB["TempSettings"].Quests
+				HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
+				HelpMePlayOptionsDB.ThreadsOfFate = HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate
+				HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
+				HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
+				HelpMePlayOptionsDB.Notes = HelpMePlayOptionsDB["TempSettings"].Notes
+				HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
+				HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
+				HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion)
+				
+				HMPAdvMapsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].AdventureMaps)
+				HMPDialogCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Dialog)
+				HMPEmotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Emotes)
+				HMPGarrTblCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].GarrisonTables)
+				HMPMailCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Mail)
+				HMPMerchantsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Merchants)
+				HMPTrainersV2CB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Trainers)
+				HMPSpeechCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Speech)
+				HMPWarModeCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].WarMode)
+				HMPQuestsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Quests)
+				HMPQuestRewardsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].QuestRewards)
+				HMPToFCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate)
+				HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
+				HMPTorghastPowersCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].TorghastPowers)
+				HMPNotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Notes)
+				HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
+				HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
+			end
+		end)
 
 		-- Adventure Maps Check Button
 		HMPAdvMapsCB:SetScript("OnEnter", function(self)

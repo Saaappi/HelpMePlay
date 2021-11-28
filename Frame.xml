@@ -269,6 +269,11 @@
 					<Anchor point="TOPLEFT" x="39" y="-289" />
 				</Anchors>
 			</CheckButton>
+			<CheckButton name="HMPDisableAllCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="210" y="286" />
+				</Anchors>
+			</CheckButton>
 		</Frames>
 	</Frame>
 	<GameTooltip inherits="GameTooltipTemplate" />

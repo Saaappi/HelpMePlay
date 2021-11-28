@@ -1,3 +1,5 @@
 HelpMePlay | 1.0.9
+	New Features:
+		- Added a 'Disable All' button to quickly disable the addon's functionality without reloading the UI.
 	Changes:
 		- When the Threads of Fate option is disabled in the settings, Story is no longer chosen automatically.
