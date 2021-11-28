@@ -25,10 +25,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
 							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						else
-							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2) -- Story
-							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-							HideUIPanel(PlayerChoiceFrame)
 						end
 					end
 				end

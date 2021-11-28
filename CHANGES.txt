@@ -1,1 +1,3 @@
 HelpMePlay | 1.0.9
+	Changes:
+		- When the Threads of Fate option is disabled in the settings, Story is no longer chosen automatically.
