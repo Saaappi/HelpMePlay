@@ -83,7 +83,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
 	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
-	L["Disable All Check Button"]												= "Disables all the below settings and resets\nChromie Time. Existing timelines are unaffected.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns the\nsettings to their saved state."
+	L["Disable All Check Button"]												= "Disables all the below settings and returns\nthem to their default state.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns the\nsettings to their saved state."
 	-- Speech Monsters
 	L["Al'dalil"]																= "Al'dalil"
 	L["Playful Trickster"]														= "Playful Trickster"
