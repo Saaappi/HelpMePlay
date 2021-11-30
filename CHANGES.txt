@@ -1,6 +1,8 @@
 HelpMePlay | 1.0.9
 	New Features:
 		- Added a 'Disable All' button to quickly disable the addon's functionality without reloading the UI.
+	Dialog:
+		- Added multiple dialogs for Mardum.
 	Changes:
 		- The Chromie Time text box has been converted to a dropdown menu.
 		- When the Threads of Fate option is disabled in the settings, Story is no longer chosen automatically.

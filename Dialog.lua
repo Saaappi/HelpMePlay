@@ -344,6 +344,11 @@ local Classic = {
 			L["Are you sure?"],
 		},
 	},
+	[100429] = { -- Anduin Wrynn
+		["g"] = {
+			L["Anduin Wrynn 1"],
+		},
+	},
 	-- Eastern Plaguelands
 	[150987] = { -- Sean Wilkers
 		["g"] = {
@@ -898,6 +903,74 @@ local Legion = {
 	[105455] = { -- Trapper Jarrun
 		["g"] = {
 			L["Let's do battle!"],
+		},
+	},
+	-- Mardum, the Shattered Abyss
+	[99914] = { -- Ashtongue Mystic
+		["g"] = {
+			L["Thank you for your sacrifice."],
+		},
+	},
+	[99915] = { -- Sevis Brightflame
+		["g"] = {
+			L["Sevis Brightflame 1"],
+			L["Sevis Brightflame 2"],
+		},
+	},
+	[93693] = { -- Lady S'theno
+		["g"] = {
+			L["Lady S'theno 1"],
+		},
+	},
+	[94435] = { -- Matron Mother Malevolence
+		["g"] = {
+			L["Matron Mother Malevolence 1"],
+		},
+	},
+	[90247] = { -- Battlelord Gaardoun
+		["g"] = {
+			L["Battlelord Gaardoun 1"],
+		},
+	},
+	[96436] = { -- Jace Darkweaver
+		["g"] = {
+			L["Jace Darkweaver 1"],
+		},
+	},
+	[96420] = { -- Cyana Nightglaive
+		["g"] = {
+			L["Cyana Nightglaive 1"],
+		},
+	},
+	[99045] = { -- Kor'vas Bloodthorn
+		["g"] = {
+			L["Kor'vas Bloodthorn 1"],
+		},
+	},
+	[93127] = { -- Kayn Sunfury
+		["g"] = {
+			L["Kayn Sunfury 1"],
+		},
+	},
+	[96655] = { -- Allari the Souleater
+		["g"] = {
+			L["Allari the Souleater 1"],
+		},
+	},
+	[96652] = { -- Mannethrel Darkstar
+		["g"] = {
+			L["Mannethrel Darkstar 1"],
+		},
+	},
+	[96653] = { -- Izal Whitemoon
+		["g"] = {
+			L["Izal Whitemoon 1"],
+		},
+	},
+	-- Vault of the Wardens
+	[97644] = { -- Kor'vas Bloodthorn
+		["g"] = {
+			L["Kor'vas Bloodthorn 2"],
 		},
 	},
 	-- Argus
