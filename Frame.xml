@@ -108,7 +108,7 @@
 				<FontString name="HMPCRText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Crafted with |T135451:0|t by Lightsky">
 					<Size x="229" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="332" y="-311" />
+						<Anchor point="CENTER" x="0" y="160" />
 					</Anchors>
 					<FontHeight val="10" />
 					<Color r="1" g="1" b="1" />
@@ -132,7 +132,7 @@
 				<FontString name="HMPChromieTimeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Chromie Time">
 					<Size x="97" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="231" y="-263" />
+						<Anchor point="TOPLEFT" x="215" y="-250" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -238,12 +238,11 @@
 					<Anchor point="TOPLEFT" x="221" y="-175" />
 				</Anchors>
 			</CheckButton>
-			<EditBox name="HMPChromieTimeEditBox" inherits="InputBoxTemplate" letters="2" numeric="true" autoFocus="false">
-				<Size x="100" y="32" />
+			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="231" y="-280" />
+					<Anchor point="TOPLEFT" x="205" y="-267" />
 				</Anchors>
-			</EditBox>
+			</Frame>
 			<CheckButton name="HMPTorghastPowersCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-61" />
@@ -275,6 +274,11 @@
 				</Anchors>
 			</CheckButton>
 		</Frames>
+		<Scripts>
+			<OnLoad>
+				UIDropDownMenu_EnableDropDown(HMPChromieTimeDropDown)
+			</OnLoad>
+		</Scripts>
 	</Frame>
 	<GameTooltip inherits="GameTooltipTemplate" />
 </Ui>

@@ -15,6 +15,141 @@ local function HideTooltip(self)
 	end
 end
 
+local function GetChromieTimeExpansionName(id)
+	local expansions = {
+		[0] = L["Battle for Azeroth"],
+		[5] = L["Cataclysm"],
+		[6] = L["Burning Crusade"],
+		[7] = L["Lich King"],
+		[8] = L["Mists of Pandaria"],
+		[9] = L["Draenor"],
+		[10] = L["Legion"],
+	}
+	
+	for expansionId, name in pairs(expansions) do
+		if expansionId == id then
+			return name
+		end
+	end
+end
+
+local function DropDownMenu_Initialize(menuName)
+	local selectedValue = UIDropDownMenu_GetSelectedValue(menuName)
+	local info = UIDropDownMenu_CreateInfo()
+	
+	-- Burning Crusade
+	info.text = L["Burning Crusade"]
+	info.func = function(self)
+		HelpMePlayOptionsDB.ChromieTimeExpansion = 6
+		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	end
+	info.value = L["Burning Crusade"]
+	if info.value == selectedValue then
+		info.checked = true
+	else
+		info.checked = false
+	end
+	info.tooltipTitle = L["Burning Crusade"]
+	info.tooltipText = L["Burning Crusade"]
+	UIDropDownMenu_AddButton(info)
+	
+	-- Wrath of the Lich King
+	info.text = L["Lich King"]
+	info.func = function(self)
+		HelpMePlayOptionsDB.ChromieTimeExpansion = 7
+		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	end
+	info.value = L["Lich King"]
+	if info.value == selectedValue then
+		info.checked = true
+	else
+		info.checked = false
+	end
+	info.tooltipTitle = L["Lich King"]
+	info.tooltipText = L["Lich King"]
+	UIDropDownMenu_AddButton(info)
+	
+	-- Cataclysm
+	info.text = L["Cataclysm"]
+	info.func = function(self)
+		HelpMePlayOptionsDB.ChromieTimeExpansion = 5
+		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	end
+	info.value = L["Cataclysm"]
+	if info.value == selectedValue then
+		info.checked = true
+	else
+		info.checked = false
+	end
+	info.tooltipTitle = L["Cataclysm"]
+	info.tooltipText = L["Cataclysm"]
+	UIDropDownMenu_AddButton(info)
+	
+	-- Mists of Pandaria
+	info.text = L["Mists of Pandaria"]
+	info.func = function(self)
+		HelpMePlayOptionsDB.ChromieTimeExpansion = 8
+		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	end
+	info.value = L["Mists of Pandaria"]
+	if info.value == selectedValue then
+		info.checked = true
+	else
+		info.checked = false
+	end
+	info.tooltipTitle = L["Mists of Pandaria"]
+	info.tooltipText = L["Mists of Pandaria"]
+	UIDropDownMenu_AddButton(info)
+	
+	-- Warlords of Draenor
+	info.text = L["Draenor"]
+	info.func = function(self)
+		HelpMePlayOptionsDB.ChromieTimeExpansion = 9
+		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	end
+	info.value = L["Draenor"]
+	if info.value == selectedValue then
+		info.checked = true
+	else
+		info.checked = false
+	end
+	info.tooltipTitle = L["Draenor"]
+	info.tooltipText = L["Draenor"]
+	UIDropDownMenu_AddButton(info)
+	
+	-- Legion
+	info.text = L["Legion"]
+	info.func = function(self)
+		HelpMePlayOptionsDB.ChromieTimeExpansion = 10
+		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	end
+	info.value = L["Legion"]
+	if info.value == selectedValue then
+		info.checked = true
+	else
+		info.checked = false
+	end
+	info.tooltipTitle = L["Legion"]
+	info.tooltipText = L["Legion"]
+	UIDropDownMenu_AddButton(info)
+	
+	-- Battle for Azeroth
+	info.text = L["Battle for Azeroth"]
+	info.func = function(self)
+		HelpMePlayOptionsDB.ChromieTimeExpansion = 0
+		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	end
+	info.value = L["Battle for Azeroth"]
+	if info.value == selectedValue then
+		info.checked = true
+	else
+		info.checked = false
+	end
+	info.tooltipTitle = L["Battle for Azeroth"]
+	info.tooltipText = L["Battle for Azeroth"]
+	UIDropDownMenu_AddButton(info)
+end
+
 function HelpMePlayShowMinimapIcon(show)
 	if show then
 		if icon ~= "" then
@@ -73,7 +208,6 @@ function HelpMePlayLoadSettings()
 		HMPToFText:SetText(L["Threads of Fate"])
 		HMPQuestRewardsText:SetText(L["Quest Rewards"])
 		HMPChromieTimeText:SetText(L["Chromie Time"])
-		HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
 		HMPTorghastPowersText:SetText(L["Torghast Powers"])
 		HMPNotesText:SetText(L["Notes"])
 		HMPTalentsText:SetText(L["Talents"])
@@ -182,6 +316,10 @@ function HelpMePlayLoadSettings()
 			HMPMinimapIconCB:SetChecked(false)
 		end
 		
+		if HelpMePlayOptionsDB.ChromieTimeExpansion then
+			UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
+		end
+		
 		-- Disable All Check Button
 		HMPDisableAllCB:SetScript("OnEnter", function(self)
 			ShowTooltip(self, L["Disable All Check Button"])
@@ -248,7 +386,7 @@ function HelpMePlayLoadSettings()
 				HMPQuestsCB:SetChecked(false)
 				HMPQuestRewardsCB:SetChecked(false)
 				HMPToFCB:SetChecked(false)
-				HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
+				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
 				HMPTorghastPowersCB:SetChecked(false)
 				HMPNotesCB:SetChecked(false)
 				HMPTalentsCB:SetChecked(false)
@@ -277,7 +415,6 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.Notes = HelpMePlayOptionsDB["TempSettings"].Notes
 				HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
 				HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
-				HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion)
 				
 				HMPAdvMapsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].AdventureMaps)
 				HMPDialogCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Dialog)
@@ -291,7 +428,7 @@ function HelpMePlayLoadSettings()
 				HMPQuestsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Quests)
 				HMPQuestRewardsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].QuestRewards)
 				HMPToFCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate)
-				HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
+				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 				HMPTorghastPowersCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].TorghastPowers)
 				HMPNotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Notes)
 				HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
@@ -478,18 +615,15 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.ThreadsOfFate = false
 			end
 		end)
-
-		-- Chromie Time EditBox
-		HMPChromieTimeEditBox:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Current Expansion"] .. ": |cffFFFFFF" .. HelpMePlayOptionsDB.ChromieTimeExpansion .. "|r\n\n" .. L["Chromie Time EditBox"])
+		
+		-- Chromie Time DropDown
+		HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Chromie Time DropDown"])
 		end)
-		HMPChromieTimeEditBox:SetScript("OnLeave", function(self)
+		HMPChromieTimeDropDown:SetScript("OnLeave", function(self)
 			HideTooltip(self)
 		end)
-		HMPChromieTimeEditBox:SetScript("OnEnterPressed", function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = tonumber(HMPChromieTimeEditBox:GetText())
-			HMPChromieTimeEditBox:SetText(HelpMePlayOptionsDB.ChromieTimeExpansion)
-		end)
+		UIDropDownMenu_Initialize(HMPChromieTimeDropDown, DropDownMenu_Initialize)
 		
 		-- Torghast Powers Check Button
 		HMPTorghastPowersCB:SetScript("OnEnter", function(self)

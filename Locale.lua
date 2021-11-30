@@ -45,6 +45,14 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Level Congrats Text"]													= "Congratulations on reaching level %s! Suggested talent: %s"
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
+	-- Expansions
+	L["Burning Crusade"]														= "Burning Crusade"
+	L["Lich King"]																= "Lich King"
+	L["Cataclysm"]																= "Cataclysm"
+	L["Mists of Pandaria"]														= "Mists of Pandaria"
+	L["Draenor"]																= "Draenor"
+	L["Legion"]																	= "Legion"
+	L["Battle for Azeroth"]														= "Battle for Azeroth"
 	-- Options Panel Text
 	L["CR Text"]																= "Crafted with |T135451:0|t by Lightsky"
 	L["Adventure Maps"]															= "Adventure Maps"
@@ -78,7 +86,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Accept/Complete Quests Check Button"]									= "Automates accepting and completing quests."
 	L["Quest Rewards Check Button"]												= "Automates the selection of quest rewards.\nThe selection is based on what sells for the most."
 	L["Threads of Fate Check Button"]											= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into Threads of Fate,\nbut leaving it unchecked will opt the player into Story Mode."
-	L["Chromie Time EditBox"]													= "Enter one of the numeric values to automate the\nexpansion to select for Chromie Time.\n\n|cffFFFFFF0|r: Battle for Azeroth (Current Timeline)\n|cffFFFFFF5|r: The Cataclysm (Classic)\n|cffFFFFFF6|r: The Burning Crusade\n|cffFFFFFF7|r: Wrath of the Lich King\n|cffFFFFFF8|r: Mists of Pandaria\n|cffFFFFFF9|r: Warlords of Draenor\n|cffFFFFFF10|r: Legion"
+	L["Chromie Time DropDown"]													= "Automates the expansion to select when speaking\nwith Chromie."
 	L["Torghast Powers Check Button"]											= "Automates the selection of Torghast Powers. The powers are based\non a priority list.\nThe chosen power is recorded to the chat window."
 	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
