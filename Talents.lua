@@ -347,7 +347,7 @@ local classTalents = {
 			[35] = 263642,	-- Fracture
 			[40] = 202138,	-- Sigil of Chains
 			[45] = 321453,	-- Demonic
-			[50] = 209258,	-- Last Resort
+			[50] = 320341,	-- Bulk Extraction
 		},
 	},
 }
