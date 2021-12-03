@@ -915,6 +915,12 @@ local Legion = {
 			L["Let's do battle!"],
 		},
 	},
+	-- Suramar
+	[105250] = { -- Aulier
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
 	-- Mardum, the Shattered Abyss
 	[99914] = { -- Ashtongue Mystic
 		["g"] = {
