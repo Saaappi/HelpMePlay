@@ -2,6 +2,7 @@ HelpMePlay | 1.0.9
 	New Features:
 		- Added a 'Disable All' button to quickly disable the addon's functionality without reloading the UI.
 	Dialog:
+		- Added multiple dialogs from Zereth Mortis.
 		- Added multiple dialogs for Mardum.
 	Talents:
 		- Changed the suggested level 50 talent for Vengeance Demon Hunter from Last Resort to Bulk Extraction.

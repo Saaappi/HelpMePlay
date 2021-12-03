@@ -741,6 +741,11 @@ local Legion = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[99210] = { -- Bodhi Sunwayver
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
 	[97804] = { -- Tiffany Nelson
 		["g"] = {
 			L["Let's do battle!"],
@@ -900,6 +905,11 @@ local Legion = {
 		},
 	},
 	-- Stormheim
+	[105386] = { -- Rydyr
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
 	[105455] = { -- Trapper Jarrun
 		["g"] = {
 			L["Let's do battle!"],
@@ -2086,6 +2096,60 @@ local Shadowlands = {
 	[157406] = { -- Renavyth
 		["g"] = {
 			L["I will assist you."],
+		},
+	},
+	-- Zereth Mortis
+	[177486] = { -- Elder Kreth
+		["g"] = {
+			L["Elder Kreth 1"],
+			L["Elder Kreth 2"],
+			L["Elder Kreth 3"],
+			L["Yes."],
+		},
+	},
+	[180923] = { -- Varoun
+		["g"] = {
+			L["Varoun 1"],
+		},
+	},
+	[180950] = { -- Avna
+		["g"] = {
+			L["Avna 1"],
+		},
+	},
+	[180926] = { -- Custodian Kalir
+		["g"] = {
+			L["Custodian Kalir 1"],
+		},
+	},
+	[183465] = { -- Alonis
+		["g"] = {
+			L["Your presence is requested immediately at Provis Terra."],
+		},
+	},
+	[183455] = { -- Huntress Laikeer
+		["g"] = {
+			L["Your presence is requested immediately at Provis Terra."],
+		},
+	},
+	[183458] = { -- Ava'zer
+		["g"] = {
+			L["Your presence is requested immediately at Provis Terra."],
+		},
+	},
+	[183724] = { -- Lady Jaina Proudmoore
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[182346] = { -- Tamra
+		["g"] = {
+			L["Tamra 1"],
+		},
+	},
+	[177958] = { -- Firim
+		["g"] = {
+			L["Firim 1"],
 		},
 	},
 	-- De Other Side (Dungeon)
