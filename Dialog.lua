@@ -169,6 +169,12 @@ local Classic = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- Deadwind Pass
+	[113986] = { -- Archmage Khadgar
+		["g"] = {
+			L["I am ready."],
+		},
+	},
 	-- Stratholme
 	[155145] = { -- Plagued Critters
 		["g"] = {
