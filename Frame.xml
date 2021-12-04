@@ -132,7 +132,7 @@
 				<FontString name="HMPChromieTimeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Chromie Time">
 					<Size x="97" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="215" y="-250" />
+						<Anchor point="TOPLEFT" x="350" y="-270" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -140,7 +140,7 @@
 				<FontString name="HMPTorghastPowersText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Torghast Powers">
 					<Size x="99" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="401" y="-67" />
+						<Anchor point="TOPLEFT" x="357" y="-304" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -148,21 +148,21 @@
 				<FontString name="HMPNotesText" inherits="GameFontNormal" text="Notes">
 					<Size x="80" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="381" y="-104" />
+						<Anchor point="TOPLEFT" x="381" y="-67" />
 					</Anchors>
 					<Color r="1" g="1" b="1" />
 				</FontString>
 				<FontString name="HMPTalentsText" inherits="GameFontNormal" text="Talents">
 					<Size x="80" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="385" y="-142" />
+						<Anchor point="TOPLEFT" x="385" y="-104" />
 					</Anchors>
 					<Color r="1" g="1" b="1" />
 				</FontString>
 				<FontString name="HMPMinimapIconText" inherits="GameFontNormal" text="Minimap Icon">
 					<Size x="99" y="20" />
 					<Anchors>
-						<Anchor point="TOPLEFT" x="395" y="-180" />
+						<Anchor point="TOPLEFT" x="395" y="-142" />
 					</Anchors>
 					<Color r="1" g="1" b="1" />
 				</FontString>
@@ -243,24 +243,24 @@
 					<Anchor point="TOPLEFT" x="205" y="-267" />
 				</Anchors>
 			</Frame>
-			<CheckButton name="HMPTorghastPowersCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<Frame name="HMPTorghastPowersDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="205" y="-300" />
+				</Anchors>
+			</Frame>
+			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-61" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPTalentsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-99" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPTalentsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-137" />
-				</Anchors>
-			</CheckButton>
 			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-175" />
+					<Anchor point="TOPLEFT" x="371" y="-137" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">

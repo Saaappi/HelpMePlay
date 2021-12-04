@@ -2331,7 +2331,7 @@ end
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
 		local _, message = ...
-		if HelpMePlayOptionsDB.Dialog == false then return end
+		if HelpMePlayOptionsDB.Dialog == false or HelpMePlayOptionsDB.Dialog == nil then return end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
@@ -2340,7 +2340,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
-		if HelpMePlayOptionsDB.Dialog == false then return end
+		if HelpMePlayOptionsDB.Dialog == false or HelpMePlayOptionsDB.Dialog == nil then return end
 		GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
 		local activeQuests = C_GossipInfo.GetActiveQuests()

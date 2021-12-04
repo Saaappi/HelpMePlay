@@ -112,6 +112,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayOptionsDB.ChromieTimeExpansion == nil then
 				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 			end
+			if HelpMePlayOptionsDB.TorghastPowers == nil or HelpMePlayOptionsDB.TorghastPowers == false then
+				HelpMePlayOptionsDB.TorghastPowers = "Disabled"
+			end
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end
@@ -119,20 +122,20 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HelpMePlayAchievementDB = {}
 			end
 			if HelpMePlayOptionsDB.MinimapIcon then
-				HelpMePlayShowMinimapIcon(true)
+				HelpMePlayShowMinimapIcon(false)
 			end
 		elseif addonLoaded == "Blizzard_AchievementUI" then
 			L.GetTrackedAchievementCriteriaCompletion()
 		end
 	end
 	if event == "GOSSIP_SHOW" then
-		if HelpMePlayOptionsDB.Quests == false then return end
+		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		C_Timer.After(delay, function()
 			GetOrCompleteQuests()
 		end)
 	end
 	if event == "QUEST_COMPLETE" then
-		if HelpMePlayOptionsDB.Quests == false then return end
+		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		HMP_CompleteQuest()
 		C_Timer.After(longerDelay, function()
 			-- If the quest complete button is still visible
@@ -144,19 +147,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end)
 	end
 	if event == "QUEST_DETAIL" then
-		if HelpMePlayOptionsDB.Quests == false then return end
+		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		C_Timer.After(delay, function()
 			QuestFrameAcceptButton:Click()
 		end)
 	end
 	if event == "QUEST_GREETING" then
-		if HelpMePlayOptionsDB.Quests == false then return end
+		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		C_Timer.After(delay, function()
 			GetGreetingQuests()
 		end)
 	end
 	if event == "QUEST_PROGRESS" then
-		if HelpMePlayOptionsDB.Quests == false then return end
+		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		C_Timer.After(delay, function()
 			QuestFrameCompleteButton:Click()
 		end)

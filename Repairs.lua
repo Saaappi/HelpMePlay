@@ -6,7 +6,7 @@ e:RegisterEvent("MERCHANT_SHOW")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
-		if HelpMePlayOptionsDB.Merchants == false then return end
+		if HelpMePlayOptionsDB.Merchants == false or HelpMePlayOptionsDB.Merchants == nil then return end
 		-- Check if the player needs to repair.
 		-- If the player needs repairs, check
 		-- if the merchant can repair, then repair

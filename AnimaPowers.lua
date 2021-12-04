@@ -2454,7 +2454,7 @@ e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
-		if HelpMePlayOptionsDB.TorghastPowers == false then return end
+		if HelpMePlayOptionsDB.TorghastPowers == "Disabled" or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then return end
 		local choiceOptionInfo = ""
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if mapId then
@@ -2479,10 +2479,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- with the lowest number is more
 					-- important.
 					--
-					-- There aren't 10 tiers to Anima Powers
-					-- so set the default to 10 as a starting
+					-- There aren't 9 tiers to Anima Powers
+					-- so set the default to 9 as a starting
 					-- value.
-					local highestPriority = 10
+					local highestPriority = 9
 					
 					-- The response ID is the number
 					-- that represents which option
@@ -2493,6 +2493,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- All the info about a spell is stored
 					-- in this variable.
 					local option = ""
+					
+					-- We need something to hold the best option
+					-- in memory.
+					local bestPower = ""
 					
 					for i = 1, choiceInfo.numOptions do
 						option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
@@ -2507,6 +2511,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 								-- let's check its assigned priority.
 								local priority = animaPowers[classId][specId][option.spellID]
 								
+								-- We have to take into consideration
+								-- if the player is using the
+								-- "Automatic (No Epic)" setting.
+								--
 								-- If the priority is higher than the
 								-- previous spell, then assign the
 								-- highest priority for selection.
@@ -2521,9 +2529,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 								-- set to the new count in case a
 								-- future power, if available, is also
 								-- on the same tier.
+								if HelpMePlayOptionsDB.TorghastPowers == "Automatic (No Epic)" then
+									if option.rarity == 3 then
+										-- 1 is Green, 2 is Blue, etc.
+										-- Epic powers should be given
+										-- a low priority here. 1 is Best
+										-- 10 is Worst.
+										priority = 10
+									end
+								end
 								if priority < highestPriority then
 									highestPriority = priority
 									responseId = option.buttons[1].id
+									bestPower = option
 									for j=1,44 do
 										local _, icon, count, _, _, _, _, _, _, spellId = UnitAura("player", i, "MAW")
 										if spellId == option.spellID then
@@ -2538,6 +2556,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 											if count < stackCount then
 												stackCount = count
 												responseId = option.buttons[1].id
+												bestPower = option
 												break
 											end
 										end
@@ -2553,10 +2572,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- Reset the highest priority back to 10 to
 					-- prevent taint between Anima Powers.
 					if responseId ~= 0 then
-						SendPlayerChoiceResponse(responseId)
-						HideUIPanel(PlayerChoiceFrame)
-						print("|cff00CCFF" .. addonName .. "|r: |T" .. option.choiceArtID .. ":0|t" .. GetSpellLink(option.spellID))
-						highestPriority = 10
+						if HelpMePlayOptionsDB.TorghastPowers == "Notifications" then
+							print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
+							highestPriority = 9
+						else
+							SendPlayerChoiceResponse(responseId)
+							HideUIPanel(PlayerChoiceFrame)
+							print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
+							highestPriority = 9
+						end
 					end
 				end
 			end

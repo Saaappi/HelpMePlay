@@ -8,4 +8,5 @@ HelpMePlay | 1.0.9
 		- Changed the suggested level 50 talent for Vengeance Demon Hunter from Last Resort to Bulk Extraction.
 	Changes:
 		- The Chromie Time text box has been converted to a dropdown menu.
+		- The Torghast Powers check button has been converted to a dropdown menu with more control over how the addon assists (or doesn't) with Torghast Powers.
 		- When the Threads of Fate option is disabled in the settings, Story is no longer chosen automatically.

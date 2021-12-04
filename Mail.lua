@@ -11,7 +11,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	
 	if event == "MAIL_INBOX_UPDATE" then
-		if HelpMePlayOptionsDB.Mail == false then return end
+		if HelpMePlayOptionsDB.Mail == false or HelpMePlayOptionsDB.Mail == nil then return end
 		local numMailItems = GetInboxNumItems()
 		for index = numMailItems, 1, -1 do
 			TakeInboxMoney(index)

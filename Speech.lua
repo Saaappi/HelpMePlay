@@ -17,7 +17,7 @@ end
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_MONSTER_SAY" then
-		if HelpMePlayOptionsDB.Speech == false then return end
+		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
 		local msg, monster = ...
 		if monster == L["Playful Trickster"] then
 			-- Quest: The Games We Play (Ardenweald)
@@ -57,7 +57,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "RAID_BOSS_WHISPER" then
-		if HelpMePlayOptionsDB.Speech == false then return end
+		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
 		local msg = ...
 		if string.find(string.lower(msg), string.lower(L["Taloned Flayedwing: Scared"])) then
 			AddGlowToActionBarButton(OverrideActionBarButton1, 2)

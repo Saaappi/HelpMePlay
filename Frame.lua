@@ -37,117 +37,192 @@ local function DropDownMenu_Initialize(menuName)
 	local selectedValue = UIDropDownMenu_GetSelectedValue(menuName)
 	local info = UIDropDownMenu_CreateInfo()
 	
-	-- Burning Crusade
-	info.text = L["Burning Crusade"]
-	info.func = function(self)
-		HelpMePlayOptionsDB.ChromieTimeExpansion = 6
-		UIDropDownMenu_SetSelectedValue(menuName, self.value)
+	if menuName:GetName() == "HMPChromieTimeDropDown" then
+		-- Burning Crusade
+		info.text = L["Burning Crusade"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.ChromieTimeExpansion = 6
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Burning Crusade"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Burning Crusade"]
+		info.tooltipText = L["Burning Crusade"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Wrath of the Lich King
+		info.text = L["Lich King"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.ChromieTimeExpansion = 7
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Lich King"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Lich King"]
+		info.tooltipText = L["Lich King"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Cataclysm
+		info.text = L["Cataclysm"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.ChromieTimeExpansion = 5
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Cataclysm"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Cataclysm"]
+		info.tooltipText = L["Cataclysm"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Mists of Pandaria
+		info.text = L["Mists of Pandaria"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.ChromieTimeExpansion = 8
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Mists of Pandaria"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Mists of Pandaria"]
+		info.tooltipText = L["Mists of Pandaria"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Warlords of Draenor
+		info.text = L["Draenor"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.ChromieTimeExpansion = 9
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Draenor"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Draenor"]
+		info.tooltipText = L["Draenor"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Legion
+		info.text = L["Legion"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.ChromieTimeExpansion = 10
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Legion"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Legion"]
+		info.tooltipText = L["Legion"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Battle for Azeroth
+		info.text = L["Battle for Azeroth"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.ChromieTimeExpansion = 0
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Battle for Azeroth"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Battle for Azeroth"]
+		info.tooltipText = L["Battle for Azeroth"]
+		UIDropDownMenu_AddButton(info)
+	elseif menuName:GetName() == "HMPTorghastPowersDropDown" then
+		-- Automatic
+		--
+		-- Automatically selects the power for the player.
+		info.text = L["Automatic"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.TorghastPowers = L["Automatic"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Automatic"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Automatic"]
+		info.tooltipText = L["Automatic"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Automatic (No Epic)
+		--
+		-- Automatically selects the power for the player.
+		-- Ignores epic powers.
+		info.text = L["Automatic (No Epic)"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.TorghastPowers = L["Automatic (No Epic)"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Automatic (No Epic)"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Automatic (No Epic)"]
+		info.tooltipText = L["Automatic (No Epic)"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Notifications
+		--
+		-- Notifies the player of the recommended power.
+		info.text = L["Notifications"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.TorghastPowers = L["Notifications"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Notifications"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Notifications"]
+		info.tooltipText = L["Notifications"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Disabled
+		--
+		-- Self explanatory.
+		info.text = L["Disabled"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Disabled"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Disabled"]
+		info.tooltipText = L["Disabled"]
+		UIDropDownMenu_AddButton(info)
 	end
-	info.value = L["Burning Crusade"]
-	if info.value == selectedValue then
-		info.checked = true
-	else
-		info.checked = false
-	end
-	info.tooltipTitle = L["Burning Crusade"]
-	info.tooltipText = L["Burning Crusade"]
-	UIDropDownMenu_AddButton(info)
-	
-	-- Wrath of the Lich King
-	info.text = L["Lich King"]
-	info.func = function(self)
-		HelpMePlayOptionsDB.ChromieTimeExpansion = 7
-		UIDropDownMenu_SetSelectedValue(menuName, self.value)
-	end
-	info.value = L["Lich King"]
-	if info.value == selectedValue then
-		info.checked = true
-	else
-		info.checked = false
-	end
-	info.tooltipTitle = L["Lich King"]
-	info.tooltipText = L["Lich King"]
-	UIDropDownMenu_AddButton(info)
-	
-	-- Cataclysm
-	info.text = L["Cataclysm"]
-	info.func = function(self)
-		HelpMePlayOptionsDB.ChromieTimeExpansion = 5
-		UIDropDownMenu_SetSelectedValue(menuName, self.value)
-	end
-	info.value = L["Cataclysm"]
-	if info.value == selectedValue then
-		info.checked = true
-	else
-		info.checked = false
-	end
-	info.tooltipTitle = L["Cataclysm"]
-	info.tooltipText = L["Cataclysm"]
-	UIDropDownMenu_AddButton(info)
-	
-	-- Mists of Pandaria
-	info.text = L["Mists of Pandaria"]
-	info.func = function(self)
-		HelpMePlayOptionsDB.ChromieTimeExpansion = 8
-		UIDropDownMenu_SetSelectedValue(menuName, self.value)
-	end
-	info.value = L["Mists of Pandaria"]
-	if info.value == selectedValue then
-		info.checked = true
-	else
-		info.checked = false
-	end
-	info.tooltipTitle = L["Mists of Pandaria"]
-	info.tooltipText = L["Mists of Pandaria"]
-	UIDropDownMenu_AddButton(info)
-	
-	-- Warlords of Draenor
-	info.text = L["Draenor"]
-	info.func = function(self)
-		HelpMePlayOptionsDB.ChromieTimeExpansion = 9
-		UIDropDownMenu_SetSelectedValue(menuName, self.value)
-	end
-	info.value = L["Draenor"]
-	if info.value == selectedValue then
-		info.checked = true
-	else
-		info.checked = false
-	end
-	info.tooltipTitle = L["Draenor"]
-	info.tooltipText = L["Draenor"]
-	UIDropDownMenu_AddButton(info)
-	
-	-- Legion
-	info.text = L["Legion"]
-	info.func = function(self)
-		HelpMePlayOptionsDB.ChromieTimeExpansion = 10
-		UIDropDownMenu_SetSelectedValue(menuName, self.value)
-	end
-	info.value = L["Legion"]
-	if info.value == selectedValue then
-		info.checked = true
-	else
-		info.checked = false
-	end
-	info.tooltipTitle = L["Legion"]
-	info.tooltipText = L["Legion"]
-	UIDropDownMenu_AddButton(info)
-	
-	-- Battle for Azeroth
-	info.text = L["Battle for Azeroth"]
-	info.func = function(self)
-		HelpMePlayOptionsDB.ChromieTimeExpansion = 0
-		UIDropDownMenu_SetSelectedValue(menuName, self.value)
-	end
-	info.value = L["Battle for Azeroth"]
-	if info.value == selectedValue then
-		info.checked = true
-	else
-		info.checked = false
-	end
-	info.tooltipTitle = L["Battle for Azeroth"]
-	info.tooltipText = L["Battle for Azeroth"]
-	UIDropDownMenu_AddButton(info)
 end
 
 function HelpMePlayShowMinimapIcon(show)
@@ -292,12 +367,6 @@ function HelpMePlayLoadSettings()
 			HMPToFCB:SetChecked(false)
 		end
 		
-		if HelpMePlayOptionsDB.TorghastPowers then
-			HMPTorghastPowersCB:SetChecked(true)
-		else
-			HMPTorghastPowersCB:SetChecked(false)
-		end
-		
 		if HelpMePlayOptionsDB.Notes then
 			HMPNotesCB:SetChecked(true)
 		else
@@ -318,6 +387,18 @@ function HelpMePlayLoadSettings()
 		
 		if HelpMePlayOptionsDB.ChromieTimeExpansion then
 			UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
+		end
+		
+		if HelpMePlayOptionsDB.TorghastPowers then
+			if HelpMePlayOptionsDB.TorghastPowers == L["Automatic"] or HelpMePlayOptionsDB.TorghastPowers == true then
+				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic"])
+			elseif HelpMePlayOptionsDB.TorghastPowers == L["Automatic (No Epic)"] then
+				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic (No Epic)"])
+			elseif HelpMePlayOptionsDB.TorghastPowers == L["Notifications"] then
+				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Notifications"])
+			elseif HelpMePlayOptionsDB.TorghastPowers == L["Disabled"] or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then
+				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Disabled"])
+			end
 		end
 		
 		-- Disable All Check Button
@@ -367,13 +448,12 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.QuestRewards = false
 				HelpMePlayOptionsDB.ThreadsOfFate = false
 				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
-				HelpMePlayOptionsDB.TorghastPowers = false
+				HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
 				HelpMePlayOptionsDB.Notes = false
 				HelpMePlayOptionsDB.Talents = false
 				HelpMePlayOptionsDB.MinimapIcon = false
 				
 				-- Uncheck the buttons.
-				-- Set Chromie Time's editbox to 0.
 				HMPAdvMapsCB:SetChecked(false)
 				HMPDialogCB:SetChecked(false)
 				HMPEmotesCB:SetChecked(false)
@@ -387,6 +467,7 @@ function HelpMePlayLoadSettings()
 				HMPQuestRewardsCB:SetChecked(false)
 				HMPToFCB:SetChecked(false)
 				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
+				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L["Disabled"])
 				HMPTorghastPowersCB:SetChecked(false)
 				HMPNotesCB:SetChecked(false)
 				HMPTalentsCB:SetChecked(false)
@@ -429,6 +510,7 @@ function HelpMePlayLoadSettings()
 				HMPQuestRewardsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].QuestRewards)
 				HMPToFCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate)
 				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
+				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
 				HMPTorghastPowersCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].TorghastPowers)
 				HMPNotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Notes)
 				HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
@@ -625,20 +707,14 @@ function HelpMePlayLoadSettings()
 		end)
 		UIDropDownMenu_Initialize(HMPChromieTimeDropDown, DropDownMenu_Initialize)
 		
-		-- Torghast Powers Check Button
-		HMPTorghastPowersCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Torghast Powers Check Button"])
+		-- Torghast Powers DropDown
+		HMPTorghastPowersDropDown:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Torghast Powers DropDown"])
 		end)
-		HMPTorghastPowersCB:SetScript("OnLeave", function(self)
+		HMPTorghastPowersDropDown:SetScript("OnLeave", function(self)
 			HideTooltip(self)
 		end)
-		HMPTorghastPowersCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.TorghastPowers = true
-			else
-				HelpMePlayOptionsDB.TorghastPowers = false
-			end
-		end)
+		UIDropDownMenu_Initialize(HMPTorghastPowersDropDown, DropDownMenu_Initialize)
 		
 		-- Notes Check Button
 		HMPNotesCB:SetScript("OnEnter", function(self)

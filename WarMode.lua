@@ -9,7 +9,7 @@ e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ZONE_CHANGED_NEW_AREA" then
-		if HelpMePlayOptionsDB.WarMode == false then return end
+		if HelpMePlayOptionsDB.WarMode == false or HelpMePlayOptionsDB.WarMode == nil then return end
 		C_Timer.After(0, function()
 			C_Timer.After(delay, function()
 				local mapId = C_Map.GetBestMapForUnit("player")

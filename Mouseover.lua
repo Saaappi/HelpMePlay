@@ -116,7 +116,7 @@ local creatureDb = {
 -- and items.
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UPDATE_MOUSEOVER_UNIT" then
-		if HelpMePlayOptionsDB.Notes == false then return end
+		if HelpMePlayOptionsDB.Notes == false HelpMePlayOptionsDB.Notes == nil then return end
 		if UnitGUID("mouseover") then
 			local guid = UnitGUID("mouseover")
 			if guid then

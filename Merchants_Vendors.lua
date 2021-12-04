@@ -57,7 +57,7 @@ local merchants = {
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
-		if HelpMePlayOptionsDB.Merchants == false then return end
+		if HelpMePlayOptionsDB.Merchants == false or HelpMePlayOptionsDB.Merchants == nil then return end
 		local guid = UnitGUID("target") or UnitGUID("mouseover")
 		if guid then
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)

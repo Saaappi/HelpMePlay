@@ -6,7 +6,7 @@ e:RegisterEvent("ADVENTURE_MAP_OPEN")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
-		if HelpMePlayOptionsDB.AdventureMaps == false then return end
+		if HelpMePlayOptionsDB.AdventureMaps == false or HelpMePlayOptionsDB.AdventureMaps == nil then return end
 		local faction = UnitFactionGroup("player")
 		local mapId = C_AdventureMap.GetMapID()
 		if mapId == 1011 then

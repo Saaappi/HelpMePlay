@@ -43,6 +43,10 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Box Of Many Things Purchase Text"]										= "Purchase the following talent: "
 	L["Box Of Many Things Not Enough Text"]										= "You need more |cff0070ddTower Knowledge|r! Amount Needed: "
 	L["Level Congrats Text"]													= "Congratulations on reaching level %s! Suggested talent: %s"
+	L["Automatic"]																= "Automatic"
+	L["Automatic (No Epic)"]													= "Automatic (No Epic)"
+	L["Notifications"]															= "Notifications"
+	L["Disabled"]																= "Disabled"
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Expansions
@@ -84,10 +88,10 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\nThis setting controls the glow effect on vehicle quests\nlike \"We'll Make an Aspirant Out of You\" in Bastion."
 	L["War Mode Check Button"]													= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\nThis only applies to players above level 20, but below 50."
 	L["Accept/Complete Quests Check Button"]									= "Automates accepting and completing quests."
-	L["Quest Rewards Check Button"]												= "Automates the selection of quest rewards.\nThe selection is based on what sells for the most."
+	L["Quest Rewards Check Button"]												= "Automates the selection of quest rewards.\nThe selection is based on what sells for the most.\n\n|cffCB453DNote|r: This feature is not recommended for\nplayers without leveled heirlooms."
 	L["Threads of Fate Check Button"]											= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into Threads of Fate,\nbut leaving it unchecked will opt the player into Story Mode."
 	L["Chromie Time DropDown"]													= "Automates the expansion to select when speaking\nwith Chromie."
-	L["Torghast Powers Check Button"]											= "Automates the selection of Torghast Powers. The powers are based\non a priority list.\nThe chosen power is recorded to the chat window."
+	L["Torghast Powers DropDown"]												= "Automates the behavior for Torghast Powers.\n\n|cffFFFFFFAutomatic|r: Powers are auto selected based on a\npriority list.\n|cffFFFFFFAutomatic (No Epic)|r: Powers are auto selected based on a\npriority list, but epic powers are ignored.\n|cffFFFFFFNotifications|r: Powers are suggested to the player using\nthe chat window. If only 1 Power\nis available, then it will be auto\nselected.\n|cffFFFFFFDisabled|r: HelpMePlay won't assist with Torghast Powers."
 	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
 	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
