@@ -349,6 +349,11 @@ local Classic = {
 			L["Anduin Wrynn 1"],
 		},
 	},
+	[149616] = { -- Kirin Tor Emissary
+		["g"] = {
+			L["Kirin Tor Emissary 1"],
+		},
+	},
 	-- Eastern Plaguelands
 	[150987] = { -- Sean Wilkers
 		["g"] = {
@@ -1899,16 +1904,6 @@ local Shadowlands = {
 		["g"] = {
 			L["Treasure Guardian 1"],
 			L["Treasure Guardian 2"],
-		},
-	},
-	[175772] = { -- Rahel
-		["g"] = {
-			L["Show me my Renown."],
-		},
-	},
-	[172605] = { -- Foreman Flatfinger
-		["g"] = {
-			L["Show me the Sanctum."],
 		},
 	},
 	[165419] = { -- Grand Marshal Mudrag
