@@ -902,11 +902,13 @@ local Legion = {
 	[94975] = { -- Asha Ravensong
 		["g"] = {
 			L["Asha Ravensong 1"],
+			L["Asha Ravensong 2"],
 		},
 	},
 	[94976] = { -- Cassiel Nightthorn
 		["g"] = {
 			L["Cassiel Nightthorn 1"],
+			L["Cassiel Nightthorn 2"],
 		},
 	},
 	[104739] = { -- Tyrande Whisperwind
