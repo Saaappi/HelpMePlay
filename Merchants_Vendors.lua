@@ -12,6 +12,13 @@ local merchants = {
 			["extendedCost"] = {},
 		},
 	},
+	[156800] = { -- Quartermaster Richter
+		{ -- 1
+			["itemID"] = 117, 			-- Tough Jerky
+			["quantity"] = 1,
+			["extendedCost"] = {},
+		},
+	},
 	[100437] = { -- Lanna Skyspark
 		{ -- 1
 			["itemID"] = 132247, 		-- Bottle of Airspark
@@ -107,6 +114,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 											break
 										end
 									end
+									break
 								end
 							end
 						end

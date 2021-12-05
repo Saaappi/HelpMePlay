@@ -1,1 +1,3 @@
 HelpMePlay | 1.0.10
+	Fixes:
+		- Fixed dialogs that previously worked on Exile's Reach.

@@ -360,6 +360,11 @@ local Classic = {
 			L["Kirin Tor Emissary 1"],
 		},
 	},
+	[163095] = { -- Kirin Tor Emissary
+		["g"] = {
+			L["Lindie Springstock 1"],
+		},
+	},
 	-- Eastern Plaguelands
 	[150987] = { -- Sean Wilkers
 		["g"] = {
@@ -1199,6 +1204,7 @@ local BattleForAzeroth = {
 
 local Shadowlands = {
 	-- Supported Maps
+		-- 1409: Exile's Reach
 		-- 1550: The Shadowlands
 	--
 	-- Oribos
@@ -2174,19 +2180,41 @@ local Shadowlands = {
 			L["Daelya Twilightsbane 2"],
 		},
 	},
+	[153211] = { -- Meredy Huntswell
+		["g"] = {
+			L["I'll fight the harpies that come."],
+			L["Meredy Huntswell 1"],
+		},
+	},
+	[156943] = { -- Meredy Huntswell
+		["g"] = {
+			L["Meredy Huntswell 1"],
+		},
+	},
 	[167298] = { -- Herbert Gloomburst
 		["g"] = {
-			L["Herbert Gloomburst 1"],
+			L["I'll fight the harpies that come."],
 		},
 	},
 	[167309] = { -- Herbert Gloomburst
 		["g"] = {
-			L["Herbert Gloomburst 2"],
+			L["Herbert Gloomburst 1"],
+		},
+	},
+	[161350] = { -- Captain Garrick
+		["g"] = {
+			L["Let's get out of the citadel and figure out how to get back home."],
 		},
 	},
 	[167663] = { -- Warlord Breka Grimaxe
 		["g"] = {
 			L["Warlord Breka Grimaxe 1"],
+		},
+	},
+	[162972] = { -- Coulston Nereus
+		["g"] = {
+			L["I'm in."],
+			L["Got it."],
 		},
 	},
 }
@@ -2199,7 +2227,7 @@ local function GetParentMapID(mapId)
 	-- scan the map relationship until the
 	-- first continent is found.
 	local mapInfo = C_Map.GetMapInfo(mapId)
-	if mapInfo.mapType ~= 2 then
+	if mapInfo.mapType ~= 2 and mapInfo.parentMapID ~= 0 then
 		GetParentMapID(mapInfo.parentMapID)
 	else
 		parentMapId = mapInfo.mapID
@@ -2227,7 +2255,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		t = Legion
 	elseif parentMapId == 875 or parentMapId == 876 then
 		t = BattleForAzeroth
-	elseif parentMapId == 1550 then
+	elseif parentMapId == 1409 or parentMapId == 1550 then
 		t = Shadowlands
 	end
 	
@@ -2315,7 +2343,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 		t = Legion
 	elseif parentMapId == 875 or parentMapId == 876 then
 		t = BattleForAzeroth
-	elseif parentMapId == 1550 then
+	elseif parentMapId == 1409 or parentMapId == 1550 then
 		t = Shadowlands
 	end
 	
