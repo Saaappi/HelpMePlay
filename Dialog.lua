@@ -365,6 +365,11 @@ local Classic = {
 			L["Lindie Springstock 1"],
 		},
 	},
+	[154169] = { -- Captain Garrick
+		["g"] = {
+			L["Captain Garrick 1"],
+		},
+	},
 	-- Eastern Plaguelands
 	[150987] = { -- Sean Wilkers
 		["g"] = {
@@ -2215,6 +2220,11 @@ local Shadowlands = {
 		["g"] = {
 			L["I'm in."],
 			L["Got it."],
+		},
+	},
+	[164835] = { -- Kee-La
+		["g"] = {
+			L["I'm ready."],
 		},
 	},
 }
