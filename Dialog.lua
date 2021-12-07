@@ -186,6 +186,43 @@ local Classic = {
 			L["Begin pet battle."],
 		},
 	},
+	-- Burning Steppes
+	[161782] = { -- Burt Macklyn
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	-- Blackrock Depths
+	[160209] = { -- Horu Cloudwatcher
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[160207] = { -- Therin Skysong
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[160206] = { -- Alran Heartshade
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[160208] = { -- Zuna Skullcrush
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[160210] = { -- Tasha Riley
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
+	[160205] = { -- Pixy Wizzle
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	-- Westfall
 	[119390] = { -- Marcus "Bagman" Brown
 		["g"] = {
@@ -617,6 +654,21 @@ local MistsOfPandaria = {
 		},
 	},
 	[71933] = { -- Blingtron 4000
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[71926] = { -- Lorewalker Cho
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[71934] = { -- Dr. Ion Goldbloom
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[71929] = { -- Sully "The Pickle" McLeary
 		["g"] = {
 			L["Let's do battle!"],
 		},
