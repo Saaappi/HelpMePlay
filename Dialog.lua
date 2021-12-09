@@ -1265,6 +1265,11 @@ local Shadowlands = {
 		-- 1550: The Shadowlands
 	--
 	-- Oribos
+	[0] = {
+		["g"] = {
+			L["Ancient Translocator 1"],
+		},
+	},
 	[156791] = { -- Keeper Ta'saran
 		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
@@ -2177,6 +2182,7 @@ local Shadowlands = {
 			L["Elder Kreth 2"],
 			L["Elder Kreth 3"],
 			L["Yes."],
+			L["We need your assistance."],
 		},
 	},
 	[180923] = { -- Varoun
@@ -2222,6 +2228,46 @@ local Shadowlands = {
 	[177958] = { -- Firim
 		["g"] = {
 			L["Firim 1"],
+		},
+	},
+	[183677] = { -- Uther the Lightbringer
+		["g"] = {
+			L["Uther the Lightbringer 1"],
+		},
+	},
+	[178015] = { -- Elder Zoor
+		["g"] = {
+			L["We need your assistance."],
+		},
+	},
+	[178016] = { -- Elder Ara
+		["g"] = {
+			L["We need your assistance."],
+		},
+	},
+	[181179] = { -- Elder Nirav
+		["g"] = {
+			L["I need to restore this artifact."],
+		},
+	},
+	[183298] = { -- Faruu
+		["g"] = {
+			L["I need to restore this artifact."],
+		},
+	},
+	[181084] = { -- Drim
+		["g"] = {
+			L["I need to restore this artifact."],
+		},
+	},
+	[184442] = { -- Feroz
+		["g"] = {
+			L["Feroz 1"],
+		},
+	},
+	[184153] = { -- Elder Ara
+		["g"] = {
+			L["Let's begin."],
 		},
 	},
 	-- De Other Side (Dungeon)
