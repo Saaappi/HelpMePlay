@@ -2232,7 +2232,7 @@ local Shadowlands = {
 	},
 	[183677] = { -- Uther the Lightbringer
 		["g"] = {
-			L["Uther the Lightbringer 1"],
+			L["Tell me what happened."],
 		},
 	},
 	[178015] = { -- Elder Zoor
@@ -2268,6 +2268,16 @@ local Shadowlands = {
 	[184153] = { -- Elder Ara
 		["g"] = {
 			L["Let's begin."],
+		},
+	},
+	[177456] = { -- Anduin Wrynn
+		["g"] = {
+			L["Tell me what happened."],
+		},
+	},
+	[181229] = { -- Highlord Bolvar Fordragon
+		["g"] = {
+			L["Highlord Bolvar Fordragon 3"],
 		},
 	},
 	-- De Other Side (Dungeon)

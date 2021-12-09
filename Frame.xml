@@ -25,7 +25,7 @@
 					<FontHeight val="15" />
 					<Color r="0" g="1" b="1" />
 				</FontString>
-				<FontString name="HMPVersionText" inherits="GameFontNormal" text="1.0.5">
+				<FontString name="HMPVersionText" inherits="GameFontNormal" text="1.0.10">
 					<Size x="80" y="20" />
 					<Anchors>
 						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="240" y="296" />
@@ -172,6 +172,14 @@
 						<Anchor point="TOPLEFT" x="54" y="-294" />
 					</Anchors>
 					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPDisableAllText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="Disable All">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="220" y="296" />
+					</Anchors>
+					<FontHeight val="15" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
 			</Layer>

@@ -287,6 +287,7 @@ function HelpMePlayLoadSettings()
 		HMPNotesText:SetText(L["Notes"])
 		HMPTalentsText:SetText(L["Talents"])
 		HMPMinimapIconText:SetText(L["Minimap Icon"])
+		HMPDisableAllText:SetText(L["Disable All"])
 
 		-- Check settings first
 		if HelpMePlayOptionsDB.DisableAll then

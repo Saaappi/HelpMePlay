@@ -1,3 +1,9 @@
 HelpMePlay | 1.0.10
+	General:
+		- TOC bump for Patch 9.2.
+	UI:
+		- Added a 'Disable All' fontstring for its check button.
+	Dialog:
+		- Added more dialogs from Zereth Mortis.
 	Fixes:
 		- Fixed dialogs that previously worked on Exile's Reach.
