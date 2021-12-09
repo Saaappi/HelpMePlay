@@ -1281,6 +1281,7 @@ local Shadowlands = {
 	[159478] = { -- Tal-Inara
 		["g"] = {
 			L["Tal-Inara 1"],
+			L["Tal-Inara 2"],
 		},
 	},
 	[164079] = { -- Highlord Bolvar Fordragon
@@ -1472,6 +1473,11 @@ local Shadowlands = {
 		},
 		["c"] = {
 			L["A small fee for supplies is required."],
+		},
+	},
+	[181286] = { -- Sylvanas Windrunner
+		["g"] = {
+			L["Sylvanas Windrunner 1"],
 		},
 	},
 	-- Maldraxxus

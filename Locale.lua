@@ -289,6 +289,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Shandris Feathermoon 1"]													= "We should be able to find Tyrande if we follow the trail of corpses."
 	L["Shandris Feathermoon 2"]													= "I can bring you and these souls to Ardenweald."
 	L["Tal-Inara 1"]															= "Show me how I can help the Shadowlands."
+	L["Tal-Inara 2"]															= "I have been to Zereth Mortis before and met Pocopoc."
 	L["Highlord Bolvar Fordragon 1"]											= "Skip ahead to finish the Torghast chapter and have Torghast, Ve'nari, and the Runecarver unlocked."
 	L["Highlord Bolvar Fordragon 2"]											= "Skip ahead to Korthia."
 	L["Highlord Bolvar Fordragon 3"]											= "What's the plan?"
@@ -431,6 +432,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Firim 1"]																= "<Tell Firim about the oracle.>"
 	L["Ancient Translocator 1"]													= "Travel to the Sepulcher of the First Ones"
 	L["Feroz 1"]																= "Bottoms up."
+	L["Sylvanas Windrunner 1"]													= "Show us."
 	-- Creature Names
 	L["Sylla"]																	= "Sylla"
 	L["Thenia"]																	= "Thenia"
