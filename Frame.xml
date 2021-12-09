@@ -20,7 +20,7 @@
 				<FontString name="HMPTitleText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="HelpMePlay">
 					<Size x="101" y="20" />
 					<Anchors>
-						<Anchor point="CENTER" relativeTo="HMPOptionsFrame" x="-212" y="134" />
+						<Anchor point="CENTER" relativeTo="HMPOptionsFrame" x="-212" y="131" />
 					</Anchors>
 					<FontHeight val="15" />
 					<Color r="0" g="1" b="1" />
@@ -28,7 +28,7 @@
 				<FontString name="HMPVersionText" inherits="GameFontNormal" text="1.0.10">
 					<Size x="80" y="20" />
 					<Anchors>
-						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="240" y="296" />
+						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="240" y="293" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -177,9 +177,9 @@
 				<FontString name="HMPDisableAllText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="Disable All">
 					<Size x="80" y="20" />
 					<Anchors>
-						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="220" y="296" />
+						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="154" y="293" />
 					</Anchors>
-					<FontHeight val="15" />
+					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
 			</Layer>
@@ -278,7 +278,7 @@
 			</CheckButton>
 			<CheckButton name="HMPDisableAllCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="210" y="286" />
+					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="200" y="286" />
 				</Anchors>
 			</CheckButton>
 		</Frames>
