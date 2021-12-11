@@ -121,6 +121,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayAchievementDB == nil then
 				HelpMePlayAchievementDB = {}
 			end
+			if HelpMePlaySavesDB == nil then
+				HelpMePlaySavesDB = {}
+			end
 			if HelpMePlayOptionsDB.MinimapIcon then
 				HelpMePlayShowMinimapIcon(false)
 			end

@@ -9,15 +9,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.GarrisonTables == false or HelpMePlayOptionsDB.GarrisonTables == nil then return end
 		local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
 		if garrisonLevel == 1 then
-			local _, _, _, _, _, isActive = C_Garrison.GetBuildingTooltip(26)
-			if isActive == false then
-				local plots = C_Garrison.GetPlots(1)
-				for i = 1, #plots do
-					if plots[i].size == 3 then
-						-- This is a large plot. Place the Barracks here.
-						C_Garrison.PlaceBuilding(plots[i].id, 26)
-						PlaySound(SOUNDKIT.UI_GARRISON_ARCHITECT_TABLE_UPGRADE_START)
+			local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)
+			if HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == false or HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == nil then
+				for i = 1, #plotsForBuilding do
+					local buildingId = C_Garrison.GetOwnedBuildingInfo(plotsForBuilding[i])
+					if buildingId ~= nil then
+						HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
+						return
 					end
+					C_Garrison.PlaceBuilding(plotsForBuilding[i], 26)
+					PlaySound(SOUNDKIT.UI_GARRISON_ARCHITECT_TABLE_UPGRADE_START)
+					GarrisonBuildingFrame.CloseButton:Click()
+					HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
 				end
 			end
 		end

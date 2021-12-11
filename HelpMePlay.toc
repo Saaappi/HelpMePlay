@@ -2,7 +2,7 @@
 ## Interface: 90105
 ## Name: |cff00CCFFHelpMePlay|r
 ## Notes: Automates tasks related to questing, dialog, vendors, and more.
-## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayAchievementDB
+## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayAchievementDB, HelpMePlaySavesDB
 ## Title: |cff00CCFFHelpMePlay|r
 ## Version: 1.0.10
 
