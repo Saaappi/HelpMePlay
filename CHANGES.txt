@@ -1,4 +1,6 @@
 HelpMePlay | 1.0.10
+	New Features:
+		- Added a feature that quickly exits specified vehicles.
 	General:
 		- TOC bump for Patch 9.2.
 	UI:

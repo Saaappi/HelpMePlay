@@ -68,6 +68,9 @@ Mail.lua
 # Handles mouseover for objects and creatures. Allows the addition of notes from the addon, if desired.
 Mouseover.lua
 
+# Handles quick vehicle exits for specific vehicles.
+Vehicles.lua
+
 # Automates repairing at merchants.
 Repairs.lua
 
