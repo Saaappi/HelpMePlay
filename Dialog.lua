@@ -2234,6 +2234,21 @@ local Shadowlands = {
 	[177958] = { -- Firim
 		["g"] = {
 			L["Firim 1"],
+			L["Firim 2"],
+		},
+	},
+	[181706] = { -- Pocopoc
+		["g"] = {
+			L["Pocopoc 1"],
+			L["Pocopoc 2"],
+			L["Pocopoc 3"],
+			L["Pocopoc 4"],
+			L["Pocopoc 5"],
+		},
+	},
+	[181183] = { -- Highlord Bolvar Fordragon
+		["g"] = {
+			L["Highlord Bolvar Fordragon 4"],
 		},
 	},
 	[183677] = { -- Uther the Lightbringer
