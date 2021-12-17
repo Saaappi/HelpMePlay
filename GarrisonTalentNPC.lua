@@ -75,6 +75,8 @@ local function GetTalentTreeInfo(talentTreeId)
 				end
 			end
 		end
+	elseif talentTreeId == 474 then
+		-- Cypher Research Console
 	end
 end
 

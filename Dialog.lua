@@ -1282,6 +1282,7 @@ local Shadowlands = {
 		["g"] = {
 			L["Tal-Inara 1"],
 			L["Tal-Inara 2"],
+			L["Tal-Inara 3"],
 		},
 	},
 	[164079] = { -- Highlord Bolvar Fordragon
@@ -2235,6 +2236,7 @@ local Shadowlands = {
 		["g"] = {
 			L["Firim 1"],
 			L["Firim 2"],
+			L["Firim 3"],
 		},
 	},
 	[181706] = { -- Pocopoc
@@ -2299,6 +2301,66 @@ local Shadowlands = {
 	[181229] = { -- Highlord Bolvar Fordragon
 		["g"] = {
 			L["Highlord Bolvar Fordragon 3"],
+		},
+	},
+	[181229] = { -- Saezurah
+		["g"] = {
+			L["Saezurah 1"],
+		},
+	},
+	[181738] = { -- Nadjia the Mistblade
+		["g"] = {
+			L["Nadjia the Mistblade 1"],
+		},
+	},
+	[181740] = { -- Droman Aliothe
+		["g"] = {
+			L["Will you bring your forces to fight with us?"],
+		},
+	},
+	[181739] = { -- Secutor Mevix
+		["g"] = {
+			L["Will you bring your forces to fight with us?"],
+		},
+	},
+	[180965] = { -- Firim
+		["g"] = {
+			L["Firim 4"],
+		},
+	},
+	[180942] = { -- Saezurah
+		["g"] = {
+			L["Saezurah 2"],
+		},
+	},
+	[181892] = { -- Vessel
+		["g"] = {
+			L["Vessel 1"],
+		},
+	},
+	[183693] = { -- Automa Scryer
+		["g"] = {
+			L["Examine the Automa."],
+		},
+	},
+	[183703] = { -- Automa Scryer
+		["g"] = {
+			L["Examine the Automa."],
+		},
+	},
+	[183692] = { -- Automa Scryer
+		["g"] = {
+			L["Examine the Automa."],
+		},
+	},
+	[183694] = { -- Automa Scryer
+		["g"] = {
+			L["Examine the Automa."],
+		},
+	},
+	[180914] = { -- Pelagos
+		["g"] = {
+			L["Pelagos 1"],
 		},
 	},
 	-- De Other Side (Dungeon)
