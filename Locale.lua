@@ -426,6 +426,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Altar of the Pained 1"]													= "Put on the Faceless Mask of the Pained."
 	L["Altar of the Burned Bridge 1"]											= "Put on the Faceless Mask of the Burned Bridge."
 	L["Altar of the Long Night 1"]												= "Put on the Faceless Mask of the Long Night."
+	L["Leafbeard the Storied 1"]												= "Show me their story."
 	L["Elder Kreth 1"]															= "We have arrived from Oribos in pursuit of the Jailer."
 	L["Elder Kreth 2"]															= "You are no longer safe here."
 	L["Elder Kreth 3"]															= "Pelagos speaks the truth."

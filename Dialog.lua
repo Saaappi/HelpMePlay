@@ -979,6 +979,16 @@ local Legion = {
 			L["Tyrande Whisperwind 2"],
 		},
 	},
+	[99035] = { -- Durian Strongfruit
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[106638] = { -- Leafbeard the Storied
+		["g"] = {
+			L["Leafbeard the Storied 1"],
+		},
+	},
 	-- Stormheim
 	[105386] = { -- Rydyr
 		["g"] = {
@@ -992,6 +1002,11 @@ local Legion = {
 	},
 	-- Suramar
 	[105250] = { -- Aulier
+		["g"] = {
+			L["Let's do battle!"],
+		},
+	},
+	[105779] = { -- Felsoul Leer
 		["g"] = {
 			L["Let's do battle!"],
 		},
@@ -1073,6 +1088,14 @@ local Legion = {
 	[108642] = { -- Keeper Remulos
 		["g"] = {
 			L["Keeper Remulos 1"],
+		},
+	},
+	[127752] = { -- Raelaara the Kind
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 	-- The Nighthold
@@ -1832,6 +1855,11 @@ local Shadowlands = {
 		},
 		["c"] = {
 			L["A small fee for supplies is required."],
+		},
+	},
+	[104553] = { -- Odrogg
+		["g"] = {
+			L["Let's do battle!"],
 		},
 	},
 	-- Revendreth
