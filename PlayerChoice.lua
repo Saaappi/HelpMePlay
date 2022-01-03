@@ -12,15 +12,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local unitGuid = UnitGUID("target") or UnitGUID("mouseover")
 			if unitGuid then
 				local _, _, _, _, _, npcId = strsplit("-", unitGuid); npcId = tonumber(npcId)
-				if mapId == 1670 then
-					-- Oribos
+				if mapId == 1670 then -- Oribos
 					if npcId == 159478 then
 						-- Tal-Inara (Covenant Selection)
 						-- Do nothing. Let the player select their covenant.
 						-- Perhaps in the future there will be a setting
 						-- to control the selection of the covenant.
-					elseif npcId == 174871 then
-						-- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
+					elseif npcId == 174871 then -- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
 						if HelpMePlayOptionsDB.ThreadsOfFate then
 							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
 							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
@@ -32,8 +30,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- Not every player choice is associated
 				-- with an NPC, so these will be the
 				-- player choices prompted by objects.
-				if mapId == 84 or mapId == 85 then
-					-- Orgrimmar / Stormwind City
+				if mapId == 84 or mapId == 85 then -- Orgrimmar / Stormwind City
 					if HelpMePlayOptionsDB.AdventureMaps == false or HelpMePlayOptionsDB.AdventureMaps == nil then return end
 					for i = 1, 3 do
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
@@ -43,8 +40,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							break
 						end
 					end
-				elseif mapId == 535 then
-					-- Talador
+				elseif mapId == 535 then -- Talador
 					if HelpMePlayOptionsDB.GarrisonTables then
 						-- Choose the Arsenal, otherwise
 						-- choose nothing.
@@ -52,8 +48,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
-				elseif mapId == 542 then
-					-- Spires of Arak
+				elseif mapId == 542 then -- Spires of Arak
 					if HelpMePlayOptionsDB.GarrisonTables then
 						-- Choose the Brewery, otherwise
 						-- choose nothing.
@@ -61,8 +56,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
-				elseif mapId == 543 then
-					-- Gorgrond
+				elseif mapId == 543 then -- Gorgrond
 					if HelpMePlayOptionsDB.GarrisonTables then
 						-- Choose the Sparring Arena, otherwise
 						-- choose nothing.
