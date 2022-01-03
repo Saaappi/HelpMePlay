@@ -766,6 +766,22 @@ local WarlordsOfDraenor = {
 			L["Let's do this!"],
 		},
 	},
+	-- Gorgrond
+	[81013] = { -- Rangari Rajess
+		["g"] = {
+			L["D'kaan is coming with help."],
+		},
+	},
+	[81018] = { -- Rangari Kolaan
+		["g"] = {
+			L["D'kaan is coming with help."],
+		},
+	},
+	[81020] = { -- Rangari Jonaa
+		["g"] = {
+			L["D'kaan is coming with help."],
+		},
+	},
 	-- Talador
 	[87125] = { -- Taralune
 		["g"] = {

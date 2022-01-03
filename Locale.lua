@@ -205,6 +205,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Let's get out of the citadel and figure out how to get back home."]		= "Let's get out of the citadel and figure out how to get back home."
 	L["We need your assistance."]												= "We need your assistance."
 	L["Will you bring your forces to fight with us?"]							= "Will you bring your forces to fight with us?"
+	L["D'kaan is coming with help."]											= "D'kaan is coming with help."
 	L["Tell me what happened."]													= "Tell me what happened."
 	L["Warlord Breka Grimaxe 1"]												= "I know my way around Orgrimmar."
 	L["Lindie Springstock 1"]													= "Let's head to the Old Town stables."
