@@ -186,6 +186,11 @@ local Classic = {
 			L["Begin pet battle."],
 		},
 	},
+	[155414] = { -- Ezra Grimm
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	-- Burning Steppes
 	[161782] = { -- Burt Macklyn
 		["g"] = {
