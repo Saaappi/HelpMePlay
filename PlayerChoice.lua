@@ -25,6 +25,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 							HideUIPanel(PlayerChoiceFrame)
 						end
 					end
+				elseif mapId == 543 then -- Gorgrond
+					if HelpMePlayOptionsDB.GarrisonTables then
+						-- Choose the Sparring Arena, otherwise
+						-- choose nothing.
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2);
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					end
 				end
 			else
 				-- Not every player choice is associated
@@ -53,14 +61,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 						-- Choose the Brewery, otherwise
 						-- choose nothing.
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
-						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					end
-				elseif mapId == 543 then -- Gorgrond
-					if HelpMePlayOptionsDB.GarrisonTables then
-						-- Choose the Sparring Arena, otherwise
-						-- choose nothing.
-						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end

@@ -10,5 +10,6 @@ HelpMePlay | 1.0.10
 	Fixes:
 		- Fixed dialogs that previously worked on Exile's Reach.
 		- Fixed dialogs that previously worked in Draenor.
+		- Fixed an issue with the Drafting Table automation in Gorgrond.
 		- Fixed an issue preventing the addon from auto placing the Barracks in the Garrison under suspicious circumstances.
 		- The addon should once again auto close the Architect table in the Garrison after placing the Barracks.
