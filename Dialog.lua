@@ -1354,6 +1354,11 @@ local Shadowlands = {
 		},
 	},
 	-- Bastion
+	[160595] = { -- Pelagos
+		["g"] = {
+			L["Pelagos 2"],
+		},
+	},
 	[175444] = { -- Beastkeeper Ismene
 		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
@@ -1884,6 +1889,11 @@ local Shadowlands = {
 	[104553] = { -- Odrogg
 		["g"] = {
 			L["Let's do battle!"],
+		},
+	},
+	[172677] = { -- Niya
+		["g"] = {
+			L["I am ready."],
 		},
 	},
 	-- Revendreth

@@ -451,6 +451,7 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Vessel 1"]																= "Examine the Vessel."
 	L["Nadjia the Mistblade 1"]													= "I need your assistance."
 	L["Pelagos 1"]																= "What do you mean?"
+	L["Pelagos 2"]																= "Let us soulbind."
 	-- Creature Names
 	L["Sylla"]																	= "Sylla"
 	L["Thenia"]																	= "Thenia"
