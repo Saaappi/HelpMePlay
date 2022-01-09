@@ -2077,6 +2077,14 @@ local Shadowlands = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[171934] = { -- Prince Renathal
+		["g"] = {
+			L["I know my way around the Sanctum."],
+		},
+		["c"] = {
+			L["Are you sure?"],
+		},
+	},
 	-- The Maw
 	[165918] = { -- Highlord Darion Mograine
 		["g"] = {
@@ -2638,11 +2646,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
 		local activeQuests = C_GossipInfo.GetActiveQuests()
-		if next(activeQuests) then
-			CheckActiveQuests(activeQuests)
-		elseif numAvailableQuests > 0 then
-			for i = 1, numAvailableQuests do
-				SelectAvailableQuest(i)
+		if HelpMePlayOptionsDB.Quests then
+			if next(activeQuests) then
+				CheckActiveQuests(activeQuests)
+			elseif numAvailableQuests > 0 then
+				for i = 1, numAvailableQuests do
+					SelectAvailableQuest(i)
+				end
+			else
+				ProcessDialogTree()
 			end
 		else
 			ProcessDialogTree()

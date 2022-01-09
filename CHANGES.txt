@@ -6,6 +6,7 @@ HelpMePlay | 1.0.10
 	UI:
 		- Added a 'Disable All' fontstring for its check button.
 	Dialog:
+		- Dialog is now processed when Quests automation is disabled.
 		- Added more dialogs from Zereth Mortis.
 	Fixes:
 		- Fixed dialogs that previously worked on Exile's Reach.
