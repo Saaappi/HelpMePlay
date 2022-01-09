@@ -1764,7 +1764,10 @@ local Shadowlands = {
 	[161509] = { -- Lady Moonberry
 		["g"] = {
 			L["Lady Moonberry 3"],
-			L["Lady Moonberry 5"],
+			L["I know my way around the Sanctum."],
+		},
+		["c"] = {
+			L["Are you sure?"],
 		},
 	},
 	[172431] = { -- Lady Moonberry
