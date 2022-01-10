@@ -14,3 +14,4 @@ HelpMePlay | 1.0.10
 		- Fixed an issue with the Drafting Table automation in Gorgrond.
 		- Fixed an issue preventing the addon from auto placing the Barracks in the Garrison under suspicious circumstances.
 		- The addon should once again auto close the Architect table in the Garrison after placing the Barracks.
+		- An error should no longer be thrown when opening the Command Table in the covenant sanctums.
