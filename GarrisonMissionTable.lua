@@ -14,7 +14,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.GarrisonTables == false or HelpMePlayOptionsDB.GarrisonTables == nil then return end
 		if C_Garrison.IsAtGarrisonMissionNPC() then
 			local npc = ...
-			if npc ~= 123 then
+			if npc == 1 then -- Garrison Mission Table
 				local missions = C_Garrison.GetAvailableMissions(1)
 				local followers = C_Garrison.GetFollowers(1)
 				local faction = UnitFactionGroup("player")
