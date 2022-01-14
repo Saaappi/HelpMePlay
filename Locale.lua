@@ -353,7 +353,6 @@ if (locale == "enGB" or locale == "enUS") then
 	L["Avowed Ritualist 1"]														= "I have a soul for you."
 	L["Partially-Infused Soul Remnant 1"]										= "Free the Soul Remnant."
 	L["Project Lead Allen 1"]													= "I will assist you."
-	L["Iona Skyblade 1"]														= "What is my Renown with the Kyrian?"
 	L["Fatescribe Roh-Tahl 1"]													= "I am ready to choose my fate in the Shadowlands."
 	L["Sparring Aspirant 1"]													= "Will you spar with me?"
 	L["Sparring Aspirant 2"]													= "I would like to challenge both of you to a spar."

@@ -1354,6 +1354,11 @@ local Shadowlands = {
 		},
 	},
 	-- Bastion
+	[173130] = { -- Zolla
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	[160595] = { -- Pelagos
 		["g"] = {
 			L["Pelagos 2"],
@@ -1383,11 +1388,6 @@ local Shadowlands = {
 	[168906] = { -- Polemarch Adrestes
 		["g"] = {
 			L["I'm ready."],
-		},
-	},
-	[176100] = { -- Iona Skyblade
-		["g"] = {
-			L["Iona Skyblade 1"],
 		},
 	},
 	[156327] = { -- Voitha
@@ -1530,7 +1530,20 @@ local Shadowlands = {
 			L["Sylvanas Windrunner 1"],
 		},
 	},
+	[160037] = { -- Polemarch Adrestes
+		["g"] = {
+			L["I know my way around the Sanctum."],
+		},
+		["c"] = {
+			L["Are you sure?"],
+		},
+	},
 	-- Maldraxxus
+	[173263] = { -- Rotgut
+		["g"] = {
+			L["Begin pet battle."],
+		},
+	},
 	[165052] = { -- Vial Master Lurgy
 		["g"] = {
 			L["Is there any way I can help?"],
@@ -1669,9 +1682,25 @@ local Shadowlands = {
 			L["Maldraxxus needs your service. Will you fight?"],
 		},
 	},
+	[158453] = { -- Baroness Draka
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[165182] = { -- Baroness Draka
+		["g"] = {
+			L["I know my way around the Sanctum."],
+		},
+		["c"] = {
+			L["Are you sure?"],
+		},
+	},
 	[173257] = { -- Caregiver Maximillian
 		["g"] = {
-			L["Begin pet battle."],
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 	-- Ardenweald
