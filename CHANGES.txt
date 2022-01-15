@@ -3,6 +3,7 @@ HelpMePlay | 1.0.10
 		- Added a feature that quickly exits specified vehicles.
 	General:
 		- TOC bump for Patch 9.2.
+		- The quest frame is no longer auto hidden if it's stuck. (A new approach will be considered for this problem.)
 	UI:
 		- Added a 'Disable All' fontstring for its check button.
 	Dialog:
