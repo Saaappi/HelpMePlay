@@ -5,6 +5,16 @@ local locale = GAME_LOCALE or GetLocale()
 local supportedLocales = {
 	"enGB",
 	"enUS",
+	"deDE",
+	"esMX",
+	"ptBR",
+	"esES",
+	"frFR",
+	"itIT",
+	"ruRU",
+	"koKR",
+	"zhTW",
+	"zhCN",
 }
 local isLocaleSupported = false
 for i = 1, #supportedLocales do
@@ -19,7 +29,7 @@ local L = setmetatable({}, { __index = function(t, k)
 	rawset(t, k, v)
 	return v
 end })
-if (locale == "enGB" or locale == "enUS") then
+if (isLocaleSupported) then
 	-- Commands
 	L["Slash HMP"]																= "/hmp"
 	L["Abandon Command"]														= "abandon"

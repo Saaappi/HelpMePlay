@@ -4,6 +4,7 @@ HelpMePlay | 1.0.10
 		- Added support for suggesting talents on the Titan Research Archive (Horrific Visions).
 	General:
 		- TOC bump for Patch 9.2.
+		- All locales are now supported. (The addon itself still needs to be localized to other languages.)
 	UI:
 		- Added a 'Disable All' fontstring for its check button.
 	Dialog:
