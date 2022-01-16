@@ -1,14 +1,16 @@
 HelpMePlay | 1.0.10
 	New Features:
 		- Added a feature that quickly exits specified vehicles.
+		- Added support for suggesting talents on the Titan Research Archive (Horrific Visions).
 	General:
 		- TOC bump for Patch 9.2.
-		- The quest frame is no longer auto hidden if it's stuck. (A new approach will be considered for this problem.)
 	UI:
 		- Added a 'Disable All' fontstring for its check button.
 	Dialog:
 		- Dialog is now processed when Quests automation is disabled.
 		- Added more dialogs from Zereth Mortis.
+	Changes:
+		- The quest frame is no longer auto hidden if it's stuck. (A new approach will be considered for this problem.)
 	Fixes:
 		- Fixed dialogs that previously worked on Exile's Reach.
 		- Fixed dialogs that previously worked in Draenor.
