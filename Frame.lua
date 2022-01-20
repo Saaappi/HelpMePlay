@@ -287,6 +287,7 @@ function HelpMePlayLoadSettings()
 		HMPNotesText:SetText(L["Notes"])
 		HMPTalentsText:SetText(L["Talents"])
 		HMPMinimapIconText:SetText(L["Minimap Icon"])
+		HMPCinematicsText:SetText(L["Cinematics"])
 		HMPDisableAllText:SetText(L["Disable All"])
 
 		-- Check settings first
@@ -384,6 +385,12 @@ function HelpMePlayLoadSettings()
 			HMPMinimapIconCB:SetChecked(true)
 		else
 			HMPMinimapIconCB:SetChecked(false)
+		end
+		
+		if HelpMePlayOptionsDB.Cinematics then
+			HMPCinematicsCB:SetChecked(true)
+		else
+			HMPCinematicsCB:SetChecked(false)
 		end
 		
 		if HelpMePlayOptionsDB.ChromieTimeExpansion then
@@ -761,6 +768,21 @@ function HelpMePlayLoadSettings()
 			else
 				HelpMePlayOptionsDB.MinimapIcon = false
 				HelpMePlayShowMinimapIcon(false)
+			end
+		end)
+		
+		-- Cinematics Check Button
+		HMPCinematicsCB:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Cinematics Check Button"])
+		end)
+		HMPCinematicsCB:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		HMPCinematicsCB:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				HelpMePlayOptionsDB.Cinematics = true
+			else
+				HelpMePlayOptionsDB.Cinematics = false
 			end
 		end)
 	end

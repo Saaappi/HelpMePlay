@@ -57,6 +57,7 @@ if (isLocaleSupported) then
 	L["Automatic (No Epic)"]													= "Automatic (No Epic)"
 	L["Notifications"]															= "Notifications"
 	L["Disabled"]																= "Disabled"
+	L["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Expansions
@@ -87,6 +88,7 @@ if (isLocaleSupported) then
 	L["Notes"]																	= "Notes"
 	L["Talents"]																= "Talents"
 	L["Minimap Icon"]															= "Minimap Icon"
+	L["Cinematics"]																= "Cinematics"
 	L["Disable All"]															= "Disable All"
 	-- Options Panel Descriptions
 	L["Adventure Maps Check Button"]											= "Automates the Hero's Call Board and the selection of zones for the\nBattle for Azeroth and Shadowlands adventure maps.\n\nYou can view the full list on CurseForge."
@@ -106,6 +108,7 @@ if (isLocaleSupported) then
 	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
 	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
+	L["Cinematics Check Button"]												= "Automates skipping (most) cinematics and in-game movies."
 	L["Disable All Check Button"]												= "Disables all the below settings and returns\nthem to their default state.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them\nto their saved state."
 	-- Speech Monsters
 	L["Al'dalil"]																= "Al'dalil"

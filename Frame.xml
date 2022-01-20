@@ -166,6 +166,13 @@
 					</Anchors>
 					<Color r="1" g="1" b="1" />
 				</FontString>
+				<FontString name="HMPCinematicsText" inherits="GameFontNormal" text="Cinematics">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="385" y="-180" />
+					</Anchors>
+					<Color r="1" g="1" b="1" />
+				</FontString>
 				<FontString name="HMPTrainersV2Text" inherits="GameFontNormal" text="Trainers">
 					<Size x="80" y="20" />
 					<Anchors>
@@ -269,6 +276,11 @@
 			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-137" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPCinematicsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="371" y="-175" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
