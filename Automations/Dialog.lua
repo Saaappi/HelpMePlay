@@ -1334,6 +1334,9 @@ local Shadowlands = {
 			L["Highlord Bolvar Fordragon 1"],
 			L["Highlord Bolvar Fordragon 2"],
 		},
+		["c"] = {
+			L["Are you sure?"],
+		},
 	},
 	[177136] = { -- Polemarch Adrestes
 		["g"] = {
@@ -1538,6 +1541,16 @@ local Shadowlands = {
 			L["Are you sure?"],
 		},
 	},
+	[165412] = { -- Xandria
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[165794] = { -- Xandria
+		["g"] = {
+			L["Xandria 2"],
+		},
+	},
 	-- Maldraxxus
 	[173263] = { -- Rotgut
 		["g"] = {
@@ -1701,6 +1714,71 @@ local Shadowlands = {
 		},
 		["c"] = {
 			L["A small fee for supplies is required."],
+		},
+	},
+	[161985] = { -- Baroness Vashj
+		["g"] = {
+			L["Baroness Vashj 1"],
+		},
+	},
+	[158604] = { -- Navigator Xennir
+		["g"] = {
+			L["Navigator Xennir 1"],
+		},
+	},
+	[160518] = { -- Whisperer Vyn
+		["g"] = {
+			L["Whisperer Vyn 1"],
+		},
+	},
+	[172566] = { -- Twigin
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[172809] = { -- Twigin
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[172901] = { -- Twigin
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[172574] = { -- Navigator Xennir
+		["g"] = {
+			L["Navigator Xennir 2"],
+		},
+	},
+	[168860] = { -- Kynthia
+		["g"] = {
+			L["Kynthia 1"],
+		},
+	},
+	[166211] = { -- Alexandros Mograine
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[172002] = { -- Xandria
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[172923] = { -- Kel'Thuzad
+		["g"] = {
+			L["Kel'Thuzad 1"],
+		},
+	},
+	[174179] = { -- Baroness Draka
+		["g"] = {
+			L["Baroness Draka 1"],
+		},
+	},
+	[173523] = { -- General Draven
+		["g"] = {
+			L["General Draven 1"],
 		},
 	},
 	-- Ardenweald
