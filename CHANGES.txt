@@ -1,23 +1,16 @@
 HelpMePlay | 1.0.10
 	New Features:
-		- Added a feature that quickly exits specified vehicles.
-		- Added support for skipping cinematics.
-	General:
-		- TOC bump for Patch 9.2.
-		- All locales are now supported. (The addon itself still needs to be localized to other languages.)
-	UI:
-		- Added a 'Disable All' fontstring for its check button.
-	Talent NPCs:
-		- Added support for suggesting talents on the Titan Research Archive (Horrific Visions).
-	Dialog:
-		- Dialog is now processed when Quests automation is disabled.
-		- Added more dialogs from Zereth Mortis.
-	Changes:
-		- The quest frame is no longer auto hidden if it's stuck. (A new approach will be considered for this problem.)
-	Fixes:
-		- Fixed dialogs that previously worked on Exile's Reach.
-		- Fixed dialogs that previously worked in Draenor.
-		- Fixed an issue with the Drafting Table automation in Gorgrond.
-		- Fixed an issue preventing the addon from auto placing the Barracks in the Garrison under suspicious circumstances.
-		- The addon should once again auto close the Architect table in the Garrison after placing the Barracks.
-		- An error should no longer be thrown when opening the Command Table in the covenant sanctums.
+		- Added a feature that allows the addon to quickly exit documented vehicles. The fewer the buttons, the better.
+		- Auto skipping cinematics is now a thing! Cinematics that, if skipped, cause problems (e.g. Tol Dagor's exit) are NOT skipped so you don't endlessly wander on a boat ride to your demise.
+		- Added native support for every locale. Brazil, Mexico, France, Germany, Italy, Portugues, Russia, Korea, Taiwan, and China players rejoice!
+		- Titanic Research (Horrific Visions) is now a supported talent NPC! If you don't know what to pick, let HelpMePlay tell you.
+		- Added (even more) dialogs from Zereth Mortis. Are you ready for Patch 9.2? HelpMePlay sure is!
+	Fixes and Updates:
+		- Fixed dialogs that previously worked on Exile's Reach and in Draenor. They didn't want to work because I broke them. My bad...
+		- Fixed an issue with the Drafting Table in Gorgrond. Now you don't have to pick the Sparring Arena on your own.
+		- Fixed an issue preventing HelpMePlay from auto placing your Barracks in the Garrison. Let's call the reason why, "suspicious circumstances."
+		- Fixed an issue that caused an error to be thrown when using the Command Tables in Covenant Sanctums.
+		- Fixed an issue preventing dialog from processing when the player has Quests automation disabled. <You and the NPC awkwardly stare at one another.>
+		- The quest frame is no longer auto hidden when it's stuck. It was annoying to have the frame vanish in the middle of submitting quests, I know. I'm working on a new approach to this problem.
+		- Added a "Disable All" fontstring next to its button. It's bad UI design if the player has to hover for initial information, so I'm sorry about that!
+		- Bumped the TOC version to 90200 (from 90105) in preparation for Patch 9.2. NEW PATCH, LET'S GO!
