@@ -97,6 +97,7 @@ end
 
 e:RegisterEvent("ADDON_LOADED")
 e:RegisterEvent("GOSSIP_SHOW")
+e:RegisterEvent("PLAYER_LEVEL_CHANGED")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
@@ -136,6 +137,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		C_Timer.After(delay, function()
 			GetOrCompleteQuests()
 		end)
+	end
+	if event == "PLAYER_LEVEL_CHANGED" then
+		local _, newLevel = ...
+		if newLevel == 20 then
+			print(L["Colored Addon Name"] .. ": " .. L["War Mode Reminder"])
+		end
 	end
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end

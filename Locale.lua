@@ -58,6 +58,7 @@ if (isLocaleSupported) then
 	L["Notifications"]															= "Notifications"
 	L["Disabled"]																= "Disabled"
 	L["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
+	L["War Mode Reminder"]														= "You leveled to 20! You should return to Orgrimmar (Horde) or Stormwind City (Alliance), so I can enable War Mode."
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Expansions
