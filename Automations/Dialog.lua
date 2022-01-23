@@ -1983,6 +1983,7 @@ local Shadowlands = {
 	[160262] = { -- Ysera
 		["g"] = {
 			L["Ysera 1"],
+			L["I'm ready."],
 		},
 	},
 	[162434] = { -- Littlewing
