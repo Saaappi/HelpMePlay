@@ -135,6 +135,111 @@ local Classic = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[162591] = { -- Ben Howell
+		["g"] = {
+			L["Ben Howell 1"],
+		},
+	},
+	[167281] = { -- Jamin
+		["g"] = {
+			L["Everything will be okay."],
+		},
+	},
+	[167282] = { -- Roger
+		["g"] = {
+			L["Roger 1"],
+		},
+	},
+	[777] = { -- Amy Davenport
+		["g"] = {
+			L["The Scourge are incoming."],
+		},
+	},
+	[789] = { -- Kimberly Hiett
+		["g"] = {
+			L["The Scourge are coming!"],
+		},
+	},
+	[790] = { -- Karen Taylor
+		["g"] = {
+			L["Karen Taylor 1"],
+		},
+	},
+	[791] = { -- Lindsay Ashlock
+		["g"] = {
+			L["Lindsay Ashlock 1"],
+		},
+	},
+	[793] = { -- Kara Adams
+		["g"] = {
+			L["We will survive this."],
+		},
+	},
+	[812] = { -- Alma Jainrose
+		["g"] = {
+			L["The magistrate has ordered our retreat."],
+		},
+	},
+	[956] = { -- Dorin Songblade
+		["g"] = {
+			L["Dorin Songblade 1"],
+		},
+	},
+	[1678] = { -- Vernon Hale
+		["g"] = {
+			L["The Scourge are coming!"],
+		},
+	},
+	[1680] = { -- Matthew Hooper
+		["g"] = {
+			L["Get to the town hall."],
+		},
+	},
+	[3086] = { -- Gretchen Vogel
+		["g"] = {
+			L["The Scourge are coming!"],
+		},
+	},
+	[3087] = { -- Crystal Boughman
+		["g"] = {
+			L["The Scourge are incoming."],
+		},
+	},
+	[9982] = { -- Penny
+		["g"] = {
+			L["The Scourge are coming!"],
+		},
+	},
+	[162953] = { -- Sarah Howell
+		["g"] = {
+			L["Sarah Howell 1"],
+		},
+	},
+	[167279] = { -- Rachel
+		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+		},
+	},
+	[167280] = { -- Nathan
+		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+		},
+	},
+	[167283] = { -- Hannah
+		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+		},
+	},
+	[167284] = { -- Madison
+		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+		},
+	},
+	[167285] = { -- Erin
+		["g"] = {
+			L["Everything will be okay."],
+		},
+	},
 	-- Duskwood
 	[10062] = { -- Steven Black
 		["g"] = {
@@ -1356,6 +1461,11 @@ local Shadowlands = {
 			L["Fatescribe Roh-Tahl 1"],
 		},
 	},
+	[162542] = { -- Kleia
+		["g"] = {
+			L["Kleia 1"],
+		},
+	},
 	-- Bastion
 	[173130] = { -- Zolla
 		["g"] = {
@@ -1364,7 +1474,7 @@ local Shadowlands = {
 	},
 	[160595] = { -- Pelagos
 		["g"] = {
-			L["Pelagos 2"],
+			L["Let us soulbind."],
 		},
 	},
 	[175444] = { -- Beastkeeper Ismene
@@ -1549,6 +1659,91 @@ local Shadowlands = {
 	[165794] = { -- Xandria
 		["g"] = {
 			L["Xandria 2"],
+		},
+	},
+	[162542] = { -- Kleia
+		["g"] = {
+			L["I am ready."],
+			L["I'm ready."],
+			L["Kleia 2"],
+		},
+	},
+	[163650] = { -- Kleia
+		["g"] = {
+			L["Let us soulbind."],
+		},
+	},
+	[167716] = { -- Pelagos
+		["g"] = {
+			L["Pelagos 2"],
+		},
+	},
+	[162556] = { -- Clora
+		["g"] = {
+			L["Clora 1"],
+		},
+	},
+	[162557] = { -- Forgelite Sophone
+		["g"] = {
+			L["Forgelite Sophone 1"],
+		},
+	},
+	[160280] = { -- Mikanikos
+		["g"] = {
+			L["I am ready."],
+			L["Mikanikos 1"],
+		},
+	},
+	[173860] = { -- Kalisthene
+		["g"] = {
+			L["Kalisthene 1"],
+		},
+	},
+	[156361] = { -- Kleia
+		["g"] = {
+			L["I am ready."],
+			L["Kleia 3"],
+			L["Kleia 4"],
+		},
+	},
+	[174497] = { -- Polemarch Adrestes
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[162889] = { -- Eridia
+		["g"] = {
+			L["Eridia 1"],
+		},
+	},
+	[162904] = { -- Apolon
+		["g"] = {
+			L["Apolon 1"],
+		},
+	},
+	[162888] = { -- Sika
+		["g"] = {
+			L["Sika 1"],
+		},
+	},
+	[162907] = { -- Arios Riftbearer
+		["g"] = {
+			L["Arios Riftbearer 1"],
+		},
+	},
+	[164473] = { -- Polemarch Adrestes
+		["g"] = {
+			L["I am."],
+		},
+	},
+	[166740] = { -- Mikanikos
+		["g"] = {
+			L["I am."],
+		},
+	},
+	[174503] = { -- Polemarch Adrestes
+		["g"] = {
+			L["I am ready."],
 		},
 	},
 	-- Maldraxxus
@@ -1781,6 +1976,11 @@ local Shadowlands = {
 			L["General Draven 1"],
 		},
 	},
+	[173222] = { -- Xandria
+		["g"] = {
+			L["I am ready."],
+		},
+	},
 	-- Ardenweald
 	[171743] = { -- Dapperdew
 		["g"] = {
@@ -1861,6 +2061,7 @@ local Shadowlands = {
 		["g"] = {
 			L["Lord Herne 2"],
 			L["Lord Herne 3"],
+			L["Lord Herne 4"],
 		},
 	},
 	[165550] = { -- Attendant Shimmerwing
@@ -2000,6 +2201,26 @@ local Shadowlands = {
 		},
 	},
 	[172677] = { -- Niya
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[165671] = { -- Pelagos
+		["g"] = {
+			L["Pelagos 3"],
+		},
+	},
+	[165736] = { -- Lady Moonberry's Soap
+		["g"] = {
+			L["Lady Moonberry's Soap 1"],
+		},
+	},
+	[162392] = { -- Willowblossom
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[163328] = { -- Pelagos
 		["g"] = {
 			L["I am ready."],
 		},
@@ -2191,6 +2412,18 @@ local Shadowlands = {
 		},
 		["c"] = {
 			L["Are you sure?"],
+		},
+	},
+	[161544] = { -- The Curator
+		["g"] = {
+			L["The Curator 2"],
+			L["The Curator 3"],
+			L["I am ready."],
+		},
+	},
+	[161553] = { -- Mindscorched Alwin
+		["g"] = {
+			L["Let's go."],
 		},
 	},
 	-- The Maw
