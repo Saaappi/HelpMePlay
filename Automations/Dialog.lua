@@ -142,71 +142,197 @@ local Classic = {
 	},
 	[167281] = { -- Jamin
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
 			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[167282] = { -- Roger
 		["g"] = {
-			L["Roger 1"],
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[777] = { -- Amy Davenport
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
 			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[789] = { -- Kimberly Hiett
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
 			L["The Scourge are coming!"],
 		},
 	},
 	[790] = { -- Karen Taylor
 		["g"] = {
-			L["Karen Taylor 1"],
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[791] = { -- Lindsay Ashlock
 		["g"] = {
-			L["Lindsay Ashlock 1"],
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[793] = { -- Kara Adams
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
 			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[812] = { -- Alma Jainrose
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[956] = { -- Dorin Songblade
 		["g"] = {
-			L["Dorin Songblade 1"],
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[1678] = { -- Vernon Hale
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
 			L["The Scourge are coming!"],
 		},
 	},
 	[1680] = { -- Matthew Hooper
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
 			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[3086] = { -- Gretchen Vogel
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
 			L["The Scourge are coming!"],
 		},
 	},
 	[3087] = { -- Crystal Boughman
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
 			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[9982] = { -- Penny
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
 			L["The Scourge are coming!"],
 		},
 	},
@@ -218,26 +344,71 @@ local Classic = {
 	[167279] = { -- Rachel
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[167280] = { -- Nathan
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[167283] = { -- Hannah
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[167284] = { -- Madison
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
+			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	[167285] = { -- Erin
 		["g"] = {
+			L["The bells tell us to go to the town hall to be safe."],
+			L["The magistrate has ordered our retreat."],
+			L["The Scourge are incoming."],
 			L["Everything will be okay."],
+			L["We must get to the town hall."],
+			L["Don't be a hero."],
+			L["We're all going to go hide in the town hall."],
+			L["We will survive this."],
+			L["Get to the town hall."],
+			L["The Scourge are coming!"],
 		},
 	},
 	-- Duskwood
@@ -1461,11 +1632,6 @@ local Shadowlands = {
 			L["Fatescribe Roh-Tahl 1"],
 		},
 	},
-	[162542] = { -- Kleia
-		["g"] = {
-			L["Kleia 1"],
-		},
-	},
 	-- Bastion
 	[173130] = { -- Zolla
 		["g"] = {
@@ -1665,6 +1831,7 @@ local Shadowlands = {
 		["g"] = {
 			L["I am ready."],
 			L["I'm ready."],
+			L["Kleia 1"],
 			L["Kleia 2"],
 		},
 	},
@@ -2889,6 +3056,11 @@ local function SelectGossipOption(options, npcId, parentMapId)
 				-- We found a match in the table
 				-- so let's move forward.
 				for i = 1, #t[id]["g"] do
+					--- DEBUG ---
+					-- Only enable these if dialogs aren't being
+					-- selected when they should be.
+					--print(string.lower(gossipOptionsSubTable["name"]))
+					--print(string.lower(t[id]["g"][i]))
 					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(t[id]["g"][i])) then
 						C_GossipInfo.SelectOption(index)
 						return
