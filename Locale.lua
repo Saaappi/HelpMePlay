@@ -149,7 +149,7 @@ if (isLocaleSupported) then
 	L["Go hunt somewhere else!"]												= "Go hunt somewhere else!"
 	L["I challenge you, death knight!"]											= "I challenge you, death knight!"
 	L["There is no time left. Run!"]											= "There is no time left. Run!"
-	L["Let's go!"]																= "Let's go."
+	L["Let's go."]																= "Let's go."
 	L["Let's go!"]																= "Let's go!"
 	L["I'm ready."]																= "I'm ready."
 	L["Let's duel."]															= "Let's duel."

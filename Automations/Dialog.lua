@@ -2664,6 +2664,11 @@ local Shadowlands = {
 			L["Are you enjoying yourself?"],
 		},
 	},
+	[160956] = { -- Watcher Emil
+		["g"] = {
+			L["Let's go!"],
+		},
+	},
 	[165662] = { -- The Countess
 		["g"] = {
 			L["<Deliver Prince Renathal's invitation.>"],
