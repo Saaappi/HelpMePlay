@@ -2499,9 +2499,194 @@ local Shadowlands = {
 			L["I am ready."],
 		},
 	},
+	[160011] = { -- Lord Neculai
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160002] = { -- Lord Vasile
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160008] = { -- Lady Rodica
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160006] = { -- Lady Andrada
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159981] = { -- Lady Ivona
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159978] = { -- Lady Ihrin
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159968] = { -- Lady Zina
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160001] = { -- Duchess Yetta
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159973] = { -- Duke Mitica
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159966] = { -- Duke Grigore
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160010] = { -- Duke Vlad
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160004] = { -- Sir Vilhelm
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159967] = { -- Duchess Minodora
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159958] = { -- Madame Viviana
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160005] = { -- Madame Irini
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160003] = { -- Duke Omor
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159988] = { -- Madame Elenuta
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159988] = { -- Duke Mihas
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159972] = { -- Lord Ionel
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159982] = { -- Duchess Vanda
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160000] = { -- Lady Lerae
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159997] = { -- Lord Razvan
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159965] = { -- Lord Sorin
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159977] = { -- Sir Geofri
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159986] = { -- Sir Vali
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159960] = { -- Duke Avram
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159961] = { -- Lord Silviu
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160009] = { -- Madame Tassa
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159999] = { -- Madame Miriana
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159980] = { -- Madame Lenuta
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[160007] = { -- Duchess Silviana
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159898] = { -- Duchess Lacrima
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
+	[159970] = { -- Duchess Odeta
+		["g"] = {
+			L["Are you enjoying yourself?"],
+		},
+	},
 	[165662] = { -- The Countess
 		["g"] = {
-			L["The Countess 2"],
+			L["<Deliver Prince Renathal's invitation.>"],
+		},
+	},
+	[165866] = { -- The Stonewright
+		["g"] = {
+			L["<Deliver Prince Renathal's invitation.>"],
+		},
+	},
+	[159650] = { -- Elena
+		["g"] = {
+			L["<Present the Offer of Employment.>"],
+		},
+	},
+	[159651] = { -- Dumitra
+		["g"] = {
+			L["<Present the Offer of Employment.>"],
+		},
+	},
+	[159652] = { -- Florin
+		["g"] = {
+			L["<Present the Offer of Employment.>"],
 		},
 	},
 	[166541] = { -- Cobwobble
