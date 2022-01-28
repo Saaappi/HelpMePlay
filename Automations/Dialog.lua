@@ -2890,6 +2890,11 @@ local Shadowlands = {
 			L["The Accuser 3"],
 		}
 	},
+	[167689] = { -- Prince Renethal
+		["g"] = {
+			L["I am ready."],
+		}
+	},
 	-- End of Revendreth
 	-- Korthia
 	[178257] = { -- Archivist Roh-Suir
