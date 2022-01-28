@@ -1913,6 +1913,17 @@ local Shadowlands = {
 			L["I am ready."],
 		},
 	},
+	[161637] = { -- Theotar
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	[171147] = { -- General Draven
+		["g"] = {
+			L["I am ready."],
+		},
+	},
+	-- End of Bastion
 	-- Maldraxxus
 	[173263] = { -- Rotgut
 		["g"] = {
@@ -2148,6 +2159,7 @@ local Shadowlands = {
 			L["I am ready."],
 		},
 	},
+	-- End of Maldraxxus
 	-- Ardenweald
 	[171743] = { -- Dapperdew
 		["g"] = {
@@ -2392,6 +2404,7 @@ local Shadowlands = {
 			L["I am ready."],
 		},
 	},
+	-- End of Ardenweald
 	-- Revendreth
 	[167838] = { -- Globknob
 		["g"] = {
@@ -2857,12 +2870,34 @@ local Shadowlands = {
 			L["Spirit of Vol'jin 2"],
 		}
 	},
+	[169625] = { -- Sinfall Executor
+		["g"] = {
+			L["Sinfall Executor 1"],
+		}
+	},
+	[169627] = { -- Sinfall Executor
+		["g"] = {
+			L["Sinfall Executor 1"],
+		}
+	},
+	[161158] = { -- The Accuser
+		["g"] = {
+			L["The Accuser 2"],
+		}
+	},
+	[161278] = { -- The Accuser
+		["g"] = {
+			L["The Accuser 3"],
+		}
+	},
+	-- End of Revendreth
 	-- Korthia
 	[178257] = { -- Archivist Roh-Suir
 		["g"] = {
 			L["Archivist Roh-Suir 1"],
 		},
 	},
+	-- End of Korthia
 	-- Torghast
 	[164937] = { -- Runecarver
 		["g"] = {
@@ -2950,6 +2985,7 @@ local Shadowlands = {
 			L["I will assist you."],
 		},
 	},
+	-- End of Torghast
 	-- Zereth Mortis
 	[177486] = { -- Elder Kreth
 		["g"] = {
@@ -3131,12 +3167,7 @@ local Shadowlands = {
 			L["Pelagos 1"],
 		},
 	},
-	-- De Other Side (Dungeon)
-	[166281] = { -- Bwonsamdi
-		["g"] = {
-			L["Bwonsamdi 1"],
-		},
-	},
+	-- End of Zereth Mortis
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane
 		["g"] = {
@@ -3184,6 +3215,13 @@ local Shadowlands = {
 	[164835] = { -- Kee-La
 		["g"] = {
 			L["I'm ready."],
+		},
+	},
+	-- End of Exile's Reach
+	-- De Other Side (Dungeon)
+	[166281] = { -- Bwonsamdi
+		["g"] = {
+			L["Bwonsamdi 1"],
 		},
 	},
 }

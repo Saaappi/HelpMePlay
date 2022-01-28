@@ -7,6 +7,7 @@ HelpMePlay | 1.0.10
 		- Added (even more) dialogs from Zereth Mortis. Are you ready for Patch 9.2? HelpMePlay sure is!
 		- Added a reminder to return to Orgrimmar or Stormwind at level 20. We all forget about the War Mode bonus here and there. It's no big deal, right? ._.
 		- Added support for all dialogs in the remaining 9.0 Covenant Sanctum campaigns. I hope you enjoy more time on Netflix!
+		- Added notes to Kael'thas's sins during the Venthyr 9.0 Covenant Sanctum campaign. Remembering which one to click can be difficult.
 	Fixes and Updates:
 		- Fixed dialogs that previously worked on Exile's Reach and in Draenor. They didn't want to work because I broke them. My bad...
 		- Fixed an issue with the Drafting Table in Gorgrond. Now you don't have to pick the Sparring Arena on your own.

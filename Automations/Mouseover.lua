@@ -100,11 +100,23 @@ local creatureDb = {
 	},
 	[159915] = { -- Gatamatos
 		["t"] = "note",
-		["n"] = L["Note: Gatamatos"],
+		["n"] = L["Note: CLICK ME!"],
 	},
 	[173806] = { -- Gatamatos
 		["t"] = "note",
-		["n"] = L["Note: Gatamatos"],
+		["n"] = L["Note: CLICK ME!"],
+	},
+	[161726] = { -- Kael'thas Sunstrider (Sin #1)
+		["t"] = "note",
+		["n"] = L["Note: CLICK ME!"],
+	},
+	[161734] = { -- Kael'thas Sunstrider (Sin #2)
+		["t"] = "note",
+		["n"] = L["Note: CLICK ME!"],
+	},
+	[161737] = { -- Kael'thas Sunstrider (Sin #3)
+		["t"] = "note",
+		["n"] = L["Note: CLICK ME!"],
 	},
 	[164675] = { -- Lever (Torghast Chest)
 		["t"] = "note",

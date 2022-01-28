@@ -142,7 +142,7 @@ if (isLocaleSupported) then
 	L["Torghast"]																= "Torghast"
 	-- Mouseover Target Notes
 	L["Note: Exposed Boggart"]													= "This is a BOGGART!"
-	L["Note: Gatamatos"]														= "CLICK ME!"
+	L["Note: CLICK ME!"]														= "CLICK ME!"
 	L["Note: Torghast Lever"]													= "From left to right, click in this order:\n|cffFFFFFF1, 2, 1, 3, 1, 2, 1, 4, 1, 2, 1, 3, 1, 2, 1|r"
 	-- Dialog
 	L["Are you enjoying yourself?"]												= "Are you enjoying yourself?"
@@ -384,6 +384,9 @@ if (isLocaleSupported) then
 	L["The Curator 2"]															= "We are looking for the Seal of Contrition."
 	L["The Curator 3"]															= "We have retrieved the seal and are returning to Bastion."
 	L["The Accuser 1"]															= "I'm ready. Begin the ritual."
+	L["The Accuser 2"]															= "Begin your inquisition."
+	L["The Accuser 3"]															= "Begin the ritual of extraction."
+	L["Sinfall Executor 1"]														= "Release Kael'thas Sunstrider."
 	L["Guard Captain Elizabeta 1"]												= "The Curator sent me. I'm looking for Watcher Emil."
 	L["Where does the Taskmaster keep the sinstones?"]							= "Where does the Taskmaster keep the sinstones?"
 	L["What are you all doing?"]												= "What are you all doing?"
