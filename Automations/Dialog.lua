@@ -144,6 +144,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -158,6 +159,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -172,6 +174,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -186,6 +189,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -200,6 +204,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -214,6 +219,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -228,6 +234,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -242,6 +249,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -256,6 +264,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -270,6 +279,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -284,6 +294,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -298,6 +309,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -312,6 +324,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -326,6 +339,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -345,6 +359,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -359,6 +374,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -373,6 +389,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -387,6 +404,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -401,6 +419,7 @@ local Classic = {
 		["g"] = {
 			L["The bells tell us to go to the town hall to be safe."],
 			L["The magistrate has ordered our retreat."],
+			L["The magistrate ordered our retreat."],
 			L["The Scourge are incoming."],
 			L["Everything will be okay."],
 			L["We must get to the town hall."],
@@ -2896,13 +2915,6 @@ local Shadowlands = {
 		}
 	},
 	-- End of Revendreth
-	-- Korthia
-	[178257] = { -- Archivist Roh-Suir
-		["g"] = {
-			L["Archivist Roh-Suir 1"],
-		},
-	},
-	-- End of Korthia
 	-- Torghast
 	[164937] = { -- Runecarver
 		["g"] = {
