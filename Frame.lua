@@ -269,6 +269,7 @@ function HelpMePlayLoadSettings()
 
 		-- SetText for FontStrings
 		HMPCRText:SetText(L["CR Text"])
+		HMPDisableAllText:SetText(L["Disable All"])
 		HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
 		HMPAdvMapsText:SetText(L["Adventure Maps"])
 		HMPDialogText:SetText(L["Dialog"])
@@ -282,13 +283,10 @@ function HelpMePlayLoadSettings()
 		HMPQuestsText:SetText(L["Accept/Complete Quests"])
 		HMPToFText:SetText(L["Threads of Fate"])
 		HMPQuestRewardsText:SetText(L["Quest Rewards"])
-		--HMPChromieTimeText:SetText(L["Chromie Time"])
-		--HMPTorghastPowersText:SetText(L["Torghast Powers"])
 		HMPNotesText:SetText(L["Notes"])
 		HMPTalentsText:SetText(L["Talents"])
-		HMPMinimapIconText:SetText(L["Minimap Icon"])
 		HMPCinematicsText:SetText(L["Cinematics"])
-		HMPDisableAllText:SetText(L["Disable All"])
+		HMPMinimapIconText:SetText(L["Minimap Icon"])
 
 		-- Check settings first
 		if HelpMePlayOptionsDB.DisableAll then
@@ -381,16 +379,16 @@ function HelpMePlayLoadSettings()
 			HMPTalentsCB:SetChecked(false)
 		end
 		
-		if HelpMePlayOptionsDB.MinimapIcon then
-			HMPMinimapIconCB:SetChecked(true)
-		else
-			HMPMinimapIconCB:SetChecked(false)
-		end
-		
 		if HelpMePlayOptionsDB.Cinematics then
 			HMPCinematicsCB:SetChecked(true)
 		else
 			HMPCinematicsCB:SetChecked(false)
+		end
+		
+		if HelpMePlayOptionsDB.MinimapIcon then
+			HMPMinimapIconCB:SetChecked(true)
+		else
+			HMPMinimapIconCB:SetChecked(false)
 		end
 		
 		if HelpMePlayOptionsDB.ChromieTimeExpansion then

@@ -285,22 +285,6 @@
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
 				</FontString>
-				<!--<FontString name="HMPChromieTimeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Chromie Time">
-					<Size x="97" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="350" y="-240" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPTorghastPowersText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Torghast Powers">
-					<Size x="99" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="357" y="-271" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>-->
 			</Layer>
 		</Layers>
 		<Scripts>
