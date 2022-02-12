@@ -19,4 +19,5 @@ HelpMePlay | 1.0.10
 		- The quest frame is no longer auto hidden when it's stuck. It was annoying to have the frame vanish in the middle of submitting quests, I know. I'm working on a new approach to this problem.
 		- Added a "Disable All" fontstring next to its button. It's bad UI design if the player has to hover for initial information, so I'm sorry about that!
 		- Applied some minor cosmetics to the settings menu. It's looking a little more in shape. (Shifted the dropdowns over to make the checkbuttons flow better.)
+		- Quest rewards are no longer auto selected at max level if there are multiple choices.
 		- Bumped the TOC version to 90200 (from 90105) in preparation for Patch 9.2. NEW PATCH, LET'S GO!

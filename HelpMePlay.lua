@@ -7,11 +7,14 @@ local longerDelay = 4
 
 local function Max(tbl)
 	local highestItemIndex = 0
-	local highestSellPrice = 0
-	for itemIndex, itemSellPrice in ipairs(tbl) do
-		if itemSellPrice > highestSellPrice then
+	local highestItemLevelOrSellPrice = 0
+	for itemIndex, itemLevelOrSellPrice in ipairs(tbl) do
+		if itemLevelOrSellPrice > highestItemLevelOrSellPrice then
 			highestItemIndex = itemIndex
-			highestSellPrice = itemSellPrice
+			highestItemLevelOrSellPrice = itemLevelOrSellPrice
+		elseif itemLevelOrSellPrice == highestItemLevelOrSellPrice then
+			tbl = {}
+			highestItemIndex = 0
 		end
 	end
 	return highestItemIndex
@@ -19,18 +22,58 @@ end
 
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
-	if numQuestChoices > 1 then
-		local sellPrices = {}
-		for i = 1, numQuestChoices do
-			local _, _, quantity = GetQuestItemInfo("choice", i)
-			local link = GetQuestItemLink("choice", i)
-			if link then
-				local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(link)
-				sellPrices[i] = (quantity*sellPrice)
-			end
-		end
+	if numQuestChoices == 1 then
 		if HelpMePlayOptionsDB.QuestRewards then
-			GetQuestReward(Max(sellPrices))
+			-- Check the item slot for the quest reward,
+			-- then let's compare it to what the player
+			-- has equipped. While leveling, item level
+			-- is king.
+			--
+			-- We want to stop selecting quest rewards
+			-- at max level.
+			local playerLevel = UnitLevel("player")
+			if playerLevel < 60 then
+				local itemRewardItemLevels = {}
+				local sellPrices = {}
+				local quantity, itemLink, sellPrice, itemQuality, equipLoc, slotName, slotId, inventoryItemLink, itemId, equippedItemLevel, rewardItemLevel
+				for i = 1, numQuestChoices do
+					_, _, quantity = GetQuestItemInfo("choice", i)
+					itemLink = GetQuestItemLink("choice", i)
+					sellPrice = select(11, GetItemInfo(itemLink))
+					sellPrices[i] = (quantity*sellPrice)
+					_, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
+					_, slotName = strsplit("_", equipLoc)
+					slotId = GetInventorySlotInfo(slotName.."SLOT")
+					inventoryItemLink = GetInventoryItemLink("player", slotId)
+					equippedItemLevel = GetDetailedItemLevelInfo(inventoryItemLink)
+					rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
+					if equippedItemLevel == nil then
+						print(L["Colored Addon Name"] .. ": " .. L["Equipped Item Level is Nil"])
+						return
+					elseif rewardItemLevel > equippedItemLevel then
+						if itemQuality ~= 7 then
+							-- Don't add slots with equipped heirlooms
+							-- for consideration.
+							itemRewardItemLevels[i] = rewardItemLevel
+						end
+					end
+				end
+				
+				-- Check the item level table first. If the
+				-- item level is higher, then we want to
+				-- take that reward.
+				--
+				-- Check the sell prices table next. Same
+				-- concept; if the sell price is higher,
+				-- then take that reward.
+				if Max(itemRewardItemLevels) ~= 0 then
+					print("A")
+					GetQuestReward(Max(itemRewardItemLevels))
+				elseif Max(sellPrices) ~= 0 then
+					print("B")
+					GetQuestReward(Max(sellPrices))
+				end
+			end
 		end
 	elseif numQuestChoices == 1 then
 		GetQuestReward(1)
