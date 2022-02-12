@@ -15,182 +15,6 @@
 			<TileSize val="32" />
 			<EdgeSize val="32" />
 		</Backdrop>
-		<Layers>
-			<Layer level="OVERLAY">
-				<FontString name="HMPTitleText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="HelpMePlay">
-					<Size x="101" y="20" />
-					<Anchors>
-						<Anchor point="CENTER" relativeTo="HMPOptionsFrame" x="-212" y="131" />
-					</Anchors>
-					<FontHeight val="15" />
-					<Color r="0" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPVersionText" inherits="GameFontNormal" text="1.0.10">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="240" y="293" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPAdvMapsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Adventure Maps">
-					<Size x="128" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="55" y="-67" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPDialogText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Dialog">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="50" y="-105" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPEmotesText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Emotes">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="53" y="-143" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPGarrisonTblText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Garrison Tables">
-					<Size x="140" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="46" y="-181" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPMailText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Mail">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="45" y="-219" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPMerchantsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Merchants">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="62" y="-257" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPSpeechText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Speech">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="235" y="-67" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPWarModeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="War Mode">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="244" y="-105" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPToFText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Threads of Fate">
-					<Size x="99" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="247" y="-219" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPCRText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Crafted with |T135451:0|t by Lightsky">
-					<Size x="229" y="20" />
-					<Anchors>
-						<Anchor point="CENTER" x="0" y="160" />
-					</Anchors>
-					<FontHeight val="10" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPQuestsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Quests">
-					<Size x="170" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="190" y="-143" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPQuestRewardsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Quest Rewards">
-					<Size x="92" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="251" y="-181" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPChromieTimeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Chromie Time">
-					<Size x="97" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="350" y="-270" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPTorghastPowersText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Torghast Powers">
-					<Size x="99" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="357" y="-304" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPNotesText" inherits="GameFontNormal" text="Notes">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="381" y="-67" />
-					</Anchors>
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPTalentsText" inherits="GameFontNormal" text="Talents">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="385" y="-104" />
-					</Anchors>
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPMinimapIconText" inherits="GameFontNormal" text="Minimap Icon">
-					<Size x="99" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="395" y="-142" />
-					</Anchors>
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPCinematicsText" inherits="GameFontNormal" text="Cinematics">
-					<Size x="99" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="385" y="-180" />
-					</Anchors>
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPTrainersV2Text" inherits="GameFontNormal" text="Trainers">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="TOPLEFT" x="54" y="-294" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPDisableAllText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="Disable All">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="154" y="293" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-			</Layer>
-		</Layers>
 		<Frames>
 			<Button name="HMPOptionsFrameCloseButton" inherits="UIPanelButtonTemplate" hidden="true" text="X">
 				<Size x="24" y="24" />
@@ -198,6 +22,11 @@
 					<Anchor point="TOPRIGHT" relativeTo="HMPOptionsFrame" x="-2" y="-3" />
 				</Anchors>
 			</Button>
+			<CheckButton name="HMPDisableAllCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="200" y="286" />
+				</Anchors>
+			</CheckButton>
 			<CheckButton name="HMPAdvMapsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-61" />
@@ -228,6 +57,11 @@
 					<Anchor point="TOPLEFT" x="39" y="-251" />
 				</Anchors>
 			</CheckButton>
+			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-289" />
+				</Anchors>
+			</CheckButton>
 			<CheckButton name="HMPSpeechCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-61" />
@@ -236,11 +70,6 @@
 			<CheckButton name="HMPWarModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-99" />
-				</Anchors>
-			</CheckButton>
-			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-213" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPQuestsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
@@ -253,47 +82,227 @@
 					<Anchor point="TOPLEFT" x="221" y="-175" />
 				</Anchors>
 			</CheckButton>
-			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="205" y="-267" />
+					<Anchor point="TOPLEFT" x="221" y="-213" />
 				</Anchors>
-			</Frame>
-			<Frame name="HMPTorghastPowersDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="205" y="-300" />
-				</Anchors>
-			</Frame>
+			</CheckButton>
 			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-61" />
+					<Anchor point="TOPLEFT" x="221" y="-251" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPTalentsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-99" />
-				</Anchors>
-			</CheckButton>
-			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-137" />
+					<Anchor point="TOPLEFT" x="221" y="-289" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPCinematicsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-175" />
+					<Anchor point="TOPLEFT" x="371" y="-61" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-289" />
+					<Anchor point="TOPLEFT" x="371" y="-99" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPDisableAllCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
-					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="200" y="286" />
+					<Anchor point="TOPLEFT" x="354" y="-237" />
 				</Anchors>
-			</CheckButton>
+			</Frame>
+			<Frame name="HMPTorghastPowersDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="354" y="-270" />
+				</Anchors>
+			</Frame>
+			<Frame name="HMPCovenantDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="354" y="-303" />
+				</Anchors>
+			</Frame>
 		</Frames>
+		<Layers>
+			<Layer level="OVERLAY">
+				<FontString name="HMPCRText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Crafted with ♥ by LightskyGG" justifyH="CENTER" justifyV="CENTER">
+					<Size x="229" y="20" />
+					<Anchors>
+						<Anchor point="CENTER" relativeTo="HMPOptionsFrame" relativePoint="CENTER" y="160" />
+					</Anchors>
+					<FontHeight val="10" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPTitleText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="HelpMePlay" justifyH="CENTER" justifyV="CENTER">
+					<Size x="101" y="20" />
+					<Anchors>
+						<Anchor point="CENTER" relativeTo="HMPOptionsFrame" relativePoint="CENTER" x="-210" y="130" />
+					</Anchors>
+					<FontHeight val="15" />
+					<Color r="0" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPVersionText" inherits="GameFontNormal" text="1.0.10" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPDisableAllCB" relativePoint="LEFT" x="10" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPDisableAllText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="Disable All" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="HMPDisableAllCB" relativePoint="RIGHT" x="-25" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPAdvMapsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Adventure Maps" justifyH="CENTER" justifyV="CENTER">
+					<Size x="128" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPAdvMapsCB" relativePoint="LEFT" x="18" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPDialogText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Dialog" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPDialogCB" relativePoint="LEFT" x="12" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPEmotesText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Emotes" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPEmotesCB" relativePoint="LEFT" x="15" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPGarrisonTblText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Garrison Tables" justifyH="CENTER" justifyV="CENTER">
+					<Size x="140" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPGarrTblCB" relativePoint="LEFT" x="8" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPMailText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Mail" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPMailCB" relativePoint="LEFT" x="4" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPMerchantsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Merchants" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPMerchantsCB" relativePoint="LEFT" x="22" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPTrainersV2Text" inherits="GameFontNormal" text="Trainers" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPTrainersV2CB" relativePoint="LEFT" x="15" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPSpeechText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Speech" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPSpeechCB" relativePoint="LEFT" x="15" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPWarModeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="War Mode" justifyH="CENTER" justifyV="CENTER">
+					<Size x="80" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPWarModeCB" relativePoint="LEFT" x="22" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPQuestsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Quests" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPQuestsCB" relativePoint="LEFT" x="4" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPQuestRewardsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Quest Rewards" justifyH="CENTER" justifyV="CENTER">
+					<Size x="92" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPQuestRewardsCB" relativePoint="LEFT" x="30" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPToFText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Threads of Fate" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPToFCB" relativePoint="LEFT" x="28" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPNotesText" inherits="GameFontNormal" text="Notes" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPNotesCB" relativePoint="LEFT" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPTalentsText" inherits="GameFontNormal" text="Talents" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPTalentsCB" relativePoint="LEFT" x="4" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPCinematicsText" inherits="GameFontNormal" text="Cinematics" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPCinematicsCB" relativePoint="LEFT" x="14" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPMinimapIconText" inherits="GameFontNormal" text="Minimap Icon" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPMinimapIconCB" relativePoint="LEFT" x="22" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<!--<FontString name="HMPChromieTimeText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Chromie Time">
+					<Size x="97" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="350" y="-240" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPTorghastPowersText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Torghast Powers">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="TOPLEFT" x="357" y="-271" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>-->
+			</Layer>
+		</Layers>
 		<Scripts>
 			<OnLoad>
 				UIDropDownMenu_EnableDropDown(HMPChromieTimeDropDown)

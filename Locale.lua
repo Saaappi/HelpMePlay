@@ -70,7 +70,7 @@ if (isLocaleSupported) then
 	L["Legion"]																	= "Legion"
 	L["Battle for Azeroth"]														= "Battle for Azeroth"
 	-- Options Panel Text
-	L["CR Text"]																= "Crafted with |T135451:0|t by Lightsky"
+	L["CR Text"]																= "Crafted with |cffFF5C5C♥|r by LightskyGG"
 	L["Adventure Maps"]															= "Adventure Maps"
 	L["Dialog"]																	= "Dialog"
 	L["Emotes"]																	= "Emotes"
