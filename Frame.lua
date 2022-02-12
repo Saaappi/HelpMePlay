@@ -434,11 +434,13 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB["TempSettings"].Quests = HelpMePlayOptionsDB.Quests
 				HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
 				HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate = HelpMePlayOptionsDB.ThreadsOfFate
-				HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
-				HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
 				HelpMePlayOptionsDB["TempSettings"].Notes = HelpMePlayOptionsDB.Notes
 				HelpMePlayOptionsDB["TempSettings"].Talents = HelpMePlayOptionsDB.Talents
+				HelpMePlayOptionsDB["TempSettings"].Cinematics = HelpMePlayOptionsDB.Cinematics
 				HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
+				HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
+				HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
+				HelpMePlayOptionsDB["TempSettings"].Covenant = HelpMePlayOptionsDB.Covenant
 				
 				-- Flag the settings as false.
 				HelpMePlayOptionsDB.AdventureMaps = false
@@ -453,11 +455,13 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.Quests = false
 				HelpMePlayOptionsDB.QuestRewards = false
 				HelpMePlayOptionsDB.ThreadsOfFate = false
-				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
-				HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
 				HelpMePlayOptionsDB.Notes = false
 				HelpMePlayOptionsDB.Talents = false
+				HelpMePlayOptionsDB.Cinematics = false
 				HelpMePlayOptionsDB.MinimapIcon = false
+				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
+				HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
+				HelpMePlayOptionsDB.Covenant = L["Disabled"]
 				
 				-- Uncheck the buttons.
 				HMPAdvMapsCB:SetChecked(false)
@@ -472,12 +476,14 @@ function HelpMePlayLoadSettings()
 				HMPQuestsCB:SetChecked(false)
 				HMPQuestRewardsCB:SetChecked(false)
 				HMPToFCB:SetChecked(false)
-				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
-				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L["Disabled"])
 				HMPTorghastPowersCB:SetChecked(false)
 				HMPNotesCB:SetChecked(false)
 				HMPTalentsCB:SetChecked(false)
+				HMPCinematicsCB:SetChecked(false)
 				HMPMinimapIconCB:SetChecked(false)
+				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
+				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L["Disabled"])
+				UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L["Disabled"])
 			else
 				-- Return the settings to their original
 				-- states.
@@ -497,11 +503,13 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.Quests = HelpMePlayOptionsDB["TempSettings"].Quests
 				HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
 				HelpMePlayOptionsDB.ThreadsOfFate = HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate
-				HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
-				HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
 				HelpMePlayOptionsDB.Notes = HelpMePlayOptionsDB["TempSettings"].Notes
 				HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
+				HelpMePlayOptionsDB.Cinematics = HelpMePlayOptionsDB["TempSettings"].Cinematics
 				HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
+				HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
+				HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
+				HelpMePlayOptionsDB.Covenant = HelpMePlayOptionsDB["TempSettings"].Covenant
 				
 				HMPAdvMapsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].AdventureMaps)
 				HMPDialogCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Dialog)
@@ -515,12 +523,14 @@ function HelpMePlayLoadSettings()
 				HMPQuestsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Quests)
 				HMPQuestRewardsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].QuestRewards)
 				HMPToFCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate)
-				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
-				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
 				HMPTorghastPowersCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].TorghastPowers)
 				HMPNotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Notes)
 				HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
+				HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Cinematics)
 				HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
+				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
+				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
+				UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
 			end
 		end)
 
