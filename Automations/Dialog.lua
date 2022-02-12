@@ -3241,6 +3241,14 @@ local Shadowlands = {
 			L["Bwonsamdi 1"],
 		},
 	},
+	-- End of De Other Side (Dungeon)
+	-- Shadowfang Keep (Dungeon)
+	[36296] = { -- Apothecary Hummel
+		["g"] = {
+			L["Begin the battle."],
+		},
+	},
+	-- End of Shadowfang Keep
 }
 
 local function GetParentMapID(mapId)

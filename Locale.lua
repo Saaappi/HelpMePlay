@@ -176,6 +176,7 @@ if (isLocaleSupported) then
 	L["Are you sure?"]															= "Are you sure?"
 	L["What can you tell me about Cartel So?"]									= "What can you tell me about Cartel So?"
 	L["Begin pet battle."]														= "Begin pet battle."
+	L["Begin the battle."]														= "Begin the battle."
 	L["Let's do battle!"]														= "Let's do battle!"
 	L["Let's do it!"]															= "Let's do it!"
 	L["Let's rumble!"]															= "Let's rumble!"
