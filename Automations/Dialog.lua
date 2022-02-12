@@ -10,6 +10,7 @@ e:RegisterEvent("GOSSIP_SHOW")
 
 local Classic = {
 	-- Supported Maps
+		-- 12: Kalimdor
 		-- 13: Eastern Kingdoms
 	--
 	-- Blasted Lands
@@ -780,6 +781,13 @@ local Classic = {
 			L["Zidormi 3"],
 		}
 	},
+	-- Shadowfang Keep (Dungeon)
+	[36296] = { -- Apothecary Hummel
+		["g"] = {
+			L["Begin the battle."],
+		},
+	},
+	-- End of Shadowfang Keep
 }
 
 local BurningCrusade = {}
@@ -3242,13 +3250,6 @@ local Shadowlands = {
 		},
 	},
 	-- End of De Other Side (Dungeon)
-	-- Shadowfang Keep (Dungeon)
-	[36296] = { -- Apothecary Hummel
-		["g"] = {
-			L["Begin the battle."],
-		},
-	},
-	-- End of Shadowfang Keep
 }
 
 local function GetParentMapID(mapId)
