@@ -22,7 +22,7 @@ end
 
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
-	if numQuestChoices == 1 then
+	if numQuestChoices > 1 then
 		if HelpMePlayOptionsDB.QuestRewards then
 			-- Check the item slot for the quest reward,
 			-- then let's compare it to what the player
@@ -67,10 +67,8 @@ function HMP_CompleteQuest()
 				-- concept; if the sell price is higher,
 				-- then take that reward.
 				if Max(itemRewardItemLevels) ~= 0 then
-					print("A")
 					GetQuestReward(Max(itemRewardItemLevels))
 				elseif Max(sellPrices) ~= 0 then
-					print("B")
 					GetQuestReward(Max(sellPrices))
 				end
 			end
