@@ -117,7 +117,7 @@
 					<Anchor point="TOPLEFT" x="354" y="-270" />
 				</Anchors>
 			</Frame>
-			<Frame name="HMPCovenantDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+			<Frame name="HMPCovenantsDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="354" y="-303" />
 				</Anchors>

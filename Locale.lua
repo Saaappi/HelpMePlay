@@ -111,6 +111,7 @@ if (isLocaleSupported) then
 	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
 	L["Chromie Time DropDown"]													= "|cffFFFFFFChromie Time|r\n\nAutomates the expansion to select when speaking\nwith Chromie."
 	L["Torghast Powers DropDown"]												= "|cffFFFFFFTorghast Powers|r\n\nAutomates the behavior for Torghast Powers.\n\n|cffFFFFFFAutomatic|r: Powers are auto selected based on a\npriority list.\n|cffFFFFFFAutomatic (No Epic)|r: Powers are auto selected based on a\npriority list, but epic powers are ignored.\n|cffFFFFFFNotifications|r: Powers are suggested to the player using\nthe chat window. If only 1 Power is available, then it\n will be auto selected.\n|cffFFFFFFDisabled|r: HelpMePlay won't assist with Torghast Powers."
+	L["Covenants DropDown"]														= "|cffFFFFFFCovenants|r:\n\n"
 	-- Speech Monsters
 	L["Al'dalil"]																= "Al'dalil"
 	L["Playful Trickster"]														= "Playful Trickster"

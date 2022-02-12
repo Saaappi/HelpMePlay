@@ -714,24 +714,6 @@ function HelpMePlayLoadSettings()
 			end
 		end)
 		
-		-- Chromie Time DropDown
-		HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Chromie Time DropDown"])
-		end)
-		HMPChromieTimeDropDown:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		UIDropDownMenu_Initialize(HMPChromieTimeDropDown, DropDownMenu_Initialize)
-		
-		-- Torghast Powers DropDown
-		HMPTorghastPowersDropDown:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Torghast Powers DropDown"])
-		end)
-		HMPTorghastPowersDropDown:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		UIDropDownMenu_Initialize(HMPTorghastPowersDropDown, DropDownMenu_Initialize)
-		
 		-- Notes Check Button
 		HMPNotesCB:SetScript("OnEnter", function(self)
 			ShowTooltip(self, L["Notes Check Button"])
@@ -762,6 +744,21 @@ function HelpMePlayLoadSettings()
 			end
 		end)
 		
+		-- Cinematics Check Button
+		HMPCinematicsCB:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Cinematics Check Button"])
+		end)
+		HMPCinematicsCB:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		HMPCinematicsCB:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				HelpMePlayOptionsDB.Cinematics = true
+			else
+				HelpMePlayOptionsDB.Cinematics = false
+			end
+		end)
+		
 		-- Minimap Icon Check Button
 		HMPMinimapIconCB:SetScript("OnEnter", function(self)
 			ShowTooltip(self, L["Minimap Icon Check Button"])
@@ -779,20 +776,32 @@ function HelpMePlayLoadSettings()
 			end
 		end)
 		
-		-- Cinematics Check Button
-		HMPCinematicsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Cinematics Check Button"])
+		-- Chromie Time DropDown
+		HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Chromie Time DropDown"])
 		end)
-		HMPCinematicsCB:SetScript("OnLeave", function(self)
+		HMPChromieTimeDropDown:SetScript("OnLeave", function(self)
 			HideTooltip(self)
 		end)
-		HMPCinematicsCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Cinematics = true
-			else
-				HelpMePlayOptionsDB.Cinematics = false
-			end
+		UIDropDownMenu_Initialize(HMPChromieTimeDropDown, DropDownMenu_Initialize)
+		
+		-- Torghast Powers DropDown
+		HMPTorghastPowersDropDown:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Torghast Powers DropDown"])
 		end)
+		HMPTorghastPowersDropDown:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		UIDropDownMenu_Initialize(HMPTorghastPowersDropDown, DropDownMenu_Initialize)
+		
+		-- Covenants DropDown
+		HMPCovenantsDropDown:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Covenants DropDown"])
+		end)
+		HMPCovenantsDropDown:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		UIDropDownMenu_Initialize(HMPCovenantsDropDown, DropDownMenu_Initialize)
 	end
 end
 
