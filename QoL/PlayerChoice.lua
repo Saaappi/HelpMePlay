@@ -13,12 +13,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if unitGuid then
 				local _, _, _, _, _, npcId = strsplit("-", unitGuid); npcId = tonumber(npcId)
 				if mapId == 1670 then -- Oribos
-					if npcId == 159478 then
-						-- Tal-Inara (Covenant Selection)
-						-- Do nothing. Let the player select their covenant.
-						-- Perhaps in the future there will be a setting
-						-- to control the selection of the covenant.
-					elseif npcId == 174871 then -- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
+					if npcId == 174871 then -- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
 						if HelpMePlayOptionsDB.ThreadsOfFate then
 							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
 							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
@@ -63,6 +58,27 @@ e:SetScript("OnEvent", function(self, event, ...)
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
+					end
+				elseif mapId == 1670 then -- Oribos
+					print(HelpMePlayOptionsDB.Covenant)
+					if HelpMePlayOptionsDB.Covenant == L["Kyrian"] then
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					elseif HelpMePlayOptionsDB.Covenant == L["Venthyr"] then
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(3)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					elseif HelpMePlayOptionsDB.Covenant == L["Necrolord"] then
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(5)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					elseif HelpMePlayOptionsDB.Covenant == L["Night Fae"] then
+						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(7)
+						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					else
+						print("Covenant automation is disabled.")
 					end
 				end
 			end
