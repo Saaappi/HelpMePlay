@@ -222,6 +222,96 @@ local function DropDownMenu_Initialize(menuName)
 		info.tooltipTitle = L["Disabled"]
 		info.tooltipText = L["Disabled"]
 		UIDropDownMenu_AddButton(info)
+	elseif menuName:GetName() == "HMPCovenantsDropDown" then
+		-- Kyrian
+		--
+		-- Automatically selects the Kyrian Covenant.
+		info.text = L["Kyrian"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Covenant = L["Kyrian"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Kyrian"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Kyrian"]
+		info.tooltipText = L["Kyrian"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Necrolord
+		--
+		-- Automatically selects the Necrolord Covenant.
+		info.text = L["Necrolord"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Covenant = L["Necrolord"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Necrolord"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Necrolord"]
+		info.tooltipText = L["Necrolord"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Night Fae
+		--
+		-- Automatically selects the Night Fae Covenant.
+		info.text = L["Night Fae"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Covenant = L["Night Fae"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Night Fae"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Night Fae"]
+		info.tooltipText = L["Night Fae"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Venthyr
+		--
+		-- Automatically selects the Venthyr Covenant.
+		info.text = L["Venthyr"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Covenant = L["Venthyr"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Venthyr"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Venthyr"]
+		info.tooltipText = L["Venthyr"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Disabled
+		--
+		-- Self explanatory.
+		info.text = L["Disabled"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Covenant = L["Disabled"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L["Disabled"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L["Disabled"]
+		info.tooltipText = L["Disabled"]
+		UIDropDownMenu_AddButton(info)
 	end
 end
 
@@ -404,6 +494,20 @@ function HelpMePlayLoadSettings()
 				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Notifications"])
 			elseif HelpMePlayOptionsDB.TorghastPowers == L["Disabled"] or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then
 				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Disabled"])
+			end
+		end
+		
+		if HelpMePlayOptionsDB.Covenant then
+			if HelpMePlayOptionsDB.Covenant == L["Kyrian"] then
+				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Kyrian"])
+			elseif HelpMePlayOptionsDB.Covenant == L["Necrolord"] then
+				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Necrolord"])
+			elseif HelpMePlayOptionsDB.Covenant == L["Night Fae"] then
+				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Night Fae"])
+			elseif HelpMePlayOptionsDB.Covenant == L["Venthyr"] then
+				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Venthyr"])
+			else
+				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Disabled"])
 			end
 		end
 		

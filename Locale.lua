@@ -69,6 +69,11 @@ if (isLocaleSupported) then
 	L["Draenor"]																= "Draenor"
 	L["Legion"]																	= "Legion"
 	L["Battle for Azeroth"]														= "Battle for Azeroth"
+	-- Covenants
+	L["Kyrian"]																	= "|T3257748:0|t Kyrian"
+	L["Necrolord"]																= "|T3257749:0|t Necrolord"
+	L["Night Fae"]																= "|T3257750:0|t Night Fae"
+	L["Venthyr"]																= "|T3257751:0|t Venthyr"
 	-- Options Panel Text
 	L["CR Text"]																= "Crafted with |cffFF5C5C♥|r by LightskyGG"
 	L["Adventure Maps"]															= "Adventure Maps"

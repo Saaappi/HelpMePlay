@@ -114,7 +114,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 			end
 			if HelpMePlayOptionsDB.TorghastPowers == nil or HelpMePlayOptionsDB.TorghastPowers == false then
-				HelpMePlayOptionsDB.TorghastPowers = "Disabled"
+				HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
+			end
+			if HelpMePlayOptionsDB.Covenant == nil or HelpMePlayOptionsDB.Covenant == false then
+				HelpMePlayOptionsDB.Covenant = L["Disabled"]
 			end
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
