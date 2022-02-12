@@ -9,6 +9,7 @@ HelpMePlay | 1.0.10
 		- Added support for all dialogs in the remaining 9.0 Covenant Sanctum campaigns. I hope you enjoy more time on Netflix!
 		- Added notes to Kael'thas's sins during the Venthyr 9.0 Covenant Sanctum campaign. Remembering which one to click can be difficult.
 		- Added a new dropdown where the player can decide which Covenant to join for the first time. Maybe you just want all your characters with the Night Fae, and there's nothing wrong with that!
+		- Added support for comparing item level when selecting a quest reward. Gone are the days of choosing less than optimal rewards!
 	Fixes and Updates:
 		- Fixed dialogs that previously worked on Exile's Reach and in Draenor. They didn't want to work because I broke them. My bad...
 		- Fixed an issue with the Drafting Table in Gorgrond. Now you don't have to pick the Sparring Arena on your own.
