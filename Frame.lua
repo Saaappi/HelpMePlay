@@ -663,7 +663,7 @@ function HelpMePlayLoadSettings()
 
 		-- Quests Check Button
 		HMPQuestsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Accept/Complete Quests Check Button"])
+			ShowTooltip(self, L["Quests Check Button"])
 		end)
 		HMPQuestsCB:SetScript("OnLeave", function(self)
 			HideTooltip(self)
