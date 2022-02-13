@@ -1606,6 +1606,24 @@ local BattleForAzeroth = {
 	},
 }
 
+local Cosmic = {
+	-- Supported Maps
+		-- 946: Cosmic
+	--
+	-- Darkmoon Faire
+	[67370] = { -- Jeremy Feasel
+		["g"] = {
+			L["I challenge you to a pet battle!"],
+		},
+	},
+	[85519] = { -- Christoph VonFeasel
+		["g"] = {
+			L["I challenge you to a pet battle!"],
+		},
+	},
+	-- End of Darkmoon Faire
+}
+
 local Shadowlands = {
 	-- Supported Maps
 		-- 1409: Exile's Reach
@@ -3288,6 +3306,8 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		t = Legion
 	elseif parentMapId == 875 or parentMapId == 876 then
 		t = BattleForAzeroth
+	elseif parentMapId == 946 then
+		t = Cosmic
 	elseif parentMapId == 1409 or parentMapId == 1550 then
 		t = Shadowlands
 	end
@@ -3381,6 +3401,8 @@ local function ConfirmConfirmationMessage(message, npcId)
 		t = Legion
 	elseif parentMapId == 875 or parentMapId == 876 then
 		t = BattleForAzeroth
+	elseif parentMapId == 946 then
+		t = Cosmic
 	elseif parentMapId == 1409 or parentMapId == 1550 then
 		t = Shadowlands
 	end

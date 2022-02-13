@@ -175,6 +175,7 @@ if (isLocaleSupported) then
 	L["O.K."]																	= "O.K."
 	L["Is there anything you need?"]											= "Is there anything you need?"
 	L["Very well. Let us fight."]												= "Very well. Let us fight."
+	L["I challenge you to a pet battle!"]										= "I challenge you to a pet battle!"
 	L["Au'narim claims you owe her anima."]										= "Au'narim claims you owe her anima."
 	L["The Lady of the Falls wanted to make sure you were safe."]				= "The Lady of the Falls wanted to make sure you were safe."
 	L["<Request tithe>"]														= "<Request tithe>"
