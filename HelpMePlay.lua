@@ -5,6 +5,9 @@ local L = addonTable.L
 local delay = 0.1
 local longerDelay = 4
 
+local itemRewardItemLevels = {}
+local sellPrices = {}
+
 local function Max(tbl)
 	local highestItemIndex = 0
 	local highestItemLevelOrSellPrice = 0
@@ -20,42 +23,70 @@ local function Max(tbl)
 	return highestItemIndex
 end
 
+local function CompareItems(index, itemRewardItemLevels, sellPrices, itemLink, slotName, quantity)
+	local sellPrice, itemQuality, equipLoc, slotId, inventoryItemLink, itemId, equippedItemLevel, rewardItemLevel
+	-- Populate the sellPrices table with the sell price
+	-- of the item.
+	sellPrice = select(11, GetItemInfo(itemLink))
+	sellPrices[index] = (quantity*sellPrice)
+	slotId = GetInventorySlotInfo(slotName)
+	inventoryItemLink = GetInventoryItemLink("player", slotId)
+	-- An error is thrown if a slot is empty.
+	if inventoryItemLink then
+		equippedItemLevel = GetDetailedItemLevelInfo(inventoryItemLink)
+		rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
+		-- This happens if the player hasn't opened
+		-- their character pane in the current session.
+		if equippedItemLevel == nil then
+			print(L["Colored Addon Name"] .. ": " .. L["Equipped Item Level is Nil"])
+			return
+		elseif rewardItemLevel > equippedItemLevel then
+			-- Don't add slots with equipped heirlooms
+			-- for consideration.
+			if itemQuality ~= 7 then
+				itemRewardItemLevels[index] = rewardItemLevel
+			end
+		end
+	end
+end
+
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
+	-- There is more than 1 reward choice
+	-- for the player to choose from.
 	if numQuestChoices > 1 then
 		if HelpMePlayOptionsDB.QuestRewards then
-			-- Check the item slot for the quest reward,
-			-- then let's compare it to what the player
-			-- has equipped. While leveling, item level
-			-- is king.
-			--
+			local playerLevel = UnitLevel("player")
 			-- We want to stop selecting quest rewards
 			-- at max level.
-			local playerLevel = UnitLevel("player")
 			if playerLevel < 60 then
-				local itemRewardItemLevels = {}
-				local sellPrices = {}
-				local quantity, itemLink, sellPrice, itemQuality, equipLoc, slotName, slotId, inventoryItemLink, itemId, equippedItemLevel, rewardItemLevel
+				itemRewardItemLevels = {}
+				sellPrices = {}
+				-- Check the item slot for the quest reward,
+				-- then let's compare it to what the player
+				-- has equipped. While leveling, item level
+				-- is king.
 				for i = 1, numQuestChoices do
-					_, _, quantity = GetQuestItemInfo("choice", i)
-					itemLink = GetQuestItemLink("choice", i)
-					sellPrice = select(11, GetItemInfo(itemLink))
-					sellPrices[i] = (quantity*sellPrice)
-					_, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
-					_, slotName = strsplit("_", equipLoc)
-					slotId = GetInventorySlotInfo(slotName.."SLOT")
-					inventoryItemLink = GetInventoryItemLink("player", slotId)
-					equippedItemLevel = GetDetailedItemLevelInfo(inventoryItemLink)
-					rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
-					if equippedItemLevel == nil then
-						print(L["Colored Addon Name"] .. ": " .. L["Equipped Item Level is Nil"])
-						return
-					elseif rewardItemLevel > equippedItemLevel then
-						if itemQuality ~= 7 then
-							-- Don't add slots with equipped heirlooms
-							-- for consideration.
-							itemRewardItemLevels[i] = rewardItemLevel
+					local _, _, quantity = GetQuestItemInfo("choice", i)
+					local itemLink = GetQuestItemLink("choice", i)
+					local _, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
+					local _, slotName = strsplit("_", equipLoc)
+					-- These don't convert to a valid slotId,
+					-- so we have to change it to something else.
+					if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" then
+						-- This logic won't apply to every class, but
+						-- some classes (eg. Warrior, Rogue, Shaman)
+						-- may have multiple weapons equipped.
+						for i = 0, 1 do
+							if i == 0 then
+								slotName = "MAINHAND"
+							elseif i == 1 then
+								slotName = "SECONDARYHAND"
+							end
+							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 						end
+					else
+						CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 					end
 				end
 				
