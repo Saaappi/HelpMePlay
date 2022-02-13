@@ -949,12 +949,14 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			if string.find(string.lower(info.title), string.lower(arguments)) then
 				for j = 1, 25 do
 					info = C_QuestLog.GetInfo(i+iter)
-					local questId = info.questID
-					if not info.isHeader and not info.isHidden then
-						C_QuestLog.SetSelectedQuest(questId)
-						C_QuestLog.SetAbandonQuest()
-						C_QuestLog.AbandonQuest()
-						iter = iter+1
+					if info then
+						local questId = info.questID
+						if not info.isHeader and not info.isHidden then
+							C_QuestLog.SetSelectedQuest(questId)
+							C_QuestLog.SetAbandonQuest()
+							C_QuestLog.AbandonQuest()
+							iter = iter+1
+						end
 					end
 				end
 			end

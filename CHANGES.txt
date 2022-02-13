@@ -17,6 +17,7 @@ HelpMePlay | 1.0.10
 		- Fixed an issue that caused an error to be thrown when using the Command Tables in Covenant Sanctums.
 		- Fixed an issue preventing dialog from processing when the player has Quests automation disabled. <You and the NPC awkwardly stare at one another.>
 		- Fixed an issue with several settings not correctly disabling with the "Disable All" check button.
+		- Fixed an issue that caused nil issues to be thrown when abandoning quests using the abandon command.
 		- The quest frame is no longer auto hidden when it's stuck. It was annoying to have the frame vanish in the middle of submitting quests, I know. I'm working on a new approach to this problem.
 		- Added a "Disable All" fontstring next to its button. It's bad UI design if the player has to hover for initial information, so I'm sorry about that!
 		- Applied some minor cosmetics to the settings menu. It's looking a little more in shape. (Shifted the dropdowns over to make the checkbuttons flow better.)
