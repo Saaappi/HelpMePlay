@@ -111,7 +111,7 @@ if (isLocaleSupported) then
 	L["Quests Check Button"]													= "Automates accepting and completing quests."
 	L["Quest Rewards Check Button"]												= "Automates the selection of quest rewards.\nThe selection is based on what sells for the most.\n\n|cffCB453DNote|r: This feature doesn't apply to max level players."
 	L["Threads of Fate Check Button"]											= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into\nThreads of Fate. Unchecked will do nothing."
-	L["Notes Check Button"]														= "Adds notes to select creatures and objects.\nThis setting also controls achievement criteria in tooltips."
+	L["Notes Check Button"]														= "Adds notes to select creatures.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
 	L["Cinematics Check Button"]												= "Automates skipping (most) cinematics and in-game movies."
 	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
