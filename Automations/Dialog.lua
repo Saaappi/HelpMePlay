@@ -869,6 +869,14 @@ local MistsOfPandaria = {
 			L["Let's rumble!"],
 		},
 	},
+	[66244] = { -- Su the Tamer
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Krasarang Wilds
 	[66733] = { -- Mo'ruk
 		["g"] = {
@@ -895,6 +903,14 @@ local MistsOfPandaria = {
 			L["Prepare yourself!"],
 		},
 	},
+	[66250] = { -- Handler Kla'vik
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Vale of Eternal Blossoms
 	[66741] = { -- Aki the Chosen
 		["g"] = {
@@ -902,6 +918,14 @@ local MistsOfPandaria = {
 		},
 		["c"] = {
 			L["You're going down!"],
+		},
+	},
+	[63988] = { -- Jaul Hsu
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
 		},
 	},
 	-- Kun-Lai Summit
