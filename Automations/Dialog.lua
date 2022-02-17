@@ -635,6 +635,7 @@ local Classic = {
 			L["Zidormi 6"],
 		},
 	},
+	-- End of Silithus
 	-- Uldum
 	[48887] = { -- Darwishi
 		["g"] = {
@@ -644,6 +645,17 @@ local Classic = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of Uldum
+	-- Deepholm
+	[45297] = { -- Beast-Handler Rustclamp
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Deepholm
 	-- Silverpine Forest
 	[44825] = { -- Bat Handler Maggotbreath
 		["g"] = {
@@ -655,6 +667,7 @@ local Classic = {
 			L["Ambermill Dimensional Portal 1"],
 		},
 	},
+	-- End of Silverpine Forest
 	-- Ironforge
 	[1573] = { -- Gryth Thurden
 		["g"] = {
@@ -860,6 +873,7 @@ local MistsOfPandaria = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of The Jade Forest
 	-- Valley of the Four Winds
 	[66734] = { -- Farmer Nishi
 		["g"] = {
@@ -877,6 +891,7 @@ local MistsOfPandaria = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of Valley of the Four Winds
 	-- Krasarang Wilds
 	[66733] = { -- Mo'ruk
 		["g"] = {
@@ -894,6 +909,17 @@ local MistsOfPandaria = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of Krasarang Wilds
+	-- Townlong Steppes
+	[66246] = { -- Tigermaster Gai-Lin
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Townlong Steppes
 	-- Dread Wastes
 	[68462] = { -- Flowing Pandaren Spirit
 		["g"] = {
@@ -911,6 +937,7 @@ local MistsOfPandaria = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of Dread Wastes
 	-- Vale of Eternal Blossoms
 	[66741] = { -- Aki the Chosen
 		["g"] = {
@@ -928,6 +955,7 @@ local MistsOfPandaria = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of Vale of Eternal Blossoms
 	-- Kun-Lai Summit
 	[68465] = { -- Thundering Pandaren Spirit
 		["g"] = {
@@ -937,6 +965,7 @@ local MistsOfPandaria = {
 			L["Prepare yourself!"],
 		},
 	},
+	-- End of Kun-Lai Summit
 	-- Timeless Isle
 	[73626] = { -- Little Tommy Newcomer
 		["g"] = {
@@ -959,6 +988,7 @@ local MistsOfPandaria = {
 			L["Master Li 1"],
 		},
 	},
+	-- End of Timeless Isle
 	-- Celestial Tournament
 	[71924] = { -- Wrathion
 		["g"] = {
@@ -1005,6 +1035,7 @@ local MistsOfPandaria = {
 			L["Let's do battle!"],
 		},
 	},
+	-- End of Celestial Tournament
 	-- Mogu'shan Vaults
 	[61348] = { -- Lorewalker Cho
 		["g"] = {
@@ -1012,7 +1043,8 @@ local MistsOfPandaria = {
 			L["Lorewalker Cho 2"],
 		},
 	},
-	-- Isle of Thunder (Scenario)
+	-- End of Mogu'shan Vaults
+	-- Isle of Thunder
 	[69565] = { -- Scout Captain Elsia
 		["g"] = {
 			L["Scout Captain Elsia 1"],
@@ -1028,6 +1060,15 @@ local MistsOfPandaria = {
 			L["Taoshi 2"],
 		},
 	},
+	[69252] = { -- Ranger Shalan
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Isle of Thunder
 }
 
 local WarlordsOfDraenor = {
