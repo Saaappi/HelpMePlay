@@ -721,6 +721,15 @@ local Classic = {
 			L["Captain Garrick 1"],
 		},
 	},
+	[11069] = { -- Jenova Stoneshield
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Stormwind City
 	-- Eastern Plaguelands
 	[150987] = { -- Sean Wilkers
 		["g"] = {
@@ -1118,6 +1127,7 @@ local WarlordsOfDraenor = {
 			L["Let's do this!"],
 		},
 	},
+	-- End of Frostfire Ridge
 	-- Shadowmoon Valley
 	[84372] = { -- Madari
 		["g"] = {
@@ -1139,6 +1149,7 @@ local WarlordsOfDraenor = {
 			L["Let's do this!"],
 		},
 	},
+	-- End of Shadowmoon Valley
 	-- Gorgrond
 	[81013] = { -- Rangari Rajess
 		["g"] = {
@@ -1155,24 +1166,48 @@ local WarlordsOfDraenor = {
 			L["D'kaan is coming with help."],
 		},
 	},
+	-- End of Gorgrond
 	-- Talador
 	[87125] = { -- Taralune
 		["g"] = {
 			L["Let's do this!"],
 		},
 	},
+	-- End of Talador
+	-- Spires of Arak
+	[82553] = { -- Villi Gobsplat
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Spires of Arak
 	-- Nagrand
 	[87110] = { -- Tarr the Terrible
 		["g"] = {
 			L["Let's do this!"],
 		},
 	},
+	-- End of Nagrand
+	-- Stormshield
+	[85963] = { -- Orville Manfred
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Stormshield
 	-- Tanaan Jungle
 	[78568] = { -- Thaelin Darkanvil
 		["g"] = {
 			L["Thaelin Darkanvil 1"],
 		},
 	},
+	-- End of Tanaan Jungle
 }
 
 local Legion = {
@@ -1214,6 +1249,14 @@ local Legion = {
 		},
 	},
 	-- Highmountain
+	[97862] = { -- Parek Splitfeather
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[97854] = { -- Liza Galestride
 		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
