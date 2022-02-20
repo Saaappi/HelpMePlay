@@ -1660,6 +1660,14 @@ local BattleForAzeroth = {
 			L["Take us back to Boralus."],
 		},
 	},
+	[142073] = { -- Leila Stafford
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	-- Boralus
 	[122370] = { -- Cyrus Crestfall
 		["g"] = {
