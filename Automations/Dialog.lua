@@ -655,6 +655,11 @@ local Classic = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[49956] = { -- Pebble
+		["g"] = {
+			L["Pebble 1"],
+		},
+	},
 	-- End of Deepholm
 	-- Silverpine Forest
 	[44825] = { -- Bat Handler Maggotbreath

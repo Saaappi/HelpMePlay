@@ -458,6 +458,7 @@ if (isLocaleSupported) then
 	L["Sevis Brightflame 1"]													= "Sevis, I need to sacrifice you in order to power the final gateway."
 	L["Sevis Brightflame 2"]													= "I'm certain, Sevis. I need to sacrifice you to power the gateway."
 	L["Matron Mother Malevolence 1"]											= "Make them suffer."
+	L["Pebble 1"]																= "Come little guy, let's get out of here."
 	L["Lady S'theno 1"]															= "Milady, you will take your naga north."
 	L["Battlelord Gaardoun 1"]													= "Stop the mass of their demons from attacking us."
 	L["Jace Darkweaver 1"]														= "I will use my spectral sight to look into the cave."
