@@ -2,7 +2,7 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
 local titanResearchArchiveTalents = {
-	-- Corrupted Memementos: 1744
+	-- Corrupted Mementos: 1744
 	791, -- Orb Operation Manual (Rank 1) (100 CM)
 	798, -- Expansive Mind (Rank 1) (150 CM)
 	798, -- Expansive Mind (Rank 2) (250 CM)
@@ -67,6 +67,15 @@ local boxOfManyThingsTalents = {
 	1793, -- Undeterred (Rank 4) (100 TK)
 	1793, -- Undeterred (Rank 5) (150 TK)
 }
+local cypherOfTheFirstOnesTalents = {
+	-- Cyphers of the First Ones: 1979
+	1901, -- Metrial Understanding (Grants the ability to summon our friend, Pocopoc)
+	1972, -- Cachial Understanding (Unlocks the 3rd World Quest of Zereth Mortis)
+	1904, -- Aealic Understanding (Access to Enhancement Consoles in the zone for temporary buffs)
+	1902, -- Altonian Understanding (Unlocks new quests, which means bonus currency from the zone)
+	1932, -- Dealic Understanding (Unlocks Protoform Synthesis for battle pets)
+	1931, -- Sopranian Understanding (Unlocks Protoform Synthesis for mounts)
+}
 
 local function PrintLine(text)
 	print(L["Colored Addon Name"] .. ": " .. text)
@@ -113,6 +122,7 @@ local function GetTalentTreeInfo(talentTreeId)
 		CheckTalents(boxOfManyThingsTalents, 1904)
 	elseif talentTreeId == 474 then
 		-- Cypher Research Console
+		CheckTalents(cypherOfTheFirstOnesTalents, 1979)
 	end
 end
 
