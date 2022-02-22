@@ -102,9 +102,14 @@
 					<Anchor point="TOPLEFT" x="371" y="-61" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPQueuesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-99" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="371" y="-137" />
 				</Anchors>
 			</CheckButton>
 			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
@@ -273,6 +278,14 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPCinematicsCB" relativePoint="LEFT" x="14" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPQueuesText" inherits="GameFontNormal" text="Queues" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPQueuesCB" relativePoint="LEFT" x="7" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />

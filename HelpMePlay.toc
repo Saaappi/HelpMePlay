@@ -71,6 +71,9 @@ Automations\Mouseover.lua
 # Handles quick vehicle exits for specific vehicles.
 QoL\Vehicles.lua
 
+# Handles queue popups.
+QoL\Queues.lua
+
 # Automates repairing at merchants.
 QoL\Repairs.lua
 

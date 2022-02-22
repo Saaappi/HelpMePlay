@@ -60,6 +60,7 @@ if (isLocaleSupported) then
 	L["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	L["War Mode Reminder"]														= "You leveled to 20! You should return to Orgrimmar (Horde) or Stormwind City (Alliance), so I can enable War Mode."
 	L["Equipped Item Level is Nil"]												= "Equipped item level is nil. Please close the quest window, open and close your character pane, then try completing the quest again."
+	L["Auto Accept Queue Text"]													= "Auto accepted the queue."
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Expansions
@@ -94,8 +95,9 @@ if (isLocaleSupported) then
 	L["Torghast Powers"]														= "Torghast Powers"
 	L["Notes"]																	= "Notes"
 	L["Talents"]																= "Talents"
-	L["Minimap Icon"]															= "Minimap Icon"
 	L["Cinematics"]																= "Cinematics"
+	L["Queues"]																	= "Queues"
+	L["Minimap Icon"]															= "Minimap Icon"
 	L["Disable All"]															= "Disable All"
 	-- Options Panel Descriptions
 	L["Disable All Check Button"]												= "Disables all the below settings and returns\nthem to their default state.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them\nto their saved state."
@@ -114,6 +116,7 @@ if (isLocaleSupported) then
 	L["Notes Check Button"]														= "Adds notes to select creatures.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
 	L["Cinematics Check Button"]												= "Automates skipping (most) cinematics and in-game movies."
+	L["Queues Check Button"]													= "Need to relieve yourself but don't want to miss your queue?\nCheck this button and worry no more."
 	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
 	L["Chromie Time DropDown"]													= "|cffFFFFFFChromie Time|r\n\nAutomates the expansion to select when speaking\nwith Chromie."
 	L["Torghast Powers DropDown"]												= "|cffFFFFFFTorghast Powers|r\n\nAutomates the behavior for Torghast Powers.\n\n|cffFFFFFFAutomatic|r: Powers are auto selected based on a\npriority list.\n|cffFFFFFFAutomatic (No Epic)|r: Powers are auto selected based on a\npriority list, but epic powers are ignored.\n|cffFFFFFFNotifications|r: Powers are suggested to the player using\nthe chat window. If only 1 Power is available, then it\n will be auto selected.\n|cffFFFFFFDisabled|r: HelpMePlay won't assist with Torghast Powers."
