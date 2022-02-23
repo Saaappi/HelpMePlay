@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayAchievementDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB
 ## Title: HelpMePlay
-## Version: 1.0.10
+## Version: 1.0.10a
 
 # Addon localized strings.
 Locale.lua
