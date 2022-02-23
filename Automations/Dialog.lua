@@ -3151,6 +3151,14 @@ local Shadowlands = {
 	},
 	-- End of Torghast
 	-- Zereth Mortis
+	[180920] = { -- Siloh
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[177486] = { -- Elder Kreth
 		["g"] = {
 			L["Elder Kreth 1"],
