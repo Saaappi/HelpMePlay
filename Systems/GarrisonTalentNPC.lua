@@ -90,24 +90,26 @@ local function CheckTalents(talentTree, currencyId)
 			-- The player doesn't have the talent
 			-- researched, so let's move forward.
 			currency = C_CurrencyInfo.GetCurrencyInfo(currencyId).quantity
-			if currency > talentInfo["researchCurrencyCosts"][1].currencyQuantity then
+			if currency >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
 				-- The player has enough currency
 				-- to purchase the talent.
+				--
+				-- The perk has a spell ID, so let's
+				-- send a spell link to the chat frame.
+				-- If not, then use the perk name.
 				if talentInfo.perkSpellID ~= 0 then
-					if talentInfo.perkSpellID ~= 0 then
-						PrintLine(L["Talent Purchase Text"] .. "\n" .. GetSpellLink(talentInfo.perkSpellID))
-					else
-						PrintLine(L["Talent Purchase Text"] .. talentInfo.name)
-					end
-					break
+					PrintLine(L["Talent Purchase Text"] .. "\n" .. GetSpellLink(talentInfo.perkSpellID))
+				else
+					PrintLine(L["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. talentInfo.name)
 				end
+				return
 			else
 				-- Print to the chat frame how much
 				-- currency the player
 				-- will need for the next talent,
 				-- then break from the loop.
-				PrintLine(L["Talent Not Enough Currency Text"] .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency .. " " .. "|T" .. talentInfo.icon .. ":0|t (" .. talentInfo.name .. ")")
-				break
+				PrintLine(L["Talent Not Enough Currency Text"] .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency .. " " .. "(|T" .. talentInfo.icon .. ":0|t " .. talentInfo.name .. ")")
+				return
 			end
 		end
 	end

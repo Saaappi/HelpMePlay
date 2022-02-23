@@ -3168,6 +3168,21 @@ local Shadowlands = {
 			L["We need your assistance."],
 		},
 	},
+	[185844] = { -- Knight of the Ebon Blade
+		["g"] = {
+			L["Bolvar requests your current report."],
+		},
+	},
+	[185845] = { -- Knight of the Ebon Blade
+		["g"] = {
+			L["Bolvar requests your current report."],
+		},
+	},
+	[185847] = { -- Knight of the Ebon Blade
+		["g"] = {
+			L["Bolvar requests your current report."],
+		},
+	},
 	[180923] = { -- Varoun
 		["g"] = {
 			L["Varoun 1"],

@@ -1,5 +1,6 @@
-HelpMePlay | 1.0.10a
+HelpMePlay | 1.0.10b
 	New Features:
 		
 	Fixes and Updates:
-		- Added support for the Soul Eater vehicle during the "A Hasty Voyage" quest.
+		- Fixed an issue that caused the addon to skip perks when interacting with the Cypher Console.
+		- Found some missing dialogs on Zereth Mortis and added support for them.
