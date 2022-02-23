@@ -86,7 +86,7 @@ local function CheckTalents(talentTree, currencyId)
 	local talentInfo = ""
 	for k, v in ipairs(talentTree) do
 		talentInfo = C_Garrison.GetTalentInfo(v)
-		if talentInfo.researched == false then
+		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			-- The player doesn't have the talent
 			-- researched, so let's move forward.
 			currency = C_CurrencyInfo.GetCurrencyInfo(currencyId).quantity
