@@ -144,6 +144,10 @@ if (isLocaleSupported) then
 	L["Trainer Ikaros: Sweep"]													= "Sweep"
 	L["Trainer Ikaros: Kick"]													= "Kick"
 	L["Trainer Ikaros: Parry"]													= "Parry"
+	-- Raid Boss Emotes (Event)
+	L["Soul Eater: Shake"]														= "The Soul Eater tries to shake you off! Hold on tightly!"
+	L["Soul Eater: Veer"]														= "The Soul Eater tries to veer away. Give it a kick in the right direction!"
+	L["Soul Eater: Writhe"]														= "The Soul Eater writhes about. Pull the reins to tire it!"
 	-- Raid Boss Whispers (Event)
 	L["Taloned Flayedwing: Praise"]												= "The flayedwing is flying smoothly, praise them!"
 	L["Taloned Flayedwing: Scared"]												= "The flayedwing is scared, soothe it with gentle pats!"

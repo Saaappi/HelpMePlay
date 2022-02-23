@@ -1,27 +1,5 @@
-HelpMePlay | 1.0.10
+HelpMePlay | 1.1.0
 	New Features:
-		- Added a feature that allows the addon to quickly exit documented vehicles. The fewer the buttons, the better.
-		- Auto skipping cinematics is now a thing! Cinematics that, if skipped, cause problems (e.g. Tol Dagor's exit) are NOT skipped so you don't endlessly wander on a boat ride to your demise.
-		- Added native support for every locale. Brazil, Mexico, France, Germany, Italy, Portugues, Russia, Korea, Taiwan, and China players rejoice!
-		- Titanic Research (Horrific Visions) is now a supported talent NPC! If you don't know what to pick, let HelpMePlay tell you.
-		- Added (even more) dialogs from Zereth Mortis. Are you ready for Patch 9.2? HelpMePlay sure is!
-		- Added a reminder to return to Orgrimmar or Stormwind at level 20. We all forget about the War Mode bonus here and there. It's no big deal, right? ._.
-		- Added support for all dialogs in the remaining 9.0 Covenant Sanctum campaigns. I hope you enjoy more time on Netflix!
-		- Added notes to Kael'thas's sins during the Venthyr 9.0 Covenant Sanctum campaign. Remembering which one to click can be difficult.
-		- Added a new dropdown where the player can decide which Covenant to join for the first time. Maybe you just want all your characters with the Night Fae, and there's nothing wrong with that!
-		- Added support for comparing item level when selecting a quest reward. Gone are the days of choosing less than optimal rewards!
-		- Added suggestions for the first 6 traits players should go for in the Cypher of the First Ones. Beyond these 6, there's really not much to write home about, so the choices are yours.
-		- Added a new option for auto accepting queues! No more do you need to worry about missing your queues while you relieve yourself! It's time to toss the "gamer bottle" aside.
+		
 	Fixes and Updates:
-		- Fixed dialogs that previously worked on Exile's Reach and in Draenor. They didn't want to work because I broke them. My bad...
-		- Fixed an issue with the Drafting Table in Gorgrond. Now you don't have to pick the Sparring Arena on your own.
-		- Fixed an issue preventing HelpMePlay from auto placing your Barracks in the Garrison. Let's call the reason why, "suspicious circumstances."
-		- Fixed an issue that caused an error to be thrown when using the Command Tables in Covenant Sanctums.
-		- Fixed an issue preventing dialog from processing when the player has Quests automation disabled. <You and the NPC awkwardly stare at one another.>
-		- Fixed an issue with several settings not correctly disabling with the "Disable All" check button.
-		- Fixed an issue that caused a nil error to be thrown when abandoning quests using the abandon command.
-		- The quest frame is no longer auto hidden when it's stuck. It was annoying to have the frame vanish in the middle of submitting quests, I know. I'm working on a new approach to this problem.
-		- Added a "Disable All" fontstring next to its button. It's bad UI design if the player has to hover for initial information, so I'm sorry about that!
-		- Applied some minor cosmetics to the settings menu. It's looking a little more in shape. (Shifted the dropdowns over to make the checkbuttons flow better.)
-		- Quest rewards are no longer auto selected at max level if there are multiple choices.
-		- Bumped the TOC version to 90200 (from 90105) in preparation for Patch 9.2. NEW PATCH, LET'S GO!
+		- Added support for the Soul Eater vehicle during the "A Hasty Voyage" quest.

@@ -3,6 +3,7 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 
 e:RegisterEvent("CHAT_MSG_MONSTER_SAY")
+e:RegisterEvent("RAID_BOSS_EMOTE")
 e:RegisterEvent("RAID_BOSS_WHISPER")
 
 local function AddGlowToActionBarButton(button, glowTimer)
@@ -64,6 +65,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 		elseif string.find(string.lower(msg), string.lower(L["Taloned Flayedwing: Shake"])) then
 			AddGlowToActionBarButton(OverrideActionBarButton2, 2)
 		elseif string.find(string.lower(msg), string.lower(L["Taloned Flayedwing: Praise"])) then
+			AddGlowToActionBarButton(OverrideActionBarButton3, 2)
+		end
+	end
+	if event == "RAID_BOSS_EMOTE" then
+		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
+		local msg = ...
+		if string.find(string.lower(msg), string.lower(L["Soul Eater: Shake"])) then
+			AddGlowToActionBarButton(OverrideActionBarButton2, 2)
+		elseif string.find(string.lower(msg), string.lower(L["Soul Eater: Veer"])) then
+			AddGlowToActionBarButton(OverrideActionBarButton1, 2)
+		elseif string.find(string.lower(msg), string.lower(L["Soul Eater: Writhe"])) then
 			AddGlowToActionBarButton(OverrideActionBarButton3, 2)
 		end
 	end
