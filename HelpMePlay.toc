@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayAchievementDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB
 ## Title: HelpMePlay
-## Version: 1.0.10b
+## Version: 1.1.0
 
 # Addon localized strings.
 Locale.lua
@@ -18,13 +18,13 @@ Frame.xml
 Frame.lua
 
 # Assists the Mouseover logic to include a note if the target is a needed achievement criteria.
-QoL\Achievements.lua
+Systems\Achievements.lua
 
 # Automates selecting Chromie Time expansion.
-Systems\ChromieTime.lua
+Automations\ChromieTime.lua
 
 # Automates the adventure map from BfA and Shadowlands.
-Systems\AdventureMap.lua
+Automations\AdventureMap.lua
 
 # Controls for talent NPCs like the Box of Many Things.
 Systems\GarrisonTalentNPC.lua
@@ -33,19 +33,19 @@ Systems\GarrisonTalentNPC.lua
 Automations\Merchants_Trainers.lua
 
 # Automates the selection of Anima Powers in Torghast.
-Systems\AnimaPowers.lua
+Automations\AnimaPowers.lua
 
 # Automates the garrison mission table.
-Systems\GarrisonMissionTable.lua
+Automations\GarrisonMissionTable.lua
 
 # Automates the garrison architect table.
-Systems\GarrisonArchitectTable.lua
+Automations\GarrisonArchitectTable.lua
 
 # Automates placing the player into War Mode.
-Systems\WarMode.lua
+Automations\WarMode.lua
 
 # Automates player choice selections like Story or Threads of Fate modes.
-QoL\PlayerChoice.lua
+Automations\PlayerChoice.lua
 
 # Automates purchasing quest items from vendors.
 Automations\Merchants_Vendors.lua
@@ -63,22 +63,22 @@ Systems\Talents.lua
 Automations\Dialog.lua
 
 # Automates operations with the mailbox system.
-QoL\Mail.lua
+Automations\Mail.lua
 
 # Handles mouseover for objects and creatures. Allows the addition of notes from the addon, if desired.
-Automations\Mouseover.lua
+Systems\Mouseover.lua
 
 # Handles quick vehicle exits for specific vehicles.
-QoL\Vehicles.lua
+Automations\Vehicles.lua
 
 # Handles queue popups.
-QoL\Queues.lua
+Automations\Queues.lua
 
 # Automates repairing at merchants.
-QoL\Repairs.lua
+Automations\Repairs.lua
 
 # Skips (most) cinematics and in-game movies.
-QoL\Cinematics.lua
+Automations\Cinematics.lua
 
 # Automates accepting and completing quests (including taking rewards).
 HelpMePlay.lua
