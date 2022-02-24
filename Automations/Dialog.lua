@@ -1694,6 +1694,17 @@ local BattleForAzeroth = {
 			L["Quest"],
 		},
 	},
+	-- End of Boralus
+	-- Nazjatar
+	[155941] = { -- Tamer Orami
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Nazjatar
 	-- Horrific Visions
 	[152993] = { -- Garona Halforcen
 		["g"] = {
