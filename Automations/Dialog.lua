@@ -808,6 +808,19 @@ local Classic = {
 			L["Zidormi 3"],
 		}
 	},
+	-- Chamber of Heart
+	[152194] = { -- MOTHER
+		["g"] = {
+			L["Quest"],
+			L["MOTHER 1"],
+		}
+	},
+	[151964] = { -- Spiritwalker Ebonhorn
+		["g"] = {
+			L["Spiritwalker Ebonhorn 4"],
+		}
+	},
+	-- End of Chamber of Heart
 	-- Shadowfang Keep (Dungeon)
 	[36296] = { -- Apothecary Hummel
 		["g"] = {
@@ -1254,6 +1267,21 @@ local Legion = {
 		},
 	},
 	-- Highmountain
+	[151641] = { -- Spiritwalker Ebonhorn
+		["g"] = {
+			L["Spiritwalker Ebonhorn 3"],
+		},
+	},
+	[151643] = { -- Navarrogg
+		["g"] = {
+			L["Quest"],
+		},
+	},
+	[151963] = { -- Navarrogg
+		["g"] = {
+			L["Quest"],
+		},
+	},
 	[97862] = { -- Parek Splitfeather
 		["g"] = {
 			L["I'd like to heal and revive my battle pets."],
@@ -1695,16 +1723,6 @@ local BattleForAzeroth = {
 		},
 	},
 	-- End of Boralus
-	-- Nazjatar
-	[155941] = { -- Tamer Orami
-		["g"] = {
-			L["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L["A small fee for supplies is required."],
-		},
-	},
-	-- End of Nazjatar
 	-- Horrific Visions
 	[152993] = { -- Garona Halforcen
 		["g"] = {
@@ -1741,6 +1759,7 @@ local BattleForAzeroth = {
 local Cosmic = {
 	-- Supported Maps
 		-- 946: Cosmic
+		-- 947: Azeroth
 	--
 	-- Darkmoon Faire
 	[67370] = { -- Jeremy Feasel
@@ -1754,6 +1773,16 @@ local Cosmic = {
 		},
 	},
 	-- End of Darkmoon Faire
+	-- Nazjatar
+	[155941] = { -- Tamer Orami
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
+	-- End of Nazjatar
 }
 
 local Shadowlands = {
@@ -3461,7 +3490,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		t = Legion
 	elseif parentMapId == 875 or parentMapId == 876 then
 		t = BattleForAzeroth
-	elseif parentMapId == 946 then
+	elseif parentMapId == 946 or parentMapId == 947 then
 		t = Cosmic
 	elseif parentMapId == 1409 or parentMapId == 1550 then
 		t = Shadowlands
@@ -3556,7 +3585,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 		t = Legion
 	elseif parentMapId == 875 or parentMapId == 876 then
 		t = BattleForAzeroth
-	elseif parentMapId == 946 then
+	elseif parentMapId == 946 or parentMapId == 947 then
 		t = Cosmic
 	elseif parentMapId == 1409 or parentMapId == 1550 then
 		t = Shadowlands
