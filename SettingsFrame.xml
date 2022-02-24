@@ -1,5 +1,5 @@
 <Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
-	<Script file="Frame.lua" />
+	<Script file="SettingsFrame.lua" />
 	<Frame name="HMPOptionsFrame" inherits="BasicFrameTemplateWithInset" hidden="true" parent="UIParent" toplevel="true" frameStrata="HIGH">
 		<Size x="542" y="343" />
 		<Anchors>

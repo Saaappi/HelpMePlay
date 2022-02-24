@@ -7,40 +7,40 @@
 ## Title: HelpMePlay
 ## Version: 1.1.0
 
-Locale.lua								# Localized strings for all supported languages.
+Locale.lua
 
 # Libraries
-Lib\lib.xml								# Loads libraries used by the addon. Currently, that's only LibDBIcon to support a minimap icon.
+Lib\lib.xml
 
-Frame Stuff
-SettingsFrame.xml						# Frame used for the settings frame.
-SettingsFrame.lua						# Frame element logic for the settings frame.
+# Frame Stuff
+SettingsFrame.xml
+SettingsFrame.lua
 
 # Automations
-Automations\ChromieTime.lua				# Automates selecting an expansion for Chromie Time.
-Automations\AdventureMap.lua			# Automates the zone selection order for Battle for Azeroth and Shadowlands.
-Automations\Merchants_Trainers.lua		# Automates the purchase of skills from merchants (eg. mount training).
-Automations\AnimaPowers.lua				# Automates (or suggests) Anima Powers in Torghast.
-Automations\GarrisonMissionTable.lua	# Automates starting the first Garrison mission during the opening of the Garrison.
-Automations\GarrisonArchitectTable.lua	# Automates the start of the introduction mission to the Garrison mission table.
-Automations\WarMode.lua					# Automates enabling War Mode at the appropriate level and area.
-Automations\PlayerChoice.lua			# Automates player choice situations like choosing Story Mode or Threads of Fate in Shadowlands.
-Automations\Merchants_Vendors.lua		# Automates the purchase of select quest items from merchants.
-Automations\Emotes.lua					# Automates emoting at quest objects.
-Automations\Speech.lua					# Automates player actions based on in-game NPC or game speech.
-Automations\Dialog.lua					# Automates dialog selection.
-Automations\Mail.lua					# Automates the collection of gold from the mailbox.
-Automations\Vehicles.lua				# Automates quickly exiting vehicles.
-Automations\Queues.lua					# Automates auto accepting queues.
-Automations\Repairs.lua					# Automates repairing at NPCs when possible.
-Automations\Cinematics.lua				# Automates skipping (most) cinematics and in-game movies.
+Automations\ChromieTime.lua
+Automations\AdventureMap.lua
+Automations\Merchants_Trainers.lua
+Automations\AnimaPowers.lua
+Automations\GarrisonMissionTable.lua
+Automations\GarrisonArchitectTable.lua
+Automations\WarMode.lua
+Automations\PlayerChoice.lua
+Automations\Merchants_Vendors.lua
+Automations\Emotes.lua
+Automations\Speech.lua
+Automations\Dialog.lua
+Automations\Mail.lua
+Automations\Vehicles.lua
+Automations\Queues.lua
+Automations\Repairs.lua
+Automations\Cinematics.lua
 
 # Systems
-Systems\Achievements.lua				# Assists the Mouseover module to include achievement information in tooltips.
-Systems\GarrisonTalentNPC.lua			# Assists the player by identifying the best routes for talent systems like The Box of Many Things and Titanic Research.
-Systems\Talents.lua						# Assists the player by suggesting class talents to the player when obtaining level benchmarks.
-Systems\Mouseover.lua					# Adds notes to creatures/items on mouseover.
+Systems\Achievements.lua
+Systems\GarrisonTalentNPC.lua
+Systems\Talents.lua
+Systems\Mouseover.lua
 
 # General Stuff
-Keybinding.lua							# Controller for keybind logic.
-HelpMePlay.lua							# General automation/system logic that didn't fit elsewhere.
+Keybinding.lua
+HelpMePlay.lua
