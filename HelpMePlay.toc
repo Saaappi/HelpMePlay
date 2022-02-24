@@ -1,4 +1,4 @@
-## Author: iAmLiightsky
+## Author: LightskyGG
 ## Interface: 90200
 ## Name: HelpMePlay
 ## Notes: Automates tasks related to questing, dialog, vendors, and more.
