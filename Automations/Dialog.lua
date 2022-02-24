@@ -1625,6 +1625,27 @@ local BattleForAzeroth = {
 		},
 	},
 	-- Tiragarde Sound
+	[149877] = { -- Tinkmaster Overspark
+		["g"] = {
+			L["I'm ready."],
+		},
+	},
+	[150117] = { -- Sapphronetta Flivvers
+		["g"] = {
+			L["We need you for Mechagon."],
+			L["Sapphronetta Flivvers 2"],
+		},
+	},
+	[150121] = { -- Grizzek Fizzwrench
+		["g"] = {
+			L["Grizzek Fizzwrench 1"],
+		},
+	},
+	[151102] = { -- Cog Captain Winklespring
+		["g"] = {
+			L["We need you for Mechagon."],
+		},
+	},
 	[137675] = { -- Shadow Hunter Ty'jin
 		["g"] = {
 			L["Shadow Hunter Ty'jin 1"],
@@ -1780,6 +1801,11 @@ local Cosmic = {
 		},
 		["c"] = {
 			L["A small fee for supplies is required."],
+		},
+	},
+	[150101] = { -- Lady Jaina Proudmoore
+		["g"] = {
+			L["Lady Jaina Proudmoore 5"],
 		},
 	},
 	-- End of Nazjatar
