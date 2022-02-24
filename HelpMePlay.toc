@@ -7,81 +7,40 @@
 ## Title: HelpMePlay
 ## Version: 1.1.0
 
-# Addon localized strings.
-Locale.lua
+Locale.lua								# Localized strings for all supported languages.
 
-# Controls the libraries that HelpMePlay embeds into its code.
-Lib\lib.xml
+# Libraries
+Lib\lib.xml								# Loads libraries used by the addon. Currently, that's only LibDBIcon to support a minimap icon.
 
-# The frame code and its behaviors.
-Frame.xml
-Frame.lua
+Frame Stuff
+SettingsFrame.xml						# Frame used for the settings frame.
+SettingsFrame.lua						# Frame element logic for the settings frame.
 
-# Assists the Mouseover logic to include a note if the target is a needed achievement criteria.
-Systems\Achievements.lua
+# Automations
+Automations\ChromieTime.lua				# Automates selecting an expansion for Chromie Time.
+Automations\AdventureMap.lua			# Automates the zone selection order for Battle for Azeroth and Shadowlands.
+Automations\Merchants_Trainers.lua		# Automates the purchase of skills from merchants (eg. mount training).
+Automations\AnimaPowers.lua				# Automates (or suggests) Anima Powers in Torghast.
+Automations\GarrisonMissionTable.lua	# Automates starting the first Garrison mission during the opening of the Garrison.
+Automations\GarrisonArchitectTable.lua	# Automates the start of the introduction mission to the Garrison mission table.
+Automations\WarMode.lua					# Automates enabling War Mode at the appropriate level and area.
+Automations\PlayerChoice.lua			# Automates player choice situations like choosing Story Mode or Threads of Fate in Shadowlands.
+Automations\Merchants_Vendors.lua		# Automates the purchase of select quest items from merchants.
+Automations\Emotes.lua					# Automates emoting at quest objects.
+Automations\Speech.lua					# Automates player actions based on in-game NPC or game speech.
+Automations\Dialog.lua					# Automates dialog selection.
+Automations\Mail.lua					# Automates the collection of gold from the mailbox.
+Automations\Vehicles.lua				# Automates quickly exiting vehicles.
+Automations\Queues.lua					# Automates auto accepting queues.
+Automations\Repairs.lua					# Automates repairing at NPCs when possible.
+Automations\Cinematics.lua				# Automates skipping (most) cinematics and in-game movies.
 
-# Automates selecting Chromie Time expansion.
-Automations\ChromieTime.lua
+# Systems
+Systems\Achievements.lua				# Assists the Mouseover module to include achievement information in tooltips.
+Systems\GarrisonTalentNPC.lua			# Assists the player by identifying the best routes for talent systems like The Box of Many Things and Titanic Research.
+Systems\Talents.lua						# Assists the player by suggesting class talents to the player when obtaining level benchmarks.
+Systems\Mouseover.lua					# Adds notes to creatures/items on mouseover.
 
-# Automates the adventure map from BfA and Shadowlands.
-Automations\AdventureMap.lua
-
-# Controls for talent NPCs like the Box of Many Things.
-Systems\GarrisonTalentNPC.lua
-
-# Automates the purchase of skills from trainers.
-Automations\Merchants_Trainers.lua
-
-# Automates the selection of Anima Powers in Torghast.
-Automations\AnimaPowers.lua
-
-# Automates the garrison mission table.
-Automations\GarrisonMissionTable.lua
-
-# Automates the garrison architect table.
-Automations\GarrisonArchitectTable.lua
-
-# Automates placing the player into War Mode.
-Automations\WarMode.lua
-
-# Automates player choice selections like Story or Threads of Fate modes.
-Automations\PlayerChoice.lua
-
-# Automates purchasing quest items from vendors.
-Automations\Merchants_Vendors.lua
-
-# Automates handling emotes for specific NPCs.
-Automations\Emotes.lua
-
-# Automates interacting with speech for specific NPCs.
-Automations\Speech.lua
-
-# Suggests talents to select when the player reaches talent level milestones.
-Systems\Talents.lua
-
-# Automates speaking with specific NPCs.
-Automations\Dialog.lua
-
-# Automates operations with the mailbox system.
-Automations\Mail.lua
-
-# Handles mouseover for objects and creatures. Allows the addition of notes from the addon, if desired.
-Systems\Mouseover.lua
-
-# Handles quick vehicle exits for specific vehicles.
-Automations\Vehicles.lua
-
-# Handles queue popups.
-Automations\Queues.lua
-
-# Automates repairing at merchants.
-Automations\Repairs.lua
-
-# Skips (most) cinematics and in-game movies.
-Automations\Cinematics.lua
-
-# Automates accepting and completing quests (including taking rewards).
-HelpMePlay.lua
-
-# Handles keybindings.
-Keybinding.lua
+# General Stuff
+Keybinding.lua							# Controller for keybind logic.
+HelpMePlay.lua							# General automation/system logic that didn't fit elsewhere.
