@@ -1,7 +1,5 @@
-HelpMePlay | 1.0.10b
+HelpMePlay | 1.1.0
 	New Features:
-		
+		- Party Play: Share your quest activity with your party, letting them know when you accept, turn in, and progress on quests! WoW just became less lonely!
 	Fixes and Updates:
-		- Fixed an issue that caused the addon to skip perks when interacting with the Cypher Console.
-		- Fixed an issue that caused the addon to repeatedly check perks that were being actively researched.
-		- Found some missing dialogs on Zereth Mortis and added support for them.
+	
