@@ -377,6 +377,7 @@ function HelpMePlayLoadSettings()
 		HMPTalentsText:SetText(L["Talents"])
 		HMPCinematicsText:SetText(L["Cinematics"])
 		HMPQueuesText:SetText(L["Queues"])
+		HMPPartyPlayText:SetText(L["Party Play"])
 		HMPMinimapIconText:SetText(L["Minimap Icon"])
 
 		-- Check settings first
@@ -482,6 +483,12 @@ function HelpMePlayLoadSettings()
 			HMPQueuesCB:SetChecked(false)
 		end
 		
+		if HelpMePlayOptionsDB.PartyPlay then
+			HMPPartyPlayCB:SetChecked(true)
+		else
+			HMPPartyPlayCB:SetChecked(false)
+		end
+		
 		if HelpMePlayOptionsDB.MinimapIcon then
 			HMPMinimapIconCB:SetChecked(true)
 		else
@@ -549,6 +556,7 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB["TempSettings"].Talents = HelpMePlayOptionsDB.Talents
 				HelpMePlayOptionsDB["TempSettings"].Cinematics = HelpMePlayOptionsDB.Cinematics
 				HelpMePlayOptionsDB["TempSettings"].Queues = HelpMePlayOptionsDB.Queues
+				HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
 				HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
 				HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
 				HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
@@ -571,6 +579,7 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.Talents = false
 				HelpMePlayOptionsDB.Cinematics = false
 				HelpMePlayOptionsDB.Queues = false
+				HelpMePlayOptionsDB.PartyPlay = false
 				HelpMePlayOptionsDB.MinimapIcon = false
 				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 				HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
@@ -593,6 +602,7 @@ function HelpMePlayLoadSettings()
 				HMPTalentsCB:SetChecked(false)
 				HMPCinematicsCB:SetChecked(false)
 				HMPQueuesCB:SetChecked(false)
+				HMPPartyPlayCB:SetChecked(false)
 				HMPMinimapIconCB:SetChecked(false)
 				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
 				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L["Disabled"])
@@ -620,6 +630,7 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
 				HelpMePlayOptionsDB.Cinematics = HelpMePlayOptionsDB["TempSettings"].Cinematics
 				HelpMePlayOptionsDB.Queues = HelpMePlayOptionsDB["TempSettings"].Queues
+				HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
 				HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
 				HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
 				HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
@@ -641,6 +652,7 @@ function HelpMePlayLoadSettings()
 				HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
 				HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Cinematics)
 				HMPQueuesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Queues)
+				HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
 				HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
 				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
@@ -885,6 +897,21 @@ function HelpMePlayLoadSettings()
 				HelpMePlayOptionsDB.Queues = true
 			else
 				HelpMePlayOptionsDB.Queues = false
+			end
+		end)
+		
+		-- Party Play Check Button
+		HMPPartyPlayCB:SetScript("OnEnter", function(self)
+			ShowTooltip(self, L["Party Play Check Button"])
+		end)
+		HMPPartyPlayCB:SetScript("OnLeave", function(self)
+			HideTooltip(self)
+		end)
+		HMPPartyPlayCB:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				HelpMePlayOptionsDB.PartyPlay = true
+			else
+				HelpMePlayOptionsDB.PartyPlay = false
 			end
 		end)
 		

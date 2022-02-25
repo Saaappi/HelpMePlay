@@ -100,6 +100,7 @@ if (isLocaleSupported) then
 	L["Talents"]																= "Talents"
 	L["Cinematics"]																= "Cinematics"
 	L["Queues"]																	= "Queues"
+	L["Party Play"]																= "Party Play"
 	L["Minimap Icon"]															= "Minimap Icon"
 	L["Disable All"]															= "Disable All"
 	-- Options Panel Descriptions
@@ -119,6 +120,7 @@ if (isLocaleSupported) then
 	L["Notes Check Button"]														= "Adds notes to select creatures.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
 	L["Cinematics Check Button"]												= "Automates skipping (most) cinematics and in-game movies."
+	L["Party Play Check Button"]												= "|cffCB453DNote|r: This feature has no affect outside of parties.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)"
 	L["Queues Check Button"]													= "Need to relieve yourself but don't want to miss your queue?\nCheck this button and worry no more."
 	L["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
 	L["Chromie Time DropDown"]													= "|cffFFFFFFChromie Time|r\n\nAutomates the expansion to select when speaking\nwith Chromie."
