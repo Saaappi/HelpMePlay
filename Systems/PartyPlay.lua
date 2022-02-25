@@ -23,9 +23,13 @@ end})
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_ADDON" then
-		local addon, msg, channel = ...
+		local addon, msg, channel, _, playerName = ...
 		if addon == addonName then
-			SendChatMessage(msg, channel)
+			playerName = string.split("-", playerName)
+			local unitName = UnitName("player")
+			if unitName == playerName then
+				SendChatMessage(msg, channel)
+			end
 		end
 	end
 	if event == "QUEST_ACCEPTED" then
