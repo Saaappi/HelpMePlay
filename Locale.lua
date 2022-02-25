@@ -42,6 +42,7 @@ if (isLocaleSupported) then
 	-- Strings																	
 	L["Abandon Command Description"]											= "Abandons all quests in the zone specified by the player."
 	L["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
+	L["Addon Short Name"]														= "HMP"
 	L["Minimap Icon Subtext"]													= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
 	L["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
 	L["Discord"]																= "Lightsky#0658"
@@ -61,6 +62,8 @@ if (isLocaleSupported) then
 	L["War Mode Reminder"]														= "You leveled to 20! You should return to Orgrimmar (Horde) or Stormwind City (Alliance), so I can enable War Mode."
 	L["Equipped Item Level is Nil"]												= "Equipped item level is nil. Please close the quest window, open and close your character pane, then try completing the quest again."
 	L["Auto Accept Queue Text"]													= "Auto accepted the queue."
+	L["Quest Turned In Text"]													= "Turned in"
+	L["Quest Accepted Text"]													= "Accepted"
 	-- Symbols
 	L["Red X Raid Target"]														= "|TInterface\\TARGETINGFRAME\\UI-RaidTargetingIcon_7:0|t"
 	-- Expansions

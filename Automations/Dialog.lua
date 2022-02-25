@@ -2411,6 +2411,14 @@ local Shadowlands = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	[168082] = { -- Tinybell
+		["g"] = {
+			L["I'd like to heal and revive my battle pets."],
+		},
+		["c"] = {
+			L["A small fee for supplies is required."],
+		},
+	},
 	[160929] = { -- Guardian Molan
 		["g"] = {
 			L["The forces of Mueh'zala have invaded Ardenweald."],

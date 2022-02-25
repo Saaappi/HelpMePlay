@@ -40,6 +40,7 @@ Systems\Achievements.lua
 Systems\GarrisonTalentNPC.lua
 Systems\Talents.lua
 Systems\Mouseover.lua
+Systems\PartyPlay.lua
 
 # General Stuff
 Keybinding.lua
