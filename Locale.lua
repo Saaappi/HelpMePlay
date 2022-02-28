@@ -53,7 +53,7 @@ if (isLocaleSupported) then
 	L["No"]																		= "No"
 	L["Talent Purchase Text"]													= "Purchase the following talent: "
 	L["Talent Not Enough Currency Text"]										= "You need more currency! Amount Needed: "
-	L["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later." 
+	L["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else." 
 	L["Level Congrats Text"]													= "Congratulations on reaching level %s! Suggested talent: %s"
 	L["Automatic"]																= "Automatic"
 	L["Automatic (No Epic)"]													= "Automatic (No Epic)"
