@@ -108,7 +108,7 @@ local function CheckTalents(talentTree, currencyId)
 						if talentInfo.perkSpellID ~= 0 then
 							PrintLine(L["Talent Purchase Text"] .. "\n" .. GetSpellLink(talentInfo.perkSpellID))
 						else
-							PrintLine(L["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cff|cffEFC503" .. talentInfo.name .. "|r")
+							PrintLine(L["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 						end
 					else
 						-- Let's do some quick math to determine
