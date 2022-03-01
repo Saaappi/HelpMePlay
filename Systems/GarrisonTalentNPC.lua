@@ -74,7 +74,9 @@ local cypherOfTheFirstOnesTalents = {
 	1904, -- Aealic Understanding (Access to Enhancement Consoles in the zone for temporary buffs)
 	1902, -- Altonian Understanding (Unlocks new quests, which means bonus currency from the zone)
 	1932, -- Dealic Understanding (Unlocks Protoform Synthesis for battle pets)
+	1988, -- Elic (Allows you to place gems in Cypher equipment)
 	1931, -- Sopranian Understanding (Unlocks Protoform Synthesis for mounts)
+	1971, -- Corial (Unlocks access to the last treasure for the "Treasures of Zereth Mortis" achievement)
 }
 
 local function PrintLine(text)
@@ -106,7 +108,7 @@ local function CheckTalents(talentTree, currencyId)
 						-- send a spell link to the chat frame.
 						-- If not, then use the perk name.
 						if talentInfo.perkSpellID ~= 0 then
-							PrintLine(L["Talent Purchase Text"] .. "\n" .. GetSpellLink(talentInfo.perkSpellID))
+							PrintLine(L["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 						else
 							PrintLine(L["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 						end
