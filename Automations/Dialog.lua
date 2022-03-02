@@ -3364,17 +3364,17 @@ local Shadowlands = {
 	},
 	[181179] = { -- Elder Nirav
 		["g"] = {
-			L["I need to restore this artifact."],
+			L["I need to restore these remnants."],
 		},
 	},
 	[183298] = { -- Faruu
 		["g"] = {
-			L["I need to restore this artifact."],
+			L["I need to restore these remnants."],
 		},
 	},
 	[181084] = { -- Drim
 		["g"] = {
-			L["I need to restore this artifact."],
+			L["I need to restore these remnants."],
 		},
 	},
 	[184442] = { -- Feroz
@@ -3480,6 +3480,16 @@ local Shadowlands = {
 	[182146] = { -- Olem
 		["g"] = {
 			L["Olem 1"],
+		},
+	},
+	[181990] = { -- Sequence Generator
+		["g"] = {
+			L["Sequence Generator 1"],
+		},
+	},
+	[181948] = { -- Highlord Bolvar Fordragon
+		["g"] = {
+			L["Highlord Bolvar Fordragon 5"],
 		},
 	},
 	-- End of Zereth Mortis
