@@ -3457,6 +3457,26 @@ local Shadowlands = {
 			L["Pelagos 1"],
 		},
 	},
+	[181098] = { -- Olea Pau
+		["g"] = {
+			L["It is not safe here."],
+		},
+	},
+	[180919] = { -- Olea Novi
+		["g"] = {
+			L["It is not safe here."],
+		},
+	},
+	[183962] = { -- Olea Manu
+		["g"] = {
+			L["It is not safe here."],
+		},
+	},
+	[184469] = { -- Hanoa the Exile
+		["g"] = {
+			L["I am ready."],
+		},
+	},
 	-- End of Zereth Mortis
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane

@@ -7,8 +7,9 @@ e:RegisterEvent("CHAT_MSG_ADDON")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_TURNED_IN")
 e:RegisterEvent("UI_INFO_MESSAGE")
+e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
 
-C_ChatInfo.RegisterAddonMessagePrefix(addonName)
+local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
 
 local Get_QuestTitleFromId = setmetatable({}, {__index = function(t, questId)
 	tooltip:SetOwner(UIParent, "ANCHOR_NONE")
@@ -23,6 +24,8 @@ end})
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_ADDON" then
+		-- Send the desired message to the
+		-- specified chat channel.
 		local addon, msg, channel, _, playerName = ...
 		if addon == addonName then
 			playerName = string.split("-", playerName)
@@ -33,27 +36,73 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_ACCEPTED" then
+		-- Add the quest to the table.
+		--
+		-- Report to party chat that a
+		-- quest was accepted.
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local questId = ...
-			C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. L["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+			HelpMePlayCharacterQuestsDB[questId] = Get_QuestTitleFromId[questId]
+			if isRegistered then
+				C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. L["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+			end
 		end
 	end
 	if event == "QUEST_TURNED_IN" then
+		-- Remove the quest from the table.
+		--
+		-- Report to party chat the a quest
+		-- was turned in.
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local questId = ...
-			C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. L["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+			HelpMePlayCharacterQuestsDB[questId] = nil
+			if isRegistered then
+				C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. L["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+			end
 		end
 	end
 	if event == "UI_INFO_MESSAGE" then
+		-- Scrape the message from the UI to
+		-- send to the channel.
+		--
+		-- This is used in cases like:
+		-- 6/6 Bewitched Bear slain
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local supportedMsgTypes = { 290, 292, 293, 294, 295 }
 			local msgType, msg = ...
 			for _, supportedMsgType in ipairs(supportedMsgTypes) do
 				if supportedMsgType == msgType then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. msg)
+					if isRegistered then
+						C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. msg)
+					end
+				end
+			end
+		end
+	end
+	if event == "UNIT_QUEST_LOG_CHANGED" then
+		-- Used explicitly to handle quests
+		-- with progress bars.
+		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if UnitInParty("player") then
+			local unit = ...
+			if unit == "player" then
+				local numObjectives, text, objectiveType
+				for questId, questTitle in pairs(HelpMePlayCharacterQuestsDB) do
+					numObjectives = C_QuestLog.GetNumQuestObjectives(questId)
+					for index=1, numObjectives do
+						text, objectiveType = GetQuestObjectiveInfo(questId, index, false)
+						if objectiveType == "progressbar" then
+							if isRegistered then
+								C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. text .. " (" .. questTitle .. ")", "PARTY")
+								print(text)
+							end
+						else
+							break
+						end
+					end
 				end
 			end
 		end
