@@ -204,6 +204,7 @@ if (isLocaleSupported) then
 	L["Let's rumble!"]															= "Let's rumble!"
 	L["Come at me!"]															= "Come at me!"
 	L["You're going down!"]														= "You're going down!"
+	L["I am ready to fight!"]													= "I am ready to fight!"
 	L["Prepare yourself!"]														= "Prepare yourself!"
 	L["Think you can take me in a pet battle?"]									= "Think you can take me in a pet battle?"
 	L["I'd like to heal and revive my battle pets."] 							= "I'd like to heal and revive my battle pets."

@@ -852,6 +852,7 @@ local WrathOfTheLichKing = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of Borean Tundra
 	-- Zul'Drak
 	[28790] = { -- Fala Softhoof
 		["g"] = {
@@ -861,6 +862,34 @@ local WrathOfTheLichKing = {
 			L["A small fee for supplies is required."],
 		},
 	},
+	-- End of Zul'Drak
+	-- Icecrown
+	[33282] = { -- Silvermoon Valiant
+		["g"] = {
+			L["I am ready to fight!"],
+		},
+	},
+	[33283] = { -- Thunder Bluff Valiant
+		["g"] = {
+			L["I am ready to fight!"],
+		},
+	},
+	[33284] = { -- Undercity Valiant
+		["g"] = {
+			L["I am ready to fight!"],
+		},
+	},
+	[33285] = { -- Sen'jin Valiant
+		["g"] = {
+			L["I am ready to fight!"],
+		},
+	},
+	[33306] = { -- Orgrimmar Valiant
+		["g"] = {
+			L["I am ready to fight!"],
+		},
+	},
+	-- End of Icecrown
 }
 
 local MistsOfPandaria = {
