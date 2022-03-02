@@ -542,6 +542,7 @@ if (isLocaleSupported) then
 	L["Pelagos 3"]																= "Let's hear what the queen has to say."
 	L["Clora 1"]																= "Your time has come, Clora."
 	L["Forgelite Sophone 1"]													= "Your time has come, Sophone."
+	L["Olem 1"]																	= "The devourer threat has been pushed back and the Wellspring has been restored."
 	-- Creature Names
 	L["Sylla"]																	= "Sylla"
 	L["Thenia"]																	= "Thenia"

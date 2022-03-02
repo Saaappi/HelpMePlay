@@ -3477,6 +3477,11 @@ local Shadowlands = {
 			L["I am ready."],
 		},
 	},
+	[182146] = { -- Olem
+		["g"] = {
+			L["Olem 1"],
+		},
+	},
 	-- End of Zereth Mortis
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane
