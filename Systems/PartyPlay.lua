@@ -97,7 +97,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 						if objectiveType == "progressbar" then
 							if isRegistered then
 								C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. text .. " (" .. questTitle .. ")", "PARTY")
-								print(text)
 							end
 						else
 							break
