@@ -1,9 +1,1 @@
 HelpMePlay | 1.1.0
-	New Features:
-		- Party Play: Share your quest activity with your party, letting them know when you accept, turn in, and progress on quests! WoW just became less lonely!
-	Fixes and Updates:
-		- Added dialog support for dailies and some side questlines in Zereth Mortis.
-		- Added a couple more perks to the Cypher Console suggestions list.
-		- Colorized the name of the Cypher Console talent suggested to players to research.
-		- Cypher Console talents will no longer be suggested to players if they have a prerequisite that has yet to be researched.
-		- The remaining time on a prerequisite talent is now included in the chat, so you don't have to hover over the talent.
