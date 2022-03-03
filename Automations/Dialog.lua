@@ -864,17 +864,17 @@ local WrathOfTheLichKing = {
 	},
 	-- End of Zul'Drak
 	-- Icecrown
-	[33282] = { -- Silvermoon Valiant
+	[33382] = { -- Silvermoon Valiant
 		["g"] = {
 			L["I am ready to fight!"],
 		},
 	},
-	[33283] = { -- Thunder Bluff Valiant
+	[33383] = { -- Thunder Bluff Valiant
 		["g"] = {
 			L["I am ready to fight!"],
 		},
 	},
-	[33284] = { -- Undercity Valiant
+	[33384] = { -- Undercity Valiant
 		["g"] = {
 			L["I am ready to fight!"],
 		},
