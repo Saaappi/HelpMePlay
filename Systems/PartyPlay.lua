@@ -11,6 +11,15 @@ e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
 
 local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
 
+local function Filter_ChatFrame(self, event, msg, author, ...)
+	-- I don't want the auto share feature to
+	-- report the "%s is already on that quest"
+	-- message to the chat frame.
+	if msg:find(L["Already on that quest."]) then
+		return true
+	end
+end
+
 local Get_QuestTitleFromId = setmetatable({}, {__index = function(t, questId)
 	tooltip:SetOwner(UIParent, "ANCHOR_NONE")
 	tooltip:SetHyperlink("quest:" .. questId)
@@ -21,6 +30,9 @@ local Get_QuestTitleFromId = setmetatable({}, {__index = function(t, questId)
 		return title
 	end
 end})
+
+-- Chat filter registrations.
+ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", Filter_ChatFrame)
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_ADDON" then
@@ -49,11 +61,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			HelpMePlayCharacterQuestsDB[questId] = Get_QuestTitleFromId[questId]
 			if isRegistered then
 				C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. L["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
-				if UnitIsGroupLeader("player") then
-					if C_QuestLog.IsPushableQuest(questId) then
-						C_QuestLog.SetSelectedQuest(questId)
-						QuestLogPushQuest()
-					end
+				if C_QuestLog.IsPushableQuest(questId) then
+					C_QuestLog.SetSelectedQuest(questId)
+					QuestLogPushQuest()
 				end
 			end
 		end

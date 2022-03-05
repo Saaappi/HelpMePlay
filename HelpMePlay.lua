@@ -115,55 +115,18 @@ function HMP_CompleteQuest()
 	end
 end
 
-local function GetOrCompleteQuests()
-	-- The priority of quest management should be NEW, COMPLETE, and IGNORE all else.
-	local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
-	local numActiveQuests = C_GossipInfo.GetNumActiveQuests()
-	if numAvailableQuests > 0 then
-		-- The targeted NPC has quests that the player doesn't currently have.
-		local availableQuests = C_GossipInfo.GetAvailableQuests()
-		for i = 1, numAvailableQuests do
-			C_Timer.After(0, function()
-				C_Timer.After(delay, function()
-					C_GossipInfo.SelectAvailableQuest(i)
-				end)
-			end)
-		end
-	end
-	
-	if numActiveQuests > 0 then
-		local activeQuests = C_GossipInfo.GetActiveQuests()
-		for i = 1, numActiveQuests do
-			C_Timer.After(0, function()
-				C_Timer.After(delay, function()
-					if activeQuests[i].isComplete then
-						-- The quest is complete, so complete it.
-						C_GossipInfo.SelectActiveQuest(i)
-						HMP_CompleteQuest()
-					end
-				end)
-			end)
+local function Complete_ActiveQuests(gossipInfo)
+	for i, gossip in ipairs(gossipInfo) do
+		if gossip.isComplete then
+			C_GossipInfo.SelectActiveQuest(i)
+			HMP_CompleteQuest()
 		end
 	end
 end
 
-local function GetGreetingQuests()
-	local numAvailableQuests = GetNumAvailableQuests()
-	local numActiveQuests = GetNumActiveQuests()
-	if numAvailableQuests > 0 then
-		for i = 1, numAvailableQuests do
-			SelectAvailableQuest(i)
-		end
-	end
-	
-	if numActiveQuests > 0 then
-		for i = 1, numActiveQuests do
-			local _, isComplete = GetActiveTitle(i)
-			if isComplete then
-				-- The quest is complete, so select it.
-				SelectActiveQuest(i)
-			end
-		end
+local function Get_AvailableQuests(gossipInfo)
+	for i, quest in ipairs(gossipInfo) do
+		C_GossipInfo.SelectAvailableQuest(i)
 	end
 end
 
@@ -212,7 +175,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
-		GetOrCompleteQuests()
+		local activeQuests = C_GossipInfo.GetActiveQuests()
+		local availableQuests = C_GossipInfo.GetAvailableQuests()
+		if activeQuests then
+			Complete_ActiveQuests()
+		end
+		if availableQuests then
+			Get_AvailableQuests()
+		end
 	end
 	if event == "PLAYER_LEVEL_CHANGED" then
 		local _, newLevel = ...
@@ -233,10 +203,20 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_GREETING" then
+		-- Handles quests that are in a
+		-- gossip menu. Handle quests that
+		-- are completed first, then pick
+		-- up new quests.
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
-		C_Timer.After(delay, function()
-			GetGreetingQuests()
-		end)
+		for i=1, GetNumActiveQuests() do
+			local _, isComplete = GetActiveTitle(i)
+			if isComplete then
+				SelectActiveQuest(i)
+			end
+		end
+		for i=1, GetNumAvailableQuests() do
+			SelectAvailableQuest(i)
+		end
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
