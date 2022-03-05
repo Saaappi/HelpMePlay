@@ -12,6 +12,7 @@ e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
 local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
 
 local function Filter_ChatFrame(self, event, msg, author, ...)
+	if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return false end
 	-- I don't want the auto share feature to
 	-- report the "%s is already on that quest"
 	-- message to the chat frame.
