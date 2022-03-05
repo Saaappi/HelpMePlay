@@ -1,3 +1,5 @@
 HelpMePlay | 1.1.1
 	New Features:
 		- Added auto sharing to Party Play.
+	Fixes and Updates:
+		- Fixed a bug that would cause the addon not to choose a quest reward if both items didn't belong to a slot and sold for the same amount. Quest rewards that fit this description are now chosen at random.

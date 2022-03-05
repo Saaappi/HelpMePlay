@@ -16,8 +16,8 @@ local function Max(tbl)
 			highestItemIndex = itemIndex
 			highestItemLevelOrSellPrice = itemLevelOrSellPrice
 		elseif itemLevelOrSellPrice == highestItemLevelOrSellPrice then
+			highestItemIndex = random(1, #tbl)
 			tbl = {}
-			highestItemIndex = 0
 		end
 	end
 	return highestItemIndex
@@ -29,22 +29,25 @@ local function CompareItems(index, itemRewardItemLevels, sellPrices, itemLink, s
 	-- of the item.
 	sellPrice = select(11, GetItemInfo(itemLink))
 	sellPrices[index] = (quantity*sellPrice)
-	slotId = GetInventorySlotInfo(slotName)
-	inventoryItemLink = GetInventoryItemLink("player", slotId)
-	-- An error is thrown if a slot is empty.
-	if inventoryItemLink then
-		equippedItemLevel = GetDetailedItemLevelInfo(inventoryItemLink)
-		rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
-		-- This happens if the player hasn't opened
-		-- their character pane in the current session.
-		if equippedItemLevel == nil then
-			print(L["Colored Addon Name"] .. ": " .. L["Equipped Item Level is Nil"])
-			return
-		elseif rewardItemLevel > equippedItemLevel then
-			-- Don't add slots with equipped heirlooms
-			-- for consideration.
-			if itemQuality ~= 7 then
-				itemRewardItemLevels[index] = rewardItemLevel
+	
+	if slotName ~= "NOTHING" then
+		slotId = GetInventorySlotInfo(slotName)
+		inventoryItemLink = GetInventoryItemLink("player", slotId)
+		-- An error is thrown if a slot is empty.
+		if inventoryItemLink then
+			equippedItemLevel = GetDetailedItemLevelInfo(inventoryItemLink)
+			rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
+			-- This happens if the player hasn't opened
+			-- their character pane in the current session.
+			if equippedItemLevel == nil then
+				print(L["Colored Addon Name"] .. ": " .. L["Equipped Item Level is Nil"])
+				return
+			elseif rewardItemLevel > equippedItemLevel then
+				-- Don't add slots with equipped heirlooms
+				-- for consideration.
+				if itemQuality ~= 7 then
+					itemRewardItemLevels[index] = rewardItemLevel
+				end
 			end
 		end
 	end
@@ -86,8 +89,13 @@ function HMP_CompleteQuest()
 								end
 								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 							end
-						else
+						elseif slotName ~= nil then
 							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+						else
+							-- Populate the sellPrices table with the sell price
+							-- of the item.
+							local sellPrice = select(11, GetItemInfo(itemLink))
+							sellPrices[i] = (quantity*sellPrice)
 						end
 					end
 				end
