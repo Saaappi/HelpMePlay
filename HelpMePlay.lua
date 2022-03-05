@@ -176,10 +176,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local activeQuests = C_GossipInfo.GetActiveQuests()
 		local availableQuests = C_GossipInfo.GetAvailableQuests()
 		if activeQuests then
-			Complete_ActiveQuests()
+			Complete_ActiveQuests(activeQuests)
 		end
 		if availableQuests then
-			Get_AvailableQuests()
+			Get_AvailableQuests(availableQuests)
 		end
 	end
 	if event == "PLAYER_LEVEL_CHANGED" then
