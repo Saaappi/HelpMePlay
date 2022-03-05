@@ -143,6 +143,7 @@ e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_PROGRESS")
+e:RegisterEvent("QUEST_TURNED_IN")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
@@ -228,6 +229,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if IsQuestCompletable() then
 			CompleteQuest()
+		end
+	end
+	if event == "QUEST_TURNED_IN" then
+		if QuestInfoRewardsFrame:IsVisible() then
+			QuestFrame:Hide()
 		end
 	end
 end)
