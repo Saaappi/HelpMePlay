@@ -6,6 +6,7 @@ e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("PLAYER_TARGET_CHANGED")
 
 local creatures = {
+	[33224]		= "kiss", 		-- Lake Frog
 	[41539]		= "whistle", 	-- Stolen Ram
 	[162553] 	= "flex", 		-- Runestone of Constructs
 	[162559] 	= "kneel", 		-- Runestone of Rituals
