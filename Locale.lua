@@ -63,7 +63,7 @@ if (isLocaleSupported) then
 	L["Disabled"]																= "Disabled"
 	L["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	L["War Mode Reminder"]														= "You leveled to 20! You should return to Orgrimmar (Horde) or Stormwind City (Alliance), so I can enable War Mode."
-	L["Equipped Item Level is Nil"]												= "Equipped item level is nil. Please close the quest window, open and close your character pane, then try completing the quest again."
+	L["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
 	L["Auto Accept Queue Text"]													= "Auto accepted the queue."
 	L["Quest Turned In Text"]													= "Turned in"
 	L["Quest Accepted Text"]													= "Accepted"

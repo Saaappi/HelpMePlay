@@ -69,24 +69,26 @@ function HMP_CompleteQuest()
 				for i = 1, numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local itemLink = GetQuestItemLink("choice", i)
-					local _, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
-					local _, slotName = strsplit("_", equipLoc)
-					-- These don't convert to a valid slotId,
-					-- so we have to change it to something else.
-					if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" then
-						-- This logic won't apply to every class, but
-						-- some classes (eg. Warrior, Rogue, Shaman)
-						-- may have multiple weapons equipped.
-						for i = 0, 1 do
-							if i == 0 then
-								slotName = "MAINHAND"
-							elseif i == 1 then
-								slotName = "SECONDARYHAND"
+					if itemLink then
+						local _, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
+						local _, slotName = strsplit("_", equipLoc)
+						-- These don't convert to a valid slotId,
+						-- so we have to change it to something else.
+						if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" then
+							-- This logic won't apply to every class, but
+							-- some classes (eg. Warrior, Rogue, Shaman)
+							-- may have multiple weapons equipped.
+							for i = 0, 1 do
+								if i == 0 then
+									slotName = "MAINHAND"
+								elseif i == 1 then
+									slotName = "SECONDARYHAND"
+								end
+								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 							end
+						else
 							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 						end
-					else
-						CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 					end
 				end
 				
@@ -107,11 +109,7 @@ function HMP_CompleteQuest()
 	elseif numQuestChoices == 1 then
 		GetQuestReward(1)
 	else
-		C_Timer.After(0, function()
-			C_Timer.After(delay, function()
-				QuestFrameCompleteQuestButton:Click()
-			end)
-		end)
+		QuestFrameCompleteQuestButton:Click()
 	end
 end
 
@@ -221,7 +219,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if IsQuestCompletable() then
-			HMP_CompleteQuest()
+			CompleteQuest()
 		end
 	end
 end)
