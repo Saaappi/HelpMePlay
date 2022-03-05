@@ -40,12 +40,21 @@ e:SetScript("OnEvent", function(self, event, ...)
 		--
 		-- Report to party chat that a
 		-- quest was accepted.
+		--
+		-- Share the quest with the player's
+		-- party.
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local questId = ...
 			HelpMePlayCharacterQuestsDB[questId] = Get_QuestTitleFromId[questId]
 			if isRegistered then
 				C_ChatInfo.SendAddonMessage(addonName, "[" .. L["Addon Short Name"] .. "]: " .. L["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+				if UnitIsGroupLeader("player") then
+					if C_QuestLog.IsPushableQuest(questId) then
+						C_QuestLog.SetSelectedQuest(questId)
+						QuestLogPushQuest()
+					end
+				end
 			end
 		end
 	end

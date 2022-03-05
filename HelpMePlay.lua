@@ -225,21 +225,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		HMP_CompleteQuest()
-		-- Disabled: 1/15/2022
-		--[[C_Timer.After(longerDelay, function()
-			-- If the quest complete button is still visible
-			-- after the delay, then the frame is likely frozen
-			-- at this state, so hide it.
-			if QuestFrameCompleteQuestButton:IsVisible() then
-				QuestFrame:Hide()
-			end
-		end)]]
 	end
 	if event == "QUEST_DETAIL" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
-		C_Timer.After(delay, function()
+		if QuestGetAutoAccept() then
+			CloseQuest()
+		else
+			AcceptQuest()
+		end
+		--[[C_Timer.After(delay, function()
 			QuestFrameAcceptButton:Click()
-		end)
+		end)]]
 	end
 	if event == "QUEST_GREETING" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
@@ -249,8 +245,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
-		C_Timer.After(delay, function()
+		if IsQuestCompletable() then
+			HMP_CompleteQuest()
+		end
+		--[[C_Timer.After(delay, function()
 			QuestFrameCompleteButton:Click()
-		end)
+		end)]]
 	end
 end)
