@@ -212,9 +212,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
-		C_Timer.After(delay, function()
-			GetOrCompleteQuests()
-		end)
+		GetOrCompleteQuests()
 	end
 	if event == "PLAYER_LEVEL_CHANGED" then
 		local _, newLevel = ...
@@ -233,9 +231,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		else
 			AcceptQuest()
 		end
-		--[[C_Timer.After(delay, function()
-			QuestFrameAcceptButton:Click()
-		end)]]
 	end
 	if event == "QUEST_GREETING" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
@@ -248,8 +243,5 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if IsQuestCompletable() then
 			HMP_CompleteQuest()
 		end
-		--[[C_Timer.After(delay, function()
-			QuestFrameCompleteButton:Click()
-		end)]]
 	end
 end)
