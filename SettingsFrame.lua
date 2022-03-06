@@ -373,7 +373,6 @@ function HelpMePlayLoadSettings()
 			HMPWarModeText:SetText(L["War Mode"])
 			HMPQuestsText:SetText(L["Accept/Complete Quests"])
 			HMPToFText:SetText(L["Threads of Fate"])
-			HMPQuestRewardsText:SetText(L["Quest Rewards"])
 			HMPNotesText:SetText(L["Notes"])
 			HMPTalentsText:SetText(L["Talents"])
 			HMPCinematicsText:SetText(L["Cinematics"])
@@ -446,12 +445,6 @@ function HelpMePlayLoadSettings()
 				HMPQuestsCB:SetChecked(true)
 			else
 				HMPQuestsCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.QuestRewards then
-				HMPQuestRewardsCB:SetChecked(true)
-			else
-				HMPQuestRewardsCB:SetChecked(false)
 			end
 
 			if HelpMePlayOptionsDB.ThreadsOfFate then
@@ -551,7 +544,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].Speech = HelpMePlayOptionsDB.Speech
 					HelpMePlayOptionsDB["TempSettings"].WarMode = HelpMePlayOptionsDB.WarMode
 					HelpMePlayOptionsDB["TempSettings"].Quests = HelpMePlayOptionsDB.Quests
-					HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
 					HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate = HelpMePlayOptionsDB.ThreadsOfFate
 					HelpMePlayOptionsDB["TempSettings"].Notes = HelpMePlayOptionsDB.Notes
 					HelpMePlayOptionsDB["TempSettings"].Talents = HelpMePlayOptionsDB.Talents
@@ -574,7 +566,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Speech = false
 					HelpMePlayOptionsDB.WarMode = false
 					HelpMePlayOptionsDB.Quests = false
-					HelpMePlayOptionsDB.QuestRewards = false
 					HelpMePlayOptionsDB.ThreadsOfFate = false
 					HelpMePlayOptionsDB.Notes = false
 					HelpMePlayOptionsDB.Talents = false
@@ -597,7 +588,6 @@ function HelpMePlayLoadSettings()
 					HMPSpeechCB:SetChecked(false)
 					HMPWarModeCB:SetChecked(false)
 					HMPQuestsCB:SetChecked(false)
-					HMPQuestRewardsCB:SetChecked(false)
 					HMPToFCB:SetChecked(false)
 					HMPNotesCB:SetChecked(false)
 					HMPTalentsCB:SetChecked(false)
@@ -625,7 +615,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Speech = HelpMePlayOptionsDB["TempSettings"].Speech
 					HelpMePlayOptionsDB.WarMode = HelpMePlayOptionsDB["TempSettings"].WarMode
 					HelpMePlayOptionsDB.Quests = HelpMePlayOptionsDB["TempSettings"].Quests
-					HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
 					HelpMePlayOptionsDB.ThreadsOfFate = HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate
 					HelpMePlayOptionsDB.Notes = HelpMePlayOptionsDB["TempSettings"].Notes
 					HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
@@ -647,7 +636,6 @@ function HelpMePlayLoadSettings()
 					HMPSpeechCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Speech)
 					HMPWarModeCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].WarMode)
 					HMPQuestsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Quests)
-					HMPQuestRewardsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].QuestRewards)
 					HMPToFCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate)
 					HMPNotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Notes)
 					HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
@@ -808,21 +796,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Quests = true
 				else
 					HelpMePlayOptionsDB.Quests = false
-				end
-			end)
-
-			-- Quest Rewards Check Button
-			HMPQuestRewardsCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Quest Rewards Check Button"])
-			end)
-			HMPQuestRewardsCB:SetScript("OnLeave", function(self)
-				HideTooltip(self)
-			end)
-			HMPQuestRewardsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.QuestRewards = true
-				else
-					HelpMePlayOptionsDB.QuestRewards = false
 				end
 			end)
 
