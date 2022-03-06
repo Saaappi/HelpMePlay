@@ -1,7 +1,7 @@
 HelpMePlay | 1.1.1
 	Fixes and Updates:
 		- Updated Party Play to include auto sharing quests.
-		- Updated Quests to add an icon to enemies required for quests. This should only apply when using Blizzard's default nameplates.
+		- Updated Quests automation to add an icon to enemies required for quests. This should only apply when using Blizzard's default nameplates.
 		- Updated Emotes automation to include the ability to emote based on target OR gossip, opposed to gossip only.
 		- Updated the settings menu so it can't be opened in combat.
 		- Removed the Quest Rewards check button. This automation was rolled into the Quests automation.
