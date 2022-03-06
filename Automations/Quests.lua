@@ -8,6 +8,10 @@ local addons = {
 	-- then don't add the quest icon to
 	-- the nameplates.
 	"KuiNameplates",
+	"NeatPlates",
+	"TidyPlates",
+	"PhantomPlates",
+	"QuestPlates",
 }
 
 local function Max(tbl)
