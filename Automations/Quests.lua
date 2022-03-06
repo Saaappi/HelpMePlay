@@ -133,10 +133,13 @@ local function Get_AvailableQuests(gossipInfo)
 end
 
 e:RegisterEvent("GOSSIP_SHOW")
+e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
+e:RegisterEvent("QUEST_LOG_UPDATE")
 e:RegisterEvent("QUEST_PROGRESS")
+e:RegisterEvent("QUEST_REMOVED")
 e:RegisterEvent("QUEST_TURNED_IN")
 
 e:SetScript("OnEvent", function(self, event, ...)
@@ -149,6 +152,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 		if availableQuests then
 			Get_AvailableQuests(availableQuests)
+		end
+	end
+	if event == "QUEST_ACCEPTED" then
+		local questId = ...
+		if not HelpMePlayQuestObjectivesDB[questId] then
+			-- Create an entry in the table for the quest.
+			HelpMePlayQuestObjectivesDB[questId] = {}
+		end
+		local logIndex = C_QuestLog.GetLogIndexForQuestID(questId)
+		--local questInfo = C_QuestLog.GetInfo(logIndex)
+		local numQuestObjectives = GetNumQuestLeaderBoards(logIndex)
+		if numQuestObjectives > 0 then
+			for i=1,numQuestObjectives do
+				local text, objectiveType, finished, numFulfilled, numRequired = GetQuestObjectiveInfo(questId, i, false)
+				if text and objectiveType == "monster" then
+					table.insert(HelpMePlayQuestObjectivesDB[questId], text)
+				end
+			end
 		end
 	end
 	if event == "QUEST_COMPLETE" then
@@ -179,15 +200,50 @@ e:SetScript("OnEvent", function(self, event, ...)
 			SelectAvailableQuest(i)
 		end
 	end
+	if event == "QUEST_LOG_UPDATE" then
+		for i=1, C_QuestLog.GetNumQuestLogEntries() do	
+			local questInfo = C_QuestLog.GetInfo(i)		
+			if not questInfo.isHeader then
+				for j=1, GetNumQuestLeaderBoards(i) or 0 do
+					local text, objectiveType, finished, numFulfilled, numRequired = GetQuestObjectiveInfo(questInfo.questID, j, false)
+					if text and objectiveType == "monster" then
+						if numFulfilled == numRequired then
+							for k,v in ipairs(HelpMePlayQuestObjectivesDB[questInfo.questID]) do
+								HelpMePlayQuestObjectivesDB[questInfo.questID][k] = nil
+							end
+						end
+					end
+				end
+			end
+		end
+	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if IsQuestCompletable() then
 			CompleteQuest()
 		end
 	end
+	if event == "QUEST_REMOVED" then
+		local questId = ...
+		HelpMePlayQuestObjectivesDB[questId] = nil
+	end
 	if event == "QUEST_TURNED_IN" then
-		if QuestInfoRewardsFrame:IsVisible() then
-			--QuestFrame:Hide()
+		local questId = ...
+		HelpMePlayQuestObjectivesDB[questId] = nil
+	end
+end)
+
+hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
+	if frame.unit:find("nameplate") then
+		local npcName = GetUnitName(frame.unit)
+		for questId, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
+			for _, text in ipairs(objectiveData) do
+				if text:find(npcName) then
+					frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
+				else
+					frame.name:SetText(npcName)
+				end
+			end
 		end
 	end
 end)

@@ -26,6 +26,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayAchievementDB == nil then
 				HelpMePlayAchievementDB = {}
 			end
+			if HelpMePlayQuestObjectivesDB == nil then
+				HelpMePlayQuestObjectivesDB = {}
+			end
 			if HelpMePlaySavesDB == nil then
 				HelpMePlaySavesDB = {}
 			end
