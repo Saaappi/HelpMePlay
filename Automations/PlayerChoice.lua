@@ -37,7 +37,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 					if HelpMePlayOptionsDB.AdventureMaps == false or HelpMePlayOptionsDB.AdventureMaps == nil then return end
 					for i = 1, 3 do
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
-						if choiceOptionInfo.choiceArtID == 1851147 then -- This is the Dark Portal option for Draenor
+						if choiceOptionInfo.id == 1014 then
+							-- This is the Tanaan Jungle (Dark Portal) option.
 							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 							break
