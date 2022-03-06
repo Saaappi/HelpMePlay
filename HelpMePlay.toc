@@ -34,6 +34,7 @@ Automations\Vehicles.lua
 Automations\Queues.lua
 Automations\Repairs.lua
 Automations\Cinematics.lua
+Automations\Quests.lua
 
 # Systems
 Systems\Achievements.lua
