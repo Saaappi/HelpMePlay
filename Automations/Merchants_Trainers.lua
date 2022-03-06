@@ -10,7 +10,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Trainers == false or HelpMePlayOptionsDB.Trainers == nil then return end
 		local numTrainerServices = GetNumTrainerServices()
 		if numTrainerServices > 0 then
-			for i = 1, numTrainerServices do
+			for i=1,numTrainerServices do
 				if GetMoney() > (tonumber(GetTrainerServiceCost(i)+3000000)) or GetMoney() > (tonumber(GetTrainerServiceCost(i)*2)) then
 					-- If the player has at least twice the
 					-- amount of cost for the training, then

@@ -72,7 +72,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				for id, _ in pairs(merchants) do
 					if id == npcId then
 						local numMerchantItems = GetMerchantNumItems()
-						for i = 1, numMerchantItems do
+						for i=1,numMerchantItems do
 							local merchantItemLink = GetMerchantItemLink(i)
 							if merchantItemLink then
 								local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)

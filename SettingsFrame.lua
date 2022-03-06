@@ -980,7 +980,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			button1 = L["Yes"],
 			button2 = L["No"],
 			OnAccept = function()
-				for i = 1, C_QuestLog.GetNumQuestLogEntries() do
+				for i=1,C_QuestLog.GetNumQuestLogEntries() do
 					local info = C_QuestLog.GetInfo(i)
 					local questId = info.questID
 
@@ -1000,7 +1000,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 	elseif command == L["Abandon Command"] and arguments ~= "" then
 		-- Abandon the quests by header name.
 		local iter = 1
-		for i = 1, C_QuestLog.GetNumQuestLogEntries() do
+		for i=1,C_QuestLog.GetNumQuestLogEntries() do
 			local info = C_QuestLog.GetInfo(i)
 			if string.find(string.lower(info.title), string.lower(arguments)) then
 				for j = 1, 25 do

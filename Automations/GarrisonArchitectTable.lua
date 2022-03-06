@@ -11,7 +11,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if garrisonLevel == 1 then
 			local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)
 			if HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == false or HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == nil then
-				for i = 1, #plotsForBuilding do
+				for i=1,#plotsForBuilding do
 					local buildingId = C_Garrison.GetOwnedBuildingInfo(plotsForBuilding[i])
 					if buildingId ~= nil then
 						HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true

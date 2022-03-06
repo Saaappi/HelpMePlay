@@ -136,7 +136,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				for nameOrId, data in pairs(creatureDb) do
 					if nameOrId == npcId then
 						local tooltipString = ""
-						for i = 1, GameTooltip:NumLines() do
+						for i=1,GameTooltip:NumLines() do
 							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), addonName) then return end
 						end
 						if data.t == "parent_achievement" then

@@ -35,7 +35,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- player choices prompted by objects.
 				if mapId == 84 or mapId == 85 then -- Orgrimmar / Stormwind City
 					if HelpMePlayOptionsDB.AdventureMaps == false or HelpMePlayOptionsDB.AdventureMaps == nil then return end
-					for i = 1, 3 do
+					for i=1,3 do
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
 						if choiceOptionInfo.id == 1014 then
 							-- This is the Tanaan Jungle (Dark Portal) option.
@@ -61,7 +61,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 						HideUIPanel(PlayerChoiceFrame)
 					end
 				elseif mapId == 1670 then -- Oribos
-					print(HelpMePlayOptionsDB.Covenant)
 					if HelpMePlayOptionsDB.Covenant == L["Kyrian"] then
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)

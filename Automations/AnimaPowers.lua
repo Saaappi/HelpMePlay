@@ -2498,7 +2498,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- in memory.
 					local bestPower = ""
 					
-					for i = 1, choiceInfo.numOptions do
+					for i=1,choiceInfo.numOptions do
 						option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
 						if choiceInfo.numOptions == 1 then
 							responseId = option.buttons[1].id

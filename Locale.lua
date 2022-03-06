@@ -17,7 +17,7 @@ local supportedLocales = {
 	"zhCN",
 }
 local isLocaleSupported = false
-for i = 1, #supportedLocales do
+for i=1,#supportedLocales do
 	if (supportedLocales[i] == locale) then
 		isLocaleSupported = true
 	end

@@ -65,7 +65,7 @@ function HMP_CompleteQuest()
 				-- then let's compare it to what the player
 				-- has equipped. While leveling, item level
 				-- is king.
-				for i = 1, numQuestChoices do
+				for i=1,numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local itemLink = GetQuestItemLink("choice", i)
 					if itemLink then

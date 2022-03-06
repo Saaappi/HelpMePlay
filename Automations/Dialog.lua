@@ -3611,7 +3611,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 			if id == npcId then
 				-- We found a match in the table
 				-- so let's move forward.
-				for i = 1, #t[id]["g"] do
+				for i=1,#t[id]["g"] do
 					--- DEBUG ---
 					-- Only enable these if dialogs aren't being
 					-- selected when they should be.
@@ -3653,7 +3653,7 @@ local function CheckActiveQuests(activeQuests)
 			ProcessDialogTree()
 		end
 	else
-		for i = 1, #activeQuests do
+		for i=1,#activeQuests do
 			if activeQuests[i].isComplete then
 				HMP_CompleteQuest()
 			end
@@ -3691,7 +3691,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 	
 	for id, _ in pairs(t) do
 		if id == npcId then
-			for i = 1, #t[id]["c"] do
+			for i=1,#t[id]["c"] do
 				if string.find(string.lower(message), string.lower(t[id]["c"][i])) then
 					StaticPopup1Button1:Click("LeftButton")
 					return
@@ -3721,7 +3721,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if next(activeQuests) then
 				CheckActiveQuests(activeQuests)
 			elseif numAvailableQuests > 0 then
-				for i = 1, numAvailableQuests do
+				for i=1,numAvailableQuests do
 					SelectAvailableQuest(i)
 				end
 			else

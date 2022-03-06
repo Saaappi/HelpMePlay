@@ -23,7 +23,7 @@ local function GetTrackedAchievementCriteriaCompletion()
 			HelpMePlayAchievementDB[achievementId].isComplete = false
 		end
 		numCriteria = GetAchievementNumCriteria(achievementId)
-		for i = 1, numCriteria do
+		for i=1,numCriteria do
 			_, _, isComplete, _, _, _, _, assetId = GetAchievementCriteriaInfo(achievementId, i)
 			if assetId ~= 0 then
 				for j = 1, GetAchievementNumCriteria(assetId) do
