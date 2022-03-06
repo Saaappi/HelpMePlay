@@ -3,6 +3,12 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local itemRewardItemLevels = {}
 local sellPrices = {}
+local addons = {
+	-- If any of these addons are loaded,
+	-- then don't add the quest icon to
+	-- the nameplates.
+	"KuiNameplates",
+}
 
 local function Max(tbl)
 	local highestItemIndex = 0
@@ -234,6 +240,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 end)
 
 hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
+	for k,v in ipairs(addons) do
+		if IsAddOnLoaded(v) then return end
+	end
 	if frame.unit:find("nameplate") then
 		local npcName = GetUnitName(frame.unit)
 		for questId, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
