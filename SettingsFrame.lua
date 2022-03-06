@@ -348,616 +348,618 @@ function HelpMePlayLoadSettings()
 	if HMPOptionsFrame:IsVisible() then
 		HMPOptionsFrame:Hide()
 	else
-		HMPOptionsFrame:Show()
+		if UnitAffectingCombat("player") == false then
+			HMPOptionsFrame:Show()
 
-		-- Make the options menu movable.
-		HMPOptionsFrame:SetMovable(true)
-		HMPOptionsFrame:EnableMouse(true)
-		HMPOptionsFrame:RegisterForDrag("LeftButton")
-		HMPOptionsFrame:SetScript("OnDragStart", HMPOptionsFrame.StartMoving)
-		HMPOptionsFrame:SetScript("OnDragStop", HMPOptionsFrame.StopMovingOrSizing)
+			-- Make the options menu movable.
+			HMPOptionsFrame:SetMovable(true)
+			HMPOptionsFrame:EnableMouse(true)
+			HMPOptionsFrame:RegisterForDrag("LeftButton")
+			HMPOptionsFrame:SetScript("OnDragStart", HMPOptionsFrame.StartMoving)
+			HMPOptionsFrame:SetScript("OnDragStop", HMPOptionsFrame.StopMovingOrSizing)
 
-		-- SetText for FontStrings
-		HMPCRText:SetText(L["CR Text"])
-		HMPDisableAllText:SetText(L["Disable All"])
-		HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
-		HMPAdvMapsText:SetText(L["Adventure Maps"])
-		HMPDialogText:SetText(L["Dialog"])
-		HMPEmotesText:SetText(L["Emotes"])
-		HMPGarrisonTblText:SetText(L["Garrison Tables"])
-		HMPMailText:SetText(L["Mail"])
-		HMPMerchantsText:SetText(L["Merchants"])
-		HMPTrainersV2Text:SetText(L["Trainers"])
-		HMPSpeechText:SetText(L["Speech"])
-		HMPWarModeText:SetText(L["War Mode"])
-		HMPQuestsText:SetText(L["Accept/Complete Quests"])
-		HMPToFText:SetText(L["Threads of Fate"])
-		HMPQuestRewardsText:SetText(L["Quest Rewards"])
-		HMPNotesText:SetText(L["Notes"])
-		HMPTalentsText:SetText(L["Talents"])
-		HMPCinematicsText:SetText(L["Cinematics"])
-		HMPQueuesText:SetText(L["Queues"])
-		HMPPartyPlayText:SetText(L["Party Play"])
-		HMPMinimapIconText:SetText(L["Minimap Icon"])
+			-- SetText for FontStrings
+			HMPCRText:SetText(L["CR Text"])
+			HMPDisableAllText:SetText(L["Disable All"])
+			HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
+			HMPAdvMapsText:SetText(L["Adventure Maps"])
+			HMPDialogText:SetText(L["Dialog"])
+			HMPEmotesText:SetText(L["Emotes"])
+			HMPGarrisonTblText:SetText(L["Garrison Tables"])
+			HMPMailText:SetText(L["Mail"])
+			HMPMerchantsText:SetText(L["Merchants"])
+			HMPTrainersV2Text:SetText(L["Trainers"])
+			HMPSpeechText:SetText(L["Speech"])
+			HMPWarModeText:SetText(L["War Mode"])
+			HMPQuestsText:SetText(L["Accept/Complete Quests"])
+			HMPToFText:SetText(L["Threads of Fate"])
+			HMPQuestRewardsText:SetText(L["Quest Rewards"])
+			HMPNotesText:SetText(L["Notes"])
+			HMPTalentsText:SetText(L["Talents"])
+			HMPCinematicsText:SetText(L["Cinematics"])
+			HMPQueuesText:SetText(L["Queues"])
+			HMPPartyPlayText:SetText(L["Party Play"])
+			HMPMinimapIconText:SetText(L["Minimap Icon"])
 
-		-- Check settings first
-		if HelpMePlayOptionsDB.DisableAll then
-			HMPDisableAllCB:SetChecked(true)
-		else
-			HMPDisableAllCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.AdventureMaps then
-			HMPAdvMapsCB:SetChecked(true)
-		else
-			HMPAdvMapsCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.Dialog then
-			HMPDialogCB:SetChecked(true)
-		else
-			HMPDialogCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.Emotes then
-			HMPEmotesCB:SetChecked(true)
-		else
-			HMPEmotesCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.GarrisonTables then
-			HMPGarrTblCB:SetChecked(true)
-		else
-			HMPGarrTblCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.Mail then
-			HMPMailCB:SetChecked(true)
-		else
-			HMPMailCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.Merchants then
-			HMPMerchantsCB:SetChecked(true)
-		else
-			HMPMerchantsCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.Trainers then
-			HMPTrainersV2CB:SetChecked(true)
-		else
-			HMPTrainersV2CB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.Speech then
-			HMPSpeechCB:SetChecked(true)
-		else
-			HMPSpeechCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.WarMode then
-			HMPWarModeCB:SetChecked(true)
-		else
-			HMPWarModeCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.Quests then
-			HMPQuestsCB:SetChecked(true)
-		else
-			HMPQuestsCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.QuestRewards then
-			HMPQuestRewardsCB:SetChecked(true)
-		else
-			HMPQuestRewardsCB:SetChecked(false)
-		end
-
-		if HelpMePlayOptionsDB.ThreadsOfFate then
-			HMPToFCB:SetChecked(true)
-		else
-			HMPToFCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.Notes then
-			HMPNotesCB:SetChecked(true)
-		else
-			HMPNotesCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.Talents then
-			HMPTalentsCB:SetChecked(true)
-		else
-			HMPTalentsCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.Cinematics then
-			HMPCinematicsCB:SetChecked(true)
-		else
-			HMPCinematicsCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.Queues then
-			HMPQueuesCB:SetChecked(true)
-		else
-			HMPQueuesCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.PartyPlay then
-			HMPPartyPlayCB:SetChecked(true)
-		else
-			HMPPartyPlayCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.MinimapIcon then
-			HMPMinimapIconCB:SetChecked(true)
-		else
-			HMPMinimapIconCB:SetChecked(false)
-		end
-		
-		if HelpMePlayOptionsDB.ChromieTimeExpansion then
-			UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
-		end
-		
-		if HelpMePlayOptionsDB.TorghastPowers then
-			if HelpMePlayOptionsDB.TorghastPowers == L["Automatic"] or HelpMePlayOptionsDB.TorghastPowers == true then
-				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic"])
-			elseif HelpMePlayOptionsDB.TorghastPowers == L["Automatic (No Epic)"] then
-				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic (No Epic)"])
-			elseif HelpMePlayOptionsDB.TorghastPowers == L["Notifications"] then
-				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Notifications"])
-			elseif HelpMePlayOptionsDB.TorghastPowers == L["Disabled"] or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then
-				UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Disabled"])
-			end
-		end
-		
-		if HelpMePlayOptionsDB.Covenant then
-			if HelpMePlayOptionsDB.Covenant == L["Kyrian"] then
-				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Kyrian"])
-			elseif HelpMePlayOptionsDB.Covenant == L["Necrolord"] then
-				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Necrolord"])
-			elseif HelpMePlayOptionsDB.Covenant == L["Night Fae"] then
-				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Night Fae"])
-			elseif HelpMePlayOptionsDB.Covenant == L["Venthyr"] then
-				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Venthyr"])
+			-- Check settings first
+			if HelpMePlayOptionsDB.DisableAll then
+				HMPDisableAllCB:SetChecked(true)
 			else
-				UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Disabled"])
+				HMPDisableAllCB:SetChecked(false)
 			end
-		end
-		
-		-- Disable All Check Button
-		HMPDisableAllCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Disable All Check Button"])
-		end)
-		HMPDisableAllCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPDisableAllCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.DisableAll = true
-				-- Create an empty table to store the current
-				-- state of the settings. We'll use the current
-				-- states to return the settings back to their
-				-- original state when the button is unchecked.
-				HelpMePlayOptionsDB["TempSettings"] = {}
-				HelpMePlayOptionsDB["TempSettings"].AdventureMaps = HelpMePlayOptionsDB.AdventureMaps
-				HelpMePlayOptionsDB["TempSettings"].Dialog = HelpMePlayOptionsDB.Dialog
-				HelpMePlayOptionsDB["TempSettings"].Emotes = HelpMePlayOptionsDB.Emotes
-				HelpMePlayOptionsDB["TempSettings"].GarrisonTables = HelpMePlayOptionsDB.GarrisonTables
-				HelpMePlayOptionsDB["TempSettings"].Mail = HelpMePlayOptionsDB.Mail
-				HelpMePlayOptionsDB["TempSettings"].Merchants = HelpMePlayOptionsDB.Merchants
-				HelpMePlayOptionsDB["TempSettings"].Trainers = HelpMePlayOptionsDB.Trainers
-				HelpMePlayOptionsDB["TempSettings"].Speech = HelpMePlayOptionsDB.Speech
-				HelpMePlayOptionsDB["TempSettings"].WarMode = HelpMePlayOptionsDB.WarMode
-				HelpMePlayOptionsDB["TempSettings"].Quests = HelpMePlayOptionsDB.Quests
-				HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
-				HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate = HelpMePlayOptionsDB.ThreadsOfFate
-				HelpMePlayOptionsDB["TempSettings"].Notes = HelpMePlayOptionsDB.Notes
-				HelpMePlayOptionsDB["TempSettings"].Talents = HelpMePlayOptionsDB.Talents
-				HelpMePlayOptionsDB["TempSettings"].Cinematics = HelpMePlayOptionsDB.Cinematics
-				HelpMePlayOptionsDB["TempSettings"].Queues = HelpMePlayOptionsDB.Queues
-				HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
-				HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
-				HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
-				HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
-				HelpMePlayOptionsDB["TempSettings"].Covenant = HelpMePlayOptionsDB.Covenant
-				
-				-- Flag the settings as false.
-				HelpMePlayOptionsDB.AdventureMaps = false
-				HelpMePlayOptionsDB.Dialog = false
-				HelpMePlayOptionsDB.Emotes = false
-				HelpMePlayOptionsDB.GarrisonTables = false
-				HelpMePlayOptionsDB.Mail = false
-				HelpMePlayOptionsDB.Merchants = false
-				HelpMePlayOptionsDB.Trainers = false
-				HelpMePlayOptionsDB.Speech = false
-				HelpMePlayOptionsDB.WarMode = false
-				HelpMePlayOptionsDB.Quests = false
-				HelpMePlayOptionsDB.QuestRewards = false
-				HelpMePlayOptionsDB.ThreadsOfFate = false
-				HelpMePlayOptionsDB.Notes = false
-				HelpMePlayOptionsDB.Talents = false
-				HelpMePlayOptionsDB.Cinematics = false
-				HelpMePlayOptionsDB.Queues = false
-				HelpMePlayOptionsDB.PartyPlay = false
-				HelpMePlayOptionsDB.MinimapIcon = false
-				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
-				HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
-				HelpMePlayOptionsDB.Covenant = L["Disabled"]
-				
-				-- Uncheck the buttons.
+			
+			if HelpMePlayOptionsDB.AdventureMaps then
+				HMPAdvMapsCB:SetChecked(true)
+			else
 				HMPAdvMapsCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Dialog then
+				HMPDialogCB:SetChecked(true)
+			else
 				HMPDialogCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Emotes then
+				HMPEmotesCB:SetChecked(true)
+			else
 				HMPEmotesCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.GarrisonTables then
+				HMPGarrTblCB:SetChecked(true)
+			else
 				HMPGarrTblCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Mail then
+				HMPMailCB:SetChecked(true)
+			else
 				HMPMailCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Merchants then
+				HMPMerchantsCB:SetChecked(true)
+			else
 				HMPMerchantsCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Trainers then
+				HMPTrainersV2CB:SetChecked(true)
+			else
 				HMPTrainersV2CB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Speech then
+				HMPSpeechCB:SetChecked(true)
+			else
 				HMPSpeechCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.WarMode then
+				HMPWarModeCB:SetChecked(true)
+			else
 				HMPWarModeCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.Quests then
+				HMPQuestsCB:SetChecked(true)
+			else
 				HMPQuestsCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.QuestRewards then
+				HMPQuestRewardsCB:SetChecked(true)
+			else
 				HMPQuestRewardsCB:SetChecked(false)
+			end
+
+			if HelpMePlayOptionsDB.ThreadsOfFate then
+				HMPToFCB:SetChecked(true)
+			else
 				HMPToFCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.Notes then
+				HMPNotesCB:SetChecked(true)
+			else
 				HMPNotesCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.Talents then
+				HMPTalentsCB:SetChecked(true)
+			else
 				HMPTalentsCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.Cinematics then
+				HMPCinematicsCB:SetChecked(true)
+			else
 				HMPCinematicsCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.Queues then
+				HMPQueuesCB:SetChecked(true)
+			else
 				HMPQueuesCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.PartyPlay then
+				HMPPartyPlayCB:SetChecked(true)
+			else
 				HMPPartyPlayCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.MinimapIcon then
+				HMPMinimapIconCB:SetChecked(true)
+			else
 				HMPMinimapIconCB:SetChecked(false)
-				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
-				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L["Disabled"])
-				UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L["Disabled"])
-			else
-				-- Return the settings to their original
-				-- states.
-				--
-				-- Recheck the buttons that were previously
-				-- checked.
-				HelpMePlayOptionsDB.DisableAll = false
-				HelpMePlayOptionsDB.AdventureMaps = HelpMePlayOptionsDB["TempSettings"].AdventureMaps
-				HelpMePlayOptionsDB.Dialog = HelpMePlayOptionsDB["TempSettings"].Dialog
-				HelpMePlayOptionsDB.Emotes = HelpMePlayOptionsDB["TempSettings"].Emotes
-				HelpMePlayOptionsDB.GarrisonTables = HelpMePlayOptionsDB["TempSettings"].GarrisonTables
-				HelpMePlayOptionsDB.Mail = HelpMePlayOptionsDB["TempSettings"].Mail
-				HelpMePlayOptionsDB.Merchants = HelpMePlayOptionsDB["TempSettings"].Merchants
-				HelpMePlayOptionsDB.Trainers = HelpMePlayOptionsDB["TempSettings"].Trainers
-				HelpMePlayOptionsDB.Speech = HelpMePlayOptionsDB["TempSettings"].Speech
-				HelpMePlayOptionsDB.WarMode = HelpMePlayOptionsDB["TempSettings"].WarMode
-				HelpMePlayOptionsDB.Quests = HelpMePlayOptionsDB["TempSettings"].Quests
-				HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
-				HelpMePlayOptionsDB.ThreadsOfFate = HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate
-				HelpMePlayOptionsDB.Notes = HelpMePlayOptionsDB["TempSettings"].Notes
-				HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
-				HelpMePlayOptionsDB.Cinematics = HelpMePlayOptionsDB["TempSettings"].Cinematics
-				HelpMePlayOptionsDB.Queues = HelpMePlayOptionsDB["TempSettings"].Queues
-				HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
-				HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
-				HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
-				HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
-				HelpMePlayOptionsDB.Covenant = HelpMePlayOptionsDB["TempSettings"].Covenant
-				
-				HMPAdvMapsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].AdventureMaps)
-				HMPDialogCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Dialog)
-				HMPEmotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Emotes)
-				HMPGarrTblCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].GarrisonTables)
-				HMPMailCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Mail)
-				HMPMerchantsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Merchants)
-				HMPTrainersV2CB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Trainers)
-				HMPSpeechCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Speech)
-				HMPWarModeCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].WarMode)
-				HMPQuestsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Quests)
-				HMPQuestRewardsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].QuestRewards)
-				HMPToFCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate)
-				HMPNotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Notes)
-				HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
-				HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Cinematics)
-				HMPQueuesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Queues)
-				HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
-				HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
-				UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
-				UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
-				UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
 			end
-		end)
+			
+			if HelpMePlayOptionsDB.ChromieTimeExpansion then
+				UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
+			end
+			
+			if HelpMePlayOptionsDB.TorghastPowers then
+				if HelpMePlayOptionsDB.TorghastPowers == L["Automatic"] or HelpMePlayOptionsDB.TorghastPowers == true then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic"])
+				elseif HelpMePlayOptionsDB.TorghastPowers == L["Automatic (No Epic)"] then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic (No Epic)"])
+				elseif HelpMePlayOptionsDB.TorghastPowers == L["Notifications"] then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Notifications"])
+				elseif HelpMePlayOptionsDB.TorghastPowers == L["Disabled"] or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Disabled"])
+				end
+			end
+			
+			if HelpMePlayOptionsDB.Covenant then
+				if HelpMePlayOptionsDB.Covenant == L["Kyrian"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Kyrian"])
+				elseif HelpMePlayOptionsDB.Covenant == L["Necrolord"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Necrolord"])
+				elseif HelpMePlayOptionsDB.Covenant == L["Night Fae"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Night Fae"])
+				elseif HelpMePlayOptionsDB.Covenant == L["Venthyr"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Venthyr"])
+				else
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Disabled"])
+				end
+			end
+			
+			-- Disable All Check Button
+			HMPDisableAllCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Disable All Check Button"])
+			end)
+			HMPDisableAllCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPDisableAllCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.DisableAll = true
+					-- Create an empty table to store the current
+					-- state of the settings. We'll use the current
+					-- states to return the settings back to their
+					-- original state when the button is unchecked.
+					HelpMePlayOptionsDB["TempSettings"] = {}
+					HelpMePlayOptionsDB["TempSettings"].AdventureMaps = HelpMePlayOptionsDB.AdventureMaps
+					HelpMePlayOptionsDB["TempSettings"].Dialog = HelpMePlayOptionsDB.Dialog
+					HelpMePlayOptionsDB["TempSettings"].Emotes = HelpMePlayOptionsDB.Emotes
+					HelpMePlayOptionsDB["TempSettings"].GarrisonTables = HelpMePlayOptionsDB.GarrisonTables
+					HelpMePlayOptionsDB["TempSettings"].Mail = HelpMePlayOptionsDB.Mail
+					HelpMePlayOptionsDB["TempSettings"].Merchants = HelpMePlayOptionsDB.Merchants
+					HelpMePlayOptionsDB["TempSettings"].Trainers = HelpMePlayOptionsDB.Trainers
+					HelpMePlayOptionsDB["TempSettings"].Speech = HelpMePlayOptionsDB.Speech
+					HelpMePlayOptionsDB["TempSettings"].WarMode = HelpMePlayOptionsDB.WarMode
+					HelpMePlayOptionsDB["TempSettings"].Quests = HelpMePlayOptionsDB.Quests
+					HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
+					HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate = HelpMePlayOptionsDB.ThreadsOfFate
+					HelpMePlayOptionsDB["TempSettings"].Notes = HelpMePlayOptionsDB.Notes
+					HelpMePlayOptionsDB["TempSettings"].Talents = HelpMePlayOptionsDB.Talents
+					HelpMePlayOptionsDB["TempSettings"].Cinematics = HelpMePlayOptionsDB.Cinematics
+					HelpMePlayOptionsDB["TempSettings"].Queues = HelpMePlayOptionsDB.Queues
+					HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
+					HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
+					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
+					HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
+					HelpMePlayOptionsDB["TempSettings"].Covenant = HelpMePlayOptionsDB.Covenant
+					
+					-- Flag the settings as false.
+					HelpMePlayOptionsDB.AdventureMaps = false
+					HelpMePlayOptionsDB.Dialog = false
+					HelpMePlayOptionsDB.Emotes = false
+					HelpMePlayOptionsDB.GarrisonTables = false
+					HelpMePlayOptionsDB.Mail = false
+					HelpMePlayOptionsDB.Merchants = false
+					HelpMePlayOptionsDB.Trainers = false
+					HelpMePlayOptionsDB.Speech = false
+					HelpMePlayOptionsDB.WarMode = false
+					HelpMePlayOptionsDB.Quests = false
+					HelpMePlayOptionsDB.QuestRewards = false
+					HelpMePlayOptionsDB.ThreadsOfFate = false
+					HelpMePlayOptionsDB.Notes = false
+					HelpMePlayOptionsDB.Talents = false
+					HelpMePlayOptionsDB.Cinematics = false
+					HelpMePlayOptionsDB.Queues = false
+					HelpMePlayOptionsDB.PartyPlay = false
+					HelpMePlayOptionsDB.MinimapIcon = false
+					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
+					HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
+					HelpMePlayOptionsDB.Covenant = L["Disabled"]
+					
+					-- Uncheck the buttons.
+					HMPAdvMapsCB:SetChecked(false)
+					HMPDialogCB:SetChecked(false)
+					HMPEmotesCB:SetChecked(false)
+					HMPGarrTblCB:SetChecked(false)
+					HMPMailCB:SetChecked(false)
+					HMPMerchantsCB:SetChecked(false)
+					HMPTrainersV2CB:SetChecked(false)
+					HMPSpeechCB:SetChecked(false)
+					HMPWarModeCB:SetChecked(false)
+					HMPQuestsCB:SetChecked(false)
+					HMPQuestRewardsCB:SetChecked(false)
+					HMPToFCB:SetChecked(false)
+					HMPNotesCB:SetChecked(false)
+					HMPTalentsCB:SetChecked(false)
+					HMPCinematicsCB:SetChecked(false)
+					HMPQueuesCB:SetChecked(false)
+					HMPPartyPlayCB:SetChecked(false)
+					HMPMinimapIconCB:SetChecked(false)
+					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
+					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L["Disabled"])
+					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L["Disabled"])
+				else
+					-- Return the settings to their original
+					-- states.
+					--
+					-- Recheck the buttons that were previously
+					-- checked.
+					HelpMePlayOptionsDB.DisableAll = false
+					HelpMePlayOptionsDB.AdventureMaps = HelpMePlayOptionsDB["TempSettings"].AdventureMaps
+					HelpMePlayOptionsDB.Dialog = HelpMePlayOptionsDB["TempSettings"].Dialog
+					HelpMePlayOptionsDB.Emotes = HelpMePlayOptionsDB["TempSettings"].Emotes
+					HelpMePlayOptionsDB.GarrisonTables = HelpMePlayOptionsDB["TempSettings"].GarrisonTables
+					HelpMePlayOptionsDB.Mail = HelpMePlayOptionsDB["TempSettings"].Mail
+					HelpMePlayOptionsDB.Merchants = HelpMePlayOptionsDB["TempSettings"].Merchants
+					HelpMePlayOptionsDB.Trainers = HelpMePlayOptionsDB["TempSettings"].Trainers
+					HelpMePlayOptionsDB.Speech = HelpMePlayOptionsDB["TempSettings"].Speech
+					HelpMePlayOptionsDB.WarMode = HelpMePlayOptionsDB["TempSettings"].WarMode
+					HelpMePlayOptionsDB.Quests = HelpMePlayOptionsDB["TempSettings"].Quests
+					HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
+					HelpMePlayOptionsDB.ThreadsOfFate = HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate
+					HelpMePlayOptionsDB.Notes = HelpMePlayOptionsDB["TempSettings"].Notes
+					HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
+					HelpMePlayOptionsDB.Cinematics = HelpMePlayOptionsDB["TempSettings"].Cinematics
+					HelpMePlayOptionsDB.Queues = HelpMePlayOptionsDB["TempSettings"].Queues
+					HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
+					HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
+					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
+					HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
+					HelpMePlayOptionsDB.Covenant = HelpMePlayOptionsDB["TempSettings"].Covenant
+					
+					HMPAdvMapsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].AdventureMaps)
+					HMPDialogCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Dialog)
+					HMPEmotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Emotes)
+					HMPGarrTblCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].GarrisonTables)
+					HMPMailCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Mail)
+					HMPMerchantsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Merchants)
+					HMPTrainersV2CB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Trainers)
+					HMPSpeechCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Speech)
+					HMPWarModeCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].WarMode)
+					HMPQuestsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Quests)
+					HMPQuestRewardsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].QuestRewards)
+					HMPToFCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].ThreadsOfFate)
+					HMPNotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Notes)
+					HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
+					HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Cinematics)
+					HMPQueuesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Queues)
+					HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
+					HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
+					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
+					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
+					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
+				end
+			end)
 
-		-- Adventure Maps Check Button
-		HMPAdvMapsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Adventure Maps Check Button"])
-		end)
-		HMPAdvMapsCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPAdvMapsCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.AdventureMaps = true
-			else
-				HelpMePlayOptionsDB.AdventureMaps = false
-			end
-		end)
+			-- Adventure Maps Check Button
+			HMPAdvMapsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Adventure Maps Check Button"])
+			end)
+			HMPAdvMapsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPAdvMapsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.AdventureMaps = true
+				else
+					HelpMePlayOptionsDB.AdventureMaps = false
+				end
+			end)
 
-		-- Dialog Check Button
-		HMPDialogCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Dialog Check Button"])
-		end)
-		HMPDialogCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPDialogCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Dialog = true
-			else
-				HelpMePlayOptionsDB.Dialog = false
-			end
-		end)
+			-- Dialog Check Button
+			HMPDialogCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Dialog Check Button"])
+			end)
+			HMPDialogCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPDialogCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Dialog = true
+				else
+					HelpMePlayOptionsDB.Dialog = false
+				end
+			end)
 
-		-- Emotes Check Button
-		HMPEmotesCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Emotes Check Button"])
-		end)
-		HMPEmotesCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPEmotesCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Emotes = true
-			else
-				HelpMePlayOptionsDB.Emotes = false
-			end
-		end)
+			-- Emotes Check Button
+			HMPEmotesCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Emotes Check Button"])
+			end)
+			HMPEmotesCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPEmotesCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Emotes = true
+				else
+					HelpMePlayOptionsDB.Emotes = false
+				end
+			end)
 
-		-- Garrison Tables Check Button
-		HMPGarrTblCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Garrison Tables Check Button"])
-		end)
-		HMPGarrTblCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPGarrTblCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.GarrisonTables = true
-			else
-				HelpMePlayOptionsDB.GarrisonTables = false
-			end
-		end)
+			-- Garrison Tables Check Button
+			HMPGarrTblCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Garrison Tables Check Button"])
+			end)
+			HMPGarrTblCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPGarrTblCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.GarrisonTables = true
+				else
+					HelpMePlayOptionsDB.GarrisonTables = false
+				end
+			end)
 
-		-- Mail Check Button
-		HMPMailCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Mail Check Button"])
-		end)
-		HMPMailCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPMailCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Mail = true
-			else
-				HelpMePlayOptionsDB.Mail = false
-			end
-		end)
+			-- Mail Check Button
+			HMPMailCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Mail Check Button"])
+			end)
+			HMPMailCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPMailCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Mail = true
+				else
+					HelpMePlayOptionsDB.Mail = false
+				end
+			end)
 
-		-- Merchants Check Button
-		HMPMerchantsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Merchants Check Button"])
-		end)
-		HMPMerchantsCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPMerchantsCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Merchants = true
-			else
-				HelpMePlayOptionsDB.Merchants = false
-			end
-		end)
+			-- Merchants Check Button
+			HMPMerchantsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Merchants Check Button"])
+			end)
+			HMPMerchantsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPMerchantsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Merchants = true
+				else
+					HelpMePlayOptionsDB.Merchants = false
+				end
+			end)
 
-		-- Trainers Check Button
-		HMPTrainersV2CB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Trainers Check Button"])
-		end)
-		HMPTrainersV2CB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPTrainersV2CB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Trainers = true
-			else
-				HelpMePlayOptionsDB.Trainers = false
-			end
-		end)
+			-- Trainers Check Button
+			HMPTrainersV2CB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Trainers Check Button"])
+			end)
+			HMPTrainersV2CB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPTrainersV2CB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Trainers = true
+				else
+					HelpMePlayOptionsDB.Trainers = false
+				end
+			end)
 
-		-- Speech Check Button
-		HMPSpeechCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Speech Check Button"])
-		end)
-		HMPSpeechCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPSpeechCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Speech = true
-			else
-				HelpMePlayOptionsDB.Speech = false
-			end
-		end)
+			-- Speech Check Button
+			HMPSpeechCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Speech Check Button"])
+			end)
+			HMPSpeechCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPSpeechCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Speech = true
+				else
+					HelpMePlayOptionsDB.Speech = false
+				end
+			end)
 
-		-- War Mode Check Button
-		HMPWarModeCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["War Mode Check Button"])
-		end)
-		HMPWarModeCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPWarModeCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.WarMode = true
-			else
-				HelpMePlayOptionsDB.WarMode = false
-			end
-		end)
+			-- War Mode Check Button
+			HMPWarModeCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["War Mode Check Button"])
+			end)
+			HMPWarModeCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPWarModeCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.WarMode = true
+				else
+					HelpMePlayOptionsDB.WarMode = false
+				end
+			end)
 
-		-- Quests Check Button
-		HMPQuestsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Quests Check Button"])
-		end)
-		HMPQuestsCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPQuestsCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Quests = true
-			else
-				HelpMePlayOptionsDB.Quests = false
-			end
-		end)
+			-- Quests Check Button
+			HMPQuestsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Quests Check Button"])
+			end)
+			HMPQuestsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPQuestsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Quests = true
+				else
+					HelpMePlayOptionsDB.Quests = false
+				end
+			end)
 
-		-- Quest Rewards Check Button
-		HMPQuestRewardsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Quest Rewards Check Button"])
-		end)
-		HMPQuestRewardsCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPQuestRewardsCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.QuestRewards = true
-			else
-				HelpMePlayOptionsDB.QuestRewards = false
-			end
-		end)
+			-- Quest Rewards Check Button
+			HMPQuestRewardsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Quest Rewards Check Button"])
+			end)
+			HMPQuestRewardsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPQuestRewardsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.QuestRewards = true
+				else
+					HelpMePlayOptionsDB.QuestRewards = false
+				end
+			end)
 
-		-- Threads of Fate Check Button
-		HMPToFCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Threads of Fate Check Button"])
-		end)
-		HMPToFCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPToFCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.ThreadsOfFate = true
-			else
-				HelpMePlayOptionsDB.ThreadsOfFate = false
-			end
-		end)
-		
-		-- Notes Check Button
-		HMPNotesCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Notes Check Button"])
-		end)
-		HMPNotesCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPNotesCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Notes = true
-			else
-				HelpMePlayOptionsDB.Notes = false
-			end
-		end)
-		
-		-- Talents Check Button
-		HMPTalentsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Talents Check Button"])
-		end)
-		HMPTalentsCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPTalentsCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Talents = true
-			else
-				HelpMePlayOptionsDB.Talents = false
-			end
-		end)
-		
-		-- Cinematics Check Button
-		HMPCinematicsCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Cinematics Check Button"])
-		end)
-		HMPCinematicsCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPCinematicsCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Cinematics = true
-			else
-				HelpMePlayOptionsDB.Cinematics = false
-			end
-		end)
-		
-		-- Queues Check Button
-		HMPQueuesCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Queues Check Button"])
-		end)
-		HMPQueuesCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPQueuesCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.Queues = true
-			else
-				HelpMePlayOptionsDB.Queues = false
-			end
-		end)
-		
-		-- Party Play Check Button
-		HMPPartyPlayCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Party Play Check Button"])
-		end)
-		HMPPartyPlayCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPPartyPlayCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.PartyPlay = true
-			else
-				HelpMePlayOptionsDB.PartyPlay = false
-			end
-		end)
-		
-		-- Minimap Icon Check Button
-		HMPMinimapIconCB:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Minimap Icon Check Button"])
-		end)
-		HMPMinimapIconCB:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		HMPMinimapIconCB:SetScript("OnClick", function(self)
-			if self:GetChecked() then
-				HelpMePlayOptionsDB.MinimapIcon = true
-				HelpMePlayShowMinimapIcon(true)
-			else
-				HelpMePlayOptionsDB.MinimapIcon = false
-				HelpMePlayShowMinimapIcon(false)
-			end
-		end)
-		
-		-- Chromie Time DropDown
-		HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Chromie Time DropDown"])
-		end)
-		HMPChromieTimeDropDown:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		UIDropDownMenu_Initialize(HMPChromieTimeDropDown, DropDownMenu_Initialize)
-		
-		-- Torghast Powers DropDown
-		HMPTorghastPowersDropDown:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Torghast Powers DropDown"])
-		end)
-		HMPTorghastPowersDropDown:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		UIDropDownMenu_Initialize(HMPTorghastPowersDropDown, DropDownMenu_Initialize)
-		
-		-- Covenants DropDown
-		HMPCovenantsDropDown:SetScript("OnEnter", function(self)
-			ShowTooltip(self, L["Covenants DropDown"])
-		end)
-		HMPCovenantsDropDown:SetScript("OnLeave", function(self)
-			HideTooltip(self)
-		end)
-		UIDropDownMenu_Initialize(HMPCovenantsDropDown, DropDownMenu_Initialize)
+			-- Threads of Fate Check Button
+			HMPToFCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Threads of Fate Check Button"])
+			end)
+			HMPToFCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPToFCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.ThreadsOfFate = true
+				else
+					HelpMePlayOptionsDB.ThreadsOfFate = false
+				end
+			end)
+			
+			-- Notes Check Button
+			HMPNotesCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Notes Check Button"])
+			end)
+			HMPNotesCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPNotesCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Notes = true
+				else
+					HelpMePlayOptionsDB.Notes = false
+				end
+			end)
+			
+			-- Talents Check Button
+			HMPTalentsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Talents Check Button"])
+			end)
+			HMPTalentsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPTalentsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Talents = true
+				else
+					HelpMePlayOptionsDB.Talents = false
+				end
+			end)
+			
+			-- Cinematics Check Button
+			HMPCinematicsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Cinematics Check Button"])
+			end)
+			HMPCinematicsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPCinematicsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Cinematics = true
+				else
+					HelpMePlayOptionsDB.Cinematics = false
+				end
+			end)
+			
+			-- Queues Check Button
+			HMPQueuesCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Queues Check Button"])
+			end)
+			HMPQueuesCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPQueuesCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Queues = true
+				else
+					HelpMePlayOptionsDB.Queues = false
+				end
+			end)
+			
+			-- Party Play Check Button
+			HMPPartyPlayCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Party Play Check Button"])
+			end)
+			HMPPartyPlayCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPPartyPlayCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.PartyPlay = true
+				else
+					HelpMePlayOptionsDB.PartyPlay = false
+				end
+			end)
+			
+			-- Minimap Icon Check Button
+			HMPMinimapIconCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Minimap Icon Check Button"])
+			end)
+			HMPMinimapIconCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPMinimapIconCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.MinimapIcon = true
+					HelpMePlayShowMinimapIcon(true)
+				else
+					HelpMePlayOptionsDB.MinimapIcon = false
+					HelpMePlayShowMinimapIcon(false)
+				end
+			end)
+			
+			-- Chromie Time DropDown
+			HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Chromie Time DropDown"])
+			end)
+			HMPChromieTimeDropDown:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			UIDropDownMenu_Initialize(HMPChromieTimeDropDown, DropDownMenu_Initialize)
+			
+			-- Torghast Powers DropDown
+			HMPTorghastPowersDropDown:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Torghast Powers DropDown"])
+			end)
+			HMPTorghastPowersDropDown:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			UIDropDownMenu_Initialize(HMPTorghastPowersDropDown, DropDownMenu_Initialize)
+			
+			-- Covenants DropDown
+			HMPCovenantsDropDown:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L["Covenants DropDown"])
+			end)
+			HMPCovenantsDropDown:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			UIDropDownMenu_Initialize(HMPCovenantsDropDown, DropDownMenu_Initialize)
+		end
 	end
 end
 

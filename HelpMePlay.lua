@@ -233,7 +233,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "QUEST_TURNED_IN" then
 		if QuestInfoRewardsFrame:IsVisible() then
-			QuestFrame:Hide()
+			--QuestFrame:Hide()
 		end
 	end
 end)
