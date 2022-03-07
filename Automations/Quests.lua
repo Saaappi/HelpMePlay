@@ -182,7 +182,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
 					for _, tblText in ipairs(objectiveData) do
 						for _, name in ipairs(names) do
-							if string.match(tblText, name) then
+							if string.match(tblText, name) or string.match(tblText, L["Slain"]) then
 								for k,v in ipairs(HelpMePlayCreaturesDB) do
 									if HelpMePlayCreaturesDB[k] == unitName then return end
 								end
@@ -210,7 +210,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if text and (objectiveType == "monster" or objectiveType == "item") then
 					if string.len(text) <= 8 or string.len(text) == nil then
 						print(L["Colored Addon Name"] .. ": " .. L["Quest Objective Data is Incomplete"] .. " [" .. questInfo.title .. " - " .. questId .. "] " .. L["Please Report"])
-						return
 					end
 					table.insert(HelpMePlayQuestObjectivesDB[questId], text)
 				end
@@ -276,7 +275,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
 							for _, tblText in ipairs(objectiveData) do
 								for _, name in ipairs(names) do
-									if string.match(tblText, name) then
+									if string.match(tblText, name) or string.match(tblText, L["Slain"]) then
 										for k,v in ipairs(HelpMePlayCreaturesDB) do
 											if HelpMePlayCreaturesDB[k] == UnitName("mouseover") then return end
 										end

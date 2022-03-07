@@ -53,6 +53,7 @@ if (isLocaleSupported) then
 	L["Do you really want to abandon all quests?"]								= "|cff00FFFF"..addonName.."|r\n".."Do you really want to abandon all quests?"
 	L["Yes"]																	= "Yes"
 	L["No"]																		= "No"
+	L["Slain"]																	= "slain"
 	L["Talent Purchase Text"]													= "Purchase the following talent: "
 	L["Talent Not Enough Currency Text"]										= "You need more currency! Amount Needed: "
 	L["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else." 
