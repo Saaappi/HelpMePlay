@@ -281,7 +281,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if tooltip then
 					local tooltipText = tooltip:GetText()
 					if tooltipText then
-						local str = string.split(" ", tooltipText); table.insert(names, str)
+						local firstName, secondName, lastName = string.split(" ", tooltipText); table.insert(names, tooltipText); table.insert(names, tooltipText); table.insert(names, tooltipText)
 						for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
 							for _, tblText in ipairs(objectiveData) do
 								for _, name in ipairs(names) do
