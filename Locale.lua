@@ -64,6 +64,8 @@ if (isLocaleSupported) then
 	L["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	L["War Mode Reminder"]														= "You leveled to 20! You should return to Orgrimmar (Horde) or Stormwind City (Alliance), so I can enable War Mode."
 	L["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
+	L["Quest Objective Data is Incomplete"]										= "[|cffFF7900WARNING|r] Quest objective data is incomplete. Please abandon and re-accept the following quest."
+	L["Please Report"]															= "(Please report this to the author!)"
 	L["Auto Accept Queue Text"]													= "Auto accepted the queue."
 	L["Quest Turned In Text"]													= "Turned in"
 	L["Quest Accepted Text"]													= "Accepted"

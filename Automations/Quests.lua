@@ -192,12 +192,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 			HelpMePlayQuestObjectivesDB[questId] = {}
 		end
 		local logIndex = C_QuestLog.GetLogIndexForQuestID(questId)
-		--local questInfo = C_QuestLog.GetInfo(logIndex)
+		local questInfo = C_QuestLog.GetInfo(logIndex)
 		local numQuestObjectives = GetNumQuestLeaderBoards(logIndex)
 		if numQuestObjectives > 0 then
 			for i=1,numQuestObjectives do
 				local text, objectiveType, finished, numFulfilled, numRequired = GetQuestObjectiveInfo(questId, i, false)
 				if text and (objectiveType == "monster" or objectiveType == "item") then
+					if string.len(text) <= 8 or string.len(text) == nil then
+						print(L["Colored Addon Name"] .. ": " .. L["Quest Objective Data is Incomplete"] .. " [" .. questInfo.title .. " - " .. questId .. "] " .. L["Please Report"])
+					end
 					table.insert(HelpMePlayQuestObjectivesDB[questId], text)
 				end
 			end
