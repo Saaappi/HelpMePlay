@@ -172,7 +172,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local names = {}
 		local unit = ...
 		if not UnitIsPlayer(unit) and not UnitIsFriend(unit, "player") then
-			local _, _, _, _, _, npcId = string.split("-", UnitGUID(unit))
+			local _, _, _, _, _, npcId = string.split("-", UnitGUID(unit)); npcId = tonumber(npcId)
 			for k,_ in pairs(ignoredCreatures) do
 				if k == npcId then return end
 			end
@@ -262,7 +262,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UPDATE_MOUSEOVER_UNIT" then
 		local names = {}
 		if not UnitIsPlayer("mouseover") and not UnitIsFriend("mouseover", "player") then
-			local _, _, _, _, _, npcId = string.split("-", UnitGUID("mouseover"))
+			local _, _, _, _, _, npcId = string.split("-", UnitGUID("mouseover")); npcId = tonumber(npcId)
 			for k,_ in pairs(ignoredCreatures) do
 				if k == npcId then return end
 			end
