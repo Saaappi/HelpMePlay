@@ -171,10 +171,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if not UnitIsPlayer(unit) and not UnitIsFriend(unit, "player") then
 			local unitName = UnitName(unit)
 			if unitName then
-				for k,v in ipairs(HelpMePlayCreaturesDB) do
-					if HelpMePlayCreaturesDB[k] == unitName then return end
+				for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
+					for _, tblText in ipairs(objectiveData) do
+						if tblText:find(unitName) then
+							for k,v in ipairs(HelpMePlayCreaturesDB) do
+								if HelpMePlayCreaturesDB[k] == unitName then return end
+							end
+							table.insert(HelpMePlayCreaturesDB, unitName)
+							return
+						end
+					end
 				end
-				table.insert(HelpMePlayCreaturesDB, unitName)
 			end
 		end
 	end
@@ -260,13 +267,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "UPDATE_MOUSEOVER_UNIT" then
 		if not UnitIsPlayer("mouseover") and not UnitIsFriend("mouseover", "player") then
-			--[[local unitName = UnitName("mouseover")
-			if unitName then
-				for k,v in ipairs(HelpMePlayCreaturesDB) do
-					if HelpMePlayCreaturesDB[k] == unitName then return end
-				end
-				table.insert(HelpMePlayCreaturesDB, unitName)
-			end]]
 			for i=1,GameTooltip:NumLines() do
 				local tooltip = _G["GameTooltipTextLeft"..i]
 				if tooltip then
