@@ -307,15 +307,11 @@ hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
 			end
 		end
 		for _, creatureName in ipairs(HelpMePlayCreaturesDB) do
-			for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
-				for _, text in ipairs(objectiveData) do
-					if text:find(creatureName) then
-						frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
-						return
-					else
-						frame.name:SetText(npcName)
-					end
-				end
+			if creatureName:find(npcName) then
+				frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
+				return
+			else
+				frame.name:SetText(npcName)
 			end
 		end
 	end
