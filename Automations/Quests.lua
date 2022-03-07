@@ -13,6 +13,9 @@ local addons = {
 	"PhantomPlates",
 	"QuestPlates",
 }
+local ignoredCreatures = {
+	[43513] = "Verlok Pillartumbler",
+}
 
 local function Max(tbl)
 	local highestItemIndex = 0
@@ -169,6 +172,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local names = {}
 		local unit = ...
 		if not UnitIsPlayer(unit) and not UnitIsFriend(unit, "player") then
+			local _, _, _, _, _, npcId = string.split("-", UnitGUID(unit))
+			for k,_ in pairs(ignoredCreatures) do
+				if k == npcId then return end
+			end
 			local unitName = UnitName(unit)
 			if unitName then
 				local firstName, secondName, lastName = string.split(" ", unitName); table.insert(names, firstName); table.insert(names, secondName); table.insert(names, lastName)
@@ -251,11 +258,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_TURNED_IN" then
 		local questId = ...
 		HelpMePlayQuestObjectivesDB[questId] = nil
-		HelpMePlayCreaturesDB = {}
 	end
 	if event == "UPDATE_MOUSEOVER_UNIT" then
 		local names = {}
 		if not UnitIsPlayer("mouseover") and not UnitIsFriend("mouseover", "player") then
+			local _, _, _, _, _, npcId = string.split("-", UnitGUID("mouseover"))
+			for k,_ in pairs(ignoredCreatures) do
+				if k == npcId then return end
+			end
 			for i=1,GameTooltip:NumLines() do
 				local tooltip = _G["GameTooltipTextLeft"..i]
 				if tooltip then
