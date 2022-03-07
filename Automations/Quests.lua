@@ -167,18 +167,22 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "NAME_PLATE_UNIT_ADDED" then
+		local names = {}
 		local unit = ...
 		if not UnitIsPlayer(unit) and not UnitIsFriend(unit, "player") then
 			local unitName = UnitName(unit)
 			if unitName then
+				local firstName, secondName, lastName = string.split(" ", unitName); table.insert(names, firstName); table.insert(names, secondName); table.insert(names, lastName)
 				for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
 					for _, tblText in ipairs(objectiveData) do
-						if tblText:find(unitName) then
-							for k,v in ipairs(HelpMePlayCreaturesDB) do
-								if HelpMePlayCreaturesDB[k] == unitName then return end
+						for _, name in ipairs(names) do
+							if string.match(tblText, name) then
+								for k,v in ipairs(HelpMePlayCreaturesDB) do
+									if HelpMePlayCreaturesDB[k] == unitName then return end
+								end
+								table.insert(HelpMePlayCreaturesDB, unitName)
+								return
 							end
-							table.insert(HelpMePlayCreaturesDB, unitName)
-							return
 						end
 					end
 				end
@@ -200,6 +204,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if text and (objectiveType == "monster" or objectiveType == "item") then
 					if string.len(text) <= 8 or string.len(text) == nil then
 						print(L["Colored Addon Name"] .. ": " .. L["Quest Objective Data is Incomplete"] .. " [" .. questInfo.title .. " - " .. questId .. "] " .. L["Please Report"])
+						return
 					end
 					table.insert(HelpMePlayQuestObjectivesDB[questId], text)
 				end
@@ -269,20 +274,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 		HelpMePlayCreaturesDB = {}
 	end
 	if event == "UPDATE_MOUSEOVER_UNIT" then
+		local names = {}
 		if not UnitIsPlayer("mouseover") and not UnitIsFriend("mouseover", "player") then
 			for i=1,GameTooltip:NumLines() do
 				local tooltip = _G["GameTooltipTextLeft"..i]
 				if tooltip then
 					local tooltipText = tooltip:GetText()
 					if tooltipText then
+						local str = string.split(" ", tooltipText); table.insert(names, str)
 						for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
 							for _, tblText in ipairs(objectiveData) do
-								if tblText:find(tooltipText) then
-									for k,v in ipairs(HelpMePlayCreaturesDB) do
-										if HelpMePlayCreaturesDB[k] == UnitName("mouseover") then return end
+								for _, name in ipairs(names) do
+									if string.match(tblText, name) then
+										for k,v in ipairs(HelpMePlayCreaturesDB) do
+											if HelpMePlayCreaturesDB[k] == UnitName("mouseover") then return end
+										end
+										table.insert(HelpMePlayCreaturesDB, unitName)
+										return
 									end
-									table.insert(HelpMePlayCreaturesDB, unitName)
-									return
 								end
 							end
 						end
@@ -301,7 +310,7 @@ hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
 		local npcName = GetUnitName(frame.unit)
 		for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
 			for _, text in ipairs(objectiveData) do
-				if text:find(npcName) then
+				if string.find(text, npcName) then
 					frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
 					return
 				else
@@ -310,7 +319,7 @@ hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
 			end
 		end
 		for _, creatureName in ipairs(HelpMePlayCreaturesDB) do
-			if creatureName:find(npcName) then
+			if string.find(creatureName, npcName) then
 				frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
 				return
 			else
