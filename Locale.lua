@@ -116,7 +116,7 @@ if (isLocaleSupported) then
 	L["Trainers Check Button"]													= "Automates the purchase of skills from trainers.\nThe player must have either double the cost of the\nskill OR at least 300 more gold than the cost of the\nskill."
 	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\nThis setting controls the glow effect on vehicle quests\nlike \"We'll Make an Aspirant Out of You\" in Bastion."
 	L["War Mode Check Button"]													= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\nThis only applies to players above level 20, but below 50."
-	L["Quests Check Button"]													= "Automates accepting and completing quests and selecting\n quest rewards."
+	L["Quests Check Button"]													= "Automates accepting and completing quests and\nselecting quest rewards."
 	L["Threads of Fate Check Button"]											= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into\nThreads of Fate. Unchecked will do nothing."
 	L["Notes Check Button"]														= "Adds notes to select creatures.\nThis setting also controls achievement criteria in tooltips."
 	L["Talents Check Button"]													= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nNPCs like |cffFFFFFFThe Box of Many Things|r."
