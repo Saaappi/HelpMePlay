@@ -239,25 +239,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			SelectAvailableQuest(i)
 		end
 	end
-	if event == "QUEST_LOG_UPDATE" then
-		for i=1, C_QuestLog.GetNumQuestLogEntries() do
-			local questInfo = C_QuestLog.GetInfo(i)
-			if not questInfo.isHeader then
-				for j=1, GetNumQuestLeaderBoards(i) or 0 do
-					local text, objectiveType, finished, numFulfilled, numRequired = GetQuestObjectiveInfo(questInfo.questID, j, false)
-					if text and (objectiveType == "monster" or objectiveType == "item") then
-						if numFulfilled == numRequired then
-							if HelpMePlayQuestObjectivesDB[questInfo.questID] then
-								for k,v in ipairs(HelpMePlayQuestObjectivesDB[questInfo.questID]) do
-									HelpMePlayQuestObjectivesDB[questInfo.questID][k] = nil
-								end
-							end
-						end
-					end
-				end
-			end
-		end
-	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if IsQuestCompletable() then
