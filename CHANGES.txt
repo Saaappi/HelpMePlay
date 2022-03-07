@@ -1,3 +1,4 @@
 HelpMePlay | 1.1.2
 	Fixes and Updates:
+		- Updated the Mail automation to also collect items (in addition to gold.)
 		- Removed the quest icon feature.

@@ -9,12 +9,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MAIL_SHOW" then
 		CheckInbox()
 	end
-	
 	if event == "MAIL_INBOX_UPDATE" then
 		if HelpMePlayOptionsDB.Mail == false or HelpMePlayOptionsDB.Mail == nil then return end
-		local numMailItems = GetInboxNumItems()
-		for index = numMailItems, 1, -1 do
-			TakeInboxMoney(index)
+		--[[for i=GetInboxNumItems(), 1, -1 do
+			TakeInboxMoney(i)
+		end]]
+		for i=GetInboxNumItems(), 1, -1 do
+			TakeInboxMoney(i)
+			for j=1,16 do
+				TakeInboxItem(i, j)
+			end
 		end
 	end
 end)

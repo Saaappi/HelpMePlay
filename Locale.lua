@@ -111,7 +111,7 @@ if (isLocaleSupported) then
 	L["Dialog Check Button"]													= "Automates the selection of dialog options when speaking with NPCs.\nThis does |cffFFFFFFNOT|r apply to all dialogs.\nUse the |cffFFFFFF/dialog|r command to add your own automation."
 	L["Emotes Check Button"]													= "Automates emoting at specific NPCs."
 	L["Garrison Tables Check Button"]											= "Automates the start of the first Garrison mission for both factions, as well as\nthe plotting of the Barracks building for Level 1 Garrisons.\nGorgrond, Talador, and Spires of Arak outposts are auto selected.\n\nIf checked:\n\n|cffFFFFFFGorgrond|r: Sparring Arena\n|cffFFFFFFTalador|r: Arsenal\n|cffFFFFFFSpires of Arak|r: Brewery"
-	L["Mail Check Button"]														= "Automates the collection of ONLY gold from your mailbox."
+	L["Mail Check Button"]														= "Automates the collection of gold and items from your mailbox."
 	L["Merchants Check Button"]													= "Automates the purchase of specific items from merchants, as well\nas automatic repairs."
 	L["Trainers Check Button"]													= "Automates the purchase of skills from trainers.\nThe player must have either double the cost of the\nskill OR at least 300 more gold than the cost of the\nskill."
 	L["Speech Check Button"]													= "Automates interacting with specific NPC speech.\nThis setting controls the glow effect on vehicle quests\nlike \"We'll Make an Aspirant Out of You\" in Bastion."
