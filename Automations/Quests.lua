@@ -143,6 +143,7 @@ local function Get_AvailableQuests(gossipInfo)
 end
 
 e:RegisterEvent("GOSSIP_SHOW")
+e:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
@@ -151,6 +152,7 @@ e:RegisterEvent("QUEST_LOG_UPDATE")
 e:RegisterEvent("QUEST_PROGRESS")
 e:RegisterEvent("QUEST_REMOVED")
 e:RegisterEvent("QUEST_TURNED_IN")
+e:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
@@ -162,6 +164,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 		if availableQuests then
 			Get_AvailableQuests(availableQuests)
+		end
+	end
+	if event == "NAME_PLATE_UNIT_ADDED" then
+		local unit = ...
+		if not UnitIsPlayer(unit) and not UnitIsFriend(unit, "player") then
+			local unitName = UnitName(unit)
+			if unitName then
+				for k,v in ipairs(HelpMePlayCreaturesDB) do
+					if HelpMePlayCreaturesDB[k] == unitName then return end
+				end
+				table.insert(HelpMePlayCreaturesDB, unitName)
+			end
 		end
 	end
 	if event == "QUEST_ACCEPTED" then
@@ -176,7 +190,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if numQuestObjectives > 0 then
 			for i=1,numQuestObjectives do
 				local text, objectiveType, finished, numFulfilled, numRequired = GetQuestObjectiveInfo(questId, i, false)
-				if text and objectiveType == "monster" then
+				if text and (objectiveType == "monster" or objectiveType == "item") then
 					table.insert(HelpMePlayQuestObjectivesDB[questId], text)
 				end
 			end
@@ -211,15 +225,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_LOG_UPDATE" then
-		for i=1, C_QuestLog.GetNumQuestLogEntries() do	
-			local questInfo = C_QuestLog.GetInfo(i)		
+		for i=1, C_QuestLog.GetNumQuestLogEntries() do
+			local questInfo = C_QuestLog.GetInfo(i)
 			if not questInfo.isHeader then
 				for j=1, GetNumQuestLeaderBoards(i) or 0 do
 					local text, objectiveType, finished, numFulfilled, numRequired = GetQuestObjectiveInfo(questInfo.questID, j, false)
-					if text and objectiveType == "monster" then
+					if text and (objectiveType == "monster" or objectiveType == "item") then
 						if numFulfilled == numRequired then
-							for k,v in ipairs(HelpMePlayQuestObjectivesDB[questInfo.questID]) do
-								HelpMePlayQuestObjectivesDB[questInfo.questID][k] = nil
+							if HelpMePlayQuestObjectivesDB[questInfo.questID] then
+								for k,v in ipairs(HelpMePlayQuestObjectivesDB[questInfo.questID]) do
+									HelpMePlayQuestObjectivesDB[questInfo.questID][k] = nil
+								end
 							end
 						end
 					end
@@ -240,6 +256,37 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_TURNED_IN" then
 		local questId = ...
 		HelpMePlayQuestObjectivesDB[questId] = nil
+		HelpMePlayCreaturesDB = {}
+	end
+	if event == "UPDATE_MOUSEOVER_UNIT" then
+		if not UnitIsPlayer("mouseover") and not UnitIsFriend("mouseover", "player") then
+			--[[local unitName = UnitName("mouseover")
+			if unitName then
+				for k,v in ipairs(HelpMePlayCreaturesDB) do
+					if HelpMePlayCreaturesDB[k] == unitName then return end
+				end
+				table.insert(HelpMePlayCreaturesDB, unitName)
+			end]]
+			for i=1,GameTooltip:NumLines() do
+				local tooltip = _G["GameTooltipTextLeft"..i]
+				if tooltip then
+					local tooltipText = tooltip:GetText()
+					if tooltipText then
+						for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
+							for _, tblText in ipairs(objectiveData) do
+								if tblText:find(tooltipText) then
+									for k,v in ipairs(HelpMePlayCreaturesDB) do
+										if HelpMePlayCreaturesDB[k] == UnitName("mouseover") then return end
+									end
+									table.insert(HelpMePlayCreaturesDB, unitName)
+									return
+								end
+							end
+						end
+					end
+				end
+			end
+		end
 	end
 end)
 
@@ -249,12 +296,25 @@ hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
 	end
 	if frame.unit:find("nameplate") then
 		local npcName = GetUnitName(frame.unit)
-		for questId, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
+		for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
 			for _, text in ipairs(objectiveData) do
 				if text:find(npcName) then
 					frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
+					return
 				else
 					frame.name:SetText(npcName)
+				end
+			end
+		end
+		for _, creatureName in ipairs(HelpMePlayCreaturesDB) do
+			for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
+				for _, text in ipairs(objectiveData) do
+					if text:find(creatureName) then
+						frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
+						return
+					else
+						frame.name:SetText(npcName)
+					end
 				end
 			end
 		end

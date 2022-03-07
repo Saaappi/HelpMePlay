@@ -23,9 +23,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end
-			if HelpMePlayAchievementDB == nil then
-				HelpMePlayAchievementDB = {}
-			end
 			if HelpMePlayQuestObjectivesDB == nil then
 				HelpMePlayQuestObjectivesDB = {}
 			end
@@ -34,6 +31,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 			if HelpMePlayCharacterQuestsDB == nil then
 				HelpMePlayCharacterQuestsDB = {}
+			end
+			if HelpMePlayCreaturesDB == nil then
+				HelpMePlayCreaturesDB = {}
 			end
 			if HelpMePlayOptionsDB.MinimapIcon then
 				HelpMePlayShowMinimapIcon(false)
