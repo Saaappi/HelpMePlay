@@ -3,20 +3,6 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local itemRewardItemLevels = {}
 local sellPrices = {}
-local addons = {
-	-- If any of these addons are loaded,
-	-- then don't add the quest icon to
-	-- the nameplates.
-	"KuiNameplates",
-	"NeatPlates",
-	"TidyPlates",
-	"PhantomPlates",
-	"QuestPlates",
-}
-local ignoredCreatures = {
-	[32257] = "Scourge Converter",
-	[43513] = "Verlok Pillartumbler",
-}
 
 local function Max(tbl)
 	local highestItemIndex = 0
@@ -147,15 +133,10 @@ local function Get_AvailableQuests(gossipInfo)
 end
 
 e:RegisterEvent("GOSSIP_SHOW")
-e:RegisterEvent("NAME_PLATE_UNIT_ADDED")
-e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_PROGRESS")
-e:RegisterEvent("QUEST_REMOVED")
-e:RegisterEvent("QUEST_TURNED_IN")
-e:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
@@ -167,54 +148,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 		if availableQuests then
 			Get_AvailableQuests(availableQuests)
-		end
-	end
-	if event == "NAME_PLATE_UNIT_ADDED" then
-		local names = {}
-		local unit = ...
-		if not UnitIsPlayer(unit) and not UnitIsFriend(unit, "player") then
-			local _, _, _, _, _, npcId = string.split("-", UnitGUID(unit)); npcId = tonumber(npcId)
-			for k,_ in pairs(ignoredCreatures) do
-				if k == npcId then return end
-			end
-			local unitName = UnitName(unit)
-			if unitName then
-				local firstName, secondName, lastName = string.split(" ", unitName); table.insert(names, firstName); table.insert(names, secondName); table.insert(names, lastName)
-				for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
-					for _, tblText in ipairs(objectiveData) do
-						for _, name in ipairs(names) do
-							if string.match(tblText, name) or string.match(tblText, L["Slain"]) then
-								for k,v in ipairs(HelpMePlayCreaturesDB) do
-									if HelpMePlayCreaturesDB[k] == unitName then return end
-								end
-								table.insert(HelpMePlayCreaturesDB, unitName)
-								return
-							end
-						end
-					end
-				end
-			end
-		end
-	end
-	if event == "QUEST_ACCEPTED" then
-		local questId = ...
-		if not HelpMePlayQuestObjectivesDB[questId] then
-			-- Create an entry in the table for the quest.
-			HelpMePlayQuestObjectivesDB[questId] = {}
-		end
-		local logIndex = C_QuestLog.GetLogIndexForQuestID(questId)
-		local questInfo = C_QuestLog.GetInfo(logIndex)
-		local numQuestObjectives = GetNumQuestLeaderBoards(logIndex)
-		if numQuestObjectives > 0 then
-			for i=1,numQuestObjectives do
-				local text, objectiveType, finished, numFulfilled, numRequired = GetQuestObjectiveInfo(questId, i, false)
-				if text and (objectiveType == "monster" or objectiveType == "item") then
-					if string.len(text) <= 8 or string.len(text) == nil then
-						print(L["Colored Addon Name"] .. ": " .. L["Quest Objective Data is Incomplete"] .. " [" .. questInfo.title .. " - " .. questId .. "] " .. L["Please Report"])
-					end
-					table.insert(HelpMePlayQuestObjectivesDB[questId], text)
-				end
-			end
 		end
 	end
 	if event == "QUEST_COMPLETE" then
@@ -249,73 +182,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if IsQuestCompletable() then
 			CompleteQuest()
-		end
-	end
-	if event == "QUEST_REMOVED" then
-		local questId = ...
-		HelpMePlayQuestObjectivesDB[questId] = nil
-	end
-	if event == "QUEST_TURNED_IN" then
-		local questId = ...
-		HelpMePlayQuestObjectivesDB[questId] = nil
-		HelpMePlayCreaturesDB = {}
-	end
-	if event == "UPDATE_MOUSEOVER_UNIT" then
-		local names = {}
-		if not UnitIsPlayer("mouseover") and not UnitIsFriend("mouseover", "player") then
-			local _, _, _, _, _, npcId = string.split("-", UnitGUID("mouseover")); npcId = tonumber(npcId)
-			for k,_ in pairs(ignoredCreatures) do
-				if k == npcId then return end
-			end
-			for i=1,GameTooltip:NumLines() do
-				local tooltip = _G["GameTooltipTextLeft"..i]
-				if tooltip then
-					local tooltipText = tooltip:GetText()
-					if tooltipText then
-						local firstName, secondName, lastName = string.split(" ", tooltipText); table.insert(names, tooltipText); table.insert(names, tooltipText); table.insert(names, tooltipText)
-						for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
-							for _, tblText in ipairs(objectiveData) do
-								for _, name in ipairs(names) do
-									if string.match(tblText, name) or string.match(tblText, L["Slain"]) then
-										for k,v in ipairs(HelpMePlayCreaturesDB) do
-											if HelpMePlayCreaturesDB[k] == UnitName("mouseover") then return end
-										end
-										table.insert(HelpMePlayCreaturesDB, unitName)
-										return
-									end
-								end
-							end
-						end
-					end
-				end
-			end
-		end
-	end
-end)
-
-hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
-	for k,v in ipairs(addons) do
-		if IsAddOnLoaded(v) then return end
-	end
-	if frame.unit:find("nameplate") then
-		local npcName = GetUnitName(frame.unit)
-		for _, objectiveData in pairs(HelpMePlayQuestObjectivesDB) do
-			for _, text in ipairs(objectiveData) do
-				if string.find(text, npcName) then
-					frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
-					return
-				else
-					frame.name:SetText(npcName)
-				end
-			end
-		end
-		for _, creatureName in ipairs(HelpMePlayCreaturesDB) do
-			if string.find(creatureName, npcName) then
-				frame.name:SetText("|TInterface\\MINIMAP\\TRACKING\\QuestBlob:0|t " .. npcName)
-				return
-			else
-				frame.name:SetText(npcName)
-			end
 		end
 	end
 end)

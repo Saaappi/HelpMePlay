@@ -1,1 +1,3 @@
-HelpMePlay | 1.1.1
+HelpMePlay | 1.1.2
+	Fixes and Updates:
+		- Removed the quest icon feature.

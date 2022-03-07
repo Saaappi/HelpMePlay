@@ -2,10 +2,10 @@
 ## Interface: 90200
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
-## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayCreaturesDB
-## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayQuestObjectivesDB
+## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB
+## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB
 ## Title: HelpMePlay
-## Version: 1.1.1
+## Version: 1.1.2
 
 Locale.lua
 
