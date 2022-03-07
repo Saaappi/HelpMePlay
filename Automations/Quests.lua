@@ -258,6 +258,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_TURNED_IN" then
 		local questId = ...
 		HelpMePlayQuestObjectivesDB[questId] = nil
+		HelpMePlayCreaturesDB = {}
 	end
 	if event == "UPDATE_MOUSEOVER_UNIT" then
 		local names = {}
