@@ -14,6 +14,7 @@ local addons = {
 	"QuestPlates",
 }
 local ignoredCreatures = {
+	[32257] = "Scourge Converter",
 	[43513] = "Verlok Pillartumbler",
 }
 
