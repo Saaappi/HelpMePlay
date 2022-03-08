@@ -1,6 +1,8 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local titanResearchArchiveTalents = {
 	-- Corrupted Mementos: 1744
 	791, -- Orb Operation Manual (Rank 1) (100 CM)
@@ -80,7 +82,7 @@ local cypherOfTheFirstOnesTalents = {
 }
 
 local function PrintLine(text)
-	print(L["Colored Addon Name"] .. ": " .. text)
+	print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. text)
 end
 
 local function CheckTalents(talentTree, currencyId)
@@ -108,9 +110,9 @@ local function CheckTalents(talentTree, currencyId)
 						-- send a spell link to the chat frame.
 						-- If not, then use the perk name.
 						if talentInfo.perkSpellID ~= 0 then
-							PrintLine(L["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
+							PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 						else
-							PrintLine(L["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
+							PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 						end
 					else
 						-- Let's do some quick math to determine
@@ -121,7 +123,7 @@ local function CheckTalents(talentTree, currencyId)
 						hours, minutes = string.split(".", tostring(prerequisiteTalentId.timeRemaining / 3600))
 						minutes, seconds = string.split(".", tonumber(("0."..minutes) * 60))
 						seconds = string.split(".", tonumber(("0."..seconds) * 60))
-						PrintLine(L["Prequisite Talent Being Researched"] .. " |T" .. prerequisiteTalentId.icon .. ":0|t |cffEFC503" .. prerequisiteTalentId.name .. "|r: " .. hours .. ":" .. minutes .. ":" .. seconds)
+						PrintLine(L_GLOBALSTRINGS["Prequisite Talent Being Researched"] .. " |T" .. prerequisiteTalentId.icon .. ":0|t |cffEFC503" .. prerequisiteTalentId.name .. "|r: " .. hours .. ":" .. minutes .. ":" .. seconds)
 					end
 				end
 				
@@ -131,7 +133,7 @@ local function CheckTalents(talentTree, currencyId)
 				-- currency the player
 				-- will need for the next talent,
 				-- then break from the loop.
-				PrintLine(L["Talent Not Enough Currency Text"] .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency .. " " .. "(|T" .. talentInfo.icon .. ":0|t " .. talentInfo.name .. ")")
+				PrintLine(L_GLOBALSTRINGS["Talent Not Enough Currency Text"] .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency .. " " .. "(|T" .. talentInfo.icon .. ":0|t " .. talentInfo.name .. ")")
 				return
 			end
 		end
@@ -153,7 +155,6 @@ end
 
 e:RegisterEvent("GARRISON_TALENT_NPC_OPENED")
 e:RegisterEvent("GARRISON_TALENT_RESEARCH_STARTED")
-
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GARRISON_TALENT_NPC_OPENED" then
 		if HelpMePlayOptionsDB.Talents == false or HelpMePlayOptionsDB.Talents == nil then return end
