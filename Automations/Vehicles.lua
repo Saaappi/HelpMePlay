@@ -1,13 +1,13 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
-
-e:RegisterEvent("UNIT_ENTERED_VEHICLE")
-
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local vehicles = {
 	89619, -- Murky (Highmountain)
 }
 
+e:RegisterEvent("UNIT_ENTERED_VEHICLE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UNIT_ENTERED_VEHICLE" then
 		local _, _, _, _, guid = ...
