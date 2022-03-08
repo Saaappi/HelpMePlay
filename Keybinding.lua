@@ -1,9 +1,11 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
-BINDING_NAME_HELPMEPLAY_OPEN_SETTINGS = L["Open Settings"]
+BINDING_NAME_HELPMEPLAY_OPEN_SETTINGS = L_GLOBALSTRINGS["Open Settings"]
 
 function HelpMePlayKeyPressHandler(key)
 	if key == GetBindingKey("HELPMEPLAY_OPEN_SETTINGS") then

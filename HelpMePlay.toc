@@ -42,7 +42,7 @@ Automations\Quests.lua
 # Systems
 Systems\GarrisonTalentNPC.lua
 Systems\Talents.lua
-Systems\Mouseover.lua
+Systems\Notes.lua
 Systems\PartyPlay.lua
 
 # General Stuff
