@@ -314,6 +314,16 @@ local waypointDB = {
 			96338,												-- DisplayID
 		},
 	},
+	[65142] = { -- Portal Play (Daily)
+		{
+			1970,												-- Zereth Mortis
+			34.2, 												-- X
+			48.6, 												-- Y
+			"Use the Portal Initiator and collect research",	-- Title
+			"254116",											-- Icon
+			nil,												-- DisplayID
+		},
+	},
 }
 
 addonTable.waypointDB = waypointDB
