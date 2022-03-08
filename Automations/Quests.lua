@@ -1,6 +1,8 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local itemRewardItemLevels = {}
 local sellPrices = {}
 
@@ -36,7 +38,7 @@ local function CompareItems(index, itemRewardItemLevels, sellPrices, itemLink, s
 			-- This happens if the player hasn't opened
 			-- their character pane in the current session.
 			if equippedItemLevel == nil then
-				print(L["Colored Addon Name"] .. ": " .. L["Equipped Item Level is Nil"])
+				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Equipped Item Level is Nil"])
 				return
 			elseif rewardItemLevel > equippedItemLevel then
 				-- Don't add slots with equipped heirlooms
@@ -137,7 +139,6 @@ e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_PROGRESS")
-
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
