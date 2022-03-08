@@ -1,10 +1,8 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
-
-e:RegisterEvent("GOSSIP_SHOW")
-e:RegisterEvent("PLAYER_TARGET_CHANGED")
-
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local creatures = {
 	-- gossip: false if we don't want to process
 	-- the GOSSIP_SHOW event for a particular NPC.
@@ -20,6 +18,8 @@ local creatures = {
 	[162592] 	= { gossip=true, emote="salute" }, 		-- Runestone of Chosen
 }
 
+e:RegisterEvent("GOSSIP_SHOW")
+e:RegisterEvent("PLAYER_TARGET_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Emotes == false or HelpMePlayOptionsDB.Emotes == nil then return end
