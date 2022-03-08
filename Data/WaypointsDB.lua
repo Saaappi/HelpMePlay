@@ -324,6 +324,24 @@ local waypointDB = {
 			nil,												-- DisplayID
 		},
 	},
+	[65264] = { -- Operation: Relocation (Daily)
+		{
+			1970,												-- Zereth Mortis
+			52.6, 												-- X
+			49.9, 												-- Y
+			"Ropes",											-- Title
+			nil,												-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			53.6, 												-- X
+			54.2, 												-- Y
+			"Gorgers, Breachers, & Avians (scattered around)",	-- Title
+			nil,												-- Icon
+			nil,												-- DisplayID
+		},
+	},
 }
 
 addonTable.waypointDB = waypointDB
