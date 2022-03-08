@@ -1,6 +1,9 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local animaPowers = {
 	[1] = { -- Warrior
 		[71] = { -- Arms
@@ -2459,7 +2462,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if mapId then
 			local mapName = C_Map.GetMapInfo(mapId).name
-			if mapName == L["Torghast"] then
+			if mapName == L_GLOBALSTRINGS["Torghast"] then
 				local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
 				if choiceInfo then
 					-- Anima Powers are sectioned off by
