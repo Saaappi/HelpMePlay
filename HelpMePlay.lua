@@ -39,7 +39,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HelpMePlayShowMinimapIcon(false)
 			end
 		elseif addonLoaded == "Blizzard_AchievementUI" then
-			L.GetTrackedAchievementCriteriaCompletion()
+			--L.GetTrackedAchievementCriteriaCompletion()
 		end
 	end
 end)
