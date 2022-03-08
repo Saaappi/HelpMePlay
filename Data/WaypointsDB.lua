@@ -342,6 +342,16 @@ local waypointDB = {
 			nil,												-- DisplayID
 		},
 	},
+	[65072] = { -- Not Safe for Work (Daily)
+		{
+			1970,												-- Zereth Mortis
+			65.0, 												-- X
+			44.2, 												-- Y
+			"Take Rana around this area to collect relics",		-- Title
+			nil,												-- Icon
+			nil,												-- DisplayID
+		},
+	},
 }
 
 addonTable.waypointDB = waypointDB
