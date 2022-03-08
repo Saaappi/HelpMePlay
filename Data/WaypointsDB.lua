@@ -4,7 +4,7 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local waypointDB = {
-	[65325] = {
+	[65325] = { -- Motes of Knowledge (Daily)
 		{
 			1970,						-- Zereth Mortis
 			64, 						-- X
