@@ -35,7 +35,7 @@ local waypointDB = {
 			1970,												-- Zereth Mortis
 			47.2, 												-- X
 			40.2, 												-- Y
-			"Dominated Jiro (scattered in the area)",			-- Title
+			"Dominated Jiro (scattered around)",				-- Title
 			nil,												-- Icon
 			98978,												-- DisplayID
 		},
@@ -63,9 +63,93 @@ local waypointDB = {
 			1970,												-- Zereth Mortis
 			61.6, 												-- X
 			68.6, 												-- Y
-			"Overgrown Geomental (scattered in the area)",		-- Title
+			"Overgrown Geomental (scattered around)",			-- Title
 			nil,												-- Icon
 			100374,												-- DisplayID
+		},
+	},
+	[65096] = { -- Your Death Or Mine (Daily)
+		{														
+			1970,												-- Zereth Mortis
+			65.4, 												-- X
+			45.4, 												-- Y
+			"Punisher Makaris",									-- Title
+			nil,												-- Icon
+			100717,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			64.6, 												-- X
+			43.9, 												-- Y
+			"Sacred Relic (use the mines, scattered around)",	-- Title
+			"4038106",											-- Icon
+			nil,												-- DisplayID
+		},
+	},
+	[64717] = { -- Materials of Creation (Daily)
+		{														
+			1970,												-- Zereth Mortis
+			45.3, 												-- X
+			45.9, 												-- Y
+			"Eidolic Fragment",									-- Title
+			"463857",											-- Icon
+			nil,												-- DisplayID
+		},
+		{														
+			1970,												-- Zereth Mortis
+			45.3, 												-- X
+			61.5, 												-- Y
+			"Eidolic Fragment",									-- Title
+			"463857",											-- Icon
+			nil,												-- DisplayID
+		},
+		{														
+			1970,												-- Zereth Mortis
+			50.0, 												-- X
+			47.0, 												-- Y
+			"Eidolic Fragment",									-- Title
+			"463857",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			42.6, 												-- X
+			46.0, 												-- Y
+			"Minor Enigmet",									-- Title
+			"4038105",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			41.3, 												-- X
+			48.0, 												-- Y
+			"Minor Enigmet",									-- Title
+			"4038105",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			42.6, 												-- X
+			49.7, 												-- Y
+			"Minor Enigmet",									-- Title
+			"4038105",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			43.4, 												-- X
+			50.5, 												-- Y
+			"Minor Enigmet",									-- Title
+			"4038105",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			44.7, 												-- X
+			52.2, 												-- Y
+			"Minor Enigmet",									-- Title
+			"4038105",											-- Icon
+			nil,												-- DisplayID
 		},
 	},
 }
