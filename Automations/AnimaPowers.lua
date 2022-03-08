@@ -2453,7 +2453,6 @@ local function AnimaPowerExistsForClass(classId, specId, desiredSpellId)
 end
 
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
-
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if HelpMePlayOptionsDB.TorghastPowers == "Disabled" or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then return end
