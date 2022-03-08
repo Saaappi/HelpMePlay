@@ -19,6 +19,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
 							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
+						else
+							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2) -- Story Mode
+							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
 						end
 					end
 				elseif mapId == 543 then -- Gorgrond
@@ -78,8 +82,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(7)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
-					else
-						print("Covenant automation is disabled.")
 					end
 				end
 			end
