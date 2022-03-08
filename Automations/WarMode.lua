@@ -1,18 +1,18 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
-
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local delay = 1.5
 local playerLevel = 50
 
 e:RegisterEvent("PLAYER_LEVEL_CHANGED")
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LEVEL_CHANGED" then
 		local _, newLevel = ...
 		if newLevel == 20 then
-			print(L["Colored Addon Name"] .. ": " .. L["War Mode Reminder"])
+			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["War Mode Reminder"])
 		end
 	end
 	if event == "ZONE_CHANGED_NEW_AREA" then
