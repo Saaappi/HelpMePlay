@@ -18,6 +18,9 @@ Lib\lib.xml
 SettingsFrame.xml
 SettingsFrame.lua
 
+# Data
+Data\WaypointsDB.lua
+
 # Automations
 Automations\ChromieTime.lua
 Automations\AdventureMap.lua

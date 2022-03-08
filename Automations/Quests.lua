@@ -135,6 +135,7 @@ local function Get_AvailableQuests(gossipInfo)
 end
 
 e:RegisterEvent("GOSSIP_SHOW")
+e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
@@ -149,6 +150,27 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 		if availableQuests then
 			Get_AvailableQuests(availableQuests)
+		end
+	end
+	if event == "QUEST_ACCEPTED" then
+		local questId = ...
+		if select(2, IsAddOnLoaded("TomTom")) then
+			for quest,questData in pairs(addonTable.waypointDB) do
+				if quest == questId then
+					for _,coords in ipairs(questData) do
+						local opts = {
+							title = coords[4],
+							persistent = nil,
+							minimap = true,
+							world = true,
+							from = addonName,
+							minimap_icon = coords[5],
+							worldmap_icon = coords[5],
+						}
+						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts);
+					end
+				end
+			end
 		end
 	end
 	if event == "QUEST_COMPLETE" then
