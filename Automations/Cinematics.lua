@@ -1,6 +1,8 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local badMaps = {
 	-- These are maps that shouldn't have
 	-- their cinematics or movies cancelled.
@@ -15,7 +17,7 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 	local mapId = C_Map.GetBestMapForUnit("player")
 	for key, badMapId in ipairs(badMaps) do
 		if badMapId == mapId then
-			print(L["Colored Addon Name"] .. ": " .. L["Cinematic or Movie Not Skipped"])
+			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " ..L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
 			return
 		end
 	end
@@ -28,7 +30,7 @@ _G["MovieFrame_PlayMovie"] = function(...)
 	local mapId = C_Map.GetBestMapForUnit("player")
 	for key, badMapId in ipairs(badMaps) do
 		if badMapId == mapId then
-			print(L["Colored Addon Name"] .. ": " .. L["Cinematic or Movie Not Skipped"])
+			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
 			return
 		end
 	end
