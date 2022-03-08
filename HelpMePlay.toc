@@ -10,7 +10,6 @@
 Locale\L_GlobalStrings.lua
 Locale\L_Dialog.lua
 Locale\L_Notes.lua
-Locale.lua
 
 # Libraries
 Lib\lib.xml
