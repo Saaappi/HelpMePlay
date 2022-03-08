@@ -1,7 +1,6 @@
 local addonName, addonTable = ...
 local locale = GAME_LOCALE or GetLocale()
-
--- Identifies if the addon supports the player's language. If not, let's print a message to their chat box and give them a way to contact me.
+local isLocaleSupported = false
 local supportedLocales = {
 	"enGB",
 	"enUS",
@@ -16,19 +15,22 @@ local supportedLocales = {
 	"zhTW",
 	"zhCN",
 }
-local isLocaleSupported = false
+local L_GLOBALSTRINGS = setmetatable({}, { __index = function(t, k)
+	local v = tostring(k)
+	rawset(t, k, v)
+	return v
+end })
+
 for i=1,#supportedLocales do
 	if (supportedLocales[i] == locale) then
 		isLocaleSupported = true
 	end
 end
 
--- The localized strings used by the addon.
-local L_GLOBALSTRINGS = setmetatable({}, { __index = function(t, k)
-	local v = tostring(k)
-	rawset(t, k, v)
-	return v
-end })
+if (isLocaleSupported == false) then
+	print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
+end
+
 if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Slash HMP"]																= "/hmp"
 	L_GLOBALSTRINGS["Abandon Command"]															= "abandon"
@@ -144,10 +146,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Necrolord"]																= "|T3257749:0|t Necrolord"
 	L_GLOBALSTRINGS["Night Fae"]																= "|T3257750:0|t Night Fae"
 	L_GLOBALSTRINGS["Venthyr"]																	= "|T3257751:0|t Venthyr"
-end
-
-if (isLocaleSupported == false) then
-	print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS

@@ -1,8 +1,7 @@
 local addonName, addonTable = ...
 local locale = GAME_LOCALE or GetLocale()
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-
--- Identifies if the addon supports the player's language. If not, let's print a message to their chat box and give them a way to contact me.
+local isLocaleSupported = false
 local supportedLocales = {
 	"enGB",
 	"enUS",
@@ -17,19 +16,22 @@ local supportedLocales = {
 	"zhTW",
 	"zhCN",
 }
-local isLocaleSupported = false
+local L_DIALOG = setmetatable({}, { __index = function(t, k)
+	local v = tostring(k)
+	rawset(t, k, v)
+	return v
+end })
+
 for i=1,#supportedLocales do
 	if (supportedLocales[i] == locale) then
 		isLocaleSupported = true
 	end
 end
 
--- The localized strings used by the addon.
-local L_DIALOG = setmetatable({}, { __index = function(t, k)
-	local v = tostring(k)
-	rawset(t, k, v)
-	return v
-end })
+if (isLocaleSupported == false) then
+	print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
+end
+
 if (isLocaleSupported) then
 	-- Dialog
 	L_DIALOG["Are you enjoying yourself?"]													= "Are you enjoying yourself?"
@@ -413,10 +415,6 @@ if (isLocaleSupported) then
 	L_DIALOG["Forgelite Sophone 1"]															= "Your time has come, Sophone."
 	L_DIALOG["Olem 1"]																		= "The devourer threat has been pushed back and the Wellspring has been restored."
 	L_DIALOG["Sequence Generator 1"]														= "<Start the sequence.>"
-end
-
-if (isLocaleSupported == false) then
-	print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
 end
 
 addonTable.L_DIALOG = L_DIALOG
