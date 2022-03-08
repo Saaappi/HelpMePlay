@@ -532,6 +532,7 @@ if (isLocaleSupported) then
 	L["Pocopoc 4"]																= "What is the vessel?"
 	L["Pocopoc 5"]																= "Transfer your energy into the oracle."
 	L["Ancient Translocator 1"]													= "Travel to the Sepulcher of the First Ones"
+	L["Repository Console 1"]													= "Insert the Protoform Catalyst."
 	L["Feroz 1"]																= "Bottoms up."
 	L["Sylvanas Windrunner 1"]													= "Show us."
 	L["Saezurah 1"]																= "How do we help Zereth Mortis create a new Arbiter?"

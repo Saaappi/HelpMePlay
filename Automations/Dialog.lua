@@ -1849,6 +1849,7 @@ local Shadowlands = {
 	[0] = {
 		["g"] = {
 			L["Ancient Translocator 1"],
+			L["Repository Console 1"],
 		},
 	},
 	[156791] = { -- Keeper Ta'saran
@@ -3490,6 +3491,11 @@ local Shadowlands = {
 	[181948] = { -- Highlord Bolvar Fordragon
 		["g"] = {
 			L["Highlord Bolvar Fordragon 5"],
+		},
+	},
+	[180610] = { -- Kodah
+		["g"] = {
+			L["Let's do this!"],
 		},
 	},
 	-- End of Zereth Mortis
