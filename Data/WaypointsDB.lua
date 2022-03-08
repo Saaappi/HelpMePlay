@@ -152,6 +152,16 @@ local waypointDB = {
 			nil,												-- DisplayID
 		},
 	},
+	[64964] = { -- Choose Your Fighter (Daily)
+		{														
+			1970,												-- Zereth Mortis
+			48.6, 												-- X
+			50.0, 												-- Y
+			"Custodian Taj",									-- Title
+			nil,												-- Icon
+			102043,												-- DisplayID
+		},
+	},
 }
 
 addonTable.waypointDB = waypointDB
