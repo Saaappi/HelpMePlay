@@ -59,7 +59,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	L_GLOBALSTRINGS["War Mode Reminder"]														= "You leveled to 20! You should return to Orgrimmar (Horde) or Stormwind City (Alliance), so I can enable War Mode."
 	L_GLOBALSTRINGS["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
-	L_GLOBALSTRINGS["Auto Accept Queue Text"]													= "Auto accepted the queue."
 	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
 	L_GLOBALSTRINGS["Quest Accepted Text"]														= "Accepted"
 	L_GLOBALSTRINGS["Burning Crusade"]															= "Burning Crusade"
