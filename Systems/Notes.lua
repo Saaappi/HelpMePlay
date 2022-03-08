@@ -27,7 +27,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						for i=1,GameTooltip:NumLines() do
 							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), addonName) then return end
 						end
-						GameTooltip:AddLine("|cffFFFFFF" .. addonName .. "|r: " .. v)
+						GameTooltip:AddLine(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. v)
 						GameTooltip:Show()
 					end
 				end
