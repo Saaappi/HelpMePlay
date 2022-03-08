@@ -546,27 +546,6 @@ if (isLocaleSupported) then
 	L["Forgelite Sophone 1"]													= "Your time has come, Sophone."
 	L["Olem 1"]																	= "The devourer threat has been pushed back and the Wellspring has been restored."
 	L["Sequence Generator 1"]													= "<Start the sequence.>"
-	-- Creature Names
-	L["Sylla"]																	= "Sylla"
-	L["Thenia"]																	= "Thenia"
-	L["Stratios"]																= "Stratios"
-	L["Zolla"]																	= "Zolla"
-	L["Rotgut"]																	= "Rotgut"
-	L["Dundley Stickyfingers"]													= "Dundley Stickyfingers"
-	L["Caregiver Maximillian"]													= "Caregiver Maximillian"
-	L["Faryl"]																	= "Faryl"
-	L["Glitterdust"]															= "Glitterdust"
-	L["Addius the Tormentor"]													= "Addius the Tormentor"
-	L["Eyegor"]																	= "Eyegor"
-	L["Lady of the Falls"]														= "Lady of the Falls"
-	L["Elder Gwenna"]															= "Elder Gwenna"
-	L["Sorcha"]																	= "Sorcha"
-	L["Gormsmith Cavina"]														= "Gormsmith Cavina"
-	L["Groonoomcrooek"]															= "Groonoomcrooek"
-	L["Elder Finnan"]															= "Elder Finnan"
-	L["Lady of the Falls"]														= "Lady of the Falls"
-	L["Lady of the Falls"]														= "Lady of the Falls"
-	L["Lady of the Falls"]														= "Lady of the Falls"
 end
 
 if (isLocaleSupported == false) then

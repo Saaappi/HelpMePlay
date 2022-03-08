@@ -7,6 +7,9 @@
 ## Title: HelpMePlay
 ## Version: 1.1.2
 
+Locale\L_GlobalStrings.lua
+Locale\L_Dialog.lua
+Locale\L_Notes.lua
 Locale.lua
 
 # Libraries
