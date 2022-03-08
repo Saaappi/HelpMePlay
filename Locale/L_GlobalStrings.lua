@@ -80,7 +80,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Mount Training"]															= "Trainers"
 	L_GLOBALSTRINGS["Speech"]																	= "Speech"
 	L_GLOBALSTRINGS["War Mode"]																	= "War Mode"
-	L_GLOBALSTRINGS["Accept/Complete Quests"]													= "Quests"
+	L_GLOBALSTRINGS["Quests"]																	= "Quests"
 	L_GLOBALSTRINGS["Threads of Fate"]															= "Threads of Fate"
 	L_GLOBALSTRINGS["Chromie Time"]																= "Chromie Time"
 	L_GLOBALSTRINGS["Current Expansion"]														= "Current Expansion"

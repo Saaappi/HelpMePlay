@@ -1,6 +1,8 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local icon = ""
 
 local function ShowTooltip(self, text)
@@ -17,13 +19,13 @@ end
 
 local function GetChromieTimeExpansionName(id)
 	local expansions = {
-		[0] = L["Battle for Azeroth"],
-		[5] = L["Cataclysm"],
-		[6] = L["Burning Crusade"],
-		[7] = L["Lich King"],
-		[8] = L["Mists of Pandaria"],
-		[9] = L["Draenor"],
-		[10] = L["Legion"],
+		[0] = L_GLOBALSTRINGS["Battle for Azeroth"],
+		[5] = L_GLOBALSTRINGS["Cataclysm"],
+		[6] = L_GLOBALSTRINGS["Burning Crusade"],
+		[7] = L_GLOBALSTRINGS["Lich King"],
+		[8] = L_GLOBALSTRINGS["Mists of Pandaria"],
+		[9] = L_GLOBALSTRINGS["Draenor"],
+		[10] = L_GLOBALSTRINGS["Legion"],
 	}
 	
 	for expansionId, name in pairs(expansions) do
@@ -39,278 +41,278 @@ local function DropDownMenu_Initialize(menuName)
 	
 	if menuName:GetName() == "HMPChromieTimeDropDown" then
 		-- Burning Crusade
-		info.text = L["Burning Crusade"]
+		info.text = L_GLOBALSTRINGS["Burning Crusade"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = 6
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Burning Crusade"]
+		info.value = L_GLOBALSTRINGS["Burning Crusade"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Burning Crusade"]
-		info.tooltipText = L["Burning Crusade"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Burning Crusade"]
+		info.tooltipText = L_GLOBALSTRINGS["Burning Crusade"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Wrath of the Lich King
-		info.text = L["Lich King"]
+		info.text = L_GLOBALSTRINGS["Lich King"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = 7
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Lich King"]
+		info.value = L_GLOBALSTRINGS["Lich King"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Lich King"]
-		info.tooltipText = L["Lich King"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Lich King"]
+		info.tooltipText = L_GLOBALSTRINGS["Lich King"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Cataclysm
-		info.text = L["Cataclysm"]
+		info.text = L_GLOBALSTRINGS["Cataclysm"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = 5
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Cataclysm"]
+		info.value = L_GLOBALSTRINGS["Cataclysm"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Cataclysm"]
-		info.tooltipText = L["Cataclysm"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Cataclysm"]
+		info.tooltipText = L_GLOBALSTRINGS["Cataclysm"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Mists of Pandaria
-		info.text = L["Mists of Pandaria"]
+		info.text = L_GLOBALSTRINGS["Mists of Pandaria"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = 8
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Mists of Pandaria"]
+		info.value = L_GLOBALSTRINGS["Mists of Pandaria"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Mists of Pandaria"]
-		info.tooltipText = L["Mists of Pandaria"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Mists of Pandaria"]
+		info.tooltipText = L_GLOBALSTRINGS["Mists of Pandaria"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Warlords of Draenor
-		info.text = L["Draenor"]
+		info.text = L_GLOBALSTRINGS["Draenor"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = 9
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Draenor"]
+		info.value = L_GLOBALSTRINGS["Draenor"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Draenor"]
-		info.tooltipText = L["Draenor"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Draenor"]
+		info.tooltipText = L_GLOBALSTRINGS["Draenor"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Legion
-		info.text = L["Legion"]
+		info.text = L_GLOBALSTRINGS["Legion"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = 10
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Legion"]
+		info.value = L_GLOBALSTRINGS["Legion"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Legion"]
-		info.tooltipText = L["Legion"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Legion"]
+		info.tooltipText = L_GLOBALSTRINGS["Legion"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Battle for Azeroth
-		info.text = L["Battle for Azeroth"]
+		info.text = L_GLOBALSTRINGS["Battle for Azeroth"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Battle for Azeroth"]
+		info.value = L_GLOBALSTRINGS["Battle for Azeroth"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Battle for Azeroth"]
-		info.tooltipText = L["Battle for Azeroth"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Battle for Azeroth"]
+		info.tooltipText = L_GLOBALSTRINGS["Battle for Azeroth"]
 		UIDropDownMenu_AddButton(info)
 	elseif menuName:GetName() == "HMPTorghastPowersDropDown" then
 		-- Automatic
 		--
 		-- Automatically selects the power for the player.
-		info.text = L["Automatic"]
+		info.text = L_GLOBALSTRINGS["Automatic"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.TorghastPowers = L["Automatic"]
+			HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Automatic"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Automatic"]
+		info.value = L_GLOBALSTRINGS["Automatic"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Automatic"]
-		info.tooltipText = L["Automatic"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Automatic"]
+		info.tooltipText = L_GLOBALSTRINGS["Automatic"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Automatic (No Epic)
 		--
 		-- Automatically selects the power for the player.
 		-- Ignores epic powers.
-		info.text = L["Automatic (No Epic)"]
+		info.text = L_GLOBALSTRINGS["Automatic (No Epic)"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.TorghastPowers = L["Automatic (No Epic)"]
+			HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Automatic (No Epic)"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Automatic (No Epic)"]
+		info.value = L_GLOBALSTRINGS["Automatic (No Epic)"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Automatic (No Epic)"]
-		info.tooltipText = L["Automatic (No Epic)"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Automatic (No Epic)"]
+		info.tooltipText = L_GLOBALSTRINGS["Automatic (No Epic)"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Notifications
 		--
 		-- Notifies the player of the recommended power.
-		info.text = L["Notifications"]
+		info.text = L_GLOBALSTRINGS["Notifications"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.TorghastPowers = L["Notifications"]
+			HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Notifications"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Notifications"]
+		info.value = L_GLOBALSTRINGS["Notifications"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Notifications"]
-		info.tooltipText = L["Notifications"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Notifications"]
+		info.tooltipText = L_GLOBALSTRINGS["Notifications"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Disabled
 		--
 		-- Self explanatory.
-		info.text = L["Disabled"]
+		info.text = L_GLOBALSTRINGS["Disabled"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
+			HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Disabled"]
+		info.value = L_GLOBALSTRINGS["Disabled"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Disabled"]
-		info.tooltipText = L["Disabled"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Disabled"]
+		info.tooltipText = L_GLOBALSTRINGS["Disabled"]
 		UIDropDownMenu_AddButton(info)
 	elseif menuName:GetName() == "HMPCovenantsDropDown" then
 		-- Kyrian
 		--
 		-- Automatically selects the Kyrian Covenant.
-		info.text = L["Kyrian"]
+		info.text = L_GLOBALSTRINGS["Kyrian"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.Covenant = L["Kyrian"]
+			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Kyrian"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Kyrian"]
+		info.value = L_GLOBALSTRINGS["Kyrian"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Kyrian"]
-		info.tooltipText = L["Kyrian"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Kyrian"]
+		info.tooltipText = L_GLOBALSTRINGS["Kyrian"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Necrolord
 		--
 		-- Automatically selects the Necrolord Covenant.
-		info.text = L["Necrolord"]
+		info.text = L_GLOBALSTRINGS["Necrolord"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.Covenant = L["Necrolord"]
+			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Necrolord"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Necrolord"]
+		info.value = L_GLOBALSTRINGS["Necrolord"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Necrolord"]
-		info.tooltipText = L["Necrolord"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Necrolord"]
+		info.tooltipText = L_GLOBALSTRINGS["Necrolord"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Night Fae
 		--
 		-- Automatically selects the Night Fae Covenant.
-		info.text = L["Night Fae"]
+		info.text = L_GLOBALSTRINGS["Night Fae"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.Covenant = L["Night Fae"]
+			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Night Fae"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Night Fae"]
+		info.value = L_GLOBALSTRINGS["Night Fae"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Night Fae"]
-		info.tooltipText = L["Night Fae"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Night Fae"]
+		info.tooltipText = L_GLOBALSTRINGS["Night Fae"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Venthyr
 		--
 		-- Automatically selects the Venthyr Covenant.
-		info.text = L["Venthyr"]
+		info.text = L_GLOBALSTRINGS["Venthyr"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.Covenant = L["Venthyr"]
+			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Venthyr"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Venthyr"]
+		info.value = L_GLOBALSTRINGS["Venthyr"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Venthyr"]
-		info.tooltipText = L["Venthyr"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Venthyr"]
+		info.tooltipText = L_GLOBALSTRINGS["Venthyr"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Disabled
 		--
 		-- Self explanatory.
-		info.text = L["Disabled"]
+		info.text = L_GLOBALSTRINGS["Disabled"]
 		info.func = function(self)
-			HelpMePlayOptionsDB.Covenant = L["Disabled"]
+			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L["Disabled"]
+		info.value = L_GLOBALSTRINGS["Disabled"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L["Disabled"]
-		info.tooltipText = L["Disabled"]
+		info.tooltipTitle = L_GLOBALSTRINGS["Disabled"]
+		info.tooltipText = L_GLOBALSTRINGS["Disabled"]
 		UIDropDownMenu_AddButton(info)
 	end
 end
@@ -327,8 +329,8 @@ function HelpMePlayShowMinimapIcon(show)
 				type = "launcher",
 				icon = "Interface\\Icons\\achievement_reputation_08",
 				OnTooltipShow = function(tooltip)
-					tooltip:SetText(L["Colored Addon Name"] .. " |cffFFFFFFv" .. GetAddOnMetadata(addonName, "Version") .. "|r")
-					tooltip:AddLine(L["Minimap Icon Subtext"])
+					tooltip:SetText(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cffFFFFFFv" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:AddLine(L_GLOBALSTRINGS["Minimap Icon Subtext"])
 					tooltip:Show()
 				end,
 				OnClick = function() HelpMePlayLoadSettings() end,
@@ -359,26 +361,26 @@ function HelpMePlayLoadSettings()
 			HMPOptionsFrame:SetScript("OnDragStop", HMPOptionsFrame.StopMovingOrSizing)
 
 			-- SetText for FontStrings
-			HMPCRText:SetText(L["CR Text"])
-			HMPDisableAllText:SetText(L["Disable All"])
+			HMPCRText:SetText(L_GLOBALSTRINGS["CR Text"])
+			HMPDisableAllText:SetText(L_GLOBALSTRINGS["Disable All"])
 			HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
-			HMPAdvMapsText:SetText(L["Adventure Maps"])
-			HMPDialogText:SetText(L["Dialog"])
-			HMPEmotesText:SetText(L["Emotes"])
-			HMPGarrisonTblText:SetText(L["Garrison Tables"])
-			HMPMailText:SetText(L["Mail"])
-			HMPMerchantsText:SetText(L["Merchants"])
-			HMPTrainersV2Text:SetText(L["Trainers"])
-			HMPSpeechText:SetText(L["Speech"])
-			HMPWarModeText:SetText(L["War Mode"])
-			HMPQuestsText:SetText(L["Accept/Complete Quests"])
-			HMPToFText:SetText(L["Threads of Fate"])
-			HMPNotesText:SetText(L["Notes"])
-			HMPTalentsText:SetText(L["Talents"])
-			HMPCinematicsText:SetText(L["Cinematics"])
-			HMPQueuesText:SetText(L["Queues"])
-			HMPPartyPlayText:SetText(L["Party Play"])
-			HMPMinimapIconText:SetText(L["Minimap Icon"])
+			HMPAdvMapsText:SetText(L_GLOBALSTRINGS["Adventure Maps"])
+			HMPDialogText:SetText(L_GLOBALSTRINGS["Dialog"])
+			HMPEmotesText:SetText(L_GLOBALSTRINGS["Emotes"])
+			HMPGarrisonTblText:SetText(L_GLOBALSTRINGS["Garrison Tables"])
+			HMPMailText:SetText(L_GLOBALSTRINGS["Mail"])
+			HMPMerchantsText:SetText(L_GLOBALSTRINGS["Merchants"])
+			HMPTrainersV2Text:SetText(L_GLOBALSTRINGS["Trainers"])
+			HMPSpeechText:SetText(L_GLOBALSTRINGS["Speech"])
+			HMPWarModeText:SetText(L_GLOBALSTRINGS["War Mode"])
+			HMPQuestsText:SetText(L_GLOBALSTRINGS["Quests"])
+			HMPToFText:SetText(L_GLOBALSTRINGS["Threads of Fate"])
+			HMPNotesText:SetText(L_GLOBALSTRINGS["Notes"])
+			HMPTalentsText:SetText(L_GLOBALSTRINGS["Talents"])
+			HMPCinematicsText:SetText(L_GLOBALSTRINGS["Cinematics"])
+			HMPQueuesText:SetText(L_GLOBALSTRINGS["Queues"])
+			HMPPartyPlayText:SetText(L_GLOBALSTRINGS["Party Play"])
+			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
 
 			-- Check settings first
 			if HelpMePlayOptionsDB.DisableAll then
@@ -494,34 +496,34 @@ function HelpMePlayLoadSettings()
 			end
 			
 			if HelpMePlayOptionsDB.TorghastPowers then
-				if HelpMePlayOptionsDB.TorghastPowers == L["Automatic"] or HelpMePlayOptionsDB.TorghastPowers == true then
-					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic"])
-				elseif HelpMePlayOptionsDB.TorghastPowers == L["Automatic (No Epic)"] then
-					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Automatic (No Epic)"])
-				elseif HelpMePlayOptionsDB.TorghastPowers == L["Notifications"] then
-					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Notifications"])
-				elseif HelpMePlayOptionsDB.TorghastPowers == L["Disabled"] or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then
-					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L["Disabled"])
+				if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic"] or HelpMePlayOptionsDB.TorghastPowers == true then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Automatic"])
+				elseif HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic (No Epic)"] then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Automatic (No Epic)"])
+				elseif HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Notifications"] then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Notifications"])
+				elseif HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Disabled"] or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then
+					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Disabled"])
 				end
 			end
 			
 			if HelpMePlayOptionsDB.Covenant then
-				if HelpMePlayOptionsDB.Covenant == L["Kyrian"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Kyrian"])
-				elseif HelpMePlayOptionsDB.Covenant == L["Necrolord"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Necrolord"])
-				elseif HelpMePlayOptionsDB.Covenant == L["Night Fae"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Night Fae"])
-				elseif HelpMePlayOptionsDB.Covenant == L["Venthyr"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Venthyr"])
+				if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Kyrian"])
+				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Necrolord"])
+				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Night Fae"])
+				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Venthyr"])
 				else
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L["Disabled"])
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
 				end
 			end
 			
 			-- Disable All Check Button
 			HMPDisableAllCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Disable All Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Disable All Check Button"])
 			end)
 			HMPDisableAllCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -574,8 +576,8 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlay = false
 					HelpMePlayOptionsDB.MinimapIcon = false
 					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
-					HelpMePlayOptionsDB.TorghastPowers = L["Disabled"]
-					HelpMePlayOptionsDB.Covenant = L["Disabled"]
+					HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
+					HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
 					
 					-- Uncheck the buttons.
 					HMPAdvMapsCB:SetChecked(false)
@@ -595,9 +597,9 @@ function HelpMePlayLoadSettings()
 					HMPQueuesCB:SetChecked(false)
 					HMPPartyPlayCB:SetChecked(false)
 					HMPMinimapIconCB:SetChecked(false)
-					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L["Battle for Azeroth"])
-					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L["Disabled"])
-					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L["Disabled"])
+					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
+					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Disabled"])
+					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
 				else
 					-- Return the settings to their original
 					-- states.
@@ -651,7 +653,7 @@ function HelpMePlayLoadSettings()
 
 			-- Adventure Maps Check Button
 			HMPAdvMapsCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Adventure Maps Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Adventure Maps Check Button"])
 			end)
 			HMPAdvMapsCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -666,7 +668,7 @@ function HelpMePlayLoadSettings()
 
 			-- Dialog Check Button
 			HMPDialogCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Dialog Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Dialog Check Button"])
 			end)
 			HMPDialogCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -681,7 +683,7 @@ function HelpMePlayLoadSettings()
 
 			-- Emotes Check Button
 			HMPEmotesCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Emotes Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Emotes Check Button"])
 			end)
 			HMPEmotesCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -696,7 +698,7 @@ function HelpMePlayLoadSettings()
 
 			-- Garrison Tables Check Button
 			HMPGarrTblCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Garrison Tables Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Garrison Tables Check Button"])
 			end)
 			HMPGarrTblCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -711,7 +713,7 @@ function HelpMePlayLoadSettings()
 
 			-- Mail Check Button
 			HMPMailCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Mail Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Mail Check Button"])
 			end)
 			HMPMailCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -726,7 +728,7 @@ function HelpMePlayLoadSettings()
 
 			-- Merchants Check Button
 			HMPMerchantsCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Merchants Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Merchants Check Button"])
 			end)
 			HMPMerchantsCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -741,7 +743,7 @@ function HelpMePlayLoadSettings()
 
 			-- Trainers Check Button
 			HMPTrainersV2CB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Trainers Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Trainers Check Button"])
 			end)
 			HMPTrainersV2CB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -756,7 +758,7 @@ function HelpMePlayLoadSettings()
 
 			-- Speech Check Button
 			HMPSpeechCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Speech Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Speech Check Button"])
 			end)
 			HMPSpeechCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -771,7 +773,7 @@ function HelpMePlayLoadSettings()
 
 			-- War Mode Check Button
 			HMPWarModeCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["War Mode Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["War Mode Check Button"])
 			end)
 			HMPWarModeCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -786,7 +788,7 @@ function HelpMePlayLoadSettings()
 
 			-- Quests Check Button
 			HMPQuestsCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Quests Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Quests Check Button"])
 			end)
 			HMPQuestsCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -801,7 +803,7 @@ function HelpMePlayLoadSettings()
 
 			-- Threads of Fate Check Button
 			HMPToFCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Threads of Fate Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Threads of Fate Check Button"])
 			end)
 			HMPToFCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -816,7 +818,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Notes Check Button
 			HMPNotesCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Notes Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Notes Check Button"])
 			end)
 			HMPNotesCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -831,7 +833,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Talents Check Button
 			HMPTalentsCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Talents Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Talents Check Button"])
 			end)
 			HMPTalentsCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -846,7 +848,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Cinematics Check Button
 			HMPCinematicsCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Cinematics Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Cinematics Check Button"])
 			end)
 			HMPCinematicsCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -861,7 +863,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Queues Check Button
 			HMPQueuesCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Queues Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Queues Check Button"])
 			end)
 			HMPQueuesCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -876,7 +878,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Party Play Check Button
 			HMPPartyPlayCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Party Play Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Party Play Check Button"])
 			end)
 			HMPPartyPlayCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -891,7 +893,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Minimap Icon Check Button
 			HMPMinimapIconCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Minimap Icon Check Button"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Minimap Icon Check Button"])
 			end)
 			HMPMinimapIconCB:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -908,7 +910,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Chromie Time DropDown
 			HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Chromie Time DropDown"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Chromie Time DropDown"])
 			end)
 			HMPChromieTimeDropDown:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -917,7 +919,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Torghast Powers DropDown
 			HMPTorghastPowersDropDown:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Torghast Powers DropDown"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Torghast Powers DropDown"])
 			end)
 			HMPTorghastPowersDropDown:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -926,7 +928,7 @@ function HelpMePlayLoadSettings()
 			
 			-- Covenants DropDown
 			HMPCovenantsDropDown:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L["Covenants DropDown"])
+				ShowTooltip(self, L_GLOBALSTRINGS["Covenants DropDown"])
 			end)
 			HMPCovenantsDropDown:SetScript("OnLeave", function(self)
 				HideTooltip(self)
@@ -936,7 +938,7 @@ function HelpMePlayLoadSettings()
 	end
 end
 
-SLASH_HelpMePlay1 = L["Slash HMP"]
+SLASH_HelpMePlay1 = L_GLOBALSTRINGS["Slash HMP"]
 SlashCmdList["HelpMePlay"] = function(command, editbox)
 	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
 	if not command or command == "" then
@@ -945,13 +947,13 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		else
 			HelpMePlayLoadSettings()
 		end
-	elseif command == L["Abandon Command"] and arguments == "" then
+	elseif command == L_GLOBALSTRINGS["Abandon Command"] and arguments == "" then
 		-- Abandon all quests, but offer a static popup to confirm the player's choice.
 		StaticPopupDialogs["HELPMEPLAY_ABANDON_ALL_QUESTS"] = 
 		{
-			text = L["Do you really want to abandon all quests?"],
-			button1 = L["Yes"],
-			button2 = L["No"],
+			text = L_GLOBALSTRINGS["Do you really want to abandon all quests?"],
+			button1 = L_GLOBALSTRINGS["Yes"],
+			button2 = L_GLOBALSTRINGS["No"],
 			OnAccept = function()
 				for i=1,C_QuestLog.GetNumQuestLogEntries() do
 					local info = C_QuestLog.GetInfo(i)
@@ -970,7 +972,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			preferredIndex = 3,
 		}
 		StaticPopup_Show ("HELPMEPLAY_ABANDON_ALL_QUESTS")
-	elseif command == L["Abandon Command"] and arguments ~= "" then
+	elseif command == L_GLOBALSTRINGS["Abandon Command"] and arguments ~= "" then
 		-- Abandon the quests by header name.
 		local iter = 1
 		for i=1,C_QuestLog.GetNumQuestLogEntries() do
@@ -990,7 +992,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 		end
-	elseif command == L["Dialog Command"] and arguments ~= "" then
+	elseif command == L_GLOBALSTRINGS["Dialog Command"] and arguments ~= "" then
 		-- Add the custom (player submitted) dialog to the
 		-- HelpMePlayPlayerDialogDB table. But before we
 		-- add it, let's see if it already exists. If so,
@@ -1002,7 +1004,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 		end
 		table.insert(HelpMePlayPlayerDialogDB, arguments)
-	elseif command == L["Quest Command"] or command == L["Q"] and arguments ~= "" then
+	elseif command == L_GLOBALSTRINGS["Quest Command"] or command == L_GLOBALSTRINGS["Q"] and arguments ~= "" then
 		-- A shorthand way to check if a given quest has
 		-- been completed by the current player.
 		--
