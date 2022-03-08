@@ -164,8 +164,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 							minimap = true,
 							world = true,
 							from = addonName,
-							minimap_icon = coords[5] or nil,
-							worldmap_icon = coords[5] or nil,
+							minimap_icon = coords[5],
+							worldmap_icon = coords[5],
+							minimap_displayID = coords[6],
+							worldmap_displayID = coords[6],
 						}
 						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts);
 					end
