@@ -1,10 +1,11 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 e:RegisterEvent("TRAINER_SHOW")
 e:RegisterEvent("TRAINER_UPDATE")
-
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "TRAINER_SHOW" or event == "TRAINER_UPDATE" then
 		if HelpMePlayOptionsDB.Trainers == false or HelpMePlayOptionsDB.Trainers == nil then return end
