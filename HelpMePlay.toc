@@ -40,7 +40,6 @@ Automations\Cinematics.lua
 Automations\Quests.lua
 
 # Systems
-#Systems\Achievements.lua
 Systems\GarrisonTalentNPC.lua
 Systems\Talents.lua
 Systems\Mouseover.lua
