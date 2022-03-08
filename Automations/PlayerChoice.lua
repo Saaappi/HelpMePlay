@@ -1,9 +1,10 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L_DIALOG = addonTable.L_DIALOG
+local L_NOTES = addonTable.L_NOTES
+local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
-
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if PlayerChoiceFrame:IsVisible() then
@@ -61,19 +62,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 						HideUIPanel(PlayerChoiceFrame)
 					end
 				elseif mapId == 1670 then -- Oribos
-					if HelpMePlayOptionsDB.Covenant == L["Kyrian"] then
+					if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
-					elseif HelpMePlayOptionsDB.Covenant == L["Venthyr"] then
+					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(3)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
-					elseif HelpMePlayOptionsDB.Covenant == L["Necrolord"] then
+					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(5)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
-					elseif HelpMePlayOptionsDB.Covenant == L["Night Fae"] then
+					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(7)
 						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
