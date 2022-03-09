@@ -8,4 +8,4 @@ HelpMePlay | 1.1.2
 		- Updated the Mail automation to also collect items (in addition to gold.)
 		- Updated the rules for purchasing skills from trainers. Players need only 50 gold more than the cost now.
 		- Removed the quest icon feature.
-		- Fixed an issue that prevented the addon from taking quest rewards when neither had a sell price.
+		- Fixed an issue that prevented the addon from taking quest rewards when none had a sell price.
