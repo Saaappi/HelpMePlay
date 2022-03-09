@@ -899,11 +899,67 @@ local WAYPOINTS = {
 	[65269] = { -- Obvious Plant (Daily)
 		{
 			1970,												-- Zereth Mortis
-			49.7, 												-- X
-			88.3, 												-- Y
-			"Right click glowing plants in this area",			-- Title
+			49.4, 												-- X
+			82.9, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
 			nil,												-- Icon
-			nil,												-- DisplayID
+			104825,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			49.6, 												-- X
+			87.5, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
+			nil,												-- Icon
+			104825,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			48.8, 												-- X
+			90.1, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
+			nil,												-- Icon
+			104825,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			50.5, 												-- X
+			94.7, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
+			nil,												-- Icon
+			104825,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			48.2, 												-- X
+			95.6, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
+			nil,												-- Icon
+			104825,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			52.1, 												-- X
+			91.1, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
+			nil,												-- Icon
+			104825,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			52.4, 												-- X
+			87.4, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
+			nil,												-- Icon
+			104825,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			49.8, 												-- X
+			91.9, 												-- Y
+			"Catalyst Magic Sensor",							-- Title
+			nil,												-- Icon
+			104825,												-- DisplayID
 		},
 	},
 }
