@@ -19,6 +19,7 @@ SettingsFrame.xml
 SettingsFrame.lua
 
 # Data
+Data\AnimaPowersDB.lua
 Data\WaypointsDB.lua
 
 # Automations
