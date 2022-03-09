@@ -28,6 +28,7 @@ Data\MerchantDB.lua
 Data\VehicleDB.lua
 Data\NotesDB.lua
 Data\TalentsDB.lua
+Data\SpeechDB.lua
 Data\QuestGiversDB.lua
 Data\QuestRewardsDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
