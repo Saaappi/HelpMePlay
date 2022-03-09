@@ -26,6 +26,9 @@ Data\EmotesDB.lua
 Data\GarrisonDB.lua
 Data\MerchantDB.lua
 Data\VehicleDB.lua
+Data\TalentSystems\TitanicResearchDB.lua
+Data\TalentSystems\BoxOfManyThingsDB.lua
+Data\TalentSystems\CypherOfFirstOnes.lua
 Data\Dialogs\Cosmic_DialogDB.lua
 Data\Dialogs\Classic_DialogDB.lua
 Data\Dialogs\TBC_DialogDB.lua
