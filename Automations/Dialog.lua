@@ -2758,7 +2758,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
 		t = addonTable.DIALOG_CLASSIC
 	elseif parentMapId == 101 then
-		t = BurningCrusade
+		t = addonTable.DIALOG_TBC
 	elseif parentMapId == 113 then
 		t = WrathOfTheLichKing
 	elseif parentMapId == 424 then
@@ -2853,7 +2853,7 @@ local function ConfirmConfirmationMessage(message, npcId)
 	if parentMapId == 12 or parentMapId == 13 then
 		t = addonTable.DIALOG_CLASSIC
 	elseif parentMapId == 101 then
-		t = BurningCrusade
+		t = addonTable.DIALOG_TBC
 	elseif parentMapId == 113 then
 		t = WrathOfTheLichKing
 	elseif parentMapId == 424 then

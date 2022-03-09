@@ -22,6 +22,8 @@ SettingsFrame.lua
 Data\AnimaPowersDB.lua
 Data\MapsDB.lua
 Data\WaypointsDB.lua
+Data\Classic_DialogDB.lua
+Data\TBC_DialogDB.lua
 
 # Automations
 Automations\ChromieTime.lua
