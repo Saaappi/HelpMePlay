@@ -155,7 +155,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_ACCEPTED" then
 		local questId = ...
 		if select(2, IsAddOnLoaded("TomTom")) then
-			for quest,questData in pairs(addonTable.waypointDB) do
+			for quest,questData in pairs(addonTable.WAYPOINTS) do
 				if quest == questId then
 					for _,coords in ipairs(questData) do
 						local opts = {

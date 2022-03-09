@@ -3,10 +3,6 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local supportedMissions = {
-	[2] 	= "Gronnlings Abound",
-	[66]	= "Killing the Corrupted",
-}
 
 e:RegisterEvent("GARRISON_MISSION_NPC_OPENED")
 e:SetScript("OnEvent", function(self, event, ...)
@@ -20,7 +16,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local faction = UnitFactionGroup("player")
 				if faction == "Alliance" then
 					for boardIndex, mission in pairs(missions) do
-						if supportedMissions[mission.missionID] then
+						if addonTable.GARRISON_MISSIONS[mission.missionID] then
 							if mission.inProgress == false then
 								-- Assigns Qiana Moonshadow to the Killing the Corrupted mission.
 								C_Garrison.AddFollowerToMission(mission.missionID, followers[1].followerID)
@@ -31,7 +27,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				else
 					for boardIndex, mission in pairs(missions) do
-						if supportedMissions[mission.missionID] then
+						if addonTable.GARRISON_MISSIONS[mission.missionID] then
 							if mission.inProgress == false then
 								-- Assigns Olin Umberhide to the Gronnlings Abound mission.
 								C_Garrison.AddFollowerToMission(mission.missionID, followers[1].followerID)

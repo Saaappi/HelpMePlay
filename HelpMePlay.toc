@@ -22,6 +22,10 @@ SettingsFrame.lua
 Data\AnimaPowersDB.lua
 Data\MapsDB.lua
 Data\WaypointsDB.lua
+Data\EmotesDB.lua
+Data\GarrisonDB.lua
+Data\MerchantDB.lua
+Data\VehicleDB.lua
 Data\Dialogs\Cosmic_DialogDB.lua
 Data\Dialogs\Classic_DialogDB.lua
 Data\Dialogs\TBC_DialogDB.lua

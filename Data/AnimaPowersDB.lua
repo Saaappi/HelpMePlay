@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local animaPowers = {
+local ANIMAPOWERS = {
 	[1] = { -- Warrior
 		[71] = { -- Arms
 			-- S Tier Powers
@@ -2443,4 +2443,4 @@ local animaPowers = {
 	},
 }
 
-addonTable.animaPowers = animaPowers
+addonTable.ANIMAPOWERS = ANIMAPOWERS

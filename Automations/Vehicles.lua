@@ -3,9 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local vehicles = {
-	89619, -- Murky (Highmountain)
-}
+
 
 e:RegisterEvent("UNIT_ENTERED_VEHICLE")
 e:SetScript("OnEvent", function(self, event, ...)
@@ -14,7 +12,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if guid then
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
 			if npcId then
-				for _, id in ipairs(vehicles) do
+				for _, id in ipairs(addonTable.VEHICLES) do
 					if id == npcId then
 						OverrideActionBarLeaveFrameLeaveButton:Click()
 						break

@@ -114,11 +114,7 @@ end
 local function ConfirmConfirmationMessage(message, npcId)
 	-- Use the parent map ID to determine
 	-- which populated table to use.
-	--
-	-- If the parent map ID isn't supported
-	-- then set 't' to the default creatures
-	-- table.
-	if parentMapId == 12 or parentMapId == 13 then
+	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
 		loadedDialogTable = addonTable.DIALOG_CLASSIC
 	elseif parentMapId == 101 then
 		loadedDialogTable = addonTable.DIALOG_TBC

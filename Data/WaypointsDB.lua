@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local waypointDB = {
+local WAYPOINTS = {
 	[65325] = { -- Motes of Knowledge (Daily)
 		{
 			1970,						-- Zereth Mortis
@@ -354,4 +354,4 @@ local waypointDB = {
 	},
 }
 
-addonTable.waypointDB = waypointDB
+addonTable.WAYPOINTS = WAYPOINTS

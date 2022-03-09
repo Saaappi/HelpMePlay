@@ -3,63 +3,6 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local merchants = {
-	[1247] = { -- Innkeeper Belm
-		{ -- 1
-			["itemID"] = 2894, 			-- Rhapsody Malt
-			["quantity"] = 1,
-			["extendedCost"] = {},
-		},
-	},
-	[156800] = { -- Quartermaster Richter
-		{ -- 1
-			["itemID"] = 117, 			-- Tough Jerky
-			["quantity"] = 1,
-			["extendedCost"] = {},
-		},
-	},
-	[100437] = { -- Lanna Skyspark
-		{ -- 1
-			["itemID"] = 132247, 		-- Bottle of Airspark
-			["quantity"] = 1,
-			["extendedCost"] = {},
-		},
-	},
-	[160601] = { -- Caretaker Mirene
-		{ -- 1
-			["itemID"] = 178891, 		-- Elysian Thread
-			["quantity"] = 1,
-			["extendedCost"] = {},
-		},
-	},
-	[166640] = { -- Au'larrynar
-		{ -- 1
-			["itemID"] = 177957, 		-- Necessary Enhancers
-			["quantity"] = 1,
-			["extendedCost"] = {},
-		},
-	},
-	[162804] = { -- Ve'nari
-		{ -- 1
-			["itemID"] = 180817, 		-- Cypher of Relocation
-			["quantity"] = 1,
-			["extendedCost"] = {
-				["currencyId"] = 1767,	-- Stygia
-				["amount"] = 60,
-				["check"] = true,
-			},
-		},
-		{ -- 2
-			["itemID"] = 181324, 		-- Anima Supricifer
-			["quantity"] = 1,
-			["extendedCost"] = {
-				["currencyId"] = 1767,	-- Stygia
-				["amount"] = 50,
-				["check"] = true,
-			},
-		},
-	},
-}
 
 e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
@@ -69,14 +12,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if guid then
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
 			if npcId then
-				for id, _ in pairs(merchants) do
+				for id, _ in pairs(addonTable.MERCHANTS) do
 					if id == npcId then
 						local numMerchantItems = GetMerchantNumItems()
 						for i=1,numMerchantItems do
 							local merchantItemLink = GetMerchantItemLink(i)
 							if merchantItemLink then
 								local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)
-								for _, t in ipairs(merchants[id]) do
+								for _, t in ipairs(addonTable.MERCHANTS[id]) do
 									if itemID == t.itemID then
 										if next(t["extendedCost"]) then
 											-- Some items will have an extended cost,

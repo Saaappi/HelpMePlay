@@ -5,7 +5,7 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function AnimaPowerExistsForClass(classId, specId, desiredSpellId)
-	for spellId, spellTier in pairs(addonTable.animaPowers[classId][specId]) do
+	for spellId, spellTier in pairs(addonTable.ANIMAPOWERS[classId][specId]) do
 		if spellId == desiredSpellId then
 			return true
 		end
@@ -71,7 +71,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							if AnimaPowerExistsForClass(classId, specId, option.spellID) then
 								-- The spell exists in the table, so
 								-- let's check its assigned priority.
-								local priority = addonTable.animaPowers[classId][specId][option.spellID]
+								local priority = addonTable.ANIMAPOWERS[classId][specId][option.spellID]
 								
 								-- We have to take into consideration
 								-- if the player is using the
