@@ -22,6 +22,204 @@ local WAYPOINTS = {
 			28570,												-- DisplayID
 		},
 	},
+	[13675] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13616] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13743] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13770] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13780] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13754] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13764] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13748] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13785] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13759] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13775] = { -- The Edge of Winter (Daily)
+		{
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
+		},
+		{
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
 	[13669] = { -- A Worthy Weapon (Daily)
 		{
 			127,												-- Icecrown
@@ -239,6 +437,116 @@ local WAYPOINTS = {
 		},
 	},
 	[13673] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13666] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13603] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13783] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13757] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13752] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13773] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13741] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13746] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13762] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13778] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[13768] = { -- A Blade Fit For A Champion (Daily)
 		{
 			116,												-- Grizzly Hills
 			60.5, 												-- X
