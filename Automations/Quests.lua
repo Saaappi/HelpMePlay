@@ -5,6 +5,7 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local itemRewardItemLevels = {}
 local sellPrices = {}
+local questRewards = {}
 
 local function Max(tbl)
 	local highestItemIndex = 0
@@ -71,6 +72,7 @@ function HMP_CompleteQuest()
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local itemLink = GetQuestItemLink("choice", i)
 					if itemLink then
+						local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 						local _, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
 						local _, slotName = strsplit("_", equipLoc)
 						-- These don't convert to a valid slotId,
@@ -91,29 +93,55 @@ function HMP_CompleteQuest()
 							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 						else
 							-- Populate the sellPrices table with the sell price
-							-- of the item.
+							-- of the item if it's not 0.
 							local sellPrice = select(11, GetItemInfo(itemLink))
-							sellPrices[i] = (quantity*sellPrice)
+							if sellPrice ~= 0 then
+								sellPrices[i] = (quantity*sellPrice)
+							else
+								questRewards[i] = itemId
+							end
 						end
 					end
 				end
 				
-				-- Check the item level table first. If the
-				-- item level is higher, then we want to
-				-- take that reward.
-				--
-				-- Check the sell prices table next. Same
-				-- concept; if the sell price is higher,
-				-- then take that reward.
-				if Max(itemRewardItemLevels) ~= 0 then
-					GetQuestReward(Max(itemRewardItemLevels))
-				elseif Max(sellPrices) ~= 0 then
-					GetQuestReward(Max(sellPrices))
+				if next(itemRewardItemLevels) or next(sellPrices) then
+					-- Check the item level table first. If the
+					-- item level is higher, then we want to
+					-- take that reward.
+					--
+					-- Check the sell prices table next. Same
+					-- concept; if the sell price is higher,
+					-- then take that reward.
+					if Max(itemRewardItemLevels) ~= 0 then
+						GetQuestReward(Max(itemRewardItemLevels))
+					elseif Max(sellPrices) ~= 0 then
+						GetQuestReward(Max(sellPrices))
+					end
+				else
+					for i=1,#questRewards do
+						for itemId, _ in pairs(addonTable.QUESTREWARDS) do
+							if itemId == questRewards[i] then
+								GetQuestReward(i)
+							end
+						end
+					end
 				end
 			else
 				-- The player is max level, so let's check the
 				-- quest rewards table for the quest and see if
 				-- we're supposed to take a reward.
+				local itemLink, itemId
+				for i=1,numQuestChoices do
+					itemLink = GetQuestItemLink("choice", i)
+					if itemLink then
+						itemId = string.split(":", itemLink); itemId = tonumber(itemId)
+						for rewardId, _ in pairs(addonTable.QUESTREWARDS) do
+							if rewardId == itemId then
+								GetQuestReward(i)
+							end
+						end
+					end
+				end
 			end
 		end
 	elseif numQuestChoices == 1 then
