@@ -1417,6 +1417,11 @@ local DIALOG_SL = {
 	},
 	-- End of Torghast
 	-- Zereth Mortis
+	[0] = {
+		["g"] = {
+			L_DIALOG["Leave the Blooming Foundry."],
+		},
+	},
 	[180920] = { -- Siloh
 		["g"] = {
 			L_DIALOG["I'd like to heal and revive my battle pets."],

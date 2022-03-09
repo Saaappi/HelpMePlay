@@ -92,6 +92,7 @@ if (isLocaleSupported) then
 	L_DIALOG["Quest"]																		= "Quest"
 	L_DIALOG["Very well. Let us fight."]													= "Very well. Let us fight."
 	L_DIALOG["Maldraxxus needs your service. Will you fight?"]								= "Maldraxxus needs your service. Will you fight?"
+	L_DIALOG["Leave the Blooming Foundry."]													= "Leave the Blooming Foundry."
 	L_DIALOG["I have heard this tale before."]												= "I have heard this tale before."
 	L_DIALOG["I've heard this tale before..."]												= "I've heard this tale before..."
 	L_DIALOG["I'm ready to set sail!"]														= "I'm ready to set sail!"

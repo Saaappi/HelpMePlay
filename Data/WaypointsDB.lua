@@ -896,6 +896,16 @@ local WAYPOINTS = {
 			nil,												-- DisplayID
 		},
 	},
+	[65269] = { -- Obvious Plant (Daily)
+		{
+			1970,												-- Zereth Mortis
+			49.7, 												-- X
+			88.3, 												-- Y
+			"Right click glowing plants in this area",			-- Title
+			nil,												-- Icon
+			nil,												-- DisplayID
+		},
+	},
 }
 
 addonTable.WAYPOINTS = WAYPOINTS
