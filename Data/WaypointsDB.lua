@@ -739,14 +739,6 @@ local WAYPOINTS = {
 			nil,												-- Icon
 			102145,												-- DisplayID
 		},
-		{
-			1970,												-- Zereth Mortis
-			37.4, 												-- X
-			57.6, 												-- Y
-			"Mawsworn Cryptoseer (scattered around)",			-- Title
-			nil,												-- Icon
-			92781,												-- DisplayID
-		},
 	},
 	[65177] = { -- Fruit of the Bloom (Daily)
 		{
