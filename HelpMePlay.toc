@@ -28,6 +28,7 @@ Data\MerchantDB.lua
 Data\VehicleDB.lua
 Data\NotesDB.lua
 Data\TalentsDB.lua
+Data\QuestGiversDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
 Data\TalentSystems\CypherOfFirstOnesDB.lua

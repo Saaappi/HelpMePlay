@@ -134,6 +134,12 @@ local function Get_AvailableQuests(gossipInfo)
 	end
 end
 
+local function Get_IgnoredQuestGiver(npcId)
+	if addonTable.IGNORED_QUESTGIVERS[npcId] then
+		return true
+	end
+end
+
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_COMPLETE")
@@ -143,6 +149,15 @@ e:RegisterEvent("QUEST_PROGRESS")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
+		-- Check to see if the current target is
+		-- an ignored quest giver.
+		local guid = UnitGUID("target")
+		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+		if Get_IgnoredQuestGiver(npcId) then
+			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Ignored Quest Giver"])
+			return
+		end
+		
 		local activeQuests = C_GossipInfo.GetActiveQuests()
 		local availableQuests = C_GossipInfo.GetAvailableQuests()
 		if activeQuests then
@@ -186,6 +201,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if QuestGetAutoAccept() then
 			CloseQuest()
 		else
+			-- Check to see if the current target is
+			-- an ignored quest giver.
+			local guid = UnitGUID("target")
+			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+			if Get_IgnoredQuestGiver(npcId) then
+				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Ignored Quest Giver"])
+				return
+			end
+			
 			AcceptQuest()
 		end
 	end
@@ -195,6 +219,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- are completed first, then pick
 		-- up new quests.
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
+		
+		-- Check to see if the current target is
+		-- an ignored quest giver.
+		local guid = UnitGUID("target")
+		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+		if Get_IgnoredQuestGiver(npcId) then
+			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Ignored Quest Giver"])
+			return
+		end
+		
 		for i=1, GetNumActiveQuests() do
 			local _, isComplete = GetActiveTitle(i)
 			if isComplete then

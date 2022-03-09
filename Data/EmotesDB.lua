@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local emotesDB = {
+local EMOTES = {
 	-- gossip: false if we don't want to process
 	-- the GOSSIP_SHOW event for a particular NPC.
 	-- true, otherwise.
@@ -18,4 +18,4 @@ local emotesDB = {
 	[162592] 	= { gossip=true, emote="salute" }, 		-- Runestone of Chosen
 }
 
-addonTable.EMOTES = emotesDB
+addonTable.EMOTES = EMOTES
