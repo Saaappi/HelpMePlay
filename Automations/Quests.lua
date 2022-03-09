@@ -110,6 +110,10 @@ function HMP_CompleteQuest()
 				elseif Max(sellPrices) ~= 0 then
 					GetQuestReward(Max(sellPrices))
 				end
+			else
+				-- The player is max level, so let's check the
+				-- quest rewards table for the quest and see if
+				-- we're supposed to take a reward.
 			end
 		end
 	elseif numQuestChoices == 1 then
@@ -152,8 +156,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Check to see if the current target is
 		-- an ignored quest giver.
 		local guid = UnitGUID("target")
-		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-		if Get_IgnoredQuestGiver(npcId) then return end
+		if guid then
+			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+			if Get_IgnoredQuestGiver(npcId) then return end
+		end
 		
 		local activeQuests = C_GossipInfo.GetActiveQuests()
 		local availableQuests = C_GossipInfo.GetAvailableQuests()
@@ -165,7 +171,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_ACCEPTED" then
-		local questId = ...; print(questId)
+		local questId = ...
 		if select(2, IsAddOnLoaded("TomTom")) then
 			for quest,questData in pairs(addonTable.WAYPOINTS) do
 				if quest == questId then
@@ -201,8 +207,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			-- Check to see if the current target is
 			-- an ignored quest giver.
 			local guid = UnitGUID("target")
-			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-			if Get_IgnoredQuestGiver(npcId) then return end
+			if guid then
+				local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+				if Get_IgnoredQuestGiver(npcId) then return end
+			end
 			
 			AcceptQuest()
 		end
@@ -217,8 +225,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Check to see if the current target is
 		-- an ignored quest giver.
 		local guid = UnitGUID("target")
-		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-		if Get_IgnoredQuestGiver(npcId) then return end
+		if guid then
+			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+			if Get_IgnoredQuestGiver(npcId) then return end
+		end
 		
 		for i=1, GetNumActiveQuests() do
 			local _, isComplete = GetActiveTitle(i)
