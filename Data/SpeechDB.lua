@@ -4,7 +4,6 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local SPEECH = {
-	-- The Games We Play (Ardenweald)
 	[L_GLOBALSTRINGS["Playful Trickster: Praise"]]				= { type="emote", emote="praise" },
 	[L_GLOBALSTRINGS["Playful Trickster: Cheer"]]				= { type="emote", emote="cheer" },
 	[L_GLOBALSTRINGS["Playful Trickster: Dance"]]				= { type="emote", emote="dance" },
