@@ -27,6 +27,8 @@ Data\Dialogs\TBC_DialogDB.lua
 Data\Dialogs\WOTLK_DialogDB.lua
 Data\Dialogs\MOP_DialogDB.lua
 Data\Dialogs\WOD_DialogDB.lua
+Data\Dialogs\Legion_DialogDB.lua
+Data\Dialogs\BFA_DialogDB.lua
 
 # Automations
 Automations\ChromieTime.lua
