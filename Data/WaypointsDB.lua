@@ -4,22 +4,266 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local WAYPOINTS = {
-	[65325] = { -- Motes of Knowledge (Daily)
+	[13670] = { -- The Edge of Winter (Daily)
 		{
-			1970,						-- Zereth Mortis
-			64, 						-- X
-			69, 						-- Y
-			"Compilation Nodule",		-- Title
-			"4038106",					-- Icon
-			nil,						-- DisplayID
+			127,												-- Crystalsong Forest
+			55.6, 												-- X
+			75.0, 												-- Y
+			"Lord Everblaze",									-- Title
+			nil,												-- Icon
+			25680,												-- DisplayID
 		},
 		{
-			1970,						-- Zereth Mortis
-			61.2, 						-- X
-			68.4, 						-- Y
-			"Composition Mote",			-- Title
-			"4038107",					-- Icon
-			nil,						-- DisplayID
+			117,												-- Howling Fjord
+			42.0, 												-- X
+			19.6, 												-- Y
+			"Maiden of Winter's Breath Lake",					-- Title
+			nil,												-- Icon
+			28570,												-- DisplayID
+		},
+	},
+	[13669] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13769] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13742] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13774] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13674] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13758] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13600] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13753] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13763] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13784] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13779] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13747] = { -- A Worthy Weapon (Daily)
+		{
+			127,												-- Icecrown
+			14.6, 												-- X
+			14.6, 												-- Y
+			"Winter Hyacinth",									-- Title
+			"134195",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			115,												-- Dragonblight
+			93.2, 												-- X
+			25.9, 												-- Y
+			"Maiden of Drak'Mar",								-- Title
+			nil,												-- Icon
+			28538,												-- DisplayID
+		},
+	},
+	[13673] = { -- A Blade Fit For A Champion (Daily)
+		{
+			116,												-- Grizzly Hills
+			60.5, 												-- X
+			51.5, 												-- Y
+			"Maiden of Ashwood Lake",							-- Title
+			nil,												-- Icon
+			28503,												-- DisplayID
+		},
+	},
+	[65325] = { -- Motes of Knowledge (Daily)
+		{
+			1970,												-- Zereth Mortis
+			64, 												-- X
+			69, 												-- Y
+			"Compilation Nodule",								-- Title
+			"4038106",											-- Icon
+			nil,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			61.2, 												-- X
+			68.4, 												-- Y
+			"Composition Mote",									-- Title
+			"4038107",											-- Icon
+			nil,												-- DisplayID
 		},
 	},
 	[65363] = { -- Dangerous State (Daily)

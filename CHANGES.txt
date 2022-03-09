@@ -1,7 +1,7 @@
 HelpMePlay | 1.1.2
 	New Features:
 		- Waypoints: Added the ability for the addon to plot waypoints for specific quests. (Only works if TomTom is installed and loaded.)
-		- Ignored Quest Givers: Added the ability for the addon to ignore specific quest givers. Quest givers are only ignored on ACCEPT.
+		- Ignored Quest Givers: Added the ability for the addon to ignore specific quest givers.
 	Fixes and Updates:
 		- Restored the previous behavior for Threads of Fate automation. If the player disables the feature, the addon will opt them into Story Mode.
 		- Updated the settings descriptions to more accurately reflect their latest capabilities.
