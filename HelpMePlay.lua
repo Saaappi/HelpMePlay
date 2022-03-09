@@ -5,7 +5,6 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 e:RegisterEvent("ADDON_LOADED")
-
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
 		local addonLoaded = ...
@@ -25,17 +24,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end
-			if HelpMePlayQuestObjectivesDB == nil then
-				HelpMePlayQuestObjectivesDB = {}
-			end
 			if HelpMePlaySavesDB == nil then
 				HelpMePlaySavesDB = {}
 			end
 			if HelpMePlayCharacterQuestsDB == nil then
 				HelpMePlayCharacterQuestsDB = {}
-			end
-			if HelpMePlayCreaturesDB == nil then
-				HelpMePlayCreaturesDB = {}
 			end
 			if HelpMePlayOptionsDB.MinimapIcon then
 				HelpMePlayShowMinimapIcon(false)
