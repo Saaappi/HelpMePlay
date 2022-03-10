@@ -901,7 +901,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			44.1, 												-- X
 			52.8, 												-- Y
-			"Automa Menders (scattered around the area)",		-- Title
+			"Use item on Automa scattered around the area",		-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -970,6 +970,90 @@ local WAYPOINTS = {
 			"Catalyst Magic Sensor",							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
+		},
+	},
+	[64799] = { -- The Broken Crown (9.2 Campaign, Chapter 5)
+		{
+			1970,												-- Zereth Mortis
+			33.3, 												-- X
+			69.0, 												-- Y
+			"The Broken Crown",									-- Title
+			nil,												-- Icon
+			105302,												-- DisplayID
+		},
+	},
+	[64801] = { -- Elder Eru (9.2 Campaign, Chapter 5)
+		{
+			1970,												-- Zereth Mortis
+			56.2, 												-- X
+			83.3, 												-- Y
+			"Elder Eru",										-- Title
+			nil,												-- Icon
+			104960,												-- DisplayID
+		},
+	},
+	[64803] = { -- Testing One Two (9.2 Campaign, Chapter 5)
+		{
+			1970,												-- Zereth Mortis
+			56.2, 												-- X
+			82.4, 												-- Y
+			"Outmoded Servitor",								-- Title
+			nil,												-- Icon
+			101053,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			37.9, 												-- X
+			66.6, 												-- Y
+			"Native Cervid",									-- Title
+			nil,												-- Icon
+			98974,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			44.1, 												-- X
+			67.6, 												-- Y
+			"Native Poultrid",									-- Title
+			nil,												-- Icon
+			101984,												-- DisplayID
+		},
+		{
+			1970,												-- Zereth Mortis
+			46.0, 												-- X
+			68.0, 												-- Y
+			"Native Poultrid",									-- Title
+			nil,												-- Icon
+			101984,												-- DisplayID
+		},
+	},
+	[64853] = { -- Two Paths to Tread (9.2 Campaign, Chapter 5)
+		{
+			1970,												-- Zereth Mortis
+			33.3, 												-- X
+			69.0, 												-- Y
+			"Primus",											-- Title
+			nil,												-- Icon
+			105032,												-- DisplayID
+		},
+	},
+	[64809] = { -- One Half of the Equation (9.2 Campaign, Chapter 5)
+		{
+			1970,												-- Zereth Mortis
+			57.2, 												-- X
+			31.2, 												-- Y
+			"One Half of the Equation",											-- Title
+			nil,												-- Icon
+			95194,												-- DisplayID
+		},
+	},
+	[64806] = { -- Where the Memory Resides (9.2 Campaign, Chapter 5)
+		{
+			1533,												-- Bastion
+			55.9, 												-- X
+			86.4, 												-- Y
+			"Where the Memory Resides",							-- Title
+			nil,												-- Icon
+			nil,												-- DisplayID
 		},
 	},
 }
