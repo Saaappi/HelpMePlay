@@ -1,13 +1,1 @@
 HelpMePlay | 1.1.2
-	New Features:
-		- Waypoints: Added the ability for the addon to plot waypoints for specific quests. (Only works if TomTom is installed and loaded.)
-		- Ignored Quest Givers: Added the ability for the addon to ignore specific quest givers.
-	Fixes and Updates:
-		- Restored the previous behavior for Threads of Fate automation. If the player disables the feature, the addon will opt them into Story Mode.
-		- Updated the way quests are abandoned. Players can now use the CTRL or ALT keys while clicking on quests in the quest log or objective tracker to abandon a single quest without confirmation. Players can use the CTRL or ALT keys while clicking on headers in the quest log to abandon all quests in the corresponding zone.
-		- Updated the settings descriptions to more accurately reflect their latest capabilities.
-		- Updated the Mail automation to also collect items (in addition to gold.)
-		- Updated the rules for purchasing skills from trainers. Players need only 50 gold more than the cost now.
-		- Updated the quest automation to take Champion's Purse for the Argent Tournament dailies.
-		- Removed the quest icon feature.
-		- Removed the ability to mass abandon ALL quests.
