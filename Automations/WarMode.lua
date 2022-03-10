@@ -12,7 +12,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LEVEL_CHANGED" then
 		local _, newLevel = ...
 		if newLevel == 20 then
-			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["War Mode Reminder"])
+			if UnitFactionGroup("player") == "Alliance" then
+				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["War Mode Reminder: Alliance"])
+			else
+				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["War Mode Reminder: Horde"])
+			end
 		end
 	end
 	if event == "ZONE_CHANGED_NEW_AREA" then

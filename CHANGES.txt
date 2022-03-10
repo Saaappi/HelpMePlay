@@ -1,1 +1,3 @@
-HelpMePlay | 1.1.2
+HelpMePlay | 1.1.3
+	Fixes and Updates:
+		- Updated the War Mode reminder to take faction into account.
