@@ -4,6 +4,7 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local NOTES = {
+	[33224]  = L_NOTES["Note: CLICK ME!"],		-- Lake Frog
 	[170080] = L_NOTES["Note: CLICK ME!"],		-- Exposed Boggart
 	[159915] = L_NOTES["Note: CLICK ME!"],		-- Gatamatos
 	[173806] = L_NOTES["Note: CLICK ME!"],		-- Gatamatos
