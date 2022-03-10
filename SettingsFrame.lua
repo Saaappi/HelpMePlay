@@ -947,31 +947,6 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		else
 			HelpMePlayLoadSettings()
 		end
-	elseif command == L_GLOBALSTRINGS["Abandon Command"] and arguments == "" then
-		-- Abandon all quests, but offer a static popup to confirm the player's choice.
-		StaticPopupDialogs["HELPMEPLAY_ABANDON_ALL_QUESTS"] = 
-		{
-			text = L_GLOBALSTRINGS["Do you really want to abandon all quests?"],
-			button1 = L_GLOBALSTRINGS["Yes"],
-			button2 = L_GLOBALSTRINGS["No"],
-			OnAccept = function()
-				for i=1,C_QuestLog.GetNumQuestLogEntries() do
-					local info = C_QuestLog.GetInfo(i)
-					local questId = info.questID
-
-					if not info.isHeader and not info.isHidden then
-						C_QuestLog.SetSelectedQuest(questId)
-						C_QuestLog.SetAbandonQuest()
-						C_QuestLog.AbandonQuest()
-					end
-				end
-			end,
-			timeout = 0,
-			whileDead = true,
-			hideOnEscape = true,
-			preferredIndex = 3,
-		}
-		StaticPopup_Show ("HELPMEPLAY_ABANDON_ALL_QUESTS")
 	elseif command == L_GLOBALSTRINGS["Dialog Command"] and arguments ~= "" then
 		-- Add the custom (player submitted) dialog to the
 		-- HelpMePlayPlayerDialogDB table. But before we
