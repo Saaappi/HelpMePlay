@@ -361,7 +361,7 @@ function HelpMePlayLoadSettings()
 			HMPOptionsFrame:SetScript("OnDragStop", HMPOptionsFrame.StopMovingOrSizing)
 
 			-- SetText for FontStrings
-			HMPCRText:SetText(L_GLOBALSTRINGS["CR Text"])
+			HMPCRText:SetText(L_GLOBALSTRINGS["Copyright Text"])
 			HMPDisableAllText:SetText(L_GLOBALSTRINGS["Disable All"])
 			HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
 			HMPAdvMapsText:SetText(L_GLOBALSTRINGS["Adventure Maps"])
