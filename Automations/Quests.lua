@@ -7,6 +7,52 @@ local itemRewardItemLevels = {}
 local sellPrices = {}
 local questRewards = {}
 
+-- Allows players to abandon a singular quest.
+hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
+	if IsControlKeyDown() or IsAltKeyDown() then
+		C_QuestLog.SetSelectedQuest(self.questID)
+		C_QuestLog.SetAbandonQuest()
+		C_QuestLog.AbandonQuest()
+	end
+end)
+
+-- Allows players to abandon quests using the
+-- zone or area header.
+hooksecurefunc(QuestLogHeaderCodeMixin, "OnClick", function(self)
+	if IsControlKeyDown() or IsAltKeyDown() then
+		local info = C_QuestLog.GetInfo(self.questLogIndex)
+		if info then
+			local childQuestLogIndex = self.questLogIndex + 1
+			for i=childQuestLogIndex, C_QuestLog.GetNumQuestLogEntries() do
+				info = C_QuestLog.GetInfo(i)
+				if info then
+					if not info.isHeader and not info.isHidden then
+						C_QuestLog.SetSelectedQuest(info.questID)
+						C_QuestLog.SetAbandonQuest()
+						C_QuestLog.AbandonQuest()
+					else
+						-- We hit the next zone or area header,
+						-- so let's break from the loop.
+						break
+					end
+				end
+			end
+		end
+	end
+end)
+
+-- Allows players to abandon quests from the
+-- objective tracker.
+hooksecurefunc("QuestMapFrame_OpenToQuestDetails", function(self)
+	local questId = self
+	if IsControlKeyDown() or IsAltKeyDown() then
+		C_QuestLog.SetSelectedQuest(questId)
+		C_QuestLog.SetAbandonQuest()
+		C_QuestLog.AbandonQuest()
+		WorldMapFrameCloseButton:Click()
+	end
+end)
+
 local function Max(tbl)
 	local highestItemIndex = 0
 	local highestItemLevelOrSellPrice = 0
@@ -68,7 +114,7 @@ function HMP_CompleteQuest()
 				-- then let's compare it to what the player
 				-- has equipped. While leveling, item level
 				-- is king.
-				for i=1,numQuestChoices do
+				for i=1, numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local itemLink = GetQuestItemLink("choice", i)
 					if itemLink then
@@ -118,7 +164,7 @@ function HMP_CompleteQuest()
 						GetQuestReward(Max(sellPrices))
 					end
 				else
-					for i=1,#questRewards do
+					for i=1, #questRewards do
 						for itemId, _ in pairs(addonTable.QUESTREWARDS) do
 							if itemId == questRewards[i] then
 								GetQuestReward(i)
@@ -131,7 +177,7 @@ function HMP_CompleteQuest()
 				-- quest rewards table for the quest and see if
 				-- we're supposed to take a reward.
 				local itemLink, itemId
-				for i=1,numQuestChoices do
+				for i=1, numQuestChoices do
 					itemLink = GetQuestItemLink("choice", i)
 					if itemLink then
 						itemId = string.split(":", itemLink); itemId = tonumber(itemId)
@@ -201,7 +247,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_ACCEPTED" then
 		local questId = ...
 		if select(2, IsAddOnLoaded("TomTom")) then
-			for quest,questData in pairs(addonTable.WAYPOINTS) do
+			for quest, questData in pairs(addonTable.WAYPOINTS) do
 				if quest == questId then
 					for _,coords in ipairs(questData) do
 						local opts = {
