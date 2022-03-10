@@ -896,6 +896,16 @@ local WAYPOINTS = {
 			nil,												-- DisplayID
 		},
 	},
+	[65362] = { -- Not of the Body (Daily)
+		{
+			1970,												-- Zereth Mortis
+			44.1, 												-- X
+			52.8, 												-- Y
+			"Automa Menders (scattered around the area)",		-- Title
+			nil,												-- Icon
+			nil,												-- DisplayID
+		},
+	},
 	[65269] = { -- Obvious Plant (Daily)
 		{
 			1970,												-- Zereth Mortis
