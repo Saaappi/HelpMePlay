@@ -972,6 +972,16 @@ local WAYPOINTS = {
 			104825,												-- DisplayID
 		},
 	},
+	[65226] = { -- Fleet-Footed and Fastidious (Daily)
+		{
+			1970,												-- Zereth Mortis
+			36.5, 												-- X
+			56.4, 												-- Y
+			"Rana / Fleet-Feather",								-- Title
+			nil,												-- Icon
+			103087,												-- DisplayID
+		},
+	},
 	[64799] = { -- The Broken Crown (9.2 Campaign, Chapter 5)
 		{
 			1970,												-- Zereth Mortis
