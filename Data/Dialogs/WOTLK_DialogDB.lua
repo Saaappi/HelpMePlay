@@ -33,6 +33,13 @@ local DIALOG_WOTLK = {
 		},
 	},
 	-- End of Zul'Drak
+	-- Grizzly Hills
+	[33224] = { -- Maiden of Ashwood Lake
+		["g"] = {
+			L_DIALOG["Maiden of Ashwood Lake 1"],
+		},
+	},
+	-- End of Grizzly Hills
 }
 
 addonTable.DIALOG_WOTLK = DIALOG_WOTLK

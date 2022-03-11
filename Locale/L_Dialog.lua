@@ -416,6 +416,7 @@ if (isLocaleSupported) then
 	L_DIALOG["Forgelite Sophone 1"]															= "Your time has come, Sophone."
 	L_DIALOG["Olem 1"]																		= "The devourer threat has been pushed back and the Wellspring has been restored."
 	L_DIALOG["Sequence Generator 1"]														= "<Start the sequence.>"
+	L_DIALOG["Maiden of Ashwood Lake 1"]													= "Glad to help, my lady."
 end
 
 addonTable.L_DIALOG = L_DIALOG
