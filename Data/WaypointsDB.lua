@@ -9,7 +9,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -17,7 +17,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -27,7 +27,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -35,7 +35,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -45,7 +45,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -53,7 +53,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -63,7 +63,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -71,7 +71,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -81,7 +81,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -89,7 +89,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -99,7 +99,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -107,7 +107,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -117,7 +117,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -125,7 +125,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -135,7 +135,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -143,7 +143,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -153,7 +153,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -161,7 +161,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -171,7 +171,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -179,7 +179,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -189,7 +189,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -197,7 +197,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -207,7 +207,7 @@ local WAYPOINTS = {
 			127,												-- Crystalsong Forest
 			55.6, 												-- X
 			75.0, 												-- Y
-			"Lord Everblaze",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Lord Everblaze"],		-- Title
 			nil,												-- Icon
 			25680,												-- DisplayID
 		},
@@ -215,7 +215,7 @@ local WAYPOINTS = {
 			117,												-- Howling Fjord
 			42.0, 												-- X
 			19.6, 												-- Y
-			"Maiden of Winter's Breath Lake",					-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"],	-- Title
 			nil,												-- Icon
 			28570,												-- DisplayID
 		},
@@ -225,15 +225,15 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
-			"134195",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -243,7 +243,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -251,7 +251,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -261,7 +261,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -269,7 +269,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -279,7 +279,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -287,7 +287,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -297,7 +297,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -305,7 +305,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -315,7 +315,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -323,7 +323,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -333,7 +333,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -341,7 +341,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -351,7 +351,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -359,7 +359,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -369,7 +369,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -377,7 +377,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -387,7 +387,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],									-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -395,7 +395,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],								-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -405,7 +405,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],		-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -413,7 +413,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],	-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -423,7 +423,7 @@ local WAYPOINTS = {
 			127,												-- Icecrown
 			14.6, 												-- X
 			14.6, 												-- Y
-			"Winter Hyacinth",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"],		-- Title
 			"134195",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -431,7 +431,7 @@ local WAYPOINTS = {
 			115,												-- Dragonblight
 			93.2, 												-- X
 			25.9, 												-- Y
-			"Maiden of Drak'Mar",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"],	-- Title
 			nil,												-- Icon
 			28538,												-- DisplayID
 		},
@@ -441,7 +441,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -451,7 +451,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -461,7 +461,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -471,7 +471,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -481,7 +481,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -491,7 +491,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -501,7 +501,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -511,7 +511,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -521,7 +521,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -531,7 +531,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -541,7 +541,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -551,7 +551,7 @@ local WAYPOINTS = {
 			116,												-- Grizzly Hills
 			60.5, 												-- X
 			51.5, 												-- Y
-			"Maiden of Ashwood Lake",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"],-- Title
 			nil,												-- Icon
 			28503,												-- DisplayID
 		},
@@ -559,9 +559,9 @@ local WAYPOINTS = {
 	[65325] = { -- Motes of Knowledge (Daily)
 		{
 			1970,												-- Zereth Mortis
-			64, 												-- X
-			69, 												-- Y
-			"Compilation Nodule",								-- Title
+			64.0, 												-- X
+			69.0, 												-- Y
+			L_GLOBALSTRINGS["Waypoint: Compilation Nodule"],	-- Title
 			"4038106",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -569,7 +569,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			61.2, 												-- X
 			68.4, 												-- Y
-			"Composition Mote",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Composition Mote"],		-- Title
 			"4038107",											-- Icon
 			nil,												-- DisplayID
 		},
@@ -579,7 +579,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			44.4, 												-- X
 			42.2, 												-- Y
-			"Leashkeeper Helzid",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Leashkeeper Helzid"],	-- Title
 			nil,												-- Icon
 			100683,												-- DisplayID
 		},
@@ -587,7 +587,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			47.2, 												-- X
 			40.2, 												-- Y
-			"Dominated Jiro (scattered around)",				-- Title
+			L_GLOBALSTRINGS["Waypoint: Dominated Jiro"],		-- Title
 			nil,												-- Icon
 			98978,												-- DisplayID
 		},
@@ -597,7 +597,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			58.0, 												-- X
 			44.4, 												-- Y
-			"Nexus of Actualization",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Nexus of Actualization"],-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -607,7 +607,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			60.6, 												-- X
 			64.6, 												-- Y
-			"Gaiagantic",										-- Title
+			L_GLOBALSTRINGS["Waypoint: Gaiagantic"],			-- Title
 			nil,												-- Icon
 			102117,												-- DisplayID
 		},
@@ -615,7 +615,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			61.6, 												-- X
 			68.6, 												-- Y
-			"Overgrown Geomental (scattered around)",			-- Title
+			L_GLOBALSTRINGS["Waypoint: Overgrown Geomental"],	-- Title
 			nil,												-- Icon
 			100374,												-- DisplayID
 		},
@@ -625,7 +625,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			65.4, 												-- X
 			45.4, 												-- Y
-			"Punisher Makaris",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Punisher Makaris"],		-- Title
 			nil,												-- Icon
 			100717,												-- DisplayID
 		},
@@ -633,8 +633,8 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			64.6, 												-- X
 			43.9, 												-- Y
-			"Sacred Relic (use the mines, scattered around)",	-- Title
-			"4038106",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Sacred Relics"],			-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 	},
@@ -643,64 +643,64 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			45.3, 												-- X
 			45.9, 												-- Y
-			"Eidolic Fragment",									-- Title
-			"463857",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Eidolic Fragment"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			1970,												-- Zereth Mortis
 			45.3, 												-- X
 			61.5, 												-- Y
-			"Eidolic Fragment",									-- Title
-			"463857",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Eidolic Fragment"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			1970,												-- Zereth Mortis
 			50.0, 												-- X
 			47.0, 												-- Y
-			"Eidolic Fragment",									-- Title
-			"463857",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Eidolic Fragment"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			1970,												-- Zereth Mortis
 			42.6, 												-- X
 			46.0, 												-- Y
-			"Minor Enigmet",									-- Title
-			"4038105",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Minor Enigmet"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			1970,												-- Zereth Mortis
 			41.3, 												-- X
 			48.0, 												-- Y
-			"Minor Enigmet",									-- Title
-			"4038105",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Minor Enigmet"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			1970,												-- Zereth Mortis
 			42.6, 												-- X
 			49.7, 												-- Y
-			"Minor Enigmet",									-- Title
-			"4038105",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Minor Enigmet"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			1970,												-- Zereth Mortis
 			43.4, 												-- X
 			50.5, 												-- Y
-			"Minor Enigmet",									-- Title
-			"4038105",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Minor Enigmet"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 		{
 			1970,												-- Zereth Mortis
 			44.7, 												-- X
 			52.2, 												-- Y
-			"Minor Enigmet",									-- Title
-			"4038105",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Minor Enigmet"],									-- Title
+			nil,												-- Icon
 			nil,												-- DisplayID
 		},
 	},
@@ -709,7 +709,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			48.6, 												-- X
 			50.0, 												-- Y
-			"Custodian Taj",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Custodian Taj"],									-- Title
 			nil,												-- Icon
 			102043,												-- DisplayID
 		},
@@ -719,7 +719,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			39.6, 												-- X
 			52.0, 												-- Y
-			"Runefur",											-- Title
+			L_GLOBALSTRINGS["Waypoint: Runefur"],											-- Title
 			nil,												-- Icon
 			102146,												-- DisplayID
 		},
@@ -727,7 +727,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			41.6, 												-- X
 			62.4, 												-- Y
-			"Bitterbeak",										-- Title
+			L_GLOBALSTRINGS["Waypoint: Bitterbeak"],										-- Title
 			nil,												-- Icon
 			98833,												-- DisplayID
 		},
@@ -735,7 +735,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			38.8, 												-- X
 			58.6, 												-- Y
-			"Cipherclad",										-- Title
+			L_GLOBALSTRINGS["Waypoint: Cipherclad"],										-- Title
 			nil,												-- Icon
 			102145,												-- DisplayID
 		},
@@ -745,7 +745,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			47.4, 												-- X
 			82.4, 												-- Y
-			"Fruit of the Bloom",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Fruit of the Bloom (Daily)"],								-- Title
 			nil,												-- Icon
 			16915,												-- DisplayID
 		},
@@ -755,7 +755,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			44.0, 												-- X
 			52.2, 												-- Y
-			"Automa Constructor (scattered around)",			-- Title
+			L_GLOBALSTRINGS["Waypoint: Circle of Strife (Daily)"],			-- Title
 			nil,												-- Icon
 			104781,												-- DisplayID
 		},
@@ -765,7 +765,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			59.6, 												-- X
 			29.6, 												-- Y
-			"Terraforming Record",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Terraforming Record"],								-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -773,7 +773,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			59.9, 												-- X
 			27.4, 												-- Y
-			"Terraforming Record",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Terraforming Record"],								-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -781,7 +781,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			61.2, 												-- X
 			28.2, 												-- Y
-			"Terraforming Record",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Terraforming Record"],								-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -789,7 +789,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			61.2, 												-- X
 			30.9, 												-- Y
-			"Terraforming Record",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Terraforming Record"],								-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -797,7 +797,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			63.4, 												-- X
 			26.3, 												-- Y
-			"Terraforming Record",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Terraforming Record"],								-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -805,7 +805,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			66.0, 												-- X
 			26.6, 												-- Y
-			"Terraforming Record",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Terraforming Record"],								-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -815,7 +815,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			38.4, 												-- X
 			57.8, 												-- Y
-			"Malfunctioned Poultrid (scattered around)",		-- Title
+			L_GLOBALSTRINGS["Waypoint: Cluck, Cluck, Boom (Daily)"],		-- Title
 			nil,												-- Icon
 			101987,												-- DisplayID
 		},
@@ -825,7 +825,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			50.2, 												-- X
 			44.3, 												-- Y
-			"Strange Artifact (scattered around)",				-- Title
+			L_GLOBALSTRINGS["Waypoint: Buried Remnants (Daily)"],				-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -835,7 +835,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			58.4, 												-- X
 			49.6, 												-- Y
-			"Jiro Prime (right click to mount)",				-- Title
+			L_GLOBALSTRINGS["Waypoint: Super Jiro (Daily)"],				-- Title
 			nil,												-- Icon
 			101848,												-- DisplayID
 		},
@@ -845,7 +845,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			48.0, 												-- X
 			60.0, 												-- Y
-			"Forcing the Cycle (defeat Mawtouched enemies)",	-- Title
+			L_GLOBALSTRINGS["Waypoint: Forcing the Cycle (Daily) 1"],	-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -853,7 +853,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			49.2, 												-- X
 			58.2, 												-- Y
-			"Coalesced Corruption (purify orb)",				-- Title
+			L_GLOBALSTRINGS["Waypoint: Forcing the Cycle (Daily) 2"],				-- Title
 			nil,												-- Icon
 			96338,												-- DisplayID
 		},
@@ -863,8 +863,8 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			34.2, 												-- X
 			48.6, 												-- Y
-			"Use the Portal Initiator and collect research",	-- Title
-			"254116",											-- Icon
+			L_GLOBALSTRINGS["Waypoint: Portal Play (Daily)"],	-- Title
+			nil,											-- Icon
 			nil,												-- DisplayID
 		},
 	},
@@ -873,7 +873,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			52.6, 												-- X
 			49.9, 												-- Y
-			"Ropes",											-- Title
+			L_GLOBALSTRINGS["Waypoint: Operation: Relocation (Daily) 1"],											-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -881,7 +881,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			53.6, 												-- X
 			54.2, 												-- Y
-			"Gorgers, Breachers, & Avians (scattered around)",	-- Title
+			L_GLOBALSTRINGS["Waypoint: Operation: Relocation (Daily) 2"],	-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -891,7 +891,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			65.0, 												-- X
 			44.2, 												-- Y
-			"Take Rana around this area to collect relics",		-- Title
+			L_GLOBALSTRINGS["Waypoint: Not Safe for Work (Daily)"],		-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -901,7 +901,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			44.1, 												-- X
 			52.8, 												-- Y
-			"Use item on Automa scattered around the area",		-- Title
+			L_GLOBALSTRINGS["Waypoint: Not of the Body (Daily)"],		-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
@@ -911,7 +911,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			49.4, 												-- X
 			82.9, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -919,7 +919,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			49.6, 												-- X
 			87.5, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -927,7 +927,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			48.8, 												-- X
 			90.1, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -935,7 +935,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			50.5, 												-- X
 			94.7, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -943,7 +943,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			48.2, 												-- X
 			95.6, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -951,7 +951,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			52.1, 												-- X
 			91.1, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -959,7 +959,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			52.4, 												-- X
 			87.4, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -967,7 +967,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			49.8, 												-- X
 			91.9, 												-- Y
-			"Catalyst Magic Sensor",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Catalyst Magic Sensor"],							-- Title
 			nil,												-- Icon
 			104825,												-- DisplayID
 		},
@@ -977,7 +977,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			36.5, 												-- X
 			56.4, 												-- Y
-			"Rana / Fleet-Feather",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Rana"],					-- Title
 			nil,												-- Icon
 			103087,												-- DisplayID
 		},
@@ -987,7 +987,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			33.3, 												-- X
 			69.0, 												-- Y
-			"The Broken Crown",									-- Title
+			L_GLOBALSTRINGS["Waypoint: The Broken Crown"],									-- Title
 			nil,												-- Icon
 			105302,												-- DisplayID
 		},
@@ -997,7 +997,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			56.2, 												-- X
 			83.3, 												-- Y
-			"Elder Eru",										-- Title
+			L_GLOBALSTRINGS["Waypoint: Elder Eru"],										-- Title
 			nil,												-- Icon
 			104960,												-- DisplayID
 		},
@@ -1007,7 +1007,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			56.2, 												-- X
 			82.4, 												-- Y
-			"Outmoded Servitor",								-- Title
+			L_GLOBALSTRINGS["Waypoint: Outmoded Servitor"],								-- Title
 			nil,												-- Icon
 			101053,												-- DisplayID
 		},
@@ -1015,7 +1015,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			37.9, 												-- X
 			66.6, 												-- Y
-			"Native Cervid",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Native Cervid"],									-- Title
 			nil,												-- Icon
 			98974,												-- DisplayID
 		},
@@ -1023,7 +1023,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			44.1, 												-- X
 			67.6, 												-- Y
-			"Native Poultrid",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Native Poultrid"],									-- Title
 			nil,												-- Icon
 			101984,												-- DisplayID
 		},
@@ -1031,7 +1031,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			46.0, 												-- X
 			68.0, 												-- Y
-			"Native Poultrid",									-- Title
+			L_GLOBALSTRINGS["Waypoint: Native Poultrid"],									-- Title
 			nil,												-- Icon
 			101984,												-- DisplayID
 		},
@@ -1041,7 +1041,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			33.3, 												-- X
 			69.0, 												-- Y
-			"Primus",											-- Title
+			L_GLOBALSTRINGS["Waypoint: Primus"],											-- Title
 			nil,												-- Icon
 			105032,												-- DisplayID
 		},
@@ -1051,7 +1051,7 @@ local WAYPOINTS = {
 			1970,												-- Zereth Mortis
 			57.2, 												-- X
 			31.2, 												-- Y
-			"One Half of the Equation",											-- Title
+			L_GLOBALSTRINGS["Waypoint: One Half of the Equation"],											-- Title
 			nil,												-- Icon
 			95194,												-- DisplayID
 		},
@@ -1061,7 +1061,7 @@ local WAYPOINTS = {
 			1533,												-- Bastion
 			55.9, 												-- X
 			86.4, 												-- Y
-			"Where the Memory Resides",							-- Title
+			L_GLOBALSTRINGS["Waypoint: Where the Memory Resides"],							-- Title
 			nil,												-- Icon
 			nil,												-- DisplayID
 		},
