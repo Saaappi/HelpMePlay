@@ -447,11 +447,6 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 	elseif menuName:GetName() == "HMPBFAZoneSelDropDown" then
 		local faction = UnitFactionGroup("player")
-		local quests = {
-			["Alliance"] = { 1, 2, 3 },
-			["Horde"] = { 4, 5, 6 },
-		}
-		
 		if faction == "Alliance" then
 			-- Drustvar
 			--
