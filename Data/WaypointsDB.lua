@@ -906,6 +906,16 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
+	[65445] = { -- Necessary Resourcing (Daily)
+		{
+			1970,																-- Zereth Mortis
+			54.2, 																-- X
+			60.0, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Necessary Resourcing (Daily)"],			-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
 	[65269] = { -- Obvious Plant (Daily)
 		{
 			1970,																-- Zereth Mortis
