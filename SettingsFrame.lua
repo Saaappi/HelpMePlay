@@ -59,8 +59,6 @@ function HMPTab_OnClick(self)
 		HMPTalentsText:Show()
 		HMPPartyPlayCB:Show()
 		HMPPartyPlayText:Show()
-		HMPMinimapIconCB:Show()
-		HMPMinimapIconText:Show()
 		HMPTorghastPowersDropDown:Show()
 		
 		-- Hide the widgets from the Automations tab.
@@ -86,8 +84,49 @@ function HMPTab_OnClick(self)
 		HMPCinematicsText:Hide()
 		HMPQueuesCB:Hide()
 		HMPQueuesText:Hide()
+		HMPMinimapIconCB:Hide()
+		HMPMinimapIconText:Hide()
 		HMPChromieTimeDropDown:Hide()
 		HMPCovenantsDropDown:Hide()
+	else
+		-- Show the widgets hidden from the other tabs.
+		HMPMinimapIconCB:Show()
+		HMPMinimapIconText:Show()
+		
+		-- Hide the widgets from the other tabs.
+		HMPAdvMapsCB:Hide()
+		HMPAdvMapsText:Hide()
+		HMPDialogCB:Hide()
+		HMPDialogText:Hide()
+		HMPEmotesCB:Hide()
+		HMPEmotesText:Hide()
+		HMPGarrTblCB:Hide()
+		HMPGarrisonTblText:Hide()
+		HMPMerchantsCB:Hide()
+		HMPMerchantsText:Hide()
+		HMPTrainersV2CB:Hide()
+		HMPTrainersV2Text:Hide()
+		HMPSpeechCB:Hide()
+		HMPSpeechText:Hide()
+		HMPQuestsCB:Hide()
+		HMPQuestsText:Hide()
+		HMPToFCB:Hide()
+		HMPToFText:Hide()
+		HMPCinematicsCB:Hide()
+		HMPCinematicsText:Hide()
+		HMPQueuesCB:Hide()
+		HMPQueuesText:Hide()
+		HMPWarModeCB:Hide()
+		HMPWarModeText:Hide()
+		HMPNotesCB:Hide()
+		HMPNotesText:Hide()
+		HMPTalentsCB:Hide()
+		HMPTalentsText:Hide()
+		HMPPartyPlayCB:Hide()
+		HMPPartyPlayText:Hide()
+		HMPChromieTimeDropDown:Hide()
+		HMPCovenantsDropDown:Hide()
+		HMPTorghastPowersDropDown:Hide()
 	end
 end
 
@@ -443,7 +482,7 @@ function HelpMePlayLoadSettings()
 			-- to receive from the addon.
 			--
 			-- Also tell them which tab is the default (1).
-			HMPOptionsFrame.numTabs = 2
+			HMPOptionsFrame.numTabs = 3
 			HMPTab_OnClick(1)
 
 			-- Make the options menu movable.
@@ -475,6 +514,7 @@ function HelpMePlayLoadSettings()
 			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
 			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
 			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
+			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
 
 			-- Check settings first
 			if HelpMePlayOptionsDB.DisableAll then
@@ -1016,6 +1056,14 @@ function HelpMePlayLoadSettings()
 				ShowTooltip(self, L_GLOBALSTRINGS["Tab Description: Systems"])
 			end)
 			HMPOptionsFrameTab2:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			
+			-- Tab 3
+			HMPOptionsFrameTab3:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Tab Description: General"])
+			end)
+			HMPOptionsFrameTab3:SetScript("OnLeave", function(self)
 				HideTooltip(self)
 			end)
 		end

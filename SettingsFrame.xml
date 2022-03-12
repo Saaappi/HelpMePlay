@@ -32,9 +32,6 @@
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						<!--PanelTemplates_SetTab(myTabContainerFrame, 1);
-						myTabPage1:Show();
-						myTabPage2:Hide();-->
 						HMPTab_OnClick(self:GetID())
 					</OnClick>
 				</Scripts>
@@ -43,15 +40,26 @@
 				<Anchors>
 					<Anchor point="TOPLEFT" relativeTo="$parentTab1" relativePoint="TOPRIGHT">
 					   <Offset>
-						   <AbsDimension x="-10" y="0"/>
+						   <AbsDimension x="-12" y="0"/>
 					   </Offset>
 					</Anchor>
 				</Anchors>
 				<Scripts>
 					<OnClick>
-						<!--PanelTemplates_SetTab(myTabContainerFrame, 1);
-						myTabPage1:Show();
-						myTabPage2:Hide();-->
+						HMPTab_OnClick(self:GetID())
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentTab3" inherits="CharacterFrameTabButtonTemplate" id="3" text="General">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab2" relativePoint="TOPRIGHT">
+					   <Offset>
+						   <AbsDimension x="-12" y="0"/>
+					   </Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
 						HMPTab_OnClick(self:GetID())
 					</OnClick>
 				</Scripts>
@@ -138,7 +146,7 @@
 			</CheckButton>
 			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-213" />
+					<Anchor point="TOPLEFT" x="39" y="-61" />
 				</Anchors>
 			</CheckButton>
 			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">

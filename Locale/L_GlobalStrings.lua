@@ -86,7 +86,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
 	L_GLOBALSTRINGS["Minimap Icon"]																= "Minimap Icon"
 	L_GLOBALSTRINGS["Disable All"]																= "Disable All"
-	L_GLOBALSTRINGS["Disable All Check Button"]													= "Disables all the below settings and returns\nthem to their default state.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them\nto their saved state."
+	L_GLOBALSTRINGS["Disable All Check Button"]													= "Disables all the below settings and returns\nthem to their default state.\n\nThis check button affects all settings regardless\nof the tab you're on.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them\nto their saved state."
 	L_GLOBALSTRINGS["Adventure Maps Check Button"]												= "Automates the Hero's Call Board and the selection of zones for the\nBattle for Azeroth and Shadowlands adventure maps."
 	L_GLOBALSTRINGS["Dialog Check Button"]														= "Automates the selection of dialog options when speaking with creatures.\nThis does |cffFFFFFFNOT|r apply to all dialogs. Use the |cffFFFFFF/dialog|r command to add your own!"
 	L_GLOBALSTRINGS["Emotes Check Button"]														= "Automates emotes for specific creatures. Examples include\nthe Lake Frog for the Argent Tournament daily and the\nrunestones in Maldraxxus."
@@ -184,8 +184,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Venthyr"]																	= "|T3257751:0|t Venthyr"
 	L_GLOBALSTRINGS["Tab: Automations"]															= "Automations"
 	L_GLOBALSTRINGS["Tab: Systems"]																= "Systems"
+	L_GLOBALSTRINGS["Tab: General"]																= "General"
 	L_GLOBALSTRINGS["Tab Description: Automations"]												= "These are the features that take action\non your behalf."
 	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a game system."
+	L_GLOBALSTRINGS["Tab Description: General"]													= "These are addon settings, unrelated to the\nsettings in the other tabs."
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS
