@@ -46,12 +46,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 					C_AdventureMap.StartQuest(47961) -- Drustvar
 				end
 			else
-				if C_QuestLog.IsQuestFlaggedCompleted(51802) == false then
-					C_AdventureMap.StartQuest(51802) -- Foothold: Stormsong Valley
+				if C_QuestLog.IsQuestFlaggedCompleted(51801) == false then
+					C_AdventureMap.StartQuest(51801) -- Foothold: Drustvar
 				elseif C_QuestLog.IsQuestFlaggedCompleted(51800) == false then
 					C_AdventureMap.StartQuest(51800) -- Foothold: Tiragarde Sound
 				else
-					C_AdventureMap.StartQuest(51801) -- Foothold: Drustvar
+					C_AdventureMap.StartQuest(51802) -- Foothold: Stormsong Valley
 				end
 			end
 		end
