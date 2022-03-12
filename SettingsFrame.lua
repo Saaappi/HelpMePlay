@@ -6,10 +6,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local icon = ""
 
 function HMPTab_OnClick(self)
-	for k,v in pairs(self) do
-		print(k)
-	end
-	--PanelTemplates_SetTab(HMPOptionsFrame, self:GetID())
+	PanelTemplates_SetTab(HMPOptionsFrame, self)
 end
 
 local function ShowTooltip(self, text)
@@ -364,7 +361,7 @@ function HelpMePlayLoadSettings()
 			-- to receive from the addon.
 			--
 			-- Also tell them which tab is the default (1).
-			HMPOptionsFrame.numTabs = 1
+			HMPOptionsFrame.numTabs = 2
 			PanelTemplates_SetTab(HMPOptionsFrame, 1)
 
 			-- Make the options menu movable.
@@ -394,6 +391,8 @@ function HelpMePlayLoadSettings()
 			HMPQueuesText:SetText(L_GLOBALSTRINGS["Queues"])
 			HMPPartyPlayText:SetText(L_GLOBALSTRINGS["Party Play"])
 			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
+			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
+			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
 
 			-- Check settings first
 			if HelpMePlayOptionsDB.DisableAll then
@@ -921,6 +920,22 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			UIDropDownMenu_Initialize(HMPCovenantsDropDown, DropDownMenu_Initialize)
+			
+			-- Tab 1
+			HMPOptionsFrameTab1:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Tab Description: Automations"])
+			end)
+			HMPOptionsFrameTab1:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			
+			-- Tab 2
+			HMPOptionsFrameTab2:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Tab Description: Systems"])
+			end)
+			HMPOptionsFrameTab2:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
 		end
 	end
 end

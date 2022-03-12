@@ -185,7 +185,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tab: Automations"]															= "Automations"
 	L_GLOBALSTRINGS["Tab: Systems"]																= "Systems"
 	L_GLOBALSTRINGS["Tab Description: Automations"]												= "These are the features that take action\non your behalf."
-	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a\ngame system."
+	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a game system."
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS

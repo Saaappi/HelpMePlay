@@ -31,10 +31,23 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
-					<!--<OnEnter>
-						GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-						GameTooltip:SetText(addonTable.L_GLOBALSTRINGS["Tab Description: Automations"])
-					</OnEnter>-->
+					<OnClick>
+						<!--PanelTemplates_SetTab(myTabContainerFrame, 1);
+						myTabPage1:Show();
+						myTabPage2:Hide();-->
+						HMPTab_OnClick(self:GetID())
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentTab2" inherits="CharacterFrameTabButtonTemplate" id="2" text="Systems">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab1" relativePoint="TOPRIGHT">
+					   <Offset>
+						   <AbsDimension x="-10" y="0"/>
+					   </Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
 					<OnClick>
 						<!--PanelTemplates_SetTab(myTabContainerFrame, 1);
 						myTabPage1:Show();
