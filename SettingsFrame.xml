@@ -98,47 +98,47 @@
 			</CheckButton>
 			<CheckButton name="HMPWarModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-61" />
+					<Anchor point="TOPLEFT" x="39" y="-61" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPQuestsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-99" />
+					<Anchor point="TOPLEFT" x="221" y="-61" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-137" />
+					<Anchor point="TOPLEFT" x="221" y="-99" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-175" />
+					<Anchor point="TOPLEFT" x="39" y="-99" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPTalentsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-213" />
+					<Anchor point="TOPLEFT" x="39" y="-137" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPCinematicsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-251" />
+					<Anchor point="TOPLEFT" x="221" y="-137" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPQueuesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="221" y="-289" />
+					<Anchor point="TOPLEFT" x="221" y="-175" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPPartyPlayCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-61" />
+					<Anchor point="TOPLEFT" x="39" y="-175" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-99" />
+					<Anchor point="TOPLEFT" x="39" y="-213" />
 				</Anchors>
 			</CheckButton>
 			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
@@ -148,12 +148,12 @@
 			</Frame>
 			<Frame name="HMPTorghastPowersDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="354" y="-270" />
+					<Anchor point="TOPLEFT" x="354" y="-237" />
 				</Anchors>
 			</Frame>
 			<Frame name="HMPCovenantsDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="354" y="-303" />
+					<Anchor point="TOPLEFT" x="354" y="-270" />
 				</Anchors>
 			</Frame>
 		</Frames>
