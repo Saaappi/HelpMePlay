@@ -31,11 +31,15 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
+					<!--<OnEnter>
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+						GameTooltip:SetText(addonTable.L_GLOBALSTRINGS["Tab Description: Automations"])
+					</OnEnter>-->
 					<OnClick>
 						<!--PanelTemplates_SetTab(myTabContainerFrame, 1);
 						myTabPage1:Show();
 						myTabPage2:Hide();-->
-						HMPTab_OnClick(self:GetName())
+						HMPTab_OnClick(self:GetID())
 					</OnClick>
 				</Scripts>
 			</Button>

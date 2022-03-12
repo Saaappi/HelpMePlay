@@ -6,7 +6,9 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local icon = ""
 
 function HMPTab_OnClick(self)
-	print(self:GetName())
+	for k,v in pairs(self) do
+		print(k)
+	end
 	--PanelTemplates_SetTab(HMPOptionsFrame, self:GetID())
 end
 
@@ -357,6 +359,13 @@ function HelpMePlayLoadSettings()
 	else
 		if UnitAffectingCombat("player") == false then
 			HMPOptionsFrame:Show()
+			
+			-- Tell Blizzard how many tabs they can expect
+			-- to receive from the addon.
+			--
+			-- Also tell them which tab is the default (1).
+			HMPOptionsFrame.numTabs = 1
+			PanelTemplates_SetTab(HMPOptionsFrame, 1)
 
 			-- Make the options menu movable.
 			HMPOptionsFrame:SetMovable(true)
