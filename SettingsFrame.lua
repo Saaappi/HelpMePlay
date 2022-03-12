@@ -6,7 +6,89 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local icon = ""
 
 function HMPTab_OnClick(self)
-	PanelTemplates_SetTab(HMPOptionsFrame, self)
+	local tabId = self
+	PanelTemplates_SetTab(HMPOptionsFrame, tabId)
+	if tabId == 1 then
+		-- Show the widgets hidden from the Systems
+		-- tab.
+		HMPAdvMapsCB:Show()
+		HMPAdvMapsText:Show()
+		HMPDialogCB:Show()
+		HMPDialogText:Show()
+		HMPEmotesCB:Show()
+		HMPEmotesText:Show()
+		HMPGarrTblCB:Show()
+		HMPGarrisonTblText:Show()
+		HMPMerchantsCB:Show()
+		HMPMerchantsText:Show()
+		HMPTrainersV2CB:Show()
+		HMPTrainersV2Text:Show()
+		HMPSpeechCB:Show()
+		HMPSpeechText:Show()
+		HMPQuestsCB:Show()
+		HMPQuestsText:Show()
+		HMPToFCB:Show()
+		HMPToFText:Show()
+		HMPCinematicsCB:Show()
+		HMPCinematicsText:Show()
+		HMPQueuesCB:Show()
+		HMPQueuesText:Show()
+		HMPChromieTimeDropDown:Show()
+		HMPCovenantsDropDown:Show()
+		
+		-- Hide the widgets from the Systems tab.
+		HMPWarModeCB:Hide()
+		HMPWarModeText:Hide()
+		HMPNotesCB:Hide()
+		HMPNotesText:Hide()
+		HMPTalentsCB:Hide()
+		HMPTalentsText:Hide()
+		HMPPartyPlayCB:Hide()
+		HMPPartyPlayText:Hide()
+		HMPMinimapIconCB:Hide()
+		HMPMinimapIconText:Hide()
+		HMPTorghastPowersDropDown:Hide()
+	elseif tabId == 2 then
+		-- Show the widgets hidden from the Automations
+		-- tab.
+		HMPWarModeCB:Show()
+		HMPWarModeText:Show()
+		HMPNotesCB:Show()
+		HMPNotesText:Show()
+		HMPTalentsCB:Show()
+		HMPTalentsText:Show()
+		HMPPartyPlayCB:Show()
+		HMPPartyPlayText:Show()
+		HMPMinimapIconCB:Show()
+		HMPMinimapIconText:Show()
+		HMPTorghastPowersDropDown:Show()
+		
+		-- Hide the widgets from the Automations tab.
+		HMPAdvMapsCB:Hide()
+		HMPAdvMapsText:Hide()
+		HMPDialogCB:Hide()
+		HMPDialogText:Hide()
+		HMPEmotesCB:Hide()
+		HMPEmotesText:Hide()
+		HMPGarrTblCB:Hide()
+		HMPGarrisonTblText:Hide()
+		HMPMerchantsCB:Hide()
+		HMPMerchantsText:Hide()
+		HMPTrainersV2CB:Hide()
+		HMPTrainersV2Text:Hide()
+		HMPSpeechCB:Hide()
+		HMPSpeechText:Hide()
+		HMPQuestsCB:Hide()
+		HMPQuestsText:Hide()
+		HMPToFCB:Hide()
+		HMPToFText:Hide()
+		HMPCinematicsCB:Hide()
+		HMPCinematicsText:Hide()
+		HMPQueuesCB:Hide()
+		HMPQueuesText:Hide()
+		HMPChromieTimeDropDown:Hide()
+		HMPCovenantsDropDown:Hide()
+	end
 end
 
 local function ShowTooltip(self, text)
@@ -362,7 +444,7 @@ function HelpMePlayLoadSettings()
 			--
 			-- Also tell them which tab is the default (1).
 			HMPOptionsFrame.numTabs = 2
-			PanelTemplates_SetTab(HMPOptionsFrame, 1)
+			HMPTab_OnClick(1)
 
 			-- Make the options menu movable.
 			HMPOptionsFrame:SetMovable(true)
