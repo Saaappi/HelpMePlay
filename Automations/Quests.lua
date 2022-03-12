@@ -127,13 +127,17 @@ function HMP_CompleteQuest()
 							-- This logic won't apply to every class, but
 							-- some classes (eg. Warrior, Rogue, Shaman)
 							-- may have multiple weapons equipped.
-							for i = 0, 1 do
+							for i=0, 1 do
 								if i == 0 then
 									slotName = "MAINHAND"
 								elseif i == 1 then
 									slotName = "SECONDARYHAND"
 								end
 								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+							end
+						elseif slotName == "TRINKET" then
+							for i=0, 1 do
+								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName..i.."SLOT", quantity)
 							end
 						elseif slotName ~= nil then
 							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
