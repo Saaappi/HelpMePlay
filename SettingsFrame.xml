@@ -22,6 +22,23 @@
 					<Anchor point="TOPRIGHT" relativeTo="HMPOptionsFrame" x="-2" y="-3" />
 				</Anchors>
 			</Button>
+			<Button name="$parentTab1" inherits="CharacterFrameTabButtonTemplate" id="1" text="Automations">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT">
+					   <Offset>
+						   <AbsDimension x="5" y="2"/>
+					   </Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						<!--PanelTemplates_SetTab(myTabContainerFrame, 1);
+						myTabPage1:Show();
+						myTabPage2:Hide();-->
+						HMPTab_OnClick(self:GetName())
+					</OnClick>
+				</Scripts>
+			</Button>
 			<CheckButton name="HMPDisableAllCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="-240" y="282" />

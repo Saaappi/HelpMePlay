@@ -5,32 +5,9 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local icon = ""
 
-local function Tab_OnClick(self)
-	PanelTemplates_SetTab(self:GetParent())
-end
-
-local function SetTabs(frame, numTabs, ...)
-	--frame.numTabs = numTabs
-	local contents = {}
-	
-	local frameName = frame:GetName()
-	
-	for i=1, numTabs do
-		local tab = CreateFrame("Button", frameName.."Tab"..i, frame, "CharacterFrameTabButtonTemplate")
-		tab:SetID(i)
-		tab:SetText(select(i, ...))
-		tab:SetScript("OnClick", Tab_OnClick)
-		
-		if i == 1 then
-			tab:SetPoint("TOPLEFT", frame, "BOTTOMLEFT", 5, 2)
-		elseif i == 2 then
-			tab:SetPoint("TOPLEFT", _G[frameName.."Tab"..(i-1)], "TOPRIGHT", -14, 0)
-		end
-	end
-	
-	Tab_OnClick(_G[frameName.."Tab1"])
-	
-	return unpack(contents)
+function HMPTab_OnClick(self)
+	print(self:GetName())
+	--PanelTemplates_SetTab(HMPOptionsFrame, self:GetID())
 end
 
 local function ShowTooltip(self, text)
@@ -62,8 +39,6 @@ local function GetChromieTimeExpansionName(id)
 		end
 	end
 end
-
-local automationsTab, systemsTab = SetTabs(HMPOptionsFrame, 2, L_GLOBALSTRINGS["Tab: Automations"], L_GLOBALSTRINGS["Tab: Systems"])
 
 local function DropDownMenu_Initialize(menuName)
 	local selectedValue = UIDropDownMenu_GetSelectedValue(menuName)
