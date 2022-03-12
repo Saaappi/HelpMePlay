@@ -262,8 +262,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 							worldmap_displayID = coords[6],
 						}
 						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts);
+						TomTom:SetClosestWaypoint()
 					end
-					TomTom:SetClosestWaypoint()
 					break
 				end
 			end
