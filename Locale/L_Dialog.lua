@@ -372,7 +372,6 @@ if (isLocaleSupported) then
 	L_DIALOG["Mountaineer Valgrum 1"]														= "Captain Tharran wants you to deploy your remote observation bots and withdraw to Kharanos."
 	L_DIALOG["Gryth Thurden 1"]																= "Mountaineer Barleybrew said you could help me get to Loch Modan."
 	L_DIALOG["Madari 1"]																	= "You look like an able fisherman, do you think you can help us out?"
-	L_DIALOG["Marshal Dughan 1"]															= "I wish to ride the Stormwind charger, sir."
 	L_DIALOG["Lorewalker Cho 1"]															= "What are you waiting for? Let's go investigate!"
 	L_DIALOG["Lorewalker Cho 2"]															= "Go ahead and turn this thing on."
 	L_DIALOG["Scout Captain Elsia 1"]														= "Here are the explosives, Elsia."

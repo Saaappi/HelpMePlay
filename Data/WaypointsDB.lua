@@ -909,8 +909,8 @@ local WAYPOINTS = {
 	[65445] = { -- Necessary Resourcing (Daily)
 		{
 			1970,																-- Zereth Mortis
-			54.2, 																-- X
-			60.0, 																-- Y
+			54.4, 																-- X
+			55.1, 																-- Y
 			L_GLOBALSTRINGS["Waypoint: Necessary Resourcing (Daily)"],			-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID

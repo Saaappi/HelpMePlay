@@ -65,11 +65,6 @@ local DIALOG_CLASSIC = {
 	},
 	-- End of Eastern Plaguelands
 	-- Elwynn Forest
-	[240] = { -- Marshal Dughan
-		["g"] = {
-			L_DIALOG["Marshal Dughan 1"],
-		},
-	},
 	[6749] = { -- Erma
 		["g"] = {
 			L_DIALOG["I'd like to heal and revive my battle pets."],
