@@ -368,7 +368,6 @@ function HelpMePlayLoadSettings()
 			HMPDialogText:SetText(L_GLOBALSTRINGS["Dialog"])
 			HMPEmotesText:SetText(L_GLOBALSTRINGS["Emotes"])
 			HMPGarrisonTblText:SetText(L_GLOBALSTRINGS["Garrison Tables"])
-			HMPMailText:SetText(L_GLOBALSTRINGS["Mail"])
 			HMPMerchantsText:SetText(L_GLOBALSTRINGS["Merchants"])
 			HMPTrainersV2Text:SetText(L_GLOBALSTRINGS["Trainers"])
 			HMPSpeechText:SetText(L_GLOBALSTRINGS["Speech"])
@@ -411,12 +410,6 @@ function HelpMePlayLoadSettings()
 				HMPGarrTblCB:SetChecked(true)
 			else
 				HMPGarrTblCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.Mail then
-				HMPMailCB:SetChecked(true)
-			else
-				HMPMailCB:SetChecked(false)
 			end
 
 			if HelpMePlayOptionsDB.Merchants then
@@ -540,7 +533,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].Dialog = HelpMePlayOptionsDB.Dialog
 					HelpMePlayOptionsDB["TempSettings"].Emotes = HelpMePlayOptionsDB.Emotes
 					HelpMePlayOptionsDB["TempSettings"].GarrisonTables = HelpMePlayOptionsDB.GarrisonTables
-					HelpMePlayOptionsDB["TempSettings"].Mail = HelpMePlayOptionsDB.Mail
 					HelpMePlayOptionsDB["TempSettings"].Merchants = HelpMePlayOptionsDB.Merchants
 					HelpMePlayOptionsDB["TempSettings"].Trainers = HelpMePlayOptionsDB.Trainers
 					HelpMePlayOptionsDB["TempSettings"].Speech = HelpMePlayOptionsDB.Speech
@@ -562,7 +554,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Dialog = false
 					HelpMePlayOptionsDB.Emotes = false
 					HelpMePlayOptionsDB.GarrisonTables = false
-					HelpMePlayOptionsDB.Mail = false
 					HelpMePlayOptionsDB.Merchants = false
 					HelpMePlayOptionsDB.Trainers = false
 					HelpMePlayOptionsDB.Speech = false
@@ -584,7 +575,6 @@ function HelpMePlayLoadSettings()
 					HMPDialogCB:SetChecked(false)
 					HMPEmotesCB:SetChecked(false)
 					HMPGarrTblCB:SetChecked(false)
-					HMPMailCB:SetChecked(false)
 					HMPMerchantsCB:SetChecked(false)
 					HMPTrainersV2CB:SetChecked(false)
 					HMPSpeechCB:SetChecked(false)
@@ -611,7 +601,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Dialog = HelpMePlayOptionsDB["TempSettings"].Dialog
 					HelpMePlayOptionsDB.Emotes = HelpMePlayOptionsDB["TempSettings"].Emotes
 					HelpMePlayOptionsDB.GarrisonTables = HelpMePlayOptionsDB["TempSettings"].GarrisonTables
-					HelpMePlayOptionsDB.Mail = HelpMePlayOptionsDB["TempSettings"].Mail
 					HelpMePlayOptionsDB.Merchants = HelpMePlayOptionsDB["TempSettings"].Merchants
 					HelpMePlayOptionsDB.Trainers = HelpMePlayOptionsDB["TempSettings"].Trainers
 					HelpMePlayOptionsDB.Speech = HelpMePlayOptionsDB["TempSettings"].Speech
@@ -632,7 +621,6 @@ function HelpMePlayLoadSettings()
 					HMPDialogCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Dialog)
 					HMPEmotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Emotes)
 					HMPGarrTblCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].GarrisonTables)
-					HMPMailCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Mail)
 					HMPMerchantsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Merchants)
 					HMPTrainersV2CB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Trainers)
 					HMPSpeechCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Speech)
@@ -708,21 +696,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.GarrisonTables = true
 				else
 					HelpMePlayOptionsDB.GarrisonTables = false
-				end
-			end)
-
-			-- Mail Check Button
-			HMPMailCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L_GLOBALSTRINGS["Mail Check Button"])
-			end)
-			HMPMailCB:SetScript("OnLeave", function(self)
-				HideTooltip(self)
-			end)
-			HMPMailCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Mail = true
-				else
-					HelpMePlayOptionsDB.Mail = false
 				end
 			end)
 

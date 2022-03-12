@@ -47,69 +47,64 @@
 					<Anchor point="TOPLEFT" x="39" y="-175" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPMailCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPMerchantsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-213" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPMerchantsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-251" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPSpeechCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-289" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPSpeechCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPWarModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-61" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPWarModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPQuestsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-99" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPQuestsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-137" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPToFCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-175" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPNotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPTalentsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-213" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPTalentsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPCinematicsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-251" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPCinematicsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPQueuesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="221" y="-289" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPQueuesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPPartyPlayCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="371" y="-61" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPPartyPlayCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-99" />
-				</Anchors>
-			</CheckButton>
 			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="371" y="-137" />
+					<Anchor point="TOPLEFT" x="371" y="-99" />
 				</Anchors>
 			</CheckButton>
 			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
@@ -190,14 +185,6 @@
 					<Size x="140" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPGarrTblCB" relativePoint="LEFT" x="8" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPMailText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Mail" justifyH="CENTER" justifyV="CENTER">
-					<Size x="80" y="20" />
-					<Anchors>
-						<Anchor point="LEFT" relativeTo="HMPMailCB" relativePoint="LEFT" x="4" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />

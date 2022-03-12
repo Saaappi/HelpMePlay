@@ -57,7 +57,6 @@ Automations\Merchants_Vendors.lua
 Automations\Emotes.lua
 Automations\Speech.lua
 Automations\Dialog.lua
-Automations\Mail.lua
 Automations\Vehicles.lua
 Automations\Queues.lua
 Automations\Repairs.lua
