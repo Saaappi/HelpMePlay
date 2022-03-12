@@ -182,6 +182,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Necrolord"]																= "|T3257749:0|t Necrolord"
 	L_GLOBALSTRINGS["Night Fae"]																= "|T3257750:0|t Night Fae"
 	L_GLOBALSTRINGS["Venthyr"]																	= "|T3257751:0|t Venthyr"
+	L_GLOBALSTRINGS["Tab: Automations"]															= "Automations"
+	L_GLOBALSTRINGS["Tab: Systems"]																= "Systems"
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS
