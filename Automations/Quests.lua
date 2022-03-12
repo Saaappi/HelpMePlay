@@ -121,6 +121,7 @@ function HMP_CompleteQuest()
 						local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 						local _, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
 						local _, slotName = strsplit("_", equipLoc)
+						print(slotName)
 						-- These don't convert to a valid slotId,
 						-- so we have to change it to something else.
 						if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" then
@@ -135,10 +136,12 @@ function HMP_CompleteQuest()
 								end
 								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 							end
-						elseif slotName == "TRINKET" then
+						elseif slotName == "TRINKET" or slotName == "FINGER" then
 							for i=0, 1 do
 								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName..i.."SLOT", quantity)
 							end
+						elseif slotName == "CLOAK" then
+							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, "BACKSLOT", quantity)
 						elseif slotName ~= nil then
 							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 						else
