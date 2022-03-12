@@ -151,17 +151,27 @@
 			</CheckButton>
 			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="354" y="-237" />
-				</Anchors>
-			</Frame>
-			<Frame name="HMPTorghastPowersDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="354" y="-237" />
+					<Anchor point="TOPLEFT" x="354" y="-204" />
 				</Anchors>
 			</Frame>
 			<Frame name="HMPCovenantsDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
+					<Anchor point="TOPLEFT" x="354" y="-237" />
+				</Anchors>
+			</Frame>
+			<Frame name="HMPBFAZoneSelDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
 					<Anchor point="TOPLEFT" x="354" y="-270" />
+				</Anchors>
+			</Frame>
+			<Frame name="HMPSLZoneSelDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="354" y="-303" />
+				</Anchors>
+			</Frame>
+			<Frame name="HMPTorghastPowersDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="354" y="-303" />
 				</Anchors>
 			</Frame>
 		</Frames>

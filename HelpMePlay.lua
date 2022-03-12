@@ -21,6 +21,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayOptionsDB.Covenant == nil or HelpMePlayOptionsDB.Covenant == false then
 				HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
 			end
+			if HelpMePlayOptionsDB.BFAZoneSelection == nil or HelpMePlayOptionsDB.BFAZoneSelection == false then
+				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Disabled"]
+			end
+			if HelpMePlayOptionsDB.SLZoneSelection == nil or HelpMePlayOptionsDB.SLZoneSelection == false then
+				HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Disabled"]
+			end
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end
