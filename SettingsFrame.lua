@@ -359,7 +359,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Kyrian
 		--
 		-- Automatically selects the Kyrian Covenant.
-		info.text = L_GLOBALSTRINGS["Kyrian"]
+		info.text = addonTable.COVENANT_ICONS["Kyrian"] .. " " .. L_GLOBALSTRINGS["Kyrian"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Kyrian"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -377,7 +377,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Necrolord
 		--
 		-- Automatically selects the Necrolord Covenant.
-		info.text = L_GLOBALSTRINGS["Necrolord"]
+		info.text = addonTable.COVENANT_ICONS["Necrolord"] .. " " .. L_GLOBALSTRINGS["Necrolord"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Necrolord"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -395,7 +395,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Night Fae
 		--
 		-- Automatically selects the Night Fae Covenant.
-		info.text = L_GLOBALSTRINGS["Night Fae"]
+		info.text = addonTable.COVENANT_ICONS["Night Fae"] .. " " .. L_GLOBALSTRINGS["Night Fae"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Night Fae"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -413,7 +413,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Venthyr
 		--
 		-- Automatically selects the Venthyr Covenant.
-		info.text = L_GLOBALSTRINGS["Venthyr"]
+		info.text = addonTable.COVENANT_ICONS["Venthyr"] .. " " .. L_GLOBALSTRINGS["Venthyr"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Venthyr"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -451,7 +451,7 @@ local function DropDownMenu_Initialize(menuName)
 			-- Drustvar
 			--
 			-- Self explanatory.
-			info.text = L_GLOBALSTRINGS["Drustvar"]
+			info.text = addonTable.ZONE_ICONS["Drustvar"] .. " " .. L_GLOBALSTRINGS["Drustvar"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Drustvar"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -469,7 +469,7 @@ local function DropDownMenu_Initialize(menuName)
 			-- Stormsong Valley
 			--
 			-- Self explanatory.
-			info.text = L_GLOBALSTRINGS["Stormsong Valley"]
+			info.text = addonTable.ZONE_ICONS["Stormsong Valley"] .. " " .. L_GLOBALSTRINGS["Stormsong Valley"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Stormsong Valley"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -487,7 +487,7 @@ local function DropDownMenu_Initialize(menuName)
 			-- Tiragarde Sound
 			--
 			-- Self explanatory.
-			info.text = L_GLOBALSTRINGS["Tiragarde Sound"]
+			info.text = addonTable.ZONE_ICONS["Tiragarde Sound"] .. " " .. L_GLOBALSTRINGS["Tiragarde Sound"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Tiragarde Sound"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -505,7 +505,7 @@ local function DropDownMenu_Initialize(menuName)
 			-- Nazmir
 			--
 			-- Self explanatory.
-			info.text = L_GLOBALSTRINGS["Nazmir"]
+			info.text = addonTable.ZONE_ICONS["Nazmir"] .. " " .. L_GLOBALSTRINGS["Nazmir"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Nazmir"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -523,7 +523,7 @@ local function DropDownMenu_Initialize(menuName)
 			-- Vol'dun
 			--
 			-- Self explanatory.
-			info.text = L_GLOBALSTRINGS["Vol'dun"]
+			info.text = addonTable.ZONE_ICONS["Vol'dun"] .. " " .. L_GLOBALSTRINGS["Vol'dun"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Vol'dun"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -541,7 +541,7 @@ local function DropDownMenu_Initialize(menuName)
 			-- Zuldazar
 			--
 			-- Self explanatory.
-			info.text = L_GLOBALSTRINGS["Zuldazar"]
+			info.text = addonTable.ZONE_ICONS["Zuldazar"] .. " " .. L_GLOBALSTRINGS["Zuldazar"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Zuldazar"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -596,7 +596,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Ardenweald
 		--
 		-- Self explanatory.
-		info.text = L_GLOBALSTRINGS["Ardenweald"]
+		info.text = addonTable.ZONE_ICONS["Ardenweald"] .. " " .. L_GLOBALSTRINGS["Ardenweald"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Ardenweald"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -614,7 +614,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Bastion
 		--
 		-- Self explanatory.
-		info.text = L_GLOBALSTRINGS["Bastion"]
+		info.text = addonTable.ZONE_ICONS["Bastion"] .. " " .. L_GLOBALSTRINGS["Bastion"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Bastion"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -632,7 +632,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Maldraxxus
 		--
 		-- Self explanatory.
-		info.text = L_GLOBALSTRINGS["Maldraxxus"]
+		info.text = addonTable.ZONE_ICONS["Maldraxxus"] .. " " .. L_GLOBALSTRINGS["Maldraxxus"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Maldraxxus"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -650,7 +650,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Revendreth
 		--
 		-- Self explanatory.
-		info.text = L_GLOBALSTRINGS["Revendreth"]
+		info.text = addonTable.ZONE_ICONS["Revendreth"] .. " " .. L_GLOBALSTRINGS["Revendreth"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Revendreth"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
@@ -668,7 +668,7 @@ local function DropDownMenu_Initialize(menuName)
 		-- Torghast
 		--
 		-- Self explanatory.
-		info.text = L_GLOBALSTRINGS["Torghast"]
+		info.text = addonTable.ZONE_ICONS["Torghast"] .. " " .. L_GLOBALSTRINGS["Torghast"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Torghast"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)

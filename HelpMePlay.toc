@@ -19,7 +19,9 @@ SettingsFrame.xml
 SettingsFrame.lua
 
 # Data
+Data\IconDB.lua
 Data\AnimaPowersDB.lua
+Data\AdventureMapQuestsDB.lua
 Data\MapsDB.lua
 Data\WaypointsDB.lua
 Data\EmotesDB.lua
