@@ -1,11 +1,1 @@
 HelpMePlay | 1.1.3
-	Fixes and Updates:
-		- Added two dropdowns that allow the player to select the zones for Battle for Azeroth and Shadowlands.
-		- Added a check button under the General tab that allows the player to enable or disable addon output.
-		- Updated the settings menu, splitting the settings between 3 tabs.
-		- Updated the War Mode reminder to take faction into account.
-		- Removed the Mail automation.
-		- Removed Marshal Dughan's dialog, so players aren't sent on an endless ride they don't want.
-		- Fixed an issue where War Mode wouldn't auto enable.
-		- Fixed an issue where the closest waypoint wasn't considered if there were multiple waypoints.
-		- Fixed an issue where trinkets, rings, hands, and cloaks were breaking quest reward automation.
