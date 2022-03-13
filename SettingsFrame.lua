@@ -11,8 +11,6 @@ function HMPTab_OnClick(self)
 	if tabId == 1 then
 		-- Show the widgets hidden from the Systems
 		-- tab.
-		HMPAdvMapsCB:Show()
-		HMPAdvMapsText:Show()
 		HMPDialogCB:Show()
 		HMPDialogText:Show()
 		HMPEmotesCB:Show()
@@ -49,6 +47,8 @@ function HMPTab_OnClick(self)
 		HMPPartyPlayText:Hide()
 		HMPMinimapIconCB:Hide()
 		HMPMinimapIconText:Hide()
+		HMPLoggingCB:Hide()
+		HMPLoggingText:Hide()
 		HMPTorghastPowersDropDown:Hide()
 	elseif tabId == 2 then
 		-- Show the widgets hidden from the Automations
@@ -64,8 +64,6 @@ function HMPTab_OnClick(self)
 		HMPTorghastPowersDropDown:Show()
 		
 		-- Hide the widgets from the Automations tab.
-		HMPAdvMapsCB:Hide()
-		HMPAdvMapsText:Hide()
 		HMPDialogCB:Hide()
 		HMPDialogText:Hide()
 		HMPEmotesCB:Hide()
@@ -88,6 +86,8 @@ function HMPTab_OnClick(self)
 		HMPQueuesText:Hide()
 		HMPMinimapIconCB:Hide()
 		HMPMinimapIconText:Hide()
+		HMPLoggingCB:Hide()
+		HMPLoggingText:Hide()
 		HMPChromieTimeDropDown:Hide()
 		HMPCovenantsDropDown:Hide()
 		HMPBFAZoneSelDropDown:Hide()
@@ -96,10 +96,10 @@ function HMPTab_OnClick(self)
 		-- Show the widgets hidden from the other tabs.
 		HMPMinimapIconCB:Show()
 		HMPMinimapIconText:Show()
+		HMPLoggingCB:Show()
+		HMPLoggingText:Show()
 		
 		-- Hide the widgets from the other tabs.
-		HMPAdvMapsCB:Hide()
-		HMPAdvMapsText:Hide()
 		HMPDialogCB:Hide()
 		HMPDialogText:Hide()
 		HMPEmotesCB:Hide()
@@ -775,7 +775,6 @@ function HelpMePlayLoadSettings()
 			HMPCRText:SetText(L_GLOBALSTRINGS["Copyright Text"])
 			HMPDisableAllText:SetText(L_GLOBALSTRINGS["Disable All"])
 			HMPVersionText:SetText(GetAddOnMetadata(addonName, "Version"))
-			HMPAdvMapsText:SetText(L_GLOBALSTRINGS["Adventure Maps"])
 			HMPDialogText:SetText(L_GLOBALSTRINGS["Dialog"])
 			HMPEmotesText:SetText(L_GLOBALSTRINGS["Emotes"])
 			HMPGarrisonTblText:SetText(L_GLOBALSTRINGS["Garrison Tables"])
@@ -791,6 +790,7 @@ function HelpMePlayLoadSettings()
 			HMPQueuesText:SetText(L_GLOBALSTRINGS["Queues"])
 			HMPPartyPlayText:SetText(L_GLOBALSTRINGS["Party Play"])
 			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
+			HMPLoggingText:SetText(L_GLOBALSTRINGS["Logging"])
 			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
 			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
 			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
@@ -800,12 +800,6 @@ function HelpMePlayLoadSettings()
 				HMPDisableAllCB:SetChecked(true)
 			else
 				HMPDisableAllCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.AdventureMaps then
-				HMPAdvMapsCB:SetChecked(true)
-			else
-				HMPAdvMapsCB:SetChecked(false)
 			end
 
 			if HelpMePlayOptionsDB.Dialog then
@@ -898,6 +892,12 @@ function HelpMePlayLoadSettings()
 				HMPMinimapIconCB:SetChecked(false)
 			end
 			
+			if HelpMePlayOptionsDB.Logging then
+				HMPLoggingCB:SetChecked(true)
+			else
+				HMPLoggingCB:SetChecked(false)
+			end
+			
 			if HelpMePlayOptionsDB.ChromieTimeExpansion then
 				UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 			end
@@ -981,7 +981,6 @@ function HelpMePlayLoadSettings()
 					-- states to return the settings back to their
 					-- original state when the button is unchecked.
 					HelpMePlayOptionsDB["TempSettings"] = {}
-					HelpMePlayOptionsDB["TempSettings"].AdventureMaps = HelpMePlayOptionsDB.AdventureMaps
 					HelpMePlayOptionsDB["TempSettings"].Dialog = HelpMePlayOptionsDB.Dialog
 					HelpMePlayOptionsDB["TempSettings"].Emotes = HelpMePlayOptionsDB.Emotes
 					HelpMePlayOptionsDB["TempSettings"].GarrisonTables = HelpMePlayOptionsDB.GarrisonTables
@@ -997,6 +996,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].Queues = HelpMePlayOptionsDB.Queues
 					HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
 					HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
+					HelpMePlayOptionsDB["TempSettings"].Logging = HelpMePlayOptionsDB.Logging
 					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
 					HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
 					HelpMePlayOptionsDB["TempSettings"].Covenant = HelpMePlayOptionsDB.Covenant
@@ -1004,7 +1004,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].SLZoneSelection = HelpMePlayOptionsDB.SLZoneSelection
 					
 					-- Flag the settings as false.
-					HelpMePlayOptionsDB.AdventureMaps = false
 					HelpMePlayOptionsDB.Dialog = false
 					HelpMePlayOptionsDB.Emotes = false
 					HelpMePlayOptionsDB.GarrisonTables = false
@@ -1020,6 +1019,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Queues = false
 					HelpMePlayOptionsDB.PartyPlay = false
 					HelpMePlayOptionsDB.MinimapIcon = false
+					HelpMePlayOptionsDB.Logging = false
 					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 					HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
 					HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
@@ -1027,7 +1027,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Disabled"]
 					
 					-- Uncheck the buttons.
-					HMPAdvMapsCB:SetChecked(false)
 					HMPDialogCB:SetChecked(false)
 					HMPEmotesCB:SetChecked(false)
 					HMPGarrTblCB:SetChecked(false)
@@ -1043,6 +1042,7 @@ function HelpMePlayLoadSettings()
 					HMPQueuesCB:SetChecked(false)
 					HMPPartyPlayCB:SetChecked(false)
 					HMPMinimapIconCB:SetChecked(false)
+					HMPLoggingCB:SetChecked(false)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
@@ -1055,7 +1055,6 @@ function HelpMePlayLoadSettings()
 					-- Recheck the buttons that were previously
 					-- checked.
 					HelpMePlayOptionsDB.DisableAll = false
-					HelpMePlayOptionsDB.AdventureMaps = HelpMePlayOptionsDB["TempSettings"].AdventureMaps
 					HelpMePlayOptionsDB.Dialog = HelpMePlayOptionsDB["TempSettings"].Dialog
 					HelpMePlayOptionsDB.Emotes = HelpMePlayOptionsDB["TempSettings"].Emotes
 					HelpMePlayOptionsDB.GarrisonTables = HelpMePlayOptionsDB["TempSettings"].GarrisonTables
@@ -1071,13 +1070,13 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Queues = HelpMePlayOptionsDB["TempSettings"].Queues
 					HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
 					HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
+					HelpMePlayOptionsDB.Logging = HelpMePlayOptionsDB["TempSettings"].Logging
 					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
 					HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
 					HelpMePlayOptionsDB.Covenant = HelpMePlayOptionsDB["TempSettings"].Covenant
 					HelpMePlayOptionsDB.BFAZoneSelection = HelpMePlayOptionsDB["TempSettings"].BFAZoneSelection
 					HelpMePlayOptionsDB.SLZoneSelection = HelpMePlayOptionsDB["TempSettings"].SLZoneSelection
 					
-					HMPAdvMapsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].AdventureMaps)
 					HMPDialogCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Dialog)
 					HMPEmotesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Emotes)
 					HMPGarrTblCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].GarrisonTables)
@@ -1093,26 +1092,12 @@ function HelpMePlayLoadSettings()
 					HMPQueuesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Queues)
 					HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
 					HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
+					HMPLoggingCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Logging)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, HelpMePlayOptionsDB.BFAZoneSelection)
 					UIDropDownMenu_SetSelectedValue(HMPSLZoneSelDropDown, HelpMePlayOptionsDB.SLZoneSelection)
-				end
-			end)
-
-			-- Adventure Maps Check Button
-			HMPAdvMapsCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L_GLOBALSTRINGS["Adventure Maps Check Button"])
-			end)
-			HMPAdvMapsCB:SetScript("OnLeave", function(self)
-				HideTooltip(self)
-			end)
-			HMPAdvMapsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.AdventureMaps = true
-				else
-					HelpMePlayOptionsDB.AdventureMaps = false
 				end
 			end)
 
@@ -1343,6 +1328,23 @@ function HelpMePlayLoadSettings()
 				end
 			end)
 			
+			-- Logging Check Button
+			HMPLoggingCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Logging Check Button"])
+			end)
+			HMPLoggingCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPLoggingCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Logging = true
+					HelpMePlayShowMinimapIcon(true)
+				else
+					HelpMePlayOptionsDB.Logging = false
+					HelpMePlayShowMinimapIcon(false)
+				end
+			end)
+			
 			-- Chromie Time DropDown
 			HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
 				ShowTooltip(self, L_GLOBALSTRINGS["Chromie Time DropDown"])
@@ -1443,7 +1445,9 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		-- The argument must be a number, else silently
 		-- fail out.
 		if tonumber(arguments) then
-			print("|cff00FFFF"..addonName.."|r: " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
+			if HelpMePlayOptionsDB.Logging then
+				print("|cff00FFFF"..addonName.."|r: " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
+			end
 		end
 	end
 end

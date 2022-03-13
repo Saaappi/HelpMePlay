@@ -69,39 +69,34 @@
 					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="-240" y="282" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPAdvMapsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPDialogCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-61" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPDialogCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPEmotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-99" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPEmotesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPGarrTblCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-137" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPGarrTblCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPMerchantsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-175" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPMerchantsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-213" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPTrainersV2CB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-251" />
-				</Anchors>
-			</CheckButton>
 			<CheckButton name="HMPSpeechCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-289" />
+					<Anchor point="TOPLEFT" x="39" y="-251" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPWarModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
@@ -147,6 +142,11 @@
 			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-61" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPLoggingCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-99" />
 				</Anchors>
 			</CheckButton>
 			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
@@ -205,14 +205,6 @@
 					<Size x="80" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPDisableAllCB" relativePoint="LEFT" x="22" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPAdvMapsText" inherits="GameFontNormal" font="Fonts\2002.ttf" text="Adventure Maps" justifyH="CENTER" justifyV="CENTER">
-					<Size x="128" y="20" />
-					<Anchors>
-						<Anchor point="LEFT" relativeTo="HMPAdvMapsCB" relativePoint="LEFT" x="18" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -333,6 +325,14 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPMinimapIconCB" relativePoint="LEFT" x="22" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPLoggingText" inherits="GameFontNormal" text="Logging" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPLoggingCB" relativePoint="LEFT" x="7" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />

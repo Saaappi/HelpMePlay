@@ -1,5 +1,7 @@
 HelpMePlay | 1.1.3
 	Fixes and Updates:
+		- Added two dropdowns that allow the player to select the zones for Battle for Azeroth and Shadowlands.
+		- Added a check button under the General tab that allows the player to enable or disable addon output.
 		- Updated the settings menu, splitting the settings between 3 tabs.
 		- Updated the War Mode reminder to take faction into account.
 		- Removed the Mail automation.

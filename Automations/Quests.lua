@@ -85,7 +85,9 @@ local function CompareItems(index, itemRewardItemLevels, sellPrices, itemLink, s
 			-- This happens if the player hasn't opened
 			-- their character pane in the current session.
 			if equippedItemLevel == nil then
-				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Equipped Item Level is Nil"])
+				if HelpMePlayOptionsDB.Logging then
+					print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Equipped Item Level is Nil"])
+				end
 				return
 			elseif rewardItemLevel > equippedItemLevel then
 				-- Don't add slots with equipped heirlooms

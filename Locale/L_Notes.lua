@@ -29,7 +29,9 @@ for i=1,#supportedLocales do
 end
 
 if (isLocaleSupported == false) then
-	print(L["Red WARNING"] .. L["Locale Not Supported"] .. " @" .. L["Discord"])
+	if HelpMePlayOptionsDB.Logging then
+		print(L["Red WARNING"] .. L["Locale Not Supported"] .. " @" .. L["Discord"])
+	end
 end
 
 if (isLocaleSupported) then

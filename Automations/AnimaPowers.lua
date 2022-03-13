@@ -134,14 +134,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- Reset the highest priority back to 10 to
 					-- prevent taint between Anima Powers.
 					if responseId ~= 0 then
-						if HelpMePlayOptionsDB.TorghastPowers == "Notifications" then
-							print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
-							highestPriority = 9
-						else
-							SendPlayerChoiceResponse(responseId)
-							HideUIPanel(PlayerChoiceFrame)
-							print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
-							highestPriority = 9
+						if HelpMePlayOptionsDB.Logging then
+							if HelpMePlayOptionsDB.TorghastPowers == "Notifications" then
+								print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
+								highestPriority = 9
+							else
+								SendPlayerChoiceResponse(responseId)
+								HideUIPanel(PlayerChoiceFrame)
+								print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
+								highestPriority = 9
+							end
 						end
 					end
 				end

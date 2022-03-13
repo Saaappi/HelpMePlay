@@ -5,7 +5,9 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function PrintLine(text)
-	print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. text)
+	if HelpMePlayOptionsDB.Logging then
+		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. text)
+	end
 end
 
 local function CheckTalents(talentTree, currencyId)
