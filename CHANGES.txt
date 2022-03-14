@@ -1,1 +1,3 @@
 HelpMePlay | 1.1.3
+	Fixes and Updates:
+		- Added waypoints for another Zereth Mortis daily.
