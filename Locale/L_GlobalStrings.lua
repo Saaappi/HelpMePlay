@@ -147,6 +147,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Taloned Flayedwing: Scared"]												= "the flayedwing is scared, soothe it with gentle pats!"
 	L_GLOBALSTRINGS["Taloned Flayedwing: Shake"]												= "the flayedwing is trying to shake you off, hold on tight!"
 	L_GLOBALSTRINGS["Torghast"]																	= "Torghast"
+	L_GLOBALSTRINGS["Waypoint: Explorer Doc"]													= "Explorer Doc"
 	L_GLOBALSTRINGS["Waypoint: Lord Everblaze"]													= "Lord Everblaze"
 	L_GLOBALSTRINGS["Waypoint: Maiden of Winter's Breath Lake"]									= "Maiden of Winter's Breath Lake"
 	L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"]												= "Winter Hyacinth"
