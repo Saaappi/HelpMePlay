@@ -164,6 +164,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Waypoint: Overgrown Geomental"]											= "Overgrown Geomental"
 	L_GLOBALSTRINGS["Waypoint: Punisher Makaris"]												= "Punisher Makaris"
 	L_GLOBALSTRINGS["Waypoint: Sacred Relics"]													= "Sacred Relics"
+	L_GLOBALSTRINGS["Waypoint: Neomotes"]														= "Neomotes"
 	L_GLOBALSTRINGS["Waypoint: Eidolic Fragment"]												= "Eidolic Fragment"
 	L_GLOBALSTRINGS["Waypoint: Minor Enigmet"]													= "Minor Enigmet"
 	L_GLOBALSTRINGS["Waypoint: Custodian Taj"]													= "Custodian Taj"

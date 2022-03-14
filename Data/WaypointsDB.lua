@@ -992,6 +992,88 @@ local WAYPOINTS = {
 			103087,																-- DisplayID
 		},
 	},
+	[64579] = { -- Hollow Efforts (Daily)
+		{
+			1970,																-- Zereth Mortis
+			36.4, 																-- X
+			45.8, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			37.2, 																-- X
+			45.3, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			35.6, 																-- X
+			47.0, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			37.6, 																-- X
+			46.8, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			39.1, 																-- X
+			46.9, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			38.8, 																-- X
+			48.7, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			36.6, 																-- X
+			49.6, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			38.3, 																-- X
+			49.9, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			39.4, 																-- X
+			50.9, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			37.5, 																-- X
+			54.8, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Neomotes"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
 	[64799] = { -- The Broken Crown (9.2 Campaign, Chapter 5)
 		{
 			1970,																-- Zereth Mortis
