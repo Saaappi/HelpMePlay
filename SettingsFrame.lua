@@ -284,7 +284,6 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 	elseif menuName:GetName() == "HMPTorghastPowersDropDown" then
 		-- Automatic
-		--
 		-- Automatically selects the power for the player.
 		info.text = L_GLOBALSTRINGS["Automatic"]
 		info.func = function(self)
@@ -302,7 +301,6 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 		
 		-- Automatic (No Epic)
-		--
 		-- Automatically selects the power for the player.
 		-- Ignores epic powers.
 		info.text = L_GLOBALSTRINGS["Automatic (No Epic)"]
@@ -321,7 +319,6 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 		
 		-- Notifications
-		--
 		-- Notifies the player of the recommended power.
 		info.text = L_GLOBALSTRINGS["Notifications"]
 		info.func = function(self)
@@ -339,8 +336,6 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 		
 		-- Disabled
-		--
-		-- Self explanatory.
 		info.text = L_GLOBALSTRINGS["Disabled"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
@@ -357,80 +352,70 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 	elseif menuName:GetName() == "HMPCovenantsDropDown" then
 		-- Kyrian
-		--
-		-- Automatically selects the Kyrian Covenant.
 		info.text = addonTable.COVENANT_ICONS["Kyrian"] .. " " .. L_GLOBALSTRINGS["Kyrian"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Kyrian"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Kyrian"]
+		info.value = addonTable.COVENANT_ICONS["Kyrian"] .. " " .. L_GLOBALSTRINGS["Kyrian"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Kyrian"]
-		info.tooltipText = L_GLOBALSTRINGS["Kyrian"]
+		info.tooltipTitle = addonTable.COVENANT_ICONS["Kyrian"] .. " " .. L_GLOBALSTRINGS["Kyrian"]
+		info.tooltipText = addonTable.COVENANT_ICONS["Kyrian"] .. " " .. L_GLOBALSTRINGS["Kyrian"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Necrolord
-		--
-		-- Automatically selects the Necrolord Covenant.
 		info.text = addonTable.COVENANT_ICONS["Necrolord"] .. " " .. L_GLOBALSTRINGS["Necrolord"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Necrolord"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Necrolord"]
+		info.value = addonTable.COVENANT_ICONS["Necrolord"] .. " " .. L_GLOBALSTRINGS["Necrolord"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Necrolord"]
-		info.tooltipText = L_GLOBALSTRINGS["Necrolord"]
+		info.tooltipTitle = addonTable.COVENANT_ICONS["Necrolord"] .. " " .. L_GLOBALSTRINGS["Necrolord"]
+		info.tooltipText = addonTable.COVENANT_ICONS["Necrolord"] .. " " .. L_GLOBALSTRINGS["Necrolord"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Night Fae
-		--
-		-- Automatically selects the Night Fae Covenant.
 		info.text = addonTable.COVENANT_ICONS["Night Fae"] .. " " .. L_GLOBALSTRINGS["Night Fae"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Night Fae"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Night Fae"]
+		info.value = addonTable.COVENANT_ICONS["Night Fae"] .. " " .. L_GLOBALSTRINGS["Night Fae"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Night Fae"]
-		info.tooltipText = L_GLOBALSTRINGS["Night Fae"]
+		info.tooltipTitle = addonTable.COVENANT_ICONS["Night Fae"] .. " " .. L_GLOBALSTRINGS["Night Fae"]
+		info.tooltipText = addonTable.COVENANT_ICONS["Night Fae"] .. " " .. L_GLOBALSTRINGS["Night Fae"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Venthyr
-		--
-		-- Automatically selects the Venthyr Covenant.
 		info.text = addonTable.COVENANT_ICONS["Venthyr"] .. " " .. L_GLOBALSTRINGS["Venthyr"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Venthyr"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Venthyr"]
+		info.value = addonTable.COVENANT_ICONS["Venthyr"] .. " " .. L_GLOBALSTRINGS["Venthyr"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Venthyr"]
-		info.tooltipText = L_GLOBALSTRINGS["Venthyr"]
+		info.tooltipTitle = addonTable.COVENANT_ICONS["Venthyr"] .. " " .. L_GLOBALSTRINGS["Venthyr"]
+		info.tooltipText = addonTable.COVENANT_ICONS["Venthyr"] .. " " .. L_GLOBALSTRINGS["Venthyr"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Disabled
-		--
-		-- Self explanatory.
 		info.text = L_GLOBALSTRINGS["Disabled"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
@@ -449,117 +434,103 @@ local function DropDownMenu_Initialize(menuName)
 		local faction = UnitFactionGroup("player")
 		if faction == "Alliance" then
 			-- Drustvar
-			--
-			-- Self explanatory.
 			info.text = addonTable.ZONE_ICONS["Drustvar"] .. " " .. L_GLOBALSTRINGS["Drustvar"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Drustvar"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
 			end
-			info.value = L_GLOBALSTRINGS["Drustvar"]
+			info.value = addonTable.ZONE_ICONS["Drustvar"] .. " " .. L_GLOBALSTRINGS["Drustvar"]
 			if info.value == selectedValue then
 				info.checked = true
 			else
 				info.checked = false
 			end
-			info.tooltipTitle = L_GLOBALSTRINGS["Drustvar"]
-			info.tooltipText = L_GLOBALSTRINGS["Drustvar"]
+			info.tooltipTitle = addonTable.ZONE_ICONS["Drustvar"] .. " " .. L_GLOBALSTRINGS["Drustvar"]
+			info.tooltipText = addonTable.ZONE_ICONS["Drustvar"] .. " " .. L_GLOBALSTRINGS["Drustvar"]
 			UIDropDownMenu_AddButton(info)
 			
 			-- Stormsong Valley
-			--
-			-- Self explanatory.
 			info.text = addonTable.ZONE_ICONS["Stormsong Valley"] .. " " .. L_GLOBALSTRINGS["Stormsong Valley"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Stormsong Valley"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
 			end
-			info.value = L_GLOBALSTRINGS["Stormsong Valley"]
+			info.value = addonTable.ZONE_ICONS["Stormsong Valley"] .. " " .. L_GLOBALSTRINGS["Stormsong Valley"]
 			if info.value == selectedValue then
 				info.checked = true
 			else
 				info.checked = false
 			end
-			info.tooltipTitle = L_GLOBALSTRINGS["Stormsong Valley"]
-			info.tooltipText = L_GLOBALSTRINGS["Stormsong Valley"]
+			info.tooltipTitle = addonTable.ZONE_ICONS["Stormsong Valley"] .. " " .. L_GLOBALSTRINGS["Stormsong Valley"]
+			info.tooltipText = addonTable.ZONE_ICONS["Stormsong Valley"] .. " " .. L_GLOBALSTRINGS["Stormsong Valley"]
 			UIDropDownMenu_AddButton(info)
 			
 			-- Tiragarde Sound
-			--
-			-- Self explanatory.
 			info.text = addonTable.ZONE_ICONS["Tiragarde Sound"] .. " " .. L_GLOBALSTRINGS["Tiragarde Sound"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Tiragarde Sound"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
 			end
-			info.value = L_GLOBALSTRINGS["Tiragarde Sound"]
+			info.value = addonTable.ZONE_ICONS["Tiragarde Sound"] .. " " .. L_GLOBALSTRINGS["Tiragarde Sound"]
 			if info.value == selectedValue then
 				info.checked = true
 			else
 				info.checked = false
 			end
-			info.tooltipTitle = L_GLOBALSTRINGS["Tiragarde Sound"]
-			info.tooltipText = L_GLOBALSTRINGS["Tiragarde Sound"]
+			info.tooltipTitle = addonTable.ZONE_ICONS["Tiragarde Sound"] .. " " .. L_GLOBALSTRINGS["Tiragarde Sound"]
+			info.tooltipText = addonTable.ZONE_ICONS["Tiragarde Sound"] .. " " .. L_GLOBALSTRINGS["Tiragarde Sound"]
 			UIDropDownMenu_AddButton(info)
 		else
 			-- Nazmir
-			--
-			-- Self explanatory.
 			info.text = addonTable.ZONE_ICONS["Nazmir"] .. " " .. L_GLOBALSTRINGS["Nazmir"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Nazmir"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
 			end
-			info.value = L_GLOBALSTRINGS["Nazmir"]
+			info.value = addonTable.ZONE_ICONS["Nazmir"] .. " " .. L_GLOBALSTRINGS["Nazmir"]
 			if info.value == selectedValue then
 				info.checked = true
 			else
 				info.checked = false
 			end
-			info.tooltipTitle = L_GLOBALSTRINGS["Nazmir"]
-			info.tooltipText = L_GLOBALSTRINGS["Nazmir"]
+			info.tooltipTitle = addonTable.ZONE_ICONS["Nazmir"] .. " " .. L_GLOBALSTRINGS["Nazmir"]
+			info.tooltipText = addonTable.ZONE_ICONS["Nazmir"] .. " " .. L_GLOBALSTRINGS["Nazmir"]
 			UIDropDownMenu_AddButton(info)
 			
 			-- Vol'dun
-			--
-			-- Self explanatory.
 			info.text = addonTable.ZONE_ICONS["Vol'dun"] .. " " .. L_GLOBALSTRINGS["Vol'dun"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Vol'dun"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
 			end
-			info.value = L_GLOBALSTRINGS["Vol'dun"]
+			info.value = addonTable.ZONE_ICONS["Vol'dun"] .. " " .. L_GLOBALSTRINGS["Vol'dun"]
 			if info.value == selectedValue then
 				info.checked = true
 			else
 				info.checked = false
 			end
-			info.tooltipTitle = L_GLOBALSTRINGS["Vol'dun"]
-			info.tooltipText = L_GLOBALSTRINGS["Vol'dun"]
+			info.tooltipTitle = addonTable.ZONE_ICONS["Vol'dun"] .. " " .. L_GLOBALSTRINGS["Vol'dun"]
+			info.tooltipText = addonTable.ZONE_ICONS["Vol'dun"] .. " " .. L_GLOBALSTRINGS["Vol'dun"]
 			UIDropDownMenu_AddButton(info)
 			
 			-- Zuldazar
-			--
-			-- Self explanatory.
 			info.text = addonTable.ZONE_ICONS["Zuldazar"] .. " " .. L_GLOBALSTRINGS["Zuldazar"]
 			info.func = function(self)
 				HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Zuldazar"]
 				UIDropDownMenu_SetSelectedValue(menuName, self.value)
 			end
-			info.value = L_GLOBALSTRINGS["Zuldazar"]
+			info.value = addonTable.ZONE_ICONS["Zuldazar"] .. " " .. L_GLOBALSTRINGS["Zuldazar"]
 			if info.value == selectedValue then
 				info.checked = true
 			else
 				info.checked = false
 			end
-			info.tooltipTitle = L_GLOBALSTRINGS["Zuldazar"]
-			info.tooltipText = L_GLOBALSTRINGS["Zuldazar"]
+			info.tooltipTitle = addonTable.ZONE_ICONS["Zuldazar"] .. " " .. L_GLOBALSTRINGS["Zuldazar"]
+			info.tooltipText = addonTable.ZONE_ICONS["Zuldazar"] .. " " .. L_GLOBALSTRINGS["Zuldazar"]
 			UIDropDownMenu_AddButton(info)
 		end
 		
 		-- Random
-		--
-		-- Pick a random zone!
 		info.text = L_GLOBALSTRINGS["Random"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Random"]
@@ -576,8 +547,6 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 		
 		-- Disabled
-		--
-		-- Self explanatory.
 		info.text = L_GLOBALSTRINGS["Disabled"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Disabled"]
@@ -594,98 +563,86 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 	elseif menuName:GetName() == "HMPSLZoneSelDropDown" then
 		-- Ardenweald
-		--
-		-- Self explanatory.
 		info.text = addonTable.ZONE_ICONS["Ardenweald"] .. " " .. L_GLOBALSTRINGS["Ardenweald"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Ardenweald"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Ardenweald"]
+		info.value = addonTable.ZONE_ICONS["Ardenweald"] .. " " .. L_GLOBALSTRINGS["Ardenweald"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Ardenweald"]
-		info.tooltipText = L_GLOBALSTRINGS["Ardenweald"]
+		info.tooltipTitle = addonTable.ZONE_ICONS["Ardenweald"] .. " " .. L_GLOBALSTRINGS["Ardenweald"]
+		info.tooltipText = addonTable.ZONE_ICONS["Ardenweald"] .. " " .. L_GLOBALSTRINGS["Ardenweald"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Bastion
-		--
-		-- Self explanatory.
 		info.text = addonTable.ZONE_ICONS["Bastion"] .. " " .. L_GLOBALSTRINGS["Bastion"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Bastion"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Bastion"]
+		info.value = addonTable.ZONE_ICONS["Bastion"] .. " " .. L_GLOBALSTRINGS["Bastion"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Bastion"]
-		info.tooltipText = L_GLOBALSTRINGS["Bastion"]
+		info.tooltipTitle = addonTable.ZONE_ICONS["Bastion"] .. " " .. L_GLOBALSTRINGS["Bastion"]
+		info.tooltipText = addonTable.ZONE_ICONS["Bastion"] .. " " .. L_GLOBALSTRINGS["Bastion"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Maldraxxus
-		--
-		-- Self explanatory.
 		info.text = addonTable.ZONE_ICONS["Maldraxxus"] .. " " .. L_GLOBALSTRINGS["Maldraxxus"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Maldraxxus"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Maldraxxus"]
+		info.value = addonTable.ZONE_ICONS["Maldraxxus"] .. " " .. L_GLOBALSTRINGS["Maldraxxus"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Maldraxxus"]
-		info.tooltipText = L_GLOBALSTRINGS["Maldraxxus"]
+		info.tooltipTitle = addonTable.ZONE_ICONS["Maldraxxus"] .. " " .. L_GLOBALSTRINGS["Maldraxxus"]
+		info.tooltipText = addonTable.ZONE_ICONS["Maldraxxus"] .. " " .. L_GLOBALSTRINGS["Maldraxxus"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Revendreth
-		--
-		-- Self explanatory.
 		info.text = addonTable.ZONE_ICONS["Revendreth"] .. " " .. L_GLOBALSTRINGS["Revendreth"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Revendreth"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Revendreth"]
+		info.value = addonTable.ZONE_ICONS["Revendreth"] .. " " .. L_GLOBALSTRINGS["Revendreth"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Revendreth"]
-		info.tooltipText = L_GLOBALSTRINGS["Revendreth"]
+		info.tooltipTitle = addonTable.ZONE_ICONS["Revendreth"] .. " " .. L_GLOBALSTRINGS["Revendreth"]
+		info.tooltipText = addonTable.ZONE_ICONS["Revendreth"] .. " " .. L_GLOBALSTRINGS["Revendreth"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Torghast
-		--
-		-- Self explanatory.
 		info.text = addonTable.ZONE_ICONS["Torghast"] .. " " .. L_GLOBALSTRINGS["Torghast"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Torghast"]
 			UIDropDownMenu_SetSelectedValue(menuName, self.value)
 		end
-		info.value = L_GLOBALSTRINGS["Torghast"]
+		info.value = addonTable.ZONE_ICONS["Torghast"] .. " " .. L_GLOBALSTRINGS["Torghast"]
 		if info.value == selectedValue then
 			info.checked = true
 		else
 			info.checked = false
 		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Torghast"]
-		info.tooltipText = L_GLOBALSTRINGS["Torghast"]
+		info.tooltipTitle = addonTable.ZONE_ICONS["Torghast"] .. " " .. L_GLOBALSTRINGS["Torghast"]
+		info.tooltipText = addonTable.ZONE_ICONS["Torghast"] .. " " .. L_GLOBALSTRINGS["Torghast"]
 		UIDropDownMenu_AddButton(info)
 		
 		-- Random
-		--
-		-- Pick a random zone!
 		info.text = L_GLOBALSTRINGS["Random"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Random"]
@@ -702,8 +659,6 @@ local function DropDownMenu_Initialize(menuName)
 		UIDropDownMenu_AddButton(info)
 		
 		-- Disabled
-		--
-		-- Self explanatory.
 		info.text = L_GLOBALSTRINGS["Disabled"]
 		info.func = function(self)
 			HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Disabled"]
@@ -916,13 +871,13 @@ function HelpMePlayLoadSettings()
 			
 			if HelpMePlayOptionsDB.Covenant then
 				if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Kyrian"])
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, addonTable.COVENANT_ICONS["Kyrian"] .. " " .. L_GLOBALSTRINGS["Kyrian"])
 				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Necrolord"])
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, addonTable.COVENANT_ICONS["Necrolord"] .. " " .. L_GLOBALSTRINGS["Necrolord"])
 				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Night Fae"])
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, addonTable.COVENANT_ICONS["Night Fae"] .. " " .. L_GLOBALSTRINGS["Night Fae"])
 				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
-					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Venthyr"])
+					UIDropDownMenu_SetText(HMPCovenantsDropDown, addonTable.COVENANT_ICONS["Venthyr"] .. " " .. L_GLOBALSTRINGS["Venthyr"])
 				else
 					UIDropDownMenu_SetText(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
 				end
@@ -930,17 +885,17 @@ function HelpMePlayLoadSettings()
 			
 			if HelpMePlayOptionsDB.BFAZoneSelection then
 				if HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Drustvar"] then
-					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Drustvar"])
+					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, addonTable.ZONE_ICONS["Drustvar"] .. " " .. L_GLOBALSTRINGS["Drustvar"])
 				elseif HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Nazmir"] then
-					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Nazmir"])
+					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, addonTable.ZONE_ICONS["Nazmir"] .. " " .. L_GLOBALSTRINGS["Nazmir"])
 				elseif HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Stormsong Valley"] then
-					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Stormsong Valley"])
+					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, addonTable.ZONE_ICONS["Stormsong Valley"] .. " " .. L_GLOBALSTRINGS["Stormsong Valley"])
 				elseif HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Tiragarde Sound"] then
-					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Tiragarde Sound"])
+					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, addonTable.ZONE_ICONS["Tiragarde Sound"] .. " " .. L_GLOBALSTRINGS["Tiragarde Sound"])
 				elseif HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Vol'dun"] then
-					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Vol'dun"])
+					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, addonTable.ZONE_ICONS["Vol'dun"] .. " " .. L_GLOBALSTRINGS["Vol'dun"])
 				elseif HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Zuldazar"] then
-					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Zuldazar"])
+					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, addonTable.ZONE_ICONS["Zuldazar"] .. " " .. L_GLOBALSTRINGS["Zuldazar"])
 				elseif HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Random"] then
 					UIDropDownMenu_SetText(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Random"])
 				elseif HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Disabled"] or HelpMePlayOptionsDB.BFAZoneSelection == false or HelpMePlayOptionsDB.BFAZoneSelection == nil then
@@ -950,15 +905,15 @@ function HelpMePlayLoadSettings()
 			
 			if HelpMePlayOptionsDB.SLZoneSelection then
 				if HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Ardenweald"] then
-					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Ardenweald"])
+					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, addonTable.ZONE_ICONS["Ardenweald"] .. " " .. L_GLOBALSTRINGS["Ardenweald"])
 				elseif HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Bastion"] then
-					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Bastion"])
+					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, addonTable.ZONE_ICONS["Bastion"] .. " " .. L_GLOBALSTRINGS["Bastion"])
 				elseif HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Maldraxxus"] then
-					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Maldraxxus"])
+					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, addonTable.ZONE_ICONS["Maldraxxus"] .. " " .. L_GLOBALSTRINGS["Maldraxxus"])
 				elseif HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Revendreth"] then
-					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Revendreth"])
+					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, addonTable.ZONE_ICONS["Revendreth"] .. " " .. L_GLOBALSTRINGS["Revendreth"])
 				elseif HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Torghast"] then
-					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Torghast"])
+					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, addonTable.ZONE_ICONS["Torghast"] .. " " .. L_GLOBALSTRINGS["Torghast"])
 				elseif HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Random"] then
 					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Random"])
 				elseif HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Disabled"] or HelpMePlayOptionsDB.SLZoneSelection == false or HelpMePlayOptionsDB.SLZoneSelection == nil then

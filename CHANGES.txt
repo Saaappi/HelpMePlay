@@ -1,2 +1,3 @@
 Fixes and Updates:
 	- Fixed an issue with random quest reward selection.
+	- Fixed an issue with the Covenant, BFA, and Shadowlands dropdowns not preserving their icons after the settings menu is closed.
