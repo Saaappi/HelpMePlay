@@ -1124,6 +1124,56 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
+	[65268] = { -- Bzzzzt! (Daily)
+		{
+			1970,																-- Zereth Mortis
+			62.1, 																-- X
+			55.6, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Debris"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			62.5, 																-- X
+			56.8, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Debris"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			62.0, 																-- X
+			58.1, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Debris"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			62.2, 																-- X
+			59.6, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Debris"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			63.1, 																-- X
+			61.2, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Debris"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			64.2, 																-- X
+			57.6, 																-- Y
+			L_GLOBALSTRINGS["Waypoint: Debris"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
 	[64799] = { -- The Broken Crown (9.2 Campaign, Chapter 5)
 		{
 			1970,																-- Zereth Mortis

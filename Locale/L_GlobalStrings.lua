@@ -153,6 +153,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Waypoint: Winter Hyacinth"]												= "Winter Hyacinth"
 	L_GLOBALSTRINGS["Waypoint: Maiden of Drak'Mar"]												= "Maiden of Drak'Mar"
 	L_GLOBALSTRINGS["Waypoint: Maiden of Ashwood Lake"]											= "Maiden of Ashwood Lake"
+	L_GLOBALSTRINGS["Waypoint: Debris"]															= "Debris"
 	L_GLOBALSTRINGS["Waypoint: Composition Mote"]												= "Composition Mote"
 	L_GLOBALSTRINGS["Waypoint: Compilation Nodule"]												= "Compilation Nodule"
 	L_GLOBALSTRINGS["Waypoint: Leashkeeper Helzid"]												= "Leashkeeper Helzid"
