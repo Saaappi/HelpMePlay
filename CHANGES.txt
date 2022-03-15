@@ -1,3 +1,2 @@
 Fixes and Updates:
-	- Added waypoints for more Zereth Mortis dailies.
-	- Fixed an issue with BFA dialogs.
+	- Fixed an issue with random quest reward selection.

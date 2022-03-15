@@ -61,7 +61,7 @@ local function Max(tbl)
 			highestItemIndex = itemIndex
 			highestItemLevelOrSellPrice = itemLevelOrSellPrice
 		elseif itemLevelOrSellPrice == highestItemLevelOrSellPrice then
-			highestItemIndex = random(1, #tbl)
+			highestItemIndex = random(1, GetNumQuestChoices())
 			tbl = {}
 		end
 	end
