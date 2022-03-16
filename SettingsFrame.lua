@@ -1371,38 +1371,3 @@ function HelpMePlayLoadSettings()
 		end
 	end
 end
-
-SLASH_HelpMePlay1 = L_GLOBALSTRINGS["Slash HMP"]
-SlashCmdList["HelpMePlay"] = function(command, editbox)
-	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
-	if not command or command == "" then
-		if HMPOptionsFrame:IsVisible() then
-			HMPOptionsFrame:Hide()
-		else
-			HelpMePlayLoadSettings()
-		end
-	elseif command == L_GLOBALSTRINGS["Dialog Command"] and arguments ~= "" then
-		-- Add the custom (player submitted) dialog to the
-		-- HelpMePlayPlayerDialogDB table. But before we
-		-- add it, let's see if it already exists. If so,
-		-- remove it from the table instead.
-		for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
-			if string.find(string.lower(gossip), string.lower(arguments)) then
-				table.remove(HelpMePlayPlayerDialogDB, id)
-				return
-			end
-		end
-		table.insert(HelpMePlayPlayerDialogDB, arguments)
-	elseif command == L_GLOBALSTRINGS["Quest Command"] or command == L_GLOBALSTRINGS["Q"] and arguments ~= "" then
-		-- A shorthand way to check if a given quest has
-		-- been completed by the current player.
-		--
-		-- The argument must be a number, else silently
-		-- fail out.
-		if tonumber(arguments) then
-			if HelpMePlayOptionsDB.Logging then
-				print("|cff00FFFF"..addonName.."|r: " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
-			end
-		end
-	end
-end

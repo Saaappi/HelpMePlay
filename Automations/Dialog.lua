@@ -47,10 +47,21 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	for index, gossipOptionsSubTable in ipairs(options) do
 		-- These are player submitted dialogs
 		-- using the Dialog command.
-		for id, gossip in ipairs(HelpMePlayPlayerDialogDB) do
-			if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(gossip)) then
-				C_GossipInfo.SelectOption(index)
-				return
+		if HelpMePlayPlayerDialogDB[npcId] then
+			if HelpMePlayPlayerDialogDB[npcId]["g"] then
+				for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
+					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(text)) then
+						C_GossipInfo.SelectOption(index)
+						return
+					end
+				end
+			end
+		else
+			for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+				if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(text)) then
+					C_GossipInfo.SelectOption(index)
+					return
+				end
 			end
 		end
 		
@@ -132,6 +143,26 @@ local function ConfirmConfirmationMessage(message, npcId)
 		loadedDialogTable = addonTable.DIALOG_COSMIC
 	elseif parentMapId == 1409 or parentMapId == 1550 then
 		loadedDialogTable = addonTable.DIALOG_SL
+	end
+	
+	-- These are player submitted confirms
+	-- using the Confirm command.
+	if HelpMePlayPlayerDialogDB[npcId] then
+		if HelpMePlayPlayerDialogDB[npcId]["c"] then
+			for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
+				if string.find(string.lower(message), string.lower(text)) then
+					StaticPopup1Button1:Click("LeftButton")
+					return
+				end
+			end
+		end
+	else
+		for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+			if string.find(string.lower(message), string.lower(text)) then
+				StaticPopup1Button1:Click("LeftButton")
+				return
+			end
+		end
 	end
 	
 	for id, _ in pairs(loadedDialogTable) do

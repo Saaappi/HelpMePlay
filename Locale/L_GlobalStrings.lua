@@ -35,6 +35,7 @@ end
 
 if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Slash HMP"]																= "/hmp"
+	L_GLOBALSTRINGS["Confirm Command"]															= "confirm"
 	L_GLOBALSTRINGS["Dialog Command"]															= "dialog"
 	L_GLOBALSTRINGS["Quest Command"]															= "quest"
 	L_GLOBALSTRINGS["Locale Not Supported"]														= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
@@ -54,6 +55,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Automatic (No Epic)"]														= "Automatic (No Epic)"
 	L_GLOBALSTRINGS["Notifications"]															= "Notifications"
 	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
+	L_GLOBALSTRINGS["Dialog Removed"]															= "Removed \"%s\" from database."
 	L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	L_GLOBALSTRINGS["War Mode Reminder: Alliance"]												= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
 	L_GLOBALSTRINGS["War Mode Reminder: Horde"]													= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."

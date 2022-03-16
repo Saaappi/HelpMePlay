@@ -15,6 +15,9 @@ Locale\L_Waypoints.lua
 # Libraries
 Lib\lib.xml
 
+# Frame Prerequisites
+
+
 # Frame Stuff
 SettingsFrame.xml
 SettingsFrame.lua
@@ -67,6 +70,7 @@ Automations\Cinematics.lua
 Automations\Quests.lua
 
 # Systems
+Systems\Commands.lua
 Systems\GarrisonTalentNPC.lua
 Systems\Talents.lua
 Systems\Notes.lua
