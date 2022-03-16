@@ -105,7 +105,7 @@ function HMP_CompleteQuest()
 	-- There is more than 1 reward choice
 	-- for the player to choose from.
 	if numQuestChoices > 1 then
-		if HelpMePlayOptionsDB.QuestRewards then
+		if HelpMePlayOptionsDB.Quests then
 			local playerLevel = UnitLevel("player")
 			-- We want to stop selecting quest rewards
 			-- at max level.

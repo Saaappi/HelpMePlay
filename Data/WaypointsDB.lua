@@ -1321,7 +1321,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[64879] = { -- A Monumental Discovery (9.2 Campaign, Chapter 6)
+	[64879] = { -- A Monumental Discovery (9.2 Campaign, Chapter 7)
 		{
 			1970,																-- Zereth Mortis
 			34.9, 																-- X
@@ -1331,7 +1331,7 @@ local WAYPOINTS = {
 			100915,																-- DisplayID
 		},
 	},
-	[64733] = { -- Help From Beyond (9.2 Campaign, Chapter 6)
+	[64733] = { -- Help From Beyond (9.2 Campaign, Chapter 7)
 		{
 			1970,																-- Zereth Mortis
 			34.6, 																-- X
