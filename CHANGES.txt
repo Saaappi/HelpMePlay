@@ -1,7 +1,0 @@
-New Features:
-	- Added a Confirm command ( /hmp confirm ) that allows the player to provide custom messages to compare against popups!
-Fixes and Updates:
-	- Added waypoints for Chapter 6 of the 9.2 campaign.
-	- Updated the Dialog command to allow players to add dialog by NPC in addition to anonymously. (The new Confirm command behaves the same way.)
-	- Fixed an issue with random quest reward selection.
-	- Fixed an issue with the Covenant, BFA, and Shadowlands dropdowns not preserving their icons after the settings menu was closed.
