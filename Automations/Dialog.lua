@@ -44,43 +44,101 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		loadedDialogTable = addonTable.DIALOG_SL
 	end
 	
-	for index, gossipOptionsSubTable in ipairs(options) do
-		-- These are player submitted dialogs
-		-- using the Dialog command.
-		if HelpMePlayPlayerDialogDB[npcId] then
-			if HelpMePlayPlayerDialogDB[npcId]["g"] then
-				for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
-					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(text)) then
-						C_GossipInfo.SelectOption(index)
-						return
+	if loadedDialogTable[npcId] then
+		-- The NPC is in the database. Let's check
+		-- if the gossip subtable uses the new or
+		-- old format.
+		if type(loadedDialogTable[npcId]["g"][1]) == "table" then
+			-- NEW FORMAT
+			--
+			-- Player-controlled dialogs ignore the
+			-- new format. So, they don't support
+			-- conditions!
+			--
+			-- Let's iterate the gossip subtable for
+			-- a match.
+			for index, gossipSubTable in ipairs(options) do
+				if HelpMePlayPlayerDialogDB[npcId] then
+					if HelpMePlayPlayerDialogDB[npcId]["g"] then
+						for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
+							if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
+								C_GossipInfo.SelectOption(index)
+								return
+							end
+						end
+					end
+				else
+					for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+						if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
+							C_GossipInfo.SelectOption(index)
+							return
+						end
+					end
+				end
+				
+				-- If not in the player-controlled dialog
+				-- table, then let's check the system table
+				-- we were told to load.
+				for id, gossip in pairs(loadedDialogTable[npcId]["g"]) do
+					-- First, we have to make sure there
+					-- isn't a condition. And if there is
+					-- we have to ensure the player meets
+					-- that condition.
+					if gossip.condition == "none" then
+						if string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
+							C_GossipInfo.SelectOption(index)
+							return
+						end
+					elseif gossip.condition == "level_higher" then
+						-- TODO
+					elseif gossip.condition == "level_lower" then
+						-- TODO
+					elseif gossip.condition == "money" then
+						-- TODO
 					end
 				end
 			end
 		else
-			for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-				if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(text)) then
-					C_GossipInfo.SelectOption(index)
-					return
+			-- OLD FORMAT
+			for index, gossipSubTable in ipairs(options) do
+				-- First check if the dialog is in
+				-- the player-controlled table.
+				if HelpMePlayPlayerDialogDB[npcId] then
+					if HelpMePlayPlayerDialogDB[npcId]["g"] then
+						for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
+							if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
+								C_GossipInfo.SelectOption(index)
+								return
+							end
+						end
+					end
+				else
+					for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+						if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
+							C_GossipInfo.SelectOption(index)
+							return
+						end
+					end
 				end
-			end
-		end
-		
-		-- These are NPC dialogs associated
-		-- with a specific NPC that are explicitly
-		-- in the established table.
-		for id, _ in pairs(loadedDialogTable) do
-			if id == npcId then
-				-- We found a match in the table
-				-- so let's move forward.
-				for i=1,#loadedDialogTable[id]["g"] do
-					--- DEBUG ---
-					-- Only enable these if dialogs aren't being
-					-- selected when they should be.
-					--print(string.lower(gossipOptionsSubTable["name"]))
-					--print(string.lower(loadedDialogTable[id]["g"][i]))
-					if string.find(string.lower(gossipOptionsSubTable["name"]), string.lower(loadedDialogTable[id]["g"][i])) then
-						C_GossipInfo.SelectOption(index)
-						return
+				
+				-- If not in the player-controlled dialog
+				-- table, then let's check the system table
+				-- we were told to load.
+				for id, _ in pairs(loadedDialogTable) do
+					if id == npcId then
+						-- We found a match in the table
+						-- so let's move forward.
+						for i=1, #loadedDialogTable[id]["g"] do
+							--- DEBUG ---
+							-- Only enable these if dialogs aren't being
+							-- selected when they should be.
+							--print(string.lower(gossipSubTable["name"]))
+							--print(string.lower(loadedDialogTable[id]["g"][i]))
+							if string.find(string.lower(gossipSubTable["name"]), string.lower(loadedDialogTable[id]["g"][i])) then
+								C_GossipInfo.SelectOption(index)
+								return
+							end
+						end
 					end
 				end
 			end
@@ -145,32 +203,99 @@ local function ConfirmConfirmationMessage(message, npcId)
 		loadedDialogTable = addonTable.DIALOG_SL
 	end
 	
-	-- These are player submitted confirms
-	-- using the Confirm command.
-	if HelpMePlayPlayerDialogDB[npcId] then
-		if HelpMePlayPlayerDialogDB[npcId]["c"] then
-			for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
-				if string.find(string.lower(message), string.lower(text)) then
-					StaticPopup1Button1:Click("LeftButton")
-					return
+	if loadedDialogTable[npcId] then
+		-- The NPC is in the database. Let's check
+		-- if the gossip subtable uses the new or
+		-- old format.
+		if type(loadedDialogTable[npcId]["c"][1]) == "table" then
+			-- NEW FORMAT
+			--
+			-- Player-controlled confirms ignore the
+			-- new format. So, they don't support
+			-- conditions!
+			--
+			-- Let's iterate the confirm subtable for
+			-- a match.
+			if HelpMePlayPlayerDialogDB[npcId] then
+				if HelpMePlayPlayerDialogDB[npcId]["c"] then
+					for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
+						if string.find(string.lower(message), string.lower(text)) then
+							StaticPopup1Button1:Click("LeftButton")
+							return
+						end
+					end
+				end
+			else
+				for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+					if string.find(string.lower(message), string.lower(text)) then
+						StaticPopup1Button1:Click("LeftButton")
+						return
+					end
 				end
 			end
-		end
-	else
-		for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-			if string.find(string.lower(message), string.lower(text)) then
-				StaticPopup1Button1:Click("LeftButton")
-				return
+				
+			-- If not in the player-controlled confirms
+			-- table, then let's check the system table
+			-- we were told to load.
+			for id, gossip in pairs(loadedDialogTable[npcId]["c"]) do
+				-- First, we have to make sure there
+				-- isn't a condition. And if there is
+				-- we have to ensure the player meets
+				-- that condition.
+				if gossip.condition == "none" then
+					if string.find(string.lower(message), string.lower(gossip.text)) then
+						StaticPopup1Button1:Click("LeftButton")
+						return
+					end
+				elseif gossip.condition == "level_higher" then
+					-- TODO
+				elseif gossip.condition == "level_lower" then
+					-- TODO
+				elseif gossip.condition == "money" then
+					-- TODO
+				end
 			end
-		end
-	end
-	
-	for id, _ in pairs(loadedDialogTable) do
-		if id == npcId then
-			for i=1,#loadedDialogTable[id]["c"] do
-				if string.find(string.lower(message), string.lower(loadedDialogTable[id]["c"][i])) then
-					StaticPopup1Button1:Click("LeftButton")
-					return
+		else
+			-- OLD FORMAT
+			--
+			-- First check if the confirm is in
+			-- the player-controlled table.
+			if HelpMePlayPlayerDialogDB[npcId] then
+				if HelpMePlayPlayerDialogDB[npcId]["c"] then
+					for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
+						if string.find(string.lower(message), string.lower(text)) then
+							StaticPopup1Button1:Click("LeftButton")
+							return
+						end
+					end
+				end
+			else
+				for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+					if string.find(string.lower(message), string.lower(text)) then
+						StaticPopup1Button1:Click("LeftButton")
+						return
+					end
+				end
+			end
+				
+			-- If not in the player-controlled confirm
+			-- table, then let's check the system table
+			-- we were told to load.
+			for id, _ in pairs(loadedDialogTable) do
+				if id == npcId then
+					-- We found a match in the table
+					-- so let's move forward.
+					for i=1, #loadedDialogTable[id]["c"] do
+						--- DEBUG ---
+						-- Only enable these if dialogs aren't being
+						-- selected when they should be.
+						--print(string.lower(gossipSubTable["name"]))
+						--print(string.lower(loadedDialogTable[id]["c"][i]))
+						if string.find(string.lower(message), string.lower(loadedDialogTable[id]["c"][i])) then
+							StaticPopup1Button1:Click("LeftButton")
+							return
+						end
+					end
 				end
 			end
 		end

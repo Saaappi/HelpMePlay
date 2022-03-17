@@ -4,10 +4,10 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local COVENANT_ICONS = {
-	["Kyrian"]		= "|T3257748:0|t",
-	["Necrolord"]	= "|T3257749:0|t",
-	["Night Fae"]	= "|T3257750:0|t",
-	["Venthyr"]		= "|T3257751:0|t",
+	["Kyrian"]				= "|T3257748:0|t",
+	["Necrolord"]			= "|T3257749:0|t",
+	["Night Fae"]			= "|T3257750:0|t",
+	["Venthyr"]				= "|T3257751:0|t",
 }
 local ZONE_ICONS = {
 	-- Kul Tiras

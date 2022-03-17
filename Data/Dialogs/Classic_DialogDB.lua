@@ -67,10 +67,16 @@ local DIALOG_CLASSIC = {
 	-- Elwynn Forest
 	[6749] = { -- Erma
 		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
+			{
+				["text"] = L_DIALOG["I'd like to heal and revive my battle pets."],
+				["condition"] = "none"
+			},
 		},
 		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] = L_DIALOG["A small fee for supplies is required."],
+				["condition"] = "none"
+			},
 		},
 	},
 	[64330] = { -- Julia Stevens
