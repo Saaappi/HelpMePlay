@@ -8,10 +8,18 @@ local DIALOG_CLASSIC = {
 	-- Blasted Lands
 	[78423] = { -- Archmage Khadgar
 		["g"] = {
-			L_DIALOG["Archmage Khadgar 1"],
+			{
+				["text"] 		= L_DIALOG["Archmage Khadgar 1"],
+				["condition"] 	= "level_lower",
+				["level"] 		= 50,
+			},
 		},
 		["c"] = {
-			L_DIALOG["Archmage Khadgar 2"],
+			{
+				["text"] 		= L_DIALOG["Archmage Khadgar 2"],
+				["condition"] 	= "level_lower",
+				["level"] 		= 50,
+			},
 		},
 	},
 	[88206] = { -- Zidormi
@@ -21,72 +29,6 @@ local DIALOG_CLASSIC = {
 		},
 	},
 	-- End of Blasted Lands
-	-- Loch Modan
-	[9989] = { -- Lina Hearthstove
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[43979] = { -- Gravin Steelbeard
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[44123] = { -- Emily Jackson
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	-- End of Loch Modan
-	-- Eastern Plaguelands
-	[28406] = { -- Death Knight Initiate
-		["g"] = {
-			L_DIALOG["I challenge you, death knight!"],
-		},
-	},
-	[29173] = { -- Highlord Darion Mograine
-		["g"] = {
-			L_DIALOG["I am ready."],
-		},
-	},
-	[150987] = { -- Sean Wilkers
-		["g"] = {
-			L_DIALOG["Sean Wilkers 1"],
-		},
-	},
-	-- End of Eastern Plaguelands
-	-- Elwynn Forest
-	[6749] = { -- Erma
-		["g"] = {
-			{
-				["text"] = L_DIALOG["I'd like to heal and revive my battle pets."],
-				["condition"] = "none"
-			},
-		},
-		["c"] = {
-			{
-				["text"] = L_DIALOG["A small fee for supplies is required."],
-				["condition"] = "none"
-			},
-		},
-	},
-	[64330] = { -- Julia Stevens
-		["g"] = {
-			L_DIALOG["Think you can take me in a pet battle?"],
-		},
-		["c"] = {
-			L_DIALOG["Let's rumble!"],
-		},
-	},
 	-- End of Elwynn Forest
 	-- Dun Morogh
 	[46293] = { -- Torben Zapblast
