@@ -1,0 +1,2 @@
+Fixes and Updates:
+	- Updated the Dialog tech to support conditions. All Classic dialogs have been migrated, more will be done in the future.
