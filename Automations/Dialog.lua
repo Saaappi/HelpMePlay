@@ -100,7 +100,10 @@ local function SelectGossipOption(options, npcId, parentMapId)
 							return
 						end
 					elseif gossip.condition == "money" then
-						-- TODO
+						if GetMoney("player") > gossip.money then
+							C_GossipInfo.SelectOption(index)
+							return
+						end
 					end
 				end
 			end
@@ -264,7 +267,10 @@ local function ConfirmConfirmationMessage(message, npcId)
 						return
 					end
 				elseif gossip.condition == "money" then
-					-- TODO
+					if GetMoney("player") > gossip.money then
+						StaticPopup1Button1:Click("LeftButton")
+						return
+					end
 				end
 			end
 		else
