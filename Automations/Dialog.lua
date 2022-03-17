@@ -44,6 +44,32 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		loadedDialogTable = addonTable.DIALOG_SL
 	end
 	
+	-- Player-controlled dialogs ignore the
+	-- new format. So, they don't support
+	-- conditions!
+	for index, gossipSubTable in ipairs(options) do
+		if HelpMePlayPlayerDialogDB[npcId] then
+			if HelpMePlayPlayerDialogDB[npcId]["g"] then
+				for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
+					if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
+						C_GossipInfo.SelectOption(index)
+						return
+					end
+				end
+			end
+		else
+			for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+				if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
+					C_GossipInfo.SelectOption(index)
+					return
+				end
+			end
+		end
+	end
+	
+	-- If not in the player-controlled dialog
+	-- table, then let's check the system table
+	-- we were told to load.
 	if loadedDialogTable[npcId] then
 		-- The NPC is in the database. Let's check
 		-- if the gossip subtable uses the new or
@@ -51,34 +77,9 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		if type(loadedDialogTable[npcId]["g"][1]) == "table" then
 			-- NEW FORMAT
 			--
-			-- Player-controlled dialogs ignore the
-			-- new format. So, they don't support
-			-- conditions!
-			--
 			-- Let's iterate the gossip subtable for
 			-- a match.
 			for index, gossipSubTable in ipairs(options) do
-				if HelpMePlayPlayerDialogDB[npcId] then
-					if HelpMePlayPlayerDialogDB[npcId]["g"] then
-						for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
-							if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
-								C_GossipInfo.SelectOption(index)
-								return
-							end
-						end
-					end
-				else
-					for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-						if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
-							C_GossipInfo.SelectOption(index)
-							return
-						end
-					end
-				end
-				
-				-- If not in the player-controlled dialog
-				-- table, then let's check the system table
-				-- we were told to load.
 				for id, gossip in pairs(loadedDialogTable[npcId]["g"]) do
 					-- First, we have to make sure there
 					-- isn't a condition. And if there is
@@ -110,29 +111,6 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		else
 			-- OLD FORMAT
 			for index, gossipSubTable in ipairs(options) do
-				-- First check if the dialog is in
-				-- the player-controlled table.
-				if HelpMePlayPlayerDialogDB[npcId] then
-					if HelpMePlayPlayerDialogDB[npcId]["g"] then
-						for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
-							if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
-								C_GossipInfo.SelectOption(index)
-								return
-							end
-						end
-					end
-				else
-					for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-						if string.find(string.lower(gossipSubTable["name"]), string.lower(text)) then
-							C_GossipInfo.SelectOption(index)
-							return
-						end
-					end
-				end
-				
-				-- If not in the player-controlled dialog
-				-- table, then let's check the system table
-				-- we were told to load.
 				for id, _ in pairs(loadedDialogTable) do
 					if id == npcId then
 						-- We found a match in the table
@@ -212,6 +190,30 @@ local function ConfirmConfirmationMessage(message, npcId)
 		loadedDialogTable = addonTable.DIALOG_SL
 	end
 	
+	-- Player-controlled confirms ignore the
+	-- new format. So, they don't support
+	-- conditions!
+	if HelpMePlayPlayerDialogDB[npcId] then
+		if HelpMePlayPlayerDialogDB[npcId]["c"] then
+			for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
+				if string.find(string.lower(message), string.lower(text)) then
+					StaticPopup1Button1:Click("LeftButton")
+					return
+				end
+			end
+		end
+	else
+		for _, text in ipairs(HelpMePlayPlayerDialogDB) do
+			if string.find(string.lower(message), string.lower(text)) then
+				StaticPopup1Button1:Click("LeftButton")
+				return
+			end
+		end
+	end
+	
+	-- If not in the player-controlled confirms
+	-- table, then let's check the system table
+	-- we were told to load.
 	if loadedDialogTable[npcId] then
 		-- The NPC is in the database. Let's check
 		-- if the gossip subtable uses the new or
@@ -219,33 +221,8 @@ local function ConfirmConfirmationMessage(message, npcId)
 		if type(loadedDialogTable[npcId]["c"][1]) == "table" then
 			-- NEW FORMAT
 			--
-			-- Player-controlled confirms ignore the
-			-- new format. So, they don't support
-			-- conditions!
-			--
 			-- Let's iterate the confirm subtable for
 			-- a match.
-			if HelpMePlayPlayerDialogDB[npcId] then
-				if HelpMePlayPlayerDialogDB[npcId]["c"] then
-					for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
-						if string.find(string.lower(message), string.lower(text)) then
-							StaticPopup1Button1:Click("LeftButton")
-							return
-						end
-					end
-				end
-			else
-				for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-					if string.find(string.lower(message), string.lower(text)) then
-						StaticPopup1Button1:Click("LeftButton")
-						return
-					end
-				end
-			end
-				
-			-- If not in the player-controlled confirms
-			-- table, then let's check the system table
-			-- we were told to load.
 			for id, gossip in pairs(loadedDialogTable[npcId]["c"]) do
 				-- First, we have to make sure there
 				-- isn't a condition. And if there is
@@ -275,30 +252,6 @@ local function ConfirmConfirmationMessage(message, npcId)
 			end
 		else
 			-- OLD FORMAT
-			--
-			-- First check if the confirm is in
-			-- the player-controlled table.
-			if HelpMePlayPlayerDialogDB[npcId] then
-				if HelpMePlayPlayerDialogDB[npcId]["c"] then
-					for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
-						if string.find(string.lower(message), string.lower(text)) then
-							StaticPopup1Button1:Click("LeftButton")
-							return
-						end
-					end
-				end
-			else
-				for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-					if string.find(string.lower(message), string.lower(text)) then
-						StaticPopup1Button1:Click("LeftButton")
-						return
-					end
-				end
-			end
-				
-			-- If not in the player-controlled confirm
-			-- table, then let's check the system table
-			-- we were told to load.
 			for id, _ in pairs(loadedDialogTable) do
 				if id == npcId then
 					-- We found a match in the table
