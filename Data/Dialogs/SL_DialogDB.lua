@@ -504,491 +504,674 @@ local DIALOG_SL = {
 	},
 	-- End of Bastion
 	-- Maldraxxus
-	[173263] = { -- Rotgut
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
-		},
-	},
 	[165052] = { -- Vial Master Lurgy
 		["g"] = {
-			L_DIALOG["Is there any way I can help?"],
-			L_DIALOG["O.K."],
+			{
+				["text"] 		= L_DIALOG["Is there any way I can help?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["O.K."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[157313] = { -- Foul-Tongue Cyrlix
 		["g"] = {
-			L_DIALOG["Is there any way I can help?"],
-			L_DIALOG["O.K."],
+			{
+				["text"] 		= L_DIALOG["Is there any way I can help?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["O.K."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[157945] = { -- Boil Master Yetch
 		["g"] = {
-			L_DIALOG["Is there any way I can help?"],
-			L_DIALOG["O.K."],
+			{
+				["text"] 		= L_DIALOG["Is there any way I can help?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["O.K."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159696] = { -- Rencissa the Dynamo
 		["g"] = {
-			L_DIALOG["Rencissa the Dynamo 1"],
+			{
+				["text"] 		= L_DIALOG["Rencissa the Dynamo 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159827] = { -- Scrapper Minoire
 		["g"] = {
-			L_DIALOG["Scrapper Minoire 1"],
+			{
+				["text"] 		= L_DIALOG["Scrapper Minoire 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160917] = { -- Grimshadow
 		["g"] = {
-			L_DIALOG["Grimshadow 1"],
+			{
+				["text"] 		= L_DIALOG["Grimshadow 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161710] = { -- Marcel Mullby
 		["g"] = {
-			L_DIALOG["Marcel Mullby 1"],
+			{
+				["text"] 		= L_DIALOG["Marcel Mullby 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165966] = { -- Khaliiq
 		["g"] = {
-			L_DIALOG["Khaliiq 1"],
-		},
-	},
-	[157130] = { -- Recruitable Animate
-		["g"] = {
-			L_DIALOG["Recruitable Animate 1"],
-		},
-	},
-	[157168] = { -- Stubborn Animate
-		["g"] = {
-			L_DIALOG["Stubborn Animate 1"],
+			{
+				["text"] 		= L_DIALOG["Khaliiq 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166129] = { -- Specialist Entra
 		["g"] = {
-			L_DIALOG["Specialist Entra 1"],
+			{
+				["text"] 		= L_DIALOG["Specialist Entra 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166657] = { -- Ta'eran
 		["g"] = {
-			L_DIALOG["Ta'eran 1"],
+			{
+				["text"] 		= L_DIALOG["Ta'eran 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[171747] = { -- Project Lead Allen
 		["g"] = {
-			L_DIALOG["Project Lead Allen 1"],
+			{
+				["text"] 		= L_DIALOG["Project Lead Allen 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172871] = { -- Taloned Flayedwing
 		["g"] = {
-			L_DIALOG["Taloned Flayedwing 1"],
-		},
-	},
-	[173267] = { -- Dundley Stickyfingers
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
+			{
+				["text"] 		= L_DIALOG["Taloned Flayedwing 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159824] = { -- Gunn Gorgebone
 		["g"] = {
-			L_DIALOG["Is there anything you need?"],
+			{
+				["text"] 		= L_DIALOG["Is there anything you need?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159827] = { -- Scrapper Minoire
 		["g"] = {
-			L_DIALOG["Is there anything you need?"],
-			L_DIALOG["Scrapper Minoire 1"],
+			{
+				["text"] 		= L_DIALOG["Is there anything you need?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Scrapper Minoire 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159696] = { -- Rencissa the Dynamo
 		["g"] = {
-			L_DIALOG["Is there anything you need?"],
-			L_DIALOG["Rencissa the Dynamo 1"],
+			{
+				["text"] 		= L_DIALOG["Is there anything you need?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Rencissa the Dynamo 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[163083] = { -- Valuator Malus
 		["g"] = {
-			L_DIALOG["Very well. Let us fight."],
+			{
+				["text"] 		= L_DIALOG["Very well. Let us fight."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[163084] = { -- Tester Sahaari
 		["g"] = {
-			L_DIALOG["Very well. Let us fight."],
+			{
+				["text"] 		= L_DIALOG["Very well. Let us fight."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164492] = { -- Arena Spectator
 		["g"] = {
-			L_DIALOG["Au'narim claims you owe her anima."],
+			{
+				["text"] 		= L_DIALOG["Au'narim claims you owe her anima."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164507] = { -- Arena Spectator
 		["g"] = {
-			L_DIALOG["Au'narim claims you owe her anima."],
+			{
+				["text"] 		= L_DIALOG["Au'narim claims you owe her anima."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164508] = { -- Arena Spectator
 		["g"] = {
-			L_DIALOG["Au'narim claims you owe her anima."],
-		},
-	},
-	[161712] = { -- Nana Redcap
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[157130] = { -- Recruitable Animate
-		["g"] = {
-			L_DIALOG["Maldraxxus needs your service. Will you fight?"],
-		},
-	},
-	[157168] = { -- Stubborn Animate
-		["g"] = {
-			L_DIALOG["Maldraxxus needs your service. Will you fight?"],
+			{
+				["text"] 		= L_DIALOG["Au'narim claims you owe her anima."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158453] = { -- Baroness Draka
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165182] = { -- Baroness Draka
 		["g"] = {
-			L_DIALOG["I know my way around the Sanctum."],
+			{
+				["text"] 		= L_DIALOG["I know my way around the Sanctum."],
+				["condition"] 	= "none",
+			},
 		},
 		["c"] = {
-			L_DIALOG["Are you sure?"],
-		},
-	},
-	[173257] = { -- Caregiver Maximillian
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= L_DIALOG["Are you sure?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161985] = { -- Baroness Vashj
 		["g"] = {
-			L_DIALOG["Baroness Vashj 1"],
+			{
+				["text"] 		= L_DIALOG["Baroness Vashj 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158604] = { -- Navigator Xennir
 		["g"] = {
-			L_DIALOG["Navigator Xennir 1"],
+			{
+				["text"] 		= L_DIALOG["Navigator Xennir 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160518] = { -- Whisperer Vyn
 		["g"] = {
-			L_DIALOG["Whisperer Vyn 1"],
+			{
+				["text"] 		= L_DIALOG["Whisperer Vyn 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172566] = { -- Twigin
 		["g"] = {
-			L_DIALOG["I'm ready."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172809] = { -- Twigin
 		["g"] = {
-			L_DIALOG["I'm ready."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172901] = { -- Twigin
 		["g"] = {
-			L_DIALOG["I'm ready."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172574] = { -- Navigator Xennir
 		["g"] = {
-			L_DIALOG["Navigator Xennir 2"],
+			{
+				["text"] 		= L_DIALOG["Navigator Xennir 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[168860] = { -- Kynthia
 		["g"] = {
-			L_DIALOG["Kynthia 1"],
+			{
+				["text"] 		= L_DIALOG["Kynthia 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166211] = { -- Alexandros Mograine
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172002] = { -- Xandria
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172923] = { -- Kel'Thuzad
 		["g"] = {
-			L_DIALOG["Kel'Thuzad 1"],
+			{
+				["text"] 		= L_DIALOG["Kel'Thuzad 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[174179] = { -- Baroness Draka
 		["g"] = {
-			L_DIALOG["Baroness Draka 1"],
+			{
+				["text"] 		= L_DIALOG["Baroness Draka 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[173523] = { -- General Draven
 		["g"] = {
-			L_DIALOG["General Draven 1"],
+			{
+				["text"] 		= L_DIALOG["General Draven 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[173222] = { -- Xandria
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Maldraxxus
 	-- Ardenweald
 	[171743] = { -- Dapperdew
 		["g"] = {
-			L_DIALOG["Dapperdew 1"],
+			{
+				["text"] 		= L_DIALOG["Dapperdew 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[157710] = { -- Cortinarius
 		["g"] = {
-			L_DIALOG["Cortinarius 1"],
-		},
-	},
-	[170571] = { -- Timaeron
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[168082] = { -- Tinybell
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= L_DIALOG["Cortinarius 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160929] = { -- Guardian Molan
 		["g"] = {
-			L_DIALOG["The forces of Mueh'zala have invaded Ardenweald."],
+			{
+				["text"] 		= L_DIALOG["The forces of Mueh'zala have invaded Ardenweald."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158921] = { -- Guardian Kota
 		["g"] = {
-			L_DIALOG["The forces of Mueh'zala have invaded Ardenweald."],
+			{
+				["text"] 		= L_DIALOG["The forces of Mueh'zala have invaded Ardenweald."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158519] = { -- Sorcha
 		["g"] = {
-			L_DIALOG["The forces of Mueh'zala have invaded Ardenweald."],
-			L_DIALOG["I would like you to have the supplies."],
+			{
+				["text"] 		= L_DIALOG["The forces of Mueh'zala have invaded Ardenweald."],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I would like you to have the supplies."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161785] = { -- Thiernax
 		["g"] = {
-			L_DIALOG["Thiernax 1"],
-			L_DIALOG["Thiernax 2"],
+			{
+				["text"] 		= L_DIALOG["Thiernax 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Thiernax 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165382] = { -- Gormsmith Cavina
 		["g"] = {
-			L_DIALOG["I would like you to have the supplies."],
+			{
+				["text"] 		= L_DIALOG["I would like you to have the supplies."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165703] = { -- Elder Finnan
 		["g"] = {
-			L_DIALOG["I would like you to have the supplies."],
+			{
+				["text"] 		= L_DIALOG["I would like you to have the supplies."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158345] = { -- Lady of the Falls
 		["g"] = {
-			L_DIALOG["I would like you to have the supplies."],
+			{
+				["text"] 		= L_DIALOG["I would like you to have the supplies."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165704] = { -- Elder Gwenna
 		["g"] = {
-			L_DIALOG["I would like you to have the supplies."],
+			{
+				["text"] 		= L_DIALOG["I would like you to have the supplies."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165705] = { -- Groonoomcrooek
 		["g"] = {
-			L_DIALOG["I would like you to have the supplies."],
+			{
+				["text"] 		= L_DIALOG["I would like you to have the supplies."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158543] = { -- Attendant Sparkledew
 		["g"] = {
-			L_DIALOG["Attendant Sparkledew 1"],
+			{
+				["text"] 		= L_DIALOG["Attendant Sparkledew 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160121] = { -- Master Sha'lor
 		["g"] = {
-			L_DIALOG["Master Sha'lor 1"],
+			{
+				["text"] 		= L_DIALOG["Master Sha'lor 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158544] = { -- Lord Herne
 		["g"] = {
-			L_DIALOG["Lord Herne 2"],
-			L_DIALOG["Lord Herne 3"],
-			L_DIALOG["Lord Herne 4"],
+			{
+				["text"] 		= L_DIALOG["Lord Herne 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Lord Herne 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Lord Herne 4"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165550] = { -- Attendant Shimmerwing
 		["g"] = {
-			L_DIALOG["Attendant Shimmerwing 1"],
+			{
+				["text"] 		= L_DIALOG["Attendant Shimmerwing 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169273] = { -- Silkstrider Caretaker
 		["g"] = {
-			L_DIALOG["Silkstrider Caretaker 1"],
+			{
+				["text"] 		= L_DIALOG["Silkstrider Caretaker 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161509] = { -- Lady Moonberry
 		["g"] = {
-			L_DIALOG["Lady Moonberry 3"],
-			L_DIALOG["I know my way around the Sanctum."],
+			{
+				["text"] 		= L_DIALOG["Lady Moonberry 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I know my way around the Sanctum."],
+				["condition"] 	= "none",
+			},
 		},
 		["c"] = {
-			L_DIALOG["Are you sure?"],
+			{
+				["text"] 		= L_DIALOG["Are you sure?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172431] = { -- Lady Moonberry
 		["g"] = {
-			L_DIALOG["Lady Moonberry 1"],
+			{
+				["text"] 		= L_DIALOG["Lady Moonberry 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[170705] = { -- Ara'lon
 		["g"] = {
-			L_DIALOG["Ara'lon 1"],
+			{
+				["text"] 		= L_DIALOG["Ara'lon 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164023] = { -- Vesperbloom
 		["g"] = {
-			L_DIALOG["Vesperbloom 1"],
-			L_DIALOG["Vesperbloom 2"],
+			{
+				["text"] 		= L_DIALOG["Vesperbloom 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Vesperbloom 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172185] = { -- Zayhad, The Builder
 		["g"] = {
-			L_DIALOG["Zayhad, The Builder 1"],
-			L_DIALOG["Zayhad, The Builder 2"],
+			{
+				["text"] 		= L_DIALOG["Zayhad, The Builder 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Zayhad, The Builder 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[156634] = { -- Winter Queen
 		["g"] = {
-			L_DIALOG["Winter Queen 1"],
-			L_DIALOG["Winter Queen 2"],
+			{
+				["text"] 		= L_DIALOG["Winter Queen 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Winter Queen 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166887] = { -- Winter Queen
 		["g"] = {
-			L_DIALOG["Winter Queen 3"],
-			L_DIALOG["Winter Queen 4"],
-			L_DIALOG["I am ready to go."],
+			{
+				["text"] 		= L_DIALOG["Winter Queen 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Winter Queen 4"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I am ready to go."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[171992] = { -- Lady Moonberry
 		["g"] = {
-			L_DIALOG["Lady Moonberry 4"],
+			{
+				["text"] 		= L_DIALOG["Lady Moonberry 4"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172091] = { -- Lord Herne
 		["g"] = {
-			L_DIALOG["I am ready."],
-		},
-	},
-	[173377] = { -- Faryl
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172886] = { -- Mask of Bwonsamdi
 		["g"] = {
-			L_DIALOG["Mask of Bwonsamdi 1"],
-		},
-	},
-	[173372] = { -- Glitterdust
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
+			{
+				["text"] 		= L_DIALOG["Mask of Bwonsamdi 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[157949] = { -- Heartwood Grove Holdout
 		["g"] = {
-			L_DIALOG["Evacuate, now!"],
-		},
-	},
-	[161354] = { -- Huln Highmountain
-		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["Evacuate, now!"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158006] = { -- Heartwood Grove Holdout
 		["g"] = {
-			L_DIALOG["Evacuate, now!"],
+			{
+				["text"] 		= L_DIALOG["Evacuate, now!"],
+				["condition"] 	= "none",
+			},
 		},
 	},
-	[170924] = { -- Nortera
+	[161354] = { -- Huln Highmountain
 		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159427] = { -- Elder Finnan
 		["g"] = {
-			L_DIALOG["The Lady of the Falls wanted to make sure you were safe."],
+			{
+				["text"] 		= L_DIALOG["The Lady of the Falls wanted to make sure you were safe."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159428] = { -- Groonoomcrooek
 		["g"] = {
-			L_DIALOG["The Lady of the Falls wanted to make sure you were safe."],
+			{
+				["text"] 		= L_DIALOG["The Lady of the Falls wanted to make sure you were safe."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159465] = { -- Elder Gwenna
 		["g"] = {
-			L_DIALOG["The Lady of the Falls wanted to make sure you were safe."],
+			{
+				["text"] 		= L_DIALOG["The Lady of the Falls wanted to make sure you were safe."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160262] = { -- Ysera
 		["g"] = {
-			L_DIALOG["Ysera 1"],
-			L_DIALOG["I'm ready."],
-		},
-	},
-	[162434] = { -- Littlewing
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[104553] = { -- Odrogg
-		["g"] = {
-			L_DIALOG["Let's do battle!"],
+			{
+				["text"] 		= L_DIALOG["Ysera 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172677] = { -- Niya
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165671] = { -- Pelagos
 		["g"] = {
-			L_DIALOG["Pelagos 3"],
+			{
+				["text"] 		= L_DIALOG["Pelagos 3"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165736] = { -- Lady Moonberry's Soap
 		["g"] = {
-			L_DIALOG["Lady Moonberry's Soap 1"],
+			{
+				["text"] 		= L_DIALOG["Lady Moonberry's Soap 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162392] = { -- Willowblossom
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[163328] = { -- Pelagos
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Ardenweald
