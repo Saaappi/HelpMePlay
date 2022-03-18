@@ -22,7 +22,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
 		local msg = ...
 		for k,v in pairs(addonTable.SPEECH) do
-			if k == string.lower(msg) then
+			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "emote" then
 					DoEmote(v.emote, nil)
 				elseif v.type == "glow" then
@@ -43,7 +43,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
 		local msg = ...
 		for k,v in pairs(addonTable.SPEECH) do
-			if k == string.lower(msg) then
+			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then
 						AddGlowToActionBarButton(OverrideActionBarButton1, 2)
@@ -61,7 +61,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
 		local msg = ...
 		for k,v in pairs(addonTable.SPEECH) do
-			if k == string.lower(msg) then
+			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then
 						AddGlowToActionBarButton(OverrideActionBarButton1, 2)

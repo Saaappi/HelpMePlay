@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local itemRewardItemLevels = {}
+local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
 
@@ -68,7 +68,7 @@ local function Max(tbl)
 	return highestItemIndex
 end
 
-local function CompareItems(index, itemRewardItemLevels, sellPrices, itemLink, slotName, quantity)
+local function CompareItems(index, itemLevels, sellPrices, itemLink, slotName, quantity)
 	local sellPrice, itemQuality, equipLoc, slotId, inventoryItemLink, itemId, equippedItemLevel, rewardItemLevel
 	-- Populate the sellPrices table with the sell price
 	-- of the item.
@@ -78,22 +78,24 @@ local function CompareItems(index, itemRewardItemLevels, sellPrices, itemLink, s
 	if slotName ~= "NOTHING" then
 		slotId = GetInventorySlotInfo(slotName)
 		inventoryItemLink = GetInventoryItemLink("player", slotId)
+		
 		-- An error is thrown if a slot is empty.
 		if inventoryItemLink then
 			equippedItemLevel = GetDetailedItemLevelInfo(inventoryItemLink)
 			rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
-			-- This happens if the player hasn't opened
-			-- their character pane in the current session.
+			
+			-- We won't be able to fetch the item level of
+			-- the equipped item if the player hasn't opened
+			-- their character pane once in the current session.
 			if equippedItemLevel == nil then
 				if HelpMePlayOptionsDB.Logging then
 					print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Equipped Item Level is Nil"])
 				end
 				return
 			elseif rewardItemLevel > equippedItemLevel then
-				-- Don't add slots with equipped heirlooms
-				-- for consideration.
+				-- Ignore slots with heirlooms equipped.
 				if itemQuality ~= 7 then
-					itemRewardItemLevels[index] = rewardItemLevel
+					itemLevels[index] = rewardItemLevel
 				end
 			end
 		end
@@ -110,8 +112,12 @@ function HMP_CompleteQuest()
 			-- We want to stop selecting quest rewards
 			-- at max level.
 			if playerLevel < 60 then
-				itemRewardItemLevels = {}
+				-- Let's create a couple tables to hold
+				-- the quest choice indices for the rewards'
+				-- item level and sell price.
+				itemLevels = {}
 				sellPrices = {}
+				
 				-- Check the item slot for the quest reward,
 				-- then let's compare it to what the player
 				-- has equipped. While leveling, item level
@@ -120,47 +126,130 @@ function HMP_CompleteQuest()
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local itemLink = GetQuestItemLink("choice", i)
 					if itemLink then
+						-- Let's grab the itemId because it will
+						-- be used later when comparing to the
+						-- QuestRewardsDB.lua file.
+						--
+						-- Let's get itemQuality and equipLoc because
+						-- they will be used to compare to what the
+						-- player currently has equipped.
+						--
+						-- Let's get the actual slot name, so we can
+						-- draw an accurate picture of the player's
+						-- current equipment.
 						local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 						local _, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
 						local _, slotName = strsplit("_", equipLoc)
+						
 						-- These don't convert to a valid slotId,
-						-- so we have to change it to something else.
+						-- so we have to change it to something
+						-- that will.
 						if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" then
-							-- This logic won't apply to every class, but
-							-- some classes (eg. Warrior, Rogue, Shaman)
-							-- may have multiple weapons equipped.
-							for i=0, 1 do
-								if i == 0 then
-									slotName = "MAINHAND"
-								elseif i == 1 then
-									slotName = "SECONDARYHAND"
+							-- Not every class/spec can dual wield,
+							-- so let's figure out the player's current
+							-- class and spec, then continue or not.
+							local _, _, classId = UnitClass("player")
+							
+							-- Rogues and demon hunters can dual wield
+							-- at creation. Warriors, monks, death
+							-- knights, and shamans all must reach
+							-- level 10 and be the appropriate spec.
+
+							-- Let's make sure the player is in the
+							-- right spec for dual wield for their
+							-- given class.
+							local spec = GetSpecialization()
+							local specId = GetSpecializationInfo(spec)
+							if classId == 1 and specId == 72 then
+								for j=0, 1 do
+									if j == 0 then
+										slotName = "MAINHAND"
+									elseif j == 1 then
+										slotName = "SECONDARYHAND"
+									end
+									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 								end
-								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+							elseif classId == 4 then
+								for j=0, 1 do
+									if j == 0 then
+										slotName = "MAINHAND"
+									elseif j == 1 then
+										slotName = "SECONDARYHAND"
+									end
+									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+								end
+							elseif classId == 6 and specId == 251 then
+								for j=0, 1 do
+									if j == 0 then
+										slotName = "MAINHAND"
+									elseif j == 1 then
+										slotName = "SECONDARYHAND"
+									end
+									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+								end
+							elseif classId == 7 and specId == 263 then
+								for j=0, 1 do
+									if j == 0 then
+										slotName = "MAINHAND"
+									elseif j == 1 then
+										slotName = "SECONDARYHAND"
+									end
+									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+								end
+							elseif classId == 10 and (specId == 268 or specId == 269) then
+								for j=0, 1 do
+									if j == 0 then
+										slotName = "MAINHAND"
+									elseif j == 1 then
+										slotName = "SECONDARYHAND"
+									end
+									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+								end
+							elseif classId == 12 then
+								for j=0, 1 do
+									if j == 0 then
+										slotName = "MAINHAND"
+									elseif j == 1 then
+										slotName = "SECONDARYHAND"
+									end
+									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+								end
+							else
+								slotName = "MAINHAND"
+								CompareItems(i, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 							end
 						elseif slotName == "TRINKET" or slotName == "FINGER" then
-							for i=0, 1 do
-								CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName..i.."SLOT", quantity)
+							for j=0, 1 do
+								CompareItems(j, itemLevels, sellPrices, itemLink, slotName..j.."SLOT", quantity)
 							end
 						elseif slotName == "CLOAK" then
-							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, "BACKSLOT", quantity)
+							CompareItems(i, itemLevels, sellPrices, itemLink, "BACKSLOT", quantity)
 						elseif slotName == "HAND" then
-							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, "HANDSSLOT", quantity)
+							CompareItems(i, itemLevels, sellPrices, itemLink, "HANDSSLOT", quantity)
 						elseif slotName ~= nil then
-							CompareItems(i, itemRewardItemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-						else
+							CompareItems(i, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
+						--[[else
 							-- Populate the sellPrices table with the sell price
 							-- of the item if it's not 0.
 							local sellPrice = select(11, GetItemInfo(itemLink))
 							if sellPrice ~= 0 then
 								sellPrices[i] = (quantity*sellPrice)
 							else
+								-- If no other conditions are met, then
+								-- the items aren't equipment, and they
+								-- either sell for the same price or no
+								-- price.
+								--
+								-- Quest rewards that meet this criteria
+								-- should be chosen from this table at
+								-- random.
 								questRewards[i] = itemId
-							end
+							end]]
 						end
 					end
 				end
 				
-				if next(itemRewardItemLevels) or next(sellPrices) then
+				if next(itemLevels) or next(sellPrices) then
 					-- Check the item level table first. If the
 					-- item level is higher, then we want to
 					-- take that reward.
@@ -168,24 +257,20 @@ function HMP_CompleteQuest()
 					-- Check the sell prices table next. Same
 					-- concept; if the sell price is higher,
 					-- then take that reward.
-					if Max(itemRewardItemLevels) ~= 0 then
-						GetQuestReward(Max(itemRewardItemLevels))
+					if Max(itemLevels) ~= 0 then
+						GetQuestReward(Max(itemLevels))
 					elseif Max(sellPrices) ~= 0 then
 						GetQuestReward(Max(sellPrices))
 					end
 				else
-					for i=1, #questRewards do
-						for itemId, _ in pairs(addonTable.QUESTREWARDS) do
-							if itemId == questRewards[i] then
-								GetQuestReward(i)
-							end
-						end
-					end
+					-- Both of the aforementioned tables are
+					-- empty, so let's pick a reward at random.
+					GetQuestReward(random(1, numQuestChoices))
 				end
 			else
 				-- The player is max level, so let's check the
 				-- quest rewards table for the quest and see if
-				-- we're supposed to take a reward.
+				-- we're supposed to take a specific reward.
 				local itemLink, itemId
 				for i=1, numQuestChoices do
 					itemLink = GetQuestItemLink("choice", i)
