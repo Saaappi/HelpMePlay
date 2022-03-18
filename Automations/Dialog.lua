@@ -75,8 +75,6 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		-- if the gossip subtable uses the new or
 		-- old format.
 		if type(loadedDialogTable[npcId]["g"][1]) == "table" then
-			-- NEW FORMAT
-			--
 			-- Let's iterate the gossip subtable for
 			-- a match.
 			for index, gossipSubTable in ipairs(options) do
@@ -104,27 +102,6 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						if GetMoney("player") > gossip.money then
 							C_GossipInfo.SelectOption(index)
 							return
-						end
-					end
-				end
-			end
-		else
-			-- OLD FORMAT
-			for index, gossipSubTable in ipairs(options) do
-				for id, _ in pairs(loadedDialogTable) do
-					if id == npcId then
-						-- We found a match in the table
-						-- so let's move forward.
-						for i=1, #loadedDialogTable[id]["g"] do
-							--- DEBUG ---
-							-- Only enable these if dialogs aren't being
-							-- selected when they should be.
-							--print(string.lower(gossipSubTable["name"]))
-							--print(string.lower(loadedDialogTable[id]["g"][i]))
-							if string.find(string.lower(gossipSubTable["name"]), string.lower(loadedDialogTable[id]["g"][i])) then
-								C_GossipInfo.SelectOption(index)
-								return
-							end
 						end
 					end
 				end
@@ -219,8 +196,6 @@ local function ConfirmConfirmationMessage(message, npcId)
 		-- if the gossip subtable uses the new or
 		-- old format.
 		if type(loadedDialogTable[npcId]["c"][1]) == "table" then
-			-- NEW FORMAT
-			--
 			-- Let's iterate the confirm subtable for
 			-- a match.
 			for id, gossip in pairs(loadedDialogTable[npcId]["c"]) do
@@ -247,25 +222,6 @@ local function ConfirmConfirmationMessage(message, npcId)
 					if GetMoney("player") > gossip.money then
 						StaticPopup1Button1:Click("LeftButton")
 						return
-					end
-				end
-			end
-		else
-			-- OLD FORMAT
-			for id, _ in pairs(loadedDialogTable) do
-				if id == npcId then
-					-- We found a match in the table
-					-- so let's move forward.
-					for i=1, #loadedDialogTable[id]["c"] do
-						--- DEBUG ---
-						-- Only enable these if dialogs aren't being
-						-- selected when they should be.
-						--print(string.lower(gossipSubTable["name"]))
-						--print(string.lower(loadedDialogTable[id]["c"][i]))
-						if string.find(string.lower(message), string.lower(loadedDialogTable[id]["c"][i])) then
-							StaticPopup1Button1:Click("LeftButton")
-							return
-						end
 					end
 				end
 			end
