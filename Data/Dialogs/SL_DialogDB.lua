@@ -2480,57 +2480,96 @@ local DIALOG_SL = {
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane
 		["g"] = {
-			L_DIALOG["Daelya Twilightsbane 1"],
-			L_DIALOG["Daelya Twilightsbane 2"],
+			{
+				["text"] 		= L_DIALOG["Daelya Twilightsbane 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Daelya Twilightsbane 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[153211] = { -- Meredy Huntswell
 		["g"] = {
-			L_DIALOG["I'll fight the harpies that come."],
-			L_DIALOG["Meredy Huntswell 1"],
+			{
+				["text"] 		= L_DIALOG["Meredy Huntswell 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I'll fight the harpies that come."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[156943] = { -- Meredy Huntswell
 		["g"] = {
-			L_DIALOG["Meredy Huntswell 1"],
+			{
+				["text"] 		= L_DIALOG["Meredy Huntswell 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167298] = { -- Herbert Gloomburst
 		["g"] = {
-			L_DIALOG["I'll fight the harpies that come."],
+			{
+				["text"] 		= L_DIALOG["I'll fight the harpies that come."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167309] = { -- Herbert Gloomburst
 		["g"] = {
-			L_DIALOG["Herbert Gloomburst 1"],
+			{
+				["text"] 		= L_DIALOG["Herbert Gloomburst 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161350] = { -- Captain Garrick
 		["g"] = {
-			L_DIALOG["Let's get out of the citadel and figure out how to get back home."],
+			{
+				["text"] 		= L_DIALOG["Captain Garrick 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167663] = { -- Warlord Breka Grimaxe
 		["g"] = {
-			L_DIALOG["Warlord Breka Grimaxe 1"],
+			{
+				["text"] 		= L_DIALOG["Warlord Breka Grimaxe 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162972] = { -- Coulston Nereus
 		["g"] = {
-			L_DIALOG["I'm in."],
-			L_DIALOG["Got it."],
+			{
+				["text"] 		= L_DIALOG["I'm in."],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Got it."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164835] = { -- Kee-La
 		["g"] = {
-			L_DIALOG["I'm ready."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Exile's Reach
 	-- De Other Side (Dungeon)
 	[166281] = { -- Bwonsamdi
 		["g"] = {
-			L_DIALOG["Bwonsamdi 1"],
+			{
+				["text"] 		= L_DIALOG["Bwonsamdi 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of De Other Side (Dungeon)

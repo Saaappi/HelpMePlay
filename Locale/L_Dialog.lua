@@ -110,7 +110,7 @@ if (isLocaleSupported) then
 	L_DIALOG["Daelya Twilightsbane 2"]														= "I will do my best to serve the Light. I swear to it."
 	L_DIALOG["Meredy Huntswell 1"]															= "I'm ready, transform me into an ogre and I'll sneak into their citadel."
 	L_DIALOG["Herbert Gloomburst 1"]														= "Herbert, do you have an ice mote I can use?"
-	L_DIALOG["Let's get out of the citadel and figure out how to get back home."]			= "Let's get out of the citadel and figure out how to get back home."
+	L_DIALOG["Captain Garrick 1"]															= "Let's get out of the citadel and figure out how to get back home."
 	L_DIALOG["We need your assistance."]													= "We need your assistance."
 	L_DIALOG["Will you bring your forces to fight with us?"]								= "Will you bring your forces to fight with us?"
 	L_DIALOG["D'kaan is coming with help."]													= "D'kaan is coming with help."
