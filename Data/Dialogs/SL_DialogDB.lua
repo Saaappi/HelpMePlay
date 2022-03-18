@@ -1178,392 +1178,584 @@ local DIALOG_SL = {
 	-- Revendreth
 	[167838] = { -- Globknob
 		["g"] = {
-			L_DIALOG["Quest"],
+			{
+				["text"] 		= L_DIALOG["Quest"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167918] = { -- Bela
 		["g"] = {
-			L_DIALOG["Quest"],
+			{
+				["text"] 		= L_DIALOG["Quest"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164420] = { -- Laurent
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167849] = { -- Soul of Keltesh
 		["g"] = {
-			L_DIALOG["Quest"],
+			{
+				["text"] 		= L_DIALOG["Quest"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[156295] = { -- Courier Rokalai
 		["g"] = {
-			L_DIALOG["Quest"],
+			{
+				["text"] 		= L_DIALOG["Quest"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[168237] = { -- Ilka
 		["g"] = {
-			L_DIALOG["<Present Lajos's invitation>"],
+			{
+				["text"] 		= L_DIALOG["<Present Lajos's invitation>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[168238] = { -- Samu
 		["g"] = {
-			L_DIALOG["<Present Lajos's invitation>"],
+			{
+				["text"] 		= L_DIALOG["<Present Lajos's invitation>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167717] = { -- Darkhaven Villager
 		["g"] = {
-			L_DIALOG["<Request tithe>"],
+			{
+				["text"] 		= L_DIALOG["<Request tithe>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167744] = { -- Darkhaven Villager
 		["g"] = {
-			L_DIALOG["<Request tithe>"],
+			{
+				["text"] 		= L_DIALOG["<Request tithe>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167746] = { -- Darkhaven Villager
 		["g"] = {
-			L_DIALOG["<Request tithe>"],
-		},
-	},
-	[156291] = { -- Shadowrider Neralva
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[156234] = { -- Horrormaster Damnik
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= L_DIALOG["<Request tithe>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159883] = { -- Chancellor Codrin
 		["g"] = {
-			L_DIALOG["Chancellor Codrin 1"],
-		},
-	},
-	[173324] = { -- Eyegor
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
+			{
+				["text"] 		= L_DIALOG["Chancellor Codrin 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159946] = { -- The Countess
 		["g"] = {
-			L_DIALOG["The Countess 1"],
+			{
+				["text"] 		= L_DIALOG["The Countess 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160941] = { -- The Curator
 		["g"] = {
-			L_DIALOG["The Curator 1"],
+			{
+				["text"] 		= L_DIALOG["The Curator 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160163] = { -- The Accuser
 		["g"] = {
-			L_DIALOG["The Accuser 1"],
+			{
+				["text"] 		= L_DIALOG["The Accuser 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160233] = { -- The Accuser
 		["g"] = {
-			L_DIALOG["The Accuser 1"],
+			{
+				["text"] 		= L_DIALOG["The Accuser 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161056] = { -- Guard Captain Elizabeta
 		["g"] = {
-			L_DIALOG["Guard Captain Elizabeta 1"],
+			{
+				["text"] 		= L_DIALOG["Guard Captain Elizabeta 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[170291] = { -- Alchemist Leticia
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160011] = { -- Lord Neculai
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160002] = { -- Lord Vasile
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160008] = { -- Lady Rodica
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160006] = { -- Lady Andrada
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159981] = { -- Lady Ivona
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159978] = { -- Lady Ihrin
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159968] = { -- Lady Zina
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160001] = { -- Duchess Yetta
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159973] = { -- Duke Mitica
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159966] = { -- Duke Grigore
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160010] = { -- Duke Vlad
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160004] = { -- Sir Vilhelm
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159967] = { -- Duchess Minodora
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159958] = { -- Madame Viviana
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160005] = { -- Madame Irini
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160003] = { -- Duke Omor
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159988] = { -- Madame Elenuta
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159988] = { -- Duke Mihas
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159972] = { -- Lord Ionel
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159982] = { -- Duchess Vanda
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160000] = { -- Lady Lerae
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159997] = { -- Lord Razvan
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159965] = { -- Lord Sorin
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159977] = { -- Sir Geofri
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159986] = { -- Sir Vali
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159960] = { -- Duke Avram
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159961] = { -- Lord Silviu
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160009] = { -- Madame Tassa
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159999] = { -- Madame Miriana
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159980] = { -- Madame Lenuta
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160007] = { -- Duchess Silviana
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159898] = { -- Duchess Lacrima
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159970] = { -- Duchess Odeta
 		["g"] = {
-			L_DIALOG["Are you enjoying yourself?"],
+			{
+				["text"] 		= L_DIALOG["Are you enjoying yourself?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160956] = { -- Watcher Emil
 		["g"] = {
-			L_DIALOG["Let's go!"],
+			{
+				["text"] 		= L_DIALOG["Let's go!"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165662] = { -- The Countess
 		["g"] = {
-			L_DIALOG["<Deliver Prince Renathal's invitation.>"],
+			{
+				["text"] 		= L_DIALOG["<Deliver Prince Renathal's invitation.>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165866] = { -- The Stonewright
 		["g"] = {
-			L_DIALOG["<Deliver Prince Renathal's invitation.>"],
+			{
+				["text"] 		= L_DIALOG["<Deliver Prince Renathal's invitation.>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159650] = { -- Elena
 		["g"] = {
-			L_DIALOG["<Present the Offer of Employment.>"],
+			{
+				["text"] 		= L_DIALOG["<Present the Offer of Employment.>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159651] = { -- Dumitra
 		["g"] = {
-			L_DIALOG["<Present the Offer of Employment.>"],
+			{
+				["text"] 		= L_DIALOG["<Present the Offer of Employment.>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159652] = { -- Florin
 		["g"] = {
-			L_DIALOG["<Present the Offer of Employment.>"],
+			{
+				["text"] 		= L_DIALOG["<Present the Offer of Employment.>"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166541] = { -- Cobwobble
 		["g"] = {
-			L_DIALOG["Where does the Taskmaster keep the sinstones?"],
-			L_DIALOG["What are you all doing?"],
-			L_DIALOG["Why are the ones with scribbles interesting?"],
+			{
+				["text"] 		= L_DIALOG["Where does the Taskmaster keep the sinstones?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["What are you all doing?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Why are the ones with scribbles interesting?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166542] = { -- Slobwobble
 		["g"] = {
-			L_DIALOG["Where does the Taskmaster keep the sinstones?"],
-			L_DIALOG["What are you all doing?"],
-			L_DIALOG["Why are the ones with scribbles interesting?"],
+			{
+				["text"] 		= L_DIALOG["Where does the Taskmaster keep the sinstones?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["What are you all doing?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Why are the ones with scribbles interesting?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166543] = { -- Dobwobble
 		["g"] = {
-			L_DIALOG["Where does the Taskmaster keep the sinstones?"],
-			L_DIALOG["What are you all doing?"],
-			L_DIALOG["Why are the ones with scribbles interesting?"],
+			{
+				["text"] 		= L_DIALOG["Where does the Taskmaster keep the sinstones?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["What are you all doing?"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Why are the ones with scribbles interesting?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169238] = { -- Courier Araak
 		["g"] = {
-			L_DIALOG["Courier Araak 1"],
-			L_DIALOG["Courier Araak 2"],
+			{
+				["text"] 		= L_DIALOG["Courier Araak 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Courier Araak 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165921] = { -- Courier Araak
 		["g"] = {
-			L_DIALOG["Courier Araak 2"],
+			{
+				["text"] 		= L_DIALOG["Courier Araak 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169917] = { -- Avowed Ritualist
 		["g"] = {
-			L_DIALOG["Avowed Ritualist 1"],
+			{
+				["text"] 		= L_DIALOG["Avowed Ritualist 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169865] = { -- Treasure Guardian
 		["g"] = {
-			L_DIALOG["Treasure Guardian 1"],
-			L_DIALOG["Treasure Guardian 2"],
+			{
+				["text"] 		= L_DIALOG["Treasure Guardian 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Treasure Guardian 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165419] = { -- Grand Marshal Mudrag
 		["g"] = {
-			L_DIALOG["I'm ready."],
-		},
-	},
-	[173331] = { -- Addius the Tormentor
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
-		},
-	},
-	[163163] = { -- Ogburn
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[166092] = { -- Rasvan
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[171934] = { -- Prince Renathal
 		["g"] = {
-			L_DIALOG["I know my way around the Sanctum."],
+			{
+				["text"] 		= L_DIALOG["I know my way around the Sanctum."],
+				["condition"] 	= "none",
+			},
 		},
 		["c"] = {
-			L_DIALOG["Are you sure?"],
+			{
+				["text"] 		= L_DIALOG["Are you sure?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161544] = { -- The Curator
 		["g"] = {
-			L_DIALOG["The Curator 2"],
-			L_DIALOG["The Curator 3"],
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["The Curator 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["The Curator 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161553] = { -- Mindscorched Alwin
 		["g"] = {
-			L_DIALOG["Let's go."],
+			{
+				["text"] 		= L_DIALOG["Let's go."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Revendreth
