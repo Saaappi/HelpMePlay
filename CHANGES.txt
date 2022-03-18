@@ -1,5 +1,6 @@
 Fixes and Updates:
 	- Updated the Dialog tech to support conditions. Personal dialogs do NOT support conditions!
+	- Updated the quest reward automation. This was an attempt to make it better and fix Blizzard's inconsistencies.
 	- Removed many dialogs unrelated to Kraken's leveling route. If this is injustice to you, please check out the personal Dialog system using the /hmp dialog command!
 	- Fixed an issue with *some* personal dialogs being discarded if the NPC didn't exist in the system Dialog table.
 	- Fixed an issue with The Games We Play in Ardenweald. Players should once again emote at the Playful Trickster's speech.

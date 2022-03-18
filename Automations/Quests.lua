@@ -144,7 +144,7 @@ function HMP_CompleteQuest()
 						-- These don't convert to a valid slotId,
 						-- so we have to change it to something
 						-- that will.
-						if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" then
+						if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" or slotName == "RANGED" then
 							-- Not every class/spec can dual wield,
 							-- so let's figure out the player's current
 							-- class and spec, then continue or not.
@@ -169,6 +169,9 @@ function HMP_CompleteQuest()
 									end
 									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 								end
+							elseif classId == 3 then
+								slotName = "MAINHAND"
+								CompareItems(i, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 							elseif classId == 4 then
 								for j=0, 1 do
 									if j == 0 then
