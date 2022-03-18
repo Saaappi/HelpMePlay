@@ -8,342 +8,498 @@ local DIALOG_SL = {
 	-- Oribos
 	[0] = {
 		["g"] = {
-			L_DIALOG["Ancient Translocator 1"],
-			L_DIALOG["Repository Console 1"],
-		},
-	},
-	[156791] = { -- Keeper Ta'saran
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= L_DIALOG["Ancient Translocator 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Repository Console 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159478] = { -- Tal-Inara
 		["g"] = {
-			L_DIALOG["Tal-Inara 1"],
-			L_DIALOG["Tal-Inara 2"],
-			L_DIALOG["Tal-Inara 3"],
+			{
+				["text"] 		= L_DIALOG["Tal-Inara 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Tal-Inara 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Tal-Inara 3"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164079] = { -- Highlord Bolvar Fordragon
 		["g"] = {
-			L_DIALOG["Highlord Bolvar Fordragon 1"],
-			L_DIALOG["Highlord Bolvar Fordragon 2"],
+			{
+				["text"] 		= L_DIALOG["Highlord Bolvar Fordragon 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Highlord Bolvar Fordragon 2"],
+				["condition"] 	= "none",
+			},
 		},
 		["c"] = {
-			L_DIALOG["Are you sure?"],
+			{
+				["text"] 		= L_DIALOG["Are you sure?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[177136] = { -- Polemarch Adrestes
 		["g"] = {
-			L_DIALOG["Polemarch Adrestes 1"],
+			{
+				["text"] 		= L_DIALOG["Polemarch Adrestes 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[168432] = { -- Ve'rayn
 		["g"] = {
-			L_DIALOG["Ve'rayn 1"],
-			L_DIALOG["Ve'rayn 2"],
-			L_DIALOG["Ve'rayn 3"],
-			L_DIALOG["Ve'rayn 4"],
+			{
+				["text"] 		= L_DIALOG["Ve'rayn 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Ve'rayn 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Ve'rayn 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Ve'rayn 4"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[174871] = { -- Fatescribe Roh-Tahl
 		["g"] = {
-			L_DIALOG["Fatescribe Roh-Tahl 1"],
+			{
+				["text"] 		= L_DIALOG["Fatescribe Roh-Tahl 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Oribos
 	-- Bastion
-	[173130] = { -- Zolla
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
-		},
-	},
-	[160595] = { -- Pelagos
-		["g"] = {
-			L_DIALOG["Let us soulbind."],
-		},
-	},
-	[175444] = { -- Beastkeeper Ismene
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
-	[160178] = { -- Eumelia
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
-		},
-	},
 	[168742] = { -- Polemarch Adrestes
 		["g"] = {
-			L_DIALOG["I am."],
+			{
+				["text"] 		= L_DIALOG["I am."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[168906] = { -- Polemarch Adrestes
 		["g"] = {
-			L_DIALOG["I'm ready."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[156327] = { -- Voitha
 		["g"] = {
-			L_DIALOG["Voitha 1"],
+			{
+				["text"] 		= L_DIALOG["Voitha 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[157696] = { -- Nemea
 		["g"] = {
-			L_DIALOG["Nemea 1"],
+			{
+				["text"] 		= L_DIALOG["Nemea 1"],
+				["condition"] 	= "none",
+			},
 		},
 		["c"] = {
-			L_DIALOG["Nemea 2"],
-		},
-	},
-	[173129] = { -- Thenia
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
+			{
+				["text"] 		= L_DIALOG["Nemea 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[158765] = { -- Pelodis
 		["g"] = {
-			L_DIALOG["Pelodis 1"],
+			{
+				["text"] 		= L_DIALOG["Pelodis 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159277] = { -- Aspirant Leda
 		["g"] = {
-			L_DIALOG["Aspirant Leda 1"],
+			{
+				["text"] 		= L_DIALOG["Aspirant Leda 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159278] = { -- Aspirant Ikaran
 		["g"] = {
-			L_DIALOG["Aspirant Ikaran 1"],
+			{
+				["text"] 		= L_DIALOG["Aspirant Ikaran 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169022] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 1"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169023] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 1"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169024] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 1"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169025] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 1"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169026] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 1"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169027] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 1"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169077] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 2"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169078] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 2"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169079] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 2"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169080] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 2"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169081] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 2"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[169082] = { -- Helpful Steward
 		["g"] = {
-			L_DIALOG["Helpful Steward 2"],
+			{
+				["text"] 		= L_DIALOG["Helpful Steward 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172714] = { -- Trapped Caretaker
 		["g"] = {
-			L_DIALOG["Trapped Caretaker 1"],
+			{
+				["text"] 		= L_DIALOG["Trapped Caretaker 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161279] = { -- Sparring Aspirant
 		["g"] = {
-			-- When there is only one Sparring Aspirant.
-			L_DIALOG["Sparring Aspirant 1"],
+			{
+				["text"] 		= L_DIALOG["Sparring Aspirant 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159504] = { -- Sparring Aspirant
 		["g"] = {
-			L_DIALOG["Sparring Aspirant 1"],
-			L_DIALOG["Sparring Aspirant 2"],
+			{
+				["text"] 		= L_DIALOG["Sparring Aspirant 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Sparring Aspirant 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[159505] = { -- Sparring Aspirant
 		["g"] = {
-			-- When there are Sparring Aspirants... sparring.
-			L_DIALOG["Sparring Aspirant 1"],
-			L_DIALOG["Sparring Aspirant 2"],
+			{
+				["text"] 		= L_DIALOG["Sparring Aspirant 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Sparring Aspirant 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[171834] = { -- Aspirant Thetes
 		["g"] = {
-			L_DIALOG["Aspirant Thetes 1"],
-		},
-	},
-	[173131] = { -- Stratios
-		["g"] = {
-			L_DIALOG["Begin pet battle."],
-		},
-	},
-	[160598] = { -- Klystere
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= 			L_DIALOG["Aspirant Thetes 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181286] = { -- Sylvanas Windrunner
 		["g"] = {
-			L_DIALOG["Sylvanas Windrunner 1"],
+			{
+				["text"] 		= L_DIALOG["Sylvanas Windrunner 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160037] = { -- Polemarch Adrestes
 		["g"] = {
-			L_DIALOG["I know my way around the Sanctum."],
+			{
+				["text"] 		= L_DIALOG["I know my way around the Sanctum."],
+				["condition"] 	= "none",
+			},
 		},
 		["c"] = {
-			L_DIALOG["Are you sure?"],
+			{
+				["text"] 		= L_DIALOG["Are you sure?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165412] = { -- Xandria
 		["g"] = {
-			L_DIALOG["I'm ready."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[165794] = { -- Xandria
 		["g"] = {
-			L_DIALOG["Xandria 2"],
+			{
+				["text"] 		= L_DIALOG["Xandria 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162542] = { -- Kleia
 		["g"] = {
-			L_DIALOG["I am ready."],
-			L_DIALOG["I'm ready."],
-			L_DIALOG["Kleia 1"],
-			L_DIALOG["Kleia 2"],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Kleia 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Kleia 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[163650] = { -- Kleia
 		["g"] = {
-			L_DIALOG["Let us soulbind."],
+			{
+				["text"] 		= L_DIALOG["Let us soulbind."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167716] = { -- Pelagos
 		["g"] = {
-			L_DIALOG["Pelagos 2"],
+			{
+				["text"] 		= L_DIALOG["Pelagos 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162556] = { -- Clora
 		["g"] = {
-			L_DIALOG["Clora 1"],
+			{
+				["text"] 		= L_DIALOG["Clora 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162557] = { -- Forgelite Sophone
 		["g"] = {
-			L_DIALOG["Forgelite Sophone 1"],
+			{
+				["text"] 		= L_DIALOG["Forgelite Sophone 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[160280] = { -- Mikanikos
 		["g"] = {
-			L_DIALOG["I am ready."],
-			L_DIALOG["Mikanikos 1"],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Mikanikos 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[173860] = { -- Kalisthene
 		["g"] = {
-			L_DIALOG["Kalisthene 1"],
+			{
+				["text"] 		= L_DIALOG["Kalisthene 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[156361] = { -- Kleia
 		["g"] = {
-			L_DIALOG["I am ready."],
-			L_DIALOG["Kleia 3"],
-			L_DIALOG["Kleia 4"],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Kleia 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Kleia 4"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[174497] = { -- Polemarch Adrestes
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162889] = { -- Eridia
 		["g"] = {
-			L_DIALOG["Eridia 1"],
+			{
+				["text"] 		= L_DIALOG["Eridia 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162904] = { -- Apolon
 		["g"] = {
-			L_DIALOG["Apolon 1"],
+			{
+				["text"] 		= L_DIALOG["Apolon 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162888] = { -- Sika
 		["g"] = {
-			L_DIALOG["Sika 1"],
+			{
+				["text"] 		= L_DIALOG["Sika 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[162907] = { -- Arios Riftbearer
 		["g"] = {
-			L_DIALOG["Arios Riftbearer 1"],
+			{
+				["text"] 		= L_DIALOG["Arios Riftbearer 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164473] = { -- Polemarch Adrestes
 		["g"] = {
-			L_DIALOG["I am."],
+			{
+				["text"] 		= L_DIALOG["I am."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166740] = { -- Mikanikos
 		["g"] = {
-			L_DIALOG["I am."],
+			{
+				["text"] 		= L_DIALOG["I am."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[174503] = { -- Polemarch Adrestes
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[161637] = { -- Theotar
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[171147] = { -- General Draven
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Bastion
