@@ -1,4 +1,4 @@
 Fixes and Updates:
-	- Updated the Dialog tech to support conditions. All Classic dialogs have been migrated, more will be done in the future.
+	- Updated the Dialog tech to support conditions. Personal dialogs do NOT support conditions!
 	- Removed many dialogs unrelated to Kraken's leveling route. If this is injustice to you, please check out the personal Dialog system using the /hmp dialog command!
 	- Fixed an issue with *some* personal dialogs being discarded if the NPC didn't exist in the system Dialog table.
