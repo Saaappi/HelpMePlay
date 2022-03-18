@@ -1762,438 +1762,718 @@ local DIALOG_SL = {
 	-- The Maw
 	[165918] = { -- Highlord Darion Mograine
 		["g"] = {
-			L_DIALOG["Highlord Darion Mograine 1"],
+			{
+				["text"] 		= L_DIALOG["Highlord Darion Mograine 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166980] = { -- Lady Jaina Proudmoore
 		["g"] = {
-			L_DIALOG["I am ready."],
-			L_DIALOG["Lady Jaina Proudmoore 1"],
-			L_DIALOG["Lady Jaina Proudmoore 2"],
-			L_DIALOG["Lady Jaina Proudmoore 3"],
-			L_DIALOG["Lady Jaina Proudmoore 4"],
-		}
+			{
+				["text"] 		= L_DIALOG["Lady Jaina Proudmoore 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Lady Jaina Proudmoore 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Lady Jaina Proudmoore 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Lady Jaina Proudmoore 4"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[168836] = { -- Shandris Feathermoon
 		["g"] = {
-			L_DIALOG["Shandris Feathermoon 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Shandris Feathermoon 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[178828] = { -- Lord Herne
 		["g"] = {
-			L_DIALOG["Lord Herne 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Lord Herne 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[178943] = { -- Lady Moonberry
 		["g"] = {
-			L_DIALOG["Lady Moonberry 2"],
-		}
+			{
+				["text"] 		= L_DIALOG["Lady Moonberry 2"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[179068] = { -- Orator Kloe
 		["g"] = {
-			L_DIALOG["Orator Kloe 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Orator Kloe 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[178033] = { -- Gubbins
 		["g"] = {
-			L_DIALOG["Gubbins 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Gubbins 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[177900] = { -- Xandria
 		["g"] = {
-			L_DIALOG["I am ready."],
-			L_DIALOG["Xandria 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Xandria 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[178006] = { -- Prince Renathal
 		["g"] = {
-			L_DIALOG["Prince Renathal 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Prince Renathal 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[162804] = { -- Ve'nari
 		["g"] = {
-			L_DIALOG["Quest"],
-			L_DIALOG["Ve'nari 1"],
-			L_DIALOG["Ve'nari 2"],
-			L_DIALOG["Ve'nari 3"],
-		}
+			{
+				["text"] 		= L_DIALOG["Quest"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[166280] = { -- Ashamane
 		["g"] = {
-			L_DIALOG["Ashamane 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Ashamane 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[166315] = { -- Ashamane
 		["g"] = {
-			L_DIALOG["Ashamane 2"],
-		}
+			{
+				["text"] 		= L_DIALOG["Ashamane 2"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[166461] = { -- Spirit of Vol'jin
 		["g"] = {
-			L_DIALOG["Spirit of Vol'jin 2"],
-		}
+			{
+				["text"] 		= L_DIALOG["Spirit of Vol'jin 2"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[169625] = { -- Sinfall Executor
 		["g"] = {
-			L_DIALOG["Sinfall Executor 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Sinfall Executor 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[169627] = { -- Sinfall Executor
 		["g"] = {
-			L_DIALOG["Sinfall Executor 1"],
-		}
+			{
+				["text"] 		= L_DIALOG["Sinfall Executor 1"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[161158] = { -- The Accuser
 		["g"] = {
-			L_DIALOG["The Accuser 2"],
-		}
+			{
+				["text"] 		= L_DIALOG["The Accuser 2"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[161278] = { -- The Accuser
 		["g"] = {
-			L_DIALOG["The Accuser 3"],
-		}
+			{
+				["text"] 		= L_DIALOG["The Accuser 3"],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	[167689] = { -- Prince Renethal
 		["g"] = {
-			L_DIALOG["I am ready."],
-		}
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
+		},
 	},
 	-- End of The Maw
 	-- Torghast
 	[164937] = { -- Runecarver
 		["g"] = {
-			L_DIALOG["Runecarver 1"],
-			L_DIALOG["Runecarver 2"],
+			{
+				["text"] 		= L_DIALOG["Runecarver 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Runecarver 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[175127] = { -- Wayfinder
 		["g"] = {
-			L_DIALOG["Wayfinder 1"],
+			{
+				["text"] 		= L_DIALOG["Wayfinder 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[175118] = { -- Shandris Feathermoon
 		["g"] = {
-			L_DIALOG["Quest"],
+			{
+				["text"] 		= L_DIALOG["Quest"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[164334] = { -- Shandris Feathermoon
 		["g"] = {
-			L_DIALOG["Shandris Feathermoon 2"],
+			{
+				["text"] 		= L_DIALOG["Shandris Feathermoon 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[168979] = { -- Meatball
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[167839] = { -- Partially-Infused Soul Remnant
 		["g"] = {
-			L_DIALOG["Partially-Infused Soul Remnant 1"],
+			{
+				["text"] 		= L_DIALOG["Partially-Infused Soul Remnant 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166123] = { -- Indigo
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[152418] = { -- Gallath
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166151] = { -- Moriaz the Red
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[171920] = { -- Ayeleth
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[171901] = { -- Kaletar
 		["g"] = {
-			L_DIALOG["I will free you."],
+			{
+				["text"] 		= L_DIALOG["I will free you."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172264] = { -- Yira'lya
 		["g"] = {
-			L_DIALOG["I will free you."],
+			{
+				["text"] 		= L_DIALOG["I will free you."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[172261] = { -- Chalkyth
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[157426] = { -- Indri the Treesinger
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[178932] = { -- Ve'lor the Messenger
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[166147] = { -- Calix
 		["g"] = {
-			L_DIALOG["Yes, I will help."],
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[157406] = { -- Renavyth
 		["g"] = {
-			L_DIALOG["I will assist you."],
+			{
+				["text"] 		= L_DIALOG["I will assist you."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Torghast
 	-- Zereth Mortis
 	[0] = {
 		["g"] = {
-			L_DIALOG["Leave the Blooming Foundry."],
-		},
-	},
-	[180920] = { -- Siloh
-		["g"] = {
-			L_DIALOG["I'd like to heal and revive my battle pets."],
-		},
-		["c"] = {
-			L_DIALOG["A small fee for supplies is required."],
+			{
+				["text"] 		= L_DIALOG["Leave the Blooming Foundry."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[177486] = { -- Elder Kreth
 		["g"] = {
-			L_DIALOG["Elder Kreth 1"],
-			L_DIALOG["Elder Kreth 2"],
-			L_DIALOG["Elder Kreth 3"],
-			L_DIALOG["Yes."],
-			L_DIALOG["We need your assistance."],
+			{
+				["text"] 		= L_DIALOG["Elder Kreth 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Elder Kreth 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Elder Kreth 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Yes."],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["We need your assistance."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[185844] = { -- Knight of the Ebon Blade
 		["g"] = {
-			L_DIALOG["Bolvar requests your current report."],
+			{
+				["text"] 		= L_DIALOG["Bolvar requests your current report."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[185845] = { -- Knight of the Ebon Blade
 		["g"] = {
-			L_DIALOG["Bolvar requests your current report."],
+			{
+				["text"] 		= L_DIALOG["Bolvar requests your current report."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[185847] = { -- Knight of the Ebon Blade
 		["g"] = {
-			L_DIALOG["Bolvar requests your current report."],
+			{
+				["text"] 		= L_DIALOG["Bolvar requests your current report."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180923] = { -- Varoun
 		["g"] = {
-			L_DIALOG["Varoun 1"],
+			{
+				["text"] 		= L_DIALOG["Varoun 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180950] = { -- Avna
 		["g"] = {
-			L_DIALOG["Avna 1"],
+			{
+				["text"] 		= L_DIALOG["Avna 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180926] = { -- Custodian Kalir
 		["g"] = {
-			L_DIALOG["Custodian Kalir 1"],
+			{
+				["text"] 		= L_DIALOG["Custodian Kalir 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183465] = { -- Alonis
 		["g"] = {
-			L_DIALOG["Your presence is requested immediately at Provis Terra."],
+			{
+				["text"] 		= L_DIALOG["Your presence is requested immediately at Provis Terra."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183455] = { -- Huntress Laikeer
 		["g"] = {
-			L_DIALOG["Your presence is requested immediately at Provis Terra."],
+			{
+				["text"] 		= L_DIALOG["Your presence is requested immediately at Provis Terra."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183458] = { -- Ava'zer
 		["g"] = {
-			L_DIALOG["Your presence is requested immediately at Provis Terra."],
+			{
+				["text"] 		= L_DIALOG["Your presence is requested immediately at Provis Terra."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183724] = { -- Lady Jaina Proudmoore
 		["g"] = {
-			L_DIALOG["I'm ready."],
+			{
+				["text"] 		= L_DIALOG["I'm ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[182346] = { -- Tamra
 		["g"] = {
-			L_DIALOG["Tamra 1"],
+			{
+				["text"] 		= L_DIALOG["Tamra 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[177958] = { -- Firim
 		["g"] = {
-			L_DIALOG["Firim 1"],
-			L_DIALOG["Firim 2"],
-			L_DIALOG["Firim 3"],
+			{
+				["text"] 		= L_DIALOG["Firim 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Firim 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Firim 3"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181706] = { -- Pocopoc
 		["g"] = {
-			L_DIALOG["Pocopoc 1"],
-			L_DIALOG["Pocopoc 2"],
-			L_DIALOG["Pocopoc 3"],
-			L_DIALOG["Pocopoc 4"],
-			L_DIALOG["Pocopoc 5"],
+			{
+				["text"] 		= L_DIALOG["Pocopoc 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Pocopoc 2"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Pocopoc 3"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Pocopoc 4"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Pocopoc 5"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181183] = { -- Highlord Bolvar Fordragon
 		["g"] = {
-			L_DIALOG["Highlord Bolvar Fordragon 4"],
+			{
+				["text"] 		= L_DIALOG["Highlord Bolvar Fordragon 4"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183677] = { -- Uther the Lightbringer
 		["g"] = {
-			L_DIALOG["Tell me what happened."],
+			{
+				["text"] 		= L_DIALOG["Tell me what happened."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[178015] = { -- Elder Zoor
 		["g"] = {
-			L_DIALOG["We need your assistance."],
+			{
+				["text"] 		= L_DIALOG["We need your assistance."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[178016] = { -- Elder Ara
 		["g"] = {
-			L_DIALOG["We need your assistance."],
+			{
+				["text"] 		= L_DIALOG["We need your assistance."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181179] = { -- Elder Nirav
 		["g"] = {
-			L_DIALOG["I need to restore these remnants."],
+			{
+				["text"] 		= L_DIALOG["I need to restore these remnants."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183298] = { -- Faruu
 		["g"] = {
-			L_DIALOG["I need to restore these remnants."],
+			{
+				["text"] 		= L_DIALOG["I need to restore these remnants."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181084] = { -- Drim
 		["g"] = {
-			L_DIALOG["I need to restore these remnants."],
+			{
+				["text"] 		= L_DIALOG["I need to restore these remnants."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[184442] = { -- Feroz
 		["g"] = {
-			L_DIALOG["Feroz 1"],
+			{
+				["text"] 		= L_DIALOG["Feroz 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[184153] = { -- Elder Ara
 		["g"] = {
-			L_DIALOG["Let's begin."],
+			{
+				["text"] 		= L_DIALOG["Let's begin."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[177456] = { -- Anduin Wrynn
 		["g"] = {
-			L_DIALOG["Tell me what happened."],
+			{
+				["text"] 		= L_DIALOG["Tell me what happened."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181229] = { -- Highlord Bolvar Fordragon
 		["g"] = {
-			L_DIALOG["Highlord Bolvar Fordragon 3"],
+			{
+				["text"] 		= L_DIALOG["Highlord Bolvar Fordragon 3"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181229] = { -- Saezurah
 		["g"] = {
-			L_DIALOG["Saezurah 1"],
+			{
+				["text"] 		= L_DIALOG["Saezurah 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181738] = { -- Nadjia the Mistblade
 		["g"] = {
-			L_DIALOG["Nadjia the Mistblade 1"],
+			{
+				["text"] 		= L_DIALOG["Nadjia the Mistblade 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181740] = { -- Droman Aliothe
 		["g"] = {
-			L_DIALOG["Will you bring your forces to fight with us?"],
+			{
+				["text"] 		= L_DIALOG["Will you bring your forces to fight with us?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181739] = { -- Secutor Mevix
 		["g"] = {
-			L_DIALOG["Will you bring your forces to fight with us?"],
+			{
+				["text"] 		= L_DIALOG["Will you bring your forces to fight with us?"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180965] = { -- Firim
 		["g"] = {
-			L_DIALOG["Firim 4"],
+			{
+				["text"] 		= L_DIALOG["Firim 4"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180942] = { -- Saezurah
 		["g"] = {
-			L_DIALOG["Saezurah 2"],
+			{
+				["text"] 		= L_DIALOG["Saezurah 2"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181892] = { -- Vessel
 		["g"] = {
-			L_DIALOG["Vessel 1"],
+			{
+				["text"] 		= L_DIALOG["Vessel 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183693] = { -- Automa Scryer
 		["g"] = {
-			L_DIALOG["Examine the Automa."],
+			{
+				["text"] 		= L_DIALOG["Examine the Automa."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183703] = { -- Automa Scryer
 		["g"] = {
-			L_DIALOG["Examine the Automa."],
+			{
+				["text"] 		= L_DIALOG["Examine the Automa."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183692] = { -- Automa Scryer
 		["g"] = {
-			L_DIALOG["Examine the Automa."],
+			{
+				["text"] 		= L_DIALOG["Examine the Automa."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183694] = { -- Automa Scryer
 		["g"] = {
-			L_DIALOG["Examine the Automa."],
+			{
+				["text"] 		= L_DIALOG["Examine the Automa."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180914] = { -- Pelagos
 		["g"] = {
-			L_DIALOG["Pelagos 1"],
+			{
+				["text"] 		= L_DIALOG["Pelagos 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181098] = { -- Olea Pau
 		["g"] = {
-			L_DIALOG["It is not safe here."],
+			{
+				["text"] 		= L_DIALOG["It is not safe here."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180919] = { -- Olea Novi
 		["g"] = {
-			L_DIALOG["It is not safe here."],
+			{
+				["text"] 		= L_DIALOG["It is not safe here."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[183962] = { -- Olea Manu
 		["g"] = {
-			L_DIALOG["It is not safe here."],
+			{
+				["text"] 		= L_DIALOG["It is not safe here."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[184469] = { -- Hanoa the Exile
 		["g"] = {
-			L_DIALOG["I am ready."],
+			{
+				["text"] 		= L_DIALOG["I am ready."],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[182146] = { -- Olem
 		["g"] = {
-			L_DIALOG["Olem 1"],
+			{
+				["text"] 		= L_DIALOG["Olem 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181990] = { -- Sequence Generator
 		["g"] = {
-			L_DIALOG["Sequence Generator 1"],
+			{
+				["text"] 		= L_DIALOG["Sequence Generator 1"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[181948] = { -- Highlord Bolvar Fordragon
 		["g"] = {
-			L_DIALOG["Highlord Bolvar Fordragon 5"],
+			{
+				["text"] 		= L_DIALOG["Highlord Bolvar Fordragon 5"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	[180610] = { -- Kodah
 		["g"] = {
-			L_DIALOG["Let's do this!"],
+			{
+				["text"] 		= L_DIALOG["Let's do this!"],
+				["condition"] 	= "none",
+			},
 		},
 	},
 	-- End of Zereth Mortis
