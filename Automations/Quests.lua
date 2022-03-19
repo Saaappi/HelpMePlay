@@ -266,14 +266,14 @@ function HMP_CompleteQuest()
 						GetQuestReward(Max(sellPrices))
 					end
 				else
-					-- The player is max level, so let's check the
-					-- quest rewards table for the quest and see if
-					-- we're supposed to take a specific reward.
+					-- Let's check the quest rewards table for
+					-- the quest and see if we're supposed to
+					-- take a specific reward.
 					local itemLink, itemId
 					for i=1, numQuestChoices do
 						itemLink = GetQuestItemLink("choice", i)
 						if itemLink then
-							itemId = string.split(":", itemLink); itemId = tonumber(itemId)
+							_, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 							for rewardId, _ in pairs(addonTable.QUESTREWARDS) do
 								if rewardId == itemId then
 									GetQuestReward(i)
@@ -294,7 +294,7 @@ function HMP_CompleteQuest()
 				for i=1, numQuestChoices do
 					itemLink = GetQuestItemLink("choice", i)
 					if itemLink then
-						itemId = string.split(":", itemLink); itemId = tonumber(itemId)
+						_, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 						for rewardId, _ in pairs(addonTable.QUESTREWARDS) do
 							if rewardId == itemId then
 								GetQuestReward(i)
