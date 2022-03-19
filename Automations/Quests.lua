@@ -266,6 +266,22 @@ function HMP_CompleteQuest()
 						GetQuestReward(Max(sellPrices))
 					end
 				else
+					-- The player is max level, so let's check the
+					-- quest rewards table for the quest and see if
+					-- we're supposed to take a specific reward.
+					local itemLink, itemId
+					for i=1, numQuestChoices do
+						itemLink = GetQuestItemLink("choice", i)
+						if itemLink then
+							itemId = string.split(":", itemLink); itemId = tonumber(itemId)
+							for rewardId, _ in pairs(addonTable.QUESTREWARDS) do
+								if rewardId == itemId then
+									GetQuestReward(i)
+								end
+							end
+						end
+					end
+					
 					-- Both of the aforementioned tables are
 					-- empty, so let's pick a reward at random.
 					GetQuestReward(random(1, numQuestChoices))
