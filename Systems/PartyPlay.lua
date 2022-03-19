@@ -30,7 +30,9 @@ end})
 ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", Filter_ChatFrame)
 
 e:RegisterEvent("CHAT_MSG_ADDON")
+e:RegisterEvent("GROUP_JOINED")
 e:RegisterEvent("QUEST_ACCEPTED")
+e:RegisterEvent("QUEST_REMOVED")
 e:RegisterEvent("QUEST_TURNED_IN")
 e:RegisterEvent("UI_INFO_MESSAGE")
 e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
@@ -47,6 +49,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
+	if event == "GROUP_JOINED" then
+		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		print(L_GLOBALSTRINGS["Party Play Enabled Warning Text"])
+	end
 	if event == "QUEST_ACCEPTED" then
 		-- Add the quest to the table.
 		--
@@ -55,6 +61,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		--
 		-- Share the quest with the player's
 		-- party.
+		local questId = ...
+		HelpMePlayCharacterQuestsDB[questId] = Get_QuestTitleFromId[questId]
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local questId = ...
@@ -69,6 +77,27 @@ e:SetScript("OnEvent", function(self, event, ...)
 						QuestLogPushQuest()
 					end
 				end
+			end
+		end
+	end
+	if event == "QUEST_REMOVED" then
+		-- This event fires when quests are
+		-- turned in, but also when they're
+		-- abandoned.
+		--
+		-- We'll get around this by checking
+		-- if the quest is still in the
+		-- player's quest table. If so, then
+		-- the player didn't turn it in, so
+		-- report the message to chat.
+		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if UnitInParty("player") then
+			local questId = ...
+			if HelpMePlayCharacterQuestsDB[questId] then
+				-- The player abandoned the quest or
+				-- left the area (eg. world quests).
+				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+				HelpMePlayCharacterQuestsDB[questId] = nil
 			end
 		end
 	end

@@ -3,7 +3,7 @@
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB
-## SavedVariablesPerCharacter: HelpMePlaySavesDB
+## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB
 ## Title: HelpMePlay
 ## Version: 1.1.4
 
