@@ -360,6 +360,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "QUEST_ACCEPTED" then
 		local questId = ...
+		C_QuestLog.AddQuestWatch(questId, 0)
 		if select(2, IsAddOnLoaded("TomTom")) then
 			for quest, questData in pairs(addonTable.WAYPOINTS) do
 				if quest == questId then
