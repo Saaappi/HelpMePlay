@@ -36,6 +36,7 @@ end
 
 if (isLocaleSupported) then
 	L_WAYPOINTS["Waypoint: Explorer Doc"]													= "Explorer Doc"
+	L_WAYPOINTS["Waypoint: Weapons of the Fallen"]											= "Weapons of the Fallen"
 	L_WAYPOINTS["Waypoint: Lord Everblaze"]													= "Lord Everblaze"
 	L_WAYPOINTS["Waypoint: Maiden of Winter's Breath Lake"]									= "Maiden of Winter's Breath Lake"
 	L_WAYPOINTS["Waypoint: Winter Hyacinth"]												= "Winter Hyacinth"

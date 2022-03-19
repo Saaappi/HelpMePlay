@@ -607,6 +607,104 @@ local WAYPOINTS = {
 			28503,																-- DisplayID
 		},
 	},
+	[58575] = { -- Stuff We All Get
+		{
+			1536,																-- Maldraxxus
+			51.9, 																-- X
+			49.0, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			52.5, 																-- X
+			48.0, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			52.0, 																-- X
+			47.5, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			51.8, 																-- X
+			45.2, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			51.2, 																-- X
+			45.3, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			50.7, 																-- X
+			46.3, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			49.7, 																-- X
+			44.4, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			48.9, 																-- X
+			45.0, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			48.9, 																-- X
+			45.8, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			48.2, 																-- X
+			47.9, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			49.0, 																-- X
+			49.3, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			49.8, 																-- X
+			49.6, 																-- Y
+			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
 	[65325] = { -- Motes of Knowledge (Daily)
 		{
 			1970,																-- Zereth Mortis
