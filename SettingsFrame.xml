@@ -139,6 +139,18 @@
 					<Anchor point="TOPLEFT" x="39" y="-175" />
 				</Anchors>
 			</CheckButton>
+			<CheckButton name="HMPPartyPlayAnnounceCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size x="16" y="16" />
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="HMPPartyPlayCB" relativePoint="BOTTOMRIGHT" y="5" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPPartyPlayAutoShareCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Size x="16" y="16" />
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="HMPPartyPlayAnnounceCB" relativePoint="TOPRIGHT" x="10" />
+				</Anchors>
+			</CheckButton>
 			<CheckButton name="HMPMinimapIconCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-61" />

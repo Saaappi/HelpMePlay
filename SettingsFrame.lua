@@ -45,6 +45,8 @@ function HMPTab_OnClick(self)
 		HMPTalentsText:Hide()
 		HMPPartyPlayCB:Hide()
 		HMPPartyPlayText:Hide()
+		HMPPartyPlayAnnounceCB:Hide()
+		HMPPartyPlayAutoShareCB:Hide()
 		HMPMinimapIconCB:Hide()
 		HMPMinimapIconText:Hide()
 		HMPLoggingCB:Hide()
@@ -61,6 +63,15 @@ function HMPTab_OnClick(self)
 		HMPTalentsText:Show()
 		HMPPartyPlayCB:Show()
 		HMPPartyPlayText:Show()
+		-- These two buttons should only be shown if
+		-- Party Play is enabled.
+		if HelpMePlayOptionsDB.PartyPlay then
+			HMPPartyPlayAnnounceCB:Show()
+			HMPPartyPlayAutoShareCB:Show()
+		else
+			HMPPartyPlayAnnounceCB:Hide()
+			HMPPartyPlayAutoShareCB:Hide()
+		end
 		HMPTorghastPowersDropDown:Show()
 		
 		-- Hide the widgets from the Automations tab.
@@ -128,6 +139,8 @@ function HMPTab_OnClick(self)
 		HMPTalentsText:Hide()
 		HMPPartyPlayCB:Hide()
 		HMPPartyPlayText:Hide()
+		HMPPartyPlayAnnounceCB:Hide()
+		HMPPartyPlayAutoShareCB:Hide()
 		HMPChromieTimeDropDown:Hide()
 		HMPCovenantsDropDown:Hide()
 		HMPTorghastPowersDropDown:Hide()
@@ -841,6 +854,18 @@ function HelpMePlayLoadSettings()
 				HMPPartyPlayCB:SetChecked(false)
 			end
 			
+			if HelpMePlayOptionsDB.PartyPlayAnnounce then
+				HMPPartyPlayAnnounceCB:SetChecked(true)
+			else
+				HMPPartyPlayAnnounceCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.PartyPlayAutoShare then
+				HMPPartyPlayAutoShareCB:SetChecked(true)
+			else
+				HMPPartyPlayAutoShareCB:SetChecked(false)
+			end
+			
 			if HelpMePlayOptionsDB.MinimapIcon then
 				HMPMinimapIconCB:SetChecked(true)
 			else
@@ -950,6 +975,8 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].Cinematics = HelpMePlayOptionsDB.Cinematics
 					HelpMePlayOptionsDB["TempSettings"].Queues = HelpMePlayOptionsDB.Queues
 					HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
+					HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce = HelpMePlayOptionsDB.PartyPlayAnnounce
+					HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare = HelpMePlayOptionsDB.PartyPlayAutoShare
 					HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
 					HelpMePlayOptionsDB["TempSettings"].Logging = HelpMePlayOptionsDB.Logging
 					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
@@ -973,6 +1000,8 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Cinematics = false
 					HelpMePlayOptionsDB.Queues = false
 					HelpMePlayOptionsDB.PartyPlay = false
+					HelpMePlayOptionsDB.PartyPlayAnnounce = false
+					HelpMePlayOptionsDB.PartyPlayAutoShare = false
 					HelpMePlayOptionsDB.MinimapIcon = false
 					HelpMePlayOptionsDB.Logging = false
 					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
@@ -996,6 +1025,8 @@ function HelpMePlayLoadSettings()
 					HMPCinematicsCB:SetChecked(false)
 					HMPQueuesCB:SetChecked(false)
 					HMPPartyPlayCB:SetChecked(false)
+					HMPPartyPlayAnnounceCB:SetChecked(false)
+					HMPPartyPlayAutoShareCB:SetChecked(false)
 					HMPMinimapIconCB:SetChecked(false)
 					HMPLoggingCB:SetChecked(false)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
@@ -1024,6 +1055,8 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Cinematics = HelpMePlayOptionsDB["TempSettings"].Cinematics
 					HelpMePlayOptionsDB.Queues = HelpMePlayOptionsDB["TempSettings"].Queues
 					HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
+					HelpMePlayOptionsDB.PartyPlayAnnounce = HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce
+					HelpMePlayOptionsDB.PartyPlayAutoShare = HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare
 					HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
 					HelpMePlayOptionsDB.Logging = HelpMePlayOptionsDB["TempSettings"].Logging
 					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
@@ -1046,6 +1079,8 @@ function HelpMePlayLoadSettings()
 					HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Cinematics)
 					HMPQueuesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Queues)
 					HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
+					HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce)
+					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
 					HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
 					HMPLoggingCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Logging)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
@@ -1261,8 +1296,42 @@ function HelpMePlayLoadSettings()
 			HMPPartyPlayCB:SetScript("OnClick", function(self)
 				if self:GetChecked() then
 					HelpMePlayOptionsDB.PartyPlay = true
+					HMPPartyPlayAnnounceCB:Show()
+					HMPPartyPlayAutoShareCB:Show()
 				else
 					HelpMePlayOptionsDB.PartyPlay = false
+					HMPPartyPlayAnnounceCB:Hide()
+					HMPPartyPlayAutoShareCB:Hide()
+				end
+			end)
+			
+			-- Party Play Announce Check Button
+			HMPPartyPlayAnnounceCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Party Play Announce Check Button"])
+			end)
+			HMPPartyPlayAnnounceCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPPartyPlayAnnounceCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.PartyPlayAnnounce = true
+				else
+					HelpMePlayOptionsDB.PartyPlayAnnounce = false
+				end
+			end)
+			
+			-- Party Play Auto Share Check Button
+			HMPPartyPlayAutoShareCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Party Play Auto Share Check Button"])
+			end)
+			HMPPartyPlayAutoShareCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPPartyPlayAutoShareCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.PartyPlayAutoShare = true
+				else
+					HelpMePlayOptionsDB.PartyPlayAutoShare = false
 				end
 			end)
 			

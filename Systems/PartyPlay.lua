@@ -60,10 +60,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local questId = ...
 			HelpMePlayCharacterQuestsDB[questId] = Get_QuestTitleFromId[questId]
 			if isRegistered then
-				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
-				if C_QuestLog.IsPushableQuest(questId) then
-					C_QuestLog.SetSelectedQuest(questId)
-					QuestLogPushQuest()
+				if HelpMePlayOptionsDB.PartyPlayAnnounce then
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+				end
+				if HelpMePlayOptionsDB.PartyPlayAutoShare then
+					if C_QuestLog.IsPushableQuest(questId) then
+						C_QuestLog.SetSelectedQuest(questId)
+						QuestLogPushQuest()
+					end
 				end
 			end
 		end

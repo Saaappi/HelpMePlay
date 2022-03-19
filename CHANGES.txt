@@ -1,4 +1,5 @@
 Fixes and Updates:
+	- Added two new sub check buttons to Party Play, one allows you to control whether the addon announces when quests are accepted, and the other allows you to control whether quests are shared automatically.
 	- Updated the Dialog tech to support conditions. Personal dialogs do NOT support conditions!
 	- Updated the quest reward automation. This was an attempt to make it better and fix Blizzard's inconsistencies.
 	- Removed many dialogs unrelated to Kraken's leveling route. If this is injustice to you, please check out the personal Dialog system using the /hmp dialog command!
