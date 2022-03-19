@@ -35,6 +35,7 @@ if (isLocaleSupported == false) then
 end
 
 if (isLocaleSupported) then
+	L_WAYPOINTS["Waypoint: Treasure"]														= "Treasure"
 	L_WAYPOINTS["Waypoint: Explorer Doc"]													= "Explorer Doc"
 	L_WAYPOINTS["Waypoint: Weapons of the Fallen"]											= "Weapons of the Fallen"
 	L_WAYPOINTS["Waypoint: Lord Everblaze"]													= "Lord Everblaze"

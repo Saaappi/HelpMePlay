@@ -705,6 +705,54 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
+	[62721] = { -- Deconstructing The Problem (Bonus Objective)
+		{
+			1536,																-- Maldraxxus
+			30.7, 																-- X
+			28.7, 																-- Y
+			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[62741] = { -- Choice of Action (Bonus Objective)
+		{
+			1536,																-- Maldraxxus
+			47.2, 																-- X
+			62.1, 																-- Y
+			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[62743] = { -- Decaying Situation (Bonus Objective)
+		{
+			1536,																-- Maldraxxus
+			66.1, 																-- X
+			50.4, 																-- Y
+			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1536,																-- Maldraxxus
+			73.9, 																-- X
+			49.4, 																-- Y
+			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[60900] = { -- Archival Protection
+		{
+			1536,																-- Maldraxxus
+			42.3, 																-- X
+			24.3, 																-- Y
+			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
 	[65325] = { -- Motes of Knowledge (Daily)
 		{
 			1970,																-- Zereth Mortis
