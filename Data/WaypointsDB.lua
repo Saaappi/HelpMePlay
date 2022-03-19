@@ -860,6 +860,38 @@ local WAYPOINTS = {
 			nil,																-- Icon
 			nil,																-- DisplayID
 		},
+		{
+			1970,																-- Zereth Mortis
+			60.0, 																-- X
+			33.0, 																-- Y
+			L_WAYPOINTS["Waypoint: Terraforming Record"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			61.2, 																-- X
+			30.7, 																-- Y
+			L_WAYPOINTS["Waypoint: Terraforming Record"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			64.3, 																-- X
+			24.6, 																-- Y
+			L_WAYPOINTS["Waypoint: Terraforming Record"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			64.7, 																-- X
+			23.4, 																-- Y
+			L_WAYPOINTS["Waypoint: Terraforming Record"],						-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
 	},
 	[65256] = { -- Cluck, Cluck, Boom (Daily)
 		{
