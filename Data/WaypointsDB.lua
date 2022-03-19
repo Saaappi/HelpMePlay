@@ -634,8 +634,8 @@ local WAYPOINTS = {
 		},
 		{
 			1536,																-- Maldraxxus
-			51.8, 																-- X
-			45.2, 																-- Y
+			51.0, 																-- X
+			44.5, 																-- Y
 			L_WAYPOINTS["Waypoint: Weapons of the Fallen"],						-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
