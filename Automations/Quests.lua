@@ -3,6 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local shiftKeyDelay = 0.5
 local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
@@ -312,17 +313,73 @@ function HMP_CompleteQuest()
 end
 
 local function Complete_ActiveQuests(gossipInfo)
-	for i, gossip in ipairs(gossipInfo) do
-		if gossip.isComplete then
-			C_GossipInfo.SelectActiveQuest(i)
-			HMP_CompleteQuest()
+	-- If the shift key is being held down,
+	-- then keep calling the function until
+	-- the player let's go.
+	if IsShiftKeyDown() then
+		C_Timer.After(shiftKeyDelay, function()
+			Complete_ActiveQuests(gossipInfo)
+		end)
+	else
+		for i, gossip in ipairs(gossipInfo) do
+			if gossip.isComplete then
+				C_GossipInfo.SelectActiveQuest(i)
+				HMP_CompleteQuest()
+			end
 		end
 	end
 end
 
 local function Get_AvailableQuests(gossipInfo)
-	for i, quest in ipairs(gossipInfo) do
-		C_GossipInfo.SelectAvailableQuest(i)
+	-- If the shift key is being held down,
+	-- then keep calling the function until
+	-- the player let's go.
+	if IsShiftKeyDown() then
+		C_Timer.After(shiftKeyDelay, function()
+			Get_AvailableQuests(gossipInfo)
+		end)
+	else
+		for i, quest in ipairs(gossipInfo) do
+			C_GossipInfo.SelectAvailableQuest(i)
+		end
+	end
+end
+
+local function QUEST_GREETING()
+	-- If the shift key is being held down,
+	-- then keep calling the function until
+	-- the player let's go.
+	if IsShiftKeyDown() then
+		C_Timer.After(shiftKeyDelay, function()
+			QUEST_GREETING()
+		end)
+	else
+		for i=1, GetNumActiveQuests() do
+			local _, isComplete = GetActiveTitle(i)
+			if isComplete then
+				SelectActiveQuest(i)
+			end
+		end
+		for i=1, GetNumAvailableQuests() do
+			SelectAvailableQuest(i)
+		end
+	end
+end
+
+local function QUEST_DETAIL(isAutoAccept)
+	-- If the shift key is being held down,
+	-- then keep calling the function until
+	-- the player let's go.
+	if IsShiftKeyDown() then
+		C_Timer.After(shiftKeyDelay, function()
+			QUEST_DETAIL()
+		end)
+	else
+		if isAutoAccept then
+			CloseQuest()
+		else
+			AcceptQuest()
+		end
 	end
 end
 
@@ -391,7 +448,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_DETAIL" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if QuestGetAutoAccept() then
-			CloseQuest()
+			QUEST_DETAIL(true)
 		else
 			-- Check to see if the current target is
 			-- an ignored quest giver.
@@ -401,7 +458,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if Get_IgnoredQuestGiver(npcId) then return end
 			end
 			
-			AcceptQuest()
+			QUEST_DETAIL(false)
 		end
 	end
 	if event == "QUEST_GREETING" then
@@ -419,15 +476,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if Get_IgnoredQuestGiver(npcId) then return end
 		end
 		
-		for i=1, GetNumActiveQuests() do
-			local _, isComplete = GetActiveTitle(i)
-			if isComplete then
-				SelectActiveQuest(i)
-			end
-		end
-		for i=1, GetNumAvailableQuests() do
-			SelectAvailableQuest(i)
-		end
+		QUEST_GREETING()
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
