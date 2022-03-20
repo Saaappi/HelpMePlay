@@ -8,3 +8,4 @@ Fixes and Updates:
 	- Removed many dialogs unrelated to Kraken's leveling route. If this is injustice to you, please check out the personal Dialog system using the /hmp dialog command!
 	- Fixed an issue with *some* personal dialogs being discarded if the NPC didn't exist in the system Dialog table.
 	- Fixed an issue with The Games We Play in Ardenweald. Players should once again emote at the Playful Trickster's speech.
+	- Fixed an issue where Party Play would report activity on quests with progress bars even when the player no longer had the quests.

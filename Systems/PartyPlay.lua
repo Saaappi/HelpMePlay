@@ -61,8 +61,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		--
 		-- Share the quest with the player's
 		-- party.
-		local questId = ...
-		HelpMePlayCharacterQuestsDB[questId] = Get_QuestTitleFromId[questId]
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local questId = ...
@@ -142,17 +140,25 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local unit = ...
 			if unit == "player" then
 				local numObjectives, text, objectiveType
-				for questId, questTitle in pairs(HelpMePlayCharacterQuestsDB) do
-					numObjectives = C_QuestLog.GetNumQuestObjectives(questId)
-					for index=1, numObjectives do
-						text, objectiveType = GetQuestObjectiveInfo(questId, index, false)
-						if objectiveType == "progressbar" then
-							if isRegistered then
-								C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. text .. " (" .. questTitle .. ")", "PARTY")
+				for questId, questData in pairs(HelpMePlayCharacterQuestsDB) do
+					if C_QuestLog.IsOnQuest(questId) then
+						numObjectives = C_QuestLog.GetNumQuestObjectives(questId)
+						for index=1, numObjectives do
+							text, objectiveType = GetQuestObjectiveInfo(questId, index, false)
+							if objectiveType == questData.objectiveType then
+								local progressPercent = GetQuestProgressBarPercent(questId)
+								if progressPercent ~= questData.progressPercent then
+									if isRegistered then
+										C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. text .. " (" .. questTitle .. ")", "PARTY")
+									end
+									questData.progressPercent = progressPercent
+								end
+							else
+								break
 							end
-						else
-							break
 						end
+					else
+						HelpMePlayCharacterQuestsDB[questId] = nil
 					end
 				end
 			end
