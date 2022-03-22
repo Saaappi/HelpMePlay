@@ -33,6 +33,12 @@ local DIALOG_SL = {
 				["condition"] 	= "none",
 			},
 		},
+		["c"] = {
+			{
+				["text"]		= L_DIALOG["Are you sure?"],
+				["condition"]	= "none",
+			},
+		},
 	},
 	[164079] = { -- Highlord Bolvar Fordragon
 		["g"] = {

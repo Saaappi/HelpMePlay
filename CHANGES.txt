@@ -1,11 +1,1 @@
 Fixes and Updates:
-	- Added two new sub check buttons to Party Play, one allows you to control whether the addon announces when quests are accepted, and the other allows you to control whether quests are shared automatically.
-	- Added functionality to Party Play for when quests are abandoned. This information will be reported to the party.
-	- Added a warning when joining a group with Party Play enabled.
-	- Added a delay to the quest accept automation when the player is holding either SHIFT key.
-	- Updated the Dialog tech to support conditions. Personal dialogs do NOT support conditions!
-	- Updated the quest reward automation. This was an attempt to make it better and fix Blizzard's inconsistencies.
-	- Removed many dialogs unrelated to Kraken's leveling route. If this is injustice to you, please check out the personal Dialog system using the /hmp dialog command!
-	- Fixed an issue with *some* personal dialogs being discarded if the NPC didn't exist in the system Dialog table.
-	- Fixed an issue with The Games We Play in Ardenweald. Players should once again emote at the Playful Trickster's speech.
-	- Fixed an issue where Party Play would report activity on quests with progress bars even when the player no longer had the quests.
