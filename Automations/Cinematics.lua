@@ -4,8 +4,9 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local BADMAPS = addonTable.CINEMATIC_BADMAPS
+local isLoadingScreen = false
 
--- Normal Cinematics
+-- Cinematics
 CinematicFrame:HookScript("OnShow", function(self, ...)
 	if HelpMePlayOptionsDB.Cinematics == false or HelpMePlayOptionsDB.Cinematics == nil then return end
 	local mapId = C_Map.GetBestMapForUnit("player")
@@ -20,8 +21,8 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 	CinematicFrame_CancelCinematic()
 end)
 
--- In-Game Movies
-MovieFrame:HookScript("OnShow", function(self, ...)
+-- Movies
+_G["MovieFrame_PlayMovie"] = function(...)
 	if HelpMePlayOptionsDB.Cinematics == false or HelpMePlayOptionsDB.Cinematics == nil then return end
 	local mapId = C_Map.GetBestMapForUnit("player")
 	for key, badMapId in ipairs(BADMAPS) do
@@ -32,16 +33,6 @@ MovieFrame:HookScript("OnShow", function(self, ...)
 			return
 		end
 	end
-	self:Hide()
-	--[[MovieFrameSubtitleString:Hide()
 	GameMovieFinished()
-	CinematicFrame:Hide()
-	GlobalFXDialogModelScene:Hide()
-	GlobalFXMediumModelScene:Hide()
-	GlobalFXBackgroundModelScene:Hide()
-	TimerTracker:Hide()
-	WorldFrame:Show()
-	UIParent:Show()
-	self.uiParentShown = UIParent:IsVisible()
-	SetUIVisibility(true)]]
-end)
+	return true
+end
