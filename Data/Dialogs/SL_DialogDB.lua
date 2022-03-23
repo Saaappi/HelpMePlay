@@ -2498,6 +2498,14 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[181059] = { -- Vessel
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Vessel 1"],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Zereth Mortis
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane

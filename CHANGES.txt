@@ -1,2 +1,3 @@
 Fixes and Updates:
 	- Added waypoints for Chapter 7 of the 9.2 campaign.
+	- Fixed an issue with Cinematics automation that caused the screen to go black, white, or the game to become unplayable.
