@@ -98,6 +98,7 @@ if (isLocaleSupported) then
 	L_WAYPOINTS["Waypoint: Oracle Zoketh"]													= "Oracle Zoketh"
 	L_WAYPOINTS["Waypoint: Oracle Voraxxi"]													= "Oracle Voraxxi"
 	L_WAYPOINTS["Waypoint: Shadow Bulwark"]													= "Shadow Bulwark"
+	L_WAYPOINTS["Waypoint: Tal-Inara"]														= "Tal-Inara"
 end
 
 addonTable.L_WAYPOINTS = L_WAYPOINTS
