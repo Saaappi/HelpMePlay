@@ -2482,6 +2482,14 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[184938] = { -- Saezurah
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Saezurah 1"],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Zereth Mortis
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane

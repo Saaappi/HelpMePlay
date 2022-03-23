@@ -1551,6 +1551,92 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
+	[64720] = { -- Cleaving A Path (9.2 Campaign, Chapter 7)
+		{
+			1970,																-- Zereth Mortis
+			57.84, 																-- X
+			23.16, 																-- Y
+			L_WAYPOINTS["Waypoint: Oracle Zoketh"],								-- Title
+			nil,																-- Icon
+			103099,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			59.29, 																-- X
+			32.78, 																-- Y
+			L_WAYPOINTS["Waypoint: Oracle Voraxxi"],							-- Title
+			nil,																-- Icon
+			103099,																-- DisplayID
+		},
+	},
+	[64718] = { -- Keys To Victory (9.2 Campaign, Chapter 7)
+		{
+			1970,																-- Zereth Mortis
+			60.41, 																-- X
+			27.96, 																-- Y
+			L_WAYPOINTS["Waypoint: Mawsworn Cell"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			60.48, 																-- X
+			29.69, 																-- Y
+			L_WAYPOINTS["Waypoint: Mawsworn Cell"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			60.96, 																-- X
+			30.22, 																-- Y
+			L_WAYPOINTS["Waypoint: Mawsworn Cell"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			60.53, 																-- X
+			32.01, 																-- Y
+			L_WAYPOINTS["Waypoint: Mawsworn Cell"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			59.62, 																-- X
+			31.24, 																-- Y
+			L_WAYPOINTS["Waypoint: Mawsworn Cell"],								-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[64722] = { -- Knocking On Death's Door (9.2 Campaign, Chapter 7)
+		{
+			1970,																-- Zereth Mortis
+			55.35, 																-- X
+			30.43, 																-- Y
+			L_WAYPOINTS["Waypoint: Kbato"],										-- Title
+			nil,																-- Icon
+			105023,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			64.42, 																-- X
+			21.61, 																-- Y
+			L_WAYPOINTS["Waypoint: Shadow Bulwark"],							-- Title
+			nil,																-- Icon
+			103110,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			65.90, 																-- X
+			23.01, 																-- Y
+			L_WAYPOINTS["Waypoint: Shadow Bulwark"],							-- Title
+			nil,																-- Icon
+			103110,																-- DisplayID
+		},
+	},
 }
 
 addonTable.WAYPOINTS = WAYPOINTS

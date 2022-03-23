@@ -94,6 +94,10 @@ if (isLocaleSupported) then
 	L_WAYPOINTS["Waypoint: Night Fae Forces"]												= "Night Fae Forces"
 	L_WAYPOINTS["Waypoint: Necrolord Forces"]												= "Necrolord Forces"
 	L_WAYPOINTS["Waypoint: Kyrian Forces"]													= "Kyrian Forces"
+	L_WAYPOINTS["Waypoint: Mawsworn Cell"]													= "Mawsworn Cell (requires keys from enemies)"
+	L_WAYPOINTS["Waypoint: Oracle Zoketh"]													= "Oracle Zoketh"
+	L_WAYPOINTS["Waypoint: Oracle Voraxxi"]													= "Oracle Voraxxi"
+	L_WAYPOINTS["Waypoint: Shadow Bulwark"]													= "Shadow Bulwark"
 end
 
 addonTable.L_WAYPOINTS = L_WAYPOINTS
