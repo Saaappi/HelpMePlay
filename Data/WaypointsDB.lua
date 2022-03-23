@@ -1637,7 +1637,7 @@ local WAYPOINTS = {
 			103110,																-- DisplayID
 		},
 	},
-	[64722] = { -- Knocking On Death's Door (9.2 Campaign, Chapter 7)
+	[65238] = { -- Souls Entwined (9.2 Campaign, Chapter 7)
 		{
 			1670,																-- Oribos
 			38.93, 																-- X
