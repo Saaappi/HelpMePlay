@@ -2490,6 +2490,14 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[180965] = { -- Firim
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Firim 4"],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Zereth Mortis
 	-- Exile's Reach
 	[167179] = { -- Daelya Twilightsbane

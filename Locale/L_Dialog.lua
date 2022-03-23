@@ -329,7 +329,7 @@ if (isLocaleSupported) then
 	L_DIALOG["Firim 1"]																		= "<Tell Firim about the oracle.>"
 	L_DIALOG["Firim 2"]																		= "What is happening?"
 	L_DIALOG["Firim 3"]																		= "Can we get additional aid from the Enlightened?"
-	L_DIALOG["Firim 4"]																		= "The chamber is safe, we can proceed with the ritual."
+	L_DIALOG["Firim 4"]																		= "The chamber is safe. We can proceed with the ritual."
 	L_DIALOG["Pocopoc 1"]																	= "What are you doing?"
 	L_DIALOG["Pocopoc 2"]																	= "Why are the devourers attacking us?"
 	L_DIALOG["Pocopoc 3"]																	= "Where are you going?"

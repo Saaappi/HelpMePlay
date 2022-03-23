@@ -1,1 +1,2 @@
 Fixes and Updates:
+	- Added waypoints for Chapter 7 of the 9.2 campaign.
