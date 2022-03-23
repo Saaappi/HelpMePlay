@@ -133,6 +133,7 @@ if (isLocaleSupported) then
 	L_DIALOG["Bat Handler Maggotbreath 1"]													= "I need to take a bat to the Dawning Isles."
 	L_DIALOG["Ambermill Dimensional Portal 1"]												= "<Use the Ambermill Dimensional Portal.>"
 	L_DIALOG["Vanguard Battlemage 1"]														= "I must help Khadgar. Send me to the Blasted Lands!"
+	L_DIALOG["Ariok 1"]																		= "Khadgar has asked us to go distract the Eye of Kilrogg."
 	L_DIALOG["Thaelin Darkanvil 1"]															= "Yes. I need you to help me operate that enormous tank."
 	L_DIALOG["Zidormi 1"]																	= "Can you show me what Tirisfal Glades was like before the Battle for Lordaeron?"
 	L_DIALOG["Zidormi 2"]																	= "Can you show me what Darkshore was like before the battle?"

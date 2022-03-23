@@ -92,6 +92,14 @@ local DIALOG_WOD = {
 	},
 	-- End of Gorgrond
 	-- Tanaan Jungle
+	[78556] = { -- Ariok
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Ariok 1"],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	[78568] = { -- Thaelin Darkanvil
 		["g"] = {
 			{
