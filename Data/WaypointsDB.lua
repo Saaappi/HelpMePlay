@@ -1353,7 +1353,265 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[64799] = { -- The Broken Crown (9.2 Campaign, Chapter 5)
+	[65770] = { -- Favor of the First Ones (9.2 Campaign, Chapter 2)
+		{
+			1970,																-- Zereth Mortis
+			38.66, 																-- X
+			58.15, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			37.01, 																-- X
+			58.32, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			36.51, 																-- X
+			59.60, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			36.59, 																-- X
+			56.30, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			37.68, 																-- X
+			55.74, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			35.54, 																-- X
+			52.66, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			36.98, 																-- X
+			52.94, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			39.52, 																-- X
+			56.35, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[64815] = { -- Together, We Ride (9.2 Campaign, Chapter 2)
+		{
+			1970,																-- Zereth Mortis
+			43.44, 																-- X
+			46.17, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			43.02, 																-- X
+			44.66, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			44.77, 																-- X
+			43.59, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			46.70, 																-- X
+			45.70, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			45.79, 																-- X
+			47.68, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[64820] = { -- This is Your Fault, Fix It (9.2 Campaign, Chapter 2)
+		{
+			1970,																-- Zereth Mortis
+			42.95, 																-- X
+			58.58, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			44.07, 																-- X
+			59.42, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			42.18, 																-- X
+			59.76, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			42.88, 																-- X
+			60.24, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			42.90, 																-- X
+			61.59, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			42.98, 																-- X
+			62.10, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			42.34, 																-- X
+			62.46, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[64224] = { -- Seeking the Unknown (9.2 Campaign, Chapter 3)
+		{
+			1970,																-- Zereth Mortis
+			33.30, 																-- X
+			66.35, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[64226] = { -- Security Measures (9.2 Campaign, Chapter 3)
+		{
+			1970,																-- Zereth Mortis
+			37.27, 																-- X
+			46.11, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			38.35, 																-- X
+			46.70, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			38.73, 																-- X
+			48.11, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			39.26, 																-- X
+			49.24, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			39.51, 																-- X
+			50.03, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			39.41, 																-- X
+			51.67, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			37.87, 																-- X
+			50.49, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			36.42, 																-- X
+			50.85, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			38.73, 																-- X
+			50.60, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			1970,																-- Zereth Mortis
+			36.83, 																-- X
+			48.92, 																-- Y
+			L_WAYPOINTS["Waypoint: Quest Objective"],							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[64799] = { -- The Broken Crown (9.2 Campaign, Chapter 4)
 		{
 			1970,																-- Zereth Mortis
 			33.3, 																-- X
@@ -1363,7 +1621,7 @@ local WAYPOINTS = {
 			105302,																-- DisplayID
 		},
 	},
-	[64801] = { -- Elder Eru (9.2 Campaign, Chapter 5)
+	[64801] = { -- Elder Eru (9.2 Campaign, Chapter 4)
 		{
 			1970,																-- Zereth Mortis
 			56.2, 																-- X
@@ -1373,7 +1631,7 @@ local WAYPOINTS = {
 			104960,																-- DisplayID
 		},
 	},
-	[64803] = { -- Testing One Two (9.2 Campaign, Chapter 5)
+	[64803] = { -- Testing One Two (9.2 Campaign, Chapter 4)
 		{
 			1970,																-- Zereth Mortis
 			56.2, 																-- X
@@ -1407,7 +1665,7 @@ local WAYPOINTS = {
 			101984,																-- DisplayID
 		},
 	},
-	[64853] = { -- Two Paths to Tread (9.2 Campaign, Chapter 5)
+	[64853] = { -- Two Paths to Tread (9.2 Campaign, Chapter 4)
 		{
 			1970,																-- Zereth Mortis
 			33.3, 																-- X
@@ -1417,7 +1675,7 @@ local WAYPOINTS = {
 			105032,																-- DisplayID
 		},
 	},
-	[64809] = { -- One Half of the Equation (9.2 Campaign, Chapter 5)
+	[64809] = { -- One Half of the Equation (9.2 Campaign, Chapter 4)
 		{
 			1970,																-- Zereth Mortis
 			57.2, 																-- X
@@ -1437,7 +1695,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[64875] = { -- Something Wonderful (9.2 Campaign, Chapter 6)
+	[64875] = { -- Something Wonderful (9.2 Campaign, Chapter 5)
 		{
 			1970,																-- Zereth Mortis
 			34.9, 																-- X
@@ -1447,7 +1705,7 @@ local WAYPOINTS = {
 			100915,																-- DisplayID
 		},
 	},
-	[64878] = { -- What A Long Strange Trip (9.2 Campaign, Chapter 6)
+	[64878] = { -- What A Long Strange Trip (9.2 Campaign, Chapter 5)
 		{
 			1970,																-- Zereth Mortis
 			41.5, 																-- X
@@ -1489,7 +1747,7 @@ local WAYPOINTS = {
 			102001,																-- DisplayID
 		},
 	},
-	[64889] = { -- Match Made in Zereth Mortis (9.2 Campaign, Chapter 6)
+	[64889] = { -- Match Made in Zereth Mortis (9.2 Campaign, Chapter 5)
 		{
 			1970,																-- Zereth Mortis
 			69.2, 																-- X
@@ -1499,7 +1757,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[64879] = { -- A Monumental Discovery (9.2 Campaign, Chapter 7)
+	[64879] = { -- A Monumental Discovery (9.2 Campaign, Chapter 6)
 		{
 			1970,																-- Zereth Mortis
 			34.9, 																-- X
@@ -1509,7 +1767,7 @@ local WAYPOINTS = {
 			100915,																-- DisplayID
 		},
 	},
-	[64733] = { -- Help From Beyond (9.2 Campaign, Chapter 7)
+	[64733] = { -- Help From Beyond (9.2 Campaign, Chapter 6)
 		{
 			1970,																-- Zereth Mortis
 			34.6, 																-- X
@@ -1551,7 +1809,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[64720] = { -- Cleaving A Path (9.2 Campaign, Chapter 7)
+	[64720] = { -- Cleaving A Path (9.2 Campaign, Chapter 6)
 		{
 			1970,																-- Zereth Mortis
 			57.84, 																-- X
@@ -1569,7 +1827,7 @@ local WAYPOINTS = {
 			103099,																-- DisplayID
 		},
 	},
-	[64718] = { -- Keys To Victory (9.2 Campaign, Chapter 7)
+	[64718] = { -- Keys To Victory (9.2 Campaign, Chapter 6)
 		{
 			1970,																-- Zereth Mortis
 			60.41, 																-- X
@@ -1611,7 +1869,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[64722] = { -- Knocking On Death's Door (9.2 Campaign, Chapter 7)
+	[64722] = { -- Knocking On Death's Door (9.2 Campaign, Chapter 6)
 		{
 			1970,																-- Zereth Mortis
 			55.35, 																-- X
@@ -1637,7 +1895,7 @@ local WAYPOINTS = {
 			103110,																-- DisplayID
 		},
 	},
-	[65238] = { -- Souls Entwined (9.2 Campaign, Chapter 7)
+	[65238] = { -- Souls Entwined (9.2 Campaign, Chapter 6)
 		{
 			1670,																-- Oribos
 			38.93, 																-- X

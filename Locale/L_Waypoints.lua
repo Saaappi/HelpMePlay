@@ -76,6 +76,7 @@ if (isLocaleSupported) then
 	L_WAYPOINTS["Waypoint: Not of the Body (Daily)"]										= "Use item on Automa in the area"
 	L_WAYPOINTS["Waypoint: Necessary Resourcing (Daily)"]									= "Defeat enemies in the area"
 	L_WAYPOINTS["Waypoint: Rana"]															= "Rana"
+	L_WAYPOINTS["Waypoint: Quest Objective"]												= "Quest Objective"
 	L_WAYPOINTS["Waypoint: The Broken Crown"]												= "The Broken Crown"
 	L_WAYPOINTS["Waypoint: Elder Eru"]														= "Elder Eru"
 	L_WAYPOINTS["Waypoint: Outmoded Servitor"]												= "Outmoded Servitor"
