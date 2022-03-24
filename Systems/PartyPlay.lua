@@ -91,12 +91,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local questId = ...
-			if HelpMePlayCharacterQuestsDB[questId] then
-				-- The player abandoned the quest or
-				-- left the area (eg. world quests).
-				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
-				HelpMePlayCharacterQuestsDB[questId] = nil
-			end
+			C_Timer.After(1, function()
+				if HelpMePlayCharacterQuestsDB[questId] then
+					-- The player abandoned the quest or
+					-- left the area (eg. world quests).
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+					HelpMePlayCharacterQuestsDB[questId] = nil
+				end
+			end)
 		end
 	end
 	if event == "QUEST_TURNED_IN" then
