@@ -67,7 +67,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			HelpMePlayCharacterQuestsDB[questId] = Get_QuestTitleFromId[questId]
 			if isRegistered then
 				if HelpMePlayOptionsDB.PartyPlayAnnounce then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
 				if HelpMePlayOptionsDB.PartyPlayAutoShare then
 					if C_QuestLog.IsPushableQuest(questId) then
@@ -95,7 +95,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if HelpMePlayCharacterQuestsDB[questId] then
 					-- The player abandoned the quest or
 					-- left the area (eg. world quests).
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 					HelpMePlayCharacterQuestsDB[questId] = nil
 				end
 			end)
@@ -111,7 +111,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local questId = ...
 			HelpMePlayCharacterQuestsDB[questId] = nil
 			if isRegistered then
-				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\" (" .. questId .. ")", "PARTY")
+				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 			end
 		end
 	end

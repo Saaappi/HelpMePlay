@@ -1,3 +1,5 @@
 Fixes and Updates:
 	- Added waypoints for chapters 2, 3, and 6 of the 9.2 campaign.
+	- Removed the quest ID from the output in Party Play mode.
 	- Fixed an issue with Cinematics automation that caused the screen to go black, white, or the game to become unplayable.
+	- Fixed an issue where turning in quests with Party Play enabled would cause the addon to report the quest removed. (Although accurate, it's confusing.)
