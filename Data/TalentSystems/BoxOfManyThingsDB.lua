@@ -5,46 +5,166 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local BOXOFMANYTHINGS = {
 	-- Tower Knowledge: 1904
-	1783, -- Blessing of the Ancients (Rank 1) (20 TK)
-	1783, -- Blessing of the Ancients (Rank 2) (80 TK)
-	1784, -- Freed from Torment (Rank 1) (40 TK)
-	1794, -- Efficient Looter (Rank 1) (60 TK)
-	1785, -- Empowered Perseverence (Rank 1) (40 TK)
-	1787, -- Empowered Swiftness (Rank 1) (20 TK)
-	1788, -- The Adamant Vaults (Rank 1) (100 TK)
-	1783, -- Blessing of the Ancients (Rank 3) (200 TK)
-	1789, -- Enduring Souls (Rank 1) (50 TK)
-	1784, -- Freed from Torment (Rank 2) (200 TK)
-	1785, -- Empowered Perseverence (Rank 2) (100 TK)
-	1787, -- Empowered Swiftness (Rank 2) (60 TK)
-	1790, -- Good Reflexes (Rank 1) (30 TK)
-	1863, -- Elite Slayer (Rank 1) (40 TK)
-	1861, -- Unflinching (Rank 1) (20 TK)
-	1865, -- Anima Plunderer (Rank 1) (50 TK)
-	1861, -- Unflinching (Rank 2) (100 TK)
-	1861, -- Unflinching (Rank 3) (150 TK)
-	1790, -- Good Reflexes (Rank 2) (80 TK)
-	1786, -- Inexplicable Power (Rank 1) (20 TK)
-	1786, -- Inexplicable Power (Rank 2) (40 TK)
-	1865, -- Anima Plunderer (Rank 2) (200 TK)
-	1864, -- Meddle With Fate (Rank 1) (40 TK)
-	1878, -- Empowered Nova (Rank 1) (250 TK)
-	1864, -- Meddle With Fate (Rank 2) (80 TK)
-	1864, -- Meddle With Fate (Rank 3) (150 TK)
-	1786, -- Inexplicable Power (Rank 3) (70 TK)
-	1786, -- Inexplicable Power (Rank 4) (100 TK)
-	1786, -- Inexplicable Power (Rank 5) (150 TK)
-	1792, -- Discovered Cache (Rank 1) (20 TK)
-	1792, -- Discovered Cache (Rank 2) (50 TK)
-	1792, -- Discovered Cache (Rank 3) (80 TK)
-	1793, -- Undeterred (Rank 1) (20 TK)
-	1793, -- Undeterred (Rank 2) (40 TK)
-	1793, -- Undeterred (Rank 3) (70 TK)
-	1791, -- Death Denied (Rank 1) (20 TK)
-	1791, -- Death Denied (Rank 2) (40 TK)
-	1791, -- Death Denied (Rank 2) (70 TK)
-	1793, -- Undeterred (Rank 4) (100 TK)
-	1793, -- Undeterred (Rank 5) (150 TK)
+	{ -- Blessing of the Ancients (Rank 1)
+		["perkId"] 	= 1783,
+		["print"]	= "spell",
+	},
+	{ -- Blessing of the Ancients (Rank 2)
+		["perkId"] 	= 1783,
+		["print"]	= "spell",
+	},
+	{ -- Freed from Torment (Rank 1)
+		["perkId"] 	= 1784,
+		["print"]	= "spell",
+	},
+	{ -- Efficient Looter
+		["perkId"] 	= 1794,
+		["print"]	= "spell",
+	},
+	{ -- Empowered Perseverence (Rank 1)
+		["perkId"] 	= 1785,
+		["print"]	= "spell",
+	},
+	{ -- Empowered Swiftness (Rank 1)
+		["perkId"] 	= 1787,
+		["print"]	= "spell",
+	},
+	{ -- The Adamant Vaults
+		["perkId"] 	= 1788,
+		["print"]	= "spell",
+	},
+	{ -- Blessing of the Ancients (Rank 3)
+		["perkId"] 	= 1783,
+		["print"]	= "spell",
+	},
+	{ -- Enduring Souls
+		["perkId"] 	= 1789,
+		["print"]	= "spell",
+	},
+	{ -- Freed from Torment (Rank 2)
+		["perkId"] 	= 1784,
+		["print"]	= "spell",
+	},
+	{ -- Empowered Perseverence (Rank 2)
+		["perkId"] 	= 1785,
+		["print"]	= "spell",
+	},
+	{ -- Empowered Swiftness (Rank 2)
+		["perkId"] 	= 1787,
+		["print"]	= "spell",
+	},
+	{ -- Good Reflexes (Rank 1)
+		["perkId"] 	= 1790,
+		["print"]	= "spell",
+	},
+	{ -- Elite Slayer
+		["perkId"] 	= 1863,
+		["print"]	= "spell",
+	},
+	{ -- Unflinching (Rank 1)
+		["perkId"] 	= 1861,
+		["print"]	= "spell",
+	},
+	{ -- Anima Plunderer (Rank 1)
+		["perkId"] 	= 1865,
+		["print"]	= "spell",
+	},
+	{ -- Unflinching (Rank 2)
+		["perkId"] 	= 1861,
+		["print"]	= "spell",
+	},
+	{ -- Unflinching (Rank 3)
+		["perkId"] 	= 1861,
+		["print"]	= "spell",
+	},
+	{ -- Good Reflexes (Rank 2)
+		["perkId"] 	= 1790,
+		["print"]	= "spell",
+	},
+	{ -- Inexplicable Power (Rank 1)
+		["perkId"] 	= 1786,
+		["print"]	= "spell",
+	},
+	{ -- Inexplicable Power (Rank 2)
+		["perkId"] 	= 1786,
+		["print"]	= "spell",
+	},
+	{ -- Anima Plunderer (Rank 2)
+		["perkId"] 	= 1865,
+		["print"]	= "spell",
+	},
+	{ -- Meddle With Fate (Rank 1)
+		["perkId"] 	= 1864,
+		["print"]	= "spell",
+	},
+	{ -- Empowered Nova
+		["perkId"] 	= 1878,
+		["print"]	= "spell",
+	},
+	{ -- Meddle With Fate (Rank 2)
+		["perkId"] 	= 1864,
+		["print"]	= "spell",
+	},
+	{ -- Meddle With Fate (Rank 3)
+		["perkId"] 	= 1864,
+		["print"]	= "spell",
+	},
+	{ -- Inexplicable Power (Rank 3)
+		["perkId"] 	= 1786,
+		["print"]	= "spell",
+	},
+	{ -- Inexplicable Power (Rank 4)
+		["perkId"] 	= 1786,
+		["print"]	= "spell",
+	},
+	{ -- Inexplicable Power (Rank 5)
+		["perkId"] 	= 1786,
+		["print"]	= "spell",
+	},
+	{ -- Discovered Cache (Rank 1)
+		["perkId"] 	= 1792,
+		["print"]	= "spell",
+	},
+	{ -- Discovered Cache (Rank 2)
+		["perkId"] 	= 1792,
+		["print"]	= "spell",
+	},
+	{ -- Discovered Cache (Rank 3)
+		["perkId"] 	= 1792,
+		["print"]	= "spell",
+	},
+	{ -- Undeterred (Rank 1)
+		["perkId"] 	= 1793,
+		["print"]	= "spell",
+	},
+	{ -- Undeterred (Rank 2)
+		["perkId"] 	= 1793,
+		["print"]	= "spell",
+	},
+	{ -- Undeterred (Rank 3)
+		["perkId"] 	= 1793,
+		["print"]	= "spell",
+	},
+	{ -- Death Denied (Rank 1)
+		["perkId"] 	= 1791,
+		["print"]	= "spell",
+	},
+	{ -- Death Denied (Rank 2)
+		["perkId"] 	= 1791,
+		["print"]	= "spell",
+	},
+	{ -- Death Denied (Rank 3)
+		["perkId"] 	= 1791,
+		["print"]	= "spell",
+	},
+	{ -- Undeterred (Rank 4)
+		["perkId"] 	= 1793,
+		["print"]	= "spell",
+	},
+	{ -- Undeterred (Rank 5)
+		["perkId"] 	= 1793,
+		["print"]	= "spell",
+	},
 }
 
 addonTable.BOXOFMANYTHINGS = BOXOFMANYTHINGS

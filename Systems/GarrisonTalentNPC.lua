@@ -14,7 +14,7 @@ local function CheckTalents(talentTree, currencyId)
 	local currency = 0
 	local talentInfo = ""
 	for k, v in ipairs(talentTree) do
-		talentInfo = C_Garrison.GetTalentInfo(v)
+		talentInfo = C_Garrison.GetTalentInfo(v.perkId)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			-- The player doesn't have the talent
 			-- researched, so let's move forward.
@@ -34,7 +34,7 @@ local function CheckTalents(talentTree, currencyId)
 						-- The perk has a spell ID, so let's
 						-- send a spell link to the chat frame.
 						-- If not, then use the perk name.
-						if talentInfo.perkSpellID ~= 0 then
+						if v.print == "spell" and talentInfo.perkSpellID ~= 0 then
 							PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 						else
 							PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")

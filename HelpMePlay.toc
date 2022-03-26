@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB
 ## Title: HelpMePlay
-## Version: 1.1.4a
+## Version: 1.1.4b
 
 Locale\L_GlobalStrings.lua
 Locale\L_Dialog.lua
