@@ -416,12 +416,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_ACCEPTED" then
+		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		local questId = ...
 		C_QuestLog.AddQuestWatch(questId, 0)
 		if select(2, IsAddOnLoaded("TomTom")) then
 			for quest, questData in pairs(addonTable.WAYPOINTS) do
 				if quest == questId then
-					for _,coords in ipairs(questData) do
+					for _, coords in ipairs(questData) do
 						local opts = {
 							title = coords[4],
 							persistent = nil,
@@ -440,6 +441,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 		end
+		-- The addon doesn't play well with
+		-- custom frames (e.g. Immersion),
+		-- so let's try to handle that on
+		-- our own.
+		if select(2, IsAddOnLoaded("Immersion")) then
+			C_Timer.After(0.1, function()
+				ImmersionFrame.TalkBox.MainFrame.CloseButton:Click()
+			end)
+		end
 	end
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
@@ -457,7 +467,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
 				if Get_IgnoredQuestGiver(npcId) then return end
 			end
-			
 			QUEST_DETAIL(false)
 		end
 	end
