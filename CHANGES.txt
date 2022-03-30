@@ -1,3 +1,5 @@
 Fixes and Updates:
-	- Updated the talent NPC system to be more flexible. As a result, the Cypher of the First Ones system will no longer print confusing spell names. (Example: Altonian Understanding, prior to this change, was displayed to the player, by HelpMePlay, as "Language Verbal I". This wasn't incorrect information, but it wasn't helpful.)
-	- Fixed an incompatibility between the Quests automation and the Immersion addon. The Immersion quest window will no longer be stuck open with the Quests automation enabled.
+	- Added a third waypoint for the Stolen Jar treasure in Maldraxxus.
+	- Updated the coords for the other Maldraxxus treasures.
+	- Updated the coords for one of the Stolen Jar's spawn points to point at the cave's entrance.
+	- Fixed the coords for the Necrom-i-nom treasure in Maldraxxus.

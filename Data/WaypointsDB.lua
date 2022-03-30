@@ -708,7 +708,7 @@ local WAYPOINTS = {
 	[62721] = { -- Deconstructing The Problem (Bonus Objective)
 		{
 			1536,																-- Maldraxxus
-			30.7, 																-- X
+			30.9, 																-- X
 			28.7, 																-- Y
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
@@ -718,8 +718,8 @@ local WAYPOINTS = {
 	[62741] = { -- Choice of Action (Bonus Objective)
 		{
 			1536,																-- Maldraxxus
-			47.2, 																-- X
-			62.1, 																-- Y
+			47.25, 																-- X
+			62.12, 																-- Y
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
@@ -728,8 +728,8 @@ local WAYPOINTS = {
 	[62743] = { -- Decaying Situation (Bonus Objective)
 		{
 			1536,																-- Maldraxxus
-			66.1, 																-- X
-			50.4, 																-- Y
+			65.68, 																-- X
+			50.76, 																-- Y
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
@@ -742,12 +742,20 @@ local WAYPOINTS = {
 			nil,																-- Icon
 			nil,																-- DisplayID
 		},
+		{
+			1536,																-- Maldraxxus
+			75.41, 																-- X
+			43.21, 																-- Y
+			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
 	},
 	[60900] = { -- Archival Protection
 		{
 			1536,																-- Maldraxxus
-			42.3, 																-- X
-			24.3, 																-- Y
+			42.35, 																-- X
+			23.33, 																-- Y
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
