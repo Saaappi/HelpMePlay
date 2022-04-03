@@ -4,3 +4,4 @@ Fixes and Updates:
 	- Updated the coords for one of the Stolen Jar's spawn points to point at the cave's entrance.
 	- Fixed the coords for the Necrom-i-nom treasure in Maldraxxus.
 	- Fixed the minimap icon disappearing between logouts/reloads.
+	- Fixed an issue with shields as quest rewards.

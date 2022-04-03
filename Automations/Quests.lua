@@ -230,6 +230,8 @@ function HMP_CompleteQuest()
 							CompareItems(i, itemLevels, sellPrices, itemLink, "BACKSLOT", quantity)
 						elseif slotName == "HAND" then
 							CompareItems(i, itemLevels, sellPrices, itemLink, "HANDSSLOT", quantity)
+						elseif slotName == "SHIELD" then
+							CompareItems(i, itemLevels, sellPrices, itemLink, "SECONDARYHANDSLOT", quantity)
 						elseif slotName ~= nil then
 							CompareItems(i, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
 						--[[else
