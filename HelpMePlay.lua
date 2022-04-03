@@ -37,7 +37,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HelpMePlayCharacterQuestsDB = {}
 			end
 			if HelpMePlayOptionsDB.MinimapIcon then
-				HelpMePlayShowMinimapIcon(false)
+				HelpMePlayShowMinimapIcon(true)
 			end
 		end
 	end
