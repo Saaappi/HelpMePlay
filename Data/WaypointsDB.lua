@@ -1160,7 +1160,7 @@ local WAYPOINTS = {
 			82.9, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 		{
 			1970,																-- Zereth Mortis
@@ -1168,7 +1168,7 @@ local WAYPOINTS = {
 			87.5, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 		{
 			1970,																-- Zereth Mortis
@@ -1176,7 +1176,7 @@ local WAYPOINTS = {
 			90.1, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 		{
 			1970,																-- Zereth Mortis
@@ -1184,7 +1184,7 @@ local WAYPOINTS = {
 			94.7, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 		{
 			1970,																-- Zereth Mortis
@@ -1192,7 +1192,7 @@ local WAYPOINTS = {
 			95.6, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 		{
 			1970,																-- Zereth Mortis
@@ -1200,7 +1200,7 @@ local WAYPOINTS = {
 			91.1, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 		{
 			1970,																-- Zereth Mortis
@@ -1208,7 +1208,7 @@ local WAYPOINTS = {
 			87.4, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 		{
 			1970,																-- Zereth Mortis
@@ -1216,7 +1216,7 @@ local WAYPOINTS = {
 			91.9, 																-- Y
 			L_WAYPOINTS["Waypoint: Catalyst Magic Sensor"],						-- Title
 			nil,																-- Icon
-			104825,																-- DisplayID
+			nil,																-- DisplayID
 		},
 	},
 	[65226] = { -- Fleet-Footed and Fastidious (Daily)
