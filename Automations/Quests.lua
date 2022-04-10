@@ -421,7 +421,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		local questId = ...
 		C_QuestLog.AddQuestWatch(questId, 0)
-		if select(2, IsAddOnLoaded("TomTom")) then
+		if select(2, IsAddOnLoaded("TomTom")) and HelpMePlayOptionsDB.Waypoints then
 			for quest, questData in pairs(addonTable.WAYPOINTS) do
 				if quest == questId then
 					for _, coords in ipairs(questData) do
@@ -443,6 +443,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 		end
+		
 		-- The addon doesn't play well with
 		-- custom frames (e.g. Immersion),
 		-- so let's try to handle that on

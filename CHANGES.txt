@@ -1,2 +1,3 @@
 Fixes and Updates:
+	- Added a check box under the Systems tab to control waypoint plotting.
 	- Changed most of the recommended talents for leveling.
