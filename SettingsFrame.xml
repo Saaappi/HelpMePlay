@@ -333,7 +333,7 @@
 				<FontString name="HMPWaypointsText" inherits="GameFontNormal" text="Waypoints" justifyH="CENTER" justifyV="CENTER">
 					<Size x="99" y="20" />
 					<Anchors>
-						<Anchor point="LEFT" relativeTo="HMPWaypointsCB" relativePoint="LEFT" x="10" />
+						<Anchor point="LEFT" relativeTo="HMPWaypointsCB" relativePoint="LEFT" x="14" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
