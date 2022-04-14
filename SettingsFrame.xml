@@ -367,7 +367,14 @@
 		<Scripts>
 			<OnLoad>
 				UIDropDownMenu_EnableDropDown(HMPChromieTimeDropDown)
+				tinsert(UISpecialFrames, self:GetName())
 			</OnLoad>
+			<OnShow>
+				PlaySound(SOUNDKIT.IG_SPELLBOOK_OPEN)
+			</OnShow>
+			<OnHide>
+				PlaySound(SOUNDKIT.IG_SPELLBOOK_CLOSE)
+			</OnHide>
 		</Scripts>
 	</Frame>
 	<GameTooltip inherits="GameTooltipTemplate" />

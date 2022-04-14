@@ -727,9 +727,12 @@ end
 function HelpMePlayLoadSettings()
 	if HMPOptionsFrame:IsVisible() then
 		HMPOptionsFrame:Hide()
+		PlaySound(SOUNDKIT.IG_SPELLBOOK_CLOSE)
 	else
 		if UnitAffectingCombat("player") == false then
 			HMPOptionsFrame:Show()
+			
+			PlaySound(SOUNDKIT.IG_SPELLBOOK_OPEN)
 			
 			-- Tell Blizzard how many tabs they can expect
 			-- to receive from the addon.
