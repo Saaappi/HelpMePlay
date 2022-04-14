@@ -1,3 +1,4 @@
 Fixes and Updates:
+	- Added the ability to close the options menu with the ESC key.
 	- Added a check box under the Systems tab to control waypoint plotting.
 	- Changed most of the recommended talents for leveling.
