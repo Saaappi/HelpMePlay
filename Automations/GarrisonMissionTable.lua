@@ -11,6 +11,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if C_Garrison.IsAtGarrisonMissionNPC() then
 			local npc = ...
 			if npc == 1 then -- Garrison Mission Table
+				if GarrisonMissionTutorialFrame:IsVisible() then
+					GarrisonMissionTutorialFrame:Hide()
+				end
 				local missions = C_Garrison.GetAvailableMissions(1)
 				local followers = C_Garrison.GetFollowers(1)
 				local faction = UnitFactionGroup("player")
