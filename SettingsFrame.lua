@@ -36,7 +36,7 @@ function HMPTab_OnClick(self)
 		HMPBFAZoneSelDropDown:Show()
 		HMPSLZoneSelDropDown:Show()
 		
-		-- Hide the widgets from the Systems tab.
+		-- Hide the widgets from the other tabs.
 		HMPWarModeCB:Hide()
 		HMPWarModeText:Hide()
 		HMPNotesCB:Hide()
@@ -45,6 +45,8 @@ function HMPTab_OnClick(self)
 		HMPTalentsText:Hide()
 		HMPWaypointsCB:Hide()
 		HMPWaypointsText:Hide()
+		HMPWeightsCB:Hide()
+		HMPWeightsText:Hide()
 		HMPPartyPlayCB:Hide()
 		HMPPartyPlayText:Hide()
 		HMPPartyPlayAnnounceCB:Hide()
@@ -65,6 +67,8 @@ function HMPTab_OnClick(self)
 		HMPTalentsText:Show()
 		HMPWaypointsCB:Show()
 		HMPWaypointsText:Show()
+		HMPWeightsCB:Show()
+		HMPWeightsText:Show()
 		HMPPartyPlayCB:Show()
 		HMPPartyPlayText:Show()
 		-- These two buttons should only be shown if
@@ -78,7 +82,7 @@ function HMPTab_OnClick(self)
 		end
 		HMPTorghastPowersDropDown:Show()
 		
-		-- Hide the widgets from the Automations tab.
+		-- Hide the widgets from the other tabs.
 		HMPDialogCB:Hide()
 		HMPDialogText:Hide()
 		HMPEmotesCB:Hide()
@@ -143,6 +147,8 @@ function HMPTab_OnClick(self)
 		HMPTalentsText:Hide()
 		HMPWaypointsCB:Hide()
 		HMPWaypointsText:Hide()
+		HMPWeightsCB:Hide()
+		HMPWeightsText:Hide()
 		HMPPartyPlayCB:Hide()
 		HMPPartyPlayText:Hide()
 		HMPPartyPlayAnnounceCB:Hide()
@@ -766,6 +772,7 @@ function HelpMePlayLoadSettings()
 			HMPCinematicsText:SetText(L_GLOBALSTRINGS["Cinematics"])
 			HMPQueuesText:SetText(L_GLOBALSTRINGS["Queues"])
 			HMPWaypointsText:SetText(L_GLOBALSTRINGS["Waypoints"])
+			HMPWeightsText:SetText(L_GLOBALSTRINGS["Weights"])
 			HMPPartyPlayText:SetText(L_GLOBALSTRINGS["Party Play"])
 			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
 			HMPLoggingText:SetText(L_GLOBALSTRINGS["Logging"])
@@ -862,6 +869,12 @@ function HelpMePlayLoadSettings()
 				HMPWaypointsCB:SetChecked(true)
 			else
 				HMPWaypointsCB:SetChecked(false)
+			end
+			
+			if HelpMePlayOptionsDB.Weights then
+				HMPWeightsCB:SetChecked(true)
+			else
+				HMPWeightsCB:SetChecked(false)
 			end
 			
 			if HelpMePlayOptionsDB.PartyPlay then
@@ -991,6 +1004,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].Cinematics = HelpMePlayOptionsDB.Cinematics
 					HelpMePlayOptionsDB["TempSettings"].Queues = HelpMePlayOptionsDB.Queues
 					HelpMePlayOptionsDB["TempSettings"].Waypoints = HelpMePlayOptionsDB.Waypoints
+					HelpMePlayOptionsDB["TempSettings"].Weights = HelpMePlayOptionsDB.Weights
 					HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce = HelpMePlayOptionsDB.PartyPlayAnnounce
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare = HelpMePlayOptionsDB.PartyPlayAutoShare
@@ -1017,6 +1031,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Cinematics = false
 					HelpMePlayOptionsDB.Queues = false
 					HelpMePlayOptionsDB.Waypoints = false
+					HelpMePlayOptionsDB.Weights = false
 					HelpMePlayOptionsDB.PartyPlay = false
 					HelpMePlayOptionsDB.PartyPlayAnnounce = false
 					HelpMePlayOptionsDB.PartyPlayAutoShare = false
@@ -1043,6 +1058,7 @@ function HelpMePlayLoadSettings()
 					HMPCinematicsCB:SetChecked(false)
 					HMPQueuesCB:SetChecked(false)
 					HMPWaypointsCB:SetChecked(false)
+					HMPWeightsCB:SetChecked(false)
 					HMPPartyPlayCB:SetChecked(false)
 					HMPPartyPlayAnnounceCB:SetChecked(false)
 					HMPPartyPlayAutoShareCB:SetChecked(false)
@@ -1074,6 +1090,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Cinematics = HelpMePlayOptionsDB["TempSettings"].Cinematics
 					HelpMePlayOptionsDB.Queues = HelpMePlayOptionsDB["TempSettings"].Queues
 					HelpMePlayOptionsDB.Waypoints = HelpMePlayOptionsDB["TempSettings"].Waypoints
+					HelpMePlayOptionsDB.Weights = HelpMePlayOptionsDB["TempSettings"].Weights
 					HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
 					HelpMePlayOptionsDB.PartyPlayAnnounce = HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce
 					HelpMePlayOptionsDB.PartyPlayAutoShare = HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare
@@ -1099,6 +1116,7 @@ function HelpMePlayLoadSettings()
 					HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Cinematics)
 					HMPQueuesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Queues)
 					HMPWaypointsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Waypoints)
+					HMPWeightsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Weights)
 					HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
 					HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce)
 					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
@@ -1319,6 +1337,21 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Waypoints = true
 				else
 					HelpMePlayOptionsDB.Waypoints = false
+				end
+			end)
+			
+			-- Weights Check Button
+			HMPWeightsCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Weights Check Button"])
+			end)
+			HMPWeightsCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPWeightsCB:SetScript("OnClick", function(self)
+				if self:GetChecked() then
+					HelpMePlayOptionsDB.Weights = true
+				else
+					HelpMePlayOptionsDB.Weights = false
 				end
 			end)
 			

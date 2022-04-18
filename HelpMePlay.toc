@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB
 ## Title: HelpMePlay
-## Version: 1.1.4e
+## Version: 1.1.5
 
 Locale\L_GlobalStrings.lua
 Locale\L_Dialog.lua
@@ -75,6 +75,7 @@ Systems\GarrisonTalentNPC.lua
 Systems\Talents.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
+Systems\Weights.lua
 
 # General Stuff
 Keybinding.lua
