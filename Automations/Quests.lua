@@ -393,6 +393,7 @@ end
 
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("QUEST_ACCEPTED")
+e:RegisterEvent("QUEST_AUTOCOMPLETE")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
@@ -453,6 +454,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 				ImmersionFrame.TalkBox.MainFrame.CloseButton:Click()
 			end)
 		end
+	end
+	if event == "QUEST_AUTOCOMPLETE" then
+		local questId = ...
+		ShowQuestComplete(questId)
 	end
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end

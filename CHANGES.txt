@@ -1,4 +1,5 @@
 New Features:
 	- If enabled, Weights (System) will append an NPC's contribution toward a quest objective.
 Fixes and Updates:
+	- Quest complete auto popups are now processed.
 	- Updated the Garrison mission automation, allowing the addon to skip the tutorial popups.
