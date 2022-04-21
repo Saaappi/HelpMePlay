@@ -445,6 +445,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 		
+		-- If there is a quest offer, let's
+		-- handle the popup automatically.
+		AutoQuestPopupTracker_RemovePopUp(questId)
+		
 		-- The addon doesn't play well with
 		-- custom frames (e.g. Immersion),
 		-- so let's try to handle that on
