@@ -1,2 +1,2 @@
 Fixes and Updates:
-	- Updated the weight values for all NPCs involved in 9.0 bonus objectives.
+	- Fixed weight values for lots of NPCs in Shadowlands content.
