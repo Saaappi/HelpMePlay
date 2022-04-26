@@ -1069,6 +1069,8 @@ function HelpMePlayLoadSettings()
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Disabled"])
+					
+					HelpMePlayShowMinimapIcon(false)
 				else
 					-- Return the settings to their original
 					-- states.
@@ -1127,6 +1129,8 @@ function HelpMePlayLoadSettings()
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, HelpMePlayOptionsDB.BFAZoneSelection)
 					UIDropDownMenu_SetSelectedValue(HMPSLZoneSelDropDown, HelpMePlayOptionsDB.SLZoneSelection)
+					
+					HelpMePlayShowMinimapIcon(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
 				end
 			end)
 
