@@ -62,9 +62,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Share the quest with the player's
 		-- party.
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		local questId = ...
+		HelpMePlayCharacterQuestsDB[questId] = { title = Get_QuestTitleFromId[questId], progressPercent = 0 }
 		if UnitInParty("player") then
-			local questId = ...
-			HelpMePlayCharacterQuestsDB[questId] = { title = Get_QuestTitleFromId[questId], progressPercent = 0 }
 			if isRegistered then
 				if HelpMePlayOptionsDB.PartyPlayAnnounce then
 					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
@@ -89,17 +89,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- the player didn't turn it in, so
 		-- report the message to chat.
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
-		if UnitInParty("player") then
-			local questId = ...
-			C_Timer.After(1, function()
-				if HelpMePlayCharacterQuestsDB[questId] then
-					-- The player abandoned the quest or
-					-- left the area (eg. world quests).
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
-					HelpMePlayCharacterQuestsDB[questId] = nil
-				end
-			end)
-		end
+		local questId = ...
+		C_Timer.After(1, function()
+			if HelpMePlayCharacterQuestsDB[questId] then
+				-- The player abandoned the quest or
+				-- left the area (eg. world quests).
+				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+				HelpMePlayCharacterQuestsDB[questId] = nil
+			end
+		end)
 	end
 	if event == "QUEST_TURNED_IN" then
 		-- Remove the quest from the table.
@@ -107,9 +105,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Report to party chat the a quest
 		-- was turned in.
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		local questId = ...
+		HelpMePlayCharacterQuestsDB[questId] = nil
 		if UnitInParty("player") then
-			local questId = ...
-			HelpMePlayCharacterQuestsDB[questId] = nil
 			if isRegistered then
 				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 			end
