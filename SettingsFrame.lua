@@ -880,7 +880,6 @@ function HelpMePlayLoadSettings()
 			end)
 			HMPDisableAllCB:SetScript("OnClick", function(self)
 				if self:GetChecked() then
-					HelpMePlayOptionsDB.DisableAll = true
 					-- Create an empty table to store the current
 					-- state of the settings. We'll use the current
 					-- states to return the settings back to their
@@ -973,7 +972,6 @@ function HelpMePlayLoadSettings()
 					--
 					-- Recheck the buttons that were previously
 					-- checked.
-					HelpMePlayOptionsDB.DisableAll = false
 					HelpMePlayOptionsDB.Dialog = HelpMePlayOptionsDB["TempSettings"].Dialog
 					HelpMePlayOptionsDB.Emotes = HelpMePlayOptionsDB["TempSettings"].Emotes
 					HelpMePlayOptionsDB.GarrisonTables = HelpMePlayOptionsDB["TempSettings"].GarrisonTables
@@ -1028,6 +1026,7 @@ function HelpMePlayLoadSettings()
 					
 					HelpMePlayShowMinimapIcon(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
 				end
+				HelpMePlayOptionsDB.DisableAll = self:GetChecked()
 			end)
 
 			-- Dialog Check Button
