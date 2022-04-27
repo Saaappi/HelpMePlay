@@ -781,131 +781,27 @@ function HelpMePlayLoadSettings()
 			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
 
 			-- Check settings first
-			if HelpMePlayOptionsDB.DisableAll then
-				HMPDisableAllCB:SetChecked(true)
-			else
-				HMPDisableAllCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.Dialog then
-				HMPDialogCB:SetChecked(true)
-			else
-				HMPDialogCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.Emotes then
-				HMPEmotesCB:SetChecked(true)
-			else
-				HMPEmotesCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.GarrisonTables then
-				HMPGarrTblCB:SetChecked(true)
-			else
-				HMPGarrTblCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.Merchants then
-				HMPMerchantsCB:SetChecked(true)
-			else
-				HMPMerchantsCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.Trainers then
-				HMPTrainersV2CB:SetChecked(true)
-			else
-				HMPTrainersV2CB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.Speech then
-				HMPSpeechCB:SetChecked(true)
-			else
-				HMPSpeechCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.WarMode then
-				HMPWarModeCB:SetChecked(true)
-			else
-				HMPWarModeCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.Quests then
-				HMPQuestsCB:SetChecked(true)
-			else
-				HMPQuestsCB:SetChecked(false)
-			end
-
-			if HelpMePlayOptionsDB.ThreadsOfFate then
-				HMPToFCB:SetChecked(true)
-			else
-				HMPToFCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.Notes then
-				HMPNotesCB:SetChecked(true)
-			else
-				HMPNotesCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.Talents then
-				HMPTalentsCB:SetChecked(true)
-			else
-				HMPTalentsCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.Cinematics then
-				HMPCinematicsCB:SetChecked(true)
-			else
-				HMPCinematicsCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.Queues then
-				HMPQueuesCB:SetChecked(true)
-			else
-				HMPQueuesCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.Waypoints then
-				HMPWaypointsCB:SetChecked(true)
-			else
-				HMPWaypointsCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.Weights then
-				HMPWeightsCB:SetChecked(true)
-			else
-				HMPWeightsCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.PartyPlay then
-				HMPPartyPlayCB:SetChecked(true)
-			else
-				HMPPartyPlayCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.PartyPlayAnnounce then
-				HMPPartyPlayAnnounceCB:SetChecked(true)
-			else
-				HMPPartyPlayAnnounceCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.PartyPlayAutoShare then
-				HMPPartyPlayAutoShareCB:SetChecked(true)
-			else
-				HMPPartyPlayAutoShareCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.MinimapIcon then
-				HMPMinimapIconCB:SetChecked(true)
-			else
-				HMPMinimapIconCB:SetChecked(false)
-			end
-			
-			if HelpMePlayOptionsDB.Logging then
-				HMPLoggingCB:SetChecked(true)
-			else
-				HMPLoggingCB:SetChecked(false)
-			end
+			HMPDisableAllCB:SetChecked(HelpMePlayOptionsDB.DisableAll)
+			HMPDialogCB:SetChecked(HelpMePlayOptionsDB.Dialog)
+			HMPEmotesCB:SetChecked(HelpMePlayOptionsDB.Emotes)
+			HMPGarrTblCB:SetChecked(HelpMePlayOptionsDB.GarrisonTables)
+			HMPMerchantsCB:SetChecked(HelpMePlayOptionsDB.Merchants)
+			HMPTrainersV2CB:SetChecked(HelpMePlayOptionsDB.Trainers)
+			HMPSpeechCB:SetChecked(HelpMePlayOptionsDB.Speech)
+			HMPWarModeCB:SetChecked(HelpMePlayOptionsDB.WarMode)
+			HMPQuestsCB:SetChecked(HelpMePlayOptionsDB.Quests)
+			HMPToFCB:SetChecked(HelpMePlayOptionsDB.ThreadsOfFate)
+			HMPNotesCB:SetChecked(HelpMePlayOptionsDB.Notes)
+			HMPTalentsCB:SetChecked(HelpMePlayOptionsDB.Talents)
+			HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB.Cinematics)
+			HMPQueuesCB:SetChecked(HelpMePlayOptionsDB.Queues)
+			HMPWaypointsCB:SetChecked(HelpMePlayOptionsDB.Waypoints)
+			HMPWeightsCB:SetChecked(HelpMePlayOptionsDB.Weights)
+			HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB.PartyPlay)
+			HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB.PartyPlayAnnounce)
+			HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB.PartyPlayAutoShare)
+			HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB.MinimapIcon)
+			HMPLoggingCB:SetChecked(HelpMePlayOptionsDB.Logging)
 			
 			if HelpMePlayOptionsDB.ChromieTimeExpansion then
 				UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
@@ -1142,11 +1038,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPDialogCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Dialog = true
-				else
-					HelpMePlayOptionsDB.Dialog = false
-				end
+				HelpMePlayOptionsDB.Dialog = self:GetChecked()
 			end)
 
 			-- Emotes Check Button
@@ -1157,11 +1049,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPEmotesCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Emotes = true
-				else
-					HelpMePlayOptionsDB.Emotes = false
-				end
+				HelpMePlayOptionsDB.Emotes = self:GetChecked()
 			end)
 
 			-- Garrison Tables Check Button
@@ -1172,11 +1060,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPGarrTblCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.GarrisonTables = true
-				else
-					HelpMePlayOptionsDB.GarrisonTables = false
-				end
+				HelpMePlayOptionsDB.GarrisonTables = self:GetChecked()
 			end)
 
 			-- Merchants Check Button
@@ -1187,11 +1071,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPMerchantsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Merchants = true
-				else
-					HelpMePlayOptionsDB.Merchants = false
-				end
+				HelpMePlayOptionsDB.Merchants = self:GetChecked()
 			end)
 
 			-- Trainers Check Button
@@ -1202,11 +1082,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPTrainersV2CB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Trainers = true
-				else
-					HelpMePlayOptionsDB.Trainers = false
-				end
+				HelpMePlayOptionsDB.Trainers = self:GetChecked()
 			end)
 
 			-- Speech Check Button
@@ -1217,11 +1093,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPSpeechCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Speech = true
-				else
-					HelpMePlayOptionsDB.Speech = false
-				end
+				HelpMePlayOptionsDB.Speech = self:GetChecked()
 			end)
 
 			-- War Mode Check Button
@@ -1232,11 +1104,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPWarModeCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.WarMode = true
-				else
-					HelpMePlayOptionsDB.WarMode = false
-				end
+				HelpMePlayOptionsDB.WarMode = self:GetChecked()
 			end)
 
 			-- Quests Check Button
@@ -1247,11 +1115,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPQuestsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Quests = true
-				else
-					HelpMePlayOptionsDB.Quests = false
-				end
+				HelpMePlayOptionsDB.Quests = self:GetChecked()
 			end)
 
 			-- Threads of Fate Check Button
@@ -1262,11 +1126,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPToFCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.ThreadsOfFate = true
-				else
-					HelpMePlayOptionsDB.ThreadsOfFate = false
-				end
+				HelpMePlayOptionsDB.ThreadsOfFate = self:GetChecked()
 			end)
 			
 			-- Notes Check Button
@@ -1277,11 +1137,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPNotesCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Notes = true
-				else
-					HelpMePlayOptionsDB.Notes = false
-				end
+				HelpMePlayOptionsDB.Notes = self:GetChecked()
 			end)
 			
 			-- Talents Check Button
@@ -1292,11 +1148,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPTalentsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Talents = true
-				else
-					HelpMePlayOptionsDB.Talents = false
-				end
+				HelpMePlayOptionsDB.Talents = self:GetChecked()
 			end)
 			
 			-- Cinematics Check Button
@@ -1307,11 +1159,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPCinematicsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Cinematics = true
-				else
-					HelpMePlayOptionsDB.Cinematics = false
-				end
+				HelpMePlayOptionsDB.Cinematics = self:GetChecked()
 			end)
 			
 			-- Queues Check Button
@@ -1322,11 +1170,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPQueuesCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Queues = true
-				else
-					HelpMePlayOptionsDB.Queues = false
-				end
+				HelpMePlayOptionsDB.Queues = self:GetChecked()
 			end)
 			
 			-- Waypoints Check Button
@@ -1337,11 +1181,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPWaypointsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Waypoints = true
-				else
-					HelpMePlayOptionsDB.Waypoints = false
-				end
+				HelpMePlayOptionsDB.Waypoints = self:GetChecked()
 			end)
 			
 			-- Weights Check Button
@@ -1352,11 +1192,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPWeightsCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Weights = true
-				else
-					HelpMePlayOptionsDB.Weights = false
-				end
+				HelpMePlayOptionsDB.Weights = self:GetChecked()
 			end)
 			
 			-- Party Play Check Button
@@ -1368,14 +1204,13 @@ function HelpMePlayLoadSettings()
 			end)
 			HMPPartyPlayCB:SetScript("OnClick", function(self)
 				if self:GetChecked() then
-					HelpMePlayOptionsDB.PartyPlay = true
 					HMPPartyPlayAnnounceCB:Show()
 					HMPPartyPlayAutoShareCB:Show()
 				else
-					HelpMePlayOptionsDB.PartyPlay = false
 					HMPPartyPlayAnnounceCB:Hide()
 					HMPPartyPlayAutoShareCB:Hide()
 				end
+				HelpMePlayOptionsDB.PartyPlay = self:GetChecked()
 			end)
 			
 			-- Party Play Announce Check Button
@@ -1386,11 +1221,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPPartyPlayAnnounceCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.PartyPlayAnnounce = true
-				else
-					HelpMePlayOptionsDB.PartyPlayAnnounce = false
-				end
+				HelpMePlayOptionsDB.PartyPlayAnnounce = self:GetChecked()
 			end)
 			
 			-- Party Play Auto Share Check Button
@@ -1401,11 +1232,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPPartyPlayAutoShareCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.PartyPlayAutoShare = true
-				else
-					HelpMePlayOptionsDB.PartyPlayAutoShare = false
-				end
+				HelpMePlayOptionsDB.PartyPlayAutoShare = self:GetChecked()
 			end)
 			
 			-- Minimap Icon Check Button
@@ -1417,12 +1244,11 @@ function HelpMePlayLoadSettings()
 			end)
 			HMPMinimapIconCB:SetScript("OnClick", function(self)
 				if self:GetChecked() then
-					HelpMePlayOptionsDB.MinimapIcon = true
 					HelpMePlayShowMinimapIcon(true)
 				else
-					HelpMePlayOptionsDB.MinimapIcon = false
 					HelpMePlayShowMinimapIcon(false)
 				end
+				HelpMePlayOptionsDB.MinimapIcon = self:GetChecked()
 			end)
 			
 			-- Logging Check Button
@@ -1433,13 +1259,7 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPLoggingCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
-					HelpMePlayOptionsDB.Logging = true
-					HelpMePlayShowMinimapIcon(true)
-				else
-					HelpMePlayOptionsDB.Logging = false
-					HelpMePlayShowMinimapIcon(false)
-				end
+				HelpMePlayOptionsDB.Logging = self:GetChecked()
 			end)
 			
 			-- Chromie Time DropDown
