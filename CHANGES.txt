@@ -1,3 +1,4 @@
 Fixes and Updates:
 	- Fixed weight values for lots of NPCs in Shadowlands content.
 	- Fixed a problem where using the "Disable All" button would cause the minimap icon to vanish until the "Minimap Icon" button (under the Systems tab) was rechecked.
+	- Fixed a problem where quests with progress bars weren't reporting activity to party chat.
