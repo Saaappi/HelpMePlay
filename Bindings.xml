@@ -1,5 +1,8 @@
 <Bindings>
-	<Binding name="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="ADDONS">
+	<Binding name="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="|cff00FFFFHelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_OPEN_SETTINGS"))
+	</Binding>
+	<Binding name="HELPMEPLAY_LEARN_ALL_TRANSMOG" category="|cff00FFFFHelpMePlay|r">
+		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_LEARN_ALL_TRANSMOG"))
 	</Binding>
 </Bindings>

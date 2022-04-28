@@ -161,7 +161,7 @@ local function LearnAllUnknownTransmog(equippedItems)
 	end
 end
 
-local function GetEquippedItems()
+function HelpMePlay_GetEquippedItems()
 	local equippedItems = {}
 	local itemLink
 	
