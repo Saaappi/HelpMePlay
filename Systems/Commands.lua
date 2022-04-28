@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
+local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
@@ -95,54 +96,97 @@ local function Confirm(gossip)
 	end
 end
 
-local function LearnAllUnknownTransmog()
-	local equippedItems = {}
-	local itemLink
-	--[[local sourceId
-	local isCollected
+local function RequipOriginalItems(equippedItems)
+	local currentlyEquippedItemLink
+	
+	-- Open the character frame, then close it
+	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
-		for i=0, NUM_BAG_SLOTS do
-		-- We iterate through the inventory, bags 0 to 4.
-			for j=1, GetContainerNumSlots(i) do
+		ToggleCharacter("PaperDollFrame")
+		C_Timer.After(1, function()
+			CharacterFrameCloseButton:Click()
+			-- We need to rescan the equipped items
+			-- so we can run comparisons to the original items.
+			for _, item in ipairs(equippedItems) do
+				currentlyEquippedItemLink = GetInventoryItemLink("player", item.id)
+				if currentlyEquippedItemLink ~= item.link then -- The original item isn't equipped.
+					EquipItemByName(item.link)
+					if HelpMePlayOptionsDB.Logging then
+						print(L_GLOBALSTRINGS["Re-Equipped"] .. ": " .. item.link)
+					end
+				end
+			end
+		end)
+	end
+end
+
+local function LearnAllUnknownTransmog(equippedItems)
+	local itemLink
+	local sourceId
+	local isCollected
+	
+	-- Open the player bags, then close them
+	-- 1 second later and run the remaining code.
+	if not UnitAffectingCombat("player") then
+		OpenAllBags()
+		C_Timer.After(1, function()
+			CloseAllBags()
+			-- We iterate through the inventory, bags 0 to 4.
+			for i=0, NUM_BAG_SLOTS do
 				-- We iterate through the bag slots for each bag.
-				_, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
-				if itemLink then
-					-- If we return a valid item link, then continue.
-					if (C_Transmog.CanTransmogItem(itemLink)) then
-						-- The player should be able to use the item on the current character.
-						_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
-						if sourceId then
-							isCollected = C_TransmogCollection.GetAppearanceInfoBySource(sourceId).sourceIsCollected
-							if not isCollected then
-								-- The source isn't learned, so equip the item.
-								--EquipItemByName(itemLink)
-								print(itemLink .. "'s appearance is unknown!")
+				for j=1, GetContainerNumSlots(i) do
+					_, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
+					if itemLink then -- If we return a valid item link, then continue.
+						if (C_Transmog.CanTransmogItem(itemLink)) then -- The player can transmog to this appearance.
+							_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
+							if sourceId then -- If we return a valid source ID, then continue.
+								isCollected = C_TransmogCollection.GetAppearanceInfoBySource(sourceId).sourceIsCollected
+								if not isCollected then -- If the player hasn't already learned the source, then continue.
+									EquipItemByName(itemLink)
+									if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
+										StaticPopup1Button1:Click("LeftButton")
+									end
+									if HelpMePlayOptionsDB.Logging then
+										print(L_GLOBALSTRINGS["Equipped"] .. ": " .. itemLink)
+									end
+								end
 							end
 						end
 					end
 				end
 			end
-		end
-	end]]
+			
+			RequipOriginalItems(equippedItems)
+		end)
+	end
+end
+
+local function GetEquippedItems()
+	local equippedItems = {}
+	local itemLink
+	
 	-- Open the character frame, then close it
 	-- 1 second later and run the remaining code.
-	ToggleCharacter("PaperDollFrame")
-	C_Timer.After(1, function()
-		CharacterFrameCloseButton:Click()
-		local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
-		for _, v in ipairs(slots) do
-			itemLink = GetInventoryItemLink("player", v)
-			if itemLink then
-				local itemName = GetItemInfo(itemLink)
-				if itemName then
-					table.insert(equippedItems, itemName)
+	if not UnitAffectingCombat("player") then
+		ToggleCharacter("PaperDollFrame")
+		C_Timer.After(1, function()
+			CharacterFrameCloseButton:Click()
+			-- Get the players currently equipped items
+			-- in transmog-capable slots and store them
+			-- in a separate table.
+			--
+			-- We'll use this separate table to re-equip
+			-- items once we're done.
+			for _, v in ipairs(slots) do
+				itemLink = GetInventoryItemLink("player", v)
+				if itemLink then
+					table.insert(equippedItems, { id = v, link = itemLink})
 				end
 			end
-		end
-		for _, name in ipairs(equippedItems) do
-			print(name)
-		end
-	end)
+			
+			LearnAllUnknownTransmog(equippedItems)
+		end)
+	end
 	
 	return
 end
@@ -172,7 +216,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 		end
 	elseif command == L_GLOBALSTRINGS["Transmog Command"] or command == L_GLOBALSTRINGS["T"] then
-		LearnAllUnknownTransmog()
+		GetEquippedItems()
 	else
 		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end

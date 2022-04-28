@@ -57,6 +57,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Automatic (No Epic)"]														= "Automatic (No Epic)"
 	L_GLOBALSTRINGS["Notifications"]															= "Notifications"
 	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
+	L_GLOBALSTRINGS["Equipped"]																	= "Equipped"
+	L_GLOBALSTRINGS["Re-Equipped"]																= "Re-Equipped"
 	L_GLOBALSTRINGS["Dialog Removed"]															= "Removed \"%s\" from database."
 	L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	L_GLOBALSTRINGS["Party Play Enabled Warning Text"]											= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
