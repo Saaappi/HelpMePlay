@@ -95,6 +95,58 @@ local function Confirm(gossip)
 	end
 end
 
+local function LearnAllUnknownTransmog()
+	local equippedItems = {}
+	local itemLink
+	--[[local sourceId
+	local isCollected
+	if not UnitAffectingCombat("player") then
+		for i=0, NUM_BAG_SLOTS do
+		-- We iterate through the inventory, bags 0 to 4.
+			for j=1, GetContainerNumSlots(i) do
+				-- We iterate through the bag slots for each bag.
+				_, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
+				if itemLink then
+					-- If we return a valid item link, then continue.
+					if (C_Transmog.CanTransmogItem(itemLink)) then
+						-- The player should be able to use the item on the current character.
+						_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
+						if sourceId then
+							isCollected = C_TransmogCollection.GetAppearanceInfoBySource(sourceId).sourceIsCollected
+							if not isCollected then
+								-- The source isn't learned, so equip the item.
+								--EquipItemByName(itemLink)
+								print(itemLink .. "'s appearance is unknown!")
+							end
+						end
+					end
+				end
+			end
+		end
+	end]]
+	-- Open the character frame, then close it
+	-- 1 second later and run the remaining code.
+	ToggleCharacter("PaperDollFrame")
+	C_Timer.After(1, function()
+		CharacterFrameCloseButton:Click()
+		local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
+		for _, v in ipairs(slots) do
+			itemLink = GetInventoryItemLink("player", v)
+			if itemLink then
+				local itemName = GetItemInfo(itemLink)
+				if itemName then
+					table.insert(equippedItems, itemName)
+				end
+			end
+		end
+		for _, name in ipairs(equippedItems) do
+			print(name)
+		end
+	end)
+	
+	return
+end
+
 SLASH_HelpMePlay1 = L_GLOBALSTRINGS["Slash HMP"]
 SlashCmdList["HelpMePlay"] = function(command, editbox)
 	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
@@ -119,7 +171,9 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
 			end
 		end
+	elseif command == L_GLOBALSTRINGS["Transmog Command"] or command == L_GLOBALSTRINGS["T"] then
+		LearnAllUnknownTransmog()
 	else
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
+		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end
 end
