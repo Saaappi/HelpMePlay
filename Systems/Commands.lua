@@ -137,8 +137,8 @@ local function LearnAllUnknownTransmog(equippedItems)
 				for j=1, GetContainerNumSlots(i) do
 					_, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
 					if itemLink then -- If we return a valid item link, then continue.
+						_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 						if (C_Transmog.CanTransmogItem(itemLink)) then -- The player can transmog to this appearance.
-							_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 							if sourceId then -- If we return a valid source ID, then continue.
 								isCollected = C_TransmogCollection.GetAppearanceInfoBySource(sourceId).sourceIsCollected
 								if not isCollected then -- If the player hasn't already learned the source, then continue.
@@ -148,6 +148,22 @@ local function LearnAllUnknownTransmog(equippedItems)
 									end
 									if HelpMePlayOptionsDB.Logging then
 										print(L_GLOBALSTRINGS["Equipped"] .. ": " .. itemLink)
+									end
+								end
+							end
+						else
+							-- The player can't use the transmog, so let's
+							-- check if it's unknown so we can inform them.
+							isCollected = C_TransmogCollection.GetAppearanceInfoBySource(sourceId).sourceIsCollected
+							if not isCollected then
+								local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
+								if itemSubType then
+									if HelpMePlayOptionsDB.Logging then
+										print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
+									end
+								else
+									if HelpMePlayOptionsDB.Logging then
+										print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
 									end
 								end
 							end
