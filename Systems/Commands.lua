@@ -226,7 +226,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 		end
 	elseif command == L_GLOBALSTRINGS["Transmog Command"] or command == L_GLOBALSTRINGS["T"] then
-		GetEquippedItems()
+		HelpMePlay_GetEquippedItems()
 	else
 		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end
