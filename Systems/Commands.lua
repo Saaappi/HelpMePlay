@@ -120,7 +120,8 @@ end
 local function LearnAllUnknownTransmog(equippedItems)
 	local itemLink
 	local sourceId
-	local isCollected
+	local canCollectSource
+	local appearanceInfo = {}
 	
 	-- Open the player bags, then close them
 	-- 1 second later and run the remaining code.
@@ -128,36 +129,47 @@ local function LearnAllUnknownTransmog(equippedItems)
 		OpenAllBags()
 		C_Timer.After(1, function()
 			CloseAllBags()
-			-- We iterate through the inventory, bags 0 to 4.
-			for i=0, NUM_BAG_SLOTS do
-				-- We iterate through the bag slots for each bag.
-				for j=1, GetContainerNumSlots(i) do
+			for i=0, NUM_BAG_SLOTS do -- We iterate through the inventory, bags 0 to 4.
+				for j=1, GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
 					_, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
 					if itemLink then -- If we return a valid item link, then continue.
 						_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
-						if (C_Transmog.CanTransmogItem(itemLink)) then -- The player can transmog to this appearance.
-							if sourceId then -- If we return a valid source ID, then continue.
-								isCollected = C_TransmogCollection.GetAppearanceInfoBySource(sourceId).sourceIsCollected
-								if not isCollected then -- If the player hasn't already learned the source, then continue.
-									EquipItemByName(itemLink)
-									if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
-										StaticPopup1Button1:Click("LeftButton")
-									end
-								end
-							end
-						else
-							-- The player can't use the transmog, so let's
-							-- check if it's unknown so we can inform them.
-							isCollected = C_TransmogCollection.GetAppearanceInfoBySource(sourceId).sourceIsCollected
-							if not isCollected then
-								local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
-								if itemSubType then
-									if HelpMePlayOptionsDB.Logging then
-										print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
+						if sourceId then -- If we return a valid source ID, then continue.
+							_, canCollectSource = C_TransmogCollection.PlayerCanCollectSource(sourceId)
+							if canCollectSource then -- The player can learn the source on the current character.
+								appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
+								if appearanceInfo then
+									if appearanceInfo.sourceIsCollected == false then -- If the player hasn't already learned the source, then continue.
+										EquipItemByName(itemLink)
+										if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
+											StaticPopup1Button1:Click("LeftButton")
+										end
 									end
 								else
 									if HelpMePlayOptionsDB.Logging then
-										print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
+										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink)
+									end
+								end
+							else
+								-- The player can't use the transmog, so let's
+								-- check if it's unknown so we can inform them.
+								appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
+								if appearanceInfo then
+									if appearanceInfo.sourceIsCollected == false then
+										local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
+										if itemSubType then
+											if HelpMePlayOptionsDB.Logging then
+												print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
+											end
+										else
+											if HelpMePlayOptionsDB.Logging then
+												print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
+											end
+										end
+									end
+								else
+									if HelpMePlayOptionsDB.Logging then
+										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink)
 									end
 								end
 							end
@@ -165,7 +177,7 @@ local function LearnAllUnknownTransmog(equippedItems)
 					end
 				end
 			end
-			
+
 			RequipOriginalItems(equippedItems)
 		end)
 	end

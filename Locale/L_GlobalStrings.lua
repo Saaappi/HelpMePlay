@@ -65,6 +65,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["War Mode Reminder: Horde"]													= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
 	L_GLOBALSTRINGS["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
 	L_GLOBALSTRINGS["Unlearnable Appearance"]													= "Unlearnable Appearance"
+	L_GLOBALSTRINGS["Unknown Source Info"]														= "[|cffFF7900WARNING|r] Source ID was not provided by Blizzard. Please check the following item yourself."
 	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
 	L_GLOBALSTRINGS["Quest Removed Text"]														= "Removed"
 	L_GLOBALSTRINGS["Quest Accepted Text"]														= "Accepted"
