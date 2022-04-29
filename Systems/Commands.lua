@@ -111,9 +111,6 @@ local function RequipOriginalItems(equippedItems)
 				currentlyEquippedItemLink = GetInventoryItemLink("player", item.id)
 				if currentlyEquippedItemLink ~= item.link then -- The original item isn't equipped.
 					EquipItemByName(item.link)
-					if HelpMePlayOptionsDB.Logging then
-						print(L_GLOBALSTRINGS["Re-Equipped"] .. ": " .. item.link)
-					end
 				end
 			end
 		end)
@@ -145,9 +142,6 @@ local function LearnAllUnknownTransmog(equippedItems)
 									EquipItemByName(itemLink)
 									if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
 										StaticPopup1Button1:Click("LeftButton")
-									end
-									if HelpMePlayOptionsDB.Logging then
-										print(L_GLOBALSTRINGS["Equipped"] .. ": " .. itemLink)
 									end
 								end
 							end
