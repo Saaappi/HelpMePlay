@@ -5,6 +5,31 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_SL = {
 	-- Supported Maps: 1409 (Exile's Reach), 1550 (The Shadowlands)
+	-- No Map Association
+	[169501] = { -- Shadowlands Wormhole
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Wormhole: Revendreth, Court of the Venthyr"],
+				["condition"] 	= "level_equal",
+				["level"] 		= 51,
+			},
+			{
+				["text"] 		= L_DIALOG["Wormhole: Ardenweald, Forest of the Night Fae"],
+				["condition"] 	= "level_equal",
+				["level"] 		= 54,
+			},
+			{
+				["text"] 		= L_DIALOG["Wormhole: Maldraxxus, Citadel of the Necrolords"],
+				["condition"] 	= "level_equal",
+				["level"] 		= 57,
+			},
+			{
+				["text"] 		= L_DIALOG["Wormhole: Bastion, Home of the Kyrian"],
+				["condition"] 	= "level_equal",
+				["level"] 		= 59,
+			},
+		},
+	},
 	-- Oribos
 	[0] = {
 		["g"] = {
@@ -297,7 +322,7 @@ local DIALOG_SL = {
 	[171834] = { -- Aspirant Thetes
 		["g"] = {
 			{
-				["text"] 		= 			L_DIALOG["Aspirant Thetes 1"],
+				["text"] 		= L_DIALOG["Aspirant Thetes 1"],
 				["condition"] 	= "none",
 			},
 		},

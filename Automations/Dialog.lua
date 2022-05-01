@@ -93,6 +93,11 @@ local function SelectGossipOption(options, npcId, parentMapId)
 							C_GossipInfo.SelectOption(index)
 							return
 						end
+					elseif gossip.condition == "level_equal" then
+						if UnitLevel("player") == gossip.level then
+							C_GossipInfo.SelectOption(index)
+							return
+						end
 					elseif gossip.condition == "level_lower" then
 						if UnitLevel("player") < gossip.level then
 							C_GossipInfo.SelectOption(index)
@@ -210,6 +215,11 @@ local function ConfirmConfirmationMessage(message, npcId)
 					end
 				elseif gossip.condition == "level_higher" then
 					if UnitLevel("player") > gossip.level then
+						StaticPopup1Button1:Click("LeftButton")
+						return
+					end
+				elseif gossip.condition == "level_equal" then
+					if UnitLevel("player") == gossip.level then
 						StaticPopup1Button1:Click("LeftButton")
 						return
 					end
