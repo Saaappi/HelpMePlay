@@ -385,12 +385,6 @@ local function QUEST_DETAIL(isAutoAccept)
 	end
 end
 
-local function Get_IgnoredQuestGiver(npcId)
-	if addonTable.IGNORED_QUESTGIVERS[npcId] then
-		return true
-	end
-end
-
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_AUTOCOMPLETE")
@@ -406,7 +400,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-			if Get_IgnoredQuestGiver(npcId) then return end
+			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		end
 		
 		local activeQuests = C_GossipInfo.GetActiveQuests()
@@ -477,7 +471,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local guid = UnitGUID("target")
 			if guid then
 				local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-				if Get_IgnoredQuestGiver(npcId) then return end
+				if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 			end
 			QUEST_DETAIL(false)
 		end
@@ -494,7 +488,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-			if Get_IgnoredQuestGiver(npcId) then return end
+			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		end
 		
 		QUEST_GREETING()

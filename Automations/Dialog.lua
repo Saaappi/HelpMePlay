@@ -124,6 +124,7 @@ local function ProcessDialogTree()
 	local gossipOptions = C_GossipInfo.GetOptions()
 	if unitGUID then
 		local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
+		if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		SelectGossipOption(gossipOptions, npcId, parentMapId)
 	else
 		-- This must be an object with a
@@ -250,6 +251,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
 			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
+			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 			ConfirmConfirmationMessage(message, npcId)
 		end
 	end

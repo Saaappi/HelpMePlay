@@ -27,6 +27,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayOptionsDB.SLZoneSelection == nil or HelpMePlayOptionsDB.SLZoneSelection == false then
 				HelpMePlayOptionsDB.SLZoneSelection = L_GLOBALSTRINGS["Disabled"]
 			end
+			if HelpMePlayIgnoredCreaturesDB == nil then
+				HelpMePlayIgnoredCreaturesDB = {}
+			end
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end

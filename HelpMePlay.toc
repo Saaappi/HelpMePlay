@@ -2,7 +2,7 @@
 ## Interface: 90200
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
-## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB
+## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB
 ## Title: HelpMePlay
 ## Version: 1.1.6
@@ -35,7 +35,6 @@ Data\VehicleDB.lua
 Data\NotesDB.lua
 Data\TalentsDB.lua
 Data\SpeechDB.lua
-Data\QuestGiversDB.lua
 Data\QuestRewardsDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua

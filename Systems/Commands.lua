@@ -239,7 +239,28 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		end
 	elseif command == L_GLOBALSTRINGS["Transmog Command"] or command == L_GLOBALSTRINGS["T"] then
 		HelpMePlay_GetEquippedItems()
+	elseif command == L_GLOBALSTRINGS["Ignore Command"] then
+		if tonumber(arguments) then
+			local npcId = tonumber(arguments)
+			if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
+				HelpMePlayIgnoredCreaturesDB[npcId] = true
+			else
+				HelpMePlayIgnoredCreaturesDB[npcId] = nil
+			end
+		else
+			if UnitIsPlayer("target") == false then
+				local unitGUID = UnitGUID("target")
+				if unitGUID then
+					local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
+					if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
+						HelpMePlayIgnoredCreaturesDB[npcId] = true
+					else
+						HelpMePlayIgnoredCreaturesDB[npcId] = nil
+					end
+				end
+			end
+		end
 	else
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
+		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end
 end

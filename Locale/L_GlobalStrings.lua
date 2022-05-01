@@ -37,6 +37,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Slash HMP"]																= "/hmp"
 	L_GLOBALSTRINGS["Confirm Command"]															= "confirm"
 	L_GLOBALSTRINGS["Dialog Command"]															= "dialog"
+	L_GLOBALSTRINGS["Ignore Command"]															= "ignore"
 	L_GLOBALSTRINGS["Quest Command"]															= "quest"
 	L_GLOBALSTRINGS["Transmog Command"]															= "transmog"
 	L_GLOBALSTRINGS["Locale Not Supported"]														= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."

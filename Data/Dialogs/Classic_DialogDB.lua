@@ -1138,20 +1138,6 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
-	[171789] = { -- High Inquisitor Whitemane
-		["g"] = {
-			{
-				["text"] 		= L_DIALOG["I have heard this tale before."],
-				["condition"] 	= "none",
-			},
-		},
-		["c"] = {
-			{
-				["text"] 		= L_DIALOG["Are you sure?"],
-				["condition"] 	= "none",
-			},
-		},
-	},
 	[100429] = { -- Anduin Wrynn
 		["g"] = {
 			{
