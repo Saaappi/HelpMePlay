@@ -95,7 +95,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						end
 					elseif gossip.condition == "level_equal" then
 						if UnitLevel("player") == gossip.level then
-							C_GossipInfo.SelectOption(index)
+							C_GossipInfo.SelectOption(gossip.index)
 							return
 						end
 					elseif gossip.condition == "level_lower" then
