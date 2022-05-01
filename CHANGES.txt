@@ -1,9 +1,2 @@
 New Features:
-	- Added a new Transmog command that will automatically learn all the unknown transmog in the player's inventory. This command is accessible using /hmp transmog, /hmp t, or by setting a keybind.
-	- Added a new Ignore command that allows players to choose NPCs they want to ignore dialog and quest automations for. Simply target the NPC, then enter /hmp ignore or enter /hmp ignore ID, where ID is the number for the NPC.
 Fixes and Updates:
-	- Added dialog support for the Shadowlands wormhole. The dialogs are only chosen under "level equal to" conditions.
-	- Moved the keybinds to their own section under the "Key Bindings" menu. You no longer need to go to "Key Bindings" => "AddOns".
-	- The "Disable All" button no longer affects the minimap icon.
-	- Removed High Inquisitor Whitemane's dialog. Players will need to use the Dialog command to choose which option they want.
-	- Fixed a problem where sometimes the player wouldn't exit Murky's Egg in Highmountain.
