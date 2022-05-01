@@ -147,7 +147,7 @@ local function LearnAllUnknownTransmog(equippedItems)
 									end
 								else
 									if HelpMePlayOptionsDB.Logging then
-										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink)
+										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink .. " (" .. i .. ", " .. j .. ")")
 									end
 								end
 							else
@@ -169,7 +169,7 @@ local function LearnAllUnknownTransmog(equippedItems)
 									end
 								else
 									if HelpMePlayOptionsDB.Logging then
-										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink)
+										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink .. " (" .. i .. ", " .. j .. ")")
 									end
 								end
 							end
