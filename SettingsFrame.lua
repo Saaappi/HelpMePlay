@@ -903,7 +903,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce = HelpMePlayOptionsDB.PartyPlayAnnounce
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare = HelpMePlayOptionsDB.PartyPlayAutoShare
-					HelpMePlayOptionsDB["TempSettings"].MinimapIcon = HelpMePlayOptionsDB.MinimapIcon
 					HelpMePlayOptionsDB["TempSettings"].Logging = HelpMePlayOptionsDB.Logging
 					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
 					HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
@@ -930,7 +929,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlay = false
 					HelpMePlayOptionsDB.PartyPlayAnnounce = false
 					HelpMePlayOptionsDB.PartyPlayAutoShare = false
-					HelpMePlayOptionsDB.MinimapIcon = false
 					HelpMePlayOptionsDB.Logging = false
 					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 					HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
@@ -957,7 +955,6 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayCB:SetChecked(false)
 					HMPPartyPlayAnnounceCB:SetChecked(false)
 					HMPPartyPlayAutoShareCB:SetChecked(false)
-					HMPMinimapIconCB:SetChecked(false)
 					HMPLoggingCB:SetChecked(false)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Disabled"])
@@ -965,7 +962,6 @@ function HelpMePlayLoadSettings()
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Disabled"])
 					
-					HelpMePlayShowMinimapIcon(false)
 				else
 					-- Return the settings to their original
 					-- states.
@@ -990,7 +986,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
 					HelpMePlayOptionsDB.PartyPlayAnnounce = HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce
 					HelpMePlayOptionsDB.PartyPlayAutoShare = HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare
-					HelpMePlayOptionsDB.MinimapIcon = HelpMePlayOptionsDB["TempSettings"].MinimapIcon
 					HelpMePlayOptionsDB.Logging = HelpMePlayOptionsDB["TempSettings"].Logging
 					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
 					HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
@@ -1016,15 +1011,12 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
 					HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce)
 					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
-					HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
 					HMPLoggingCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Logging)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, HelpMePlayOptionsDB.BFAZoneSelection)
 					UIDropDownMenu_SetSelectedValue(HMPSLZoneSelDropDown, HelpMePlayOptionsDB.SLZoneSelection)
-					
-					HelpMePlayShowMinimapIcon(HelpMePlayOptionsDB["TempSettings"].MinimapIcon)
 				end
 				HelpMePlayOptionsDB.DisableAll = self:GetChecked()
 			end)

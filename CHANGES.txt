@@ -2,4 +2,5 @@ New Features:
 	- Added a new Transmog command that will automatically learn all the unknown transmog in the player's inventory. This command is accessible using /hmp transmog, /hmp t, or by setting a keybind.
 Fixes and Updates:
 	- Moved the keybinds to their own section under the "Key Bindings" menu. You no longer need to go to "Key Bindings" => "AddOns".
+	- The "Disable All" button no longer affects the minimap icon.
 	- Fixed a problem where sometimes the player wouldn't exit Murky's Egg in Highmountain.
