@@ -259,7 +259,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 		end
 	elseif command == L_GLOBALSTRINGS["Calculate Command"] or command == L_GLOBALSTRINGS["Calculate Command Shorthand"] then
-		if TradeSkillFrame:IsVisible() then
+		if TradeSkillFrame then
 			local recipes = C_TradeSkillUI.GetAllRecipeIDs()
 			for _, recipeId in pairs(recipes) do
 				print(C_TradeSkillUI.GetRecipeItemLink(recipeId))
