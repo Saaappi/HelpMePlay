@@ -349,7 +349,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 					self.editBox:SetText(reagentString)
 					self.editBox:HighlightText()
 				end,
-				timeout = 10,
+				timeout = 15,
 				showAlert = true,
 				whileDead = false,
 				hideOnEscape = true,
