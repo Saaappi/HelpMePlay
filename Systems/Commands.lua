@@ -300,7 +300,9 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			-- Once we have the number, archive it in an in-memory table.
 			--
 			-- Once all known recipes and unknown appearances have been
-			-- calculated, churn through, and spit out the totals.
+			-- calculated, churn through, and spit out the totals. If
+			-- the total is negative, then the player has more than enough
+			-- so don't print that reagent.
 			for _, recipeId in pairs(recipes) do
 				recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
 				if recipeInfo.learned then
@@ -316,9 +318,9 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 										reagentName, reagentIcon, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
 										if reagentName then
 											if reagents[reagentName] == nil then
-												reagents[reagentName] = 0
+												reagents[reagentName] = { count = 0, playerCount = reagentPlayerCount }
 											end
-											reagents[reagentName] = (reagents[reagentName] + reagentCount)
+											reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
 										else
 											print(L_GLOBALSTRINGS["Reagent Name is Nil"])
 										end
@@ -331,8 +333,11 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 			
 			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |cffe6cc80" .. parentSkillLine .. "|r")
-			for reagent, count in pairs(reagents) do
-				print(reagent .. ": " .. count)
+			for reagent, reagentData in pairs(reagents) do
+				local amountNeeded = (reagentData.count - reagentData.playerCount)
+				if amountNeeded > 0 then
+					print(reagent .. ": " .. amountNeeded)
+				end
 			end
 		else
 			print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
