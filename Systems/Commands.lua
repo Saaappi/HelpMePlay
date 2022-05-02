@@ -323,7 +323,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 											reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
 										else
 											if HelpMePlayOptionsDB.Logging then
-												print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. os.date("%X")
+												print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. os.date("%X"))
 											end
 										end
 									end
