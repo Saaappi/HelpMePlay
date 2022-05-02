@@ -1,3 +1,0 @@
-Fixes and Updates:
-	- Added an item bind check to the transmog command. Unknown appearances that can't be mailed should no longer return to the chat window.
-	- Added an item quality check to the transmog command. Until at least 10.0, poor and common items won't be considered.

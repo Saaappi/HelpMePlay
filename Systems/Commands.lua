@@ -258,7 +258,16 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 		end
+	elseif command == L_GLOBALSTRINGS["Calculate Command"] or command == L_GLOBALSTRINGS["Calculate Command Shorthand"] then
+		if TradeSkillFrame:IsVisible() then
+			local recipes = C_TradeSkillUI.GetAllRecipeIDs()
+			for _, recipeId in pairs(recipes) do
+				print(C_TradeSkillUI.GetRecipeItemLink(recipeId))
+			end
+		else
+			print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
+		end
 	else
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
+		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end
 end
