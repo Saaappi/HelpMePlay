@@ -145,31 +145,29 @@ local function LearnAllUnknownTransmog(equippedItems)
 											StaticPopup1Button1:Click("LeftButton")
 										end
 									end
-								else
-									if HelpMePlayOptionsDB.Logging then
-										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink .. " (" .. i .. ", " .. j .. ")")
-									end
 								end
 							else
-								-- The player can't use the transmog, so let's
-								-- check if it's unknown so we can inform them.
-								appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
-								if appearanceInfo then
-									if appearanceInfo.sourceIsCollected == false then
-										local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
-										if itemSubType then
-											if HelpMePlayOptionsDB.Logging then
-												print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
-											end
-										else
-											if HelpMePlayOptionsDB.Logging then
-												print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
+								local _, _, itemQuality, _, _, _, _, _, _, _, _, _, _, bindType = GetItemInfo(itemLink)
+								
+								if bindType ~= 1 and itemQuality >= 2 then -- The item isn't soulbound, so it can be mailed. The quality is at least green.
+									-- The player can't use the transmog, so let's
+									-- check if it's unknown so we can inform them.
+									appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
+									if appearanceInfo then
+										if appearanceInfo.sourceIsCollected == false then
+											local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
+											if itemSubType then
+												if HelpMePlayOptionsDB.Logging then
+													print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
+												end
+											else
+												if HelpMePlayOptionsDB.Logging then
+													print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
+												end
 											end
 										end
-									end
-								else
-									if HelpMePlayOptionsDB.Logging then
-										print(L_GLOBALSTRINGS["Unknown Source Info"] .. " " .. itemLink .. " (" .. i .. ", " .. j .. ")")
+									else
+										print(string.format(L_GLOBALSTRINGS["Unknown Source ID"], itemLink, i, j))
 									end
 								end
 							end
