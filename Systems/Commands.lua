@@ -211,6 +211,113 @@ function HelpMePlay_GetEquippedItems()
 	return
 end
 
+function HelpMePlay_CalculateReagents()
+	if TradeSkillFrame then
+		local itemLink = ""
+		local sourceId = 0
+		local recipeInfo = {}
+		local appearanceInfo = {}
+		local reagents = {}
+		local reagentName
+		local reagentIcon
+		local reagentCount
+		local reagentPlayerCount
+		local recipes = C_TradeSkillUI.GetAllRecipeIDs()
+		local _, _, _, _, _, _, parentSkillLine = C_TradeSkillUI.GetTradeSkillLine()
+		
+		-- Iterate through all the known recipes for the currently
+		-- open trade skill.
+		--
+		-- Ensure the current recipe is KNOWN by the current player.
+		-- If so, then continue.
+		--
+		-- Get the item link using the recipe id. If the item link
+		-- is valid, then continue.
+		--
+		-- Get the source id of the item using the item link. If the
+		-- source id is valid, then it's an item with an appearance.
+		-- If a valid appearance, then continue.
+		--
+		-- Get the appearance info (table) for the given source id.
+		-- If the table is valid, then check if the appearance has
+		-- been collected. If not, then continue.
+		--
+		-- If the appearance hasn't been collected, then return the
+		-- number of reagents it takes to craft the recipe. The number
+		-- represents an index beginning at 1.
+		--
+		-- Get the reagent info for each reagent in the recipe. We're
+		-- interested in the name and the amount necessary to craft the
+		-- recipe.
+		--
+		-- Once we have the number, archive it in an in-memory table.
+		--
+		-- Once all known recipes and unknown appearances have been
+		-- calculated, churn through, and spit out the totals. If
+		-- the total is negative, then the player has more than enough
+		-- so don't print that reagent.
+		for _, recipeId in pairs(recipes) do
+			recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
+			if recipeInfo.learned then
+				itemLink = C_TradeSkillUI.GetRecipeItemLink(recipeId)
+				if itemLink then
+					_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
+					if sourceId then
+						appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
+						if appearanceInfo then
+							if appearanceInfo.sourceIsCollected == false then
+								local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
+								for reagentIndex = 1, numReagents do
+									reagentName, reagentIcon, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
+									if reagentName then
+										if reagents[reagentName] == nil then
+											reagents[reagentName] = { count = 0, playerCount = reagentPlayerCount }
+										end
+										reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
+									else
+										if HelpMePlayOptionsDB.Logging then
+											print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		
+		local reagentString = ""
+		for reagent, reagentData in pairs(reagents) do
+			local amountNeeded = (reagentData.count - reagentData.playerCount)
+			if amountNeeded > 0 then
+				reagentString = reagentString .. reagent .. ": " .. amountNeeded
+			end
+		end
+		
+		StaticPopupDialogs["HELPMEPLAY_REAGENTSTRING_POPUP"] = {
+			text = L_GLOBALSTRINGS["Reagent Copy Message"],
+			button1 = "OK",
+			OnShow = function(self, data)
+				self.editBox:SetText(reagentString)
+				self.editBox:HighlightText()
+			end,
+			timeout = 15,
+			showAlert = true,
+			whileDead = false,
+			hideOnEscape = true,
+			enterClicksFirstButton = true,
+			hasEditBox = true,
+			preferredIndex = 3,
+		}
+		StaticPopup_Show("HELPMEPLAY_REAGENTSTRING_POPUP")
+	else
+		if HelpMePlayOptionsDB.Logging then
+			print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
+		end
+	end
+end
+
 SLASH_HelpMePlay1 = L_GLOBALSTRINGS["Slash HMP"]
 SlashCmdList["HelpMePlay"] = function(command, editbox)
 	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
@@ -259,110 +366,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 		end
 	elseif command == L_GLOBALSTRINGS["Calculate Command"] or command == L_GLOBALSTRINGS["Calculate Command Shorthand"] then
-		if TradeSkillFrame then
-			local itemLink = ""
-			local sourceId = 0
-			local recipeInfo = {}
-			local appearanceInfo = {}
-			local reagents = {}
-			local reagentName
-			local reagentIcon
-			local reagentCount
-			local reagentPlayerCount
-			local recipes = C_TradeSkillUI.GetAllRecipeIDs()
-			local _, _, _, _, _, _, parentSkillLine = C_TradeSkillUI.GetTradeSkillLine()
-			
-			-- Iterate through all the known recipes for the currently
-			-- open trade skill.
-			--
-			-- Ensure the current recipe is KNOWN by the current player.
-			-- If so, then continue.
-			--
-			-- Get the item link using the recipe id. If the item link
-			-- is valid, then continue.
-			--
-			-- Get the source id of the item using the item link. If the
-			-- source id is valid, then it's an item with an appearance.
-			-- If a valid appearance, then continue.
-			--
-			-- Get the appearance info (table) for the given source id.
-			-- If the table is valid, then check if the appearance has
-			-- been collected. If not, then continue.
-			--
-			-- If the appearance hasn't been collected, then return the
-			-- number of reagents it takes to craft the recipe. The number
-			-- represents an index beginning at 1.
-			--
-			-- Get the reagent info for each reagent in the recipe. We're
-			-- interested in the name and the amount necessary to craft the
-			-- recipe.
-			--
-			-- Once we have the number, archive it in an in-memory table.
-			--
-			-- Once all known recipes and unknown appearances have been
-			-- calculated, churn through, and spit out the totals. If
-			-- the total is negative, then the player has more than enough
-			-- so don't print that reagent.
-			for _, recipeId in pairs(recipes) do
-				recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
-				if recipeInfo.learned then
-					itemLink = C_TradeSkillUI.GetRecipeItemLink(recipeId)
-					if itemLink then
-						_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
-						if sourceId then
-							appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
-							if appearanceInfo then
-								if appearanceInfo.sourceIsCollected == false then
-									local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
-									for reagentIndex = 1, numReagents do
-										reagentName, reagentIcon, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
-										if reagentName then
-											if reagents[reagentName] == nil then
-												reagents[reagentName] = { count = 0, playerCount = reagentPlayerCount }
-											end
-											reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
-										else
-											if HelpMePlayOptionsDB.Logging then
-												print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
-											end
-										end
-									end
-								end
-							end
-						end
-					end
-				end
-			end
-			
-			local reagentString = ""
-			for reagent, reagentData in pairs(reagents) do
-				local amountNeeded = (reagentData.count - reagentData.playerCount)
-				if amountNeeded > 0 then
-					reagentString = reagentString .. reagent .. ": " .. amountNeeded
-				end
-			end
-			
-			StaticPopupDialogs["HELPMEPLAY_REAGENTSTRING_POPUP"] = {
-				text = L_GLOBALSTRINGS["Reagent Copy Message"],
-				button1 = "OK",
-				OnShow = function(self, data)
-					self.editBox:SetText(reagentString)
-					self.editBox:HighlightText()
-				end,
-				timeout = 15,
-				showAlert = true,
-				whileDead = false,
-				hideOnEscape = true,
-				enterClicksFirstButton = true,
-				hasEditBox = true,
-				preferredIndex = 3,
-			}
-			StaticPopup_Show("HELPMEPLAY_REAGENTSTRING_POPUP")
-		else
-			if HelpMePlayOptionsDB.Logging then
-				print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
-			end
-		end
+		HelpMePlay_CalculateReagents()
 	else
 		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end

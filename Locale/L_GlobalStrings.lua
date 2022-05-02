@@ -53,6 +53,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Red WARNING"]																= "|cffFF0000WARNING:|r "
 	L_GLOBALSTRINGS["Open Settings"]															= "Open Settings"
 	L_GLOBALSTRINGS["Learn All Transmog"]														= "Learn All Transmog"
+	L_GLOBALSTRINGS["Calculate Reagents"]														= "Calculate Reagents"
 	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
 	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed: "
 	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else." 
