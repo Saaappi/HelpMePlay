@@ -322,7 +322,9 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 											end
 											reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
 										else
-											print(L_GLOBALSTRINGS["Reagent Name is Nil"])
+											if HelpMePlayOptionsDB.Logging then
+												print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. os.date("%X")
+											end
 										end
 									end
 								end
@@ -332,15 +334,34 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 			
-			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |cffe6cc80" .. parentSkillLine .. "|r")
+			local reagentString = ""
 			for reagent, reagentData in pairs(reagents) do
 				local amountNeeded = (reagentData.count - reagentData.playerCount)
 				if amountNeeded > 0 then
-					print(reagent .. ": " .. amountNeeded)
+					reagentString = reagentString .. reagent .. ": " .. amountNeeded
 				end
 			end
+			
+			StaticPopupDialogs["HELPMEPLAY_REAGENTSTRING_POPUP"] = {
+				text = L_GLOBALSTRINGS["Reagent Copy Message"],
+				button1 = "OK",
+				OnShow = function(self, data)
+					self.editBox:SetText(reagentString)
+					self.editBox:HighlightText()
+				end,
+				timeout = 10,
+				showAlert = true,
+				whileDead = false,
+				hideOnEscape = true,
+				enterClicksFirstButton = true,
+				hasEditBox = true,
+				preferredIndex = 3,
+			}
+			StaticPopup_Show("HELPMEPLAY_REAGENTSTRING_POPUP")
 		else
-			print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
+			if HelpMePlayOptionsDB.Logging then
+				print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
+			end
 		end
 	else
 		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
