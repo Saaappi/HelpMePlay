@@ -1,5 +1,2 @@
-New Features:
-	- Added a new command, /hmp calculate or /hmp calc, which calculates the reagents needed to craft unknown transmogs from known recipes for the opened trade skill.
-
 Fixes and Updates:
-	- Added a help command, which displays all the addon's slash commands. This command is accessible using /hmp help or /hmp ?.
+	- Added weights for the Forcing the Cycle daily quest in Zereth Mortis.
