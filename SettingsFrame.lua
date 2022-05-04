@@ -3,6 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local numTabs = 4
 local icon = ""
 
 function HMPTab_OnClick(self)
@@ -111,7 +112,7 @@ function HMPTab_OnClick(self)
 		HMPCovenantsDropDown:Hide()
 		HMPBFAZoneSelDropDown:Hide()
 		HMPSLZoneSelDropDown:Hide()
-	else
+	elseif tabId == 3 then
 		-- Show the widgets hidden from the other tabs.
 		HMPMinimapIconCB:Show()
 		HMPMinimapIconText:Show()
@@ -158,6 +159,50 @@ function HMPTab_OnClick(self)
 		HMPTorghastPowersDropDown:Hide()
 		HMPBFAZoneSelDropDown:Hide()
 		HMPSLZoneSelDropDown:Hide()
+	else
+		HMPDialogCB:Hide()
+		HMPDialogText:Hide()
+		HMPEmotesCB:Hide()
+		HMPEmotesText:Hide()
+		HMPGarrTblCB:Hide()
+		HMPGarrisonTblText:Hide()
+		HMPMerchantsCB:Hide()
+		HMPMerchantsText:Hide()
+		HMPTrainersV2CB:Hide()
+		HMPTrainersV2Text:Hide()
+		HMPSpeechCB:Hide()
+		HMPSpeechText:Hide()
+		HMPQuestsCB:Hide()
+		HMPQuestsText:Hide()
+		HMPToFCB:Hide()
+		HMPToFText:Hide()
+		HMPCinematicsCB:Hide()
+		HMPCinematicsText:Hide()
+		HMPQueuesCB:Hide()
+		HMPQueuesText:Hide()
+		HMPWarModeCB:Hide()
+		HMPWarModeText:Hide()
+		HMPNotesCB:Hide()
+		HMPNotesText:Hide()
+		HMPTalentsCB:Hide()
+		HMPTalentsText:Hide()
+		HMPWaypointsCB:Hide()
+		HMPWaypointsText:Hide()
+		HMPWeightsCB:Hide()
+		HMPWeightsText:Hide()
+		HMPPartyPlayCB:Hide()
+		HMPPartyPlayText:Hide()
+		HMPPartyPlayAnnounceCB:Hide()
+		HMPPartyPlayAutoShareCB:Hide()
+		HMPChromieTimeDropDown:Hide()
+		HMPCovenantsDropDown:Hide()
+		HMPTorghastPowersDropDown:Hide()
+		HMPBFAZoneSelDropDown:Hide()
+		HMPSLZoneSelDropDown:Hide()
+		HMPMinimapIconCB:Hide()
+		HMPMinimapIconText:Hide()
+		HMPLoggingCB:Hide()
+		HMPLoggingText:Hide()
 	end
 end
 
@@ -744,7 +789,7 @@ function HelpMePlayLoadSettings()
 			-- to receive from the addon.
 			--
 			-- Also tell them which tab is the default (1).
-			HMPOptionsFrame.numTabs = 3
+			HMPOptionsFrame.numTabs = numTabs
 			HMPTab_OnClick(1)
 
 			-- Make the options menu movable.
@@ -779,6 +824,7 @@ function HelpMePlayLoadSettings()
 			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
 			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
 			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
+			HMPOptionsFrameTab4:SetText(L_GLOBALSTRINGS["Tab: Junker"])
 
 			-- Check settings first
 			HMPDisableAllCB:SetChecked(HelpMePlayOptionsDB.DisableAll)
@@ -1319,6 +1365,14 @@ function HelpMePlayLoadSettings()
 				ShowTooltip(self, L_GLOBALSTRINGS["Tab Description: General"])
 			end)
 			HMPOptionsFrameTab3:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			
+			-- Tab 4
+			HMPOptionsFrameTab4:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Tab Description: Junker"])
+			end)
+			HMPOptionsFrameTab4:SetScript("OnLeave", function(self)
 				HideTooltip(self)
 			end)
 		end

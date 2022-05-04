@@ -64,6 +64,20 @@
 					</OnClick>
 				</Scripts>
 			</Button>
+			<Button name="$parentTab4" inherits="CharacterFrameTabButtonTemplate" id="4" text="Junker">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab3" relativePoint="TOPRIGHT">
+					   <Offset>
+						   <AbsDimension x="-12" y="0"/>
+					   </Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						HMPTab_OnClick(self:GetID())
+					</OnClick>
+				</Scripts>
+			</Button>
 			<CheckButton name="HMPDisableAllCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="BOTTOM" relativeTo="HMPOptionsFrame" x="-240" y="282" />

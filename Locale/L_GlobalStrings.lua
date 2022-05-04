@@ -177,9 +177,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tab: Automations"]															= "Automations"
 	L_GLOBALSTRINGS["Tab: Systems"]																= "Systems"
 	L_GLOBALSTRINGS["Tab: General"]																= "General"
+	L_GLOBALSTRINGS["Tab: Junker"]																= "Junker"
 	L_GLOBALSTRINGS["Tab Description: Automations"]												= "These are the features that take action\non your behalf."
 	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a game system."
 	L_GLOBALSTRINGS["Tab Description: General"]													= "These are addon settings, unrelated to the\nsettings in the other tabs."
+	L_GLOBALSTRINGS["Tab Description: Junker"]													= "These are settings that control how |cffFFFFFFJunker|r handles\nvendoring items."
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS
