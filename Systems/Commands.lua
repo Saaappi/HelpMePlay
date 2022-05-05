@@ -96,6 +96,13 @@ local function Confirm(gossip)
 	end
 end
 
+local function InsertReagent(tbl, reagentName, playerCount, reagentValue)
+	if tbl[reagentName] == nil then
+		tbl[reagentName] = { count = 0, playerCount = playerCount }
+	end
+	tbl[reagentName]["count"] = tbl[reagentName]["count"] + reagentValue
+end
+
 local function RequipOriginalItems(equippedItems)
 	local currentlyEquippedItemLink
 	
@@ -213,7 +220,9 @@ end
 
 function HelpMePlay_CalculateReagents()
 	if TradeSkillFrame then
+		local itemId = 0
 		local itemLink = ""
+		local reagentItemLink = ""
 		local sourceId = 0
 		local recipeInfo = {}
 		local appearanceInfo = {}
@@ -250,6 +259,13 @@ function HelpMePlay_CalculateReagents()
 		-- interested in the name and the amount necessary to craft the
 		-- recipe.
 		--
+		-- Use the documented REAGENTS table from the addon to recursively
+		-- identify child reagents from parent reagents. For example, a
+		-- Bolt of Linen Cloth has a child reagent of 2x Linen Cloth. This
+		-- needs to be considered when writing out the complete list of
+		-- reagents. This is only supported to children, grandchildren
+		-- reagents wouldn't be supported.
+		--
 		-- Once we have the number, archive it in an in-memory table.
 		--
 		-- Once all known recipes and unknown appearances have been
@@ -268,12 +284,36 @@ function HelpMePlay_CalculateReagents()
 							if appearanceInfo.sourceIsCollected == false then
 								local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
 								for reagentIndex = 1, numReagents do
-									reagentName, reagentIcon, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
-									if reagentName then
-										if reagents[reagentName] == nil then
-											reagents[reagentName] = { count = 0, playerCount = reagentPlayerCount }
+									reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
+									if reagentItemLink then
+										reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
+										_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
+										if addonTable.REAGENTS[itemId] then
+											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
+											local reagent = addonTable.REAGENTS[itemId]
+											for parentReagent, parentReagentValue in pairs(reagent) do
+												if type(parentReagentValue) == "table" then
+													InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
+													for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
+														InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
+													end
+												else
+													InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
+												end
+											end
+										else
+											reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
+											if reagentName then
+												if reagents[reagentName] == nil then
+													reagents[reagentName] = { count = 0, playerCount = reagentPlayerCount }
+												end
+												reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
+											else
+												if HelpMePlayOptionsDB.Logging then
+													print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+												end
+											end
 										end
-										reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
 									else
 										if HelpMePlayOptionsDB.Logging then
 											print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")

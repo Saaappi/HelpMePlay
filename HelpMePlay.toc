@@ -36,6 +36,7 @@ Data\NotesDB.lua
 Data\TalentsDB.lua
 Data\SpeechDB.lua
 Data\QuestRewardsDB.lua
+Data\ReagentsDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
 Data\TalentSystems\CypherOfFirstOnesDB.lua
