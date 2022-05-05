@@ -1,2 +1,2 @@
 Fixes and Updates:
-	- Added weights for the Forcing the Cycle daily quest in Zereth Mortis.
+	- Added weights for multiple quests in Zereth Mortis.
