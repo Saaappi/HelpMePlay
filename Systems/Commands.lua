@@ -287,31 +287,27 @@ function HelpMePlay_CalculateReagents()
 									reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
 									if reagentItemLink then
 										reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
-										_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
-										if addonTable.REAGENTS[itemId] then
-											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
-											local reagent = addonTable.REAGENTS[itemId]
-											for parentReagent, parentReagentValue in pairs(reagent) do
-												if type(parentReagentValue) == "table" then
-													InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
-													for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
-														InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
+										if reagentName then
+											_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
+											if addonTable.REAGENTS[itemId] then
+												InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
+												local reagent = addonTable.REAGENTS[itemId]
+												for parentReagent, parentReagentValue in pairs(reagent) do
+													if type(parentReagentValue) == "table" then
+														InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
+														for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
+															InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
+														end
+													else
+														InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
 													end
-												else
-													InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
 												end
+											else
+												InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
 											end
 										else
-											reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
-											if reagentName then
-												if reagents[reagentName] == nil then
-													reagents[reagentName] = { count = 0, playerCount = reagentPlayerCount }
-												end
-												reagents[reagentName]["count"] = reagents[reagentName]["count"] + reagentCount
-											else
-												if HelpMePlayOptionsDB.Logging then
-													print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
-												end
+											if HelpMePlayOptionsDB.Logging then
+												print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 											end
 										end
 									else
