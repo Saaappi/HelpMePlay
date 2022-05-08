@@ -2101,6 +2101,22 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[166148] = { -- Sawn
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["I will assist you."],
+				["condition"] 	= "none",
+			},
+		},
+	},
+	[172244] = { -- Blisswing
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Torghast
 	-- Zereth Mortis
 	[0] = {
