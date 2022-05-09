@@ -12,7 +12,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if guid then
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
 			if npcId then
-				C_Timer.After(1, function()
+				C_Timer.After(0.5, function()
 					for _, id in ipairs(addonTable.VEHICLES) do
 						if id == npcId then
 							OverrideActionBarLeaveFrameLeaveButton:Click()
