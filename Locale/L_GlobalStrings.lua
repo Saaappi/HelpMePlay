@@ -73,6 +73,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Trade Skill Window Invisible"]												= "[|cffFF7900WARNING|r] Please open the desired trade skill window before running this command. If values are nil or missing, then close and reopen the window and try again."
 	L_GLOBALSTRINGS["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
 	L_GLOBALSTRINGS["Unknown Source ID"]														= "[|cffFF7900WARNING|r] Unable to determine the collected status for %s. Please check the item. (Bag: %s, Slot: %s)"
+	L_GLOBALSTRINGS["No Best Anima Power Available"]											= "No best Anima Power available."
 	L_GLOBALSTRINGS["Unlearnable Appearance"]													= "Unlearnable Appearance"
 	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
 	L_GLOBALSTRINGS["Quest Removed Text"]														= "Removed"

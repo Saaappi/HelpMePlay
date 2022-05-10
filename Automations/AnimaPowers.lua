@@ -135,14 +135,21 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- prevent taint between Anima Powers.
 					if responseId ~= 0 then
 						if HelpMePlayOptionsDB.Logging then
-							if HelpMePlayOptionsDB.TorghastPowers == "Notifications" then
-								print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
-								highestPriority = 9
+							if bestPower then
+								-- There will be times when a "best" power isn't available.
+								-- These circumstances will likely be when a power isn't
+								-- in the database.
+								if HelpMePlayOptionsDB.TorghastPowers == "Notifications" then
+									print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
+									highestPriority = 9
+								else
+									SendPlayerChoiceResponse(responseId)
+									HideUIPanel(PlayerChoiceFrame)
+									print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
+									highestPriority = 9
+								end
 							else
-								SendPlayerChoiceResponse(responseId)
-								HideUIPanel(PlayerChoiceFrame)
-								print("|cff00CCFF" .. addonName .. "|r: |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
-								highestPriority = 9
+								print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["No Best Anima Power Available"])
 							end
 						end
 					end
