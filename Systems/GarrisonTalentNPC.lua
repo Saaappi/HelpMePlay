@@ -50,6 +50,17 @@ local function CheckTalents(talentTree, currencyId)
 						seconds = string.split(".", tonumber(("0."..seconds) * 60))
 						PrintLine(L_GLOBALSTRINGS["Prequisite Talent Being Researched"] .. " |T" .. prerequisiteTalentId.icon .. ":0|t |cffEFC503" .. prerequisiteTalentId.name .. "|r: " .. hours .. ":" .. minutes .. ":" .. seconds)
 					end
+				else
+					-- The talent doesn't have a prerequisite.
+					--
+					-- The perk has a spell ID, so let's
+					-- send a spell link to the chat frame.
+					-- If not, then use the perk name.
+					if v.print == "spell" and talentInfo.perkSpellID ~= 0 then
+						PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
+					else
+						PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
+					end
 				end
 				
 				return

@@ -1,3 +1,4 @@
 Fixes and Updates:
 	- Updated the Calculate function to check for children reagents. For example, if a recipe calls for 2 Bolts of Linen Cloth, then the Calculate function will, in addition to 2 Bolts of Linen Cloth, return 4 Linen Cloth. It takes 2 Linen Cloth to make 1 Bolt.
 	- Added weights for multiple quests in Zereth Mortis.
+	- Fixed an issue with the Box of Many Things.
