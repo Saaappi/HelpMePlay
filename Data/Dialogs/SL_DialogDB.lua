@@ -2117,6 +2117,14 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[171996] = { -- Kythekios
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Torghast
 	-- Zereth Mortis
 	[0] = {
