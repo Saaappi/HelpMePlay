@@ -594,14 +594,53 @@ local ANIMAPOWERS = {
 		[259] = { -- Assassination
 			-- Powers for Assassination Rogue aren't
 			-- listed in tiers like the other specializations.
+			-- S Tier Powers
+			[333506] = 1, -- Unceasing Chain Link
+			[333508] = 1, -- The Last Blade
+			[333503] = 1, -- First Steps
+			[333502] = 1, -- Slippery Wraithcoil
+			[343389] = 1, -- Silent Footpads
+			[333765] = 1, -- Distracting Charges
+			-- A Tier Powers
+			[338922] = 2, -- Soulward Clasp
+			[306573] = 2, -- Gift of Ardenweald
+			[306563] = 2, -- Kyrian Blessing
+			[306571] = 2, -- Maldraxxian Repayment
+			[306575] = 2, -- Venthyr's Gratitude
 		},
 		[260] = { -- Outlaw
 			-- Powers for Outlaw Rogue aren't listed in
 			-- tiers like the other specializations.
+			-- S Tier Powers
+			[333506] = 1, -- Unceasing Chain Link
+			[333508] = 1, -- The Last Blade
+			[333503] = 1, -- First Steps
+			[333502] = 1, -- Slippery Wraithcoil
+			[343389] = 1, -- Silent Footpads
+			[333765] = 1, -- Distracting Charges
+			-- A Tier Powers
+			[338922] = 2, -- Soulward Clasp
+			[306573] = 2, -- Gift of Ardenweald
+			[306563] = 2, -- Kyrian Blessing
+			[306571] = 2, -- Maldraxxian Repayment
+			[306575] = 2, -- Venthyr's Gratitude
 		},
 		[261] = { -- Subtlety
 			-- Powers for Subtlety Rogue aren't listed
 			-- in tiers like the other specializations.
+			-- S Tier Powers
+			[333506] = 1, -- Unceasing Chain Link
+			[333508] = 1, -- The Last Blade
+			[333503] = 1, -- First Steps
+			[333502] = 1, -- Slippery Wraithcoil
+			[343389] = 1, -- Silent Footpads
+			[333765] = 1, -- Distracting Charges
+			-- A Tier Powers
+			[338922] = 2, -- Soulward Clasp
+			[306573] = 2, -- Gift of Ardenweald
+			[306563] = 2, -- Kyrian Blessing
+			[306571] = 2, -- Maldraxxian Repayment
+			[306575] = 2, -- Venthyr's Gratitude
 		},
 	},
 	[5] = { -- Priest
