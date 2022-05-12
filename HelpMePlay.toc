@@ -3,7 +3,7 @@
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB
-## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB
+## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB
 ## Title: HelpMePlay
 ## Version: 1.1.8
 
@@ -76,6 +76,7 @@ Systems\Talents.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
 Systems\Weights.lua
+Systems\Junker.lua
 
 # General Stuff
 Keybinding.lua

@@ -210,6 +210,41 @@
 					<Anchor point="TOPLEFT" x="354" y="-303" />
 				</Anchors>
 			</Frame>
+			<CheckButton name="HMPEnableJunkerCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="HMPDisableAllCB" relativePoint="BOTTOM" y="-20" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPJunkerItemTypeArmorCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-61" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPJunkerItemTypeConsumableCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-99" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPJunkerItemTypeRecipeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-137" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPJunkerItemTypeGemCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-175" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPJunkerItemTypeTradeskillCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-213" />
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="HMPJunkerItemTypeWeaponCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="39" y="-251" />
+				</Anchors>
+			</CheckButton>
 		</Frames>
 		<Layers>
 			<Layer level="OVERLAY">
@@ -385,6 +420,62 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPLoggingCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPEnableJunkerText" inherits="GameFontNormal" text="Enable" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPEnableJunkerCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPItemTypeArmorText" inherits="GameFontNormal" text="Armor" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeArmorCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPItemTypeConsumableText" inherits="GameFontNormal" text="Consumable" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeConsumableCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPItemTypeRecipeText" inherits="GameFontNormal" text="Recipe" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeRecipeCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPJunkerItemTypeGemText" inherits="GameFontNormal" text="Gem" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeGemCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPJunkerItemTypeTradeskillText" inherits="GameFontNormal" text="Tradeskill" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeTradeskillCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPJunkerItemTypeWeaponText" inherits="GameFontNormal" text="Weapon" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeWeaponCB" relativePoint="LEFT" x="7" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />

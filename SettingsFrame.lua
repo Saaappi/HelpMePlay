@@ -57,6 +57,20 @@ function HMPTab_OnClick(self)
 		HMPLoggingCB:Hide()
 		HMPLoggingText:Hide()
 		HMPTorghastPowersDropDown:Hide()
+		HMPEnableJunkerText:Hide()
+		HMPEnableJunkerCB:Hide()
+		HMPItemTypeArmorText:Hide()
+		HMPJunkerItemTypeArmorCB:Hide()
+		HMPItemTypeConsumableText:Hide()
+		HMPJunkerItemTypeConsumableCB:Hide()
+		HMPItemTypeRecipeText:Hide()
+		HMPJunkerItemTypeRecipeCB:Hide()
+		HMPJunkerItemTypeGemText:Hide()
+		HMPJunkerItemTypeGemCB:Hide()
+		HMPJunkerItemTypeTradeskillText:Hide()
+		HMPJunkerItemTypeTradeskillCB:Hide()
+		HMPJunkerItemTypeWeaponText:Hide()
+		HMPJunkerItemTypeWeaponCB:Hide()
 	elseif tabId == 2 then
 		-- Show the widgets hidden from the Automations
 		-- tab.
@@ -112,6 +126,20 @@ function HMPTab_OnClick(self)
 		HMPCovenantsDropDown:Hide()
 		HMPBFAZoneSelDropDown:Hide()
 		HMPSLZoneSelDropDown:Hide()
+		HMPEnableJunkerText:Hide()
+		HMPEnableJunkerCB:Hide()
+		HMPItemTypeArmorText:Hide()
+		HMPJunkerItemTypeArmorCB:Hide()
+		HMPItemTypeConsumableText:Hide()
+		HMPJunkerItemTypeConsumableCB:Hide()
+		HMPItemTypeRecipeText:Hide()
+		HMPJunkerItemTypeRecipeCB:Hide()
+		HMPJunkerItemTypeGemText:Hide()
+		HMPJunkerItemTypeGemCB:Hide()
+		HMPJunkerItemTypeTradeskillText:Hide()
+		HMPJunkerItemTypeTradeskillCB:Hide()
+		HMPJunkerItemTypeWeaponText:Hide()
+		HMPJunkerItemTypeWeaponCB:Hide()
 	elseif tabId == 3 then
 		-- Show the widgets hidden from the other tabs.
 		HMPMinimapIconCB:Show()
@@ -159,7 +187,38 @@ function HMPTab_OnClick(self)
 		HMPTorghastPowersDropDown:Hide()
 		HMPBFAZoneSelDropDown:Hide()
 		HMPSLZoneSelDropDown:Hide()
+		HMPEnableJunkerText:Hide()
+		HMPEnableJunkerCB:Hide()
+		HMPItemTypeArmorText:Hide()
+		HMPJunkerItemTypeArmorCB:Hide()
+		HMPItemTypeConsumableText:Hide()
+		HMPJunkerItemTypeConsumableCB:Hide()
+		HMPItemTypeRecipeText:Hide()
+		HMPJunkerItemTypeRecipeCB:Hide()
+		HMPJunkerItemTypeGemText:Hide()
+		HMPJunkerItemTypeGemCB:Hide()
+		HMPJunkerItemTypeTradeskillText:Hide()
+		HMPJunkerItemTypeTradeskillCB:Hide()
+		HMPJunkerItemTypeWeaponText:Hide()
+		HMPJunkerItemTypeWeaponCB:Hide()
 	else
+		-- Show the widgets hidden from the other tabs.
+		HMPEnableJunkerText:Show()
+		HMPEnableJunkerCB:Show()
+		HMPItemTypeArmorText:Show()
+		HMPJunkerItemTypeArmorCB:Show()
+		HMPItemTypeConsumableText:Show()
+		HMPJunkerItemTypeConsumableCB:Show()
+		HMPItemTypeRecipeText:Show()
+		HMPJunkerItemTypeRecipeCB:Show()
+		HMPJunkerItemTypeGemText:Show()
+		HMPJunkerItemTypeGemCB:Show()
+		HMPJunkerItemTypeTradeskillText:Show()
+		HMPJunkerItemTypeTradeskillCB:Show()
+		HMPJunkerItemTypeWeaponText:Show()
+		HMPJunkerItemTypeWeaponCB:Show()
+		
+		-- Hide the widgets from the other tabs.
 		HMPDialogCB:Hide()
 		HMPDialogText:Hide()
 		HMPEmotesCB:Hide()
@@ -821,6 +880,13 @@ function HelpMePlayLoadSettings()
 			HMPPartyPlayText:SetText(L_GLOBALSTRINGS["Party Play"])
 			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
 			HMPLoggingText:SetText(L_GLOBALSTRINGS["Logging"])
+			HMPEnableJunkerText:Set(L_GLOBALSTRINGS["Enable"])
+			HMPItemTypeArmorText:Set(L_GLOBALSTRINGS["Armor"])
+			HMPItemTypeConsumableText:Set(L_GLOBALSTRINGS["Consumable"])
+			HMPItemTypeRecipeText:Set(L_GLOBALSTRINGS["Recipe"])
+			HMPJunkerItemTypeGemText:Set(L_GLOBALSTRINGS["Gem"])
+			HMPJunkerItemTypeTradeskillText:Set(L_GLOBALSTRINGS["Tradeskill"])
+			HMPJunkerItemTypeWeaponText:Set(L_GLOBALSTRINGS["Weapon"])
 			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
 			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
 			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
@@ -848,6 +914,13 @@ function HelpMePlayLoadSettings()
 			HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB.PartyPlayAutoShare)
 			HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB.MinimapIcon)
 			HMPLoggingCB:SetChecked(HelpMePlayOptionsDB.Logging)
+			HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB.Junker.Enabled)
+			HMPJunkerItemTypeArmorCB:SetChecked(HelpMePlayOptionsDB.Junker.Armor)
+			HMPJunkerItemTypeConsumableCB:SetChecked(HelpMePlayOptionsDB.Junker.Consumable)
+			HMPJunkerItemTypeRecipeCB:SetChecked(HelpMePlayOptionsDB.Junker.Recipe)
+			HMPJunkerItemTypeGemCB:SetChecked(HelpMePlayOptionsDB.Junker.Gem)
+			HMPJunkerItemTypeTradeskillCB:SetChecked(HelpMePlayOptionsDB.Junker.Tradeskill)
+			HMPJunkerItemTypeWeaponCB:SetChecked(HelpMePlayOptionsDB.Junker.Weapon)
 			
 			if HelpMePlayOptionsDB.ChromieTimeExpansion then
 				UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
@@ -950,6 +1023,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce = HelpMePlayOptionsDB.PartyPlayAnnounce
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare = HelpMePlayOptionsDB.PartyPlayAutoShare
 					HelpMePlayOptionsDB["TempSettings"].Logging = HelpMePlayOptionsDB.Logging
+					HelpMePlayOptionsDB["TempSettings"].Junker = HelpMePlayOptionsDB.Junker.Enabled
 					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
 					HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
 					HelpMePlayOptionsDB["TempSettings"].Covenant = HelpMePlayOptionsDB.Covenant
@@ -976,6 +1050,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlayAnnounce = false
 					HelpMePlayOptionsDB.PartyPlayAutoShare = false
 					HelpMePlayOptionsDB.Logging = false
+					HelpMePlayOptionsDB.Junker.Enabled = false
 					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 					HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
 					HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
@@ -1002,6 +1077,7 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayAnnounceCB:SetChecked(false)
 					HMPPartyPlayAutoShareCB:SetChecked(false)
 					HMPLoggingCB:SetChecked(false)
+					HMPEnableJunkerCB:SetChecked(false)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
@@ -1033,6 +1109,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlayAnnounce = HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce
 					HelpMePlayOptionsDB.PartyPlayAutoShare = HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare
 					HelpMePlayOptionsDB.Logging = HelpMePlayOptionsDB["TempSettings"].Logging
+					HelpMePlayOptionsDB.Junker.Enabled = HelpMePlayOptionsDB["TempSettings"].Junker
 					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
 					HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
 					HelpMePlayOptionsDB.Covenant = HelpMePlayOptionsDB["TempSettings"].Covenant
@@ -1058,6 +1135,7 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce)
 					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
 					HMPLoggingCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Logging)
+					HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Junker.Enabled)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
@@ -1297,6 +1375,47 @@ function HelpMePlayLoadSettings()
 			end)
 			HMPLoggingCB:SetScript("OnClick", function(self)
 				HelpMePlayOptionsDB.Logging = self:GetChecked()
+			end)
+			
+			-- Junker Check Button
+			HMPEnableJunkerCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Junker Check Button"])
+			end)
+			HMPEnableJunkerCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPEnableJunkerCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["Enabled"] = self:GetChecked()
+			end)
+			
+			-- Junker Armor Check Button
+			HMPJunkerItemTypeArmorCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["Armor"] = self:GetChecked()
+			end)
+			
+			-- Junker Consumable Check Button
+			HMPJunkerItemTypeConsumableCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["Consumable"] = self:GetChecked()
+			end)
+			
+			-- Junker Recipe Check Button
+			HMPJunkerItemTypeRecipeCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["Recipe"] = self:GetChecked()
+			end)
+			
+			-- Junker Gem Check Button
+			HMPJunkerItemTypeGemCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["Gem"] = self:GetChecked()
+			end)
+			
+			-- Junker Tradeskill Check Button
+			HMPJunkerItemTypeTradeskillCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["Tradeskill"] = self:GetChecked()
+			end)
+			
+			-- Junker Weapon Check Button
+			HMPJunkerItemTypeWeaponCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["Weapon"] = self:GetChecked()
 			end)
 			
 			-- Chromie Time DropDown

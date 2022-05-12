@@ -39,6 +39,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayCharacterQuestsDB == nil then
 				HelpMePlayCharacterQuestsDB = {}
 			end
+			if HelpMePlayJunkerDB == nil then
+				HelpMePlayJunkerDB = {}
+				HelpMePlayOptionsDB["Junker"] = {}
+			end
 			if HelpMePlayOptionsDB.MinimapIcon then
 				HelpMePlayShowMinimapIcon(true)
 			end
