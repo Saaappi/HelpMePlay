@@ -1,5 +1,9 @@
+New Features:
+Junker
+
 Fixes and Updates:
 	- Updated the Calculate function to check for children reagents. For example, if a recipe calls for 2 Bolts of Linen Cloth, then the Calculate function will, in addition to 2 Bolts of Linen Cloth, return 4 Linen Cloth. It takes 2 Linen Cloth to make 1 Bolt.
+	- Added a check button for Vehicles automation.
 	- Added weights for multiple quests in Zereth Mortis.
 	- Added relatively general Torghast powers for all 3 Rogue specializations.
 	- Added more Torghast dialogs.
