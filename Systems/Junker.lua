@@ -4,6 +4,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
+	if HelpMePlayOptionsDB.Junker.Enabled == false or HelpMePlayOptionsDB.Junker.Enabled == nil then return false end
 	if event == "MERCHANT_SHOW" then
 		-- Don't iterate over the whole bag.
 		-- Only iterate until we've reached
