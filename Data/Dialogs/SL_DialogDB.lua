@@ -2125,6 +2125,30 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[179671] = { -- Ella
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
+		},
+	},
+	[179669] = { -- Spore of Marasmius
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
+		},
+	},
+	[172260] = { -- Karynmwylyann
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Torghast
 	-- Zereth Mortis
 	[0] = {
