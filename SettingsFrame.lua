@@ -32,6 +32,8 @@ function HMPTab_OnClick(self)
 		HMPCinematicsText:Show()
 		HMPQueuesCB:Show()
 		HMPQueuesText:Show()
+		HMPVehiclesCB:Show()
+		HMPVehiclesText:Show()
 		HMPChromieTimeDropDown:Show()
 		HMPCovenantsDropDown:Show()
 		HMPBFAZoneSelDropDown:Show()
@@ -118,6 +120,8 @@ function HMPTab_OnClick(self)
 		HMPCinematicsText:Hide()
 		HMPQueuesCB:Hide()
 		HMPQueuesText:Hide()
+		HMPVehiclesCB:Hide()
+		HMPVehiclesText:Hide()
 		HMPMinimapIconCB:Hide()
 		HMPMinimapIconText:Hide()
 		HMPLoggingCB:Hide()
@@ -168,6 +172,8 @@ function HMPTab_OnClick(self)
 		HMPCinematicsText:Hide()
 		HMPQueuesCB:Hide()
 		HMPQueuesText:Hide()
+		HMPVehiclesCB:Hide()
+		HMPVehiclesText:Hide()
 		HMPWarModeCB:Hide()
 		HMPWarModeText:Hide()
 		HMPNotesCB:Hide()
@@ -239,6 +245,8 @@ function HMPTab_OnClick(self)
 		HMPCinematicsText:Hide()
 		HMPQueuesCB:Hide()
 		HMPQueuesText:Hide()
+		HMPVehiclesCB:Hide()
+		HMPVehiclesText:Hide()
 		HMPWarModeCB:Hide()
 		HMPWarModeText:Hide()
 		HMPNotesCB:Hide()
@@ -875,18 +883,19 @@ function HelpMePlayLoadSettings()
 			HMPTalentsText:SetText(L_GLOBALSTRINGS["Talents"])
 			HMPCinematicsText:SetText(L_GLOBALSTRINGS["Cinematics"])
 			HMPQueuesText:SetText(L_GLOBALSTRINGS["Queues"])
+			HMPVehiclesText:SetText(L_GLOBALSTRINGS["Vehicles"])
 			HMPWaypointsText:SetText(L_GLOBALSTRINGS["Waypoints"])
 			HMPWeightsText:SetText(L_GLOBALSTRINGS["Weights"])
 			HMPPartyPlayText:SetText(L_GLOBALSTRINGS["Party Play"])
 			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
 			HMPLoggingText:SetText(L_GLOBALSTRINGS["Logging"])
-			HMPEnableJunkerText:Set(L_GLOBALSTRINGS["Enable"])
-			HMPItemTypeArmorText:Set(L_GLOBALSTRINGS["Armor"])
-			HMPItemTypeConsumableText:Set(L_GLOBALSTRINGS["Consumable"])
-			HMPItemTypeRecipeText:Set(L_GLOBALSTRINGS["Recipe"])
-			HMPJunkerItemTypeGemText:Set(L_GLOBALSTRINGS["Gem"])
-			HMPJunkerItemTypeTradeskillText:Set(L_GLOBALSTRINGS["Tradeskill"])
-			HMPJunkerItemTypeWeaponText:Set(L_GLOBALSTRINGS["Weapon"])
+			HMPEnableJunkerText:SetText(L_GLOBALSTRINGS["Enable"])
+			HMPItemTypeArmorText:SetText(L_GLOBALSTRINGS["Armor"])
+			HMPItemTypeConsumableText:SetText(L_GLOBALSTRINGS["Consumable"])
+			HMPItemTypeRecipeText:SetText(L_GLOBALSTRINGS["Recipe"])
+			HMPJunkerItemTypeGemText:SetText(L_GLOBALSTRINGS["Gem"])
+			HMPJunkerItemTypeTradeskillText:SetText(L_GLOBALSTRINGS["Tradeskill"])
+			HMPJunkerItemTypeWeaponText:SetText(L_GLOBALSTRINGS["Weapon"])
 			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
 			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
 			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
@@ -907,6 +916,7 @@ function HelpMePlayLoadSettings()
 			HMPTalentsCB:SetChecked(HelpMePlayOptionsDB.Talents)
 			HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB.Cinematics)
 			HMPQueuesCB:SetChecked(HelpMePlayOptionsDB.Queues)
+			HMPVehiclesCB:SetChecked(HelpMePlayOptionsDB.Vehicles)
 			HMPWaypointsCB:SetChecked(HelpMePlayOptionsDB.Waypoints)
 			HMPWeightsCB:SetChecked(HelpMePlayOptionsDB.Weights)
 			HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB.PartyPlay)
@@ -1017,6 +1027,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].Talents = HelpMePlayOptionsDB.Talents
 					HelpMePlayOptionsDB["TempSettings"].Cinematics = HelpMePlayOptionsDB.Cinematics
 					HelpMePlayOptionsDB["TempSettings"].Queues = HelpMePlayOptionsDB.Queues
+					HelpMePlayOptionsDB["TempSettings"].Vehicles = HelpMePlayOptionsDB.Vehicles
 					HelpMePlayOptionsDB["TempSettings"].Waypoints = HelpMePlayOptionsDB.Waypoints
 					HelpMePlayOptionsDB["TempSettings"].Weights = HelpMePlayOptionsDB.Weights
 					HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
@@ -1044,6 +1055,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Talents = false
 					HelpMePlayOptionsDB.Cinematics = false
 					HelpMePlayOptionsDB.Queues = false
+					HelpMePlayOptionsDB.Vehicles = false
 					HelpMePlayOptionsDB.Waypoints = false
 					HelpMePlayOptionsDB.Weights = false
 					HelpMePlayOptionsDB.PartyPlay = false
@@ -1071,6 +1083,7 @@ function HelpMePlayLoadSettings()
 					HMPTalentsCB:SetChecked(false)
 					HMPCinematicsCB:SetChecked(false)
 					HMPQueuesCB:SetChecked(false)
+					HMPVehiclesCB:SetChecked(false)
 					HMPWaypointsCB:SetChecked(false)
 					HMPWeightsCB:SetChecked(false)
 					HMPPartyPlayCB:SetChecked(false)
@@ -1103,6 +1116,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.Talents = HelpMePlayOptionsDB["TempSettings"].Talents
 					HelpMePlayOptionsDB.Cinematics = HelpMePlayOptionsDB["TempSettings"].Cinematics
 					HelpMePlayOptionsDB.Queues = HelpMePlayOptionsDB["TempSettings"].Queues
+					HelpMePlayOptionsDB.Vehicles = HelpMePlayOptionsDB["TempSettings"].Vehicles
 					HelpMePlayOptionsDB.Waypoints = HelpMePlayOptionsDB["TempSettings"].Waypoints
 					HelpMePlayOptionsDB.Weights = HelpMePlayOptionsDB["TempSettings"].Weights
 					HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
@@ -1129,6 +1143,7 @@ function HelpMePlayLoadSettings()
 					HMPTalentsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Talents)
 					HMPCinematicsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Cinematics)
 					HMPQueuesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Queues)
+					HMPVehiclesCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Vehicles)
 					HMPWaypointsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Waypoints)
 					HMPWeightsCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Weights)
 					HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
@@ -1286,6 +1301,17 @@ function HelpMePlayLoadSettings()
 			end)
 			HMPQueuesCB:SetScript("OnClick", function(self)
 				HelpMePlayOptionsDB.Queues = self:GetChecked()
+			end)
+			
+			-- Vehicles Check Button
+			HMPVehiclesCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Vehicles Check Button"])
+			end)
+			HMPVehiclesCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPVehiclesCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB.Vehicles = self:GetChecked()
 			end)
 			
 			-- Waypoints Check Button

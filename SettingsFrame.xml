@@ -148,6 +148,11 @@
 					<Anchor point="TOPLEFT" x="221" y="-175" />
 				</Anchors>
 			</CheckButton>
+			<CheckButton name="HMPVehiclesCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="221" y="-213" />
+				</Anchors>
+			</CheckButton>
 			<CheckButton name="HMPWaypointsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="39" y="-175" />
@@ -380,6 +385,14 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPQueuesCB" relativePoint="LEFT" x="7" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPVehiclesText" inherits="GameFontNormal" text="Vehicles" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="LEFT" relativeTo="HMPVehiclesCB" relativePoint="LEFT" x="10" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
