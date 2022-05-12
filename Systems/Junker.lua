@@ -53,3 +53,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 end)
+
+GameTooltip:HookScript("OnTooltipSetItem", function(self, ...)
+	local _, itemLink = self:GetItem()
+	if itemLink then
+		local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
+		if HelpMePlayJunkerDB[itemId] then
+			self:AddLine(" ")
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " - |cff00FFFF" .. L_GLOBALSTRINGS["Tab: Junker"] .. "|r:", L_GLOBALSTRINGS["Sell Item Text"])
+		end
+	end
+end)

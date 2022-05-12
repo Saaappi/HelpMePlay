@@ -58,6 +58,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Add to Junker"]															= "Add to Junker"
 	L_GLOBALSTRINGS["Added Item Text"]															= "Added %s to Junker!"
 	L_GLOBALSTRINGS["Removed Item Text"]														= "Removed %s from Junker!"
+	L_GLOBALSTRINGS["Sell Item Text"]															= "SELL"
 	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
 	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed: "
 	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else." 
