@@ -23,11 +23,11 @@ function HelpMePlayKeyPressHandler(key)
 			if itemLink then
 				local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 				if HelpMePlayJunkerDB[itemId] then
-					HelpMePlayJunkerDB[itemId] = true
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemLink))
-				else
 					HelpMePlayJunkerDB[itemId] = nil
 					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Removed Item Text"], itemLink))
+				else
+					HelpMePlayJunkerDB[itemId] = true
+					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemLink))
 				end
 			end
 		end
