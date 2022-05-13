@@ -60,7 +60,10 @@ GameTooltip:HookScript("OnTooltipSetItem", function(self, ...)
 		local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 		if HelpMePlayJunkerDB[itemId] then
 			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " - |cff00FFFF" .. L_GLOBALSTRINGS["Tab: Junker"] .. "|r:", L_GLOBALSTRINGS["Sell Item Text"])
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Sell Item Text"])
+		elseif HelpMePlayJunkerBlacklistDB[itemId] then
+			self:AddLine(" ")
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Blacklisted Item Text"])
 		end
 	end
 end)

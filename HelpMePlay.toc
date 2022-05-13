@@ -3,7 +3,7 @@
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB
-## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB
+## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
 ## Version: 1.1.8
 
