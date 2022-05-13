@@ -45,7 +45,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							UseContainerItem(bagId, slotId)
 						end
 						
-						if itemQuality == 0 then
+						if itemQuality <= HelpMePlayOptionsDB.Junker.Rarity then
 							UseContainerItem(bagId, slotId)
 						end
 						

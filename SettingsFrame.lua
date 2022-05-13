@@ -73,6 +73,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Hide()
 		HMPJunkerItemTypeWeaponText:Hide()
 		HMPJunkerItemTypeWeaponCB:Hide()
+		HMPJunkerRarityDropDown:Hide()
 	elseif tabId == 2 then
 		-- Show the widgets hidden from the Automations
 		-- tab.
@@ -144,6 +145,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Hide()
 		HMPJunkerItemTypeWeaponText:Hide()
 		HMPJunkerItemTypeWeaponCB:Hide()
+		HMPJunkerRarityDropDown:Hide()
 	elseif tabId == 3 then
 		-- Show the widgets hidden from the other tabs.
 		HMPMinimapIconCB:Show()
@@ -207,6 +209,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Hide()
 		HMPJunkerItemTypeWeaponText:Hide()
 		HMPJunkerItemTypeWeaponCB:Hide()
+		HMPJunkerRarityDropDown:Hide()
 	else
 		-- Show the widgets hidden from the other tabs.
 		HMPEnableJunkerText:Show()
@@ -223,6 +226,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Show()
 		HMPJunkerItemTypeWeaponText:Show()
 		HMPJunkerItemTypeWeaponCB:Show()
+		HMPJunkerRarityDropDown:Show()
 		
 		-- Hide the widgets from the other tabs.
 		HMPDialogCB:Hide()
@@ -810,6 +814,86 @@ local function DropDownMenu_Initialize(menuName)
 		info.tooltipTitle = L_GLOBALSTRINGS["Disabled"]
 		info.tooltipText = L_GLOBALSTRINGS["Disabled"]
 		UIDropDownMenu_AddButton(info)
+	elseif menuName:GetName() == "HMPJunkerRarityDropDown" then
+		-- Epic
+		info.text = L_GLOBALSTRINGS["Rarity: Epic"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Junker.Rarity = 4
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Rarity: Epic"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Rarity: Epic"]
+		info.tooltipText = L_GLOBALSTRINGS["Rarity: Epic"]
+		UIDropDownMenu_AddButton(info)
+	
+		-- Rare
+		info.text = L_GLOBALSTRINGS["Rarity: Rare"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Junker.Rarity = 3
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Rarity: Rare"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Rarity: Rare"]
+		info.tooltipText = L_GLOBALSTRINGS["Rarity: Rare"]
+		UIDropDownMenu_AddButton(info)
+	
+		-- Uncommon
+		info.text = L_GLOBALSTRINGS["Rarity: Uncommon"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Junker.Rarity = 2
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Rarity: Uncommon"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Rarity: Uncommon"]
+		info.tooltipText = L_GLOBALSTRINGS["Rarity: Uncommon"]
+		UIDropDownMenu_AddButton(info)
+	
+		-- Common
+		info.text = L_GLOBALSTRINGS["Rarity: Common"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Junker.Rarity = 1
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Rarity: Common"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Rarity: Common"]
+		info.tooltipText = L_GLOBALSTRINGS["Rarity: Common"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Poor
+		info.text = L_GLOBALSTRINGS["Rarity: Poor"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Junker.Rarity = 0
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Rarity: Poor"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Rarity: Poor"]
+		info.tooltipText = L_GLOBALSTRINGS["Rarity: Poor"]
+		UIDropDownMenu_AddButton(info)
 	end
 end
 
@@ -997,6 +1081,20 @@ function HelpMePlayLoadSettings()
 					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Random"])
 				elseif HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Disabled"] or HelpMePlayOptionsDB.SLZoneSelection == false or HelpMePlayOptionsDB.SLZoneSelection == nil then
 					UIDropDownMenu_SetText(HMPSLZoneSelDropDown, L_GLOBALSTRINGS["Disabled"])
+				end
+			end
+			
+			if HelpMePlayOptionsDB.Junker.Rarity ~= nil then
+				if HelpMePlayOptionsDB.Junker.Rarity == 0 then
+					UIDropDownMenu_SetText(HMPJunkerRarityDropDown, L_GLOBALSTRINGS["Rarity: Poor"])
+				elseif HelpMePlayOptionsDB.Junker.Rarity == 1 then
+					UIDropDownMenu_SetText(HMPJunkerRarityDropDown, L_GLOBALSTRINGS["Rarity: Common"])
+				elseif HelpMePlayOptionsDB.Junker.Rarity == 2 then
+					UIDropDownMenu_SetText(HMPJunkerRarityDropDown, L_GLOBALSTRINGS["Rarity: Uncommon"])
+				elseif HelpMePlayOptionsDB.Junker.Rarity == 3 then
+					UIDropDownMenu_SetText(HMPJunkerRarityDropDown, L_GLOBALSTRINGS["Rarity: Rare"])
+				elseif HelpMePlayOptionsDB.Junker.Rarity == 4 then
+					UIDropDownMenu_SetText(HMPJunkerRarityDropDown, L_GLOBALSTRINGS["Rarity: Epic"])
 				end
 			end
 			
@@ -1488,6 +1586,15 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			UIDropDownMenu_Initialize(HMPSLZoneSelDropDown, DropDownMenu_Initialize)
+			
+			-- Junker Rarity DropDown
+			HMPJunkerRarityDropDown:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Junker: Rarity DropDown"])
+			end)
+			HMPJunkerRarityDropDown:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			UIDropDownMenu_Initialize(HMPJunkerRarityDropDown, DropDownMenu_Initialize)
 			
 			-- Tab 1
 			HMPOptionsFrameTab1:SetScript("OnEnter", function(self)

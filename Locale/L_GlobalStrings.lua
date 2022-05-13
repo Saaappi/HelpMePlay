@@ -159,6 +159,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
 	L_GLOBALSTRINGS["Covenants DropDown"]														= "|cffFFFFFFCovenants|r\nAutomates the Covenant to select when interacting with\nthe Helm of Domination."
+	L_GLOBALSTRINGS["Junker: Rarity DropDown"]													= "Select the maximum rarity threshold for filtering items. Items at\nthe quality you choose and below are considered.\n\nDefault: |cff9d9d9dPoor|r"
 	L_GLOBALSTRINGS["Al'dalil"]																	= "Al'dalil"
 	L_GLOBALSTRINGS["Playful Trickster"]														= "Playful Trickster"
 	L_GLOBALSTRINGS["Trainer Ikaros"]															= "Trainer Ikaros"
@@ -199,6 +200,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a game system."
 	L_GLOBALSTRINGS["Tab Description: General"]													= "These are addon settings, unrelated to the\nsettings in the other tabs."
 	L_GLOBALSTRINGS["Tab Description: Junker"]													= "These are settings that control how |cffFFFFFFJunker|r handles\nvendoring items."
+	L_GLOBALSTRINGS["Rarity: Poor"]																= "|cff9D9D9DPoor|r"
+	L_GLOBALSTRINGS["Rarity: Common"]															= "|cffFFFFFFCommon|r"
+	L_GLOBALSTRINGS["Rarity: Uncommon"]															= "|cff1EFF00Uncommon|r"
+	L_GLOBALSTRINGS["Rarity: Rare"]																= "|cff0070DDRare|r"
+	L_GLOBALSTRINGS["Rarity: Epic"]																= "|cffA335EEEpic|r"
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS

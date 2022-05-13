@@ -250,6 +250,11 @@
 					<Anchor point="TOP" relativeTo="HMPJunkerItemTypeTradeskillCB" relativePoint="BOTTOM" y="-5" />
 				</Anchors>
 			</CheckButton>
+			<Frame name="HMPJunkerRarityDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeArmorCB" relativePoint="RIGHT" x="150" />
+				</Anchors>
+			</Frame>
 		</Frames>
 		<Layers>
 			<Layer level="OVERLAY">
