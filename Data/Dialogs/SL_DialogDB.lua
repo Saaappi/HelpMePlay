@@ -2149,6 +2149,14 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[157432] = { -- Bloodletter Phantoriax
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Torghast
 	-- Zereth Mortis
 	[0] = {
