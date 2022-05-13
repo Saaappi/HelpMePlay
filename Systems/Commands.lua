@@ -403,6 +403,28 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		end
 	elseif command == L_GLOBALSTRINGS["Calculate Command"] or command == L_GLOBALSTRINGS["Calculate Command Shorthand"] then
 		HelpMePlay_CalculateReagents()
+	elseif command == L_GLOBALSTRINGS["Junker Command"] and arguments ~= "" then
+		local subcommand, itemId = string.split(" ", arguments)
+		if tonumber(itemId) then
+			itemId = tonumber(itemId)
+			if subcommand == L_GLOBALSTRINGS["Add Subcommand"] then
+				if HelpMePlayJunkerDB[itemId] then
+					HelpMePlayJunkerDB = nil
+				else
+					HelpMePlayJunkerBlacklistDB[itemId] = nil
+					HelpMePlayJunkerDB[itemId] = true
+					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemId))
+				end
+			elseif subcommand == L_GLOBALSTRINGS["Blacklist Subcommand"] then
+				if HelpMePlayJunkerBlacklistDB[itemId] then
+					HelpMePlayJunkerBlacklistDB = nil
+				else
+					HelpMePlayJunkerDB[itemId] = nil
+					HelpMePlayJunkerBlacklistDB[itemId] = true
+					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Blacklisted Item Text"], itemId))
+				end
+			end
+		end
 	elseif command == L_GLOBALSTRINGS["Help Command"] then
 		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end

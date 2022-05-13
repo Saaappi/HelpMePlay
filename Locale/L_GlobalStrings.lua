@@ -42,6 +42,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Calculate Command"]														= "calculate"
 	L_GLOBALSTRINGS["Calculate Command Shorthand"]												= "calc"
 	L_GLOBALSTRINGS["Transmog Command"]															= "transmog"
+	L_GLOBALSTRINGS["Junker Command"]															= "junker"
 	L_GLOBALSTRINGS["Help Command"]																= "help"
 	L_GLOBALSTRINGS["Locale Not Supported"]														= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
 	L_GLOBALSTRINGS["Q"]																		= "q"
