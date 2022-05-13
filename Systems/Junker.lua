@@ -35,18 +35,23 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if itemId then
 					-- Certain items won't have an id.
 					-- Let's avoid those.
-					_, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
-					_, itemType = GetItemInfoInstant(itemId)
-					if HelpMePlayJunkerDB[itemId] then
-						UseContainerItem(bagId, slotId)
-					end
-					
-					if itemQuality == 0 then
-						UseContainerItem(bagId, slotId)
-					end
-					
-					if HelpMePlayOptionsDB["Junker"][itemType] then
-						UseContainerItem(bagId, slotId)
+					--
+					-- We need to ensure the item isn't on
+					-- the blacklist.
+					if HelpMePlayJunkerBlacklistDB[itemId] == nil then
+						_, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
+						_, itemType = GetItemInfoInstant(itemId)
+						if HelpMePlayJunkerDB[itemId] then
+							UseContainerItem(bagId, slotId)
+						end
+						
+						if itemQuality == 0 then
+							UseContainerItem(bagId, slotId)
+						end
+						
+						if HelpMePlayOptionsDB["Junker"][itemType] then
+							UseContainerItem(bagId, slotId)
+						end
 					end
 				end
 			end

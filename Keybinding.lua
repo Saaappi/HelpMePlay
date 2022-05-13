@@ -23,12 +23,15 @@ function HelpMePlayKeyPressHandler(key)
 			local _, itemLink = GameTooltip:GetItem()
 			if itemLink then
 				local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-				if HelpMePlayJunkerDB[itemId] then
-					HelpMePlayJunkerDB[itemId] = nil
-				else
-					HelpMePlayJunkerBlacklistDB[itemId] = nil
-					HelpMePlayJunkerDB[itemId] = true
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemLink))
+				local _, _, itemQuality = GetItemInfo(itemLink)
+				if itemQuality > 0 then
+					if HelpMePlayJunkerDB[itemId] then
+						HelpMePlayJunkerDB[itemId] = nil
+					else
+						HelpMePlayJunkerBlacklistDB[itemId] = nil
+						HelpMePlayJunkerDB[itemId] = true
+						print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemLink))
+					end
 				end
 			end
 		end
