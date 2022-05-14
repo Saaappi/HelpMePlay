@@ -24,6 +24,7 @@ function HelpMePlaySellItems()
 	local soldItemCount = 0
 	local freeSlots = 0
 	local itemId = 0
+	local sellPrice = 0
 	local itemQuality = nil
 	local itemType = ""
 	for bagId = 0, 4 do
@@ -39,19 +40,22 @@ function HelpMePlaySellItems()
 				if HelpMePlayJunkerBlacklistDB[itemId] == nil then
 					_, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
 					_, itemType = GetItemInfoInstant(itemId)
-					if HelpMePlayJunkerDB[itemId] then
-						UseContainerItem(bagId, slotId)
-						soldItemCount = soldItemCount + 1
-					end
-					
-					if itemQuality <= HelpMePlayOptionsDB.Junker.Rarity then
-						UseContainerItem(bagId, slotId)
-						soldItemCount = soldItemCount + 1
-					end
-					
-					if HelpMePlayOptionsDB["Junker"][itemType] then
-						UseContainerItem(bagId, slotId)
-						soldItemCount = soldItemCount + 1
+					_, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
+					if sellPrice > 0 then
+						if HelpMePlayJunkerDB[itemId] then
+							UseContainerItem(bagId, slotId)
+							soldItemCount = soldItemCount + 1
+						end
+						
+						if itemQuality <= HelpMePlayOptionsDB.Junker.Rarity then
+							UseContainerItem(bagId, slotId)
+							soldItemCount = soldItemCount + 1
+						end
+						
+						if HelpMePlayOptionsDB["Junker"][itemType] then
+							UseContainerItem(bagId, slotId)
+							soldItemCount = soldItemCount + 1
+						end
 					end
 				end
 				
