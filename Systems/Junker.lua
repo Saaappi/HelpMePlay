@@ -7,6 +7,9 @@ local HMPJunkerMerchantButton = _G.CreateFrame(
 	_G.MerchantFrame,
 	"OptionsButtonTemplate"
 )
+local normalTexture = e:CreateTexture()
+local pushedTexture = e:CreateTexture()
+local highlightTexture = e:CreateTexture()
 
 function HelpMePlaySellItems()
 	-- Don't iterate over the whole bag.
@@ -84,9 +87,25 @@ e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if HelpMePlayOptionsDB.Junker.Enabled == false or HelpMePlayOptionsDB.Junker.Enabled == nil then return false end
 	if event == "MERCHANT_SHOW" then
-		HMPJunkerMerchantButton:SetText("|T655994:16|t")
+		-- Texture work. Let's recreate the bag sorting button.
+		normalTexture:SetTexture("Interface\\ContainerFrame\\Bags")
+		normalTexture:SetSize(28, 26)
+		normalTexture:SetTexCoord(0.3125, 0.421875, 0.5390625, 0.640625)
+		
+		pushedTexture:SetTexture("Interface\\ContainerFrame\\Bags")
+		pushedTexture:SetSize(28, 26)
+		pushedTexture:SetTexCoord(0.1640625, 0.2734375, 0.8359375, 0.9375)
+		
+		highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+		highlightTexture:SetSize(24, 23)
+		
 		HMPJunkerMerchantButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
+		HMPJunkerMerchantButton:SetNormalTexture(normalTexture)
+		HMPJunkerMerchantButton:SetPushedTexture(pushedTexture)
+		HMPJunkerMerchantButton:SetHighlightTexture(highlightTexture, "ADD")
+		
+		-- Let's get the button on the MerchantFrame.
 		HMPJunkerMerchantButton:SetSize(28, 26)
 		HMPJunkerMerchantButton:SetPoint("TOPLEFT", 64, -28)
 		
