@@ -1,6 +1,12 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local HMPJunkerMerchantButton = _G.CreateFrame(
+	"Button",
+	"HMPJunkerMerchantButton",
+	_G.MerchantFrame,
+	"OptionsButtonTemplate"
+)
 
 function HelpMePlaySellItems()
 	-- Don't iterate over the whole bag.
@@ -78,6 +84,12 @@ e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if HelpMePlayOptionsDB.Junker.Enabled == false or HelpMePlayOptionsDB.Junker.Enabled == nil then return false end
 	if event == "MERCHANT_SHOW" then
+		HMPJunkerMerchantButton:SetText("|T655994:16|t")
+		HMPJunkerMerchantButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		
+		HMPJunkerMerchantButton:SetSize(28, 26)
+		HMPJunkerMerchantButton:SetPoint("TOPLEFT", 64, -28)
+		
 		HelpMePlaySellItems()
 	end
 end)
@@ -94,4 +106,14 @@ GameTooltip:HookScript("OnTooltipSetItem", function(self, ...)
 			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Blacklisted Item Text"])
 		end
 	end
+end)
+
+HMPJunkerMerchantButton:HookScript("OnClick", function(self)
+	HelpMePlaySellItems()
+end)
+
+HMPJunkerMerchantButton:HookScript("OnEnter", function(self)
+	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+	GameTooltip:SetText(L_GLOBALSTRINGS["Junker Merchant Button"])
+	GameTooltip:Show()
 end)
