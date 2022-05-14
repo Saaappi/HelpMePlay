@@ -250,6 +250,11 @@
 					<Anchor point="TOP" relativeTo="HMPJunkerItemTypeTradeskillCB" relativePoint="BOTTOM" y="-5" />
 				</Anchors>
 			</CheckButton>
+			<CheckButton name="HMPJunkerSafeModeCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="HMPDisableAllCB" relativePoint="RIGHT" x="400" />
+				</Anchors>
+			</CheckButton>
 			<Frame name="HMPJunkerRarityDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeArmorCB" relativePoint="RIGHT" x="150" />
@@ -494,6 +499,14 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeWeaponCB" relativePoint="LEFT" x="12" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPJunkerSafeModeText" inherits="GameFontNormal" text="Safe Mode" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="HMPJunkerSafeModeCB" relativePoint="LEFT" x="-3" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />

@@ -73,6 +73,8 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Hide()
 		HMPJunkerItemTypeWeaponText:Hide()
 		HMPJunkerItemTypeWeaponCB:Hide()
+		HMPJunkerSafeModeText:Hide()
+		HMPJunkerSafeModeCB:Hide()
 		HMPJunkerRarityDropDown:Hide()
 	elseif tabId == 2 then
 		-- Show the widgets hidden from the Automations
@@ -145,6 +147,8 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Hide()
 		HMPJunkerItemTypeWeaponText:Hide()
 		HMPJunkerItemTypeWeaponCB:Hide()
+		HMPJunkerSafeModeText:Hide()
+		HMPJunkerSafeModeCB:Hide()
 		HMPJunkerRarityDropDown:Hide()
 	elseif tabId == 3 then
 		-- Show the widgets hidden from the other tabs.
@@ -209,6 +213,8 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Hide()
 		HMPJunkerItemTypeWeaponText:Hide()
 		HMPJunkerItemTypeWeaponCB:Hide()
+		HMPJunkerSafeModeText:Hide()
+		HMPJunkerSafeModeCB:Hide()
 		HMPJunkerRarityDropDown:Hide()
 	else
 		-- Show the widgets hidden from the other tabs.
@@ -226,6 +232,8 @@ function HMPTab_OnClick(self)
 		HMPJunkerItemTypeTradeskillCB:Show()
 		HMPJunkerItemTypeWeaponText:Show()
 		HMPJunkerItemTypeWeaponCB:Show()
+		HMPJunkerSafeModeText:Show()
+		HMPJunkerSafeModeCB:Show()
 		HMPJunkerRarityDropDown:Show()
 		
 		-- Hide the widgets from the other tabs.
@@ -980,6 +988,7 @@ function HelpMePlayLoadSettings()
 			HMPJunkerItemTypeGemText:SetText(L_GLOBALSTRINGS["Gem"])
 			HMPJunkerItemTypeTradeskillText:SetText(L_GLOBALSTRINGS["Tradeskill"])
 			HMPJunkerItemTypeWeaponText:SetText(L_GLOBALSTRINGS["Weapon"])
+			HMPJunkerSafeModeText:SetText(L_GLOBALSTRINGS["Safe Mode"])
 			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
 			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
 			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
@@ -1015,6 +1024,7 @@ function HelpMePlayLoadSettings()
 			HMPJunkerItemTypeGemCB:SetChecked(HelpMePlayOptionsDB.Junker.Gem)
 			HMPJunkerItemTypeTradeskillCB:SetChecked(HelpMePlayOptionsDB.Junker.Tradeskill)
 			HMPJunkerItemTypeWeaponCB:SetChecked(HelpMePlayOptionsDB.Junker.Weapon)
+			HMPJunkerSafeModeCB:SetChecked(HelpMePlayOptionsDB.Junker.isSafeModeEnabled)
 			
 			if HelpMePlayOptionsDB.ChromieTimeExpansion then
 				UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
@@ -1510,6 +1520,17 @@ function HelpMePlayLoadSettings()
 			end)
 			HMPEnableJunkerCB:SetScript("OnClick", function(self)
 				HelpMePlayOptionsDB["Junker"]["Enabled"] = self:GetChecked()
+			end)
+			
+			-- Junker Safe Mode Check Button
+			HMPJunkerSafeModeCB:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Junker Safe Mode Check Button"])
+			end)
+			HMPJunkerSafeModeCB:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			HMPJunkerSafeModeCB:SetScript("OnClick", function(self)
+				HelpMePlayOptionsDB["Junker"]["isSafeModeEnabled"] = self:GetChecked()
 			end)
 			
 			-- Junker Armor Check Button

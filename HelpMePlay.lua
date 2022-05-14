@@ -46,6 +46,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayOptionsDB["Junker"]["Rarity"] == nil then
 				HelpMePlayOptionsDB["Junker"]["Rarity"] = 0
 			end
+			if HelpMePlayOptionsDB["Junker"]["isSafeModeEnabled"] == nil then
+				HelpMePlayOptionsDB["Junker"]["isSafeModeEnabled"] = true
+			end
 			if HelpMePlayJunkerBlacklistDB == nil then
 				HelpMePlayJunkerBlacklistDB = {}
 			end
