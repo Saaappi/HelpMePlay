@@ -136,3 +136,9 @@ HMPJunkerMerchantButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetText(L_GLOBALSTRINGS["Junker Merchant Button"])
 	GameTooltip:Show()
 end)
+
+HMPJunkerMerchantButton:HookScript("OnLeave", function(self)
+	if GameTooltip:GetOwner() == self then
+		GameTooltip:Hide()
+	end
+end)
