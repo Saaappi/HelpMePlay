@@ -290,7 +290,7 @@
 				<FontString name="HMPDisableAllText" inherits="GameFontNormal" font="Fonts\2002B.ttf" text="Disable All" justifyH="CENTER" justifyV="CENTER">
 					<Size x="80" y="20" />
 					<Anchors>
-						<Anchor point="LEFT" relativeTo="HMPDisableAllCB" relativePoint="LEFT" x="22" />
+						<Anchor point="LEFT" relativeTo="HMPDisableAllCB" relativePoint="LEFT" x="27" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
@@ -506,7 +506,7 @@
 				<FontString name="HMPJunkerSafeModeText" inherits="GameFontNormal" text="Safe Mode" justifyH="CENTER" justifyV="CENTER">
 					<Size x="99" y="20" />
 					<Anchors>
-						<Anchor point="RIGHT" relativeTo="HMPJunkerSafeModeCB" relativePoint="LEFT" x="3" />
+						<Anchor point="RIGHT" relativeTo="HMPJunkerSafeModeCB" relativePoint="LEFT" x="8" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
