@@ -41,7 +41,7 @@ function HelpMePlaySellItems()
 					_, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
 					_, itemType = GetItemInfoInstant(itemId)
 					_, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
-					if sellPrice > 0 then
+					if sellPrice and sellPrice > 0 then
 						if HelpMePlayJunkerDB[itemId] then
 							UseContainerItem(bagId, slotId)
 							soldItemCount = soldItemCount + 1
