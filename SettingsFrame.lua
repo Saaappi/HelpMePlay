@@ -6,6 +6,15 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local numTabs = 4
 local icon = ""
 
+local function ImportToJunker(itemId)
+	if HelpMePlayJunkerDB[itemId] then
+		HelpMePlayJunkerDB = nil
+	else
+		HelpMePlayJunkerBlacklistDB[itemId] = nil
+		HelpMePlayJunkerDB[itemId] = true
+	end
+end
+
 function HMPTab_OnClick(self)
 	local tabId = self
 	PanelTemplates_SetTab(HMPOptionsFrame, tabId)
@@ -1636,16 +1645,21 @@ function HelpMePlayLoadSettings()
 					OnButton1 = function(self, data)
 						if IsAddOnLoaded("Dejunk") then
 							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
-								--print(tonumber(id))
+								ImportToJunker(tonumber(id))
 							end
+							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "Dejunk"))
 						elseif IsAddOnLoaded("AutoVendor") then
-							print("AutoVendor loaded!")
+							if AutoVendorDB["profiles"]["Default"] then
+								for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["junk"]) do
+									ImportToJunker(id)
+								end
+							end
+							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "AutoVendor"))
 						else
-							print("No auto sell addon found...")
+							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["No Auto Sell AddOn Enabled"])
 						end
 					end,
 					OnCancel = function(self, data)
-						print("Loading list import frame...")
 					end,
 					OnAlt = function() end,
 					showAlert = true,
