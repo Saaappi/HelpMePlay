@@ -1643,18 +1643,19 @@ function HelpMePlayLoadSettings()
 					-- for cancels and OnCancel is used for loading
 					-- an item ID list.
 					OnButton1 = function(self, data)
-						if IsAddOnLoaded("Dejunk") then
-							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
-								ImportToJunker(tonumber(id))
-							end
-							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "Dejunk"))
-						elseif IsAddOnLoaded("AutoVendor") then
+						if IsAddOnLoaded("AutoVendor") then
 							if AutoVendorDB["profiles"]["Default"] then
 								for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["junk"]) do
 									ImportToJunker(id)
 								end
 							end
 							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "AutoVendor"))
+						elseif IsAddOnLoaded("Dejunk") then
+							
+							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
+								ImportToJunker(tonumber(id))
+							end
+							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "Dejunk"))
 						else
 							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["No Auto Sell AddOn Enabled"])
 						end
