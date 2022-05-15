@@ -76,6 +76,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerSafeModeText:Hide()
 		HMPJunkerSafeModeCB:Hide()
 		HMPJunkerRarityDropDown:Hide()
+		HMPJunkerImportButton:Hide()
 	elseif tabId == 2 then
 		-- Show the widgets hidden from the Automations
 		-- tab.
@@ -150,6 +151,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerSafeModeText:Hide()
 		HMPJunkerSafeModeCB:Hide()
 		HMPJunkerRarityDropDown:Hide()
+		HMPJunkerImportButton:Hide()
 	elseif tabId == 3 then
 		-- Show the widgets hidden from the other tabs.
 		HMPMinimapIconCB:Show()
@@ -216,6 +218,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerSafeModeText:Hide()
 		HMPJunkerSafeModeCB:Hide()
 		HMPJunkerRarityDropDown:Hide()
+		HMPJunkerImportButton:Hide()
 	else
 		-- Show the widgets hidden from the other tabs.
 		HMPEnableJunkerText:Show()
@@ -235,6 +238,7 @@ function HMPTab_OnClick(self)
 		HMPJunkerSafeModeText:Show()
 		HMPJunkerSafeModeCB:Show()
 		HMPJunkerRarityDropDown:Show()
+		HMPJunkerImportButton:Show()
 		
 		-- Hide the widgets from the other tabs.
 		HMPDialogCB:Hide()
@@ -989,6 +993,7 @@ function HelpMePlayLoadSettings()
 			HMPJunkerItemTypeTradeskillText:SetText(L_GLOBALSTRINGS["Tradeskill"])
 			HMPJunkerItemTypeWeaponText:SetText(L_GLOBALSTRINGS["Weapon"])
 			HMPJunkerSafeModeText:SetText(L_GLOBALSTRINGS["Safe Mode"])
+			HMPJunkerImportButton:SetText(L_GLOBALSTRINGS["Import"])
 			HMPOptionsFrameTab1:SetText(L_GLOBALSTRINGS["Tab: Automations"])
 			HMPOptionsFrameTab2:SetText(L_GLOBALSTRINGS["Tab: Systems"])
 			HMPOptionsFrameTab3:SetText(L_GLOBALSTRINGS["Tab: General"])
@@ -1616,6 +1621,40 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			UIDropDownMenu_Initialize(HMPJunkerRarityDropDown, DropDownMenu_Initialize)
+			
+			-- Junker Import Button
+			HMPJunkerImportButton:SetScript("OnClick", function(self)
+				StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {
+					text = L_GLOBALSTRINGS["Junker Import Message"],
+					button1 = L_GLOBALSTRINGS["Import from AddOn"],
+					button2 = L_GLOBALSTRINGS["Import from List"],
+					button3 = CANCEL,
+					-- This is confusing, but I don't want Cancel
+					-- as the second button. Thus, OnAlt is used
+					-- for cancels and OnCancel is used for loading
+					-- an item ID list.
+					OnButton1 = function(self, data)
+						if IsAddOnLoaded("Dejunk") then
+							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
+								--print(tonumber(id))
+							end
+						elseif IsAddOnLoaded("AutoVendor") then
+							print("AutoVendor loaded!")
+						else
+							print("No auto sell addon found...")
+						end
+					end,
+					OnCancel = function(self, data)
+						print("Loading list import frame...")
+					end,
+					OnAlt = function() end,
+					showAlert = true,
+					whileDead = false,
+					hideOnEscape = true,
+					preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_JUNKER_IMPORT")
+			end)
 			
 			-- Tab 1
 			HMPOptionsFrameTab1:SetScript("OnEnter", function(self)

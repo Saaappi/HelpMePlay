@@ -260,6 +260,12 @@
 					<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeArmorCB" relativePoint="RIGHT" x="150" />
 				</Anchors>
 			</Frame>
+			<Button name="HMPJunkerImportButton" inherits="UIPanelButtonTemplate" hidden="true" text="Import">
+				<Size x="52" y="24" />
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="HMPOptionsFrame" relativePoint="BOTTOMRIGHT" x="-15" y="15" />
+				</Anchors>
+			</Button>
 		</Frames>
 		<Layers>
 			<Layer level="OVERLAY">
