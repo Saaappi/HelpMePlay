@@ -1651,7 +1651,6 @@ function HelpMePlayLoadSettings()
 							end
 							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "AutoVendor"))
 						elseif IsAddOnLoaded("Dejunk") then
-							
 							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
 								ImportToJunker(tonumber(id))
 							end
