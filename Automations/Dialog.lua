@@ -13,11 +13,13 @@ local function GetParentMapID(mapId)
 	-- If not a continent, then recursively
 	-- scan the map relationship until the
 	-- first continent is found.
-	local mapInfo = C_Map.GetMapInfo(mapId)
-	if mapInfo.mapType ~= 2 and mapInfo.parentMapID ~= 0 then
-		GetParentMapID(mapInfo.parentMapID)
-	else
-		parentMapId = mapInfo.mapID
+	if mapId then
+		local mapInfo = C_Map.GetMapInfo(mapId)
+		if mapInfo.mapType ~= 2 and mapInfo.parentMapID ~= 0 then
+			GetParentMapID(mapInfo.parentMapID)
+		else
+			parentMapId = mapInfo.mapID
+		end
 	end
 end
 
