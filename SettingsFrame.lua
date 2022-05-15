@@ -6,12 +6,21 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local numTabs = 4
 local icon = ""
 
-local function ImportToJunker(itemId)
-	if HelpMePlayJunkerDB[itemId] then
-		HelpMePlayJunkerDB = nil
+local function ImportToJunker(itemId, instruction)
+	if instruction == "ADD" then
+		if HelpMePlayJunkerDB[itemId] then
+			HelpMePlayJunkerDB = nil
+		else
+			HelpMePlayJunkerBlacklistDB[itemId] = nil
+			HelpMePlayJunkerDB[itemId] = true
+		end
 	else
-		HelpMePlayJunkerBlacklistDB[itemId] = nil
-		HelpMePlayJunkerDB[itemId] = true
+		if HelpMePlayJunkerBlacklistDB[itemId] then
+			HelpMePlayJunkerBlacklistDB = nil
+		else
+			HelpMePlayJunkerDB[itemId] = nil
+			HelpMePlayJunkerBlacklistDB[itemId] = true
+		end
 	end
 end
 
@@ -1648,11 +1657,17 @@ function HelpMePlayLoadSettings()
 								for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["junk"]) do
 									ImportToJunker(id)
 								end
+								for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["not_junk"]) do
+									ImportToJunker(id, "BLACKLIST")
+								end
 							end
 							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "AutoVendor"))
 						elseif IsAddOnLoaded("Dejunk") then
 							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
-								ImportToJunker(tonumber(id))
+								ImportToJunker(tonumber(id), "ADD")
+							end
+							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
+								ImportToJunker(tonumber(id), "BLACKLIST")
 							end
 							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "Dejunk"))
 						else
