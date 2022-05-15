@@ -31,14 +31,12 @@ function HelpMePlaySellItems()
 	-- if the item type matches one of the
 	-- enabled filters.
 	local soldItemCount = 0
-	local freeSlots = 0
 	local itemId = 0
 	local sellPrice = 0
-	local itemQuality = nil
+	local itemQuality = 0
 	local itemType = ""
 	for bagId = 0, 4 do
-		freeSlots = GetContainerNumFreeSlots(bagId)
-		for slotId = 0, (GetContainerNumSlots(bagId) - freeSlots) do
+		for slotId = 0, GetContainerNumSlots(bagId) do
 			itemId = GetContainerItemID(bagId, slotId)
 			if itemId then
 				-- Certain items won't have an id.
@@ -50,20 +48,22 @@ function HelpMePlaySellItems()
 					_, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
 					_, itemType = GetItemInfoInstant(itemId)
 					_, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
-					if sellPrice and sellPrice > 0 then
-						if HelpMePlayJunkerDB[itemId] then
-							UseContainerItem(bagId, slotId)
-							soldItemCount = soldItemCount + 1
-						end
-						
-						if itemQuality <= HelpMePlayOptionsDB.Junker.Rarity then
-							UseContainerItem(bagId, slotId)
-							soldItemCount = soldItemCount + 1
-						end
-						
-						if HelpMePlayOptionsDB["Junker"][itemType] then
-							UseContainerItem(bagId, slotId)
-							soldItemCount = soldItemCount + 1
+					if sellPrice then
+						if sellPrice > 0 then
+							if HelpMePlayJunkerDB[itemId] then
+								UseContainerItem(bagId, slotId)
+								soldItemCount = soldItemCount + 1
+							end
+							
+							if itemQuality <= HelpMePlayOptionsDB["Junker"]["Rarity"] then
+								UseContainerItem(bagId, slotId)
+								soldItemCount = soldItemCount + 1
+							end
+							
+							if HelpMePlayOptionsDB["Junker"][itemType] then
+								UseContainerItem(bagId, slotId)
+								soldItemCount = soldItemCount + 1
+							end
 						end
 					end
 				end
@@ -108,8 +108,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Let's get the button on the MerchantFrame.
 		HMPJunkerMerchantButton:SetSize(28, 26)
 		HMPJunkerMerchantButton:SetPoint("TOPLEFT", 64, -28)
-		
-		HelpMePlaySellItems()
 	end
 end)
 
