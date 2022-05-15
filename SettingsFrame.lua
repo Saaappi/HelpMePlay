@@ -7,6 +7,7 @@ local numTabs = 4
 local icon = ""
 
 local function ImportToJunker(itemId, instruction)
+	itemId = tonumber(itemId)
 	if instruction == "ADD" then
 		if HelpMePlayJunkerDB[itemId] then
 			HelpMePlayJunkerDB = nil
@@ -1655,7 +1656,7 @@ function HelpMePlayLoadSettings()
 						if IsAddOnLoaded("AutoVendor") then
 							if AutoVendorDB["profiles"]["Default"] then
 								for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["junk"]) do
-									ImportToJunker(id)
+									ImportToJunker(id, "ADD")
 								end
 								for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["not_junk"]) do
 									ImportToJunker(id, "BLACKLIST")
@@ -1664,10 +1665,10 @@ function HelpMePlayLoadSettings()
 							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "AutoVendor"))
 						elseif IsAddOnLoaded("Dejunk") then
 							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
-								ImportToJunker(tonumber(id), "ADD")
+								ImportToJunker(id, "ADD")
 							end
 							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
-								ImportToJunker(tonumber(id), "BLACKLIST")
+								ImportToJunker(id, "BLACKLIST")
 							end
 							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "Dejunk"))
 						else
@@ -1675,6 +1676,40 @@ function HelpMePlayLoadSettings()
 						end
 					end,
 					OnCancel = function(self, data)
+						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT_ITEMLIST"] = {
+							text = L_GLOBALSTRINGS["Junker Import Item List Message"],
+							button1 = L_GLOBALSTRINGS["Add"],
+							button2 = L_GLOBALSTRINGS["Blacklist"],
+							OnAccept = function(self)
+								local count = 0
+								local items = string.split(",", self.editBox:GetText())
+								for i = 1, #items do
+									if tonumber(i) then
+										ImportToJunker(items[i], "ADD")
+										count = count + 1
+									end
+								end
+								print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+							end,
+							OnCancel = function(self)
+								local count = 0
+								local items = string.split(",", self.editBox:GetText())
+								for i = 1, #items do
+									if tonumber(i) then
+										ImportToJunker(items[i], "BLACKLIST")
+										count = count + 1
+									end
+								end
+								print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+							end,
+							showAlert = true,
+							whileDead = false,
+							hideOnEscape = true,
+							enterClicksFirstButton = true,
+							hasEditBox = true,
+							preferredIndex = 3,
+						}
+						StaticPopup_Show("HELPMEPLAY_JUNKER_IMPORT_ITEMLIST")
 					end,
 					OnAlt = function() end,
 					showAlert = true,
