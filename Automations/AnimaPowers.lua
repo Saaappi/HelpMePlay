@@ -135,7 +135,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					-- prevent taint between Anima Powers.
 					if responseId ~= 0 then
 						if HelpMePlayOptionsDB.Logging then
-							if bestPower then
+							if bestPower.choiceArtID and bestPower.spellID then
 								-- There will be times when a "best" power isn't available.
 								-- These circumstances will likely be when a power isn't
 								-- in the database.
@@ -148,8 +148,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 									print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
 									highestPriority = 9
 								end
-							else
-								print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["No Best Anima Power Available"])
 							end
 						end
 					end
