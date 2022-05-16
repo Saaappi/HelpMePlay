@@ -2157,6 +2157,14 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[171867] = { -- Dug Gravewell
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Yes, I will help."],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	-- End of Torghast
 	-- Zereth Mortis
 	[0] = {
