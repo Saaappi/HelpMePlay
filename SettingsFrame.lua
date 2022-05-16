@@ -25,6 +25,19 @@ local function ImportToJunker(itemId, instruction)
 	end
 end
 
+local function StringToTable(str, delimiter)
+	-- Create an empty table.
+	--
+	-- Split the string by the delimiter, then
+	-- insert each value into the table, then
+	-- return the table to the caller.
+	local tbl = {}
+	for match in (str .. delimiter):gmatch("(.-)" .. delimiter) do
+		table.insert(result, match)
+	end
+	return tbl
+end
+
 function HMPTab_OnClick(self)
 	local tabId = self
 	PanelTemplates_SetTab(HMPOptionsFrame, tabId)
@@ -1676,13 +1689,22 @@ function HelpMePlayLoadSettings()
 						end
 					end,
 					OnCancel = function(self, data)
+						-- Create a count variable to track how many items
+						-- are inserted into the table.
+						--
+						-- Get the text from the editbox and store it in a
+						-- string variable.
+						--
+						-- Convert the string to a table.
+						--
+						-- Import each item id into the table.
 						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT_ITEMLIST"] = {
 							text = L_GLOBALSTRINGS["Junker Import Item List Message"],
 							button1 = L_GLOBALSTRINGS["Add"],
 							button2 = L_GLOBALSTRINGS["Blacklist"],
 							OnAccept = function(self)
 								local count = 0
-								local items = string.split(",", self.editBox:GetText())
+								local items = StringToTable(self.editBox:GetText(), ",")
 								for i = 1, #items do
 									if tonumber(i) then
 										ImportToJunker(items[i], "ADD")
@@ -1693,7 +1715,7 @@ function HelpMePlayLoadSettings()
 							end,
 							OnCancel = function(self)
 								local count = 0
-								local items = string.split(",", self.editBox:GetText())
+								local items = StringToTable(self.editBox:GetText(), ",")
 								for i = 1, #items do
 									if tonumber(i) then
 										ImportToJunker(items[i], "BLACKLIST")
