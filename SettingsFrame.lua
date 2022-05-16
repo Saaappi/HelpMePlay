@@ -10,19 +10,18 @@ local function ImportToJunker(itemId, instruction)
 	itemId = tonumber(itemId)
 	if instruction == "ADD" then
 		if HelpMePlayJunkerDB[itemId] then
-			HelpMePlayJunkerDB = nil
+			HelpMePlayJunkerDB[itemId] = nil
 		else
-			HelpMePlayJunkerBlacklistDB[itemId] = nil
 			HelpMePlayJunkerDB[itemId] = true
 		end
 	else
 		if HelpMePlayJunkerBlacklistDB[itemId] then
-			HelpMePlayJunkerBlacklistDB = nil
+			HelpMePlayJunkerBlacklistDB[itemId] = nil
 		else
-			HelpMePlayJunkerDB[itemId] = nil
 			HelpMePlayJunkerBlacklistDB[itemId] = true
 		end
 	end
+	return
 end
 
 local function StringToTable(str, delimiter)
@@ -33,7 +32,7 @@ local function StringToTable(str, delimiter)
 	-- return the table to the caller.
 	local tbl = {}
 	for match in (str .. delimiter):gmatch("(.-)" .. delimiter) do
-		table.insert(result, match)
+		table.insert(tbl, match)
 	end
 	return tbl
 end
@@ -1702,13 +1701,14 @@ function HelpMePlayLoadSettings()
 							text = L_GLOBALSTRINGS["Junker Import Item List Message"],
 							button1 = L_GLOBALSTRINGS["Add"],
 							button2 = L_GLOBALSTRINGS["Blacklist"],
+							button3 = CANCEL,
 							OnAccept = function(self)
 								local count = 0
 								local items = StringToTable(self.editBox:GetText(), ",")
-								for i = 1, #items do
-									if tonumber(i) then
-										ImportToJunker(items[i], "ADD")
+								for _, id in ipairs(items) do
+									if tonumber(id) then
 										count = count + 1
+										ImportToJunker(id, "ADD")
 									end
 								end
 								print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
@@ -1716,14 +1716,15 @@ function HelpMePlayLoadSettings()
 							OnCancel = function(self)
 								local count = 0
 								local items = StringToTable(self.editBox:GetText(), ",")
-								for i = 1, #items do
-									if tonumber(i) then
-										ImportToJunker(items[i], "BLACKLIST")
+								for _, id in ipairs(items) do
+									if tonumber(id) then
+										ImportToJunker(id, "BLACKLIST")
 										count = count + 1
 									end
 								end
 								print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
 							end,
+							OnAlt = function() end,
 							showAlert = true,
 							whileDead = false,
 							hideOnEscape = true,

@@ -15,8 +15,7 @@ Locale\L_Waypoints.lua
 # Libraries
 Lib\lib.xml
 
-# Frame Prerequisites
-
+HelpMePlay.lua
 
 # Frame Stuff
 SettingsFrame.xml
@@ -80,4 +79,3 @@ Systems\Junker.lua
 
 # General Stuff
 Keybinding.lua
-HelpMePlay.lua
