@@ -33,6 +33,7 @@ Data\MerchantDB.lua
 Data\VehicleDB.lua
 Data\NotesDB.lua
 Data\TalentsDB.lua
+Data\PlayerChoiceDB.lua
 Data\SpeechDB.lua
 Data\QuestRewardsDB.lua
 Data\ReagentsDB.lua

@@ -12,7 +12,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
 			
-			if id == 174871 then -- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
+			if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
 				if HelpMePlayOptionsDB.ThreadsOfFate then
 					SendPlayerChoiceResponse(choiceInfo.options.[1].buttons[1].id)
 					HideUIPanel(PlayerChoiceFrame)
