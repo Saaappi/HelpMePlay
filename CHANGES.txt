@@ -8,5 +8,5 @@ Fixes and Updates:
 	- Added weights for multiple quests in Zereth Mortis.
 	- Added relatively general Torghast powers for all 3 Rogue specializations.
 	- Added more Torghast dialogs.
-	- Fixed an issue with talent system perks that don't have prerequisite talents.
+	- Fixed a problem with talent system perks that don't have prerequisite talents.
 	- Fixed multiple problems with the Anima Power automation.
