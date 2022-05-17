@@ -22,8 +22,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 			--[[
-			local unitGuid = UnitGUID("target") or UnitGUID("mouseover")
-			
 			if unitGuid then
 				--local _, _, _, _, _, npcId = strsplit("-", unitGuid); npcId = tonumber(npcId)
 				if mapId == 1670 then -- Oribos
