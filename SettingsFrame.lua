@@ -937,6 +937,22 @@ local function DropDownMenu_Initialize(menuName)
 		info.tooltipTitle = L_GLOBALSTRINGS["Rarity: Poor"]
 		info.tooltipText = L_GLOBALSTRINGS["Rarity: Poor"]
 		UIDropDownMenu_AddButton(info)
+		
+		-- Disabled
+		info.text = L_GLOBALSTRINGS["Disabled"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.Junker.Rarity = 10
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Disabled"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Disabled"]
+		info.tooltipText = L_GLOBALSTRINGS["Disabled"]
+		UIDropDownMenu_AddButton(info)
 	end
 end
 
