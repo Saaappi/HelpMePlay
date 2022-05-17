@@ -114,7 +114,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
 				if choiceInfo then
 					if choiceInfo.numOptions == 1 then
-						responseId = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options.buttons[1].id
+						responseId = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options.[1].buttons[1].id
 						SendPlayerChoiceResponse(responseId)
 						HideUIPanel(PlayerChoiceFrame)
 					else
@@ -131,23 +131,23 @@ e:SetScript("OnEvent", function(self, event, ...)
 					for i=1, choiceInfo.numOptions do
 						powerInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 						if powerInfo then
-							if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options.spellID] then
-								local priority = addonTable.ANIMAPOWERS[classId][specId][powerInfo.options.spellID]
+							if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options.[i].spellID] then
+								local priority = addonTable.ANIMAPOWERS[classId][specId][powerInfo.options.[i].spellID]
 								
 								if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic (No Epic)"] then
-									if powerInfo.options.rarity == 3 then
+									if powerInfo.options.[i].rarity == 3 then
 										priority = 10
 									end
 								end
 								
 								if priority < highestPriority then
 									highestPriority = priority
-									responseId = powerInfo.options.buttons[1].id
+									responseId = powerInfo.options.[i].buttons[1].id
 									bestPower = powerInfo
 									
 									for j=1, maxBuffs do
 										local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
-										if spellId == powerInfo.options.spellID then
+										if spellId == powerInfo.options.[i].spellID then
 											stackCount = count
 											break
 										end
@@ -155,10 +155,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 								elseif priority == highestPriority then
 									for j=1, maxBuffs do
 										local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
-										if spellId == powerInfo.options.spellID then
+										if spellId == powerInfo.options.[i].spellID then
 											if count < stackCount then
 												stackCount = count
-												responseId = powerInfo.options.buttons[1].id
+												responseId = powerInfo.options.[i].buttons[1].id
 												bestPower = powerInfo
 												break
 											end
@@ -171,12 +171,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 
 					if responseId ~= 0 then
 						if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Notifications"] then
-							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options.spellID))
+							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options.[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options.[1].spellID))
 							highestPriority = 9
 						else
 							SendPlayerChoiceResponse(responseId)
 							HideUIPanel(PlayerChoiceFrame)
-							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options.spellID))
+							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options.[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options.[1].spellID))
 							highestPriority = 9
 						end
 					end

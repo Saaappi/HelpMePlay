@@ -9,22 +9,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if PlayerChoiceFrame:IsVisible() then
 			local mapId = C_Map.GetBestMapForUnit("player")
-			local choiceOptionInfo = ""
+			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+			local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
+			
+			if id == 174871 then -- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
+				if HelpMePlayOptionsDB.ThreadsOfFate then
+					SendPlayerChoiceResponse(C_PlayerChoice.GetCurrentPlayerChoiceInfo().options.[1].buttons[1].id)
+					HideUIPanel(PlayerChoiceFrame)
+				else
+					SendPlayerChoiceResponse(C_PlayerChoice.GetCurrentPlayerChoiceInfo().options.[2].buttons[1].id)
+					HideUIPanel(PlayerChoiceFrame)
+				end
+			end
+			--[[
 			local unitGuid = UnitGUID("target") or UnitGUID("mouseover")
+			
 			if unitGuid then
-				local _, _, _, _, _, npcId = strsplit("-", unitGuid); npcId = tonumber(npcId)
+				--local _, _, _, _, _, npcId = strsplit("-", unitGuid); npcId = tonumber(npcId)
 				if mapId == 1670 then -- Oribos
-					if npcId == 174871 then -- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
-						if HelpMePlayOptionsDB.ThreadsOfFate then
-							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1) -- Threads of Fate
-							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-							HideUIPanel(PlayerChoiceFrame)
-						else
-							choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2) -- Story Mode
-							SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-							HideUIPanel(PlayerChoiceFrame)
-						end
-					end
 				elseif mapId == 543 then -- Gorgrond
 					if HelpMePlayOptionsDB.GarrisonTables then
 						-- Choose the Sparring Arena, otherwise
@@ -85,6 +87,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				end
 			end
+			]]--
 		end
 	end
 end)
