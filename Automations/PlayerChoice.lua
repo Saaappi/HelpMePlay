@@ -14,10 +14,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			
 			if id == 174871 then -- Fatescribe Roh-Tahl (Threads of Fate or Story Mode Selection)
 				if HelpMePlayOptionsDB.ThreadsOfFate then
-					SendPlayerChoiceResponse(C_PlayerChoice.GetCurrentPlayerChoiceInfo().options.[1].buttons[1].id)
+					SendPlayerChoiceResponse(choiceInfo.options.[1].buttons[1].id)
 					HideUIPanel(PlayerChoiceFrame)
 				else
-					SendPlayerChoiceResponse(C_PlayerChoice.GetCurrentPlayerChoiceInfo().options.[2].buttons[1].id)
+					SendPlayerChoiceResponse(choiceInfo.options.[2].buttons[1].id)
 					HideUIPanel(PlayerChoiceFrame)
 				end
 			end
