@@ -49,22 +49,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 							break
 						end
 					end
-				elseif mapId == 535 then -- Talador
-					if HelpMePlayOptionsDB.GarrisonTables then
-						-- Choose the Arsenal, otherwise
-						-- choose nothing.
-						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
-						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					end
-				elseif mapId == 542 then -- Spires of Arak
-					if HelpMePlayOptionsDB.GarrisonTables then
-						-- Choose the Brewery, otherwise
-						-- choose nothing.
-						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
-						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					end
 				elseif mapId == 1670 then -- Oribos
 					if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
 						choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
