@@ -22,103 +22,144 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if mapId then
 			local mapName = C_Map.GetMapInfo(mapId).name
 			if mapName == L_GLOBALSTRINGS["Torghast"] then
+				-- powerInfo holds all the information
+				-- about an individual power in the
+				-- current list of options.
+				--
+				-- The response ID is the number
+				-- that represents which option
+				-- needs to be selected based on
+				-- the highest priority.
+				--
+				-- choiceInfo holds the entire
+				-- anima power table from the
+				-- current selection. The number
+				-- of choices, info about the
+				-- choices themselves, etc.
+				--
+				-- If choiceInfo is valid, then
+				-- check the number of options
+				-- available to pick. If 1, then
+				-- simply take the power. We don't
+				-- need to concern ourselves with
+				-- other checks since there aren't
+				-- other choices.
+				--
+				-- If there is more than 1 choice,
+				-- then get the player's class and
+				-- spec ID. These will be used against
+				-- the Anima Power table where all
+				-- powers are stored.
+				--
+				-- stackCount is used to consider
+				-- whether power A or B or C should be
+				-- taken if 2 or more powers are equal.
+				-- The power with the lowest stack
+				-- count will be the winner.
+				--
+				-- highestPriority is how powers are
+				-- compared based on tier. An S-Tier power
+				-- would have a priority value of 1, whereas
+				-- a C-Tier power would have a priority
+				-- value of 4. This defaults to 9 since
+				-- there aren't 9 tiers of powers for
+				-- any class/spec.
+				--
+				-- bestPower holds the power information
+				-- for what's been determined to be the
+				-- best (current) power.
+				--
+				-- priority holds the priority value from
+				-- the Anima Power table for the current
+				-- power in the selections.
+				--
+				-- maxBuffs is the maximum number of buffs
+				-- a player can have active. This is used
+				-- to get the spell stack count later on.
+				--
+				-- If the current power is in the Anima
+				-- Power table, then continue.
+				--
+				-- Grab the priority from the Anima Power
+				-- table and assign it to the priority
+				-- variable.
+				--
+				-- If the player is using the "Automatic (No Epic)"
+				-- option for Torghast powers, then we need
+				-- to ignore epic powers in the list when they
+				-- show up. We do this by setting the priority
+				-- of the power to 10 to guarantee it's never
+				-- selected.
+				--
+				-- If the priority of the current power is less
+				-- than the current HIGHEST priority (meaning
+				-- the current power is better), then set the
+				-- new highestPriority value, set the new responseId,
+				-- and set bestPower to the current power. Also,
+				-- get the stack count for the current power.
+				--
+				-- If the priority is equal to the current HIGHEST
+				-- priority, then we'll attempt to use the stack
+				-- count to break the tie. Remember, the power with
+				-- the LOWEST stack count wins the tie.
+				--
+				-- If responseId has been set (meaning it's not the
+				-- default value of 0), then let's continue.
+				--
+				-- If the player is using Notifications mode, then
+				-- we shouldn't select the power. We should simply return
+				-- it to the chat frame. Otherwise, pick it.
+				local powerInfo = ""
+				local responseId = 0
 				local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
 				if choiceInfo then
-					-- Anima Powers are sectioned off by
-					-- class and specialization, so get
-					-- the player's class and specialization
-					-- IDs.
-					local _, _, classId = UnitClass("player")
-					local specIndex = GetSpecialization()
-					local specId = GetSpecializationInfo(specIndex)
+					if choiceInfo.numOptions == 1 then
+						responseId = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options.buttons[1].id
+						SendPlayerChoiceResponse(responseId)
+						HideUIPanel(PlayerChoiceFrame)
+					else
+						local _, _, classId = UnitClass("player")
+						local specIndex = GetSpecialization()
+						local specId = GetSpecializationInfo(specIndex)
+						local stackCount = 0
+						local highestPriority = 9
+						local bestPower = ""
+						local priority = 0
+						local maxBuffs = 44
+					end
 					
-					-- The stack count is how many stacks
-					-- of the spell the player has applied.
-					local stackCount = 0
-					
-					-- Highest priority is based on the
-					-- spell's tier. This means the spell
-					-- with the lowest number is more
-					-- important.
-					--
-					-- There aren't 9 tiers to Anima Powers
-					-- so set the default to 9 as a starting
-					-- value.
-					local highestPriority = 9
-					
-					-- The response ID is the number
-					-- that represents which option
-					-- needs to be selected based on
-					-- the highest priority.
-					local responseId = 0
-					
-					-- All the info about a spell is stored
-					-- in this variable.
-					local option = ""
-					
-					-- We need something to hold the best option
-					-- in memory.
-					local bestPower = ""
-					
-					for i=1,choiceInfo.numOptions do
-						option = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
-						if choiceInfo.numOptions == 1 then
-							responseId = option.buttons[1].id
-							SendPlayerChoiceResponse(option.buttons[1].id)
-							HideUIPanel(PlayerChoiceFrame)
-						end
-						if option then
-							if AnimaPowerExistsForClass(classId, specId, option.spellID) then
-								-- The spell exists in the table, so
-								-- let's check its assigned priority.
-								local priority = addonTable.ANIMAPOWERS[classId][specId][option.spellID]
+					for i=1, choiceInfo.numOptions do
+						powerInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+						if powerInfo then
+							if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options.spellID] then
+								local priority = addonTable.ANIMAPOWERS[classId][specId][powerInfo.options.spellID]
 								
-								-- We have to take into consideration
-								-- if the player is using the
-								-- "Automatic (No Epic)" setting.
-								--
-								-- If the priority is higher than the
-								-- previous spell, then assign the
-								-- highest priority for selection.
-								--
-								-- If the priority is the same as the
-								-- highest priority, then the current
-								-- Anima Power is on the same tier
-								-- as the previous. In this situation
-								-- the addon must determine which
-								-- spell has the higher current stack
-								-- count. The stack count needs to be
-								-- set to the new count in case a
-								-- future power, if available, is also
-								-- on the same tier.
-								if HelpMePlayOptionsDB.TorghastPowers == "Automatic (No Epic)" then
-									if option.rarity == 3 then
-										-- 1 is Green, 2 is Blue, etc.
-										-- Epic powers should be given
-										-- a low priority here. 1 is Best
-										-- 10 is Worst.
+								if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic (No Epic)"] then
+									if powerInfo.options.rarity == 3 then
 										priority = 10
 									end
 								end
+								
 								if priority < highestPriority then
 									highestPriority = priority
-									responseId = option.buttons[1].id
-									bestPower = option
-									for j=1,44 do
-										local _, icon, count, _, _, _, _, _, _, spellId = UnitAura("player", i, "MAW")
-										if spellId == option.spellID then
+									responseId = powerInfo.options.buttons[1].id
+									bestPower = powerInfo
+									
+									for j=1, maxBuffs do
+										local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
+										if spellId == powerInfo.options.spellID then
 											stackCount = count
 											break
 										end
 									end
 								elseif priority == highestPriority then
-									for j=1,44 do
-										local _, icon, count, _, _, _, _, _, _, spellId = UnitAura("player", i, "MAW")
-										if spellId == option.spellID then
+									for j=1, maxBuffs do
+										local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
+										if spellId == powerInfo.options.spellID then
 											if count < stackCount then
 												stackCount = count
-												responseId = option.buttons[1].id
-												bestPower = option
+												responseId = powerInfo.options.buttons[1].id
+												bestPower = powerInfo
 												break
 											end
 										end
@@ -127,28 +168,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 							end
 						end
 					end
-					-- Select the power that should be chosen
-					-- by index, hide the player choice UI, then
-					-- print the chosen power to the chat frame.
-					--
-					-- Reset the highest priority back to 10 to
-					-- prevent taint between Anima Powers.
+
 					if responseId ~= 0 then
-						if HelpMePlayOptionsDB.Logging then
-							if bestPower.choiceArtID and bestPower.spellID then
-								-- There will be times when a "best" power isn't available.
-								-- These circumstances will likely be when a power isn't
-								-- in the database.
-								if HelpMePlayOptionsDB.TorghastPowers == "Notifications" then
-									print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
-									highestPriority = 9
-								else
-									SendPlayerChoiceResponse(responseId)
-									HideUIPanel(PlayerChoiceFrame)
-									print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.spellID))
-									highestPriority = 9
-								end
-							end
+						if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Notifications"] then
+							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options.spellID))
+							highestPriority = 9
+						else
+							SendPlayerChoiceResponse(responseId)
+							HideUIPanel(PlayerChoiceFrame)
+							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options.choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options.spellID))
+							highestPriority = 9
 						end
 					end
 				end
