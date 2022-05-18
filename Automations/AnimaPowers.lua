@@ -17,7 +17,6 @@ e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if HelpMePlayOptionsDB.TorghastPowers == "Disabled" or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then return end
-		local choiceOptionInfo = ""
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if mapId then
 			local mapName = C_Map.GetMapInfo(mapId).name
@@ -40,6 +39,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- bestPower holds the power information
 				-- for what's been determined to be the
 				-- best (current) power.
+				--
+				-- unrankedPowers holds the index of a
+				-- power that isn't in the table.
+				-- These are then randomly selected at
+				-- the end if all powers are unranked.
 				--
 				-- If choiceInfo is valid, then
 				-- check the number of options
@@ -103,6 +107,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- count to break the tie. Remember, the power with
 				-- the LOWEST stack count wins the tie.
 				--
+				-- If the bestPower variable is still equal to ""
+				-- then all powers in the current selection are
+				-- unranked powers.
+				--
 				-- If responseId has been set (meaning it's not the
 				-- default value of 0), then let's continue.
 				--
@@ -113,6 +121,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local responseId = 0
 				local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
 				local bestPower = ""
+				local unrankedPowers = {}
 				if choiceInfo then
 					if choiceInfo.numOptions == 1 then
 						bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
@@ -165,8 +174,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 											end
 										end
 									end
+								else
+									table.insert(unrankedPowers, i)
 								end
 							end
+						end
+						
+						if bestPower == "" then
+							local randomNum = math.random(1, #unrankedPowers)
+							bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+							responseId = bestPower.options[randomNum].buttons[1].id
 						end
 					end
 
