@@ -115,7 +115,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local bestPower = ""
 				if choiceInfo then
 					if choiceInfo.numOptions == 1 then
-						responseId = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options[1].buttons[1].id
+						bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+						responseId = bestPower.options[1].buttons[1].id
 						SendPlayerChoiceResponse(responseId)
 						HideUIPanel(PlayerChoiceFrame)
 					else

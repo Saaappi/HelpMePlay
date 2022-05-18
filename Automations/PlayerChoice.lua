@@ -10,15 +10,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if PlayerChoiceFrame:IsVisible() then
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
-			local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
-			
-			if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
-				if HelpMePlayOptionsDB.ThreadsOfFate then
-					SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
-				else
-					SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
+			if choiceInfo then
+				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
+				
+				if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
+					if HelpMePlayOptionsDB.ThreadsOfFate then
+						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					else
+						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					end
 				end
 			end
 			--[[
