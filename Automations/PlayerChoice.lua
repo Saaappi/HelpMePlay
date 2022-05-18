@@ -14,10 +14,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			
 			if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
 				if HelpMePlayOptionsDB.ThreadsOfFate then
-					SendPlayerChoiceResponse(choiceInfo.options.[1].buttons[1].id)
+					SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 					HideUIPanel(PlayerChoiceFrame)
 				else
-					SendPlayerChoiceResponse(choiceInfo.options.[2].buttons[1].id)
+					SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
 					HideUIPanel(PlayerChoiceFrame)
 				end
 			end
