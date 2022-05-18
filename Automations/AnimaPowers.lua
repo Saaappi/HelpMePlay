@@ -37,6 +37,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- of choices, info about the
 				-- choices themselves, etc.
 				--
+				-- bestPower holds the power information
+				-- for what's been determined to be the
+				-- best (current) power.
+				--
 				-- If choiceInfo is valid, then
 				-- check the number of options
 				-- available to pick. If 1, then
@@ -64,10 +68,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- value of 4. This defaults to 9 since
 				-- there aren't 9 tiers of powers for
 				-- any class/spec.
-				--
-				-- bestPower holds the power information
-				-- for what's been determined to be the
-				-- best (current) power.
 				--
 				-- priority holds the priority value from
 				-- the Anima Power table for the current
@@ -112,6 +112,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local powerInfo = ""
 				local responseId = 0
 				local choiceInfo = C_PlayerChoice.GetPlayerChoiceInfo()
+				local bestPower = ""
 				if choiceInfo then
 					if choiceInfo.numOptions == 1 then
 						responseId = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options[1].buttons[1].id
@@ -123,44 +124,43 @@ e:SetScript("OnEvent", function(self, event, ...)
 						local specId = GetSpecializationInfo(specIndex)
 						local stackCount = 0
 						local highestPriority = 9
-						local bestPower = ""
 						local priority = 0
 						local maxBuffs = 44
-					end
-					
-					for i=1, choiceInfo.numOptions do
-						powerInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
-						if powerInfo then
-							if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID] then
-								local priority = addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID]
-								
-								if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic (No Epic)"] then
-									if powerInfo.options[i].rarity == 3 then
-										priority = 10
-									end
-								end
-								
-								if priority < highestPriority then
-									highestPriority = priority
-									responseId = powerInfo.options[i].buttons[1].id
-									bestPower = powerInfo
+						
+						for i=1, choiceInfo.numOptions do
+							powerInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+							if powerInfo then
+								if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID] then
+									local priority = addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID]
 									
-									for j=1, maxBuffs do
-										local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
-										if spellId == powerInfo.options[i].spellID then
-											stackCount = count
-											break
+									if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic (No Epic)"] then
+										if powerInfo.options[i].rarity == 3 then
+											priority = 10
 										end
 									end
-								elseif priority == highestPriority then
-									for j=1, maxBuffs do
-										local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
-										if spellId == powerInfo.options[i].spellID then
-											if count < stackCount then
+									
+									if priority < highestPriority then
+										highestPriority = priority
+										responseId = powerInfo.options[i].buttons[1].id
+										bestPower = powerInfo
+										
+										for j=1, maxBuffs do
+											local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
+											if spellId == powerInfo.options[i].spellID then
 												stackCount = count
-												responseId = powerInfo.options[i].buttons[1].id
-												bestPower = powerInfo
 												break
+											end
+										end
+									elseif priority == highestPriority then
+										for j=1, maxBuffs do
+											local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
+											if spellId == powerInfo.options[i].spellID then
+												if count < stackCount then
+													stackCount = count
+													responseId = powerInfo.options[i].buttons[1].id
+													bestPower = powerInfo
+													break
+												end
 											end
 										end
 									end
