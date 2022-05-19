@@ -21,6 +21,20 @@ e:SetScript("OnEvent", function(self, event, ...)
 						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
+				elseif id == addonTable.PLAYERCHOICE["Shadowlands Covenant Map: Covenant Selection"] then
+					if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
+						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
+						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
+						SendPlayerChoiceResponse(choiceInfo.options[3].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
+						SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+					end
 				end
 			end
 			--[[
@@ -47,25 +61,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 						break
 					end
 				end
-			elseif mapId == 1670 then -- Oribos
-				if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(1)
-					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
-				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(3)
-					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
-				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(5)
-					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
-				elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(7)
-					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
-				end
-			end
 			]]--
 		end
 	end

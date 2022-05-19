@@ -4,7 +4,8 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local PLAYERCHOICE = {
-	["Fatescribe Roh-Tahl"] 	= 174871,
+	["Fatescribe Roh-Tahl"] 								= 174871,
+	["Shadowlands Covenant Map: Covenant Selection"] 		= 357514,
 }
 
 addonTable.PLAYERCHOICE = PLAYERCHOICE
