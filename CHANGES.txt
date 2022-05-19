@@ -11,3 +11,4 @@ Fixes and Updates:
 	- Added more Torghast dialogs.
 	- Fixed a problem with talent system perks that don't have prerequisite talents.
 	- Fixed multiple problems with the Anima Power automation.
+	- Fixed a problem where the quest popup would sometimes linger after accepting a quest from an item or from the call boards in major cities.

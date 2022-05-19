@@ -35,6 +35,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 						SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
+				elseif choiceInfo.choiceID == addonTable.PLAYERCHOICE["Hero's Call Board"] or choiceInfo.choiceID == addonTable.PLAYERCHOICE["Warchief's Command Board"] then
+					for optionId, optionData in pairs(choiceInfo.options) do
+						if optionData.id == 1013 or optionData.id == 1014 then
+							SendPlayerChoiceResponse(optionData.buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+							break
+						end
+					end
 				end
 			end
 			--[[
@@ -47,20 +55,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 					HideUIPanel(PlayerChoiceFrame)
 				end
 			end
-			-- Not every player choice is associated
-			-- with an NPC, so these will be the
-			-- player choices prompted by objects.
-			if mapId == 84 or mapId == 85 then -- Orgrimmar / Stormwind City
-				if HelpMePlayOptionsDB.AdventureMaps == false or HelpMePlayOptionsDB.AdventureMaps == nil then return end
-				for i=1,3 do
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(i)
-					if choiceOptionInfo.id == 1014 then
-						-- This is the Tanaan Jungle (Dark Portal) option.
-						SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-						break
-					end
-				end
 			]]--
 		end
 	end
