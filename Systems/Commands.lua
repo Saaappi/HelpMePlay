@@ -420,27 +420,29 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 	elseif command == L_GLOBALSTRINGS["Calculate Command"] or command == L_GLOBALSTRINGS["Calculate Command Shorthand"] then
 		HelpMePlay_CalculateReagents()
 	elseif command == L_GLOBALSTRINGS["Junker Command"] and arguments ~= "" then
-		local subcommand, itemId = string.split(" ", arguments)
-		if tonumber(itemId) then
-			itemId = tonumber(itemId)
+		local subcommand, items = string.split("_", arguments)
+		local count = 0
+		items = HelpMePlay_StringToTable(items, " ")
+		for _, item in ipairs(items) do
 			if subcommand == L_GLOBALSTRINGS["Add Subcommand"] then
-				if HelpMePlayJunkerDB[itemId] then
-					HelpMePlayJunkerDB = nil
+				if HelpMePlayJunkerDB[item] then
+					HelpMePlayJunkerDB[item] = nil
 				else
-					HelpMePlayJunkerBlacklistDB[itemId] = nil
-					HelpMePlayJunkerDB[itemId] = true
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemId))
+					HelpMePlayJunkerBlacklistDB[item] = nil
+					HelpMePlayJunkerDB[item] = true
+					count = count + 1
 				end
 			elseif subcommand == L_GLOBALSTRINGS["Blacklist Subcommand"] then
-				if HelpMePlayJunkerBlacklistDB[itemId] then
-					HelpMePlayJunkerBlacklistDB = nil
+				if HelpMePlayJunkerBlacklistDB[item] then
+					HelpMePlayJunkerBlacklistDB[item] = nil
 				else
-					HelpMePlayJunkerDB[itemId] = nil
-					HelpMePlayJunkerBlacklistDB[itemId] = true
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Blacklisted Item Text"], itemId))
+					HelpMePlayJunkerDB[item] = nil
+					HelpMePlayJunkerBlacklistDB[item] = true
+					count = count + 1
 				end
 			end
 		end
+		print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
 	elseif command == L_GLOBALSTRINGS["Help Command"] then
 		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end
