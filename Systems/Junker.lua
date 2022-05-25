@@ -44,13 +44,13 @@ function HelpMePlaySellItems()
 				--
 				-- We need to ensure the item isn't on
 				-- the blacklist.
-				if HelpMePlayJunkerBlacklistDB[itemId] == nil then
+				if HelpMePlayJunkerGlobalBlacklistDB[itemId] == nil or HelpMePlayJunkerBlacklistDB[itemId] == nil then
 					_, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
 					_, itemType = GetItemInfoInstant(itemId)
 					_, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
 					if sellPrice then
 						if sellPrice > 0 then
-							if HelpMePlayJunkerDB[itemId] then
+							if HelpMePlayJunkerGlobalDB[itemId] or HelpMePlayJunkerDB[itemId] then
 								UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
 							end
@@ -111,11 +111,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 end)
 
-GameTooltip:HookScript("OnTooltipSetItem", function(self, ...)
+GameTooltip:HookScript("OnTooltipSetItem", function(self)
 	local _, itemLink = self:GetItem()
 	if itemLink then
 		local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-		if HelpMePlayJunkerDB[itemId] then
+		if HelpMePlayJunkerGlobalDB[itemId] then
+			self:AddLine(" ")
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Sell Item Text Global"])
+		elseif HelpMePlayJunkerGlobalBlacklistDB[itemId] then
+			self:AddLine(" ")
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Blacklisted Item Text Global"])
+		elseif HelpMePlayJunkerDB[itemId] then
 			self:AddLine(" ")
 			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Sell Item Text"])
 		elseif HelpMePlayJunkerBlacklistDB[itemId] then

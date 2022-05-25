@@ -14,4 +14,10 @@
 	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST" category="|cff00FFFFHelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST"))
 	</Binding>
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL" category="|cff00FFFFHelpMePlay|r">
+		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_GLOBAL"))
+	</Binding>
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST" category="|cff00FFFFHelpMePlay|r">
+		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST"))
+	</Binding>
 </Bindings>
