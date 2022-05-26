@@ -70,6 +70,8 @@ Automations\Cinematics.lua
 Automations\Quests.lua
 
 # Systems
+Systems\Professions.lua
+Systems\Transmog.lua
 Systems\Commands.lua
 Systems\GarrisonTalentNPC.lua
 Systems\Talents.lua
