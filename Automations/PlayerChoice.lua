@@ -11,7 +11,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
-				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id); print(choiceInfo.choiceID)
+				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
 				
 				if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
 					if HelpMePlayOptionsDB.ThreadsOfFate then
@@ -35,9 +35,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 						SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
-				elseif choiceInfo.choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
-					SendPlayerChoiceResponse(optionData.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
+				else
+					for i = 1, 3 do
+						if choiceInfo.options[i].choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
+							SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+							break
+						end
+					end
 				end
 			end
 			--[[
