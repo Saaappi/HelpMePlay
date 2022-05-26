@@ -7,7 +7,7 @@ local PLAYERCHOICE = {
 	["Fatescribe Roh-Tahl"] 								= 174871,	-- Creature ID
 	["Shadowlands Covenant Map: Covenant Selection"] 		= 357514,	-- GameObject ID
 	["Warchief's Command Board"] 							= 342, 		-- choiceID
-	["Hero's Call Board"] 									= 505, 		-- choiceID
+	["Tanaan Jungle"] 										= 1851147, 	-- choiceArtID
 }
 
 addonTable.PLAYERCHOICE = PLAYERCHOICE
