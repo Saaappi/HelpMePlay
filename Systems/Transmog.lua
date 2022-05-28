@@ -3,6 +3,14 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
+local HMPTransmogButton = _G.CreateFrame(
+	"Button",
+	"HMPTransmogButton",
+	_G.ContainerFrame1,
+	"OptionsButtonTemplate"
+)
+local normalTexture = e:CreateTexture()
+local highlightTexture = e:CreateTexture()
 
 local function RequipOriginalItems(equippedItems)
 	local currentlyEquippedItemLink
@@ -118,3 +126,42 @@ function HelpMePlay_GetEquippedItems()
 	
 	return
 end
+
+hooksecurefunc("ContainerFrame_OnShow", function(self)
+	-- Texture work. Let's recreate the bag sorting button.
+		normalTexture:SetTexture("Interface\\Transmogrify\\Transmogrify")
+		normalTexture:SetSize(18, 18)
+		normalTexture:SetTexCoord(0.8125, 0.880859, 0.09375, 0.166016)
+		
+		highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+		highlightTexture:SetSize(18, 17)
+		
+		HMPTransmogButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		
+		HMPTransmogButton:SetNormalTexture(normalTexture)
+		HMPTransmogButton:SetHighlightTexture(highlightTexture, "ADD")
+		
+		-- Let's get the button on the base container frame.
+		HMPTransmogButton:SetSize(18, 18)
+		HMPTransmogButton:SetPoint("TOPLEFT", 26, -46)
+end)
+
+hooksecurefunc("ContainerFrame_OnHide", function(self)
+	HMPTransmogButton:Hide()
+end)
+
+HMPTransmogButton:HookScript("OnClick", function(self)
+	HelpMePlay_GetEquippedItems()
+end)
+
+HMPTransmogButton:HookScript("OnEnter", function(self)
+	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+	GameTooltip:SetText(L_GLOBALSTRINGS["Transmog Button"])
+	GameTooltip:Show()
+end)
+
+HMPTransmogButton:HookScript("OnLeave", function(self)
+	if GameTooltip:GetOwner() == self then
+		GameTooltip:Hide()
+	end
+end)
