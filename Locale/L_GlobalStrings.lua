@@ -34,6 +34,7 @@ if (isLocaleSupported == false) then
 end
 
 if (isLocaleSupported) then
+	-- Start: 	Commands
 	L_GLOBALSTRINGS["Slash HMP"]																= "/hmp"
 	L_GLOBALSTRINGS["Confirm Command"]															= "confirm"
 	L_GLOBALSTRINGS["Dialog Command"]															= "dialog"
@@ -46,17 +47,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Help Command"]																= "help"
 	L_GLOBALSTRINGS["Add Subcommand"]															= "add"
 	L_GLOBALSTRINGS["Blacklist Subcommand"]														= "blacklist"
-	L_GLOBALSTRINGS["Locale Not Supported"]														= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
 	L_GLOBALSTRINGS["Q"]																		= "q"
 	L_GLOBALSTRINGS["T"]																		= "t"
-	L_GLOBALSTRINGS["Already on that quest."]													= "already on that quest."
-	L_GLOBALSTRINGS["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
-	L_GLOBALSTRINGS["Addon Short Name"]															= "HMP"
-	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	L_GLOBALSTRINGS["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
-	L_GLOBALSTRINGS["Red WARNING"]																= "|cffFF0000WARNING:|r "
-	L_GLOBALSTRINGS["Add"]																		= "Add"
-	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
+	-- End: 	Commands
+	--
+	-- Start:	Keybinds
 	L_GLOBALSTRINGS["Open Settings"]															= "Open Settings"
 	L_GLOBALSTRINGS["Learn All Transmog"]														= "Learn All Transmog"
 	L_GLOBALSTRINGS["Calculate Reagents"]														= "Calculate Reagents"
@@ -64,43 +59,20 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Add to Junker Global"]														= "Add to Junker Global"
 	L_GLOBALSTRINGS["Add to Junker Blacklist"]													= "Add to Junker Blacklist"
 	L_GLOBALSTRINGS["Add to Junker Global Blacklist"]											= "Add to Junker Global Blacklist"
-	L_GLOBALSTRINGS["Added Item Text"]															= "Added %s to Junker!"
-	L_GLOBALSTRINGS["Added Item Text Global"]													= "Added %s to Junker (Global)!"
-	L_GLOBALSTRINGS["Blacklisted Item Text"]													= "Blacklisted %s in Junker!"
-	L_GLOBALSTRINGS["Blacklisted Item Text Global"]												= "Blacklisted %s in Junker (Global)!"
-	L_GLOBALSTRINGS["Imported To Junker From List Text"]										= "Imported %s item(s) to Junker!"
-	L_GLOBALSTRINGS["Imported To Junker Text"]													= "Imported all items from %s to Junker!"
-	L_GLOBALSTRINGS["Junker: Sell Item Text"]													= "|cffFFFFFFSELL|r"
-	L_GLOBALSTRINGS["Junker: Sell Item Text Global"]											= "|cffFFFFFFSELL (GLOBAL)|r"
-	L_GLOBALSTRINGS["Junker: Blacklisted Item Text"]											= "|cffFFFFFFBLACKLISTED|r"
-	L_GLOBALSTRINGS["Junker: Blacklisted Item Text Global"]										= "|cffFFFFFFBLACKLISTED (GLOBAL)|r"
-	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
-	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed: "
-	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else." 
-	L_GLOBALSTRINGS["Level Congrats Text"]														= "Congratulations on reaching level %s! Suggested talent: %s"
-	L_GLOBALSTRINGS["Automatic"]																= "Automatic"
-	L_GLOBALSTRINGS["Automatic (No Epic)"]														= "Automatic (No Epic)"
-	L_GLOBALSTRINGS["Notifications"]															= "Notifications"
-	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
-	L_GLOBALSTRINGS["Dialog Removed"]															= "Removed \"%s\" from database."
-	L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
-	L_GLOBALSTRINGS["No Auto Sell AddOn Enabled"]												= "No auto sell addon enabled."
-	L_GLOBALSTRINGS["Party Play Enabled Warning Text"]											= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
-	L_GLOBALSTRINGS["War Mode Reminder: Alliance"]												= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
-	L_GLOBALSTRINGS["War Mode Reminder: Horde"]													= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
-	L_GLOBALSTRINGS["Import from AddOn"]														= "Import from AddOn"
-	L_GLOBALSTRINGS["Import from List"]															= "Import from List"
-	L_GLOBALSTRINGS["Reagent Copy Message"]														= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
-	L_GLOBALSTRINGS["Junker Import Message"]													= "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFF6600Note|r: Only GLOBAL lists will be imported from these addons."
-	L_GLOBALSTRINGS["Junker Import Item List Message"]											= "Please paste your comma-delimited list of items in the editbox below."
-	L_GLOBALSTRINGS["Reagent Name is Nil"]														= "[|cffFF7900WARNING|r] Reagent data missing. Blame Blizzard. Try again until this warning doesn't show."
-	L_GLOBALSTRINGS["Trade Skill Window Invisible"]												= "[|cffFF7900WARNING|r] Please open the desired trade skill window before running this command. If values are nil or missing, then close and reopen the window and try again."
-	L_GLOBALSTRINGS["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
-	L_GLOBALSTRINGS["Unknown Source ID"]														= "[|cffFF7900WARNING|r] Unable to determine the collected status for %s. Please check the item. (Bag: %s, Slot: %s)"
-	L_GLOBALSTRINGS["Unlearnable Appearance"]													= "Unlearnable Appearance"
-	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
-	L_GLOBALSTRINGS["Quest Removed Text"]														= "Removed"
-	L_GLOBALSTRINGS["Quest Accepted Text"]														= "Accepted"
+	-- End:		Keybinds
+	--
+	-- Start:	Tabs
+	L_GLOBALSTRINGS["Tab: Automations"]															= "Automations"
+	L_GLOBALSTRINGS["Tab: Systems"]																= "Systems"
+	L_GLOBALSTRINGS["Tab: General"]																= "General"
+	L_GLOBALSTRINGS["Tab: Junker"]																= "Junker"
+	L_GLOBALSTRINGS["Tab Description: Automations"]												= "These are the features that take action\non your behalf."
+	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a game system."
+	L_GLOBALSTRINGS["Tab Description: General"]													= "These are addon settings, unrelated to the\nsettings in the other tabs."
+	L_GLOBALSTRINGS["Tab Description: Junker"]													= "These are settings that control how |cffFFFFFFJunker|r handles\nvendoring items."
+	-- End:		Tabs
+	--
+	-- Start:	Dropdowns
 	L_GLOBALSTRINGS["Burning Crusade"]															= "Burning Crusade"
 	L_GLOBALSTRINGS["Lich King"]																= "Lich King"
 	L_GLOBALSTRINGS["Cataclysm"]																= "Cataclysm"
@@ -115,6 +87,23 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Vol'dun"]																	= "Vol'dun"
 	L_GLOBALSTRINGS["Zuldazar"]																	= "Zuldazar"
 	L_GLOBALSTRINGS["Random"]																	= "Random"
+	L_GLOBALSTRINGS["Torghast"]																	= "Torghast"
+	L_GLOBALSTRINGS["Kyrian"]																	= "Kyrian"
+	L_GLOBALSTRINGS["Necrolord"]																= "Necrolord"
+	L_GLOBALSTRINGS["Night Fae"]																= "Night Fae"
+	L_GLOBALSTRINGS["Venthyr"]																	= "Venthyr"
+	L_GLOBALSTRINGS["Rarity: Poor"]																= "|cff9D9D9DPoor|r"
+	L_GLOBALSTRINGS["Rarity: Common"]															= "|cffFFFFFFCommon|r"
+	L_GLOBALSTRINGS["Rarity: Uncommon"]															= "|cff1EFF00Uncommon|r"
+	L_GLOBALSTRINGS["Rarity: Rare"]																= "|cff0070DDRare|r"
+	L_GLOBALSTRINGS["Rarity: Epic"]																= "|cffA335EEEpic|r"
+	L_GLOBALSTRINGS["Automatic"]																= "Automatic"
+	L_GLOBALSTRINGS["Automatic (No Epic)"]														= "Automatic (No Epic)"
+	L_GLOBALSTRINGS["Notifications"]															= "Notifications"
+	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
+	-- End:		Dropdowns
+	--
+	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Copyright Text"]															= "Crafted with |cffFF5C5C♥|r by Lightsky#0658"
 	L_GLOBALSTRINGS["Adventure Maps"]															= "Adventure Maps"
 	L_GLOBALSTRINGS["Dialog"]																	= "Dialog"
@@ -149,6 +138,21 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Safe Mode"]																= "Safe Mode"
 	L_GLOBALSTRINGS["Import"]																	= "Import"
 	L_GLOBALSTRINGS["Disable All"]																= "Disable All"
+	L_GLOBALSTRINGS["Add"]																		= "Add"
+	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
+	L_GLOBALSTRINGS["Junker: Sell Item Text"]													= "|cffFFFFFFSELL|r"
+	L_GLOBALSTRINGS["Junker: Sell Item Text Global"]											= "|cffFFFFFFSELL (GLOBAL)|r"
+	L_GLOBALSTRINGS["Junker: Blacklisted Item Text"]											= "|cffFFFFFFBLACKLISTED|r"
+	L_GLOBALSTRINGS["Junker: Blacklisted Item Text Global"]										= "|cffFFFFFFBLACKLISTED (GLOBAL)|r"
+	L_GLOBALSTRINGS["Import from List"]															= "Import from List"
+	L_GLOBALSTRINGS["Reagent Copy Message"]														= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
+	L_GLOBALSTRINGS["Junker Import Message"]													= "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFF6600Note|r: Only GLOBAL lists will be imported from these addons."
+	L_GLOBALSTRINGS["Junker Import Item List Message"]											= "Please paste your comma-delimited list of items in the editbox below."
+	L_GLOBALSTRINGS["Import from AddOn"]														= "Import from AddOn"
+	-- End:		UI Text Elements
+	--
+	-- Start:	Tooltip Text Elements
+	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
 	L_GLOBALSTRINGS["Disable All Check Button"]													= "Disables all the below settings and returns\nthem to their default state.\n\nThis check button affects all settings regardless\nof the tab you're on.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them\nto their saved state."
 	L_GLOBALSTRINGS["Adventure Maps Check Button"]												= "Automates the Hero's Call Board and the selection of zones for the\nBattle for Azeroth and Shadowlands adventure maps."
 	L_GLOBALSTRINGS["Dialog Check Button"]														= "Automates the selection of dialog options when speaking with creatures.\nThis does |cffFFFFFFNOT|r apply to all dialogs. Use the |cffFFFFFF/dialog|r command to add your own!"
@@ -181,9 +185,54 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
 	L_GLOBALSTRINGS["Covenants DropDown"]														= "|cffFFFFFFCovenants|r\nAutomates the Covenant to select when interacting with\nthe Helm of Domination."
 	L_GLOBALSTRINGS["Junker: Rarity DropDown"]													= "Select the maximum rarity threshold for filtering items. Items at\nthe quality you choose and below are considered.\n\nDefault: |cff9d9d9dPoor|r"
+	-- End:		Tooltip Text Elements
+	--
+	-- Start: 	Text Output
+	L_GLOBALSTRINGS["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
+	L_GLOBALSTRINGS["Addon Short Name"]															= "HMP"
+	L_GLOBALSTRINGS["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
+	L_GLOBALSTRINGS["Added Item Text"]															= "Added %s to Junker!"
+	L_GLOBALSTRINGS["Added Item Text Global"]													= "Added %s to Junker (Global)!"
+	L_GLOBALSTRINGS["Blacklisted Item Text"]													= "Blacklisted %s in Junker!"
+	L_GLOBALSTRINGS["Blacklisted Item Text Global"]												= "Blacklisted %s in Junker (Global)!"
+	L_GLOBALSTRINGS["Imported To Junker From List Text"]										= "Imported %s item(s) to Junker!"
+	L_GLOBALSTRINGS["Imported To Junker Text"]													= "Imported all items from %s to Junker!"
+	L_GLOBALSTRINGS["Level Congrats Text"]														= "Congratulations on reaching level %s! Suggested talent: %s"
+	L_GLOBALSTRINGS["Dialog Removed"]															= "Removed \"%s\" from database."
+	L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
+	L_GLOBALSTRINGS["No Auto Sell AddOn Enabled"]												= "No auto sell addon enabled."
+	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else."
+	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
+	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed: "
+	L_GLOBALSTRINGS["Party Play Enabled Warning Text"]											= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
+	L_GLOBALSTRINGS["War Mode Reminder: Alliance"]												= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
+	L_GLOBALSTRINGS["War Mode Reminder: Horde"]													= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
+	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
+	L_GLOBALSTRINGS["Quest Removed Text"]														= "Removed"
+	L_GLOBALSTRINGS["Quest Accepted Text"]														= "Accepted"
+	-- End:		Text Output
+	--
+	-- Start:	Warning Text Output
+	L_GLOBALSTRINGS["Red WARNING"]																= "|cffFF0000WARNING:|r "
+	L_GLOBALSTRINGS["Reagent Name is Nil"]														= "[|cffFF7900WARNING|r] Reagent data missing. Blame Blizzard. Try again until this warning doesn't show."
+	L_GLOBALSTRINGS["Trade Skill Window Invisible"]												= "[|cffFF7900WARNING|r] Please open the desired trade skill window before running this command. If values are nil or missing, then close and reopen the window and try again."
+	L_GLOBALSTRINGS["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
+	L_GLOBALSTRINGS["Unknown Source ID"]														= "[|cffFF7900WARNING|r] Unable to determine the collected status for %s. Please check the item. (Bag: %s, Slot: %s)"
+	L_GLOBALSTRINGS["Unlearnable Appearance"]													= "Unlearnable Appearance"
+	L_GLOBALSTRINGS["Locale Not Supported"]														= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
+	-- End:		Warning Text Output
+	--
+	-- Start:	Speech Creatures
 	L_GLOBALSTRINGS["Al'dalil"]																	= "Al'dalil"
 	L_GLOBALSTRINGS["Playful Trickster"]														= "Playful Trickster"
 	L_GLOBALSTRINGS["Trainer Ikaros"]															= "Trainer Ikaros"
+	-- End:		Speech Creatures
+	--
+	-- Start:	In-Game Error Checks
+	L_GLOBALSTRINGS["Already on that quest."]													= "already on that quest."
+	-- End:		In-Game Error Checks
+	--
+	-- Start:	Speech Text Checks
 	L_GLOBALSTRINGS["Playful Trickster: Praise"]												= "not so much as a word of praise!"
 	L_GLOBALSTRINGS["Playful Trickster: Cheer"]													= "the other spriggans were all cheering my name for days!"
 	L_GLOBALSTRINGS["Playful Trickster: Dance"]													= "dance with me!"
@@ -208,24 +257,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Taloned Flayedwing: Praise"]												= "the flayedwing is flying smoothly, praise them!"
 	L_GLOBALSTRINGS["Taloned Flayedwing: Scared"]												= "the flayedwing is scared, soothe it with gentle pats!"
 	L_GLOBALSTRINGS["Taloned Flayedwing: Shake"]												= "the flayedwing is trying to shake you off, hold on tight!"
-	L_GLOBALSTRINGS["Torghast"]																	= "Torghast"
-	L_GLOBALSTRINGS["Kyrian"]																	= "Kyrian"
-	L_GLOBALSTRINGS["Necrolord"]																= "Necrolord"
-	L_GLOBALSTRINGS["Night Fae"]																= "Night Fae"
-	L_GLOBALSTRINGS["Venthyr"]																	= "Venthyr"
-	L_GLOBALSTRINGS["Tab: Automations"]															= "Automations"
-	L_GLOBALSTRINGS["Tab: Systems"]																= "Systems"
-	L_GLOBALSTRINGS["Tab: General"]																= "General"
-	L_GLOBALSTRINGS["Tab: Junker"]																= "Junker"
-	L_GLOBALSTRINGS["Tab Description: Automations"]												= "These are the features that take action\non your behalf."
-	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a game system."
-	L_GLOBALSTRINGS["Tab Description: General"]													= "These are addon settings, unrelated to the\nsettings in the other tabs."
-	L_GLOBALSTRINGS["Tab Description: Junker"]													= "These are settings that control how |cffFFFFFFJunker|r handles\nvendoring items."
-	L_GLOBALSTRINGS["Rarity: Poor"]																= "|cff9D9D9DPoor|r"
-	L_GLOBALSTRINGS["Rarity: Common"]															= "|cffFFFFFFCommon|r"
-	L_GLOBALSTRINGS["Rarity: Uncommon"]															= "|cff1EFF00Uncommon|r"
-	L_GLOBALSTRINGS["Rarity: Rare"]																= "|cff0070DDRare|r"
-	L_GLOBALSTRINGS["Rarity: Epic"]																= "|cffA335EEEpic|r"
+	-- End:		Speech Text Checks
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS
