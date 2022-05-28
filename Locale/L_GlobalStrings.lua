@@ -53,7 +53,6 @@ if (isLocaleSupported) then
 	--
 	-- Start:	Keybinds
 	L_GLOBALSTRINGS["Open Settings"]															= "Open Settings"
-	L_GLOBALSTRINGS["Learn All Transmog"]														= "Learn All Transmog"
 	L_GLOBALSTRINGS["Calculate Reagents"]														= "Calculate Reagents"
 	L_GLOBALSTRINGS["Add to Junker"]															= "Add to Junker"
 	L_GLOBALSTRINGS["Add to Junker Global"]														= "Add to Junker Global"

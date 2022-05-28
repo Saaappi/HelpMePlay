@@ -146,10 +146,6 @@ hooksecurefunc("ContainerFrame_OnShow", function(self)
 		HMPTransmogButton:SetPoint("TOPLEFT", 26, -46)
 end)
 
-hooksecurefunc("ContainerFrame_OnHide", function(self)
-	HMPTransmogButton:Hide()
-end)
-
 HMPTransmogButton:HookScript("OnClick", function(self)
 	HelpMePlay_GetEquippedItems()
 end)

@@ -12,3 +12,5 @@ Fixes and Updates:
 	- Fixed a problem with talent system perks that don't have prerequisite talents.
 	- Fixed multiple problems with the Anima Power automation.
 	- Fixed a problem where the quest popup would sometimes linger after accepting a quest from an item or from the call boards in major cities.
+Removed:
+	- Removed the Transmog keybind. This has been replaced with a button in the player's bags. (Users can still invoke /hmp transmog or /hmp t.)
