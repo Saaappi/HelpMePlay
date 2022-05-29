@@ -190,6 +190,11 @@
 					<Anchor point="TOPLEFT" x="39" y="-99" />
 				</Anchors>
 			</CheckButton>
+			<Frame name="HMPQuestRewardDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
+				<Anchors>
+					<Anchor point="TOPLEFT" x="354" y="-61" />
+				</Anchors>
+			</Frame>
 			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="354" y="-204" />

@@ -112,7 +112,7 @@ function HMP_CompleteQuest()
 			local playerLevel = UnitLevel("player")
 			-- We want to stop selecting quest rewards
 			-- at max level.
-			if playerLevel < 60 then
+			if playerLevel < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 				-- Let's create a couple tables to hold
 				-- the quest choice indices for the rewards'
 				-- item level and sell price.
@@ -123,7 +123,7 @@ function HMP_CompleteQuest()
 				-- then let's compare it to what the player
 				-- has equipped. While leveling, item level
 				-- is king.
-				for i=1, numQuestChoices do
+				for i = 1, numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local itemLink = GetQuestItemLink("choice", i)
 					if itemLink then

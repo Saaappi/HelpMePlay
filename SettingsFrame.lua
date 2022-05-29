@@ -69,6 +69,7 @@ function HMPTab_OnClick(self)
 		HMPQueuesText:Show()
 		HMPVehiclesCB:Show()
 		HMPVehiclesText:Show()
+		HMPQuestRewardDropDown:Show()
 		HMPChromieTimeDropDown:Show()
 		HMPCovenantsDropDown:Show()
 		HMPBFAZoneSelDropDown:Show()
@@ -165,6 +166,7 @@ function HMPTab_OnClick(self)
 		HMPMinimapIconText:Hide()
 		HMPLoggingCB:Hide()
 		HMPLoggingText:Hide()
+		HMPQuestRewardDropDown:Hide()
 		HMPChromieTimeDropDown:Hide()
 		HMPCovenantsDropDown:Hide()
 		HMPBFAZoneSelDropDown:Hide()
@@ -231,6 +233,7 @@ function HMPTab_OnClick(self)
 		HMPPartyPlayText:Hide()
 		HMPPartyPlayAnnounceCB:Hide()
 		HMPPartyPlayAutoShareCB:Hide()
+		HMPQuestRewardDropDown:Hide()
 		HMPChromieTimeDropDown:Hide()
 		HMPCovenantsDropDown:Hide()
 		HMPTorghastPowersDropDown:Hide()
@@ -312,6 +315,7 @@ function HMPTab_OnClick(self)
 		HMPPartyPlayText:Hide()
 		HMPPartyPlayAnnounceCB:Hide()
 		HMPPartyPlayAutoShareCB:Hide()
+		HMPQuestRewardDropDown:Hide()
 		HMPChromieTimeDropDown:Hide()
 		HMPCovenantsDropDown:Hide()
 		HMPTorghastPowersDropDown:Hide()
@@ -957,6 +961,54 @@ local function DropDownMenu_Initialize(menuName)
 		info.tooltipTitle = L_GLOBALSTRINGS["Disabled"]
 		info.tooltipText = L_GLOBALSTRINGS["Disabled"]
 		UIDropDownMenu_AddButton(info)
+	elseif menuName:GetName() == "HMPQuestRewardDropDown" then
+		-- Item Level
+		info.text = L_GLOBALSTRINGS["Item Level"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.QuestRewards = L_GLOBALSTRINGS["Item Level"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Item Level"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Item Level"]
+		info.tooltipText = L_GLOBALSTRINGS["Item Level"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Sell Price
+		info.text = L_GLOBALSTRINGS["Sell Price"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.QuestRewards = L_GLOBALSTRINGS["Sell Price"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Sell Price"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Sell Price"]
+		info.tooltipText = L_GLOBALSTRINGS["Sell Price"]
+		UIDropDownMenu_AddButton(info)
+		
+		-- Disabled
+		info.text = L_GLOBALSTRINGS["Disabled"]
+		info.func = function(self)
+			HelpMePlayOptionsDB.QuestRewards = L_GLOBALSTRINGS["Disabled"]
+			UIDropDownMenu_SetSelectedValue(menuName, self.value)
+		end
+		info.value = L_GLOBALSTRINGS["Disabled"]
+		if info.value == selectedValue then
+			info.checked = true
+		else
+			info.checked = false
+		end
+		info.tooltipTitle = L_GLOBALSTRINGS["Disabled"]
+		info.tooltipText = L_GLOBALSTRINGS["Disabled"]
+		UIDropDownMenu_AddButton(info)
 	end
 end
 
@@ -1082,6 +1134,16 @@ function HelpMePlayLoadSettings()
 			HMPJunkerItemTypeWeaponCB:SetChecked(HelpMePlayOptionsDB.Junker.Weapon)
 			HMPJunkerSafeModeCB:SetChecked(HelpMePlayOptionsDB.Junker.isSafeModeEnabled)
 			
+			if HelpMePlayOptionsDB.QuestRewards then
+				if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
+					UIDropDownMenu_SetText(HMPQuestRewardDropDown, L_GLOBALSTRINGS["Item Level"])
+				elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
+					UIDropDownMenu_SetText(HMPQuestRewardDropDown, L_GLOBALSTRINGS["Sell Price"])
+				else
+					UIDropDownMenu_SetText(HMPQuestRewardDropDown, L_GLOBALSTRINGS["Disabled"])
+				end
+			end
+			
 			if HelpMePlayOptionsDB.ChromieTimeExpansion then
 				UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 			end
@@ -1199,6 +1261,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare = HelpMePlayOptionsDB.PartyPlayAutoShare
 					HelpMePlayOptionsDB["TempSettings"].Logging = HelpMePlayOptionsDB.Logging
 					HelpMePlayOptionsDB["TempSettings"].Junker = HelpMePlayOptionsDB.Junker.Enabled
+					HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
 					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
 					HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
 					HelpMePlayOptionsDB["TempSettings"].Covenant = HelpMePlayOptionsDB.Covenant
@@ -1227,6 +1290,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlayAutoShare = false
 					HelpMePlayOptionsDB.Logging = false
 					HelpMePlayOptionsDB.Junker.Enabled = false
+					HelpMePlayOptionsDB.QuestRewards = L_GLOBALSTRINGS["Disabled"]
 					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 					HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
 					HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
@@ -1255,6 +1319,7 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayAutoShareCB:SetChecked(false)
 					HMPLoggingCB:SetChecked(false)
 					HMPEnableJunkerCB:SetChecked(false)
+					UIDropDownMenu_SetSelectedValue(HMPQuestRewardDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
@@ -1288,6 +1353,7 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlayAutoShare = HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare
 					HelpMePlayOptionsDB.Logging = HelpMePlayOptionsDB["TempSettings"].Logging
 					HelpMePlayOptionsDB.Junker.Enabled = HelpMePlayOptionsDB["TempSettings"].Junker
+					HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
 					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
 					HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
 					HelpMePlayOptionsDB.Covenant = HelpMePlayOptionsDB["TempSettings"].Covenant
@@ -1315,6 +1381,7 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
 					HMPLoggingCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Logging)
 					HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Junker.Enabled)
+					UIDropDownMenu_SetSelectedValue(HMPQuestRewardDropDown, HelpMePlayOptionsDB.QuestRewards)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
@@ -1618,6 +1685,15 @@ function HelpMePlayLoadSettings()
 			HMPJunkerItemTypeWeaponCB:SetScript("OnClick", function(self)
 				HelpMePlayOptionsDB["Junker"]["Weapon"] = self:GetChecked()
 			end)
+			
+			-- Quest Rewards DropDown
+			HMPQuestRewardDropDown:SetScript("OnEnter", function(self)
+				ShowTooltip(self, L_GLOBALSTRINGS["Quest Rewards DropDown"])
+			end)
+			HMPQuestRewardDropDown:SetScript("OnLeave", function(self)
+				HideTooltip(self)
+			end)
+			UIDropDownMenu_Initialize(HMPQuestRewardDropDown, DropDownMenu_Initialize)
 			
 			-- Chromie Time DropDown
 			HMPChromieTimeDropDown:SetScript("OnEnter", function(self)

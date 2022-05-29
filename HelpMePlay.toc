@@ -22,6 +22,7 @@ SettingsFrame.xml
 SettingsFrame.lua
 
 # Data
+Data\ConstantsDB.lua
 Data\IconDB.lua
 Data\AnimaPowersDB.lua
 Data\AdventureMapQuestsDB.lua

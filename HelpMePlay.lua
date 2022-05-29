@@ -12,6 +12,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayOptionsDB == nil then
 				HelpMePlayOptionsDB = {}
 			end
+			if HelpMePlayOptionsDB.QuestRewards == nil or HelpMePlayOptionsDB.QuestRewards == false then
+				HelpMePlayOptionsDB.QuestRewards = L_GLOBALSTRINGS["Disabled"]
+			end
 			if HelpMePlayOptionsDB.ChromieTimeExpansion == nil then
 				HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 			end
