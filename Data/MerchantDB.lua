@@ -46,7 +46,7 @@ local MERCHANTS = {
 			["extendedCost"] = {
 				["currencyId"] = 1767,	-- Stygia
 				["amount"] = 60,
-				["check"] = true,
+				["checkForTransactionItem"] = true,
 			},
 		},
 		{ -- 2
@@ -55,7 +55,7 @@ local MERCHANTS = {
 			["extendedCost"] = {
 				["currencyId"] = 1767,	-- Stygia
 				["amount"] = 50,
-				["check"] = true,
+				["checkForTransactionItem"] = true,
 			},
 		},
 	},

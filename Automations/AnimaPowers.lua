@@ -5,6 +5,15 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function AnimaPowerExistsForClass(classId, specId, desiredSpellId)
+	--[[
+		Description:
+			Determines if the current power has been transcribed
+			in the anima power table.
+			
+			If so, its tier (1-n) is collected for later comparison.
+			
+			If not, it's ignored.
+	]]--
 	for spellId, spellTier in pairs(addonTable.ANIMAPOWERS[classId][specId]) do
 		if spellId == desiredSpellId then
 			return true
@@ -137,7 +146,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						local priority = 0
 						local maxBuffs = 44
 						
-						for i=1, choiceInfo.numOptions do
+						for i = 1, choiceInfo.numOptions do
 							powerInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 							if powerInfo then
 								if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID] then
@@ -154,7 +163,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 										responseId = powerInfo.options[i].buttons[1].id
 										bestPower = powerInfo
 										
-										for j=1, maxBuffs do
+										for j = 1, maxBuffs do
 											local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
 											if spellId == powerInfo.options[i].spellID then
 												stackCount = count
@@ -162,7 +171,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 											end
 										end
 									elseif priority == highestPriority then
-										for j=1, maxBuffs do
+										for j = 1, maxBuffs do
 											local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
 											if spellId == powerInfo.options[i].spellID then
 												if count < stackCount then

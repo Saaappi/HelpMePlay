@@ -7,12 +7,17 @@ local parentMapId = 0
 local loadedDialogTable = {}
 
 local function GetParentMapID(mapId)
-	-- Get the parent map ID, then check
-	-- to see if it's a continent.
-	--
-	-- If not a continent, then recursively
-	-- scan the map relationship until the
-	-- first continent is found.
+	--[[
+		Description:
+			Gets the parent map ID of the current map, if available.
+			For example, Neltharion's Vault in Highmountain, is a child
+			map whose parent map ID would be that of Highmountain.
+			
+			This function will end the moment it detects a continent.
+			Example: Neltharion's Vault (OK) > Highmountain (OK) > Broken Isles (X)
+			
+			In the above example, the last "OK" wins the return.
+	]]--
 	if mapId then
 		local mapInfo = C_Map.GetMapInfo(mapId)
 		if mapInfo.mapType ~= 2 and mapInfo.parentMapID ~= 0 then
@@ -24,8 +29,11 @@ local function GetParentMapID(mapId)
 end
 
 local function SelectGossipOption(options, npcId, parentMapId)
-	-- Use the parent map ID to determine
-	-- which populated table to use.
+	--[[
+		Description:
+			Dialogs are loaded by expansion so the addon doesn't have to
+			read the entire dialog table anytime GOSSIP_SHOW is called.
+	]]--
 	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
 		loadedDialogTable = addonTable.DIALOG_CLASSIC
 	elseif parentMapId == 101 then
@@ -46,9 +54,14 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		loadedDialogTable = addonTable.DIALOG_SL
 	end
 	
-	-- Player-controlled dialogs ignore the
-	-- new format. So, they don't support
-	-- conditions!
+	--[[
+		Description:
+			First, iterate through the player-controlled dialog table
+			for a submitted dialog that matches the provided dialog text.
+			
+			If nothing matches from the player-controlled dialog table,
+			then check the addon's dialog table next.
+	]]--
 	for index, gossipSubTable in ipairs(options) do
 		if HelpMePlayPlayerDialogDB[npcId] then
 			if HelpMePlayPlayerDialogDB[npcId]["g"] then
@@ -69,57 +82,63 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		end
 	end
 	
-	-- If not in the player-controlled dialog
-	-- table, then let's check the system table
-	-- we were told to load.
+	--[[
+		Description:
+			Dialogs documented in the addon support conditions. Conditions include:
+				- Level: Higher
+				- Level: Equal
+				- Level: Lower
+				- Money: Higher (The money condition is always a "higher" check
+	]]--
 	if loadedDialogTable[npcId] then
-		-- The NPC is in the database. Let's check
-		-- if the gossip subtable uses the new or
-		-- old format.
-		if type(loadedDialogTable[npcId]["g"][1]) == "table" then
-			-- Let's iterate the gossip subtable for
-			-- a match.
-			for index, gossipSubTable in ipairs(options) do
-				for id, gossip in pairs(loadedDialogTable[npcId]["g"]) do
-					-- First, we have to make sure there
-					-- isn't a condition. And if there is
-					-- we have to ensure the player meets
-					-- that condition.
-					if gossip.condition == "none" then
-						if string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
-							C_GossipInfo.SelectOption(index)
-							return
-						end
-					elseif gossip.condition == "level_higher" then
-						if UnitLevel("player") > gossip.level then
-							C_GossipInfo.SelectOption(index)
-							return
-						end
-					elseif gossip.condition == "level_equal" then
-						if UnitLevel("player") == gossip.level then
-							C_GossipInfo.SelectOption(gossip.index)
-							return
-						end
-					elseif gossip.condition == "level_lower" then
-						if UnitLevel("player") < gossip.level then
-							C_GossipInfo.SelectOption(index)
-							return
-						end
-					elseif gossip.condition == "money" then
-						if GetMoney("player") > gossip.money then
-							C_GossipInfo.SelectOption(index)
-							return
-						end
+		for index, gossipSubTable in ipairs(options) do
+			for id, gossip in pairs(loadedDialogTable[npcId]["g"]) do
+				if gossip.condition == "none" then
+					if string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
+						C_GossipInfo.SelectOption(index)
+						return
+					end
+				elseif gossip.condition == "level_higher" then
+					if UnitLevel("player") > gossip.level then
+						C_GossipInfo.SelectOption(index)
+						return
+					end
+				elseif gossip.condition == "level_equal" then
+					if UnitLevel("player") == gossip.level then
+						C_GossipInfo.SelectOption(gossip.index)
+						return
+					end
+				elseif gossip.condition == "level_lower" then
+					if UnitLevel("player") < gossip.level then
+						C_GossipInfo.SelectOption(index)
+						return
+					end
+				elseif gossip.condition == "money" then
+					if GetMoney("player") > gossip.money then
+						C_GossipInfo.SelectOption(index)
+						return
 					end
 				end
 			end
 		end
 	end
 	
-	-- Reset the loaded dialog table.
 	loadedDialogTable = {}
 end
 
+--[[
+	Description:
+		Determine if the target or mouseover (target) are supported
+		by the addon, either through a player entry or an addon entry.
+		
+		There will be times where dialogs are associated to objects without
+		a GUID. If this is the case, pass a 0 to load the "ID-less" NPC table
+		for the given parent map ID. Example: The gate to exit the Darkpens in
+		Val'sharah.
+		
+		Players can ignore an NPC. Ignored NPCs don't have their dialog
+		processed.
+]]--
 local function ProcessDialogTree()
 	local index = 1
 	local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
@@ -129,12 +148,25 @@ local function ProcessDialogTree()
 		if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		SelectGossipOption(gossipOptions, npcId, parentMapId)
 	else
-		-- This must be an object with a
-		-- dialog table.
 		SelectGossipOption(gossipOptions, 0, parentMapId)
 	end
 end
 
+--[[
+	Description:
+		Active quests are quests the player has already accepted
+		from a quest giver. These are normally represented by a
+		greyed out or gold-filled "?" icon.
+		
+		Active quests can be loaded on Blizzard's end as a gossip
+		table. In these cases, we must process them the same way.
+		Active quests are processed above all else.
+		
+		The first check is whether or not the active quests are
+		complete. If they are, then complete the quests by calling
+		the HMP_CompleteQuest function. If not, then call the
+		ProcessDialogTree function.
+]]--
 local function CheckActiveQuests(activeQuests)
 	if #activeQuests == 1 then
 		if activeQuests[1].isComplete then
@@ -152,9 +184,13 @@ local function CheckActiveQuests(activeQuests)
 	end
 end
 
+--[[
+	Description:
+		Confirms are handled *exactly* the same way as dialogs.
+		Please see the SelectGossipOption function above for
+		more information.
+]]--
 local function ConfirmConfirmationMessage(message, npcId)
-	-- Use the parent map ID to determine
-	-- which populated table to use.
 	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
 		loadedDialogTable = addonTable.DIALOG_CLASSIC
 	elseif parentMapId == 101 then
@@ -175,9 +211,6 @@ local function ConfirmConfirmationMessage(message, npcId)
 		loadedDialogTable = addonTable.DIALOG_SL
 	end
 	
-	-- Player-controlled confirms ignore the
-	-- new format. So, they don't support
-	-- conditions!
 	if HelpMePlayPlayerDialogDB[npcId] then
 		if HelpMePlayPlayerDialogDB[npcId]["c"] then
 			for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
@@ -196,52 +229,48 @@ local function ConfirmConfirmationMessage(message, npcId)
 		end
 	end
 	
-	-- If not in the player-controlled confirms
-	-- table, then let's check the system table
-	-- we were told to load.
 	if loadedDialogTable[npcId] then
-		-- The NPC is in the database. Let's check
-		-- if the gossip subtable uses the new or
-		-- old format.
-		if type(loadedDialogTable[npcId]["c"][1]) == "table" then
-			-- Let's iterate the confirm subtable for
-			-- a match.
-			for id, gossip in pairs(loadedDialogTable[npcId]["c"]) do
-				-- First, we have to make sure there
-				-- isn't a condition. And if there is
-				-- we have to ensure the player meets
-				-- that condition.
-				if gossip.condition == "none" then
-					if string.find(string.lower(message), string.lower(gossip.text)) then
-						StaticPopup1Button1:Click("LeftButton")
-						return
-					end
-				elseif gossip.condition == "level_higher" then
-					if UnitLevel("player") > gossip.level then
-						StaticPopup1Button1:Click("LeftButton")
-						return
-					end
-				elseif gossip.condition == "level_equal" then
-					if UnitLevel("player") == gossip.level then
-						StaticPopup1Button1:Click("LeftButton")
-						return
-					end
-				elseif gossip.condition == "level_lower" then
-					if UnitLevel("player") < gossip.level then
-						StaticPopup1Button1:Click("LeftButton")
-						return
-					end
-				elseif gossip.condition == "money" then
-					if GetMoney("player") > gossip.money then
-						StaticPopup1Button1:Click("LeftButton")
-						return
-					end
+		for id, gossip in pairs(loadedDialogTable[npcId]["c"]) do
+			if gossip.condition == "none" then
+				if string.find(string.lower(message), string.lower(gossip.text)) then
+					StaticPopup1Button1:Click("LeftButton")
+					return
+				end
+			elseif gossip.condition == "level_higher" then
+				if UnitLevel("player") > gossip.level then
+					StaticPopup1Button1:Click("LeftButton")
+					return
+				end
+			elseif gossip.condition == "level_equal" then
+				if UnitLevel("player") == gossip.level then
+					StaticPopup1Button1:Click("LeftButton")
+					return
+				end
+			elseif gossip.condition == "level_lower" then
+				if UnitLevel("player") < gossip.level then
+					StaticPopup1Button1:Click("LeftButton")
+					return
+				end
+			elseif gossip.condition == "money" then
+				if GetMoney("player") > gossip.money then
+					StaticPopup1Button1:Click("LeftButton")
+					return
 				end
 			end
 		end
 	end
 end
 
+--[[
+	Description:
+		Available quests are those the player has yet to select.
+		There are times these quests are presented from a gossip
+		table. If that's the case, iterate through each of them
+		and accept the quests.
+		
+		The quests checks will only occur if the Quests automation
+		is enabled.
+]]--
 e:RegisterEvent("GOSSIP_CONFIRM")
 e:RegisterEvent("GOSSIP_CONFIRM_CANCEL")
 e:RegisterEvent("GOSSIP_SHOW")
