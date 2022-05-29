@@ -88,6 +88,10 @@ function HMP_CompleteQuest()
 						If the quest reward is a higher item level and the player's
 						equipped item isn't an heirloom, then set the best item index.
 						
+						If equippedItemItemLevel is nil, that means there isn't
+						an item equipped in the slot. Therefore, it's automatically
+						the best item.
+						
 					Sell Price:
 						If the quest reward has the highest sell price, then choose that
 						reward and automatically add it to the global Junker sell table.
@@ -117,6 +121,9 @@ function HMP_CompleteQuest()
 										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
 											bestItemIndex = i
 										end
+									else
+										bestItemIndex = i
+										break
 									end
 								end
 							elseif equipLoc == "INVTYPE_TRINKET" then
@@ -127,6 +134,9 @@ function HMP_CompleteQuest()
 										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
 											bestItemIndex = i
 										end
+									else
+										bestItemIndex = i
+										break
 									end
 								end
 							elseif equipLoc == "INVTYPE_WEAPON" then
@@ -137,6 +147,9 @@ function HMP_CompleteQuest()
 										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
 											bestItemIndex = i
 										end
+									else
+										bestItemIndex = i
+										break
 									end
 								end
 							elseif equipLoc == "INVTYPE_2HWEAPON" and UnitClass("player") == 1 and GetSpecializationInfo(2) == 72 then
@@ -148,6 +161,9 @@ function HMP_CompleteQuest()
 										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
 											bestItemIndex = i
 										end
+									else
+										bestItemIndex = i
+										break
 									end
 								end
 							else
@@ -157,6 +173,9 @@ function HMP_CompleteQuest()
 									if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
 										bestItemIndex = i
 									end
+								else
+									bestItemIndex = i
+									break
 								end
 							end
 						elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
