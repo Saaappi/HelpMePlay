@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local shiftKeyDelay = 0.5
+local timerDelay = 0.5
 local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
@@ -54,55 +54,6 @@ hooksecurefunc("QuestMapFrame_OpenToQuestDetails", function(self)
 	end
 end)
 
-local function Max(tbl)
-	local highestItemIndex = 0
-	local highestItemLevelOrSellPrice = 0
-	for itemIndex, itemLevelOrSellPrice in ipairs(tbl) do
-		if itemLevelOrSellPrice > highestItemLevelOrSellPrice then
-			highestItemIndex = itemIndex
-			highestItemLevelOrSellPrice = itemLevelOrSellPrice
-		elseif itemLevelOrSellPrice == highestItemLevelOrSellPrice then
-			highestItemIndex = random(1, GetNumQuestChoices())
-			tbl = {}
-		end
-	end
-	return highestItemIndex
-end
-
-local function CompareItems(index, itemLevels, sellPrices, itemLink, slotName, quantity)
-	local sellPrice, itemQuality, equipLoc, slotId, inventoryItemLink, itemId, equippedItemLevel, rewardItemLevel
-	-- Populate the sellPrices table with the sell price
-	-- of the item.
-	sellPrice = select(11, GetItemInfo(itemLink))
-	sellPrices[index] = (quantity*sellPrice)
-	
-	if slotName ~= "NOTHING" then
-		slotId = GetInventorySlotInfo(slotName)
-		inventoryItemLink = GetInventoryItemLink("player", slotId)
-		
-		-- An error is thrown if a slot is empty.
-		if inventoryItemLink then
-			equippedItemLevel = GetDetailedItemLevelInfo(inventoryItemLink)
-			rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
-			
-			-- We won't be able to fetch the item level of
-			-- the equipped item if the player hasn't opened
-			-- their character pane once in the current session.
-			if equippedItemLevel == nil then
-				if HelpMePlayOptionsDB.Logging then
-					print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Equipped Item Level is Nil"])
-				end
-				return
-			elseif rewardItemLevel > equippedItemLevel then
-				-- Ignore slots with heirlooms equipped.
-				if itemQuality ~= 7 then
-					itemLevels[index] = rewardItemLevel
-				end
-			end
-		end
-	end
-end
-
 -- TODO: Check the QuestRewardsDB table first!
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
@@ -117,7 +68,7 @@ function HMP_CompleteQuest()
 			end
 			
 			ToggleCharacter("PaperDollFrame")
-			C_Timer.After(1, function()
+			C_Timer.After(timerDelay, function()
 				CharacterFrameCloseButton:Click()
 				
 				local bestItemIndex = 0
@@ -139,13 +90,13 @@ function HMP_CompleteQuest()
 						
 					Sell Price:
 						If the quest reward has the highest sell price, then choose that
-						reward and automatically add it to the global Junker sell list.
+						reward and automatically add it to the global Junker sell table.
 				]]--
 				if playerLevel < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 					for i = 1, numQuestChoices do
 						_, _, quantity = GetQuestItemInfo("choice", i)
 						questRewardItemLink = GetQuestItemLink("choice", i)
-						itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
+						_, itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
 						
 						-- Before we continue, let's make sure we aren't supposed to take
 						-- a specific reward from the current quest. For example, we always
@@ -155,8 +106,8 @@ function HMP_CompleteQuest()
 							break
 						end
 						
-						questRewardItemLevel = GetDetailedItemLevelInfo(itemLink)
-						_, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(itemLink)
+						questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
+						_, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
 						if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
 							if equipLoc == "INVTYPE_FINGER" then
 								for j = 11, 12 do
@@ -209,10 +160,12 @@ function HMP_CompleteQuest()
 								end
 							end
 						elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
-							local totalSellPrice = 0
-							local phSellPrice = quantity*sellPrice
-							if phSellPrice > totalSellPrice then
-								bestItemIndex = i
+							if sellPrice > 0 then
+								local totalSellPrice = 0
+								local phSellPrice = quantity*sellPrice
+								if phSellPrice > totalSellPrice then
+									bestItemIndex = i
+								end
 							end
 						end
 					end
@@ -222,8 +175,15 @@ function HMP_CompleteQuest()
 						-- Pick a random reward.
 						GetQuestReward(random(1, numQuestChoices))
 					else
+						-- Get the quest reward at the specified best index. If the quest
+						-- reward automation is told to pick the reward by sell price, then
+						-- automatically add the item to the GLOBAL Junker table.
 						GetQuestReward(bestItemIndex)
+						if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
+							HelpMePlayJunkerGlobalDB[itemId] = true
+						end
 					end
+				end
 			end)
 		end
 	elseif numQuestChoices == 1 then
@@ -238,7 +198,7 @@ local function Complete_ActiveQuests(gossipInfo)
 	-- then keep calling the function until
 	-- the player let's go.
 	if IsShiftKeyDown() then
-		C_Timer.After(shiftKeyDelay, function()
+		C_Timer.After(timerDelay, function()
 			Complete_ActiveQuests(gossipInfo)
 		end)
 	else
@@ -256,7 +216,7 @@ local function Get_AvailableQuests(gossipInfo)
 	-- then keep calling the function until
 	-- the player let's go.
 	if IsShiftKeyDown() then
-		C_Timer.After(shiftKeyDelay, function()
+		C_Timer.After(timerDelay, function()
 			Get_AvailableQuests(gossipInfo)
 		end)
 	else
@@ -271,7 +231,7 @@ local function QUEST_GREETING()
 	-- then keep calling the function until
 	-- the player let's go.
 	if IsShiftKeyDown() then
-		C_Timer.After(shiftKeyDelay, function()
+		C_Timer.After(timerDelay, function()
 			QUEST_GREETING()
 		end)
 	else
@@ -292,7 +252,7 @@ local function QUEST_DETAIL(isAutoAccept)
 	-- then keep calling the function until
 	-- the player let's go.
 	if IsShiftKeyDown() then
-		C_Timer.After(shiftKeyDelay, function()
+		C_Timer.After(timerDelay, function()
 			QUEST_DETAIL()
 		end)
 	else
