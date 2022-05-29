@@ -1,16 +1,25 @@
 New Features:
 Junker
 
-Fixes and Updates:
-	- Updated the Calculate function to check for children reagents. For example, if a recipe calls for 2 Bolts of Linen Cloth, then the Calculate function will, in addition to 2 Bolts of Linen Cloth, return 4 Linen Cloth. It takes 2 Linen Cloth to make 1 Bolt.
-	- Updated the Dialog command to allow players to use a gossip index. For example, if a creature has 4 dialog options, using "/hmp dialog 3" would add the text from the third dialog option from the given creature.
-	- Updated Anima Power automation to select a random power if all available choices are unranked.
+QoL Improvements:
 	- Added a check button for Vehicles automation.
+	- Added a dropdown menu to the Automations tab that allows the player to select how quest rewards are selected, if at all.
+	
+Additions:
 	- Added weights for multiple quests in Zereth Mortis.
 	- Added relatively general Torghast powers for all 3 Rogue specializations.
 	- Added more Torghast dialogs.
+
+Updates:
+	- Updated the Calculate function to check for children reagents. For example, if a recipe calls for 2 Bolts of Linen Cloth, then the Calculate function will, in addition to 2 Bolts of Linen Cloth, return 4 Linen Cloth. It takes 2 Linen Cloth to make 1 Bolt.
+	- Updated the Dialog command to allow players to use a gossip index. For example, if a creature has 4 dialog options, using "/hmp dialog 3" would add the text from the third dialog option from the given creature.
+	- Updated Anima Power automation to select a random power if all available choices are unranked.
+	
+Fixes:
 	- Fixed a problem with talent system perks that don't have prerequisite talents.
 	- Fixed multiple problems with the Anima Power automation.
 	- Fixed a problem where the quest popup would sometimes linger after accepting a quest from an item or from the call boards in major cities.
+	- Fixed the Item Level and Sell Price logic in the quest reward automation to address multiple problems.
+	
 Removed:
 	- Removed the Transmog keybind. This has been replaced with a button in the player's bags. (Users can still invoke /hmp transmog or /hmp t.)
