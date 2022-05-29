@@ -103,209 +103,128 @@ local function CompareItems(index, itemLevels, sellPrices, itemLink, slotName, q
 	end
 end
 
+-- TODO: Check the QuestRewardsDB table first!
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
-	-- There is more than 1 reward choice
-	-- for the player to choose from.
 	if numQuestChoices > 1 then
 		if HelpMePlayOptionsDB.Quests then
-			local playerLevel = UnitLevel("player")
-			-- We want to stop selecting quest rewards
-			-- at max level.
-			if playerLevel < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
-				-- Let's create a couple tables to hold
-				-- the quest choice indices for the rewards'
-				-- item level and sell price.
+			if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Disabled"] then return end
+			
+			if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
 				itemLevels = {}
+			elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
 				sellPrices = {}
+			end
+			
+			ToggleCharacter("PaperDollFrame")
+			C_Timer.After(1, function()
+				CharacterFrameCloseButton:Click()
 				
-				-- Check the item slot for the quest reward,
-				-- then let's compare it to what the player
-				-- has equipped. While leveling, item level
-				-- is king.
-				for i = 1, numQuestChoices do
-					local _, _, quantity = GetQuestItemInfo("choice", i)
-					local itemLink = GetQuestItemLink("choice", i)
-					if itemLink then
-						-- Let's grab the itemId because it will
-						-- be used later when comparing to the
-						-- QuestRewardsDB.lua file.
-						--
-						-- Let's get itemQuality and equipLoc because
-						-- they will be used to compare to what the
-						-- player currently has equipped.
-						--
-						-- Let's get the actual slot name, so we can
-						-- draw an accurate picture of the player's
-						-- current equipment.
-						local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-						local _, _, itemQuality, _, _, _, _, _, equipLoc = GetItemInfo(itemLink)
-						local _, slotName = strsplit("_", equipLoc)
+				local bestItemIndex = 0
+				local equipLoc = ""
+				local equippedItemItemLink = ""
+				local equippedItemItemLevel = 0
+				local itemId = 0
+				local questRewardItemLink = ""
+				local questRewardItemLevel = 0
+				local quantity = 0
+				local quality = 0
+				local sellPrice = 0
+				local playerLevel = UnitLevel("player")
+				
+				--[[
+					Item Level:
+						If the quest reward is a higher item level and the player's
+						equipped item isn't an heirloom, then set the best item index.
 						
-						-- These don't convert to a valid slotId,
-						-- so we have to change it to something
-						-- that will.
-						if slotName == "2HWEAPON" or slotName == "WEAPONMAINHAND" or slotName == "WEAPONOFFHAND" or slotName == "RANGEDRIGHT" or slotName == "RANGED" then
-							-- Not every class/spec can dual wield,
-							-- so let's figure out the player's current
-							-- class and spec, then continue or not.
-							local _, _, classId = UnitClass("player")
-							
-							-- Rogues and demon hunters can dual wield
-							-- at creation. Warriors, monks, death
-							-- knights, and shamans all must reach
-							-- level 10 and be the appropriate spec.
-
-							-- Let's make sure the player is in the
-							-- right spec for dual wield for their
-							-- given class.
-							local spec = GetSpecialization()
-							local specId = GetSpecializationInfo(spec)
-							if classId == 1 and specId == 72 then
-								for j=0, 1 do
-									if j == 0 then
-										slotName = "MAINHAND"
-									elseif j == 1 then
-										slotName = "SECONDARYHAND"
-									end
-									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-								end
-							elseif classId == 3 then
-								slotName = "MAINHAND"
-								CompareItems(i, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-							elseif classId == 4 then
-								for j=0, 1 do
-									if j == 0 then
-										slotName = "MAINHAND"
-									elseif j == 1 then
-										slotName = "SECONDARYHAND"
-									end
-									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-								end
-							elseif classId == 6 and specId == 251 then
-								for j=0, 1 do
-									if j == 0 then
-										slotName = "MAINHAND"
-									elseif j == 1 then
-										slotName = "SECONDARYHAND"
-									end
-									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-								end
-							elseif classId == 7 and specId == 263 then
-								for j=0, 1 do
-									if j == 0 then
-										slotName = "MAINHAND"
-									elseif j == 1 then
-										slotName = "SECONDARYHAND"
-									end
-									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-								end
-							elseif classId == 10 and (specId == 268 or specId == 269) then
-								for j=0, 1 do
-									if j == 0 then
-										slotName = "MAINHAND"
-									elseif j == 1 then
-										slotName = "SECONDARYHAND"
-									end
-									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-								end
-							elseif classId == 12 then
-								for j=0, 1 do
-									if j == 0 then
-										slotName = "MAINHAND"
-									elseif j == 1 then
-										slotName = "SECONDARYHAND"
-									end
-									CompareItems(j, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-								end
-							else
-								slotName = "MAINHAND"
-								CompareItems(i, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-							end
-						elseif slotName == "TRINKET" or slotName == "FINGER" then
-							for j=0, 1 do
-								CompareItems(j, itemLevels, sellPrices, itemLink, slotName..j.."SLOT", quantity)
-							end
-						elseif slotName == "CLOAK" then
-							CompareItems(i, itemLevels, sellPrices, itemLink, "BACKSLOT", quantity)
-						elseif slotName == "HAND" then
-							CompareItems(i, itemLevels, sellPrices, itemLink, "HANDSSLOT", quantity)
-						elseif slotName == "SHIELD" then
-							CompareItems(i, itemLevels, sellPrices, itemLink, "SECONDARYHANDSLOT", quantity)
-						elseif slotName ~= nil then
-							CompareItems(i, itemLevels, sellPrices, itemLink, slotName.."SLOT", quantity)
-						--[[else
-							-- Populate the sellPrices table with the sell price
-							-- of the item if it's not 0.
-							local sellPrice = select(11, GetItemInfo(itemLink))
-							if sellPrice ~= 0 then
-								sellPrices[i] = (quantity*sellPrice)
-							else
-								-- If no other conditions are met, then
-								-- the items aren't equipment, and they
-								-- either sell for the same price or no
-								-- price.
-								--
-								-- Quest rewards that meet this criteria
-								-- should be chosen from this table at
-								-- random.
-								questRewards[i] = itemId
-							end]]
+					Sell Price:
+						If the quest reward has the highest sell price, then choose that
+						reward and automatically add it to the global Junker sell list.
+				]]--
+				if playerLevel < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
+					for i = 1, numQuestChoices do
+						_, _, quantity = GetQuestItemInfo("choice", i)
+						questRewardItemLink = GetQuestItemLink("choice", i)
+						itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
+						
+						-- Before we continue, let's make sure we aren't supposed to take
+						-- a specific reward from the current quest. For example, we always
+						-- want to take the Champion's Purse from Argent Tournament dailies.
+						if addonTable.QUESTREWARDS[itemId] then
+							bestItemIndex = i
+							break
 						end
-					end
-				end
-				
-				if next(itemLevels) or next(sellPrices) then
-					-- Check the item level table first. If the
-					-- item level is higher, then we want to
-					-- take that reward.
-					--
-					-- Check the sell prices table next. Same
-					-- concept; if the sell price is higher,
-					-- then take that reward.
-					if Max(itemLevels) ~= 0 then
-						GetQuestReward(Max(itemLevels))
-					elseif Max(sellPrices) ~= 0 then
-						GetQuestReward(Max(sellPrices))
-					end
-				else
-					-- Let's check the quest rewards table for
-					-- the quest and see if we're supposed to
-					-- take a specific reward.
-					local itemLink, itemId
-					for i=1, numQuestChoices do
-						itemLink = GetQuestItemLink("choice", i)
-						if itemLink then
-							_, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-							for rewardId, _ in pairs(addonTable.QUESTREWARDS) do
-								if rewardId == itemId then
-									GetQuestReward(i)
+						
+						questRewardItemLevel = GetDetailedItemLevelInfo(itemLink)
+						_, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(itemLink)
+						if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
+							if equipLoc == "INVTYPE_FINGER" then
+								for j = 11, 12 do
+									equippedItemItemLink = GetInventoryItemLink("player", j)
+									if equippedItemItemLink then
+										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+											bestItemIndex = i
+										end
+									end
 								end
+							elseif equipLoc == "INVTYPE_TRINKET" then
+								for j = 13, 14 do
+									equippedItemItemLink = GetInventoryItemLink("player", j)
+									if equippedItemItemLink then
+										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+											bestItemIndex = i
+										end
+									end
+								end
+							elseif equipLoc == "INVTYPE_WEAPON" then
+								for j = 16, 17 do
+									equippedItemItemLink = GetInventoryItemLink("player", j)
+									if equippedItemItemLink then
+										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+											bestItemIndex = i
+										end
+									end
+								end
+							elseif equipLoc == "INVTYPE_2HWEAPON" and UnitClass("player") == 1 and GetSpecializationInfo(2) == 72 then
+								-- This is to account for fury warriors since they can dual wield 2H weapons.
+								for j = 16, 17 do
+									equippedItemItemLink = GetInventoryItemLink("player", j)
+									if equippedItemItemLink then
+										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+											bestItemIndex = i
+										end
+									end
+								end
+							else
+								equippedItemItemLink = GetInventoryItemLink("player", addonTable.CONSTANTS[equipLoc])
+								if equippedItemItemLink then
+									equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+									if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+										bestItemIndex = i
+									end
+								end
+							end
+						elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
+							local totalSellPrice = 0
+							local phSellPrice = quantity*sellPrice
+							if phSellPrice > totalSellPrice then
+								bestItemIndex = i
 							end
 						end
 					end
 					
-					-- Both of the aforementioned tables are
-					-- empty, so let's pick a reward at random.
-					GetQuestReward(random(1, numQuestChoices))
-				end
-			else
-				-- The player is max level, so let's check the
-				-- quest rewards table for the quest and see if
-				-- we're supposed to take a specific reward.
-				local itemLink, itemId
-				for i=1, numQuestChoices do
-					itemLink = GetQuestItemLink("choice", i)
-					if itemLink then
-						_, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-						for rewardId, _ in pairs(addonTable.QUESTREWARDS) do
-							if rewardId == itemId then
-								GetQuestReward(i)
-							end
-						end
+					if bestItemIndex == 0 then
+						-- All quest rewards were of the same item level or sell price.
+						-- Pick a random reward.
+						GetQuestReward(random(1, numQuestChoices))
+					else
+						GetQuestReward(bestItemIndex)
 					end
-				end
-			end
+			end)
 		end
 	elseif numQuestChoices == 1 then
 		GetQuestReward(1)
