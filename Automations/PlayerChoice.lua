@@ -4,15 +4,36 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+--[[
+	TODO:
+		Get the ID for the Gorgrond Drafting Table for the Sparring
+		Arena selection. This is controlled by whether or not Garrison
+		Tables automation is enabled.
+	
+	Description:
+		Player choices are in-game decisions the player makes to determine
+		how they want to play the game, progress their character, etc.
+		
+		I add support for player choices as they appear. For example, selecting
+		a covenant is a player choice.
+		
+		If the player choice frame is visible, then get the ID of whatever is
+		offering the player choice. Player choices can be offered through NPCs,
+		game objects, or other sources.
+		
+		Currently supported:
+		- Shadowlands: Story Mode or Threads of Fate
+		- Shadowlands: Covenant Selection
+		- Warlords: Gorgrond Outpost Selection
+		- Classic: Command Boards (Tanaan Jungle)
+]]--
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if PlayerChoiceFrame:IsVisible() then
-			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
 				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
-				
 				if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
 					if HelpMePlayOptionsDB.ThreadsOfFate then
 						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
@@ -45,17 +66,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				end
 			end
-			--[[
-			if mapId == 543 then -- Gorgrond
-				if HelpMePlayOptionsDB.GarrisonTables then
-					-- Choose the Sparring Arena, otherwise
-					-- choose nothing.
-					choiceOptionInfo = C_PlayerChoice.GetPlayerChoiceOptionInfo(2);
-					SendPlayerChoiceResponse(choiceOptionInfo.buttons[1].id)
-					HideUIPanel(PlayerChoiceFrame)
-				end
-			end
-			]]--
 		end
 	end
 end)
