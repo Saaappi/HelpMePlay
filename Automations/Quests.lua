@@ -120,90 +120,92 @@ function HMP_CompleteQuest()
 					for i = 1, numQuestChoices do
 						_, _, quantity = GetQuestItemInfo("choice", i)
 						questRewardItemLink = GetQuestItemLink("choice", i)
-						_, itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
-						
-						-- Before we continue, let's make sure we aren't supposed to take
-						-- a specific reward from the current quest. For example, we always
-						-- want to take the Champion's Purse from Argent Tournament dailies.
-						if addonTable.QUESTREWARDS[itemId] then
-							bestItemIndex = i
-							break
-						end
-						
-						questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
-						_, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
-						if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
-							if equipLoc == "INVTYPE_FINGER" then
-								for j = 11, 12 do
-									equippedItemItemLink = GetInventoryItemLink("player", j)
-									if equippedItemItemLink then
-										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+						if questRewardItemLink then
+							_, itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
+							
+							-- Before we continue, let's make sure we aren't supposed to take
+							-- a specific reward from the current quest. For example, we always
+							-- want to take the Champion's Purse from Argent Tournament dailies.
+							if addonTable.QUESTREWARDS[itemId] then
+								bestItemIndex = i
+								break
+							end
+							
+							questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
+							_, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
+							if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
+								if equipLoc == "INVTYPE_FINGER" then
+									for j = 11, 12 do
+										equippedItemItemLink = GetInventoryItemLink("player", j)
+										if equippedItemItemLink then
+											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+												bestItemIndex = i
+											end
+										else
 											bestItemIndex = i
+											break
 										end
-									else
-										bestItemIndex = i
-										break
 									end
-								end
-							elseif equipLoc == "INVTYPE_TRINKET" then
-								for j = 13, 14 do
-									equippedItemItemLink = GetInventoryItemLink("player", j)
-									if equippedItemItemLink then
-										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+								elseif equipLoc == "INVTYPE_TRINKET" then
+									for j = 13, 14 do
+										equippedItemItemLink = GetInventoryItemLink("player", j)
+										if equippedItemItemLink then
+											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+												bestItemIndex = i
+											end
+										else
 											bestItemIndex = i
+											break
 										end
-									else
-										bestItemIndex = i
-										break
 									end
-								end
-							elseif equipLoc == "INVTYPE_WEAPON" then
-								for j = 16, 17 do
-									equippedItemItemLink = GetInventoryItemLink("player", j)
-									if equippedItemItemLink then
-										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+								elseif equipLoc == "INVTYPE_WEAPON" then
+									for j = 16, 17 do
+										equippedItemItemLink = GetInventoryItemLink("player", j)
+										if equippedItemItemLink then
+											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+												bestItemIndex = i
+											end
+										else
 											bestItemIndex = i
+											break
 										end
-									else
-										bestItemIndex = i
-										break
 									end
-								end
-							elseif equipLoc == "INVTYPE_2HWEAPON" and UnitClass("player") == 1 and GetSpecializationInfo(2) == 72 then
-								-- This is to account for fury warriors since they can dual wield 2H weapons.
-								for j = 16, 17 do
-									equippedItemItemLink = GetInventoryItemLink("player", j)
-									if equippedItemItemLink then
-										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+								elseif equipLoc == "INVTYPE_2HWEAPON" and UnitClass("player") == 1 and GetSpecializationInfo(2) == 72 then
+									-- This is to account for fury warriors since they can dual wield 2H weapons.
+									for j = 16, 17 do
+										equippedItemItemLink = GetInventoryItemLink("player", j)
+										if equippedItemItemLink then
+											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+												bestItemIndex = i
+											end
+										else
 											bestItemIndex = i
+											break
 										end
-									else
-										bestItemIndex = i
-										break
-									end
-								end
-							else
-								equippedItemItemLink = GetInventoryItemLink("player", addonTable.CONSTANTS[equipLoc])
-								if equippedItemItemLink then
-									equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-									if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
-										bestItemIndex = i
 									end
 								else
-									bestItemIndex = i
-									break
+									equippedItemItemLink = GetInventoryItemLink("player", addonTable.CONSTANTS[equipLoc])
+									if equippedItemItemLink then
+										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
+										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
+											bestItemIndex = i
+										end
+									else
+										bestItemIndex = i
+										break
+									end
 								end
-							end
-						elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
-							if sellPrice > 0 then
-								local totalSellPrice = 0
-								local phSellPrice = quantity*sellPrice
-								if phSellPrice > totalSellPrice then
-									bestItemIndex = i
+							elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
+								if sellPrice > 0 then
+									local totalSellPrice = 0
+									local phSellPrice = quantity*sellPrice
+									if phSellPrice > totalSellPrice then
+										bestItemIndex = i
+									end
 								end
 							end
 						end
