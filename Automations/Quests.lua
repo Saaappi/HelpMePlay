@@ -8,7 +8,12 @@ local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
 
--- Allows players to abandon a singular quest.
+--[[
+	Description:
+		Allows the player to use the CONTROL and ALT
+		keys to abandon a single quest from within
+		the quest log.
+]]--
 hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
 	if IsControlKeyDown() or IsAltKeyDown() then
 		C_QuestLog.SetSelectedQuest(self.questID)
@@ -17,8 +22,12 @@ hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
 	end
 end)
 
--- Allows players to abandon quests using the
--- zone or area header.
+--[[
+	Description:
+		Allows the player to use the CONTROL and ALT
+		keys to abandon all quests from a zone or
+		area.
+]]--
 hooksecurefunc(QuestLogHeaderCodeMixin, "OnClick", function(self)
 	if IsControlKeyDown() or IsAltKeyDown() then
 		local info = C_QuestLog.GetInfo(self.questLogIndex)
@@ -42,8 +51,12 @@ hooksecurefunc(QuestLogHeaderCodeMixin, "OnClick", function(self)
 	end
 end)
 
--- Allows players to abandon quests from the
--- objective tracker.
+--[[
+	Description:
+		Allows the player to use the CONTROL and ALT
+		keys to abandon quests from the objective
+		tracker on the right side of the screen.
+]]--
 hooksecurefunc("QuestMapFrame_OpenToQuestDetails", function(self)
 	local questId = self
 	if IsControlKeyDown() or IsAltKeyDown() then
@@ -54,7 +67,19 @@ hooksecurefunc("QuestMapFrame_OpenToQuestDetails", function(self)
 	end
 end)
 
--- TODO: Check the QuestRewardsDB table first!
+--[[
+	Item Level:
+		If the quest reward is a higher item level and the player's
+		equipped item isn't an heirloom, then set the best item index.
+		
+		If equippedItemItemLevel is nil, that means there isn't
+		an item equipped in the slot. Therefore, it's automatically
+		the best item.
+		
+	Sell Price:
+		If the quest reward has the highest sell price, then choose that
+		reward and automatically add it to the global Junker sell table.
+]]--
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
 	if numQuestChoices > 1 then
@@ -83,19 +108,6 @@ function HMP_CompleteQuest()
 				local sellPrice = 0
 				local playerLevel = UnitLevel("player")
 				
-				--[[
-					Item Level:
-						If the quest reward is a higher item level and the player's
-						equipped item isn't an heirloom, then set the best item index.
-						
-						If equippedItemItemLevel is nil, that means there isn't
-						an item equipped in the slot. Therefore, it's automatically
-						the best item.
-						
-					Sell Price:
-						If the quest reward has the highest sell price, then choose that
-						reward and automatically add it to the global Junker sell table.
-				]]--
 				if playerLevel < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 					for i = 1, numQuestChoices do
 						_, _, quantity = GetQuestItemInfo("choice", i)
@@ -212,10 +224,19 @@ function HMP_CompleteQuest()
 	end
 end
 
+--[[
+	Description:
+		Active quests are those that have been accepted
+		by the player. They may or may not be complete.
+		
+		If the SHIFT key is being held down, then recursively
+		call the function based on the delay until the key
+		is no longer held.
+		
+		If the active quest is complete, then call the
+		HMP_CompleteQuest function.
+]]--
 local function Complete_ActiveQuests(gossipInfo)
-	-- If the shift key is being held down,
-	-- then keep calling the function until
-	-- the player let's go.
 	if IsShiftKeyDown() then
 		C_Timer.After(timerDelay, function()
 			Complete_ActiveQuests(gossipInfo)
@@ -230,10 +251,16 @@ local function Complete_ActiveQuests(gossipInfo)
 	end
 end
 
+--[[
+	Description:
+		Available quests are those that have yet to be
+		accepted by the player.
+		
+		If the SHIFT key is being held down, then recursively
+		call the function based on the delay until the key
+		is no longer held.
+]]--
 local function Get_AvailableQuests(gossipInfo)
-	-- If the shift key is being held down,
-	-- then keep calling the function until
-	-- the player let's go.
 	if IsShiftKeyDown() then
 		C_Timer.After(timerDelay, function()
 			Get_AvailableQuests(gossipInfo)
@@ -245,10 +272,16 @@ local function Get_AvailableQuests(gossipInfo)
 	end
 end
 
+--[[
+	Description:
+		QUEST_GREETING fires whenever a quest giver has
+		more than 1 quest to process.
+		
+		If the SHIFT key is being held down, then recursively
+		call the function based on the delay until the key
+		is no longer held.
+]]--
 local function QUEST_GREETING()
-	-- If the shift key is being held down,
-	-- then keep calling the function until
-	-- the player let's go.
 	if IsShiftKeyDown() then
 		C_Timer.After(timerDelay, function()
 			QUEST_GREETING()
@@ -266,10 +299,21 @@ local function QUEST_GREETING()
 	end
 end
 
+--[[
+	Description:
+		QUEST_DETAIL fires whenever a quest's details
+		are being shown to the player.
+		
+		If the SHIFT key is being held down, then recursively
+		call the function based on the delay until the key
+		is no longer held.
+		
+		If the quest is an auto accept quest, then
+		close the quest frame since the quest is
+		auto accepted. If not, accept the quest and
+		Blizzard will close the frame for us.
+]]--
 local function QUEST_DETAIL(isAutoAccept)
-	-- If the shift key is being held down,
-	-- then keep calling the function until
-	-- the player let's go.
 	if IsShiftKeyDown() then
 		C_Timer.After(timerDelay, function()
 			QUEST_DETAIL()
@@ -283,6 +327,78 @@ local function QUEST_DETAIL(isAutoAccept)
 	end
 end
 
+--[[
+	Description:
+		Some NPCs are ignored. We don't want to run any
+		code if the NPC is ignored.
+		
+		GOSSIP_SHOW
+			Some quest givers have their quests listed in
+			a gossip table. If that's the case, then we
+			must process the quests like we would ordinary
+			gossips.
+		
+		QUEST_ACCEPTED
+			Sometimes an accepted quest isn't automatically
+			added to the objective tracker. Let's make sure
+			it is by explicitly calling the AddQuestWatch
+			function and passing the quest ID.
+			
+			If TomTom is installed, Waypoints is enabled,
+			and the quest is listed in the Waypoints table, 
+			then add waypoints to the world and mini map.
+			
+			Quest popups are those frames that appear in the
+			objective tracker. We see these when we loot an
+			item that starts a quest. Since these are auto
+			accepted, let's handle the popup too!
+			
+			Immersion's quest window gets stuck after accepting 
+			a quest. Let's wait a MINUTE amount of time, then 
+			hide the window.
+			
+		QUEST_AUTOCOMPLETE
+			Autocomplete quests are those that can be completed
+			while out in the open world (don't need a quest ender
+			NPC).
+			
+			Get the quest ID from the payload, then call the
+			ShowQuestComplete function. This functions shows the
+			completion window for an autocomplete quest.
+		
+		QUEST_COMPLETE
+			This fires when a player continues to the Complete
+			window of the quest window. This is the window
+			that has the "Complete Quest" button.
+			
+		QUEST_DETAIL
+			This fires whenever a quest's details
+			are being shown to the player.
+			
+			If the quest is an auto accept quest, then
+			let the QUEST_DETAIL function know so we can
+			close the frame after the quest is completed.
+			If not, then complete the quest and let Blizzard
+			close the window.
+			
+		QUEST_GREETING
+			Greetings are lists of multiple quests a giver
+			has for the player. These can be active, available,
+			or both.
+			
+			Active quests are handled before available quests.
+			
+		QUEST_PROGRESS
+			This fires when a quest immediately opens to the
+			completion window, skipping the QUEST_COMPLETE
+			event.
+			
+			These quests rarely, if ever, offer rewards apart
+			from money and experience.
+			
+			Check if the quest is completable, then complete
+			the quest.
+]]--
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_AUTOCOMPLETE")
@@ -293,8 +409,6 @@ e:RegisterEvent("QUEST_PROGRESS")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
-		-- Check to see if the current target is
-		-- an ignored quest giver.
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
@@ -337,16 +451,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 		
-		-- If there is a quest offer, let's
-		-- handle the popup automatically.
 		C_Timer.After(0.1, function()
 			AutoQuestPopupTracker_RemovePopUp(questId)
 		end)
-		
-		-- The addon doesn't play well with
-		-- custom frames (e.g. Immersion),
-		-- so let's try to handle that on
-		-- our own.
+
 		if select(2, IsAddOnLoaded("Immersion")) then
 			C_Timer.After(0.1, function()
 				ImmersionFrame.TalkBox.MainFrame.CloseButton:Click()
@@ -366,8 +474,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if QuestGetAutoAccept() then
 			QUEST_DETAIL(true)
 		else
-			-- Check to see if the current target is
-			-- an ignored quest giver.
 			local guid = UnitGUID("target")
 			if guid then
 				local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
@@ -377,14 +483,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_GREETING" then
-		-- Handles quests that are in a
-		-- gossip menu. Handle quests that
-		-- are completed first, then pick
-		-- up new quests.
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		
-		-- Check to see if the current target is
-		-- an ignored quest giver.
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
