@@ -68,6 +68,14 @@ hooksecurefunc("QuestMapFrame_OpenToQuestDetails", function(self)
 end)
 
 --[[
+	TODO:
+		Item Level automation will select the last item level
+		upgrade, regardless if it's not the largest upgrade.
+		
+		This needs to account for multiple rewards that are
+		item level upgrades, and always take the largest
+		upgrade.
+	
 	Item Level:
 		If the quest reward is a higher item level and the player's
 		equipped item isn't an heirloom, then set the best item index.
