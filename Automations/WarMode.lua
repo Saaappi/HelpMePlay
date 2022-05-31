@@ -3,8 +3,16 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local playerLevel = 50
 
+--[[
+	Description:
+		If enabled, upon entering Orgrimmar or Stormwind,
+		War Mode will automatically be enabled after
+		the timer expires.
+		
+		War Mode is often faster to use for leveling than
+		without, especially for alliance.
+]]--
 e:RegisterEvent("PLAYER_LEVEL_CHANGED")
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:SetScript("OnEvent", function(self, event, ...)
@@ -23,7 +31,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ZONE_CHANGED_NEW_AREA" then
 		if HelpMePlayOptionsDB.WarMode == false or HelpMePlayOptionsDB.WarMode == nil then return end
 		local mapId = C_Map.GetBestMapForUnit("player")
-		if (mapId == 84 or mapId == 85) and UnitLevel("player") < playerLevel then
+		if (mapId == 84 or mapId == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
 			if C_PvP.IsWarModeDesired() == false then
 				C_Timer.After(addonTable.CONSTANTS["FIVE_SECONDS"], function()
 					C_PvP.ToggleWarMode()

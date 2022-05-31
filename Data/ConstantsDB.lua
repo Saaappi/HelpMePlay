@@ -28,6 +28,7 @@ local CONSTANTS = {
 	["MAX_PLAYER_LEVEL"] 		= 60,
 	["ONE_SECOND"]				= 1,
 	["ONE_TENTH_SECOND"]		= 0.1,
+	["WAR_MODE_MAX_LEVEL"]		= 50,
 }
 
 addonTable.CONSTANTS = CONSTANTS
