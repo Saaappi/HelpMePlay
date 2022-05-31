@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local timerDelay = 0.5
+local addonTable.CONSTANTS["HALF_SECOND"] = 0.5
 local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
@@ -101,7 +101,7 @@ function HMP_CompleteQuest()
 			end
 			
 			ToggleCharacter("PaperDollFrame")
-			C_Timer.After(timerDelay, function()
+			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 				CharacterFrameCloseButton:Click()
 				
 				local bestItemIndex = 0
@@ -248,7 +248,7 @@ end
 ]]--
 local function Complete_ActiveQuests(gossipInfo)
 	if IsShiftKeyDown() then
-		C_Timer.After(timerDelay, function()
+		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			Complete_ActiveQuests(gossipInfo)
 		end)
 	else
@@ -272,7 +272,7 @@ end
 ]]--
 local function Get_AvailableQuests(gossipInfo)
 	if IsShiftKeyDown() then
-		C_Timer.After(timerDelay, function()
+		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			Get_AvailableQuests(gossipInfo)
 		end)
 	else
@@ -293,7 +293,7 @@ end
 ]]--
 local function QUEST_GREETING()
 	if IsShiftKeyDown() then
-		C_Timer.After(timerDelay, function()
+		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			QUEST_GREETING()
 		end)
 	else
@@ -325,7 +325,7 @@ end
 ]]--
 local function QUEST_DETAIL(isAutoAccept)
 	if IsShiftKeyDown() then
-		C_Timer.After(timerDelay, function()
+		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			QUEST_DETAIL()
 		end)
 	else
@@ -461,12 +461,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 		
-		C_Timer.After(0.1, function()
+		C_Timer.After(addonTable.CONSTANTS["ONE_TENTH_SECOND"], function()
 			AutoQuestPopupTracker_RemovePopUp(questId)
 		end)
 
 		if select(2, IsAddOnLoaded("Immersion")) then
-			C_Timer.After(0.1, function()
+			C_Timer.After(addonTable.CONSTANTS["ONE_TENTH_SECOND"], function()
 				ImmersionFrame.TalkBox.MainFrame.CloseButton:Click()
 			end)
 		end

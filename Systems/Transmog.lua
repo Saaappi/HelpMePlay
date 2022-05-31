@@ -19,7 +19,7 @@ local function RequipOriginalItems(equippedItems)
 	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
 		ToggleCharacter("PaperDollFrame")
-		C_Timer.After(1, function()
+		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 			CharacterFrameCloseButton:Click()
 			-- We need to rescan the equipped items
 			-- so we can run comparisons to the original items.
@@ -43,7 +43,7 @@ local function LearnAllUnknownTransmog(equippedItems)
 	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
 		OpenAllBags()
-		C_Timer.After(1, function()
+		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 			CloseAllBags()
 			for i=0, NUM_BAG_SLOTS do -- We iterate through the inventory, bags 0 to 4.
 				for j=1, GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
@@ -105,7 +105,7 @@ function HelpMePlay_GetEquippedItems()
 	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
 		ToggleCharacter("PaperDollFrame")
-		C_Timer.After(1, function()
+		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 			CharacterFrameCloseButton:Click()
 			-- Get the players currently equipped items
 			-- in transmog-capable slots and store them

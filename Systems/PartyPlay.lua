@@ -90,7 +90,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- report the message to chat.
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		local questId = ...
-		C_Timer.After(1, function()
+		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 			if HelpMePlayCharacterQuestsDB[questId] then
 				-- The player abandoned the quest or
 				-- left the area (eg. world quests).

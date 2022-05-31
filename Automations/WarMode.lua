@@ -25,7 +25,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if (mapId == 84 or mapId == 85) and UnitLevel("player") < playerLevel then
 			if C_PvP.IsWarModeDesired() == false then
-				C_Timer.After(5, function()
+				C_Timer.After(addonTable.CONSTANTS["FIVE_SECONDS"], function()
 					C_PvP.ToggleWarMode()
 				end)
 			end
