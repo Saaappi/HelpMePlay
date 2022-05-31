@@ -3,7 +3,6 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local glowDuration = 1.5
 
 --[[
 	Description:
@@ -11,12 +10,12 @@ local glowDuration = 1.5
 		button that should be used, depending on what
 		speech was used by the NPC.
 ]]--
-local function AddGlowToActionBarButton(button, glowTimer)
+local function AddGlowToActionBarButton(button)
 	ActionButton_ShowOverlayGlow(button)
 	button:SetScript("OnClick", function()
 		ActionButton_HideOverlayGlow(button)
 	end)
-	C_Timer.After(glowTimer, function()
+	C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 		ActionButton_HideOverlayGlow(button)
 	end)
 end
@@ -34,11 +33,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 					DoEmote(v.emote, nil)
 				elseif v.type == "glow" then
 					if v.button == 1 then
-						AddGlowToActionBarButton(OverrideActionBarButton1, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton1)
 					elseif v.button == 2 then
-						AddGlowToActionBarButton(OverrideActionBarButton2, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton2)
 					elseif v.button == 3 then
-						AddGlowToActionBarButton(OverrideActionBarButton3, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton3)
 					end
 				end
 				
@@ -53,11 +52,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then
-						AddGlowToActionBarButton(OverrideActionBarButton1, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton1)
 					elseif v.button == 2 then
-						AddGlowToActionBarButton(OverrideActionBarButton2, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton2)
 					elseif v.button == 3 then
-						AddGlowToActionBarButton(OverrideActionBarButton3, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton3)
 					end
 				end
 				break
@@ -71,11 +70,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then
-						AddGlowToActionBarButton(OverrideActionBarButton1, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton1)
 					elseif v.button == 2 then
-						AddGlowToActionBarButton(OverrideActionBarButton2, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton2)
 					elseif v.button == 3 then
-						AddGlowToActionBarButton(OverrideActionBarButton3, glowDuration)
+						AddGlowToActionBarButton(OverrideActionBarButton3)
 					end
 				end
 				break

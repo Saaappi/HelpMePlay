@@ -4,6 +4,7 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local CONSTANTS = {
+	["HALF_SECOND"]				= 0.5,
 	["INVTYPE_HEAD"] 			= 1,
 	["INVTYPE_NECK"] 			= 2,
 	["INVTYPE_SHOULDER"] 		= 3,
@@ -24,6 +25,7 @@ local CONSTANTS = {
 	["INVTYPE_SHIELD"] 			= 17,
 	["INVTYPE_HOLDABLE"] 		= 17,
 	["MAX_PLAYER_LEVEL"] 		= 60,
+	["ONE_SECOND"]				= 1,
 }
 
 addonTable.CONSTANTS = CONSTANTS
