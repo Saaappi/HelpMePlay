@@ -3,7 +3,14 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local glowDuration = 1.5
 
+--[[
+	Description:
+		Adds the action button glow effect to the vehicle
+		button that should be used, depending on what
+		speech was used by the NPC.
+]]--
 local function AddGlowToActionBarButton(button, glowTimer)
 	ActionButton_ShowOverlayGlow(button)
 	button:SetScript("OnClick", function()
@@ -27,11 +34,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 					DoEmote(v.emote, nil)
 				elseif v.type == "glow" then
 					if v.button == 1 then
-						AddGlowToActionBarButton(OverrideActionBarButton1, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton1, glowDuration)
 					elseif v.button == 2 then
-						AddGlowToActionBarButton(OverrideActionBarButton2, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton2, glowDuration)
 					elseif v.button == 3 then
-						AddGlowToActionBarButton(OverrideActionBarButton3, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton3, glowDuration)
 					end
 				end
 				
@@ -46,11 +53,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then
-						AddGlowToActionBarButton(OverrideActionBarButton1, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton1, glowDuration)
 					elseif v.button == 2 then
-						AddGlowToActionBarButton(OverrideActionBarButton2, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton2, glowDuration)
 					elseif v.button == 3 then
-						AddGlowToActionBarButton(OverrideActionBarButton3, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton3, glowDuration)
 					end
 				end
 				break
@@ -64,11 +71,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then
-						AddGlowToActionBarButton(OverrideActionBarButton1, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton1, glowDuration)
 					elseif v.button == 2 then
-						AddGlowToActionBarButton(OverrideActionBarButton2, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton2, glowDuration)
 					elseif v.button == 3 then
-						AddGlowToActionBarButton(OverrideActionBarButton3, 2)
+						AddGlowToActionBarButton(OverrideActionBarButton3, glowDuration)
 					end
 				end
 				break
