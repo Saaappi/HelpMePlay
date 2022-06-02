@@ -36,6 +36,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end
+			if HelpMePlayPlayerDialogDB[0] == nil then
+				HelpMePlayPlayerDialogDB[0] = {}
+				HelpMePlayPlayerDialogDB[0]["g"] = {}
+			end
 			if HelpMePlaySavesDB == nil then
 				HelpMePlaySavesDB = {}
 			end

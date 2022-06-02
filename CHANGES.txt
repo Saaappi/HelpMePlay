@@ -20,6 +20,7 @@ Fixes:
 	- Fixed multiple problems with the Anima Power automation.
 	- Fixed a problem where the quest popup would sometimes linger after accepting a quest from an item or from the call boards in major cities.
 	- Fixed the Item Level and Sell Price logic in the quest reward automation to address multiple problems.
+	- Fixed a problem with using gossip indices with the Dialog command on targets without a GUID. For example, using "/hmp dialog 1" on the orb that zones you into Blackwing Lair would return a literal 1 instead of the gossip. That's fixed now.
 	
 Removed:
 	- Removed the Transmog keybind. This has been replaced with a button in the player's bags. (Users can still invoke /hmp transmog or /hmp t.)

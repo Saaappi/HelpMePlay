@@ -26,24 +26,25 @@ local function ContainsByID(tbl, str)
 end
 
 local function Dialog(gossip)
-	local guid = UnitGUID("target")
-	if guid then
-		if tonumber(gossip) then
-			-- The player passed a gossip index
-			-- to the command, so let's determine
-			-- the appropriate text to insert to
-			-- the table.
-			local numOptions = C_GossipInfo.GetNumOptions()
-			if numOptions > 0 and (tonumber(gossip) > 0 and tonumber(gossip) <= numOptions) then
-				local options = C_GossipInfo.GetOptions()
-				for i = 1, #options do
-					if i == tonumber(gossip) then
-						gossip = options[i].name
-						break
-					end
+	if tonumber(gossip) then
+		-- The player passed a gossip index
+		-- to the command, so let's determine
+		-- the appropriate text to insert to
+		-- the table.
+		local numOptions = C_GossipInfo.GetNumOptions()
+		if numOptions > 0 and (tonumber(gossip) > 0 and tonumber(gossip) <= numOptions) then
+			local options = C_GossipInfo.GetOptions()
+			for i = 1, #options do
+				if i == tonumber(gossip) then
+					gossip = options[i].name
+					break
 				end
 			end
 		end
+	end
+	
+	local guid = UnitGUID("target")
+	if guid then
 		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
 		if not HelpMePlayPlayerDialogDB[npcId] then
 			HelpMePlayPlayerDialogDB[npcId] = {}
@@ -70,7 +71,7 @@ local function Dialog(gossip)
 				print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 			end
 		else
-			table.insert(HelpMePlayPlayerDialogDB, gossip)
+			table.insert(HelpMePlayPlayerDialogDB[0]["g"], gossip)
 		end
 	end
 end
