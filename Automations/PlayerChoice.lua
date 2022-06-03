@@ -56,7 +56,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
-				else
+				elseif choiceInfo.options[i].choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
 					for i = 1, 3 do
 						if choiceInfo.options[i].choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
 							SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
