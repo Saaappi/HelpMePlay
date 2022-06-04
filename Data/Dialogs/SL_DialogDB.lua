@@ -6,6 +6,18 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_SL = {
 	-- Supported Maps: 1409 (Exile's Reach), 1550 (The Shadowlands)
 	-- No Map Association
+	[0] = {
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Ancient Translocator 1"],
+				["condition"] 	= "none",
+			},
+			{
+				["text"] 		= L_DIALOG["Repository Console 1"],
+				["condition"] 	= "none",
+			},
+		},
+	},
 	[169501] = { -- Shadowlands Wormhole
 		["g"] = {
 			{
@@ -35,18 +47,6 @@ local DIALOG_SL = {
 		},
 	},
 	-- Oribos
-	[0] = {
-		["g"] = {
-			{
-				["text"] 		= L_DIALOG["Ancient Translocator 1"],
-				["condition"] 	= "none",
-			},
-			{
-				["text"] 		= L_DIALOG["Repository Console 1"],
-				["condition"] 	= "none",
-			},
-		},
-	},
 	[159478] = { -- Tal-Inara
 		["g"] = {
 			{
