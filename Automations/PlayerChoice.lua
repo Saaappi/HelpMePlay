@@ -31,6 +31,7 @@ e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if PlayerChoiceFrame:IsVisible() then
+			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
 				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
@@ -56,7 +57,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end
-				else
+				elseif addonTable.PLAYERCHOICE_MAPS[C_Map.GetBestMapForUnit("player")] then
 					for i = 1, 3 do
 						if choiceInfo.options[i].choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
 							SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
