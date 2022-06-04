@@ -75,6 +75,7 @@ Systems\Professions.lua
 Systems\Transmog.lua
 Systems\Commands.lua
 Systems\GarrisonTalentNPC.lua
+Systems\GuildBank.lua
 Systems\Talents.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
