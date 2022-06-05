@@ -34,35 +34,39 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
-				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
-				if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
-					if HelpMePlayOptionsDB.ThreadsOfFate then
-						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					else
-						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					end
-				elseif id == addonTable.PLAYERCHOICE["Shadowlands Covenant Map: Covenant Selection"] then
-					if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
-						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
-						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
-						SendPlayerChoiceResponse(choiceInfo.options[3].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
-						SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					end
-				elseif addonTable.PLAYERCHOICE_MAPS[C_Map.GetBestMapForUnit("player")] then
-					for i = 1, 3 do
-						if choiceInfo.options[i].choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
-							SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
+				if choiceInfo.objectGUID then
+					local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
+					if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
+						if HelpMePlayOptionsDB.ThreadsOfFate then
+							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-							break
+						else
+							SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						end
+					elseif id == addonTable.PLAYERCHOICE["Shadowlands Covenant Map: Covenant Selection"] then
+						if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
+							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
+							SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
+							SendPlayerChoiceResponse(choiceInfo.options[3].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
+							SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						end
+					end
+				else
+					if addonTable.PLAYERCHOICE_MAPS[C_Map.GetBestMapForUnit("player")] then
+						for i = 1, 3 do
+							if choiceInfo.options[i].choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
+								SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
+								HideUIPanel(PlayerChoiceFrame)
+								break
+							end
 						end
 					end
 				end
