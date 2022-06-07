@@ -58,6 +58,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 							SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end
+					elseif id == addonTable.PLAYERCHOICE["Drafting Table: Gorgrond"] then
+						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
 					end
 				else
 					if addonTable.PLAYERCHOICE_MAPS[C_Map.GetBestMapForUnit("player")] then
