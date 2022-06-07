@@ -1,5 +1,6 @@
 New Features:
 Junker
+	- The official sell your junk system baked into HelpMePlay. It's customizable and efficient!
 
 QoL Improvements:
 	- Added a check button for Vehicles automation.
