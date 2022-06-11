@@ -5,11 +5,6 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 --[[
-	TODO:
-		Get the ID for the Gorgrond Drafting Table for the Sparring
-		Arena selection. This is controlled by whether or not Garrison
-		Tables automation is enabled.
-	
 	Description:
 		Player choices are in-game decisions the player makes to determine
 		how they want to play the game, progress their character, etc.
@@ -34,8 +29,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
-				if choiceInfo.objectGUID then
-					local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
+				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
+				if id then
 					if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
 						if HelpMePlayOptionsDB.ThreadsOfFate then
 							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
@@ -63,9 +58,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 						HideUIPanel(PlayerChoiceFrame)
 					end
 				else
-					if addonTable.PLAYERCHOICE_MAPS[C_Map.GetBestMapForUnit("player")] then
+					if addonTable.PLAYERCHOICE_MAPS[mapId] then
 						for i = 1, 3 do
-							if choiceInfo.options[i].choiceArtID == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
+							if choiceInfo.options[i].header == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
 								SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
 								HideUIPanel(PlayerChoiceFrame)
 								break

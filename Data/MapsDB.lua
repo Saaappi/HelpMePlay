@@ -10,8 +10,8 @@ local PLAYERCHOICE_MAPS = {
 			check for whether or not we need to
 			process a player choice window.
 	]]--
-	84, 	-- Stormwind City
-	85, 	-- Orgrimmar
+	[84] = "Stormwind City",
+	[85] = "Orgrimmar",
 }
 local CINEMATIC_BADMAPS = {
 	--[[
