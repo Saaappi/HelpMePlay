@@ -3,8 +3,6 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local BADMAPS = addonTable.CINEMATIC_BADMAPS
-local isLoadingScreen = false
 
 -- Cinematics
 --[[
@@ -14,9 +12,8 @@ local isLoadingScreen = false
 		Cinematics are in-game "cutscenes" using in-game assets.
 ]]--
 CinematicFrame:HookScript("OnShow", function(self, ...)
-	if HelpMePlayOptionsDB.Cinematics == false or HelpMePlayOptionsDB.Cinematics == nil then return end
 	local mapId = C_Map.GetBestMapForUnit("player")
-	for key, badMapId in ipairs(BADMAPS) do
+	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
 			if HelpMePlayOptionsDB.Logging then
 				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
@@ -24,7 +21,11 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 			return
 		end
 	end
-	CinematicFrame_CancelCinematic()
+	
+	if HelpMePlayOptionsDB.Cinematics then
+		C_Timer.After(1.5, CinematicFrame_CancelCinematic)
+		C_Timer.After(3, CinematicFrame_CancelCinematic)
+	end
 end)
 
 -- Movies
@@ -34,17 +35,29 @@ end)
 		
 		Movies are in-game, pre-rendered videos.
 ]]--
-_G["MovieFrame_PlayMovie"] = function(...)
-	if HelpMePlayOptionsDB.Cinematics == false or HelpMePlayOptionsDB.Cinematics == nil then return end
+_G["MovieFrame_PlayMovie"] = function(self, movieId)
 	local mapId = C_Map.GetBestMapForUnit("player")
-	for key, badMapId in ipairs(BADMAPS) do
+	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
 			if HelpMePlayOptionsDB.Logging then
 				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
 			end
-			return
+			return false
 		end
 	end
-	GameMovieFinished()
-	return true
+	
+	if HelpMePlayOptionsDB.Cinematics then
+		C_Timer.After(1.5, GameMovieFinished)
+		C_Timer.After(3, GameMovieFinished)
+		return true
+	else
+		self:Show()
+		self.CloseDialog:Hide()
+		local playSuccess, errorCode = self:StartMovie(movieId)
+		if ( not playSuccess ) then
+			StaticPopup_Show("ERROR_CINEMATIC")
+			self:Hide()
+			GameMovieFinished()
+		end
+	end
 end
