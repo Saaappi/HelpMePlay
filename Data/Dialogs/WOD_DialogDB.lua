@@ -90,6 +90,22 @@ local DIALOG_WOD = {
 			},
 		},
 	},
+	[81074] = { -- Rangari Rajess
+		["g"] = {
+			{
+				["text"] 		= L_DIALOG["Rangari Rajess 1"],
+				["condition"] 	= "quest.active",
+				["questId"] 	= 35686, -- Rage and Wisdom
+				["index"] 		= 1,
+			},
+			{
+				["text"] 		= L_DIALOG["Rangari Rajess 2"],
+				["condition"] 	= "quest.active",
+				["questId"] 	= 36576, -- Strike While the Iron is Hot
+				["index"] 		= 2,
+			},
+		},
+	},
 	-- End of Gorgrond
 	-- Tanaan Jungle
 	[78556] = { -- Ariok

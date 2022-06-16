@@ -22,25 +22,25 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["text"] 		= L_DIALOG["Wormhole: Revendreth, Court of the Venthyr"],
-				["condition"] 	= "level_equal",
+				["condition"] 	= "level.equal",
 				["level"] 		= 51,
 				["index"]		= 5,
 			},
 			{
 				["text"] 		= L_DIALOG["Wormhole: Ardenweald, Forest of the Night Fae"],
-				["condition"] 	= "level_equal",
+				["condition"] 	= "level.equal",
 				["level"] 		= 54,
 				["index"]		= 4,
 			},
 			{
 				["text"] 		= L_DIALOG["Wormhole: Maldraxxus, Citadel of the Necrolords"],
-				["condition"] 	= "level_equal",
+				["condition"] 	= "level.equal",
 				["level"] 		= 57,
 				["index"]		= 3,
 			},
 			{
 				["text"] 		= L_DIALOG["Wormhole: Bastion, Home of the Kyrian"],
-				["condition"] 	= "level_equal",
+				["condition"] 	= "level.equal",
 				["level"] 		= 59,
 				["index"]		= 2,
 			},

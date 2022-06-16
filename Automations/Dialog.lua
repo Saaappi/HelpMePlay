@@ -98,24 +98,29 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						C_GossipInfo.SelectOption(index)
 						return
 					end
-				elseif gossip.condition == "level_higher" then
+				elseif gossip.condition == "level.higher" then
 					if UnitLevel("player") > gossip.level then
 						C_GossipInfo.SelectOption(index)
 						return
 					end
-				elseif gossip.condition == "level_equal" then
+				elseif gossip.condition == "level.equal" then
 					if UnitLevel("player") == gossip.level then
 						C_GossipInfo.SelectOption(gossip.index)
 						return
 					end
-				elseif gossip.condition == "level_lower" then
+				elseif gossip.condition == "level.lower" then
 					if UnitLevel("player") < gossip.level then
 						C_GossipInfo.SelectOption(index)
 						return
 					end
-				elseif gossip.condition == "money" then
+				elseif gossip.condition == "money.greaterThan" then
 					if GetMoney("player") > gossip.money then
 						C_GossipInfo.SelectOption(index)
+						return
+					end
+				elseif gossip.condition == "quest.active" then
+					if C_QuestLog.IsOnQuest(gossip.questId) then
+						C_GossipInfo.SelectOption(gossip.index)
 						return
 					end
 				end
@@ -236,24 +241,29 @@ local function ConfirmConfirmationMessage(message, npcId)
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "level_higher" then
+			elseif gossip.condition == "level.higher" then
 				if UnitLevel("player") > gossip.level then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "level_equal" then
+			elseif gossip.condition == "level.equal" then
 				if UnitLevel("player") == gossip.level then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "level_lower" then
+			elseif gossip.condition == "level.lower" then
 				if UnitLevel("player") < gossip.level then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "money" then
+			elseif gossip.condition == "money.greaterThan" then
 				if GetMoney("player") > gossip.money then
 					StaticPopup1Button1:Click("LeftButton")
+					return
+				end
+			elseif gossip.condition == "quest.active" then
+				if C_QuestLog.IsOnQuest(gossip.questId) then
+					C_GossipInfo.SelectOption(index)
 					return
 				end
 			end

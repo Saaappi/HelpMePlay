@@ -155,6 +155,8 @@ if (isLocaleSupported) then
 	L_DIALOG["Skaggit 1"]																	= "Get the peons back to work."
 	L_DIALOG["Senior Peon II 1"]															= "Gazlowe needs you."
 	L_DIALOG["Sergeant Grimjaw 1"]															= "Prepare to battle the Gorens."
+	L_DIALOG["Rangari Rajess 1"]															= "I need to meet with Rangari Erdanii."
+	L_DIALOG["Rangari Rajess 2"]															= "I am needed urgently at the Iron Docks."
 	L_DIALOG["Spiritwalker Ebonhorn 1"]														= "Tell me the Story of Huln."
 	L_DIALOG["Spiritwalker Ebonhorn 2"]														= "Tell me more of Huln Highmountain."
 	L_DIALOG["Spiritwalker Ebonhorn 3"]														= "I'm investigating unusual magical activity in the area."

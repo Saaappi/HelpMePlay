@@ -10,14 +10,14 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["text"] 		= L_DIALOG["Archmage Khadgar 1"],
-				["condition"] 	= "level_lower",
+				["condition"] 	= "level.lower",
 				["level"] 		= 50,
 			},
 		},
 		["c"] = {
 			{
 				["text"] 		= L_DIALOG["Archmage Khadgar 2"],
-				["condition"] 	= "level_lower",
+				["condition"] 	= "level.lower",
 				["level"] 		= 50,
 			},
 		},
@@ -1100,7 +1100,7 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["text"] 		= L_DIALOG["Gryth Thurden 1"],
-				["condition"] 	= "level_lower",
+				["condition"] 	= "level.lower",
 				["level"]		= 50,
 			},
 		},
@@ -1125,7 +1125,7 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["text"] 		= L_DIALOG["I'm ready to set sail!"],
-				["condition"] 	= "level_lower",
+				["condition"] 	= "level.lower",
 				["level"]		= 50,
 			},
 		},
