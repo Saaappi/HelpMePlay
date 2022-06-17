@@ -1154,14 +1154,6 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
-	[163095] = { -- Lindie Springstock
-		["g"] = {
-			{
-				["text"] 		= L_DIALOG["Lindie Springstock 1"],
-				["condition"] 	= "none",
-			},
-		},
-	},
 	[154169] = { -- Captain Garrick
 		["g"] = {
 			{

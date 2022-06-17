@@ -122,7 +122,6 @@ if (isLocaleSupported) then
 	L_DIALOG["Wormhole: Maldraxxus, Citadel of the Necrolords"]								= "Maldraxxus, Citadel of the Necrolords"
 	L_DIALOG["Wormhole: Bastion, Home of the Kyrian"]										= "Bastion, Home of the Kyrian"
 	L_DIALOG["Warlord Breka Grimaxe 1"]														= "I know my way around Orgrimmar."
-	L_DIALOG["Lindie Springstock 1"]														= "Let's head to the Old Town stables."
 	L_DIALOG["Archmage Khadgar 1"]															= "FOR AZEROTH!"
 	L_DIALOG["Archmage Khadgar 2"]															= "You are about to embark on a dangerous mission, and you may not be able to return immediately."
 	L_DIALOG["Johnny Awesome 1"] 															= "Well, we are having some problems at the Sludge Fields, located northeast of here. Warden Stillwater could use your help."
