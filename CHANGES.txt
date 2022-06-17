@@ -1,14 +1,13 @@
 New Features:
 
 QoL Improvements:
+	- Junker will now auto sell soulbound items that are 25 or more item levels lower than you.
 	
 Additions:
+	- Added the drafting table in Talador to the player choice automation.
 
 Updates:
-	- To combat possible UI taint, a small delay has been added to cinematic and in-game movie cancellation.
 	
 Fixes:
-	- Fixed a problem with the call boards and accepting Tanaan Jungle.
-	- Fixed a problem with in-game movies not completing correctly with Cinematics automation disabled, causing the UI to become unusable.
 	
 Removed:

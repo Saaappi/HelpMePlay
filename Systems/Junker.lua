@@ -35,6 +35,8 @@ function HelpMePlaySellItems()
 	local sellPrice = 0
 	local itemQuality = 0
 	local itemType = ""
+	local itemLevel = 0
+	local _, avgItemLevel = GetAverageItemLevel()
 	for bagId = 0, 4 do
 		for slotId = 0, GetContainerNumSlots(bagId) do
 			itemId = GetContainerItemID(bagId, slotId)
@@ -63,6 +65,25 @@ function HelpMePlaySellItems()
 							if HelpMePlayOptionsDB["Junker"][itemType] then
 								UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
+							end
+							
+							if avgItemLevel then
+								--[[
+									Description:
+										If we know the player's approximate item
+										level, then let's use that to determine
+										if the item is legacy, and therefore
+										can just be sold.
+										
+										This should only apply to SOULBOUND items.
+								]]--
+								itemLevel = GetDetailedItemLevelInfo(itemId)
+								if (itemLevel+25) < avgItemLevel then
+									if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
+										UseContainerItem(bagId, slotId)
+										soldItemCount = soldItemCount + 1
+									end
+								end
 							end
 						end
 					end
