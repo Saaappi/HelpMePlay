@@ -9,5 +9,6 @@ Additions:
 Updates:
 	
 Fixes:
+	- Fixed an issue that prevented the emote automation from emoting at Gor'groth on Exile's Reach.
 	
 Removed:
