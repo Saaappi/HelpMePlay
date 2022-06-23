@@ -34,6 +34,7 @@ function HelpMePlaySellItems()
 	local itemId = 0
 	local sellPrice = 0
 	local itemQuality = 0
+	local itemLink = ""
 	local itemType = ""
 	local itemLevel = 0
 	local _, avgItemLevel = GetAverageItemLevel()
@@ -41,6 +42,7 @@ function HelpMePlaySellItems()
 		for slotId = 0, GetContainerNumSlots(bagId) do
 			itemId = GetContainerItemID(bagId, slotId)
 			if itemId then
+				itemLink = GetContainerItemLink(bagId, slotId)
 				-- Certain items won't have an id.
 				-- Let's avoid those.
 				--
@@ -67,7 +69,7 @@ function HelpMePlaySellItems()
 								soldItemCount = soldItemCount + 1
 							end
 							
-							if avgItemLevel then
+							if avgItemLevel and (itemType == "Armor" or itemType == "Weapon") then
 								--[[
 									Description:
 										If we know the player's approximate item
@@ -77,7 +79,7 @@ function HelpMePlaySellItems()
 										
 										This should only apply to SOULBOUND items.
 								]]--
-								itemLevel = GetDetailedItemLevelInfo(itemId)
+								itemLevel = GetDetailedItemLevelInfo(itemLink)
 								if (itemLevel+25) < avgItemLevel then
 									if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
 										UseContainerItem(bagId, slotId)
