@@ -6,7 +6,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function PrintLine(text)
 	if HelpMePlayOptionsDB.Logging then
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. text)
+		print(string.format("%s", text))
 	end
 end
 
@@ -18,10 +18,10 @@ local function CheckTalents(talentTree, currencyId)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			-- The player doesn't have the talent
 			-- researched, so let's move forward.
-			currency = C_CurrencyInfo.GetCurrencyInfo(currencyId).quantity
+			currency = C_CurrencyInfo.GetCurrencyInfo(currencyId)
 			-- The player has enough currency to
 			-- research the talent.
-			if currency >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
+			if currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
 				-- Let's check to see if the talent
 				-- has a prerequisite talent. If so,
 				-- let's also check if that prerequisite
@@ -69,7 +69,7 @@ local function CheckTalents(talentTree, currencyId)
 				-- currency the player
 				-- will need for the next talent,
 				-- then break from the loop.
-				PrintLine(L_GLOBALSTRINGS["Talent Not Enough Currency Text"] .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency .. " " .. "(|T" .. talentInfo.icon .. ":0|t " .. talentInfo.name .. ")")
+				PrintLine(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Talent Not Enough Currency Text"] .. ": " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
 				return
 			end
 		end
