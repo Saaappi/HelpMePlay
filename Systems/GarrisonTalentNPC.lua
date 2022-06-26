@@ -79,7 +79,7 @@ end
 local function GetTalentTreeInfo(talentTreeId)
 	if talentTreeId == 271 then
 		-- Titan Research Archive
-		CheckTalents(addonTable.TITANICRESEARCH, 1744)
+		CheckTalents(addonTable.TITANICRESEARCH, 1719)
 	elseif talentTreeId == 461 then
 		-- The Box of Many Things
 		CheckTalents(addonTable.BOXOFMANYTHINGS, 1904)

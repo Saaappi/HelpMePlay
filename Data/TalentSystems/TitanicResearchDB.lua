@@ -4,7 +4,7 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local TITANICRESEARCH = {
-	-- Corrupted Mementos: 1744
+	-- Corrupted Mementos: 1719
 	{ -- Orb Operation Manual (Rank 1)
 		["perkId"]	= 791,
 		["print"]	= "spell",
