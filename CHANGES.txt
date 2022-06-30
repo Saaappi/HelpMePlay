@@ -2,6 +2,7 @@ New Features:
 
 QoL Improvements:
 	- Junker will now auto sell soulbound items that are 25 or more item levels lower than you.
+	- The Junker button will now show and hide when toggling the option with the merchant window open.
 	
 Additions:
 	- Added the drafting table in Talador to the player choice automation.

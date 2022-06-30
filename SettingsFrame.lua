@@ -1644,6 +1644,11 @@ function HelpMePlayLoadSettings()
 			end)
 			HMPEnableJunkerCB:SetScript("OnClick", function(self)
 				HelpMePlayOptionsDB["Junker"]["Enabled"] = self:GetChecked()
+				if HelpMePlayOptionsDB["Junker"]["Enabled"] then
+					ShowJunkerButton()
+				else
+					addonTable.HMPJunkerMerchantButton:Hide()
+				end
 			end)
 			
 			-- Junker Safe Mode Check Button
