@@ -9,7 +9,9 @@ Additions:
 Updates:
 	
 Fixes:
-	- Fixed an issue that prevented the emote automation from emoting at Gor'groth on Exile's Reach.
+	- Fixed a problem that prevented the emote automation from emoting at Gor'groth on Exile's Reach.
 	- Fixed the currency ID for Corrupted Mementos when interacting with the Titan Research Archive.
+	- Fixed a problem that caused the "Disable All" button to be checked all the time.
+	- Fixed a problem that caused the Junker system to disable itself. This likely happened due to the "Disable All" problem above.
 	
 Removed:

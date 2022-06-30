@@ -1234,7 +1234,9 @@ function HelpMePlayLoadSettings()
 				HideTooltip(self)
 			end)
 			HMPDisableAllCB:SetScript("OnClick", function(self)
-				if self:GetChecked() then
+				--C_Timer.After(1, function() HelpMePlayOptionsDB.DisableAll = self:GetChecked() end)
+				HelpMePlayOptionsDB.DisableAll = self:GetChecked()
+				if HelpMePlayOptionsDB.DisableAll then
 					-- Create an empty table to store the current
 					-- state of the settings. We'll use the current
 					-- states to return the settings back to their
@@ -1380,7 +1382,7 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce)
 					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
 					HMPLoggingCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Logging)
-					HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Junker.Enabled)
+					HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Junker)
 					UIDropDownMenu_SetSelectedValue(HMPQuestRewardDropDown, HelpMePlayOptionsDB.QuestRewards)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
@@ -1388,7 +1390,6 @@ function HelpMePlayLoadSettings()
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, HelpMePlayOptionsDB.BFAZoneSelection)
 					UIDropDownMenu_SetSelectedValue(HMPSLZoneSelDropDown, HelpMePlayOptionsDB.SLZoneSelection)
 				end
-				HelpMePlayOptionsDB.DisableAll = self:GetChecked()
 			end)
 
 			-- Dialog Check Button
