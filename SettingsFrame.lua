@@ -23,6 +23,15 @@ function HelpMePlay_StringToTable(str, delimiter)
 	return tbl
 end
 
+local function SaveFramePosition()
+	local point, _, relativePoint, xOffs, yOffs = HMPOptionsFrame:GetPoint()
+	HelpMePlayOptionsDB.point = point
+	HelpMePlayOptionsDB.relativePoint = relativePoint
+	HelpMePlayOptionsDB.xOffs = xOffs
+	HelpMePlayOptionsDB.yOffs = yOffs
+	HMPOptionsFrame:StopMovingOrSizing()
+end
+
 local function ImportToJunker(itemId, instruction)
 	itemId = tonumber(itemId)
 	if instruction == "ADD" then
@@ -1059,12 +1068,20 @@ function HelpMePlayLoadSettings()
 			HMPTab_OnClick(1)
 
 			-- Make the options menu movable.
+			HMPOptionsFrame:RegisterForDrag("LeftButton")
 			HMPOptionsFrame:SetMovable(true)
 			HMPOptionsFrame:SetUserPlaced(true)
 			HMPOptionsFrame:EnableMouse(true)
-			HMPOptionsFrame:RegisterForDrag("LeftButton")
 			HMPOptionsFrame:SetScript("OnDragStart", HMPOptionsFrame.StartMoving)
-			HMPOptionsFrame:SetScript("OnDragStop", HMPOptionsFrame.StopMovingOrSizing)
+			HMPOptionsFrame:SetScript("OnDragStop", SaveFramePosition)
+			
+			-- If the addon saved a positional value for the addon,
+			-- then reset its position to the position the player
+			-- last defined.
+			HMPOptionsFrame:ClearAllPoints()
+			if HelpMePlayOptionsDB.point then
+				HMPOptionsFrame:SetPoint(HelpMePlayOptionsDB.point, "WorldFrame", HelpMePlayOptionsDB.relativePoint, HelpMePlayOptionsDB.xOffs, HelpMePlayOptionsDB.yOffs)
+			end
 
 			-- SetText for FontStrings
 			HMPCRText:SetText(L_GLOBALSTRINGS["Copyright Text"])

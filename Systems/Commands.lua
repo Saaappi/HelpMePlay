@@ -185,7 +185,16 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			end
 		end
 		print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+	elseif command == L_GLOBALSTRINGS["Reset Command"] then
+		-- Let's reset the position to the original position
+		-- defined by the addon.
+		if HelpMePlayOptionsDB.point then
+			HelpMePlayOptionsDB.point = "CENTER"
+			HelpMePlayOptionsDB.relativePoint = "CENTER"
+			HelpMePlayOptionsDB.xOffs = 0
+			HelpMePlayOptionsDB.yOffs = 325
+		end
 	elseif command == L_GLOBALSTRINGS["Help Command"] then
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
+		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
 	end
 end

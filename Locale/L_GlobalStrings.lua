@@ -45,6 +45,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Transmog Command"]															= "transmog"
 	L_GLOBALSTRINGS["Junker Command"]															= "junker"
 	L_GLOBALSTRINGS["Help Command"]																= "help"
+	L_GLOBALSTRINGS["Reset Command"]															= "reset"
 	L_GLOBALSTRINGS["Add Subcommand"]															= "add"
 	L_GLOBALSTRINGS["Blacklist Subcommand"]														= "blacklist"
 	L_GLOBALSTRINGS["Q"]																		= "q"
