@@ -1060,6 +1060,7 @@ function HelpMePlayLoadSettings()
 
 			-- Make the options menu movable.
 			HMPOptionsFrame:SetMovable(true)
+			HMPOptionsFrame:SetUserPlaced(true)
 			HMPOptionsFrame:EnableMouse(true)
 			HMPOptionsFrame:RegisterForDrag("LeftButton")
 			HMPOptionsFrame:SetScript("OnDragStart", HMPOptionsFrame.StartMoving)

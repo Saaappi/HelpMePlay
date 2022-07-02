@@ -1,18 +1,11 @@
 New Features:
 
 QoL Improvements:
-	- Junker will now auto sell soulbound items that are 25 or more item levels lower than you.
-	- The Junker button will now show and hide when toggling the option with the merchant window open.
 	
 Additions:
-	- Added the drafting table in Talador to the player choice automation.
 
 Updates:
 	
 Fixes:
-	- Fixed a problem that prevented the emote automation from emoting at Gor'groth on Exile's Reach.
-	- Fixed the currency ID for Corrupted Mementos when interacting with the Titan Research Archive.
-	- Fixed a problem that caused the "Disable All" button to be checked all the time.
-	- Fixed a problem that caused the Junker system to disable itself. This likely happened due to the "Disable All" problem above.
 	
 Removed:
