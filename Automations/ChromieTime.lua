@@ -16,12 +16,14 @@ e:RegisterEvent("CHROMIE_TIME_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHROMIE_TIME_OPEN" then
 		if IsShiftKeyDown() == false then
-			local playerLevel = UnitLevel("player")
-			if playerLevel < ctMaxLevel then
-				if UnitChromieTimeID("player") ~= HelpMePlayOptionsDB.ChromieTimeExpansion then
-					C_ChromieTime.SelectChromieTimeOption(HelpMePlayOptionsDB.ChromieTimeExpansion)
+			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+				local playerLevel = UnitLevel("player")
+				if playerLevel < ctMaxLevel then
+					if UnitChromieTimeID("player") ~= HelpMePlayOptionsDB.ChromieTimeExpansion then
+						C_ChromieTime.SelectChromieTimeOption(HelpMePlayOptionsDB.ChromieTimeExpansion)
+					end
 				end
-			end
+			end)
 		end
 	end
 end)
