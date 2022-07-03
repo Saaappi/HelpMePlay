@@ -15,10 +15,12 @@ local ctMaxLevel = 50
 e:RegisterEvent("CHROMIE_TIME_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHROMIE_TIME_OPEN" then
-		local playerLevel = UnitLevel("player")
-		if playerLevel < ctMaxLevel then
-			if UnitChromieTimeID("player") ~= HelpMePlayOptionsDB.ChromieTimeExpansion then
-				C_ChromieTime.SelectChromieTimeOption(HelpMePlayOptionsDB.ChromieTimeExpansion)
+		if IsShiftKeyDown() == false then
+			local playerLevel = UnitLevel("player")
+			if playerLevel < ctMaxLevel then
+				if UnitChromieTimeID("player") ~= HelpMePlayOptionsDB.ChromieTimeExpansion then
+					C_ChromieTime.SelectChromieTimeOption(HelpMePlayOptionsDB.ChromieTimeExpansion)
+				end
 			end
 		end
 	end
