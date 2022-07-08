@@ -95,21 +95,23 @@ function HelpMePlaySellItems()
 								soldItemCount = soldItemCount + 1
 							end
 							
-							if avgItemLevel and (itemType == "Armor" or itemType == "Weapon") then
-								--[[
-									Description:
-										If we know the player's approximate item
-										level, then let's use that to determine
-										if the item is legacy, and therefore
-										can just be sold.
-										
-										This should only apply to SOULBOUND items.
-								]]--
-								itemLevel = GetDetailedItemLevelInfo(itemLink)
-								if (itemLevel+25) < avgItemLevel then
-									if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
-										UseContainerItem(bagId, slotId)
-										soldItemCount = soldItemCount + 1
+							if HelpMePlayOptionsDB["Junker"]["isSoulboundEnabled"] then
+								if avgItemLevel and (itemType == "Armor" or itemType == "Weapon") then
+									--[[
+										Description:
+											If we know the player's approximate item
+											level, then let's use that to determine
+											if the item is legacy, and therefore
+											can just be sold.
+											
+											This should only apply to SOULBOUND items.
+									]]--
+									itemLevel = GetDetailedItemLevelInfo(itemLink)
+									if (itemLevel+25) < avgItemLevel then
+										if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
+											UseContainerItem(bagId, slotId)
+											soldItemCount = soldItemCount + 1
+										end
 									end
 								end
 							end

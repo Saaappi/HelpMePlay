@@ -260,6 +260,11 @@
 					<Anchor point="LEFT" relativeTo="HMPDisableAllCB" relativePoint="RIGHT" x="450" />
 				</Anchors>
 			</CheckButton>
+			<CheckButton name="HMPJunkerSoulboundCB" inherits="UICheckButtonTemplate" text="CheckButton1">
+				<Anchors>
+					<Anchor point="TOP" relativeTo="HMPJunkerSafeModeCB" relativePoint="BOTTOM" y="-5" />
+				</Anchors>
+			</CheckButton>
 			<Frame name="HMPJunkerRarityDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
 					<Anchor point="LEFT" relativeTo="HMPJunkerItemTypeArmorCB" relativePoint="RIGHT" x="150" />
@@ -518,6 +523,14 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="RIGHT" relativeTo="HMPJunkerSafeModeCB" relativePoint="LEFT" x="8" />
+					</Anchors>
+					<FontHeight val="12" />
+					<Color r="1" g="1" b="1" />
+				</FontString>
+				<FontString name="HMPJunkerSoulboundText" inherits="GameFontNormal" text="Soulbound" justifyH="CENTER" justifyV="CENTER">
+					<Size x="99" y="20" />
+					<Anchors>
+						<Anchor point="RIGHT" relativeTo="HMPJunkerSoulboundCB" relativePoint="LEFT" x="8" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />

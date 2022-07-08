@@ -65,6 +65,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayOptionsDB["Junker"]["isSafeModeEnabled"] == nil then
 				HelpMePlayOptionsDB["Junker"]["isSafeModeEnabled"] = true
 			end
+			if HelpMePlayOptionsDB["Junker"]["isSoulboundEnabled"] == nil then
+				HelpMePlayOptionsDB["Junker"]["isSoulboundEnabled"] = true
+			end
 			if HelpMePlayOptionsDB.MinimapIcon then
 				HelpMePlayShowMinimapIcon(true)
 			end
