@@ -1229,12 +1229,6 @@ local DIALOG_CLASSIC = {
 		},
 	},
 	[171791] = { -- Nazgrim
-		["g"] = {
-			{
-				["text"] 		= L_DIALOG["I have heard this tale before."],
-				["condition"] 	= "none",
-			},
-		},
 		["c"] = {
 			{
 				["text"] 		= L_DIALOG["Are you sure?"],
