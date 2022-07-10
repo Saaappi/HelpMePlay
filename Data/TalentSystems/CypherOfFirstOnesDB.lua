@@ -8,34 +8,42 @@ local CYPHERSOFTHEFIRSTONES = {
 	{ -- Metrial Understanding
 		["perkId"]	= 1901,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 	{ -- Cachial Understanding
 		["perkId"] 	= 1972,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 	{ -- Aealic Understanding
 		["perkId"] 	= 1904,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 	{ -- Altonian Understanding
 		["perkId"] 	= 1902,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 	{ -- Dealic Understanding
 		["perkId"] 	= 1932,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 	{ -- Elic
 		["perkId"] 	= 1988,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 	{ -- Sopranian Understanding
 		["perkId"] 	= 1931,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 	{ -- Corial
 		["perkId"] 	= 1971,
 		["print"] 	= "name",
+		["f"]		= "",
 	},
 }
 

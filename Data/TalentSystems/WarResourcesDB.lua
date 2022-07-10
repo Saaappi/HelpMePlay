@@ -18,18 +18,22 @@ local WARRESOURCES = {
 	{ -- Upgraded Troop Barracks
 		["perkId"]	= 553,
 		["print"]	= "",
+		["f"]		= "",
 	},
 	{ -- Island Plunderer
 		["perkId"]	= 662,
 		["print"]	= "",
+		["f"]		= "",
 	},
 	{ -- Local Transportation
 		["perkId"]	= 665,
 		["print"]	= "",
+		["f"]		= "",
 	},
 	{ -- Warfront Resourcer
 		["perkId"]	= 666,
 		["print"]	= "",
+		["f"]		= "",
 	},
 }
 

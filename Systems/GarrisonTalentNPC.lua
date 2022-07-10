@@ -17,7 +17,7 @@ local function CheckTalents(talentTree, currencyId)
 		talentInfo = C_Garrison.GetTalentInfo(v.perkId)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			if v.f then
-				if v.f == UnitFactionGroup("player") then
+				if v.f == UnitFactionGroup("player") or v.f == "" then
 					-- The player doesn't have the talent
 					-- researched, so let's move forward.
 					currency = C_CurrencyInfo.GetCurrencyInfo(currencyId)
