@@ -60,7 +60,6 @@ local function CheckTalents(talentTree, currencyId)
 								-- send a spell link to the chat frame.
 								-- If not, then use the perk name.
 								if v.print == "spell" and talentInfo.perkSpellID ~= 0 then
-									print(talentInfo.id)
 									PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 								else
 									PrintLine(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
