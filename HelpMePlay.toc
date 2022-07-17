@@ -1,5 +1,5 @@
 ## Author: LightskyGG
-## Interface: 90205
+## Interface: 90207
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB
