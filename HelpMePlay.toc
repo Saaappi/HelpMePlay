@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
-## Version: 1.1.8c
+## Version: 1.1.8d
 
 Locale\L_GlobalStrings.lua
 Locale\L_Dialog.lua
@@ -76,7 +76,6 @@ Systems\Professions.lua
 Systems\Transmog.lua
 Systems\Commands.lua
 Systems\GarrisonTalentNPC.lua
-Systems\GuildBank.lua
 Systems\Talents.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua

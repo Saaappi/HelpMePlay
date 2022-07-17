@@ -129,12 +129,12 @@ end
 
 hooksecurefunc("ContainerFrame_OnShow", function(self)
 	-- Texture work. Let's recreate the bag sorting button.
-		normalTexture:SetTexture("Interface\\Transmogrify\\Transmogrify")
-		normalTexture:SetSize(18, 18)
-		normalTexture:SetTexCoord(0.8125, 0.880859, 0.09375, 0.166016)
+		normalTexture:SetTexture("Interface\\Warfront\\WarfrontAssetIcons")
+		normalTexture:SetSize(32, 32)
+		normalTexture:SetTexCoord(0.516602, 0.579102, 0.00195312, 0.126953)
 		
 		highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-		highlightTexture:SetSize(18, 17)
+		highlightTexture:SetSize(32, 32)
 		
 		HMPTransmogButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
@@ -142,8 +142,8 @@ hooksecurefunc("ContainerFrame_OnShow", function(self)
 		HMPTransmogButton:SetHighlightTexture(highlightTexture, "ADD")
 		
 		-- Let's get the button on the base container frame.
-		HMPTransmogButton:SetSize(18, 18)
-		HMPTransmogButton:SetPoint("TOPLEFT", 26, -46)
+		HMPTransmogButton:SetSize(32, 32)
+		HMPTransmogButton:SetPoint("BOTTOM", 0, -30)
 end)
 
 HMPTransmogButton:HookScript("OnClick", function(self)
