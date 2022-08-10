@@ -47,8 +47,8 @@ _G["MovieFrame_PlayMovie"] = function(self, movieId)
 	end
 	
 	if HelpMePlayOptionsDB.Cinematics then
+		C_Timer.After(1, GameMovieFinished)
 		C_Timer.After(1.5, GameMovieFinished)
-		C_Timer.After(3, GameMovieFinished)
 		return true
 	else
 		self:Show()
