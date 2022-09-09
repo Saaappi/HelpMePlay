@@ -98,27 +98,27 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						C_GossipInfo.SelectOption(index)
 						return
 					end
-				elseif gossip.condition == "level.higher" then
+				elseif gossip.condition == "level.higher" and string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
 					if UnitLevel("player") > gossip.level then
 						C_GossipInfo.SelectOption(index)
 						return
 					end
-				elseif gossip.condition == "level.equal" then
+				elseif gossip.condition == "level.equal" and string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
 					if UnitLevel("player") == gossip.level then
 						C_GossipInfo.SelectOption(gossip.index)
 						return
 					end
-				elseif gossip.condition == "level.lower" then
+				elseif gossip.condition == "level.lower" and string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
 					if UnitLevel("player") < gossip.level then
 						C_GossipInfo.SelectOption(index)
 						return
 					end
-				elseif gossip.condition == "money.greaterThan" then
+				elseif gossip.condition == "money.greaterThan" and string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
 					if GetMoney("player") > gossip.money then
 						C_GossipInfo.SelectOption(index)
 						return
 					end
-				elseif gossip.condition == "quest.active" then
+				elseif gossip.condition == "quest.active" and string.find(string.lower(gossipSubTable["name"]), string.lower(gossip.text)) then
 					if C_QuestLog.IsOnQuest(gossip.questId) then
 						C_GossipInfo.SelectOption(gossip.index)
 						return

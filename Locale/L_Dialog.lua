@@ -86,7 +86,6 @@ if (isLocaleSupported) then
 	L_DIALOG["I've heard this tale before..."]												= "I've heard this tale before..."
 	L_DIALOG["I'm ready to set sail!"]														= "I'm ready to set sail!"
 	L_DIALOG["I would like you to have the supplies."]										= "I would like you to have the supplies."
-	L_DIALOG["I need a ride."]																= "I need a ride."
 	L_DIALOG["D'kaan is coming with help."]													= "D'kaan is coming with help."
 	L_DIALOG["I need to restore these remnants."]											= "I need to restore these remnants."
 	L_DIALOG["The bells tell us to go to the town hall to be safe."]						= "The bells tell us to go to the town hall to be safe."
