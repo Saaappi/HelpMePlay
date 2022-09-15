@@ -33,6 +33,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayIgnoredCreaturesDB == nil then
 				HelpMePlayIgnoredCreaturesDB = {}
 			end
+			if HelpMePlayIgnoredQuestsDB == nil then
+				HelpMePlayIgnoredQuestsDB = {}
+			end
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end

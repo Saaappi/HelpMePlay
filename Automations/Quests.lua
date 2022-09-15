@@ -276,7 +276,11 @@ local function Get_AvailableQuests(gossipInfo)
 		end)
 	else
 		for i, quest in ipairs(gossipInfo) do
-			C_GossipInfo.SelectAvailableQuest(i)
+			if HelpMePlayIgnoredQuestsDB[quest.questID] then
+				-- do nothing
+			else
+				C_GossipInfo.SelectAvailableQuest(i)
+			end
 		end
 	end
 end

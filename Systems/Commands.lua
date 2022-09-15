@@ -138,24 +138,36 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		end
 	elseif command == L_GLOBALSTRINGS["Transmog Command"] or command == L_GLOBALSTRINGS["T"] then
 		HelpMePlay_GetEquippedItems()
-	elseif command == L_GLOBALSTRINGS["Ignore Command"] then
-		if tonumber(arguments) then
-			local npcId = tonumber(arguments)
-			if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
-				HelpMePlayIgnoredCreaturesDB[npcId] = true
+	elseif command == L_GLOBALSTRINGS["Ignore Command"] and arguments ~= "" then
+		local subCommand, id = string.split(" ", arguments)
+		if subCommand == L_GLOBALSTRINGS["Ignore NPC"] then
+			local npcId = tonumber(id)
+			if npcId then
+				if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
+					HelpMePlayIgnoredCreaturesDB[npcId] = true
+				else
+					HelpMePlayIgnoredCreaturesDB[npcId] = nil
+				end
 			else
-				HelpMePlayIgnoredCreaturesDB[npcId] = nil
-			end
-		else
-			if UnitIsPlayer("target") == false then
-				local unitGUID = UnitGUID("target")
-				if unitGUID then
-					local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-					if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
-						HelpMePlayIgnoredCreaturesDB[npcId] = true
-					else
-						HelpMePlayIgnoredCreaturesDB[npcId] = nil
+				if UnitIsPlayer("target") == false then
+					local unitGUID = UnitGUID("target")
+					if unitGUID then
+						local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
+						if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
+							HelpMePlayIgnoredCreaturesDB[npcId] = true
+						else
+							HelpMePlayIgnoredCreaturesDB[npcId] = nil
+						end
 					end
+				end
+			end
+		elseif subCommand == L_GLOBALSTRINGS["Quest Command"] then
+			local questId = tonumber(id)
+			if questId then
+				if HelpMePlayIgnoredQuestsDB[questId] == nil then
+					HelpMePlayIgnoredQuestsDB[questId] = true
+				else
+					HelpMePlayIgnoredQuestsDB[questId] = nil
 				end
 			end
 		end

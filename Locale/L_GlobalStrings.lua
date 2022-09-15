@@ -51,6 +51,9 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Q"]																		= "q"
 	L_GLOBALSTRINGS["T"]																		= "t"
 	-- End: 	Commands
+	-- Start:	Subcommands
+	L_GLOBALSTRINGS["Ignore NPC"]																= "npc"
+	-- End:		Subcommands
 	--
 	-- Start:	Keybinds
 	L_GLOBALSTRINGS["Open Settings"]															= "Open Settings"
