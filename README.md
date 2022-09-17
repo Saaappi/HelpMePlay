@@ -15,6 +15,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - [Features](#features)
 - [Systems](#systems)
 - [Commands](#commands)
+- [Resources](#resources)
 
 ## Features
 
@@ -53,3 +54,5 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
    - *<kbd>/hmp ignore quest id</kbd> can be used to ignore a quest. 'id' should be replaced with the quest's ID. This will ONLY work for quests in a list.*
 - **<kbd>/hmp quest id</kbd>** - If you're uncertain if you've completed a quest, HelpMePlay can let you know. You can alias the command using <kbd>/hmp q id</kbd>, as well.
 - **<kbd>/hmp transmog</kbd>** - HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items.
+
+## Resources
