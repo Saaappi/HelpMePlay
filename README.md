@@ -4,9 +4,9 @@
 
 [<img src="https://i.imgur.com/r8jBWCd.jpeg" width="100%">](https://addons.wago.io/addons/helpmeplay)
 
-HelpMePlay is a World of Warcraft addon built to automate as many tasks in the game as possible. Players should free up their time vendoring items one-by-one, accepting/completing quests, and even selecting dialog options from NPCs. *All options are disabled by default!*
+HelpMePlay is a World of Warcraft addon built to automate as many tasks in the game as possible. Players should free up their time vendoring items one-by-one, accepting/completing quests, and even selecting dialog options from NPCs.
 
-> Use <kbd>/hmp</kbd> to open the options or configure a keybind!
+> *All options are disabled by default!* Use <kbd>/hmp</kbd> to open the options or configure a keybind!
 
 Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting. Read on to learn more!
 
@@ -14,6 +14,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 
 - [Features](#features)
 - [Systems](#systems)
+- [Commands](#commands)
 
 ## Features
 
@@ -40,3 +41,8 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Party Play** - Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what! Oh, and Party Play can also enable the auto-sharing of quests with your friend(s)!
 - **Professions** - If you like collecting in World of Warcraft, then you probably enjoy professions. Perhaps not... BUT! There are many collectibles in production professions like Blacksmithing. It can be tough to calculate all the reagents you require to craft all the transmog. HelpMePlay can calculate all the reagents you would need to craft all KNOWN recipes for appearances you've yet to collect. Wicked!
 - **Weights** - Interested to know how much an NPC is worth toward an objective? HelpMePlay can keep track of all that for you! Hover over the NPC while on the appropriate quest and read the tooltip.
+
+## Commands
+- **<kbd>/hmp calculate</kbd>** - Calculates the amount of reagents required to craft all KNOWN recipes for appearances the player has yet to collect. **[Requires a profession window to be open!]**
+- **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
+- **<kbd>/hmp dialog</kbd>** - Adds a dialog to the addon's table. This will allow HelpMePlay to automatically select dialog on the player's behalf. If you're not sure what dialog is, then please [check this out](https://static.icy-veins.com/images/wow/shadowlands/covenants/changing-covenant-rejoin.jpg).
