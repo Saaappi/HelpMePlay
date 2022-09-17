@@ -3,12 +3,23 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
-local HMPTransmogButton = _G.CreateFrame(
-	"Button",
-	"HMPTransmogButton",
-	_G.ContainerFrame1,
-	"OptionsButtonTemplate"
-)
+if select(2, IsAddOnLoaded("AdiBags")) then
+elseif select(2, IsAddOnLoaded("ArkInventory")) then
+elseif select(2, IsAddOnLoaded("Bagnon")) then
+	local HMPTransmogButton = _G.CreateFrame(
+		"Button",
+		"HMPTransmogButton",
+		nil,
+		"OptionsButtonTemplate"
+	)
+else
+	local HMPTransmogButton = _G.CreateFrame(
+		"Button",
+		"HMPTransmogButton",
+		nil,
+		"OptionsButtonTemplate"
+	)
+end
 local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 
@@ -127,24 +138,29 @@ function HelpMePlay_GetEquippedItems()
 	return
 end
 
-hooksecurefunc("ContainerFrame_OnShow", function(self)
-	-- Texture work. Let's recreate the bag sorting button.
-		normalTexture:SetTexture("Interface\\Warfront\\WarfrontAssetIcons")
-		normalTexture:SetSize(32, 32)
-		normalTexture:SetTexCoord(0.516602, 0.579102, 0.00195312, 0.126953)
-		
-		highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-		highlightTexture:SetSize(32, 32)
-		
-		HMPTransmogButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-		
-		HMPTransmogButton:SetNormalTexture(normalTexture)
-		HMPTransmogButton:SetHighlightTexture(highlightTexture, "ADD")
-		
-		-- Let's get the button on the base container frame.
-		HMPTransmogButton:SetSize(32, 32)
-		HMPTransmogButton:SetPoint("BOTTOM", 0, -30)
-end)
+-- Texture work. Let's recreate the bag sorting button.
+normalTexture:SetTexture("Interface\\Warfront\\WarfrontAssetIcons")
+normalTexture:SetTexCoord(0.516602, 0.579102, 0.00195312, 0.126953)
+highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+HMPTransmogButton:SetNormalTexture(normalTexture)
+HMPTransmogButton:SetHighlightTexture(highlightTexture, "ADD")
+
+HMPTransmogButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+if select(2, IsAddOnLoaded("AdiBags")) then
+elseif select(2, IsAddOnLoaded("ArkInventory")) then
+elseif select(2, IsAddOnLoaded("Bagnon")) then
+	normalTexture:SetSize(24, 24)
+	highlightTexture:SetSize(24, 24)
+	HMPTransmogButton:SetSize(24, 24)
+	hooksecurefunc(Bagnon.InventoryFrame, "OnShow", function(self)
+		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
+	end)
+else
+	hooksecurefunc("ContainerFrame_OnShow", function(self)
+		HMPTransmogButton:SetPoint("TOP", _G.ContainerFrame1, "BOTTOM", 0, -30)
+	end)
+end
 
 HMPTransmogButton:HookScript("OnClick", function(self)
 	HelpMePlay_GetEquippedItems()
