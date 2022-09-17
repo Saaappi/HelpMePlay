@@ -1,1 +1,1 @@
-# HelpMePlay [![HMP](https://awesome.re/badge.svg)](https://addons.wago.io/addons/helpmeplay)
+# HelpMePlay [![HMP](https://wago-addons.ams3.digitaloceanspaces.com/thumbnails/nUHRfdkxHJMBh0zoN32272GPovS4OjLNKlt2PJDy.jpg)](https://addons.wago.io/addons/helpmeplay)
