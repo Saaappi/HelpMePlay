@@ -3,23 +3,12 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
-if select(2, IsAddOnLoaded("AdiBags")) then
-elseif select(2, IsAddOnLoaded("ArkInventory")) then
-elseif select(2, IsAddOnLoaded("Bagnon")) then
-	local HMPTransmogButton = _G.CreateFrame(
-		"Button",
-		"HMPTransmogButton",
-		nil,
-		"OptionsButtonTemplate"
-	)
-else
-	local HMPTransmogButton = _G.CreateFrame(
-		"Button",
-		"HMPTransmogButton",
-		nil,
-		"OptionsButtonTemplate"
-	)
-end
+local HMPTransmogButton = _G.CreateFrame(
+	"Button",
+	"HMPTransmogButton",
+	nil,
+	"OptionsButtonTemplate"
+)
 local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 
@@ -147,8 +136,22 @@ HMPTransmogButton:SetHighlightTexture(highlightTexture, "ADD")
 
 HMPTransmogButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
+-- AdiBags
 if select(2, IsAddOnLoaded("AdiBags")) then
+	normalTexture:SetSize(24, 24)
+	highlightTexture:SetSize(24, 24)
+	HMPTransmogButton:SetSize(24, 24)
+	local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
+	hooksecurefunc(AdiBags, "OpenAllBags", function(self)
+		HMPTransmogButton:SetPoint("TOPRIGHT", AdiBagsContainer1, "TOPLEFT", -5, -1)
+		HMPTransmogButton:Show()
+	end)
+	hooksecurefunc(AdiBags, "CloseAllBags", function(self)
+		HMPTransmogButton:Hide()
+	end)
+-- ArkInventory
 elseif select(2, IsAddOnLoaded("ArkInventory")) then
+-- Bagnon
 elseif select(2, IsAddOnLoaded("Bagnon")) then
 	normalTexture:SetSize(24, 24)
 	highlightTexture:SetSize(24, 24)
@@ -156,6 +159,7 @@ elseif select(2, IsAddOnLoaded("Bagnon")) then
 	hooksecurefunc(Bagnon.InventoryFrame, "OnShow", function(self)
 		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
 	end)
+-- No AddOn
 else
 	normalTexture:SetSize(24, 24)
 	highlightTexture:SetSize(24, 24)
