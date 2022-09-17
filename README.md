@@ -13,6 +13,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 ## Table of Contents
 
 - [Features](#features)
+- [Systems](#systems)
 
 ## Features
 
@@ -30,3 +31,6 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Repairs** - Automatically repair your items in town before you head out to slay more gnolls!
 - **Speech** - HelpMePlay can interact with the in-game world through NPC and system speech. For example, the trickster during "[The Games We Play](https://www.wowhead.com/quest=57870/the-games-we-play)" in Ardenweald, simply target the trickster, and HelpMePlay will automatically react to the trickster's speech. Enjoy some much deserved rest and relaxation!
 - **War Mode** - The free 10%, or higher, experience gain is undeniably a boon to the leveling experience. When enabled, HelpMePlay will automatically opt the player into War Mode upon their next visit to Orgrimmar or Stormwind.
+
+## Systems
+- **Talent Systems** - Want to know the best path for [**The Box of Many Things**](https://www.wowhead.com/guides/box-of-many-things-torghast-talent-system-shadowlands) or the [**Cyphers of the First Ones**](https://www.wowhead.com/guides/cypher-of-the-first-ones-research-zereth-mortis-progression)? HelpMePlay can not only provide that path, but can also let you know when you're missing currency (and by how much!)
