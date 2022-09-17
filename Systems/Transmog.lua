@@ -157,8 +157,11 @@ elseif select(2, IsAddOnLoaded("Bagnon")) then
 		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
 	end)
 else
+	normalTexture:SetSize(24, 24)
+	highlightTexture:SetSize(24, 24)
+	HMPTransmogButton:SetSize(24, 24)
 	hooksecurefunc("ContainerFrame_OnShow", function(self)
-		HMPTransmogButton:SetPoint("TOP", _G.ContainerFrame1, "BOTTOM", 0, -30)
+		HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
 	end)
 end
 
