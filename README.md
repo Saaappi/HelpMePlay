@@ -56,3 +56,4 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **<kbd>/hmp transmog</kbd>** - HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items.
 
 ## Resources
+- **Issues** - You can open an issue (bug report, feature suggestion, etc) by [clicking here](https://github.com/Saaappi/HelpMePlay/issues/new).
