@@ -151,6 +151,17 @@ if select(2, IsAddOnLoaded("AdiBags")) then
 	end)
 -- ArkInventory
 elseif select(2, IsAddOnLoaded("ArkInventory")) then
+	normalTexture:SetSize(24, 24)
+	highlightTexture:SetSize(24, 24)
+	HMPTransmogButton:SetSize(24, 24)
+	local ArkInventory = LibStub("AceAddon-3.0"):GetAddon("ArkInventory")
+	hooksecurefunc(ArkInventory, "Frame_Main_Show", function(self)
+		HMPTransmogButton:SetPoint("TOPRIGHT", ARKINV_Frame1, "TOPLEFT", -5, -1)
+		HMPTransmogButton:Show()
+	end)
+	hooksecurefunc(ArkInventory, "Frame_Main_Hide", function(self)
+		HMPTransmogButton:Hide()
+	end)
 -- Bagnon
 elseif select(2, IsAddOnLoaded("Bagnon")) then
 	normalTexture:SetSize(24, 24)
