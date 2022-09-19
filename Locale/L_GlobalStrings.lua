@@ -141,6 +141,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Disable All"]																= "Disable All"
 	L_GLOBALSTRINGS["Add"]																		= "Add"
 	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
+	L_GLOBALSTRINGS["Calculate"]																= "Calculate"
 	L_GLOBALSTRINGS["Junker: Sell Item Text"]													= "|cffFFFFFFSELL|r"
 	L_GLOBALSTRINGS["Junker: Sell Item Text Global"]											= "|cffFFFFFFSELL (GLOBAL)|r"
 	L_GLOBALSTRINGS["Junker: Blacklisted Item Text"]											= "|cffFFFFFFBLACKLISTED|r"
@@ -189,6 +190,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
 	L_GLOBALSTRINGS["Covenants DropDown"]														= "|cffFFFFFFCovenants|r\nAutomates the Covenant to select when interacting with\nthe Helm of Domination."
 	L_GLOBALSTRINGS["Junker: Rarity DropDown"]													= "Select the maximum rarity threshold for filtering items. Items at\nthe quality you choose and below are considered.\n\nDefault: |cff9d9d9dPoor|r"
+	L_GLOBALSTRINGS["Calculate Button"]															= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nThis list can be exported to a tool outside the game like\nNotepad++ or Excel."
 	-- End:		Tooltip Text Elements
 	--
 	-- Start: 	Text Output
@@ -219,7 +221,6 @@ if (isLocaleSupported) then
 	-- Start:	Warning Text Output
 	L_GLOBALSTRINGS["Red WARNING"]																= "|cffFF0000WARNING:|r "
 	L_GLOBALSTRINGS["Reagent Name is Nil"]														= "[|cffFF7900WARNING|r] Reagent data missing. Blame Blizzard. Try again until this warning doesn't show."
-	L_GLOBALSTRINGS["Trade Skill Window Invisible"]												= "[|cffFF7900WARNING|r] Please open the desired trade skill window before running this command. If values are nil or missing, then close and reopen the window and try again."
 	L_GLOBALSTRINGS["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
 	L_GLOBALSTRINGS["Unknown Source ID"]														= "[|cffFF7900WARNING|r] Unable to determine the collected status for %s. Please check the item. (Bag: %s, Slot: %s)"
 	L_GLOBALSTRINGS["Unlearnable Appearance"]													= "Unlearnable Appearance"

@@ -52,6 +52,9 @@ Data\Dialogs\Legion_DialogDB.lua
 Data\Dialogs\BFA_DialogDB.lua
 Data\Dialogs\SL_DialogDB.lua
 
+# Functions
+Functions.lua
+
 # Automations
 Automations\ChromieTime.lua
 Automations\AdventureMap.lua
