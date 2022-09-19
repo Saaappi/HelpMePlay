@@ -177,6 +177,10 @@ else
 	HMPTransmogButton:SetSize(24, 24)
 	hooksecurefunc("ContainerFrame_OnShow", function(self)
 		HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
+		HMPTransmogButton:Show()
+	end)
+	hooksecurefunc("ContainerFrame_OnHide", function(self)
+		HMPTransmogButton:Hide()
 	end)
 end
 
