@@ -44,7 +44,6 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Weights** - Interested to know how much an NPC is worth toward an objective? HelpMePlay can keep track of all that for you! Hover over the NPC while on the appropriate quest and read the tooltip.
 
 ## Commands
-- **<kbd>/hmp calculate</kbd>** - Calculates the amount of reagents required to craft all KNOWN recipes for appearances the player has yet to collect. **[Requires a profession window to be open!]**
 - **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
 - **<kbd>/hmp dialog</kbd>** - Adds a dialog to the addon's table. This will allow HelpMePlay to automatically select dialog on the player's behalf. If you're not sure what dialog is, then please [check this out](https://static.icy-veins.com/images/wow/shadowlands/covenants/changing-covenant-rejoin.jpg).
    - *A cool trick is you can use <kbd>/hmp dialog X</kbd>, where X represents the placement on a list. For example, if an NPC has 6 dialogs, entering <kbd>/hmp dialog 2</kbd> will automatically enter the second dialog into the addon's table.*
