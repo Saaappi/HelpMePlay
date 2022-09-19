@@ -6,7 +6,6 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
 BINDING_NAME_HELPMEPLAY_OPEN_SETTINGS = L_GLOBALSTRINGS["Open Settings"]
-BINDING_NAME_HELPMEPLAY_CALCULATE_REAGENTS = L_GLOBALSTRINGS["Calculate Reagents"]
 BINDING_NAME_HELPMEPLAY_ADD_TO_JUNKER = L_GLOBALSTRINGS["Add to Junker"]
 BINDING_NAME_HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST = L_GLOBALSTRINGS["Add to Junker Blacklist"]
 BINDING_NAME_HELPMEPLAY_ADD_TO_JUNKER_GLOBAL = L_GLOBALSTRINGS["Add to Junker Global"]
@@ -15,8 +14,6 @@ BINDING_NAME_HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST = L_GLOBALSTRINGS["Add to
 function HelpMePlayKeyPressHandler(key)
 	if key == GetBindingKey("HELPMEPLAY_OPEN_SETTINGS") then
 		HelpMePlayLoadSettings()
-	elseif key == GetBindingKey("HELPMEPLAY_CALCULATE_REAGENTS") then
-		HelpMePlay_CalculateReagents()
 	elseif key == GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER") then
 		if GameTooltip:IsVisible() then
 			local _, itemLink = GameTooltip:GetItem()

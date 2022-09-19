@@ -2,9 +2,6 @@
 	<Binding name="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="|cff00FFFFHelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_OPEN_SETTINGS"))
 	</Binding>
-	<Binding name="HELPMEPLAY_CALCULATE_REAGENTS" category="|cff00FFFFHelpMePlay|r">
-		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_CALCULATE_REAGENTS"))
-	</Binding>
 	<Binding name="HELPMEPLAY_ADD_TO_JUNKER" category="|cff00FFFFHelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER"))
 	</Binding>
