@@ -126,8 +126,6 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		if tonumber(arguments) then
 			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
 		end
-	elseif command == L_GLOBALSTRINGS["Transmog Command"] or command == L_GLOBALSTRINGS["T"] then
-		HelpMePlay_GetEquippedItems()
 	elseif command == L_GLOBALSTRINGS["Ignore Command"] and arguments ~= "" then
 		local subCommand, id = string.split(" ", arguments)
 		if subCommand == L_GLOBALSTRINGS["Ignore NPC"] then
@@ -197,6 +195,6 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HelpMePlayOptionsDB.yOffs = 325
 		end
 	elseif command == L_GLOBALSTRINGS["Help Command"] then
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"] .. "\n" .. L_GLOBALSTRINGS["Transmog Command"])
+		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
 end

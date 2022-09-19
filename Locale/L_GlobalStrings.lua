@@ -40,14 +40,12 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quest Command"]															= "quest"
 	L_GLOBALSTRINGS["Calculate Command"]														= "calculate"
 	L_GLOBALSTRINGS["Calculate Command Shorthand"]												= "calc"
-	L_GLOBALSTRINGS["Transmog Command"]															= "transmog"
 	L_GLOBALSTRINGS["Junker Command"]															= "junker"
 	L_GLOBALSTRINGS["Help Command"]																= "help"
 	L_GLOBALSTRINGS["Reset Command"]															= "reset"
 	L_GLOBALSTRINGS["Add Subcommand"]															= "add"
 	L_GLOBALSTRINGS["Blacklist Subcommand"]														= "blacklist"
 	L_GLOBALSTRINGS["Q"]																		= "q"
-	L_GLOBALSTRINGS["T"]																		= "t"
 	-- End: 	Commands
 	-- Start:	Subcommands
 	L_GLOBALSTRINGS["Ignore NPC"]																= "npc"
