@@ -105,7 +105,7 @@ if (isLocaleSupported) then
 	-- End:		Dropdowns
 	--
 	-- Start: 	UI Text Elements
-	L_GLOBALSTRINGS["Copyright Text"]															= "Crafted with |cffFF5C5C♥|r by Lightsky#0658"
+	L_GLOBALSTRINGS["Copyright Text"]															= "Crafted with |cffFF5C5C♥|r by Lightsky"
 	L_GLOBALSTRINGS["Adventure Maps"]															= "Adventure Maps"
 	L_GLOBALSTRINGS["Dialog"]																	= "Dialog"
 	L_GLOBALSTRINGS["Emotes"]																	= "Emotes"
