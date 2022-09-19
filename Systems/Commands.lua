@@ -56,9 +56,7 @@ local function Dialog(gossip)
 			local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
 			if index ~= 0 then
 				table.remove(HelpMePlayPlayerDialogDB[npcId]["g"], index)
-				if HelpMePlayOptionsDB.Logging then
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
-				end
+				print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 			else
 				table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
 			end
@@ -67,9 +65,7 @@ local function Dialog(gossip)
 		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
 		if index ~= 0 then
 			table.remove(HelpMePlayPlayerDialogDB, index)
-			if HelpMePlayOptionsDB.Logging then
-				print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
-			end
+			print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 		else
 			table.insert(HelpMePlayPlayerDialogDB[0]["g"], gossip)
 		end
@@ -91,9 +87,7 @@ local function Confirm(gossip)
 				local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
 				if index ~= 0 then
 					table.remove(HelpMePlayPlayerDialogDB[npcId]["c"], index)
-					if HelpMePlayOptionsDB.Logging then
-						print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
-					end
+					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 				else
 					table.insert(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
 				end
@@ -103,9 +97,7 @@ local function Confirm(gossip)
 		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
 		if index ~= 0 then
 			table.remove(HelpMePlayPlayerDialogDB, index)
-			if HelpMePlayOptionsDB.Logging then
-				print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
-			end
+			print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 		else
 			table.insert(HelpMePlayPlayerDialogDB, gossip)
 		end
@@ -132,9 +124,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		-- The argument must be a number, else silently
 		-- fail out.
 		if tonumber(arguments) then
-			if HelpMePlayOptionsDB.Logging then
-				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
-			end
+			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
 		end
 	elseif command == L_GLOBALSTRINGS["Transmog Command"] or command == L_GLOBALSTRINGS["T"] then
 		HelpMePlay_GetEquippedItems()

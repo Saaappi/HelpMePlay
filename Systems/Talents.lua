@@ -22,9 +22,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				
 				-- Congratulate the player for reaching a talent
 				-- level, then print the suggested talent.
-				if HelpMePlayOptionsDB.Logging then
-					print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. string.format(L_GLOBALSTRINGS["Level Congrats Text"], newLevel, GetSpellLink(addonTable.TALENTS[classId][specId][newLevel])))
-				end
+				print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. string.format(L_GLOBALSTRINGS["Level Congrats Text"], newLevel, GetSpellLink(addonTable.TALENTS[classId][specId][newLevel])))
 			end
 		end
 	end

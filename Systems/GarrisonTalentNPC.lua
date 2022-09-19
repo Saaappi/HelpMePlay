@@ -5,9 +5,7 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function PrintLine(text)
-	if HelpMePlayOptionsDB.Logging then
-		print(string.format("%s", text))
-	end
+	print(string.format("%s", text))
 end
 
 local function CheckTalents(talentTree, currencyId)

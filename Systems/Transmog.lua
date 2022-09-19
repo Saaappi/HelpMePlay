@@ -38,6 +38,7 @@ local function LearnAllUnknownTransmog(equippedItems)
 	local sourceId
 	local canCollectSource
 	local appearanceInfo = {}
+	local sourceInfo = {}
 	
 	-- Open the player bags, then close them
 	-- 1 second later and run the remaining code.
@@ -51,39 +52,37 @@ local function LearnAllUnknownTransmog(equippedItems)
 					if itemLink then -- If we return a valid item link, then continue.
 						_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 						if sourceId then -- If we return a valid source ID, then continue.
-							_, canCollectSource = C_TransmogCollection.PlayerCanCollectSource(sourceId)
-							if canCollectSource then -- The player can learn the source on the current character.
-								appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
-								if appearanceInfo then
-									if appearanceInfo.sourceIsCollected == false then -- If the player hasn't already learned the source, then continue.
-										EquipItemByName(itemLink)
-										if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
-											StaticPopup1Button1:Click("LeftButton")
-										end
-									end
-								end
-							else
-								local _, _, itemQuality, _, _, _, _, _, _, _, _, _, _, bindType = GetItemInfo(itemLink)
-								
-								if bindType ~= 1 and itemQuality >= 2 then -- The item isn't soulbound, so it can be mailed. The quality is at least green.
-									-- The player can't use the transmog, so let's
-									-- check if it's unknown so we can inform them.
-									appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
+							sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
+							if sourceInfo.isCollected == false then
+								_, canCollectSource = C_TransmogCollection.PlayerCanCollectSource(sourceId)
+								if canCollectSource then -- The player can learn the source on the current character.
 									if appearanceInfo then
-										if appearanceInfo.sourceIsCollected == false then
-											local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
-											if itemSubType then
-												if HelpMePlayOptionsDB.Logging then
-													print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
-												end
-											else
-												if HelpMePlayOptionsDB.Logging then
-													print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
-												end
+										if appearanceInfo.sourceIsCollected == false then -- If the player hasn't already learned the source, then continue.
+											EquipItemByName(itemLink)
+											if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
+												StaticPopup1Button1:Click("LeftButton")
 											end
 										end
-									else
-										print(string.format(L_GLOBALSTRINGS["Unknown Source ID"], itemLink, i, j))
+									end
+								else
+									local _, _, itemQuality, _, _, _, _, _, _, _, _, _, _, bindType = GetItemInfo(itemLink)
+									-- A bind type of 0 means there isn't a bind (common items, for example).
+									-- A bind type of 2 means the item is bind on equip (BoE).
+									--
+									-- An item quality greater than or equal to 1 means any item
+									-- of common (white) quality or higher should be considered.
+									-- Common items are transmoggable starting in 10.0.
+									if (bindType == 0 or bindType == 2) and itemQuality >= 1 then
+										-- Since the player can't collect the appearance on the
+										-- current character, let's gather some valuable information
+										-- and inform the player so they know to send it to an
+										-- alt.
+										local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
+										if itemSubType then
+											print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
+										else
+											print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
+										end
 									end
 								end
 							end
@@ -91,7 +90,6 @@ local function LearnAllUnknownTransmog(equippedItems)
 					end
 				end
 			end
-
 			RequipOriginalItems(equippedItems)
 		end)
 	end

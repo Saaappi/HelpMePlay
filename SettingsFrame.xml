@@ -185,11 +185,6 @@
 					<Anchor point="TOPLEFT" x="39" y="-61" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPLoggingCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-99" />
-				</Anchors>
-			</CheckButton>
 			<Frame name="HMPQuestRewardDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="354" y="-61" />
@@ -451,14 +446,6 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPMinimapIconCB" relativePoint="LEFT" x="22" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPLoggingText" inherits="GameFontNormal" text="Logging" justifyH="CENTER" justifyV="CENTER">
-					<Size x="99" y="20" />
-					<Anchors>
-						<Anchor point="LEFT" relativeTo="HMPLoggingCB" relativePoint="LEFT" x="7" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />

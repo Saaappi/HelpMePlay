@@ -101,8 +101,6 @@ function HMPTab_OnClick(self)
 		HMPPartyPlayAutoShareCB:Hide()
 		HMPMinimapIconCB:Hide()
 		HMPMinimapIconText:Hide()
-		HMPLoggingCB:Hide()
-		HMPLoggingText:Hide()
 		HMPTorghastPowersDropDown:Hide()
 		HMPEnableJunkerText:Hide()
 		HMPEnableJunkerCB:Hide()
@@ -175,8 +173,6 @@ function HMPTab_OnClick(self)
 		HMPVehiclesText:Hide()
 		HMPMinimapIconCB:Hide()
 		HMPMinimapIconText:Hide()
-		HMPLoggingCB:Hide()
-		HMPLoggingText:Hide()
 		HMPQuestRewardDropDown:Hide()
 		HMPChromieTimeDropDown:Hide()
 		HMPCovenantsDropDown:Hide()
@@ -206,8 +202,6 @@ function HMPTab_OnClick(self)
 		-- Show the widgets hidden from the other tabs.
 		HMPMinimapIconCB:Show()
 		HMPMinimapIconText:Show()
-		HMPLoggingCB:Show()
-		HMPLoggingText:Show()
 		
 		-- Hide the widgets from the other tabs.
 		HMPDialogCB:Hide()
@@ -340,8 +334,6 @@ function HMPTab_OnClick(self)
 		HMPSLZoneSelDropDown:Hide()
 		HMPMinimapIconCB:Hide()
 		HMPMinimapIconText:Hide()
-		HMPLoggingCB:Hide()
-		HMPLoggingText:Hide()
 	end
 end
 
@@ -1113,7 +1105,6 @@ function HelpMePlayLoadSettings()
 			HMPWeightsText:SetText(L_GLOBALSTRINGS["Weights"])
 			HMPPartyPlayText:SetText(L_GLOBALSTRINGS["Party Play"])
 			HMPMinimapIconText:SetText(L_GLOBALSTRINGS["Minimap Icon"])
-			HMPLoggingText:SetText(L_GLOBALSTRINGS["Logging"])
 			HMPEnableJunkerText:SetText(L_GLOBALSTRINGS["Enable"])
 			HMPItemTypeArmorText:SetText(L_GLOBALSTRINGS["Armor"])
 			HMPItemTypeConsumableText:SetText(L_GLOBALSTRINGS["Consumable"])
@@ -1151,7 +1142,6 @@ function HelpMePlayLoadSettings()
 			HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB.PartyPlayAnnounce)
 			HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB.PartyPlayAutoShare)
 			HMPMinimapIconCB:SetChecked(HelpMePlayOptionsDB.MinimapIcon)
-			HMPLoggingCB:SetChecked(HelpMePlayOptionsDB.Logging)
 			HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB.Junker.Enabled)
 			HMPJunkerItemTypeArmorCB:SetChecked(HelpMePlayOptionsDB.Junker.Armor)
 			HMPJunkerItemTypeConsumableCB:SetChecked(HelpMePlayOptionsDB.Junker.Consumable)
@@ -1289,7 +1279,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].PartyPlay = HelpMePlayOptionsDB.PartyPlay
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce = HelpMePlayOptionsDB.PartyPlayAnnounce
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare = HelpMePlayOptionsDB.PartyPlayAutoShare
-					HelpMePlayOptionsDB["TempSettings"].Logging = HelpMePlayOptionsDB.Logging
 					HelpMePlayOptionsDB["TempSettings"].Junker = HelpMePlayOptionsDB.Junker.Enabled
 					HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
 					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
@@ -1318,7 +1307,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlay = false
 					HelpMePlayOptionsDB.PartyPlayAnnounce = false
 					HelpMePlayOptionsDB.PartyPlayAutoShare = false
-					HelpMePlayOptionsDB.Logging = false
 					HelpMePlayOptionsDB.Junker.Enabled = false
 					HelpMePlayOptionsDB.QuestRewards = L_GLOBALSTRINGS["Disabled"]
 					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
@@ -1347,7 +1335,6 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayCB:SetChecked(false)
 					HMPPartyPlayAnnounceCB:SetChecked(false)
 					HMPPartyPlayAutoShareCB:SetChecked(false)
-					HMPLoggingCB:SetChecked(false)
 					HMPEnableJunkerCB:SetChecked(false)
 					UIDropDownMenu_SetSelectedValue(HMPQuestRewardDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
@@ -1381,7 +1368,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlay = HelpMePlayOptionsDB["TempSettings"].PartyPlay
 					HelpMePlayOptionsDB.PartyPlayAnnounce = HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce
 					HelpMePlayOptionsDB.PartyPlayAutoShare = HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare
-					HelpMePlayOptionsDB.Logging = HelpMePlayOptionsDB["TempSettings"].Logging
 					HelpMePlayOptionsDB.Junker.Enabled = HelpMePlayOptionsDB["TempSettings"].Junker
 					HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
 					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
@@ -1409,7 +1395,6 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlay)
 					HMPPartyPlayAnnounceCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAnnounce)
 					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
-					HMPLoggingCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Logging)
 					HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Junker)
 					UIDropDownMenu_SetSelectedValue(HMPQuestRewardDropDown, HelpMePlayOptionsDB.QuestRewards)
 					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
@@ -1650,17 +1635,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayShowMinimapIcon(false)
 				end
 				HelpMePlayOptionsDB.MinimapIcon = self:GetChecked()
-			end)
-			
-			-- Logging Check Button
-			HMPLoggingCB:SetScript("OnEnter", function(self)
-				ShowTooltip(self, L_GLOBALSTRINGS["Logging Check Button"])
-			end)
-			HMPLoggingCB:SetScript("OnLeave", function(self)
-				HideTooltip(self)
-			end)
-			HMPLoggingCB:SetScript("OnClick", function(self)
-				HelpMePlayOptionsDB.Logging = self:GetChecked()
 			end)
 			
 			-- Junker Check Button

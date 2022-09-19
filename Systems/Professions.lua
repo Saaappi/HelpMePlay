@@ -91,14 +91,10 @@ function HelpMePlay_CalculateReagents()
 												InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
 											end
 										else
-											if HelpMePlayOptionsDB.Logging then
-												print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
-											end
-										end
-									else
-										if HelpMePlayOptionsDB.Logging then
 											print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 										end
+									else
+										print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 									end
 								end
 							end
@@ -133,9 +129,7 @@ function HelpMePlay_CalculateReagents()
 		}
 		StaticPopup_Show("HELPMEPLAY_REAGENTSTRING_POPUP")
 	else
-		if HelpMePlayOptionsDB.Logging then
-			print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
-		end
+		print(L_GLOBALSTRINGS["Trade Skill Window Invisible"])
 	end
 end
 

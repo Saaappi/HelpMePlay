@@ -28,9 +28,7 @@ for i=1,#supportedLocales do
 end
 
 if (isLocaleSupported == false) then
-	if HelpMePlayOptionsDB.Logging then
-		print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
-	end
+	print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
 end
 
 if (isLocaleSupported) then
@@ -132,7 +130,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Weights"]																	= "Weights"
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
 	L_GLOBALSTRINGS["Minimap Icon"]																= "Minimap Icon"
-	L_GLOBALSTRINGS["Logging"]																	= "Logging"
 	L_GLOBALSTRINGS["Enable"]																	= "Enable"
 	L_GLOBALSTRINGS["Armor"]																	= "Armor"
 	L_GLOBALSTRINGS["Consumable"]																= "Consumable"
@@ -181,7 +178,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Queues Check Button"]														= "Need to cook dinner but don't want to miss your\nqueue? Check this button and let the addon\nworry about it."
 	L_GLOBALSTRINGS["Vehicles Check Button"]													= "When enabled, your character will auto exit\ncertain vehicles.\n\nVehicles are defined by the addon."
 	L_GLOBALSTRINGS["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
-	L_GLOBALSTRINGS["Logging Check Button"]														= "If you want to know when the addon is outputting\ninformation, then check this button."
 	L_GLOBALSTRINGS["Junker Check Button"]														= "Enables the addon's auto sell system, |cffFFFFFFJunker|r.\n\nBy default, |cffFFFFFFJunker|r will auto sell player-defined\nand POOR quality items. Use the buttons below\nto filter in additional items.\n\nAlternatively, use the Import button in the lower\nright to import items from another auto sell addon,\n or to import a comma-delimited list of item IDs.\n\n|cffFFFFFF/hmp junker add id|r\n\n|cffFFFFFF/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items\nyou don't have in your bags."
 	L_GLOBALSTRINGS["Junker Safe Mode Check Button"]											= "When |cffFFFFFFSafe Mode|r is enabled, the |cffFFFFFFJunker|r system will\nsell items in batches of 12. This ensures the player can\nuse the buy back tab to repurchase accidentally\nsold items.\n\nDefault: |cffFFFFFFEnabled|r"
 	L_GLOBALSTRINGS["Junker Soulbound Check Button"]											= "When enabled, Junker will automatically sell items that are\n-25+ item levels below your current item level.\n\nDefault: |cffFFFFFFEnabled|r"
