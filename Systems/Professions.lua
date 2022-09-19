@@ -62,44 +62,56 @@ local function CalculateReagents()
 	-- calculated, churn through, and spit out the totals. If
 	-- the total is negative, then the player has more than enough
 	-- so don't print that reagent.
-	for _, recipeId in pairs(recipes) do
-		recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
-		if recipeInfo.learned then
-			itemLink = C_TradeSkillUI.GetRecipeItemLink(recipeId)
-			if itemLink then
-				_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
-				if sourceId then
-					appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
-					if appearanceInfo then
-						if appearanceInfo.sourceIsCollected == false then
-							local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
-							for reagentIndex = 1, numReagents do
-								reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
-								if reagentItemLink then
-									reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
-									if reagentName then
-										_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
-										if addonTable.REAGENTS[itemId] then
-											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
-											local reagent = addonTable.REAGENTS[itemId]
-											for parentReagent, parentReagentValue in pairs(reagent) do
-												if type(parentReagentValue) == "table" then
-													InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
-													for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
-														InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
+	
+	-- Only show the Calculate button for PRODUCTION
+	-- trade skills (e.g. Blacksmithing).
+	--
+	-- Thus, get the parent skill ID and conduct a
+	-- sanity check to confirm.
+	--
+	-- The skill line ID to names can be found @
+	-- https://wowpedia.fandom.com/wiki/TradeSkillLineID
+	local _, _, _, _, _, parentSkillId = C_TradeSkillUI.GetTradeSkillLine()
+	if (parentSkillId == 164) or (parentSkillId == 165) or (parentSkillId == 197) or (parentSkillId == 202) or (parentSkillId == 755) then
+		for _, recipeId in pairs(recipes) do
+			recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
+			if recipeInfo.learned then
+				itemLink = C_TradeSkillUI.GetRecipeItemLink(recipeId)
+				if itemLink then
+					_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
+					if sourceId then
+						appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
+						if appearanceInfo then
+							if appearanceInfo.sourceIsCollected == false then
+								local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
+								for reagentIndex = 1, numReagents do
+									reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
+									if reagentItemLink then
+										reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
+										if reagentName then
+											_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
+											if addonTable.REAGENTS[itemId] then
+												InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
+												local reagent = addonTable.REAGENTS[itemId]
+												for parentReagent, parentReagentValue in pairs(reagent) do
+													if type(parentReagentValue) == "table" then
+														InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
+														for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
+															InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
+														end
+													else
+														InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
 													end
-												else
-													InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
 												end
+											else
+												InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
 											end
 										else
-											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
+											print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 										end
 									else
 										print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 									end
-								else
-									print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 								end
 							end
 						end
@@ -107,41 +119,37 @@ local function CalculateReagents()
 				end
 			end
 		end
-	end
 	
-	local reagentString = ""
-	for reagent, reagentData in pairs(reagents) do
-		local amountNeeded = (reagentData.count - reagentData.playerCount)
-		if amountNeeded > 0 then
-			reagentString = reagentString .. reagent .. ": " .. amountNeeded
+		local reagentString = ""
+		for reagent, reagentData in pairs(reagents) do
+			local amountNeeded = (reagentData.count - reagentData.playerCount)
+			if amountNeeded > 0 then
+				reagentString = reagentString .. reagent .. ": " .. amountNeeded
+			end
 		end
-	end
 	
-	StaticPopupDialogs["HELPMEPLAY_REAGENTSTRING_POPUP"] = {
-		text = L_GLOBALSTRINGS["Reagent Copy Message"],
-		button1 = "OK",
-		OnShow = function(self, data)
-			self.editBox:SetText(reagentString)
-			self.editBox:HighlightText()
-		end,
-		timeout = 15,
-		showAlert = true,
-		whileDead = false,
-		hideOnEscape = true,
-		enterClicksFirstButton = true,
-		hasEditBox = true,
-		preferredIndex = 3,
-	}
-	StaticPopup_Show("HELPMEPLAY_REAGENTSTRING_POPUP")
+		StaticPopupDialogs["HELPMEPLAY_REAGENTSTRING_POPUP"] = {
+			text = L_GLOBALSTRINGS["Reagent Copy Message"],
+			button1 = "OK",
+			OnShow = function(self, data)
+				self.editBox:SetText(reagentString)
+				self.editBox:HighlightText()
+			end,
+			timeout = 15,
+			showAlert = true,
+			whileDead = false,
+			hideOnEscape = true,
+			enterClicksFirstButton = true,
+			hasEditBox = true,
+			preferredIndex = 3,
+		}
+		StaticPopup_Show("HELPMEPLAY_REAGENTSTRING_POPUP")
+	end
 end
 
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
 	if event == "ADDON_LOADED" and addon == "Blizzard_TradeSkillUI" then
-		-- TODO: The Calculate button should only appear
-		-- if the tradeskill window is a PRODUCTION
-		-- profession!
-		--
 		-- Set the size and point of the Calculate button.
 		-- Ideally, it sits to the left of the Filter
 		-- dropdown.
