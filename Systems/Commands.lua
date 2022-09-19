@@ -159,8 +159,6 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 		end
-	elseif command == L_GLOBALSTRINGS["Calculate Command"] or command == L_GLOBALSTRINGS["Calculate Command Shorthand"] then
-		HelpMePlay_CalculateReagents()
 	elseif command == L_GLOBALSTRINGS["Junker Command"] and arguments ~= "" then
 		local subcommand, items = string.split("_", arguments)
 		local count = 0
@@ -195,6 +193,6 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HelpMePlayOptionsDB.yOffs = 325
 		end
 	elseif command == L_GLOBALSTRINGS["Help Command"] then
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Calculate Command"] .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
+		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
 end

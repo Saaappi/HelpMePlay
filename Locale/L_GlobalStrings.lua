@@ -38,8 +38,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Dialog Command"]															= "dialog"
 	L_GLOBALSTRINGS["Ignore Command"]															= "ignore"
 	L_GLOBALSTRINGS["Quest Command"]															= "quest"
-	L_GLOBALSTRINGS["Calculate Command"]														= "calculate"
-	L_GLOBALSTRINGS["Calculate Command Shorthand"]												= "calc"
 	L_GLOBALSTRINGS["Junker Command"]															= "junker"
 	L_GLOBALSTRINGS["Help Command"]																= "help"
 	L_GLOBALSTRINGS["Reset Command"]															= "reset"
