@@ -3,11 +3,28 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function InsertReagent(tbl, reagentName, playerCount, reagentValue)
+local function InsertReagent(tbl, reagentName, recipeCount, playerCount)
 	if tbl[reagentName] == nil then
 		tbl[reagentName] = { count = 0, playerCount = playerCount }
 	end
-	tbl[reagentName]["count"] = tbl[reagentName]["count"] + reagentValue
+	tbl[reagentName]["count"] = tbl[reagentName]["count"] + recipeCount
+end
+
+local function Get(reagent)
+	local reagentName
+	local reagentPlayerCount
+	for reagentId, reagentInfo in pairs(reagent) do
+		reagentName = GetItemInfo(reagentId)
+		if reagentInfo.crs then
+		elseif reagentInfo.cr then
+			local a = addonTable.REAGENTS[reagentInfo.cr]
+			Get(a)
+			--InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
+		else
+			reagentName = GetItemInfo(reagentId)
+			InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
+		end
+	end
 end
 
 local function CalculateReagents()
@@ -18,51 +35,12 @@ local function CalculateReagents()
 	local recipeInfo = {}
 	local sourceInfo = {}
 	local reagents = {}
+	local childReagent
 	local reagentName
-	local reagentIcon
-	local reagentCount
-	local reagentPlayerCount
+	local recipeReagentCount
+	local currentReagentCount
 	local recipes = C_TradeSkillUI.GetAllRecipeIDs()
-	
-	-- Iterate through all the known recipes for the currently
-	-- open trade skill.
-	--
-	-- Ensure the current recipe is KNOWN by the current player.
-	-- If so, then continue.
-	--
-	-- Get the item link using the recipe id. If the item link
-	-- is valid, then continue.
-	--
-	-- Get the source id of the item using the item link. If the
-	-- source id is valid, then it's an item with an appearance.
-	-- If a valid appearance, then continue.
-	--
-	-- Get the appearance info (table) for the given source id.
-	-- If the table is valid, then check if the appearance has
-	-- been collected. If not, then continue.
-	--
-	-- If the appearance hasn't been collected, then return the
-	-- number of reagents it takes to craft the recipe. The number
-	-- represents an index beginning at 1.
-	--
-	-- Get the reagent info for each reagent in the recipe. We're
-	-- interested in the name and the amount necessary to craft the
-	-- recipe.
-	--
-	-- Use the documented REAGENTS table from the addon to recursively
-	-- identify child reagents from parent reagents. For example, a
-	-- Bolt of Linen Cloth has a child reagent of 2x Linen Cloth. This
-	-- needs to be considered when writing out the complete list of
-	-- reagents. This is only supported to children, grandchildren
-	-- reagents wouldn't be supported.
-	--
-	-- Once we have the number, archive it in an in-memory table.
-	--
-	-- Once all known recipes and unknown appearances have been
-	-- calculated, churn through, and spit out the totals. If
-	-- the total is negative, then the player has more than enough
-	-- so don't print that reagent.
-	
+
 	-- Only show the Calculate button for PRODUCTION
 	-- trade skills (e.g. Blacksmithing).
 	--
@@ -75,41 +53,59 @@ local function CalculateReagents()
 	if (parentSkillId == 164) or (parentSkillId == 165) or (parentSkillId == 197) or (parentSkillId == 202) or (parentSkillId == 755) then
 		for _, recipeId in pairs(recipes) do
 			recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
+			-- If the recipe is known to the player, let's
+			-- continue with the code.
 			if recipeInfo.learned then
 				itemLink = C_TradeSkillUI.GetRecipeItemLink(recipeId)
 				if itemLink then
 					_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 					if sourceId then
 						sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
+						-- If the appearance is NOT collected by
+						-- the player, then let's continue with
+						-- the code.
 						if sourceInfo.isCollected == false then
+							-- Get the total number of reagents used
+							-- to craft the item.
 							local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
+							-- Iterate over each reagent used to
+							-- craft the item. We'll use this number
+							-- as an index to gather information about
+							-- each reagent.
 							for reagentIndex = 1, numReagents do
 								reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
 								if reagentItemLink then
-									reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
+									-- 'recipeReagentCount' represents the amount of the
+									-- reagent required by the tradeskill.
+									--
+									-- 'currentReagentCount' represents the amount of the
+									-- reagent currently in the player's possession.
+									recipeReagentCount, currentReagentCount = select(3, C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex))
+									_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
+									reagentName = GetItemInfo(itemId)
 									if reagentName then
-										_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
 										if addonTable.REAGENTS[itemId] then
-											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
+											-- Insert the parent reagent first (e.g. Bronze Bar), then
+											-- worry about children reagents (e.g. Copper/Tin Bar).
+											InsertReagent(reagents, reagentName, recipeReagentCount, currentReagentCount)
+											
 											local reagent = addonTable.REAGENTS[itemId]
-											for parentReagent, parentReagentValue in pairs(reagent) do
-												if type(parentReagentValue) == "table" then
-													InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
-													for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
-														InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
-													end
-												else
-													InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
-												end
-											end
+											Get(reagent)
+											--InsertReagent(reagents, reagentName, count, currentReagentCount)
 										else
-											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
+											-- This is a standalone reagent that doesn't need
+											-- an entry in the table (e.g. Tigerseye).
+											InsertReagent(reagents, reagentName, recipeReagentCount, currentReagentCount)
 										end
 									else
-										addonTable.Print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+										C_Timer.After(0.5, function()
+											CalculateReagents()
+										end)
+										return
 									end
 								else
 									addonTable.Print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+									return
 								end
 							end
 						end
