@@ -16,7 +16,7 @@ local function CalculateReagents()
 	local reagentItemLink = ""
 	local sourceId = 0
 	local recipeInfo = {}
-	local appearanceInfo = {}
+	local sourceInfo = {}
 	local reagents = {}
 	local reagentName
 	local reagentIcon
@@ -80,38 +80,36 @@ local function CalculateReagents()
 				if itemLink then
 					_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 					if sourceId then
-						appearanceInfo = C_TransmogCollection.GetAppearanceInfoBySource(sourceId)
-						if appearanceInfo then
-							if appearanceInfo.sourceIsCollected == false then
-								local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
-								for reagentIndex = 1, numReagents do
-									reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
-									if reagentItemLink then
-										reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
-										if reagentName then
-											_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
-											if addonTable.REAGENTS[itemId] then
-												InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
-												local reagent = addonTable.REAGENTS[itemId]
-												for parentReagent, parentReagentValue in pairs(reagent) do
-													if type(parentReagentValue) == "table" then
-														InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
-														for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
-															InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
-														end
-													else
-														InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
+						sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
+						if sourceInfo.isCollected == false then
+							local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
+							for reagentIndex = 1, numReagents do
+								reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
+								if reagentItemLink then
+									reagentName, _, reagentCount, reagentPlayerCount = C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex)
+									if reagentName then
+										_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
+										if addonTable.REAGENTS[itemId] then
+											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
+											local reagent = addonTable.REAGENTS[itemId]
+											for parentReagent, parentReagentValue in pairs(reagent) do
+												if type(parentReagentValue) == "table" then
+													InsertReagent(reagents, parentReagent, reagentPlayerCount, parentReagentValue.count)
+													for childReagent, childReagentValue in pairs(parentReagentValue.childReagents) do
+														InsertReagent(reagents, childReagent, reagentPlayerCount, (childReagentValue*parentReagentValue.count))
 													end
+												else
+													InsertReagent(reagents, parentReagent, reagentPlayerCount, (parentReagentValue*reagentCount))
 												end
-											else
-												InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
 											end
 										else
-											print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
 										end
 									else
 										print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 									end
+								else
+									print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 								end
 							end
 						end
