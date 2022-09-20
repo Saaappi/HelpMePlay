@@ -15,7 +15,7 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 	local mapId = C_Map.GetBestMapForUnit("player")
 	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
-			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
+			addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
 			return
 		end
 	end
@@ -37,7 +37,7 @@ _G["MovieFrame_PlayMovie"] = function(self, movieId)
 	local mapId = C_Map.GetBestMapForUnit("player")
 	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
-			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
+			addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
 			return false
 		end
 	end

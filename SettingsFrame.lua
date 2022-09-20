@@ -1777,7 +1777,7 @@ function HelpMePlayLoadSettings()
 									ImportToJunker(id, "BLACKLIST")
 								end
 							end
-							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "AutoVendor"))
+							addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "AutoVendor"))
 						elseif IsAddOnLoaded("Dejunk") then
 							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
 								ImportToJunker(id, "ADD")
@@ -1785,9 +1785,9 @@ function HelpMePlayLoadSettings()
 							for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
 								ImportToJunker(id, "BLACKLIST")
 							end
-							print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "Dejunk"))
+							addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker Text"], "Dejunk"))
 						else
-							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["No Auto Sell AddOn Enabled"])
+							addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["No Auto Sell AddOn Enabled"])
 						end
 					end,
 					OnCancel = function(self, data)
@@ -1814,7 +1814,7 @@ function HelpMePlayLoadSettings()
 										ImportToJunker(id, "ADD")
 									end
 								end
-								print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+								addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
 							end,
 							OnCancel = function(self)
 								local count = 0
@@ -1825,7 +1825,7 @@ function HelpMePlayLoadSettings()
 										count = count + 1
 									end
 								end
-								print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+								addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
 							end,
 							OnAlt = function() end,
 							showAlert = true,

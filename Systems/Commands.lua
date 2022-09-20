@@ -56,7 +56,7 @@ local function Dialog(gossip)
 			local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
 			if index ~= 0 then
 				table.remove(HelpMePlayPlayerDialogDB[npcId]["g"], index)
-				print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+				addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 			else
 				table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
 			end
@@ -65,7 +65,7 @@ local function Dialog(gossip)
 		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
 		if index ~= 0 then
 			table.remove(HelpMePlayPlayerDialogDB, index)
-			print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+			addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 		else
 			table.insert(HelpMePlayPlayerDialogDB[0]["g"], gossip)
 		end
@@ -87,7 +87,7 @@ local function Confirm(gossip)
 				local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
 				if index ~= 0 then
 					table.remove(HelpMePlayPlayerDialogDB[npcId]["c"], index)
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+					addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 				else
 					table.insert(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
 				end
@@ -97,7 +97,7 @@ local function Confirm(gossip)
 		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
 		if index ~= 0 then
 			table.remove(HelpMePlayPlayerDialogDB, index)
-			print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+			addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
 		else
 			table.insert(HelpMePlayPlayerDialogDB, gossip)
 		end
@@ -124,7 +124,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 		-- The argument must be a number, else silently
 		-- fail out.
 		if tonumber(arguments) then
-			print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
+			addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
 		end
 	elseif command == L_GLOBALSTRINGS["Ignore Command"] and arguments ~= "" then
 		local subCommand, id = string.split(" ", arguments)
@@ -182,7 +182,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 		end
-		print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+		addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
 	elseif command == L_GLOBALSTRINGS["Reset Command"] then
 		-- Let's reset the position to the original position
 		-- defined by the addon.
@@ -193,6 +193,6 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HelpMePlayOptionsDB.yOffs = 325
 		end
 	elseif command == L_GLOBALSTRINGS["Help Command"] then
-		print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
+		addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
 end

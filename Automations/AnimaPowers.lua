@@ -198,12 +198,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 
 					if responseId ~= 0 then
 						if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Notifications"] then
-							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
+							addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
 							highestPriority = 9
 						else
 							SendPlayerChoiceResponse(responseId)
 							HideUIPanel(PlayerChoiceFrame)
-							print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
+							addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
 							highestPriority = 9
 						end
 					end

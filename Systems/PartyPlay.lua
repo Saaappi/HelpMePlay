@@ -51,7 +51,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GROUP_JOINED" then
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
-		print(L_GLOBALSTRINGS["Party Play Enabled Warning Text"])
+		addonTable.Print(L_GLOBALSTRINGS["Party Play Enabled Warning Text"])
 	end
 	if event == "QUEST_ACCEPTED" then
 		-- Add the quest to the table.

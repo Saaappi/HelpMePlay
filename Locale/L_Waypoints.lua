@@ -29,7 +29,7 @@ for i=1,#supportedLocales do
 end
 
 if (isLocaleSupported == false) then
-	print(L["Red WARNING"] .. L["Locale Not Supported"] .. " @" .. L["Discord"])
+	addonTable.Print(L["Red WARNING"] .. L["Locale Not Supported"] .. " @" .. L["Discord"])
 end
 
 if (isLocaleSupported) then

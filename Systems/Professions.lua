@@ -106,10 +106,10 @@ local function CalculateReagents()
 											InsertReagent(reagents, reagentName, reagentPlayerCount, reagentCount)
 										end
 									else
-										print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+										addonTable.Print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 									end
 								else
-									print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+									addonTable.Print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
 								end
 							end
 						end

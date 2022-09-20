@@ -79,9 +79,9 @@ local function LearnAllUnknownTransmog(equippedItems)
 										-- alt.
 										local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
 										if itemSubType then
-											print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
+											addonTable.Print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
 										else
-											print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
+											addonTable.Print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
 										end
 									end
 								end

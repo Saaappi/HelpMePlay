@@ -17,6 +17,12 @@ local function HideTooltip(self)
 	end
 end
 
+-- A basic print function with string interpolation.
+local function Print(text)
+	print(string.format("%s", text))
+end
+
 -- Add the functions to the addon table.
-addonTable.ShowTooltip = ShowTooltip
-addonTable.HideTooltip = HideTooltip
+addonTable.ShowTooltip 	= ShowTooltip
+addonTable.HideTooltip 	= HideTooltip
+addonTable.Print 		= Print

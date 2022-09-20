@@ -26,7 +26,7 @@ function HelpMePlayKeyPressHandler(key)
 					else
 						HelpMePlayJunkerBlacklistDB[itemId] = nil
 						HelpMePlayJunkerDB[itemId] = true
-						print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemLink))
+						addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text"], itemLink))
 					end
 				end
 			end
@@ -46,7 +46,7 @@ function HelpMePlayKeyPressHandler(key)
 						HelpMePlayJunkerGlobalBlacklistDB[itemId] = nil
 						HelpMePlayJunkerDB[itemId] = nil
 						HelpMePlayJunkerGlobalDB[itemId] = true
-						print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text Global"], itemLink))
+						addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Added Item Text Global"], itemLink))
 					end
 				end
 			end
@@ -61,7 +61,7 @@ function HelpMePlayKeyPressHandler(key)
 				else
 					HelpMePlayJunkerDB[itemId] = nil
 					HelpMePlayJunkerBlacklistDB[itemId] = true
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Blacklisted Item Text"], itemLink))
+					addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Blacklisted Item Text"], itemLink))
 				end
 			end
 		end
@@ -77,7 +77,7 @@ function HelpMePlayKeyPressHandler(key)
 					HelpMePlayJunkerDB[itemId] = nil
 					HelpMePlayJunkerGlobalDB[itemId] = nil
 					HelpMePlayJunkerGlobalBlacklistDB[itemId] = true
-					print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Blacklisted Item Text Global"], itemLink))
+					addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Blacklisted Item Text Global"], itemLink))
 				end
 			end
 		end
