@@ -22,7 +22,7 @@ local function Get(reagent)
 			--InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
 		else
 			reagentName = GetItemInfo(reagentId)
-			InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
+			--InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
 		end
 	end
 end
