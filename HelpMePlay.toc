@@ -17,6 +17,9 @@ Lib\lib.xml
 
 HelpMePlay.lua
 
+# Functions
+Functions.lua
+
 # Frame Stuff
 SettingsFrame.xml
 SettingsFrame.lua
@@ -51,9 +54,6 @@ Data\Dialogs\WOD_DialogDB.lua
 Data\Dialogs\Legion_DialogDB.lua
 Data\Dialogs\BFA_DialogDB.lua
 Data\Dialogs\SL_DialogDB.lua
-
-# Functions
-Functions.lua
 
 # Automations
 Automations\ChromieTime.lua
