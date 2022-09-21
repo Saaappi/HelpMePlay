@@ -122,6 +122,62 @@ end
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
 	if event == "ADDON_LOADED" and addon == "Blizzard_TradeSkillUI" then
+		-- Shift the search box to the right to make room for
+		-- the expand/collapse button.
+		TradeSkillFrame.SearchBox:SetPoint("TOPLEFT", TradeSkillFrame, "TOPLEFT", 360, -54)
+		
+		-- The button that allows the player to collapse
+		-- the headers and their children in the trade
+		-- skill frame.
+		local collapseButton = _G.CreateFrame(
+			"Button",
+			"HMPProfessionCollapseButton",
+			TradeSkillFrame,
+			"UIPanelButtonTemplate"
+		)
+		HMPProfessionCollapseButton:SetSize(80, 22)
+		HMPProfessionCollapseButton:SetText(L_GLOBALSTRINGS["Collapse"])
+		HMPProfessionCollapseButton:SetPoint("RIGHT", TradeSkillFrame.SearchBox, "LEFT", -10, 0)
+		HMPProfessionCollapseButton:Show()
+		
+		HMPProfessionCollapseButton:SetScript("OnEnter", function(self)
+			addonTable.ShowTooltip(self, L_GLOBALSTRINGS["Collapse Button"])
+		end)
+		HMPProfessionCollapseButton:SetScript("OnLeave", function(self)
+			addonTable.HideTooltip(self)
+		end)
+		HMPProfessionCollapseButton:SetScript("OnClick", function(self)
+			for _, category in pairs({C_TradeSkillUI.GetCategories()}) do
+				TradeSkillFrame.RecipeList:SetCategoryCollapsed(category, true)
+			end
+		end)
+		
+		-- The button that allows the player to expand
+		-- the headers and their children in the trade
+		-- skill frame.
+		local expandButton = _G.CreateFrame(
+			"Button",
+			"HMPProfessionExpandButton",
+			TradeSkillFrame,
+			"UIPanelButtonTemplate"
+		)
+		HMPProfessionExpandButton:SetSize(80, 22)
+		HMPProfessionExpandButton:SetText(L_GLOBALSTRINGS["Expand"])
+		HMPProfessionExpandButton:SetPoint("RIGHT", HMPProfessionCollapseButton, "LEFT", -5, 0)
+		HMPProfessionExpandButton:Show()
+		
+		HMPProfessionExpandButton:SetScript("OnEnter", function(self)
+			addonTable.ShowTooltip(self, L_GLOBALSTRINGS["Expand Button"])
+		end)
+		HMPProfessionExpandButton:SetScript("OnLeave", function(self)
+			addonTable.HideTooltip(self)
+		end)
+		HMPProfessionExpandButton:SetScript("OnClick", function(self)
+			for _, category in pairs({C_TradeSkillUI.GetCategories()}) do
+				TradeSkillFrame.RecipeList:SetCategoryCollapsed(category, false)
+			end
+		end)
+		
 		-- Set the size and point of the Calculate button.
 		-- Ideally, it sits to the left of the Filter
 		-- dropdown.
@@ -136,9 +192,6 @@ e:SetScript("OnEvent", function(self, event, addon)
 		HMPProfessionCalculateButton:SetPoint("RIGHT", TradeSkillFrame.FilterButton, "LEFT", -10, 0)
 		HMPProfessionCalculateButton:Show()
 		
-		-- Give the Calculate button some life by adding
-		-- a script for the OnEnter (hover), OnLeave, and
-		-- OnClick handlers.
 		HMPProfessionCalculateButton:SetScript("OnEnter", function(self)
 			addonTable.ShowTooltip(self, L_GLOBALSTRINGS["Calculate Button"])
 		end)

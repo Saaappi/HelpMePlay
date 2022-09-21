@@ -140,6 +140,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Add"]																		= "Add"
 	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
 	L_GLOBALSTRINGS["Calculate"]																= "Calculate"
+	L_GLOBALSTRINGS["Expand"]																	= "Expand"
+	L_GLOBALSTRINGS["Collapse"]																	= "Collapse"
 	L_GLOBALSTRINGS["Junker: Sell Item Text"]													= "|cffFFFFFFSELL|r"
 	L_GLOBALSTRINGS["Junker: Sell Item Text Global"]											= "|cffFFFFFFSELL (GLOBAL)|r"
 	L_GLOBALSTRINGS["Junker: Blacklisted Item Text"]											= "|cffFFFFFFBLACKLISTED|r"
@@ -189,6 +191,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Covenants DropDown"]														= "|cffFFFFFFCovenants|r\nAutomates the Covenant to select when interacting with\nthe Helm of Domination."
 	L_GLOBALSTRINGS["Junker: Rarity DropDown"]													= "Select the maximum rarity threshold for filtering items. Items at\nthe quality you choose and below are considered.\n\nDefault: |cff9d9d9dPoor|r"
 	L_GLOBALSTRINGS["Calculate Button"]															= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["Expand Button"]															= "Expands the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["Collapse Button"]															= "Collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End:		Tooltip Text Elements
 	--
 	-- Start: 	Text Output
