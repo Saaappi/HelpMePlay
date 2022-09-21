@@ -1,16 +1,29 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
+local lib = _G.LibStub("LibReagentDB-1.0")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function InsertReagent(tbl, reagentName, recipeCount, playerCount)
+local function InsertReagent(tbl, reagentName, count)
+	-- If < count > turns out to be negative, then the
+	-- player clearly has enough of said reagent.
+	if count and count < 0 then return end
+	
+	-- If the < reagentName > is nil in the table,
+	-- then the reagent has yet to be documented.
+	-- Let's assign a default value of 0 to alleviate
+	-- any Lua errors.
 	if tbl[reagentName] == nil then
-		tbl[reagentName] = { count = 0, playerCount = playerCount }
+		tbl[reagentName] = { count = 0 }
 	end
-	tbl[reagentName]["count"] = tbl[reagentName]["count"] + recipeCount
+	
+	-- Increment the count from its current value,
+	-- 0 or otherwise, to its new value based on
+	-- the value of < count > (function argument).
+	tbl[reagentName]["count"] = tbl[reagentName]["count"] + count
 end
 
-local function Get(reagent)
+--[[local function Get(reagent)
 	local reagentName
 	local reagentPlayerCount
 	for reagentId, reagentInfo in pairs(reagent) do
@@ -25,20 +38,10 @@ local function Get(reagent)
 			--InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
 		end
 	end
-end
+end]]
 
 local function CalculateReagents()
-	local itemId = 0
-	local itemLink = ""
-	local reagentItemLink = ""
-	local sourceId = 0
-	local recipeInfo = {}
-	local sourceInfo = {}
 	local reagents = {}
-	local childReagent
-	local reagentName
-	local recipeReagentCount
-	local currentReagentCount
 	local recipes = C_TradeSkillUI.GetAllRecipeIDs()
 
 	-- Only show the Calculate button for PRODUCTION
@@ -52,15 +55,15 @@ local function CalculateReagents()
 	local _, _, _, _, _, parentSkillId = C_TradeSkillUI.GetTradeSkillLine()
 	if (parentSkillId == 164) or (parentSkillId == 165) or (parentSkillId == 197) or (parentSkillId == 202) or (parentSkillId == 755) then
 		for _, recipeId in pairs(recipes) do
-			recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
+			local recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
 			-- If the recipe is known to the player, let's
 			-- continue with the code.
 			if recipeInfo.learned then
-				itemLink = C_TradeSkillUI.GetRecipeItemLink(recipeId)
+				local itemLink = C_TradeSkillUI.GetRecipeItemLink(recipeId)
 				if itemLink then
-					_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
+					local _, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 					if sourceId then
-						sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
+						local sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
 						-- If the appearance is NOT collected by
 						-- the player, then let's continue with
 						-- the code.
@@ -73,35 +76,46 @@ local function CalculateReagents()
 							-- as an index to gather information about
 							-- each reagent.
 							for reagentIndex = 1, numReagents do
-								reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
+								local reagentItemLink = C_TradeSkillUI.GetRecipeReagentItemLink(recipeId, reagentIndex)
 								if reagentItemLink then
 									-- 'recipeReagentCount' represents the amount of the
 									-- reagent required by the tradeskill.
 									--
 									-- 'currentReagentCount' represents the amount of the
 									-- reagent currently in the player's possession.
-									recipeReagentCount, currentReagentCount = select(3, C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex))
-									_, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
-									reagentName = GetItemInfo(itemId)
-									if reagentName then
-										if addonTable.REAGENTS[itemId] then
-											-- Insert the parent reagent first (e.g. Bronze Bar), then
-											-- worry about children reagents (e.g. Copper/Tin Bar).
-											InsertReagent(reagents, reagentName, recipeReagentCount, currentReagentCount)
-											
-											local reagent = addonTable.REAGENTS[itemId]
-											Get(reagent)
-											--InsertReagent(reagents, reagentName, count, currentReagentCount)
+									local recipeReagentCount, currentReagentCount = select(3, C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex))
+									local _, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
+									-- The reagent is in the table. Let's continue.
+									if addonTable.REAGENTS[itemId] then
+										local reagentName = GetItemInfo(itemId)
+										-- Continue only if the reagent's name isn't nil.
+										if reagentName then
+											-- Insert the primary reagent (the one listed
+											-- in the recipe) into the < reagents > table.
+											InsertReagent(reagents, reagentName, (recipeReagentCount-currentReagentCount))
 										else
-											-- This is a standalone reagent that doesn't need
-											-- an entry in the table (e.g. Tigerseye).
-											InsertReagent(reagents, reagentName, recipeReagentCount, currentReagentCount)
+											C_Timer.After(0.5, function()
+												CalculateReagents()
+											end)
+											return
 										end
+									-- Any reagent meeting the else clause below must
+									-- be an undocumented reagent. It could be benign
+									-- (e.g. Tigerseye) or a true positive like Copper
+									-- Bar.
+									--
+									-- Since it's not documented, add it to the table
+									-- as a standalone reagent.
 									else
-										C_Timer.After(0.5, function()
-											CalculateReagents()
-										end)
-										return
+										local reagentName = GetItemInfo(itemId)
+										if reagentName then
+											InsertReagent(reagents, reagentName, (recipeReagentCount-currentReagentCount))
+										else
+											C_Timer.After(0.5, function()
+												CalculateReagents()
+											end)
+											return
+										end
 									end
 								else
 									addonTable.Print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")

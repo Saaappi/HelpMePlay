@@ -5,40 +5,46 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 --[[
 	Table Legend:
-		COUNT (c) The amount of said reagent to complete its parent (no children).
-		CHILD REAGENT (cr) A reagent required to make its parent to make its parent.
-		CHILD REAGENTS (crs) Multiple reagents required to make its parent to make its parent.
+		QUANTITY (q) The amount of the reagent made baseline (specified by Blizzard).
+		REAGENTS (r) A table holding the children reagents used to craft the primary reagent. (e.g. Copper Ore for Copper Bar)
+		COUNT (c) The amount of the child reagent necessary to craft the primary reagent.
+		PRIMARY KEY (pk) A reference to another entry in the table.
 ]]
 local REAGENTS = {
 	-- Mining
 	[2840] = { -- Copper Bar
-		{
-			["id"] = 2770, -- Copper Ore
-			["c"] = 1,
-			["cr"] = nil,
-			["crs"] = nil,
+		["q"] = 1,
+		["r"] = {
+			{
+				["id"] = 2770, -- Copper Ore
+				["c"] = 1,
+				["pk"] = nil,
+			},
 		},
 	},
 	[2841] = { -- Bronze Bar
-		{
-			["id"] = 2840,
-			["c"] = 1,
-			["cr"] = 2840,
-			["crs"] = nil,
-		},
-		{
-			["id"] = 3576,
-			["c"] = 1,
-			["cr"] = 3576,
-			["crs"] = nil,
+		["q"] = 1,
+		["r"] = {
+			{
+				["id"] = 2840,
+				["c"] = 1,
+				["pk"] = 2840,
+			},
+			{
+				["id"] = 3576,
+				["c"] = 1,
+				["pk"] = 3576,
+			},
 		},
 	},
 	[3576] = { -- Tin Bar
-		{
-			["id"] = 2771,
-			["c"] = 1,
-			["cr"] = nil,
-			["crs"] = nil,
+		["q"] = 1,
+		["r"] = {
+			{
+				["id"] = 2771,
+				["c"] = 1,
+				["pk"] = nil,
+			},
 		},
 	},
 	
