@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function InsertReagent(tbl, reagentName, count)
+local function InsertReagent(tbl, reagentName, itemId, count)
 	-- If < count > turns out to be negative, then the
 	-- player clearly has enough of said reagent.
 	if count and count < 0 then return end
@@ -13,7 +13,7 @@ local function InsertReagent(tbl, reagentName, count)
 	-- Let's assign a default value of 0 to alleviate
 	-- any Lua errors.
 	if tbl[reagentName] == nil then
-		tbl[reagentName] = { count = 0 }
+		tbl[reagentName] = { count = 0, itemId = itemId }
 	end
 	
 	-- Increment the count from its current value,
@@ -74,7 +74,7 @@ local function CalculateReagents()
 									if reagentName then
 										-- Insert the primary reagent (the one listed
 										-- in the recipe) into the < reagents > table.
-										InsertReagent(reagents, reagentName, (recipeReagentCount-currentReagentCount))
+										InsertReagent(reagents, reagentName, itemId, (recipeReagentCount-currentReagentCount))
 									else
 										C_Timer.After(0.5, function()
 											CalculateReagents()
@@ -94,7 +94,7 @@ local function CalculateReagents()
 	
 		local reagentString = ""
 		for reagent, reagentData in pairs(reagents) do
-			local amountNeeded = (reagentData.count)
+			local amountNeeded = (reagentData.count - (GetItemCount(reagentData.itemId, true, false)))
 			if amountNeeded > 0 then
 				reagentString = reagentString .. reagent .. ": " .. amountNeeded
 			end
