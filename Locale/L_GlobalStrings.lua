@@ -214,6 +214,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
 	L_GLOBALSTRINGS["Quest Removed Text"]														= "Removed"
 	L_GLOBALSTRINGS["Quest Accepted Text"]														= "Accepted"
+	L_GLOBALSTRINGS["Profession Reagents being Calculated"]										= "Reagent calculation in progress..."
 	-- End:		Text Output
 	--
 	-- Start:	Warning Text Output
