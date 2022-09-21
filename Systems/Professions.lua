@@ -99,14 +99,14 @@ local function CalculateReagents()
 											end)
 											return
 										end
-									-- Any reagent meeting the else clause below must
-									-- be an undocumented reagent. It could be benign
-									-- (e.g. Tigerseye) or a true positive like Copper
-									-- Bar.
-									--
-									-- Since it's not documented, add it to the table
-									-- as a standalone reagent.
 									else
+										-- Any reagent meeting the else clause below must
+										-- be an undocumented reagent. It could be benign
+										-- (e.g. Tigerseye) or a true positive like Copper
+										-- Bar.
+										--
+										-- Since it's not documented, add it to the table
+										-- as a standalone reagent.
 										local reagentName = GetItemInfo(itemId)
 										if reagentName then
 											InsertReagent(reagents, reagentName, (recipeReagentCount-currentReagentCount))
