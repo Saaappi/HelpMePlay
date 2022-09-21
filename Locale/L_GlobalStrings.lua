@@ -218,7 +218,7 @@ if (isLocaleSupported) then
 	--
 	-- Start:	Warning Text Output
 	L_GLOBALSTRINGS["Red WARNING"]																= "|cffFF0000WARNING:|r "
-	L_GLOBALSTRINGS["Reagent Name is Nil"]														= "[|cffFF7900WARNING|r] Reagent data missing. Blame Blizzard. Try again until this warning doesn't show."
+	L_GLOBALSTRINGS["Reagent Data Missing"]														= "[|cffFF7900WARNING|r] Critical reagent data wasn't processed successfully. Please try again."
 	L_GLOBALSTRINGS["Equipped Item Level is Nil"]												= "[|cffFF7900WARNING|r] Equipped item level is unavailable. Please open and close your character pane."
 	L_GLOBALSTRINGS["Unknown Source ID"]														= "[|cffFF7900WARNING|r] Unable to determine the collected status for %s. Please check the item. (Bag: %s, Slot: %s)"
 	L_GLOBALSTRINGS["Unlearnable Appearance"]													= "Unlearnable Appearance"

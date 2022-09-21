@@ -82,7 +82,7 @@ local function CalculateReagents()
 										return
 									end
 								else
-									addonTable.Print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
+									addonTable.Print(L_GLOBALSTRINGS["Reagent Data Missing"] .. " |cffe6cc80" .. date("%X") .. "|r")
 									return
 								end
 							end
