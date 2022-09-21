@@ -1,7 +1,6 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
-local lib = _G.LibStub("LibReagentDB-1.0")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function InsertReagent(tbl, reagentName, count)
@@ -22,23 +21,6 @@ local function InsertReagent(tbl, reagentName, count)
 	-- the value of < count > (function argument).
 	tbl[reagentName]["count"] = tbl[reagentName]["count"] + count
 end
-
---[[local function Get(reagent)
-	local reagentName
-	local reagentPlayerCount
-	for reagentId, reagentInfo in pairs(reagent) do
-		reagentName = GetItemInfo(reagentId)
-		if reagentInfo.crs then
-		elseif reagentInfo.cr then
-			local a = addonTable.REAGENTS[reagentInfo.cr]
-			Get(a)
-			--InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
-		else
-			reagentName = GetItemInfo(reagentId)
-			--InsertReagent(reagents, reagentName, reagentInfo.c, GetItemCount(reagentId, true, nil))
-		end
-	end
-end]]
 
 local function CalculateReagents()
 	local reagents = {}
@@ -86,36 +68,18 @@ local function CalculateReagents()
 									local recipeReagentCount, currentReagentCount = select(3, C_TradeSkillUI.GetRecipeReagentInfo(recipeId, reagentIndex))
 									local _, itemId = strsplit(":", reagentItemLink); itemId = tonumber(itemId)
 									-- The reagent is in the table. Let's continue.
-									if addonTable.REAGENTS[itemId] then
-										local reagentName = GetItemInfo(itemId)
-										-- Continue only if the reagent's name isn't nil.
-										if reagentName then
-											-- Insert the primary reagent (the one listed
-											-- in the recipe) into the < reagents > table.
-											InsertReagent(reagents, reagentName, (recipeReagentCount-currentReagentCount))
-										else
-											C_Timer.After(0.5, function()
-												CalculateReagents()
-											end)
-											return
-										end
+									--if addonTable.REAGENTS[itemId] then
+									local reagentName = GetItemInfo(itemId)
+									-- Continue only if the reagent's name isn't nil.
+									if reagentName then
+										-- Insert the primary reagent (the one listed
+										-- in the recipe) into the < reagents > table.
+										InsertReagent(reagents, reagentName, (recipeReagentCount-currentReagentCount))
 									else
-										-- Any reagent meeting the else clause below must
-										-- be an undocumented reagent. It could be benign
-										-- (e.g. Tigerseye) or a true positive like Copper
-										-- Bar.
-										--
-										-- Since it's not documented, add it to the table
-										-- as a standalone reagent.
-										local reagentName = GetItemInfo(itemId)
-										if reagentName then
-											InsertReagent(reagents, reagentName, (recipeReagentCount-currentReagentCount))
-										else
-											C_Timer.After(0.5, function()
-												CalculateReagents()
-											end)
-											return
-										end
+										C_Timer.After(0.5, function()
+											CalculateReagents()
+										end)
+										return
 									end
 								else
 									addonTable.Print(L_GLOBALSTRINGS["Reagent Name is Nil"] .. " |cffe6cc80" .. date("%X") .. "|r")
@@ -130,7 +94,7 @@ local function CalculateReagents()
 	
 		local reagentString = ""
 		for reagent, reagentData in pairs(reagents) do
-			local amountNeeded = (reagentData.count - reagentData.playerCount)
+			local amountNeeded = (reagentData.count)
 			if amountNeeded > 0 then
 				reagentString = reagentString .. reagent .. ": " .. amountNeeded
 			end
