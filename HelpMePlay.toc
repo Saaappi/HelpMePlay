@@ -82,7 +82,6 @@ Systems\GarrisonTalentNPC.lua
 Systems\Talents.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
-Systems\Weights.lua
 Systems\Junker.lua
 
 # General Stuff

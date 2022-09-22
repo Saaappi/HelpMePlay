@@ -158,14 +158,9 @@
 					<Anchor point="TOPLEFT" x="39" y="-175" />
 				</Anchors>
 			</CheckButton>
-			<CheckButton name="HMPWeightsCB" inherits="UICheckButtonTemplate" text="CheckButton1">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-213" />
-				</Anchors>
-			</CheckButton>
 			<CheckButton name="HMPPartyPlayCB" inherits="UICheckButtonTemplate" text="CheckButton1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="39" y="-251" />
+					<Anchor point="TOPLEFT" x="39" y="-213" />
 				</Anchors>
 			</CheckButton>
 			<CheckButton name="HMPPartyPlayAnnounceCB" inherits="UICheckButtonTemplate" text="CheckButton1">
@@ -422,14 +417,6 @@
 					<Size x="99" y="20" />
 					<Anchors>
 						<Anchor point="LEFT" relativeTo="HMPWaypointsCB" relativePoint="LEFT" x="14" />
-					</Anchors>
-					<FontHeight val="12" />
-					<Color r="1" g="1" b="1" />
-				</FontString>
-				<FontString name="HMPWeightsText" inherits="GameFontNormal" text="Weights" justifyH="CENTER" justifyV="CENTER">
-					<Size x="99" y="20" />
-					<Anchors>
-						<Anchor point="LEFT" relativeTo="HMPWeightsCB" relativePoint="LEFT" x="8" />
 					</Anchors>
 					<FontHeight val="12" />
 					<Color r="1" g="1" b="1" />
