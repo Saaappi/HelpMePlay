@@ -301,6 +301,9 @@ local function QUEST_GREETING()
 		end)
 	else
 		for i=1, GetNumActiveQuests() do
+			local questId = GetActiveQuestID(i)
+			if HelpMePlayIgnoredQuestsDB[questId] then return end
+			
 			local _, isComplete = GetActiveTitle(i)
 			if isComplete then
 				SelectActiveQuest(i)
@@ -472,6 +475,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 			C_Timer.After(addonTable.CONSTANTS["ONE_TENTH_SECOND"], function()
 				ImmersionFrame.TalkBox.MainFrame.CloseButton:Click()
 			end)
+		end
+		
+		-- It's not always possible to prevent a quest
+		-- from being auto accepted. If that's the case,
+		-- simply remove it from the player's log if it's
+		-- on the ignore list.
+		for i=1,GetNumQuestLogEntries() do
+			local _, _, _, _, _, _, _, id = GetQuestLogTitle(i);
+			if id == questId and HelpMePlayIgnoredQuestsDB[questId] then
+				SelectQuestLogEntry(i);
+				SetAbandonQuest();
+				AbandonQuest();
+			end
 		end
 	end
 	if event == "QUEST_AUTOCOMPLETE" then
