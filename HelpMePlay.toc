@@ -75,10 +75,10 @@ Automations\Cinematics.lua
 Automations\Quests.lua
 
 # Systems
-Systems\Professions.lua
+Systems\TradeSkills.lua
 Systems\Transmog.lua
 Systems\Commands.lua
-Systems\GarrisonTalentNPC.lua
+Systems\TalentSystems.lua
 Systems\Talents.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
