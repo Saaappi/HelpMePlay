@@ -167,6 +167,11 @@ elseif select(2, IsAddOnLoaded("Bagnon")) then
 	HMPTransmogButton:SetSize(24, 24)
 	hooksecurefunc(Bagnon.InventoryFrame, "OnShow", function(self)
 		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
+		HMPTransmogButton:Show()
+	end)
+	hooksecurefunc(Bagnon.InventoryFrame, "OnHide", function(self)
+		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
+		HMPTransmogButton:Hide()
 	end)
 -- No AddOn
 else
