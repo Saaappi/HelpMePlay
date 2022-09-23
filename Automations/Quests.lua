@@ -459,7 +459,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							minimap_displayID = coords[6],
 							worldmap_displayID = coords[6],
 						}
-						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts);
+						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts)
 						TomTom:SetClosestWaypoint()
 					end
 					break
@@ -481,12 +481,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- from being auto accepted. If that's the case,
 		-- simply remove it from the player's log if it's
 		-- on the ignore list.
-		for i=1,GetNumQuestLogEntries() do
-			local _, _, _, _, _, _, _, id = GetQuestLogTitle(i);
+		for i=1, C_QuestLog.GetNumQuestLogEntries() do
+			local id = C_QuestLog.GetQuestIDForLogIndex(i)
 			if id == questId and HelpMePlayIgnoredQuestsDB[questId] then
-				SelectQuestLogEntry(i);
-				SetAbandonQuest();
-				AbandonQuest();
+				SelectQuestLogEntry(i)
+				SetAbandonQuest()
+				AbandonQuest()
 			end
 		end
 	end
