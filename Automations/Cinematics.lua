@@ -16,13 +16,13 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
 			addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"])
-			return
+			return false
 		end
 	end
 	
 	if HelpMePlayOptionsDB.Cinematics then
-		C_Timer.After(1.5, CinematicFrame_CancelCinematic)
-		C_Timer.After(3, CinematicFrame_CancelCinematic)
+		C_Timer.After(0.5, CinematicFrame_CancelCinematic)
+		return true
 	end
 end)
 
@@ -43,7 +43,6 @@ _G["MovieFrame_PlayMovie"] = function(self, movieId)
 	end
 	
 	if HelpMePlayOptionsDB.Cinematics then
-		C_Timer.After(0.5, GameMovieFinished)
 		C_Timer.After(0.5, GameMovieFinished)
 		return true
 	else
