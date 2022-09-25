@@ -6,26 +6,28 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local numTabs = 4
 local icon = ""
 
-function HelpMePlay:GetMessage(text)
-	return self.message
-end
-
-function HelpMePlay:SetMessage(text, value)
-	self.message = value
-end
-
 local options = {
-	name = addonName,
+	name = addonName .. " (|cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r)",
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		test = {
-			type = "input",
-			name = "Message",
-			desc = "The message to be displayed when you get home.",
-			usage = "<Your message>",
-			get = "GetMessage",
-			set = "SetMessage",
+		general_header = {
+			type = "header",
+			order = 1,
+			name = "|T136243:0|t " .. L_GLOBALSTRINGS["General Settings"],
+		},
+		enable = {
+			name = L_GLOBALSTRINGS["Enable"],
+			order = 1.1,
+			desc = L_GLOBALSTRINGS["Enable Desc"],
+			type = "toggle",
+			set = function(info, val) HelpMePlayDB.Enabled = val end,
+			get = function(info) return HelpMePlayDB.Enabled end
+		},
+		automation_header = {
+			type = "header",
+			order = 2,
+			name = "|T254097:0|t " .. L_GLOBALSTRINGS["Automation Settings"],
 		},
 	},
 }

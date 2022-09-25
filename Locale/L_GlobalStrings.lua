@@ -100,7 +100,17 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Item Level"]																= "Item Level"
 	L_GLOBALSTRINGS["Sell Price"]																= "Sell Price"
 	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
-	-- End:		Dropdowns
+	-- End: 	DropDowns
+	--
+	-- Start: 	Headers
+	L_GLOBALSTRINGS["General Settings"] 														= "General Settings"
+	L_GLOBALSTRINGS["Automation Settings"] 														= "Automation Settings"
+	-- End: 	Headers
+	--
+	-- Start: 	Toggles
+	L_GLOBALSTRINGS["Enable"] 																	= "Enable"
+	L_GLOBALSTRINGS["Enable Desc"] 																= "Enables and disables addon functionality.\n\nChecked is |cffFED55FENABLED|r and unchecked is the opposite."
+	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Copyright Text"]															= "Crafted with |cffFF5C5C♥|r by Lightsky"
@@ -155,7 +165,7 @@ if (isLocaleSupported) then
 	--
 	-- Start:	Tooltip Text Elements
 	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	L_GLOBALSTRINGS["Disable All Check Button"]													= "Disables all the below settings and returns\nthem to their default state.\n\nThis check button affects all settings regardless\nof the tab you're on.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them\nto their saved state."
+	L_GLOBALSTRINGS["Disable All Check Button"]													= "Disables all the below settings and returns them to their default state.\n\nThis check button affects all settings regardless of the tab you're on.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them to their saved state."
 	L_GLOBALSTRINGS["Adventure Maps Check Button"]												= "Automates the Hero's Call Board and the selection of zones for the\nBattle for Azeroth and Shadowlands adventure maps."
 	L_GLOBALSTRINGS["Dialog Check Button"]														= "Automates the selection of dialog options when speaking with creatures.\nThis does |cffFFFFFFNOT|r apply to all dialogs. Use the |cffFFFFFF/dialog|r command to add your own!"
 	L_GLOBALSTRINGS["Emotes Check Button"]														= "Automates emotes for specific creatures. Examples include\nthe Lake Frog for the Argent Tournament daily and the\nrunestones in Maldraxxus."

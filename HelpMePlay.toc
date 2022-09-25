@@ -2,10 +2,10 @@
 ## Interface: 90207
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
-## SavedVariables: HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayIgnoredQuestsDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB
+## SavedVariables: HelpMePlayDB, HelpMePlayOptionsDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayIgnoredQuestsDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
-## Version: 1.1.9.3
+## Version: 1.1.10
 ## OptionalDeps: Ace3
 
 # Functions
