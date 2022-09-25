@@ -121,10 +121,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
 	L_GLOBALSTRINGS["Features.Toggle.Cinematics"] 												= "Cinematics"
 	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
+	L_GLOBALSTRINGS["Features.Toggle.Dialog"] 													= "Dialog"
+	L_GLOBALSTRINGS["Features.Toggle.DialogDesc"] 												= "Automates the selection of dialog options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all dialogs!"
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
-	L_GLOBALSTRINGS["Dialog"]																	= "Dialog"
 	L_GLOBALSTRINGS["Emotes"]																	= "Emotes"
 	L_GLOBALSTRINGS["Garrison Tables"]															= "Garrison Tables"
 	L_GLOBALSTRINGS["Merchants"]																= "Merchants"
@@ -173,7 +174,6 @@ if (isLocaleSupported) then
 	--
 	-- Start:	Tooltip Text Elements
 	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	L_GLOBALSTRINGS["Dialog Check Button"]														= "Automates the selection of dialog options when speaking with creatures.\nThis does |cffFFFFFFNOT|r apply to all dialogs. Use the |cffFFFFFF/dialog|r command to add your own!"
 	L_GLOBALSTRINGS["Emotes Check Button"]														= "Automates emotes for specific creatures. Examples include\nthe Lake Frog for the Argent Tournament daily and the\nrunestones in Maldraxxus."
 	L_GLOBALSTRINGS["Garrison Tables Check Button"]												= "Automates the selection of Draenor zone outposts,\nthe start of the first Garrison missions, and the\nplotting of the Barracks building."
 	L_GLOBALSTRINGS["Merchants Check Button"]													= "Automates repairing at merchants and the purchase\nof specific items."
