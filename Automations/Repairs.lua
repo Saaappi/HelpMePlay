@@ -17,7 +17,7 @@ e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Merchants == false or HelpMePlayOptionsDB.Merchants == nil then return end
+		if HelpMePlayDB.RepairsEnabled == false or HelpMePlayDB.RepairsEnabled == nil then return false end
 		local repairCost, needsRepair = GetRepairAllCost()
 		if repairCost > 0 and GetMoney() > repairCost then
 			if CanMerchantRepair() then

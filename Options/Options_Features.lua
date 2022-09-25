@@ -53,6 +53,14 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.SpeechEnabled end,
 			set = function(info, val) HelpMePlayDB.SpeechEnabled = val end,
 		},
+		repairs = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Repairs"],
+			order = 6,
+			desc = L_GLOBALSTRINGS["Features.Toggle.RepairsDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.RepairsEnabled end,
+			set = function(info, val) HelpMePlayDB.RepairsEnabled = val end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions

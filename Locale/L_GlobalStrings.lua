@@ -134,6 +134,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.QueuesDesc"] 												= "Need to cook dinner but don't want to miss your queue? Check this button and let the addon worry about it."
 	L_GLOBALSTRINGS["Features.Toggle.Speech"] 													= "Speech"
 	L_GLOBALSTRINGS["Features.Toggle.SpeechDesc"] 												= "Automates interacting with specific NPC speech.\n\nExamples:\n|cffFFD100We'll Make an Aspirant Out of You|r: Bastion (World Quest)\n|cffFFD100The Games We Play|r: Ardenweald"
+	L_GLOBALSTRINGS["Features.Toggle.Repairs"] 													= "Repairs"
+	L_GLOBALSTRINGS["Features.Toggle.RepairsDesc"] 												= "Automates repairing at repair-capable merchants."
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
@@ -182,7 +184,6 @@ if (isLocaleSupported) then
 	--
 	-- Start:	Tooltip Text Elements
 	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	L_GLOBALSTRINGS["Emotes Check Button"]														= "Automates emotes for specific creatures. Examples include\nthe Lake Frog for the Argent Tournament daily and the\nrunestones in Maldraxxus."
 	L_GLOBALSTRINGS["Garrison Tables Check Button"]												= "Automates the selection of Draenor zone outposts,\nthe start of the first Garrison missions, and the\nplotting of the Barracks building."
 	L_GLOBALSTRINGS["Merchants Check Button"]													= "Automates repairing at merchants and the purchase\nof specific items."
 	L_GLOBALSTRINGS["Trainers Check Button"]													= "Automates the purchase of skills from trainers.\nThe addon won't train if the purchase would\nbreak the bank. You must have at least\n50 gold more than the cost."
