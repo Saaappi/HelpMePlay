@@ -126,6 +126,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.DialogDesc"] 												= "Automates the selection of dialog options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all dialogs!"
 	L_GLOBALSTRINGS["Features.Toggle.Emotes"] 													= "Emotes"
 	L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"] 												= "Automates emotes for specific NPCs.\n\nExamples:\n- |cffFFD100Lake Frog|r: A Blade Fit For A Champion (Argent Tournament)\n- |cffFFD100Runestones|r: Repeat After Me (Maldraxxus)"
+	L_GLOBALSTRINGS["Features.Toggle.Queues"] 													= "Queues"
+	L_GLOBALSTRINGS["Features.Toggle.QueuesDesc"] 												= "Need to cook dinner but don't want to miss your queue? Check this button and let the addon worry about it."
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
@@ -142,7 +144,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Notes"]																	= "Notes"
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
 	L_GLOBALSTRINGS["Cinematics"]																= "Cinematics"
-	L_GLOBALSTRINGS["Queues"]																	= "Queues"
 	L_GLOBALSTRINGS["Vehicles"]																	= "Vehicles"
 	L_GLOBALSTRINGS["Waypoints"]																= "Waypoints"
 	L_GLOBALSTRINGS["Weights"]																	= "Weights"
@@ -191,7 +192,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Party Play Check Button"]													= "|cffCB453DNote|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Party Play Announce Check Button"]											= "|cffFFFFFFParty Play: Announce|r\nIf you don't want to broadcast when you've\naccepted a quest, then keep this unchecked."
 	L_GLOBALSTRINGS["Party Play Auto Share Check Button"]										= "|cffFFFFFFParty Play: Auto Share|r\nIf you don't want to auto share quests,\nthen keep this unchecked."
-	L_GLOBALSTRINGS["Queues Check Button"]														= "Need to cook dinner but don't want to miss your\nqueue? Check this button and let the addon\nworry about it."
 	L_GLOBALSTRINGS["Vehicles Check Button"]													= "When enabled, your character will auto exit\ncertain vehicles.\n\nVehicles are defined by the addon."
 	L_GLOBALSTRINGS["Minimap Icon Check Button"]												= "Use this button to enable or disable the minimap icon."
 	L_GLOBALSTRINGS["Junker Check Button"]														= "Enables the addon's auto sell system, |cffFFFFFFJunker|r.\n\nBy default, |cffFFFFFFJunker|r will auto sell player-defined\nand POOR quality items. Use the buttons below\nto filter in additional items.\n\nAlternatively, use the Import button in the lower\nright to import items from another auto sell addon,\n or to import a comma-delimited list of item IDs.\n\n|cffFFFFFF/hmp junker add id|r\n\n|cffFFFFFF/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items\nyou don't have in your bags."
