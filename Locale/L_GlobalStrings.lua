@@ -33,7 +33,7 @@ end
 
 if (isLocaleSupported) then
 	-- Start: 	Commands
-	L_GLOBALSTRINGS["Slash HMP"]																= "/hmp"
+	L_GLOBALSTRINGS["Slash HMP"]																= "hmp"
 	L_GLOBALSTRINGS["Confirm Command"]															= "confirm"
 	L_GLOBALSTRINGS["Dialog Command"]															= "dialog"
 	L_GLOBALSTRINGS["Ignore Command"]															= "ignore"

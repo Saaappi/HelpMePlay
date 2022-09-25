@@ -107,10 +107,11 @@ end
 function HelpMePlay:SlashCommandHandler(cmd)
 	local cmd, arg1, arg2 = string.split(" ", cmd)
 	if not cmd or cmd == "" then
-		if HMPOptionsFrame:IsVisible() then
-			HMPOptionsFrame:Hide()
+		if InterfaceOptionsFrame:IsVisible() then
+			InterfaceOptionsFrameOkay:Click()
 		else
-			HelpMePlayLoadSettings()
+			InterfaceAddOnsList_Update()
+			InterfaceOptionsFrame_OpenToCategory(addonTable.optionsFrame)
 		end
 	elseif cmd == L_GLOBALSTRINGS["Dialog Command"] and arg1 ~= nil then
 		Dialog(arg1)
@@ -159,7 +160,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 	elseif cmd == L_GLOBALSTRINGS["Junker Command"] and arg1 ~= nil and arg2 ~= nil then
 		local count = 0
-		arg2 = HelpMePlay_StringToTable(arg2, " ")
+		arg2 = addonTable.StringToTable(arg2, " ")
 		for _, item in ipairs(arg2) do
 			if arg1 == L_GLOBALSTRINGS["Add Subcommand"] then
 				if HelpMePlayJunkerDB[item] then

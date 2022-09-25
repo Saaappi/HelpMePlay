@@ -13,7 +13,12 @@ BINDING_NAME_HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST = L_GLOBALSTRINGS["Add to
 
 function HelpMePlayKeyPressHandler(key)
 	if key == GetBindingKey("HELPMEPLAY_OPEN_SETTINGS") then
-		HelpMePlayLoadSettings()
+		if InterfaceOptionsFrame:IsVisible() then
+			InterfaceOptionsFrameOkay:Click()
+		else
+			InterfaceAddOnsList_Update()
+			InterfaceOptionsFrame_OpenToCategory(addonTable.optionsFrame)
+		end
 	elseif key == GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER") then
 		if GameTooltip:IsVisible() then
 			local _, itemLink = GameTooltip:GetItem()

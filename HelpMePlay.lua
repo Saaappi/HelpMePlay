@@ -7,8 +7,9 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0")
 
 function HelpMePlay:OnInitialize()
-	self:RegisterChatCommand("hmp", "SlashCommandHandler")
-	self:RegisterChatCommand("helpmeplay", "SlashCommandHandler")
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay", addonTable.options)
+	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions(addonName, addonName); addonTable.optionsFrame = self.optionsFrame
+	self:RegisterChatCommand(L_GLOBALSTRINGS["Slash HMP"], "SlashCommandHandler")
 end
 
 function HelpMePlay:OnEnable()
