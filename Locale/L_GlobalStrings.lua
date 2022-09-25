@@ -109,6 +109,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tabs.Garrisons"] 															= "Garrisons"
 	-- End: 	Tabs
 	--
+	-- Start: 	Headers
+	L_GLOBALSTRINGS["Header.Toggles"] 															= "Toggles"
+	-- End: 	Headers
+	--
 	-- Start: 	Descriptions
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"

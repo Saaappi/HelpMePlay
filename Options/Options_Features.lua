@@ -8,9 +8,14 @@ local featuresOptions = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		toggle_header = {
+			name = L_GLOBALSTRINGS["Header.Toggles"],
+			order = 0,
+			type = "header",
+		},
 		cinematics = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Cinematics"],
-			order = 0,
+			order = 1,
 			desc = L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.CinematicsEnabled end,
@@ -18,7 +23,7 @@ local featuresOptions = {
 		},
 		dialog = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Dialog"],
-			order = 1,
+			order = 2,
 			desc = L_GLOBALSTRINGS["Features.Toggle.DialogDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.DialogEnabled end,
@@ -26,7 +31,7 @@ local featuresOptions = {
 		},
 		emotes = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Emotes"],
-			order = 2,
+			order = 3,
 			desc = L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.EmotesEnabled end,
@@ -34,7 +39,7 @@ local featuresOptions = {
 		},
 		queues = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Queues"],
-			order = 3,
+			order = 4,
 			desc = L_GLOBALSTRINGS["Features.Toggle.QueuesDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.QueuesEnabled end,

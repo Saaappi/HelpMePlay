@@ -43,6 +43,11 @@ local generalOptions = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		toggle_header = {
+			name = L_GLOBALSTRINGS["Header.Toggles"],
+			order = 0,
+			type = "header",
+		},
 		enable = {
 			name = L_GLOBALSTRINGS["General.Toggle.Enable"],
 			order = 1,
