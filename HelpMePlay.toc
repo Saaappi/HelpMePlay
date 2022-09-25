@@ -6,6 +6,7 @@
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
 ## Version: 1.1.9.3
+## OptionalDeps: Ace3
 
 # Functions
 Functions.lua

@@ -4,6 +4,23 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0")
+
+function HelpMePlay:OnInitialize()
+	self:RegisterChatCommand("hmp", "SlashCommandHandler")
+	self:RegisterChatCommand("helpmeplay", "SlashCommandHandler")
+end
+
+function HelpMePlay:OnEnable()
+	-- Called when the addon is enabled
+end
+
+function HelpMePlay:OnDisable()
+	-- Called when the addon is disabled
+end
+
+
+
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then

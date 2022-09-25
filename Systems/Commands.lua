@@ -104,32 +104,30 @@ local function Confirm(gossip)
 	end
 end
 
-SLASH_HelpMePlay1 = L_GLOBALSTRINGS["Slash HMP"]
-SlashCmdList["HelpMePlay"] = function(command, editbox)
-	local _, _, command, arguments = string.find(command, "%s?(%w+)%s?(.*)") -- Using pattern matching the addon will be able to interpret subcommands.
-	if not command or command == "" then
+function HelpMePlay:SlashCommandHandler(cmd)
+	local cmd, arg1, arg2 = string.split(" ", cmd)
+	if not cmd or cmd == "" then
 		if HMPOptionsFrame:IsVisible() then
 			HMPOptionsFrame:Hide()
 		else
 			HelpMePlayLoadSettings()
 		end
-	elseif command == L_GLOBALSTRINGS["Dialog Command"] and arguments ~= "" then
-		Dialog(arguments)
-	elseif command == L_GLOBALSTRINGS["Confirm Command"] and arguments ~= "" then
-		Confirm(arguments)
-	elseif command == L_GLOBALSTRINGS["Quest Command"] or command == L_GLOBALSTRINGS["Q"] and arguments ~= "" then
+	elseif cmd == L_GLOBALSTRINGS["Dialog Command"] and arg1 ~= nil then
+		Dialog(arg1)
+	elseif cmd == L_GLOBALSTRINGS["Confirm Command"] and arg1 ~= nil then
+		Confirm(arg1)
+	elseif cmd == L_GLOBALSTRINGS["Quest Command"] and arg1 ~= nil then
 		-- A shorthand way to check if a given quest has
 		-- been completed by the current player.
 		--
 		-- The argument must be a number, else silently
 		-- fail out.
-		if tonumber(arguments) then
-			addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. tostring(C_QuestLog.IsQuestFlaggedCompleted(arguments)))
+		if tonumber(arg1) then
+			self:Print(tostring(C_QuestLog.IsQuestFlaggedCompleted(arg1)))
 		end
-	elseif command == L_GLOBALSTRINGS["Ignore Command"] and arguments ~= "" then
-		local subCommand, id = string.split(" ", arguments)
-		if subCommand == L_GLOBALSTRINGS["Ignore NPC"] then
-			local npcId = tonumber(id)
+	elseif cmd == L_GLOBALSTRINGS["Ignore Command"] and arg1 ~= nil and arg2 ~= nil then
+		if arg1 == L_GLOBALSTRINGS["Ignore NPC"] then
+			local npcId = tonumber(arg2)
 			if npcId then
 				if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
 					HelpMePlayIgnoredCreaturesDB[npcId] = true
@@ -149,8 +147,8 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 					end
 				end
 			end
-		elseif subCommand == L_GLOBALSTRINGS["Quest Command"] then
-			local questId = tonumber(id)
+		elseif arg1 == L_GLOBALSTRINGS["Quest Command"] then
+			local questId = tonumber(arg2)
 			if questId then
 				if HelpMePlayIgnoredQuestsDB[questId] == nil then
 					HelpMePlayIgnoredQuestsDB[questId] = true
@@ -159,12 +157,11 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 		end
-	elseif command == L_GLOBALSTRINGS["Junker Command"] and arguments ~= "" then
-		local subcommand, items = string.split("_", arguments)
+	elseif cmd == L_GLOBALSTRINGS["Junker Command"] and arg1 ~= nil and arg2 ~= nil then
 		local count = 0
-		items = HelpMePlay_StringToTable(items, " ")
-		for _, item in ipairs(items) do
-			if subcommand == L_GLOBALSTRINGS["Add Subcommand"] then
+		arg2 = HelpMePlay_StringToTable(arg2, " ")
+		for _, item in ipairs(arg2) do
+			if arg1 == L_GLOBALSTRINGS["Add Subcommand"] then
 				if HelpMePlayJunkerDB[item] then
 					HelpMePlayJunkerDB[item] = nil
 				else
@@ -172,7 +169,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 					HelpMePlayJunkerDB[item] = true
 					count = count + 1
 				end
-			elseif subcommand == L_GLOBALSTRINGS["Blacklist Subcommand"] then
+			elseif arg1 == L_GLOBALSTRINGS["Blacklist Subcommand"] then
 				if HelpMePlayJunkerBlacklistDB[item] then
 					HelpMePlayJunkerBlacklistDB[item] = nil
 				else
@@ -182,8 +179,8 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 				end
 			end
 		end
-		addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
-	elseif command == L_GLOBALSTRINGS["Reset Command"] then
+		self:Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+	elseif cmd == L_GLOBALSTRINGS["Reset Command"] then
 		-- Let's reset the position to the original position
 		-- defined by the addon.
 		if HelpMePlayOptionsDB.point then
@@ -192,7 +189,7 @@ SlashCmdList["HelpMePlay"] = function(command, editbox)
 			HelpMePlayOptionsDB.xOffs = 0
 			HelpMePlayOptionsDB.yOffs = 325
 		end
-	elseif command == L_GLOBALSTRINGS["Help Command"] then
-		addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
+	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
+		self:Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
 end
