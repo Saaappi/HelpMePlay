@@ -18,6 +18,7 @@ e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LEVEL_CHANGED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HelpMePlayDB.WarModeEnabled == false or HelpMePlayDB.WarModeEnabled == nil then return false end
 		local _, newLevel = ...
 		if newLevel == 20 then
 			if UnitFactionGroup("player") == "Alliance" then
@@ -29,7 +30,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "ZONE_CHANGED_NEW_AREA" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.WarMode == false or HelpMePlayOptionsDB.WarMode == nil then return end
+		if HelpMePlayDB.WarModeEnabled == false or HelpMePlayDB.WarModeEnabled == nil then return false end
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if (mapId == 84 or mapId == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
 			if C_PvP.IsWarModeDesired() == false then

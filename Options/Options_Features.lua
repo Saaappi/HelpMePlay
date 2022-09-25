@@ -61,6 +61,22 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.RepairsEnabled end,
 			set = function(info, val) HelpMePlayDB.RepairsEnabled = val end,
 		},
+		vehicles = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Vehicles"],
+			order = 7,
+			desc = L_GLOBALSTRINGS["Features.Toggle.VehiclesDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.VehiclesEnabled end,
+			set = function(info, val) HelpMePlayDB.VehiclesEnabled = val end,
+		},
+		warmode = {
+			name = L_GLOBALSTRINGS["Features.Toggle.WarMode"],
+			order = 8,
+			desc = L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.WarModeEnabled end,
+			set = function(info, val) HelpMePlayDB.WarModeEnabled = val end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions
