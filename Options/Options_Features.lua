@@ -13,8 +13,8 @@ local featuresOptions = {
 			order = 1,
 			desc = L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"],
 			type = "toggle",
-			get = function(info) return HelpMePlayDB.Cinematics end,
-			set = function(info, val) HelpMePlayDB.Cinematics = val end,
+			get = function(info) return HelpMePlayDB.CinematicsEnabled end,
+			set = function(info, val) HelpMePlayDB.CinematicsEnabled = val end,
 		},
 	},
 }
