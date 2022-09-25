@@ -122,6 +122,8 @@ end
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
 	if event == "ADDON_LOADED" and addon == "Blizzard_TradeSkillUI" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		
 		-- Shift the search box to the right to make room for
 		-- the expand/collapse button.
 		TradeSkillFrame.SearchBox:SetPoint("TOPLEFT", TradeSkillFrame, "TOPLEFT", 360, -54)

@@ -7,6 +7,7 @@ local tooltip = CreateFrame("GameTooltip", "HelpMePlayScannerTooltip", UIParent,
 local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
 
 local function Filter_ChatFrame(self, event, msg, author, ...)
+	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return false end
 	-- I don't want the auto share feature to
 	-- report the "%s is already on that quest"
@@ -50,6 +51,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "GROUP_JOINED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		addonTable.Print(L_GLOBALSTRINGS["Party Play Enabled Warning Text"])
 	end
@@ -61,6 +63,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		--
 		-- Share the quest with the player's
 		-- party.
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		local questId = ...
 		HelpMePlayCharacterQuestsDB[questId] = { title = Get_QuestTitleFromId[questId], progressPercent = 0 }
@@ -88,6 +91,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- player's quest table. If so, then
 		-- the player didn't turn it in, so
 		-- report the message to chat.
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		local questId = ...
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
@@ -104,6 +108,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		--
 		-- Report to party chat the a quest
 		-- was turned in.
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		local questId = ...
 		HelpMePlayCharacterQuestsDB[questId] = nil
@@ -119,6 +124,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		--
 		-- This is used in cases like:
 		-- 6/6 Bewitched Bear slain
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local supportedMsgTypes = { 290, 292, 293, 294, 295 }
@@ -135,6 +141,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UNIT_QUEST_LOG_CHANGED" then
 		-- Used explicitly to handle quests
 		-- with progress bars.
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
 		if UnitInParty("player") then
 			local unit = ...

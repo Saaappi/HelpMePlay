@@ -7,6 +7,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 e:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UPDATE_MOUSEOVER_UNIT" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Notes == false or HelpMePlayOptionsDB.Notes == nil then return end
 		if UnitGUID("mouseover") then
 			local guid = UnitGUID("mouseover")

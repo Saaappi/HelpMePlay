@@ -109,7 +109,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Toggles
 	L_GLOBALSTRINGS["Enable"] 																	= "Enable"
-	L_GLOBALSTRINGS["Enable Desc"] 																= "Enables and disables addon functionality.\n\nChecked is |cffFED55FENABLED|r and unchecked is the opposite."
+	L_GLOBALSTRINGS["Enable Desc"] 																= "Enables and disables addon functionality.\n\nChecked: |cff218721Enabled|r\nUnchecked: |cffFF0000Disabled|r"
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements

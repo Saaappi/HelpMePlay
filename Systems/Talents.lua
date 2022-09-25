@@ -7,6 +7,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 e:RegisterEvent("PLAYER_LEVEL_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LEVEL_CHANGED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Talents == false or HelpMePlayOptionsDB.Talents == nil then return end
 		local _, newLevel = ...
 		if newLevel % 5 == 0 then

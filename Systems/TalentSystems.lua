@@ -98,12 +98,14 @@ e:RegisterEvent("GARRISON_TALENT_NPC_OPENED")
 e:RegisterEvent("GARRISON_TALENT_RESEARCH_STARTED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GARRISON_TALENT_NPC_OPENED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Talents == false or HelpMePlayOptionsDB.Talents == nil then return end
 		local _, talentTreeId = ...
 		GetTalentTreeInfo(talentTreeId)
 	end
 	
 	if event == "GARRISON_TALENT_RESEARCH_STARTED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Talents == false or HelpMePlayOptionsDB.Talents == nil then return end
 		local _, talentTreeId = ...
 		GetTalentTreeInfo(talentTreeId)

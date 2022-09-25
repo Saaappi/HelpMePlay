@@ -75,7 +75,9 @@ local function LearnAllUnknownTransmog(equippedItems)
 	end
 end
 
-function HelpMePlay_GetEquippedItems()
+local function GetEquippedItems()
+	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+	
 	local equippedItems = {}
 	local itemLink
 	
@@ -168,7 +170,7 @@ else
 end
 
 HMPTransmogButton:HookScript("OnClick", function(self)
-	HelpMePlay_GetEquippedItems()
+	GetEquippedItems()
 end)
 
 HMPTransmogButton:HookScript("OnEnter", function(self)
