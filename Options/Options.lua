@@ -10,17 +10,17 @@ local main = {
 	args = {
 		versionText = {
 			type = "description",
-			order = 1,
+			order = 0,
 			name = L_GLOBALSTRINGS["MainOptions.Version"],
 		},
 		authorText = {
 			type = "description",
-			order = 2,
+			order = 1,
 			name = L_GLOBALSTRINGS["MainOptions.Author"],
 		},
 		contactText = {
 			type = "description",
-			order = 3,
+			order = 2,
 			name = L_GLOBALSTRINGS["MainOptions.Contact"],
 		},
 	},

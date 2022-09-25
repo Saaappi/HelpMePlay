@@ -119,11 +119,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.EnableDesc"] 												= "Enables and disables addon functionality.\n\nChecked: |cff218721Enabled|r\nUnchecked: |cffFF0000Disabled|r"
 	L_GLOBALSTRINGS["General.Toggle.MinimapIcon"] 												= "Minimap Icon"
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
+	L_GLOBALSTRINGS["Features.Toggle.Cinematics"] 												= "Cinematics"
+	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
-	L_GLOBALSTRINGS["Copyright Text"]															= "Crafted with |cffFF5C5C♥|r by Lightsky"
-	L_GLOBALSTRINGS["Adventure Maps"]															= "Adventure Maps"
 	L_GLOBALSTRINGS["Dialog"]																	= "Dialog"
 	L_GLOBALSTRINGS["Emotes"]																	= "Emotes"
 	L_GLOBALSTRINGS["Garrison Tables"]															= "Garrison Tables"
@@ -155,7 +155,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Safe Mode"]																= "Safe Mode"
 	L_GLOBALSTRINGS["Soulbound"]																= "Soulbound"
 	L_GLOBALSTRINGS["Import"]																	= "Import"
-	L_GLOBALSTRINGS["Disable All"]																= "Disable All"
 	L_GLOBALSTRINGS["Add"]																		= "Add"
 	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
 	L_GLOBALSTRINGS["Calculate"]																= "Calculate"
@@ -174,8 +173,6 @@ if (isLocaleSupported) then
 	--
 	-- Start:	Tooltip Text Elements
 	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	L_GLOBALSTRINGS["Disable All Check Button"]													= "Disables all the below settings and returns them to their default state.\n\nThis check button affects all settings regardless of the tab you're on.\n\n|cffCB453DNote|r: The current state of your settings\nare saved; unchecking the button returns them to their saved state."
-	L_GLOBALSTRINGS["Adventure Maps Check Button"]												= "Automates the Hero's Call Board and the selection of zones for the\nBattle for Azeroth and Shadowlands adventure maps."
 	L_GLOBALSTRINGS["Dialog Check Button"]														= "Automates the selection of dialog options when speaking with creatures.\nThis does |cffFFFFFFNOT|r apply to all dialogs. Use the |cffFFFFFF/dialog|r command to add your own!"
 	L_GLOBALSTRINGS["Emotes Check Button"]														= "Automates emotes for specific creatures. Examples include\nthe Lake Frog for the Argent Tournament daily and the\nrunestones in Maldraxxus."
 	L_GLOBALSTRINGS["Garrison Tables Check Button"]												= "Automates the selection of Draenor zone outposts,\nthe start of the first Garrison missions, and the\nplotting of the Barracks building."
@@ -187,7 +184,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Threads of Fate Check Button"]												= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into\nThreads of Fate. Unchecked will opt\nthe player into Story Mode."
 	L_GLOBALSTRINGS["Notes Check Button"]														= "Adds notes to select creatures. Examples include\nthe Lever-Locked Chests in Torghast, providing the\nshortest combination to solve the puzzle."
 	L_GLOBALSTRINGS["Talents Check Button"]														= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nsystems like |cffFFFFFFThe Box of Many Things|r.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."
-	L_GLOBALSTRINGS["Cinematics Check Button"]													= "Automates skipping (most) cinematics and in-game movies.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."
 	L_GLOBALSTRINGS["Waypoints Check Button"]													= "If eligible, when a quest is accepted, the addon will automatically\nplot appropriate waypoints."
 	L_GLOBALSTRINGS["Weights Check Button"]														= "When enabled, an NPC's weight toward an objective is appended\nto the tooltip."
 	L_GLOBALSTRINGS["Party Play Check Button"]													= "|cffCB453DNote|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"

@@ -21,7 +21,7 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 		end
 	end
 	
-	if HelpMePlayOptionsDB.Cinematics then
+	if HelpMePlayDB.Cinematics then
 		C_Timer.After(0.5, CinematicFrame_CancelCinematic)
 		return true
 	end
@@ -44,7 +44,7 @@ _G["MovieFrame_PlayMovie"] = function(self, movieId)
 		end
 	end
 	
-	if HelpMePlayOptionsDB.Cinematics then
+	if HelpMePlayDB.Cinematics then
 		C_Timer.After(0.5, GameMovieFinished)
 		return true
 	else

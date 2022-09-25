@@ -8,6 +8,14 @@ local featuresOptions = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		adventuremaps = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Cinematics"],
+			order = 1,
+			desc = L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.Cinematics end,
+			set = function(info, val) HelpMePlayDB.Cinematics = val end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions
