@@ -23,7 +23,7 @@ e:RegisterEvent("PLAYER_TARGET_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Emotes == false or HelpMePlayOptionsDB.Emotes == nil then return end
+		if HelpMePlayDB.EmotesEnabled == false or HelpMePlayDB.EmotesEnabled == nil then return false end
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
@@ -39,7 +39,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "PLAYER_TARGET_CHANGED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Emotes == false or HelpMePlayOptionsDB.Emotes == nil then return end
+		if HelpMePlayDB.EmotesEnabled == false or HelpMePlayDB.EmotesEnabled == nil then return false end
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)

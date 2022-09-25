@@ -24,6 +24,14 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.DialogEnabled end,
 			set = function(info, val) HelpMePlayDB.DialogEnabled = val end,
 		},
+		emotes = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Emotes"],
+			order = 2,
+			desc = L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.EmotesEnabled end,
+			set = function(info, val) HelpMePlayDB.EmotesEnabled = val end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions

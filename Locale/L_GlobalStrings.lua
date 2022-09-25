@@ -123,10 +123,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
 	L_GLOBALSTRINGS["Features.Toggle.Dialog"] 													= "Dialog"
 	L_GLOBALSTRINGS["Features.Toggle.DialogDesc"] 												= "Automates the selection of dialog options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all dialogs!"
+	L_GLOBALSTRINGS["Features.Toggle.Emotes"] 													= "Emotes"
+	L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"] 												= "Automates emotes for specific NPCs.\n\nExamples:\n- |cffFFD100Lake Frog|r: A Blade Fit For A Champion (Argent Tournament)\n- |cffFFD100Runestones|r: Repeat After Me (Maldraxxus)"
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
-	L_GLOBALSTRINGS["Emotes"]																	= "Emotes"
 	L_GLOBALSTRINGS["Garrison Tables"]															= "Garrison Tables"
 	L_GLOBALSTRINGS["Merchants"]																= "Merchants"
 	L_GLOBALSTRINGS["Mount Training"]															= "Trainers"
