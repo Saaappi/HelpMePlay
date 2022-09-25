@@ -45,6 +45,14 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.QueuesEnabled end,
 			set = function(info, val) HelpMePlayDB.QueuesEnabled = val end,
 		},
+		speech = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Speech"],
+			order = 5,
+			desc = L_GLOBALSTRINGS["Features.Toggle.SpeechDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.SpeechEnabled end,
+			set = function(info, val) HelpMePlayDB.SpeechEnabled = val end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions

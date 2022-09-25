@@ -132,13 +132,14 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"] 												= "Automates emotes for specific NPCs.\n\nExamples:\n- |cffFFD100Lake Frog|r: A Blade Fit For A Champion (Argent Tournament)\n- |cffFFD100Runestones|r: Repeat After Me (Maldraxxus)"
 	L_GLOBALSTRINGS["Features.Toggle.Queues"] 													= "Queues"
 	L_GLOBALSTRINGS["Features.Toggle.QueuesDesc"] 												= "Need to cook dinner but don't want to miss your queue? Check this button and let the addon worry about it."
+	L_GLOBALSTRINGS["Features.Toggle.Speech"] 													= "Speech"
+	L_GLOBALSTRINGS["Features.Toggle.SpeechDesc"] 												= "Automates interacting with specific NPC speech.\n\nExamples:\n|cffFFD100We'll Make an Aspirant Out of You|r: Bastion (World Quest)\n|cffFFD100The Games We Play|r: Ardenweald"
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Garrison Tables"]															= "Garrison Tables"
 	L_GLOBALSTRINGS["Merchants"]																= "Merchants"
 	L_GLOBALSTRINGS["Mount Training"]															= "Trainers"
-	L_GLOBALSTRINGS["Speech"]																	= "Speech"
 	L_GLOBALSTRINGS["War Mode"]																	= "War Mode"
 	L_GLOBALSTRINGS["Quests"]																	= "Quests"
 	L_GLOBALSTRINGS["Threads of Fate"]															= "Threads of Fate"
@@ -185,7 +186,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Garrison Tables Check Button"]												= "Automates the selection of Draenor zone outposts,\nthe start of the first Garrison missions, and the\nplotting of the Barracks building."
 	L_GLOBALSTRINGS["Merchants Check Button"]													= "Automates repairing at merchants and the purchase\nof specific items."
 	L_GLOBALSTRINGS["Trainers Check Button"]													= "Automates the purchase of skills from trainers.\nThe addon won't train if the purchase would\nbreak the bank. You must have at least\n50 gold more than the cost."
-	L_GLOBALSTRINGS["Speech Check Button"]														= "Automates interacting with specific creature speech.\nExamples include \"|cffFFFFFFWe'll Make an Aspirant Out\nof You|r\" in Bastion and \"|cffFFFFFFThe Games We Play|r\" in\nArdenweald."
 	L_GLOBALSTRINGS["War Mode Check Button"]													= "Automates opting the player into War Mode when entering Orgrimmar\nor Stormwind City.\n\n|cffCB453DNote|r: This does |cffFFFFFFNOT|r apply to players 50 or higher and this feature\nwon't output info if Logging is disabled."
 	L_GLOBALSTRINGS["Quests Check Button"]														= "Automates accepting and completing quests and selecting\nquest rewards.\n\nQuest reward selection is based on item level, then\nsell price. Heirloom items are ignored by the item\nlevel logic, so sell price is the only considered\nmetric.\n\nAlso, this feature won't output info\nif Logging is disabled."
 	L_GLOBALSTRINGS["Threads of Fate Check Button"]												= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into\nThreads of Fate. Unchecked will opt\nthe player into Story Mode."

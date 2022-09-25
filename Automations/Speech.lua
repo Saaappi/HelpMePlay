@@ -26,7 +26,7 @@ e:RegisterEvent("RAID_BOSS_WHISPER")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_MONSTER_SAY" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
+		if HelpMePlayDB.SpeechEnabled == false or HelpMePlayDB.SpeechEnabled == nil then return false end
 		local msg = ...
 		for k,v in pairs(addonTable.SPEECH) do
 			if string.find(string.lower(msg), string.lower(k)) then
@@ -48,7 +48,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "RAID_BOSS_WHISPER" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
+		if HelpMePlayDB.SpeechEnabled == false or HelpMePlayDB.SpeechEnabled == nil then return false end
 		local msg = ...
 		for k,v in pairs(addonTable.SPEECH) do
 			if string.find(string.lower(msg), string.lower(k)) then
@@ -67,7 +67,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "RAID_BOSS_EMOTE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Speech == false or HelpMePlayOptionsDB.Speech == nil then return end
+		if HelpMePlayDB.SpeechEnabled == false or HelpMePlayDB.SpeechEnabled == nil then return false end
 		local msg = ...
 		for k,v in pairs(addonTable.SPEECH) do
 			if string.find(string.lower(msg), string.lower(k)) then
