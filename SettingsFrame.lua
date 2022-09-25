@@ -6,16 +6,33 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local numTabs = 4
 local icon = ""
 
-local options = {
-	name = addonName .. " (|cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r)",
+local main = {
+	name = addonName,
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		general_header = {
-			type = "header",
+		versionText = {
+			type = "description",
 			order = 1,
-			name = "|T136243:0|t " .. L_GLOBALSTRINGS["General Settings"],
+			name = L_GLOBALSTRINGS["MainOptions.Version"],
 		},
+		authorText = {
+			type = "description",
+			order = 2,
+			name = L_GLOBALSTRINGS["MainOptions.Author"],
+		},
+		contactText = {
+			type = "description",
+			order = 3,
+			name = L_GLOBALSTRINGS["MainOptions.Contact"],
+		},
+	},
+}
+local generalOptions = {
+	name = "General Options",
+	handler = HelpMePlay,
+	type = "group",
+	args = {
 		enable = {
 			name = L_GLOBALSTRINGS["Enable"],
 			order = 1.1,
@@ -24,14 +41,26 @@ local options = {
 			set = function(info, val) HelpMePlayDB.Enabled = val end,
 			get = function(info) return HelpMePlayDB.Enabled end
 		},
-		automation_header = {
-			type = "header",
-			order = 2,
-			name = "|T254097:0|t " .. L_GLOBALSTRINGS["Automation Settings"],
+	},
+}
+local questOptions = {
+	name = "Quest Options",
+	handler = HelpMePlay,
+	type = "group",
+	args = {
+		enable = {
+			name = L_GLOBALSTRINGS["Enable"],
+			order = 1,
+			desc = L_GLOBALSTRINGS["Enable Desc"],
+			type = "toggle",
+			set = function(info, val) self:Print("TEST") end,
+			get = function(info) return self:Print("TEST") end
 		},
 	},
 }
-addonTable.options = options
+addonTable.main = main
+addonTable.generalOptions = generalOptions
+addonTable.questOptions = questOptions
 
 
 

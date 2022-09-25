@@ -7,9 +7,15 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0")
 
 function HelpMePlay:OnInitialize()
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay", addonTable.options)
-	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions(addonName, addonName); addonTable.optionsFrame = self.optionsFrame
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Main", addonTable.main)
+	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Main", addonName); addonTable.mainOptions = self.mainOptions
 	self:RegisterChatCommand(L_GLOBALSTRINGS["Slash HMP"], "SlashCommandHandler")
+	
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_GeneralOptions", addonTable.generalOptions)
+	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_GeneralOptions", L_GLOBALSTRINGS["Tabs.GeneralOptions"], addonName)
+	
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_QuestOptions", addonTable.questOptions)
+	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_QuestOptions", L_GLOBALSTRINGS["Tabs.QuestOptions"], addonName)
 	
 	-- Default Settings
 	HelpMePlayDB = {}

@@ -107,6 +107,17 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Automation Settings"] 														= "Automation Settings"
 	-- End: 	Headers
 	--
+	-- Start: 	Tabs
+	L_GLOBALSTRINGS["Tabs.GeneralOptions"] 														= "General Options"
+	L_GLOBALSTRINGS["Tabs.QuestOptions"] 														= "Quest Options"
+	-- End: 	Tabs
+	--
+	-- Start: 	Descriptions
+	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
+	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
+	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
+	-- End: 	Descriptions
+	--
 	-- Start: 	Toggles
 	L_GLOBALSTRINGS["Enable"] 																	= "Enable"
 	L_GLOBALSTRINGS["Enable Desc"] 																= "Enables and disables addon functionality.\n\nChecked: |cff218721Enabled|r\nUnchecked: |cffFF0000Disabled|r"

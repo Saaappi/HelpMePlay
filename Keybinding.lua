@@ -17,7 +17,7 @@ function HelpMePlayKeyPressHandler(key)
 			InterfaceOptionsFrameOkay:Click()
 		else
 			InterfaceAddOnsList_Update()
-			InterfaceOptionsFrame_OpenToCategory(addonTable.optionsFrame)
+			InterfaceOptionsFrame_OpenToCategory(addonTable.mainOptions)
 		end
 	elseif key == GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER") then
 		if GameTooltip:IsVisible() then

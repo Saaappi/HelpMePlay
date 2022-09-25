@@ -111,7 +111,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			InterfaceOptionsFrameOkay:Click()
 		else
 			InterfaceAddOnsList_Update()
-			InterfaceOptionsFrame_OpenToCategory(addonTable.optionsFrame)
+			InterfaceOptionsFrame_OpenToCategory(addonTable.mainOptions)
 		end
 	elseif cmd == L_GLOBALSTRINGS["Dialog Command"] and arg1 ~= nil then
 		Dialog(arg1)
