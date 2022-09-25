@@ -27,6 +27,7 @@ end
 e:RegisterEvent("ADVENTURE_MAP_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		local faction = UnitFactionGroup("player")
 		local mapId = C_AdventureMap.GetMapID()
 		if mapId == 1011 then -- Zandalar

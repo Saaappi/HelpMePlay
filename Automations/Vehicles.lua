@@ -13,6 +13,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 e:RegisterEvent("UNIT_ENTERED_VEHICLE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "UNIT_ENTERED_VEHICLE" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Vehicles == false or HelpMePlayOptionsDB.Vehicles == nil then return false end
 		local _, _, _, _, guid = ...
 		if guid then

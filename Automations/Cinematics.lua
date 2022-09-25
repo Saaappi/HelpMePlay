@@ -12,6 +12,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 		Cinematics are in-game "cutscenes" using in-game assets.
 ]]--
 CinematicFrame:HookScript("OnShow", function(self, ...)
+	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	local mapId = C_Map.GetBestMapForUnit("player")
 	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
@@ -34,6 +35,7 @@ end)
 		Movies are in-game, pre-rendered videos.
 ]]--
 _G["MovieFrame_PlayMovie"] = function(self, movieId)
+	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	local mapId = C_Map.GetBestMapForUnit("player")
 	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then

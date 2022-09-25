@@ -25,6 +25,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if PlayerChoiceFrame:IsVisible() then
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()

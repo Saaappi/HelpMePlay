@@ -22,6 +22,7 @@ e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("PLAYER_TARGET_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Emotes == false or HelpMePlayOptionsDB.Emotes == nil then return end
 		local guid = UnitGUID("target")
 		if guid then
@@ -37,6 +38,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "PLAYER_TARGET_CHANGED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Emotes == false or HelpMePlayOptionsDB.Emotes == nil then return end
 		local guid = UnitGUID("target")
 		if guid then

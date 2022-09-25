@@ -25,6 +25,7 @@ end
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.TorghastPowers == "Disabled" or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then return end
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if mapId then

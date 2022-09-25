@@ -36,6 +36,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Merchants == false or HelpMePlayOptionsDB.Merchants == nil then return end
 		local guid = UnitGUID("target") or UnitGUID("mouseover")
 		if guid then

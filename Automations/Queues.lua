@@ -9,6 +9,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 		accept LFG queues.
 ]]--
 LFGDungeonReadyDialogEnterDungeonButton:SetScript("OnShow", function()
+	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayOptionsDB.Queues then
 		LFGDungeonReadyDialogEnterDungeonButton:Click()
 	end

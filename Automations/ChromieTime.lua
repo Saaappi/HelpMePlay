@@ -15,6 +15,7 @@ local ctMaxLevel = 50
 e:RegisterEvent("CHROMIE_TIME_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHROMIE_TIME_OPEN" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if IsShiftKeyDown() == false then
 			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 				local playerLevel = UnitLevel("player")

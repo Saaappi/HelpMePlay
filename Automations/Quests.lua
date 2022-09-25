@@ -424,6 +424,7 @@ e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_PROGRESS")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		local guid = UnitGUID("target")
 		if guid then
@@ -441,6 +442,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_ACCEPTED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		local questId = ...
 		C_QuestLog.AddQuestWatch(questId, 0)
@@ -492,14 +494,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_AUTOCOMPLETE" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		local questId = ...
 		ShowQuestComplete(questId)
 	end
 	if event == "QUEST_COMPLETE" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		HMP_CompleteQuest()
 	end
 	if event == "QUEST_DETAIL" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if QuestGetAutoAccept() then
 			QUEST_DETAIL(true)
@@ -513,6 +518,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "QUEST_GREETING" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		
 		local guid = UnitGUID("target")
@@ -524,6 +530,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		QUEST_GREETING()
 	end
 	if event == "QUEST_PROGRESS" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		if IsQuestCompletable() then
 			CompleteQuest()

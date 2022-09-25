@@ -286,6 +286,7 @@ e:RegisterEvent("GOSSIP_CONFIRM_CANCEL")
 e:RegisterEvent("GOSSIP_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		local _, message = ...
 		if HelpMePlayOptionsDB.Dialog == false or HelpMePlayOptionsDB.Dialog == nil then return end
 		local index = 1
@@ -297,6 +298,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayOptionsDB.Dialog == false or HelpMePlayOptionsDB.Dialog == nil then return end
 		GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
