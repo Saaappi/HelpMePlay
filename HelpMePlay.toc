@@ -24,6 +24,10 @@ HelpMePlay.lua
 
 # Frame Stuff
 SettingsFrame.xml
+Options\Options.lua
+Options\Options_General.lua
+Options\Options_Quests.lua
+Options\Options_Features.lua
 SettingsFrame.lua
 
 # Data

@@ -102,14 +102,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
 	-- End: 	DropDowns
 	--
-	-- Start: 	Headers
-	L_GLOBALSTRINGS["General Settings"] 														= "General Settings"
-	L_GLOBALSTRINGS["Automation Settings"] 														= "Automation Settings"
-	-- End: 	Headers
-	--
 	-- Start: 	Tabs
-	L_GLOBALSTRINGS["Tabs.GeneralOptions"] 														= "General Options"
-	L_GLOBALSTRINGS["Tabs.QuestOptions"] 														= "Quest Options"
+	L_GLOBALSTRINGS["Tabs.General"] 															= "General"
+	L_GLOBALSTRINGS["Tabs.Quests"] 																= "Quests"
+	L_GLOBALSTRINGS["Tabs.Features"] 															= "Features"
 	-- End: 	Tabs
 	--
 	-- Start: 	Descriptions
@@ -119,8 +115,10 @@ if (isLocaleSupported) then
 	-- End: 	Descriptions
 	--
 	-- Start: 	Toggles
-	L_GLOBALSTRINGS["Enable"] 																	= "Enable"
-	L_GLOBALSTRINGS["Enable Desc"] 																= "Enables and disables addon functionality.\n\nChecked: |cff218721Enabled|r\nUnchecked: |cffFF0000Disabled|r"
+	L_GLOBALSTRINGS["General.Toggle.Enable"] 													= "Enable"
+	L_GLOBALSTRINGS["General.Toggle.EnableDesc"] 												= "Enables and disables addon functionality.\n\nChecked: |cff218721Enabled|r\nUnchecked: |cffFF0000Disabled|r"
+	L_GLOBALSTRINGS["General.Toggle.MinimapIcon"] 												= "Minimap Icon"
+	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
 	-- End: 	Toggles
 	--
 	-- Start: 	UI Text Elements
