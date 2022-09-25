@@ -64,26 +64,6 @@ local function LearnAllUnknownTransmog(equippedItems)
 											end
 										end
 									end
-								else
-									local _, _, itemQuality, _, _, _, _, _, _, _, _, _, _, bindType = GetItemInfo(itemLink)
-									-- A bind type of 0 means there isn't a bind (common items, for example).
-									-- A bind type of 2 means the item is bind on equip (BoE).
-									--
-									-- An item quality greater than or equal to 1 means any item
-									-- of common (white) quality or higher should be considered.
-									-- Common items are transmoggable starting in 10.0.
-									if (bindType == 0 or bindType == 2) and itemQuality >= 1 then
-										-- Since the player can't collect the appearance on the
-										-- current character, let's gather some valuable information
-										-- and inform the player so they know to send it to an
-										-- alt.
-										local _, _, _, _, _, _, itemSubType = GetItemInfo(itemLink)
-										if itemSubType then
-											addonTable.Print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink .. " (" .. itemSubType .. ")")
-										else
-											addonTable.Print(L_GLOBALSTRINGS["Unlearnable Appearance"] .. ": " .. itemLink)
-										end
-									end
 								end
 							end
 						end
