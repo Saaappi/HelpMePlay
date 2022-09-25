@@ -20,6 +20,9 @@ function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_QuestOptions", addonTable.questOptions)
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_QuestOptions", L_GLOBALSTRINGS["Tabs.Quests"], addonName)
 	
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_GarrisonsOptions", addonTable.garrisonOptions)
+	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_GarrisonsOptions", L_GLOBALSTRINGS["Tabs.Garrisons"], addonName)
+	
 	-- Default Options
 	if HelpMePlayDB == nil then
 		HelpMePlayDB = {}

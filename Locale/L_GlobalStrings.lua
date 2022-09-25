@@ -104,8 +104,9 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Tabs
 	L_GLOBALSTRINGS["Tabs.General"] 															= "General"
-	L_GLOBALSTRINGS["Tabs.Quests"] 																= "Quests"
 	L_GLOBALSTRINGS["Tabs.Features"] 															= "Features"
+	L_GLOBALSTRINGS["Tabs.Quests"] 																= "Quests"
+	L_GLOBALSTRINGS["Tabs.Garrisons"] 															= "Garrisons"
 	-- End: 	Tabs
 	--
 	-- Start: 	Descriptions
