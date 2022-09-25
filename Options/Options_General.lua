@@ -7,6 +7,7 @@ local numTabs = 4
 local icon = ""
 
 function HelpMePlay:MinimapIcon(bool)
+	HelpMePlayDB.MinimapIconEnabled = bool
 	if bool then
 		if icon ~= "" then
 			icon:Show(addonName)
@@ -31,7 +32,9 @@ function HelpMePlay:MinimapIcon(bool)
 			icon:Show(addonName)
 		end
 	else
-		icon:Hide(addonName)
+		if icon ~= "" then
+			icon:Hide(addonName)
+		end
 	end
 end
 
@@ -45,16 +48,16 @@ local generalOptions = {
 			order = 1,
 			desc = L_GLOBALSTRINGS["General.Toggle.EnableDesc"],
 			type = "toggle",
+			get = function(info) return HelpMePlayDB.Enabled end,
 			set = function(info, val) HelpMePlayDB.Enabled = val end,
-			get = function(info) return HelpMePlayDB.Enabled end
 		},
 		minimapIcon = {
 			name = L_GLOBALSTRINGS["General.Toggle.MinimapIcon"],
 			order = 2,
 			desc = L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"],
 			type = "toggle",
-			set = function(info, val) HelpMePlayDB.MinimapIconEnabled = val; HelpMePlay:MinimapIcon(val) end,
-			get = function(info) return HelpMePlayDB.MinimapIconEnabled end
+			get = function(info) return HelpMePlayDB.MinimapIconEnabled end,
+			set = function(info, val) HelpMePlay:MinimapIcon(val) end,
 		},
 	},
 }

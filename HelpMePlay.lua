@@ -20,9 +20,16 @@ function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_FeaturesOptions", addonTable.featuresOptions)
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_FeaturesOptions", L_GLOBALSTRINGS["Tabs.Features"], addonName)
 	
-	-- Default Settings
-	HelpMePlayDB = {}
-	HelpMePlayDB.Enabled = true
+	-- Default Options
+	if HelpMePlayDB == nil then
+		HelpMePlayDB = {}
+		HelpMePlayDB.Enabled = true
+	else
+		-- The options aren't nil, so let's run
+		-- some code to ensure we get the state
+		-- of the options we expect.
+		HelpMePlay:MinimapIcon(HelpMePlayDB.MinimapIconEnabled)
+	end
 end
 
 function HelpMePlay:OnEnable()
