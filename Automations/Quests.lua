@@ -246,6 +246,7 @@ end
 		HMP_CompleteQuest function.
 ]]--
 local function Complete_ActiveQuests(gossipInfo)
+	if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return end
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			Complete_ActiveQuests(gossipInfo)
@@ -270,6 +271,7 @@ end
 		is no longer held.
 ]]--
 local function Get_AvailableQuests(gossipInfo)
+	if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			Get_AvailableQuests(gossipInfo)
@@ -425,7 +427,6 @@ e:RegisterEvent("QUEST_PROGRESS")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
@@ -443,7 +444,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "QUEST_ACCEPTED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
+		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
 		local questId = ...
 		C_QuestLog.AddQuestWatch(questId, 0)
 		if select(2, IsAddOnLoaded("TomTom")) and HelpMePlayDB.WaypointsEnabled then
@@ -495,17 +496,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "QUEST_AUTOCOMPLETE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		local questId = ...
 		ShowQuestComplete(questId)
 	end
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
+		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		HMP_CompleteQuest()
 	end
 	if event == "QUEST_DETAIL" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
+		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return false end
 		if QuestGetAutoAccept() then
 			QUEST_DETAIL(true)
 		else
@@ -519,19 +521,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "QUEST_GREETING" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
-		
+		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return false end
+		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		local guid = UnitGUID("target")
 		if guid then
 			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
 			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		end
-		
 		QUEST_GREETING()
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Quests == false or HelpMePlayOptionsDB.Quests == nil then return end
+		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		if IsQuestCompletable() then
 			CompleteQuest()
 		end
