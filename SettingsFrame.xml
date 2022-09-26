@@ -185,11 +185,6 @@
 					<Anchor point="TOPLEFT" x="354" y="-61" />
 				</Anchors>
 			</Frame>
-			<Frame name="HMPChromieTimeDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
-				<Anchors>
-					<Anchor point="TOPLEFT" x="354" y="-204" />
-				</Anchors>
-			</Frame>
 			<Frame name="HMPCovenantsDropDown" inherits="UIDropDownMenuTemplate" enableMouse="true">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="354" y="-237" />
@@ -511,18 +506,6 @@
 				</FontString>
 			</Layer>
 		</Layers>
-		<Scripts>
-			<OnLoad>
-				UIDropDownMenu_EnableDropDown(HMPChromieTimeDropDown)
-				tinsert(UISpecialFrames, self:GetName())
-			</OnLoad>
-			<OnShow>
-				PlaySound(SOUNDKIT.IG_SPELLBOOK_OPEN)
-			</OnShow>
-			<OnHide>
-				PlaySound(SOUNDKIT.IG_SPELLBOOK_CLOSE)
-			</OnHide>
-		</Scripts>
 	</Frame>
 	<GameTooltip inherits="GameTooltipTemplate" />
 </Ui>
