@@ -87,7 +87,7 @@ local function GetTalentTreeInfo(talentTreeId)
 		CheckTalents(addonTable.TITANICRESEARCH, 1719)
 	elseif talentTreeId == 461 then
 		-- The Box of Many Things
-		CheckTalents(addonTable.BOXOFMANYTHINGS, 1904)
+		if HelpMePlayDB.BoxOfManyThingsEnabled then CheckTalents(addonTable.BOXOFMANYTHINGS, 1904) end
 	elseif talentTreeId == 474 then
 		-- Cypher Research Console
 		CheckTalents(addonTable.CYPHERSOFTHEFIRSTONES, 1979)

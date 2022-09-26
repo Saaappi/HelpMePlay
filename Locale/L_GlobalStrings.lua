@@ -145,14 +145,16 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in or out of Threads of Fate for Shadowlands.\n\n|cffFFD100Checked|r: Threads of Fate\n|cffFFD100Unchecked|r: Story"
 	-- End: 	Quests Toggles
 	--
-	-- Start: 	Garrison Toggles
-	L_GLOBALSTRINGS["Quests.Toggle.ArchitectTable"] 											= "Architect Table"
-	L_GLOBALSTRINGS["Quests.Toggle.ArchitectTableDesc"] 										= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
-	L_GLOBALSTRINGS["Quests.Toggle.MissionTable"] 												= "Mission Table"
-	L_GLOBALSTRINGS["Quests.Toggle.MissionTableDesc"] 											= "If enabled, allows the addon to automatically start the first mission in your Garrison."
-	L_GLOBALSTRINGS["Quests.Toggle.GarrisonOutposts"] 											= "Outposts"
-	L_GLOBALSTRINGS["Quests.Toggle.GarrisonOutpostsDesc"] 										= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
-	-- End: 	Garrison Toggles
+	-- Start: 	Expansion Features Toggles
+	L_GLOBALSTRINGS["Expansion Features.Toggle.ArchitectTable"] 											= "Architect Table"
+	L_GLOBALSTRINGS["Expansion Features.Toggle.ArchitectTableDesc"] 										= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
+	L_GLOBALSTRINGS["Expansion Features.Toggle.MissionTable"] 												= "Mission Table"
+	L_GLOBALSTRINGS["Expansion Features.Toggle.MissionTableDesc"] 											= "If enabled, allows the addon to automatically start the first mission in your Garrison."
+	L_GLOBALSTRINGS["Expansion Features.Toggle.GarrisonOutposts"] 											= "Outposts"
+	L_GLOBALSTRINGS["Expansion Features.Toggle.GarrisonOutpostsDesc"] 										= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
+	L_GLOBALSTRINGS["Expansion Features.Toggle.BoxOfManyThings"] 											= "The Box of Many Things"
+	L_GLOBALSTRINGS["Expansion Features.Toggle.BoxOfManyThingsDesc"] 										= "Check this button if you want the addon to inform you of the best path through |cffFFD100The Box of Many Things|r."
+	-- End: 	Expansion Features Toggles
 	--
 	-- Start: 	DropDowns
 	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
