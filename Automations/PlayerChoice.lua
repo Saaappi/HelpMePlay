@@ -54,12 +54,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 							SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end
-					elseif id == addonTable.PLAYERCHOICE["Drafting Table: Gorgrond"] and HelpMePlayOptionsDB.GarrisonTables then
-						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
-					elseif id == addonTable.PLAYERCHOICE["Drafting Table: Talador"] and HelpMePlayOptionsDB.GarrisonTables then
-						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
 					end
 				else
 					if addonTable.PLAYERCHOICE_MAPS[mapId] then

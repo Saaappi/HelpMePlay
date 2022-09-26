@@ -66,8 +66,7 @@ Automations\ChromieTime.lua
 Automations\AdventureMap.lua
 Automations\Trainers.lua
 Automations\AnimaPowers.lua
-Automations\GarrisonMissionTable.lua
-Automations\GarrisonArchitectTable.lua
+Automations\Garrisons.lua
 Automations\WarMode.lua
 Automations\PlayerChoice.lua
 Automations\Merchants.lua
