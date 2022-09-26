@@ -8,24 +8,34 @@ local main = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		about_header = {
+			name = L_GLOBALSTRINGS["Header.About"],
+			order = 0,
+			type = "header",
+		},
 		versionText = {
 			name = L_GLOBALSTRINGS["MainOptions.Version"],
-			order = 0,
+			order = 1,
 			type = "description",
 		},
 		authorText = {
 			name = L_GLOBALSTRINGS["MainOptions.Author"],
-			order = 1,
+			order = 2,
 			type = "description",
 		},
 		contactText = {
 			name = L_GLOBALSTRINGS["MainOptions.Contact"],
-			order = 2,
+			order = 3,
 			type = "description",
+		},
+		resources_header = {
+			name = L_GLOBALSTRINGS["Header.Resources"],
+			order = 10,
+			type = "header",
 		},
 		issueBtn = {
 			name = L_GLOBALSTRINGS["General.Button.OpenIssue"],
-			order = 3,
+			order = 11,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_GITHUB_POPUP"] = {

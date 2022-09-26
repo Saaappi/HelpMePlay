@@ -105,6 +105,8 @@ if (isLocaleSupported) then
 	-- Start: 	Headers
 	L_GLOBALSTRINGS["Header.Toggles"] 															= "Toggles"
 	L_GLOBALSTRINGS["Header.DropDowns"] 														= "DropDowns"
+	L_GLOBALSTRINGS["Header.About"] 															= "About"
+	L_GLOBALSTRINGS["Header.Resources"] 														= "Resources"
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions
@@ -122,7 +124,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	General Buttons
 	L_GLOBALSTRINGS["General.Button.OpenIssue"] 												= "Open Issue"
-	L_GLOBALSTRINGS["General.Button.OpenIssue.Text"] 											= "|T236685:36|t\n\nCopy the link below, and thank you for opening an issue!"
+	L_GLOBALSTRINGS["General.Button.OpenIssue.Text"] 											= "|T236688:36|t\n\nCopy the link below, and thank you for opening an issue!"
 	-- End: 	General Buttons
 	--
 	-- Start: 	Features Toggles
