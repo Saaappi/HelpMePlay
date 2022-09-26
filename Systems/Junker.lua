@@ -61,27 +61,21 @@ function HelpMePlaySellItems()
 	-- if the item type matches one of the
 	-- enabled filters.
 	local soldItemCount = 0
-	local itemId = 0
-	local sellPrice = 0
-	local itemQuality = 0
-	local itemLink = ""
-	local itemType = ""
-	local itemLevel = 0
 	local _, avgItemLevel = GetAverageItemLevel()
 	for bagId = 0, 4 do
 		for slotId = 0, GetContainerNumSlots(bagId) do
-			itemId = GetContainerItemID(bagId, slotId)
+			local itemId = GetContainerItemID(bagId, slotId)
 			if itemId then
-				itemLink = GetContainerItemLink(bagId, slotId)
+				local itemLink = GetContainerItemLink(bagId, slotId)
 				-- Certain items won't have an id.
 				-- Let's avoid those.
 				--
 				-- We need to ensure the item isn't on
 				-- the blacklist.
 				if HelpMePlayJunkerGlobalBlacklistDB[itemId] == nil or HelpMePlayJunkerBlacklistDB[itemId] == nil then
-					_, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
-					_, itemType = GetItemInfoInstant(itemId)
-					_, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
+					local _, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
+					local _, itemType = GetItemInfoInstant(itemId)
+					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
 					if sellPrice then
 						if sellPrice > 0 then
 							if HelpMePlayJunkerGlobalDB[itemId] or HelpMePlayJunkerDB[itemId] then
@@ -94,12 +88,12 @@ function HelpMePlaySellItems()
 								soldItemCount = soldItemCount + 1
 							end
 							
-							if HelpMePlayOptionsDB["Junker"][itemType] then
+							if HelpMePlayDB[itemType] then
 								UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
 							end
 							
-							if HelpMePlayOptionsDB["Junker"]["isSoulboundEnabled"] then
+							if HelpMePlayDB.JunkerSoulboundModeEnabled then
 								if avgItemLevel and (itemType == "Armor" or itemType == "Weapon") then
 									--[[
 										Description:
@@ -110,7 +104,7 @@ function HelpMePlaySellItems()
 											
 											This should only apply to SOULBOUND items.
 									]]--
-									itemLevel = GetDetailedItemLevelInfo(itemLink)
+									local itemLevel = GetDetailedItemLevelInfo(itemLink)
 									if (itemLevel+25) < avgItemLevel then
 										if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
 											UseContainerItem(bagId, slotId)

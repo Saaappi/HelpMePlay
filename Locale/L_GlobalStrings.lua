@@ -164,6 +164,12 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"] 												= "Enables and disables the Junker subsystem.\n\nBy default, Junker will auto sell player-defined and poor quality items. Use the buttons below to filter in additional items.\n\nAlternatively, use the Import button to import items from another auto sell addon or a comma-delimited list of item IDs.\n\n|cffFFD100/hmp junker add id|r\n\n|cffFFD100/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items you don't have in your inventory."
 	L_GLOBALSTRINGS["Junker.Toggle.SafeMode"] 													= "Safe Mode"
 	L_GLOBALSTRINGS["Junker.Toggle.SafeModeDesc"] 												= "When |cffFFD100Safe Mode|r is enabled, Junker will sell items in batches of 12. This ensures the player can use the buy back tab to repurchase items."
+	L_GLOBALSTRINGS["Junker.Toggle.SoulboundMode"] 												= "Soulbound Mode"
+	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"] 											= "When enabled, Junker will automatically sell soulbound items that are at least 25 item levels below your current item level.\n\nThis is used to save the player time from adding legacy items to their sell list unnecessarily."
+	L_GLOBALSTRINGS["Junker.Toggle.JunkerArmor"] 												= "Armor"
+	L_GLOBALSTRINGS["Junker.Toggle.JunkerArmorDesc"] 											= "Automatically sell appropriate items of type |cffFFD100Armor|r."
+	L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumable"] 											= "Consumables"
+	L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumableDesc"] 										= "Automatically sell appropriate items of type |cffFFD100Consumable|r."
 	-- End: 	Junker Toggles
 	--
 	-- Start: 	Junker UI Text Elements
@@ -193,13 +199,6 @@ if (isLocaleSupported) then
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
-	L_GLOBALSTRINGS["Armor"]																	= "Armor"
-	L_GLOBALSTRINGS["Consumable"]																= "Consumable"
-	L_GLOBALSTRINGS["Recipe"]																	= "Recipe"
-	L_GLOBALSTRINGS["Gem"]																		= "Gem"
-	L_GLOBALSTRINGS["Tradeskill"]																= "Tradeskill"
-	L_GLOBALSTRINGS["Weapon"]																	= "Weapon"
-	L_GLOBALSTRINGS["Safe Mode"]																= "Safe Mode"
 	L_GLOBALSTRINGS["Soulbound"]																= "Soulbound"
 	L_GLOBALSTRINGS["Import"]																	= "Import"
 	L_GLOBALSTRINGS["Add"]																		= "Add"
@@ -224,7 +223,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Party Play Check Button"]													= "|cffCB453DNote|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Party Play Announce Check Button"]											= "|cffFFFFFFParty Play: Announce|r\nIf you don't want to broadcast when you've\naccepted a quest, then keep this unchecked."
 	L_GLOBALSTRINGS["Party Play Auto Share Check Button"]										= "|cffFFFFFFParty Play: Auto Share|r\nIf you don't want to auto share quests,\nthen keep this unchecked."
-	L_GLOBALSTRINGS["Junker Soulbound Check Button"]											= "When enabled, Junker will automatically sell items that are\n-25+ item levels below your current item level.\n\nDefault: |cffFFFFFFEnabled|r"
 	L_GLOBALSTRINGS["Guild Bank Sort Button"]													= "This button can be used to sort the current\nguild bank tab. This only works for the\nguild leader.\n\n|cffFFFFFFCurrently disabled, slated for a future release.|r"
 	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
