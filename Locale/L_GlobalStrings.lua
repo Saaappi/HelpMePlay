@@ -99,7 +99,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tabs.General"] 															= "|T136243:0|t" .. " " .. "General" -- Icon: Engineering
 	L_GLOBALSTRINGS["Tabs.Features"] 															= "|T134152:0|t" .. " " .. "Features" -- Icon: Hertz Locker (Achievement)
 	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|T464068:0|t" .. " " .. "Quests" -- Icon: That's a Lot of Turn Ins (Achievement)
-	L_GLOBALSTRINGS["Tabs.Garrisons"] 															= "|T1005027:0|t" .. " " .. "Garrisons" -- Icon: Garrison Resources
+	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "|T3257863:0|t" .. " " .. "Expansion Features" -- Icon: Hoarder of Torghast (Achievement)
 	-- End: 	Tabs
 	--
 	-- Start: 	Headers
@@ -107,6 +107,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.DropDowns"] 														= "DropDowns"
 	L_GLOBALSTRINGS["Header.About"] 															= "About"
 	L_GLOBALSTRINGS["Header.Resources"] 														= "Resources"
+	L_GLOBALSTRINGS["Header.Garrisons"] 														= "Garrisons"
+	L_GLOBALSTRINGS["Header.Torghast"] 															= "Torghast"
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions

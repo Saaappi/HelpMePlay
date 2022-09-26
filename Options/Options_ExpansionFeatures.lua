@@ -3,13 +3,13 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local garrisonOptions = {
-	name = L_GLOBALSTRINGS["Tabs.Garrisons"],
+local expansionFeatures = {
+	name = L_GLOBALSTRINGS["Tabs.ExpansionFeatures"],
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		toggle_header = {
-			name = L_GLOBALSTRINGS["Header.Toggles"],
+		garrison_header = {
+			name = L_GLOBALSTRINGS["Header.Garrisons"],
 			order = 0,
 			type = "header",
 		},
@@ -37,6 +37,11 @@ local garrisonOptions = {
 			get = function(info) return HelpMePlayDB.GarrisonOutpostsEnabled end,
 			set = function(info, val) HelpMePlayDB.GarrisonOutpostsEnabled = val end,
 		},
+		torghast_header = {
+			name = L_GLOBALSTRINGS["Header.Torghast"],
+			order = 10,
+			type = "header",
+		},
 	},
 }
-addonTable.garrisonOptions = garrisonOptions
+addonTable.expansionFeatures = expansionFeatures
