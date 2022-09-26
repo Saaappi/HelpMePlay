@@ -43,7 +43,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Reset Command"]															= "reset"
 	L_GLOBALSTRINGS["Add Subcommand"]															= "add"
 	L_GLOBALSTRINGS["Blacklist Subcommand"]														= "blacklist"
-	L_GLOBALSTRINGS["Q"]																		= "q"
 	-- End: 	Commands
 	-- Start:	Subcommands
 	L_GLOBALSTRINGS["Ignore NPC"]																= "npc"
@@ -71,9 +70,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Rarity: Uncommon"]															= "|cff1EFF00Uncommon|r"
 	L_GLOBALSTRINGS["Rarity: Rare"]																= "|cff0070DDRare|r"
 	L_GLOBALSTRINGS["Rarity: Epic"]																= "|cffA335EEEpic|r"
-	L_GLOBALSTRINGS["Automatic"]																= "Automatic"
-	L_GLOBALSTRINGS["Automatic (No Epic)"]														= "Automatic (No Epic)"
-	L_GLOBALSTRINGS["Notifications"]															= "Notifications"
 	L_GLOBALSTRINGS["Item Level"]																= "Item Level"
 	L_GLOBALSTRINGS["Sell Price"]																= "Sell Price"
 	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
@@ -171,10 +167,14 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.BFA"]												= "Battle for Azeroth"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.SL"]													= "Shadowlands"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.DF"]													= "Dragonflight"
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"]										= "Anima Powers"
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"]										= "Choose how the addon should respond to Anima powers.\n\n|cffFFD100Automatic|r: Automatically select powers based on a static power list.\n|cffFFD100No Epics|r: Automatically select powers based on a static power list but ignore all epic powers.\n|cffFFD100Notify|r: Suggest powers to you via the in-game chat window."
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"]										= "Automatic"
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.NoEpics"]									= "No Epics (Automatic)"
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"]									= "Notify"
 	-- End: 	DropDowns
 	--
 	-- Start: 	UI Text Elements
-	L_GLOBALSTRINGS["Torghast Powers"]															= "Torghast Powers"
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
 	L_GLOBALSTRINGS["Enable"]																	= "Enable"
@@ -216,7 +216,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker Merchant Button"]													= "This button can be used to trigger the selling process."
 	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
-	L_GLOBALSTRINGS["Torghast Powers DropDown"]													= "|cffFFFFFFTorghast Powers|r\nAutomates the behavior for Torghast Powers.\n\n|cffFFFFFFAutomatic|r: Powers are auto selected based on a\npriority list.\n|cffFFFFFFAutomatic (No Epic)|r: Powers are auto selected based on a\npriority list, but epic powers are ignored.\n|cffFFFFFFNotifications|r: Powers are suggested to the player using\nthe chat window. If only 1 Power is available, then it\n will be auto selected.\n|cffFFFFFFDisabled|r: HelpMePlay won't assist with Torghast Powers.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
 	L_GLOBALSTRINGS["Covenants DropDown"]														= "|cffFFFFFFCovenants|r\nAutomates the Covenant to select when interacting with\nthe Helm of Domination."

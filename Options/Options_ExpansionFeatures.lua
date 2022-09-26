@@ -42,6 +42,33 @@ local expansionFeatures = {
 			order = 10,
 			type = "header",
 		},
+		torghast_animapower_dropdown = {
+			name = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"],
+			order = 11,
+			desc = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[1] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"],
+				[2] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.NoEpics"],
+				[3] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"],
+			},
+			sorting = {
+				[1] = 0, 	-- Disabled
+				[2] = 1, 	-- Notify
+				[3] = 2, 	-- No Epics
+				[4] = 3, 	-- Automatic
+			},
+			get = function()
+				if not HelpMePlayDB.TorghastPowersId then
+					return 0
+				else
+					return HelpMePlayDB.TorghastPowersId
+				end
+			end,
+			set = function(_, torghastPowersId) HelpMePlayDB.TorghastPowersId = torghastPowersId end,
+		},
 	},
 }
 addonTable.expansionFeatures = expansionFeatures

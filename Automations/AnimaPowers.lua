@@ -26,7 +26,7 @@ e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.TorghastPowers == "Disabled" or HelpMePlayOptionsDB.TorghastPowers == false or HelpMePlayOptionsDB.TorghastPowers == nil then return end
+		if HelpMePlayDB.TorghastPowersId == 0 or HelpMePlayDB.TorghastPowersId == false or HelpMePlayDB.TorghastPowersId == nil then return end
 		local mapId = C_Map.GetBestMapForUnit("player")
 		if mapId then
 			local mapName = C_Map.GetMapInfo(mapId).name
@@ -153,7 +153,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 								if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID] then
 									local priority = addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID]
 									
-									if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic (No Epic)"] then
+									if HelpMePlayDB.TorghastPowersId == 2 then
 										if powerInfo.options[i].rarity == 3 then
 											priority = 10
 										end
@@ -198,7 +198,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 
 					if responseId ~= 0 then
-						if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Notifications"] then
+						if HHelpMePlayDB.TorghastPowersId == 1 then
 							addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
 							highestPriority = 9
 						else

@@ -84,7 +84,7 @@ local questOptions = {
 				end
 			end,
 			set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
-		},	
+		},
 	},	
 }	
 addonTable.questOptions = questOptions	
