@@ -159,6 +159,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.CompleteQuestsDesc"] 										= "Automatically complete all quests."
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"] 										= "Purchase Quest Items"
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
+	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
+	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Enables or disables entering Threads of Fate for Shadowlands leveling.\n\nChecked: Threads of Fate\nUnchecked: Story"
 	-- End: 	Quests Toggles
 	--
 	-- Start: 	Garrison Toggles
@@ -186,7 +188,6 @@ if (isLocaleSupported) then
 	-- End: 	DropDowns
 	--
 	-- Start: 	UI Text Elements
-	L_GLOBALSTRINGS["Threads of Fate"]															= "Threads of Fate"
 	L_GLOBALSTRINGS["Torghast Powers"]															= "Torghast Powers"
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
@@ -218,7 +219,6 @@ if (isLocaleSupported) then
 	--
 	-- Start:	Tooltip Text Elements
 	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	L_GLOBALSTRINGS["Threads of Fate Check Button"]												= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into\nThreads of Fate. Unchecked will opt\nthe player into Story Mode."
 	L_GLOBALSTRINGS["Talents Check Button"]														= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nsystems like |cffFFFFFFThe Box of Many Things|r.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."
 	L_GLOBALSTRINGS["Party Play Check Button"]													= "|cffCB453DNote|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Party Play Announce Check Button"]											= "|cffFFFFFFParty Play: Announce|r\nIf you don't want to broadcast when you've\naccepted a quest, then keep this unchecked."

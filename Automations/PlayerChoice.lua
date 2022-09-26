@@ -33,7 +33,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
 				if id then
 					if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
-						if HelpMePlayOptionsDB.ThreadsOfFate then
+						if HelpMePlayDB.ThreadsOfFateEnabled then
 							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						else
