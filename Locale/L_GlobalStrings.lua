@@ -166,7 +166,7 @@ if (isLocaleSupported) then
 	-- Start: 	DropDowns
 	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.Title"]												= "Chromie Time"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.Desc"]												= "Automates the expansion to select when speaking with Chromie."
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.Desc"]												= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.BC"]													= "The Burning Crusade"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.WOTLK"]												= "Wrath of the Lich King"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.CATA"]												= "Cataclysm"
