@@ -162,6 +162,8 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Junker Toggles
 	L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"] 												= "Enables and disables the Junker subsystem.\n\nBy default, Junker will auto sell player-defined and poor quality items. Use the buttons below to filter in additional items.\n\nAlternatively, use the Import button to import items from another auto sell addon or a comma-delimited list of item IDs.\n\n|cffFFD100/hmp junker add id|r\n\n|cffFFD100/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items you don't have in your inventory."
+	L_GLOBALSTRINGS["Junker.Toggle.SafeMode"] 													= "Safe Mode"
+	L_GLOBALSTRINGS["Junker.Toggle.SafeModeDesc"] 												= "When |cffFFD100Safe Mode|r is enabled, Junker will sell items in batches of 12. This ensures the player can use the buy back tab to repurchase items."
 	-- End: 	Junker Toggles
 	--
 	-- Start: 	Junker UI Text Elements
@@ -222,7 +224,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Party Play Check Button"]													= "|cffCB453DNote|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Party Play Announce Check Button"]											= "|cffFFFFFFParty Play: Announce|r\nIf you don't want to broadcast when you've\naccepted a quest, then keep this unchecked."
 	L_GLOBALSTRINGS["Party Play Auto Share Check Button"]										= "|cffFFFFFFParty Play: Auto Share|r\nIf you don't want to auto share quests,\nthen keep this unchecked."
-	L_GLOBALSTRINGS["Junker Safe Mode Check Button"]											= "When |cffFFFFFFSafe Mode|r is enabled, the |cffFFFFFFJunker|r system will\nsell items in batches of 12. This ensures the player can\nuse the buy back tab to repurchase accidentally\nsold items.\n\nDefault: |cffFFFFFFEnabled|r"
 	L_GLOBALSTRINGS["Junker Soulbound Check Button"]											= "When enabled, Junker will automatically sell items that are\n-25+ item levels below your current item level.\n\nDefault: |cffFFFFFFEnabled|r"
 	L_GLOBALSTRINGS["Guild Bank Sort Button"]													= "This button can be used to sort the current\nguild bank tab. This only works for the\nguild leader.\n\n|cffFFFFFFCurrently disabled, slated for a future release.|r"
 	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"

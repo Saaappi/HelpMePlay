@@ -130,7 +130,7 @@ function HelpMePlaySellItems()
 				-- item we sold. This is "Safe Mode".
 				--
 				-- This should be controllable by the player.
-				if HelpMePlayOptionsDB["Junker"]["isSafeModeEnabled"] then
+				if HelpMePlayDB.JunkerSafeModeEnabled then
 					if soldItemCount == 12 then return end
 				end
 			end
