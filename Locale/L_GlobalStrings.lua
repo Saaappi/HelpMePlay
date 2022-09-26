@@ -120,6 +120,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
 	-- End: 	General Toggles
 	--
+	-- Start: 	General Buttons
+	L_GLOBALSTRINGS["General.Button.OpenIssue"] 												= "Open Issue"
+	L_GLOBALSTRINGS["General.Button.OpenIssue.Text"] 											= "|T236685:36|t\n\nCopy the link below, and thank you for opening an issue!"
+	-- End: 	General Buttons
+	--
 	-- Start: 	Features Toggles
 	L_GLOBALSTRINGS["Features.Toggle.Cinematics"] 												= "Cinematics"
 	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
