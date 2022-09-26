@@ -137,9 +137,12 @@ end
 e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-	if HelpMePlayDB.JunkerEnabled == false or HelpMePlayDB.JunkerEnabled == nil then return false end
 	if event == "MERCHANT_SHOW" then
-		ShowJunkerButton()
+		if HelpMePlayDB.JunkerEnabled == false or HelpMePlayDB.JunkerEnabled == nil then
+			HMPJunkerMerchantButton:Hide()
+		else
+			ShowJunkerButton()
+		end
 	end
 end)
 
