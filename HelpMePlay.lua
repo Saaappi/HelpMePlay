@@ -23,6 +23,9 @@ function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_ExpansionFeatures", addonTable.expansionFeatures)
 	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ExpansionFeatures", L_GLOBALSTRINGS["Tabs.ExpansionFeatures"], addonName)
 	
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Junker", addonTable.junkerOptions)
+	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Junker", L_GLOBALSTRINGS["Tabs.Junker"], addonName)
+	
 	-- Default Options
 	if HelpMePlayDB == nil then
 		HelpMePlayDB = {}

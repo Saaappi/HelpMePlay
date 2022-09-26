@@ -80,6 +80,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tabs.Features"] 															= "|T134152:0|t" .. " " .. "Features" -- Icon: Hertz Locker (Achievement)
 	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|T464068:0|t" .. " " .. "Quests" -- Icon: That's a Lot of Turn Ins (Achievement)
 	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "|T3257863:0|t" .. " " .. "Expansion Features" -- Icon: Hoarder of Torghast (Achievement)
+	L_GLOBALSTRINGS["Tabs.Junker"] 																= "|T132281:0|t" .. " " .. "Junker" -- Icon: Repair
 	-- End: 	Tabs
 	--
 	-- Start: 	Headers
@@ -147,17 +148,25 @@ if (isLocaleSupported) then
 	-- End: 	Quests Toggles
 	--
 	-- Start: 	Expansion Features Toggles
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"] 											= "Architect Table"
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"] 										= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"] 											= "Mission Table"
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTableDesc"] 										= "If enabled, allows the addon to automatically start the first mission in your Garrison."
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutposts"] 										= "Outposts"
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutpostsDesc"] 									= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThings"] 										= "The Box of Many Things"
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"] 									= "Check this button if you want the addon to inform you of the best path through |cffFFD100The Box of Many Things|r."
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearch"] 										= "Titanic Research"
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearchDesc"] 									= "Check this button if you want the addon to inform you of the best path through |cffFFD100Titanic Research|r."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"] 									= "Architect Table"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"] 								= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"] 									= "Mission Table"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTableDesc"] 								= "If enabled, allows the addon to automatically start the first mission in your Garrison."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutposts"] 								= "Outposts"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutpostsDesc"] 							= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThings"] 								= "The Box of Many Things"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"] 							= "Check this button if you want the addon to inform you of the best path through |cffFFD100The Box of Many Things|r."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearch"] 								= "Titanic Research"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearchDesc"] 							= "Check this button if you want the addon to inform you of the best path through |cffFFD100Titanic Research|r."
 	-- End: 	Expansion Features Toggles
+	--
+	-- Start: 	Junker Toggles
+	L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"] 												= "Enables and disables the Junker subsystem.\n\nBy default, Junker will auto sell player-defined and poor quality items. Use the buttons below to filter in additional items.\n\nAlternatively, use the Import button to import items from another auto sell addon or a comma-delimited list of item IDs.\n\n|cffFFD100/hmp junker add id|r\n\n|cffFFD100/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items you don't have in your inventory."
+	-- End: 	Junker Toggles
+	--
+	-- Start: 	Junker UI Text Elements
+	L_GLOBALSTRINGS["Junker.UI.Text.ButtonDesc"] 												= "This button can be used to trigger the selling process.\n\n|cffADD8E6Added by HelpMePlay|r"
+	-- End: 	Junker UI Text Elements
 	--
 	-- Start: 	DropDowns
 	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
@@ -182,7 +191,6 @@ if (isLocaleSupported) then
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
-	L_GLOBALSTRINGS["Enable"]																	= "Enable"
 	L_GLOBALSTRINGS["Armor"]																	= "Armor"
 	L_GLOBALSTRINGS["Consumable"]																= "Consumable"
 	L_GLOBALSTRINGS["Recipe"]																	= "Recipe"
@@ -214,11 +222,9 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Party Play Check Button"]													= "|cffCB453DNote|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Party Play Announce Check Button"]											= "|cffFFFFFFParty Play: Announce|r\nIf you don't want to broadcast when you've\naccepted a quest, then keep this unchecked."
 	L_GLOBALSTRINGS["Party Play Auto Share Check Button"]										= "|cffFFFFFFParty Play: Auto Share|r\nIf you don't want to auto share quests,\nthen keep this unchecked."
-	L_GLOBALSTRINGS["Junker Check Button"]														= "Enables the addon's auto sell system, |cffFFFFFFJunker|r.\n\nBy default, |cffFFFFFFJunker|r will auto sell player-defined\nand POOR quality items. Use the buttons below\nto filter in additional items.\n\nAlternatively, use the Import button in the lower\nright to import items from another auto sell addon,\n or to import a comma-delimited list of item IDs.\n\n|cffFFFFFF/hmp junker add id|r\n\n|cffFFFFFF/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items\nyou don't have in your bags."
 	L_GLOBALSTRINGS["Junker Safe Mode Check Button"]											= "When |cffFFFFFFSafe Mode|r is enabled, the |cffFFFFFFJunker|r system will\nsell items in batches of 12. This ensures the player can\nuse the buy back tab to repurchase accidentally\nsold items.\n\nDefault: |cffFFFFFFEnabled|r"
 	L_GLOBALSTRINGS["Junker Soulbound Check Button"]											= "When enabled, Junker will automatically sell items that are\n-25+ item levels below your current item level.\n\nDefault: |cffFFFFFFEnabled|r"
 	L_GLOBALSTRINGS["Guild Bank Sort Button"]													= "This button can be used to sort the current\nguild bank tab. This only works for the\nguild leader.\n\n|cffFFFFFFCurrently disabled, slated for a future release.|r"
-	L_GLOBALSTRINGS["Junker Merchant Button"]													= "This button can be used to trigger the selling process."
 	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."

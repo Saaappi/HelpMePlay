@@ -29,6 +29,7 @@ Options\Options_General.lua
 Options\Options_Features.lua
 Options\Options_Quests.lua
 Options\Options_ExpansionFeatures.lua
+Options\Options_Junker.lua
 #SettingsFrame.lua
 
 # Data

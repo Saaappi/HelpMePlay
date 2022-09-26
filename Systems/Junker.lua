@@ -137,7 +137,7 @@ end
 e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-	if HelpMePlayOptionsDB.Junker.Enabled == false or HelpMePlayOptionsDB.Junker.Enabled == nil then return false end
+	if HelpMePlayDB.JunkerEnabled == false or HelpMePlayDB.JunkerEnabled == nil then return false end
 	if event == "MERCHANT_SHOW" then
 		ShowJunkerButton()
 	end
@@ -169,7 +169,7 @@ end)
 
 HMPJunkerMerchantButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(L_GLOBALSTRINGS["Junker Merchant Button"])
+	GameTooltip:SetText(L_GLOBALSTRINGS["Junker.UI.Text.ButtonDesc"])
 	GameTooltip:Show()
 end)
 
