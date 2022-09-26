@@ -8,6 +8,14 @@ local questOptions = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		purchase_quest_items = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"],
+			order = 1,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.PurchaseQuestItemsEnabled end,
+			set = function(info, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
+		},
 	},
 }
 addonTable.questOptions = questOptions

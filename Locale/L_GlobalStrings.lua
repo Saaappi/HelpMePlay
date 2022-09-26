@@ -119,11 +119,14 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
 	-- End: 	Descriptions
 	--
-	-- Start: 	Toggles
+	-- Start: 	General Toggles
 	L_GLOBALSTRINGS["General.Toggle.Enable"] 													= "Enable"
 	L_GLOBALSTRINGS["General.Toggle.EnableDesc"] 												= "Enables and disables addon functionality.\n\nChecked: |cff218721Enabled|r\nUnchecked: |cffFF0000Disabled|r"
 	L_GLOBALSTRINGS["General.Toggle.MinimapIcon"] 												= "Minimap Icon"
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
+	-- End: 	General Toggles
+	--
+	-- Start: 	Features Toggles
 	L_GLOBALSTRINGS["Features.Toggle.Cinematics"] 												= "Cinematics"
 	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
 	L_GLOBALSTRINGS["Features.Toggle.Dialog"] 													= "Dialog"
@@ -146,7 +149,12 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.VehiclesDesc"] 											= "When enabled, your character will auto exit certain vehicles.\n\nVehicles are defined by the addon."
 	L_GLOBALSTRINGS["Features.Toggle.WarMode"] 													= "War Mode"
 	L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"] 												= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\n\nDoes |cffFF0000NOT|r apply above level 50."
-	-- End: 	Toggles
+	-- End: 	Features Toggles
+	--
+	-- Start: 	Quests Toggles
+	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"] 										= "Purchase Quest Items"
+	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
+	-- End: 	Quests Toggles
 	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Garrison Tables"]															= "Garrison Tables"

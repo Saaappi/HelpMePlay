@@ -37,7 +37,7 @@ e:RegisterEvent("MERCHANT_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "MERCHANT_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Merchants == false or HelpMePlayOptionsDB.Merchants == nil then return end
+		if HelpMePlayDB.PurchaseQuestItemsEnabled == false or HelpMePlayDB.PurchaseQuestItemsEnabled == nil then return false end
 		local guid = UnitGUID("target") or UnitGUID("mouseover")
 		if guid then
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
