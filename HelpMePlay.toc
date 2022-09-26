@@ -64,13 +64,13 @@ Data\Dialogs\SL_DialogDB.lua
 # Automations
 Automations\ChromieTime.lua
 Automations\AdventureMap.lua
-Automations\Merchants_Trainers.lua
+Automations\Trainers.lua
 Automations\AnimaPowers.lua
 Automations\GarrisonMissionTable.lua
 Automations\GarrisonArchitectTable.lua
 Automations\WarMode.lua
 Automations\PlayerChoice.lua
-Automations\Merchants_Vendors.lua
+Automations\Merchants.lua
 Automations\Emotes.lua
 Automations\Speech.lua
 Automations\Dialog.lua
