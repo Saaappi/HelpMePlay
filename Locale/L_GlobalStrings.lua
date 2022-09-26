@@ -104,9 +104,9 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Tabs
 	L_GLOBALSTRINGS["Tabs.General"] 															= "|T136243:0|t" .. " " .. "General" -- Icon: Engineering
-	L_GLOBALSTRINGS["Tabs.Features"] 															= "Features"
-	L_GLOBALSTRINGS["Tabs.Quests"] 																= "Quests"
-	L_GLOBALSTRINGS["Tabs.Garrisons"] 															= "Garrisons"
+	L_GLOBALSTRINGS["Tabs.Features"] 															= "|T134152:0|t" .. " " .. "Features" -- Icon: Hertz Locker (Achievement)
+	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|T464068:0|t" .. " " .. "Quests" -- Icon: That's a Lot of Turn Ins (Achievement)
+	L_GLOBALSTRINGS["Tabs.Garrisons"] 															= "|T1005027:0|t" .. " " .. "Garrisons" -- Icon: Garrison Resources
 	-- End: 	Tabs
 	--
 	-- Start: 	Headers
