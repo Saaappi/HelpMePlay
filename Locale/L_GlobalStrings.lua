@@ -69,14 +69,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tab Description: Junker"]													= "These are settings that control how |cffFFFFFFJunker|r handles\nvendoring items."
 	-- End:		Tabs
 	--
-	-- Start:	Dropdowns
-	L_GLOBALSTRINGS["Burning Crusade"]															= "Burning Crusade"
-	L_GLOBALSTRINGS["Lich King"]																= "Lich King"
-	L_GLOBALSTRINGS["Cataclysm"]																= "Cataclysm"
-	L_GLOBALSTRINGS["Mists of Pandaria"]														= "Mists of Pandaria"
-	L_GLOBALSTRINGS["Draenor"]																	= "Draenor"
-	L_GLOBALSTRINGS["Legion"]																	= "Legion"
-	L_GLOBALSTRINGS["Battle for Azeroth"]														= "Battle for Azeroth"
+	-- Start:	DropDowns
 	L_GLOBALSTRINGS["Stormsong Valley"]															= "Stormsong Valley"
 	L_GLOBALSTRINGS["Tiragarde Sound"]															= "Tiragarde Sound"
 	L_GLOBALSTRINGS["Drustvar"]																	= "Drustvar"
@@ -111,6 +104,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Headers
 	L_GLOBALSTRINGS["Header.Toggles"] 															= "Toggles"
+	L_GLOBALSTRINGS["Header.DropDowns"] 														= "DropDowns"
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions
@@ -169,6 +163,21 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.GarrisonOutpostsDesc"] 										= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
 	-- End: 	Garrison Toggles
 	--
+	-- Start: 	DropDowns
+	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.Title"]												= "Chromie Time"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.Desc"]												= "Automates the expansion to select when speaking with Chromie."
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.BC"]													= "The Burning Crusade"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.WOTLK"]												= "Wrath of the Lich King"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.CATA"]												= "Cataclysm"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.MOP"]												= "Mists of Pandaria"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.WOD"]												= "Warlords of Draenor"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.LEGION"]												= "Legion"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.BFA"]												= "Battle for Azeroth"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.SL"]													= "Shadowlands"
+	L_GLOBALSTRINGS["DropDowns.ChromieTime.DF"]													= "Dragonflight"
+	-- End: 	DropDowns
+	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Threads of Fate"]															= "Threads of Fate"
 	L_GLOBALSTRINGS["Chromie Time"]																= "Chromie Time"
@@ -216,7 +225,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker Merchant Button"]													= "This button can be used to trigger the selling process."
 	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
-	L_GLOBALSTRINGS["Chromie Time DropDown"]													= "|cffFFFFFFChromie Time|r\nAutomates the expansion to select when speaking\nwith Chromie."
 	L_GLOBALSTRINGS["Torghast Powers DropDown"]													= "|cffFFFFFFTorghast Powers|r\nAutomates the behavior for Torghast Powers.\n\n|cffFFFFFFAutomatic|r: Powers are auto selected based on a\npriority list.\n|cffFFFFFFAutomatic (No Epic)|r: Powers are auto selected based on a\npriority list, but epic powers are ignored.\n|cffFFFFFFNotifications|r: Powers are suggested to the player using\nthe chat window. If only 1 Power is available, then it\n will be auto selected.\n|cffFFFFFFDisabled|r: HelpMePlay won't assist with Torghast Powers.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."

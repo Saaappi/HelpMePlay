@@ -37,6 +37,46 @@ local questOptions = {
 			get = function(info) return HelpMePlayDB.PurchaseQuestItemsEnabled end,
 			set = function(info, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
 		},
-	},
-}
-addonTable.questOptions = questOptions
+		dropdown_header = {
+			name = L_GLOBALSTRINGS["Header.DropDowns"],
+			order = 10,
+			type = "header",
+		},
+		chromietime_dropdown = {
+			name = L_GLOBALSTRINGS["DropDowns.ChromieTime.Title"],
+			order = 11,
+			desc = L_GLOBALSTRINGS["DropDowns.ChromieTime.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[99] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[6] = L_GLOBALSTRINGS["DropDowns.ChromieTime.BC"],
+				[7] = L_GLOBALSTRINGS["DropDowns.ChromieTime.WOTLK"],
+				[5] = L_GLOBALSTRINGS["DropDowns.ChromieTime.CATA"],
+				[8] = L_GLOBALSTRINGS["DropDowns.ChromieTime.MOP"],
+				[9] = L_GLOBALSTRINGS["DropDowns.ChromieTime.WOD"],
+				[10] = L_GLOBALSTRINGS["DropDowns.ChromieTime.LEGION"],
+				[0] = L_GLOBALSTRINGS["DropDowns.ChromieTime.BFA"],
+			},
+			sorting = { -- Sort the options chronologically by expansion.
+				[1] = 99,
+				[2] = 6,
+				[3] = 7,
+				[4] = 5,
+				[5] = 8,
+				[6] = 9,
+				[7] = 10,
+				[8] = 0,
+			},
+			get = function()
+				if not HelpMePlayDB.ChromieTimeId then
+					return 0
+				else
+					return HelpMePlayDB.ChromieTimeId
+				end
+			end,
+			set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
+		},	
+	},	
+}	
+addonTable.questOptions = questOptions	
