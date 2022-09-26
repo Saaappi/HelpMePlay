@@ -22,7 +22,7 @@ e:RegisterEvent("TRAINER_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "TRAINER_SHOW" or event == "TRAINER_UPDATE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.Trainers == false or HelpMePlayOptionsDB.Trainers == nil then return end
+		if HelpMePlayDB.TrainersEnabled == false or HelpMePlayDB.TrainersEnabled == nil then return false end
 		local numTrainerServices = GetNumTrainerServices()
 		if numTrainerServices > 0 then
 			for i = 1, numTrainerServices do

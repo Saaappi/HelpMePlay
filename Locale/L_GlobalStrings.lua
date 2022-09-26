@@ -136,6 +136,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.SpeechDesc"] 												= "Automates interacting with specific NPC speech.\n\nExamples:\n|cffFFD100We'll Make an Aspirant Out of You|r: Bastion (World Quest)\n|cffFFD100The Games We Play|r: Ardenweald"
 	L_GLOBALSTRINGS["Features.Toggle.Repairs"] 													= "Repairs"
 	L_GLOBALSTRINGS["Features.Toggle.RepairsDesc"] 												= "Automates repairing at repair-capable merchants."
+	L_GLOBALSTRINGS["Features.Toggle.Trainers"] 												= "Trainers"
+	L_GLOBALSTRINGS["Features.Toggle.TrainersDesc"] 											= "Automates the purchase of skills from trainers.\n\nYou must have at least 50 gold more than the cost."
 	L_GLOBALSTRINGS["Features.Toggle.Notes"] 													= "Notes"
 	L_GLOBALSTRINGS["Features.Toggle.NotesDesc"] 												= "Adds notes to select NPC tooltips.\n\nExample:\n- |cffFFD100Lever-Locked Chests|r: Torghast"
 	L_GLOBALSTRINGS["Features.Toggle.Waypoints"] 												= "Waypoints"
@@ -186,8 +188,6 @@ if (isLocaleSupported) then
 	-- Start:	Tooltip Text Elements
 	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
 	L_GLOBALSTRINGS["Garrison Tables Check Button"]												= "Automates the selection of Draenor zone outposts,\nthe start of the first Garrison missions, and the\nplotting of the Barracks building."
-	L_GLOBALSTRINGS["Merchants Check Button"]													= "Automates repairing at merchants and the purchase\nof specific items."
-	L_GLOBALSTRINGS["Trainers Check Button"]													= "Automates the purchase of skills from trainers.\nThe addon won't train if the purchase would\nbreak the bank. You must have at least\n50 gold more than the cost."
 	L_GLOBALSTRINGS["Quests Check Button"]														= "Automates accepting and completing quests and selecting\nquest rewards.\n\nQuest reward selection is based on item level, then\nsell price. Heirloom items are ignored by the item\nlevel logic, so sell price is the only considered\nmetric.\n\nAlso, this feature won't output info\nif Logging is disabled."
 	L_GLOBALSTRINGS["Threads of Fate Check Button"]												= "Automates the selection of Threads of Fate.\nChecking the box will opt the player into\nThreads of Fate. Unchecked will opt\nthe player into Story Mode."
 	L_GLOBALSTRINGS["Talents Check Button"]														= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nsystems like |cffFFFFFFThe Box of Many Things|r.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."

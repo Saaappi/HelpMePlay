@@ -61,9 +61,17 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.RepairsEnabled end,
 			set = function(info, val) HelpMePlayDB.RepairsEnabled = val end,
 		},
+		trainers = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Trainers"],
+			order = 7,
+			desc = L_GLOBALSTRINGS["Features.Toggle.TrainersDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.TrainersEnabled end,
+			set = function(info, val) HelpMePlayDB.TrainersEnabled = val end,
+		},
 		notes = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Notes"],
-			order = 7,
+			order = 8,
 			desc = L_GLOBALSTRINGS["Features.Toggle.NotesDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.NotesEnabled end,
@@ -71,7 +79,7 @@ local featuresOptions = {
 		},
 		waypoints = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Waypoints"],
-			order = 8,
+			order = 9,
 			desc = L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.WaypointsEnabled end,
@@ -79,7 +87,7 @@ local featuresOptions = {
 		},
 		vehicles = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Vehicles"],
-			order = 9,
+			order = 10,
 			desc = L_GLOBALSTRINGS["Features.Toggle.VehiclesDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.VehiclesEnabled end,
@@ -87,7 +95,7 @@ local featuresOptions = {
 		},
 		warmode = {
 			name = L_GLOBALSTRINGS["Features.Toggle.WarMode"],
-			order = 10,
+			order = 11,
 			desc = L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.WarModeEnabled end,
