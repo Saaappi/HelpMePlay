@@ -58,17 +58,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Add to Junker Global Blacklist"]											= "Add to Junker Global Blacklist"
 	-- End:		Keybinds
 	--
-	-- Start:	Tabs
-	L_GLOBALSTRINGS["Tab: Automations"]															= "Automations"
-	L_GLOBALSTRINGS["Tab: Systems"]																= "Systems"
-	L_GLOBALSTRINGS["Tab: General"]																= "General"
-	L_GLOBALSTRINGS["Tab: Junker"]																= "Junker"
-	L_GLOBALSTRINGS["Tab Description: Automations"]												= "These are the features that take action\non your behalf."
-	L_GLOBALSTRINGS["Tab Description: Systems"]													= "These are the features that offer information\nto the player or interact with a game system."
-	L_GLOBALSTRINGS["Tab Description: General"]													= "These are addon settings, unrelated to the\nsettings in the other tabs."
-	L_GLOBALSTRINGS["Tab Description: Junker"]													= "These are settings that control how |cffFFFFFFJunker|r handles\nvendoring items."
-	-- End:		Tabs
-	--
 	-- Start:	DropDowns
 	L_GLOBALSTRINGS["Stormsong Valley"]															= "Stormsong Valley"
 	L_GLOBALSTRINGS["Tiragarde Sound"]															= "Tiragarde Sound"
@@ -77,11 +66,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Vol'dun"]																	= "Vol'dun"
 	L_GLOBALSTRINGS["Zuldazar"]																	= "Zuldazar"
 	L_GLOBALSTRINGS["Random"]																	= "Random"
-	L_GLOBALSTRINGS["Torghast"]																	= "Torghast"
-	L_GLOBALSTRINGS["Kyrian"]																	= "Kyrian"
-	L_GLOBALSTRINGS["Necrolord"]																= "Necrolord"
-	L_GLOBALSTRINGS["Night Fae"]																= "Night Fae"
-	L_GLOBALSTRINGS["Venthyr"]																	= "Venthyr"
 	L_GLOBALSTRINGS["Rarity: Poor"]																= "|cff9D9D9DPoor|r"
 	L_GLOBALSTRINGS["Rarity: Common"]															= "|cffFFFFFFCommon|r"
 	L_GLOBALSTRINGS["Rarity: Uncommon"]															= "|cff1EFF00Uncommon|r"
@@ -162,7 +146,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"] 										= "Purchase Quest Items"
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
-	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Enables or disables entering Threads of Fate for Shadowlands leveling.\n\nChecked: Threads of Fate\nUnchecked: Story"
+	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in or out of Threads of Fate for Shadowlands.\n\n|cffFFD100Checked|r: Threads of Fate\n|cffFFD100Unchecked|r: Story"
 	-- End: 	Quests Toggles
 	--
 	-- Start: 	Garrison Toggles
