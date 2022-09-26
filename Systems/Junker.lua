@@ -83,7 +83,7 @@ function HelpMePlaySellItems()
 								soldItemCount = soldItemCount + 1
 							end
 							
-							if itemQuality <= HelpMePlayOptionsDB["Junker"]["Rarity"] then
+							if itemQuality <= HelpMePlayDB.RarityId then
 								UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
 							end
@@ -105,7 +105,7 @@ function HelpMePlaySellItems()
 											This should only apply to SOULBOUND items.
 									]]--
 									local itemLevel = GetDetailedItemLevelInfo(itemLink)
-									if (itemLevel+30) < avgItemLevel then
+									if (itemLevel+30) <= avgItemLevel then
 										if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
 											UseContainerItem(bagId, slotId)
 											soldItemCount = soldItemCount + 1

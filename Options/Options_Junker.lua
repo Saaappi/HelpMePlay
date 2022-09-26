@@ -63,6 +63,33 @@ local junkerOptions = {
 			get = function(info) return HelpMePlayDB.Consumable end,
 			set = function(_, val) HelpMePlayDB.Consumable = val end,
 		},
+		dropdown_header = {
+			name = L_GLOBALSTRINGS["Header.DropDowns"],
+			order = 20,
+			type = "header",
+		},
+		junker_rarity_dropdown = {
+			name = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"],
+				[1] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Common"],
+				[2] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"],
+				[3] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Rare"],
+				[4] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"],
+			},
+			get = function()
+				if not HelpMePlayDB.RarityId then
+					return 0
+				else
+					return HelpMePlayDB.RarityId
+				end
+			end,
+			set = function(_, rarityId) HelpMePlayDB.RarityId = rarityId end,
+		},
 	},
 }
 addonTable.junkerOptions = junkerOptions

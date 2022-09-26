@@ -65,11 +65,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Vol'dun"]																	= "Vol'dun"
 	L_GLOBALSTRINGS["Zuldazar"]																	= "Zuldazar"
 	L_GLOBALSTRINGS["Random"]																	= "Random"
-	L_GLOBALSTRINGS["Rarity: Poor"]																= "|cff9D9D9DPoor|r"
-	L_GLOBALSTRINGS["Rarity: Common"]															= "|cffFFFFFFCommon|r"
-	L_GLOBALSTRINGS["Rarity: Uncommon"]															= "|cff1EFF00Uncommon|r"
-	L_GLOBALSTRINGS["Rarity: Rare"]																= "|cff0070DDRare|r"
-	L_GLOBALSTRINGS["Rarity: Epic"]																= "|cffA335EEEpic|r"
 	L_GLOBALSTRINGS["Item Level"]																= "Item Level"
 	L_GLOBALSTRINGS["Sell Price"]																= "Sell Price"
 	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
@@ -194,6 +189,13 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"]										= "Automatic"
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.NoEpics"]									= "No Epics (Automatic)"
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"]									= "Notify"
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"]											= "Rarity"
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"]												= "Select the minimum item rarity threshold for Junker |cffFFD100NOT|r to sell.\n\nSetting this rarity to Uncommon, for example, would tell rarity to sell all Poor and Common items without player input."
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"]												= "|cff9D9D9DPoor|r"
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Common"]											= "|cffFFFFFFCommon|r"
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"]											= "|cff1EFF00Uncommon|r"
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Rare"]												= "|cff0070DDRare|r"
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"]												= "|cffA335EEEpic|r"
 	-- End: 	DropDowns
 	--
 	-- Start: 	UI Text Elements
@@ -223,7 +225,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Party Play Check Button"]													= "|cffCB453DNote|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game\nwith friends, and want to keep them in the loop\non your quest activity, then enable |cffFFFFFFParty Play|r!\n\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Party Play Announce Check Button"]											= "|cffFFFFFFParty Play: Announce|r\nIf you don't want to broadcast when you've\naccepted a quest, then keep this unchecked."
 	L_GLOBALSTRINGS["Party Play Auto Share Check Button"]										= "|cffFFFFFFParty Play: Auto Share|r\nIf you don't want to auto share quests,\nthen keep this unchecked."
-	L_GLOBALSTRINGS["Guild Bank Sort Button"]													= "This button can be used to sort the current\nguild bank tab. This only works for the\nguild leader.\n\n|cffFFFFFFCurrently disabled, slated for a future release.|r"
 	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
