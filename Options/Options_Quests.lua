@@ -59,14 +59,14 @@ local questOptions = {
 				[0] = L_GLOBALSTRINGS["DropDowns.ChromieTime.BFA"],
 			},
 			sorting = { -- Sort the options chronologically by expansion.
-				[1] = 99,
-				[2] = 6,
-				[3] = 7,
-				[4] = 5,
-				[5] = 8,
-				[6] = 9,
-				[7] = 10,
-				[8] = 0,
+				[1] = 99, 	-- Disabled
+				[2] = 6, 	-- BC
+				[3] = 7, 	-- WOTLK
+				[4] = 5, 	-- CATA (Classic)
+				[5] = 8, 	-- MOP
+				[6] = 9, 	-- WOD
+				[7] = 10, 	-- Legion
+				[8] = 0, 	-- BFA
 			},
 			get = function()
 				if not HelpMePlayDB.ChromieTimeId then
