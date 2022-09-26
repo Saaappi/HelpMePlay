@@ -22,141 +22,11 @@ local function ImportToJunker(itemId, instruction)
 	return
 end
 
-local function GetChromieTimeExpansionName(id)
-	local expansions = {
-		[0] = L_GLOBALSTRINGS["Battle for Azeroth"],
-		[5] = L_GLOBALSTRINGS["Cataclysm"],
-		[6] = L_GLOBALSTRINGS["Burning Crusade"],
-		[7] = L_GLOBALSTRINGS["Lich King"],
-		[8] = L_GLOBALSTRINGS["Mists of Pandaria"],
-		[9] = L_GLOBALSTRINGS["Draenor"],
-		[10] = L_GLOBALSTRINGS["Legion"],
-	}
-	
-	for expansionId, name in pairs(expansions) do
-		if expansionId == id then
-			return name
-		end
-	end
-end
-
 local function DropDownMenu_Initialize(menuName)
 	local selectedValue = UIDropDownMenu_GetSelectedValue(menuName)
 	local info = UIDropDownMenu_CreateInfo()
 	
-	if menuName:GetName() == "HMPChromieTimeDropDown" then
-		-- Burning Crusade
-		info.text = L_GLOBALSTRINGS["Burning Crusade"]
-		info.func = function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = 6
-			UIDropDownMenu_SetSelectedValue(menuName, self.value)
-		end
-		info.value = L_GLOBALSTRINGS["Burning Crusade"]
-		if info.value == selectedValue then
-			info.checked = true
-		else
-			info.checked = false
-		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Burning Crusade"]
-		info.tooltipText = L_GLOBALSTRINGS["Burning Crusade"]
-		UIDropDownMenu_AddButton(info)
-		
-		-- Wrath of the Lich King
-		info.text = L_GLOBALSTRINGS["Lich King"]
-		info.func = function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = 7
-			UIDropDownMenu_SetSelectedValue(menuName, self.value)
-		end
-		info.value = L_GLOBALSTRINGS["Lich King"]
-		if info.value == selectedValue then
-			info.checked = true
-		else
-			info.checked = false
-		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Lich King"]
-		info.tooltipText = L_GLOBALSTRINGS["Lich King"]
-		UIDropDownMenu_AddButton(info)
-		
-		-- Cataclysm
-		info.text = L_GLOBALSTRINGS["Cataclysm"]
-		info.func = function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = 5
-			UIDropDownMenu_SetSelectedValue(menuName, self.value)
-		end
-		info.value = L_GLOBALSTRINGS["Cataclysm"]
-		if info.value == selectedValue then
-			info.checked = true
-		else
-			info.checked = false
-		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Cataclysm"]
-		info.tooltipText = L_GLOBALSTRINGS["Cataclysm"]
-		UIDropDownMenu_AddButton(info)
-		
-		-- Mists of Pandaria
-		info.text = L_GLOBALSTRINGS["Mists of Pandaria"]
-		info.func = function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = 8
-			UIDropDownMenu_SetSelectedValue(menuName, self.value)
-		end
-		info.value = L_GLOBALSTRINGS["Mists of Pandaria"]
-		if info.value == selectedValue then
-			info.checked = true
-		else
-			info.checked = false
-		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Mists of Pandaria"]
-		info.tooltipText = L_GLOBALSTRINGS["Mists of Pandaria"]
-		UIDropDownMenu_AddButton(info)
-		
-		-- Warlords of Draenor
-		info.text = L_GLOBALSTRINGS["Draenor"]
-		info.func = function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = 9
-			UIDropDownMenu_SetSelectedValue(menuName, self.value)
-		end
-		info.value = L_GLOBALSTRINGS["Draenor"]
-		if info.value == selectedValue then
-			info.checked = true
-		else
-			info.checked = false
-		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Draenor"]
-		info.tooltipText = L_GLOBALSTRINGS["Draenor"]
-		UIDropDownMenu_AddButton(info)
-		
-		-- Legion
-		info.text = L_GLOBALSTRINGS["Legion"]
-		info.func = function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = 10
-			UIDropDownMenu_SetSelectedValue(menuName, self.value)
-		end
-		info.value = L_GLOBALSTRINGS["Legion"]
-		if info.value == selectedValue then
-			info.checked = true
-		else
-			info.checked = false
-		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Legion"]
-		info.tooltipText = L_GLOBALSTRINGS["Legion"]
-		UIDropDownMenu_AddButton(info)
-		
-		-- Battle for Azeroth
-		info.text = L_GLOBALSTRINGS["Battle for Azeroth"]
-		info.func = function(self)
-			HelpMePlayOptionsDB.ChromieTimeExpansion = 0
-			UIDropDownMenu_SetSelectedValue(menuName, self.value)
-		end
-		info.value = L_GLOBALSTRINGS["Battle for Azeroth"]
-		if info.value == selectedValue then
-			info.checked = true
-		else
-			info.checked = false
-		end
-		info.tooltipTitle = L_GLOBALSTRINGS["Battle for Azeroth"]
-		info.tooltipText = L_GLOBALSTRINGS["Battle for Azeroth"]
-		UIDropDownMenu_AddButton(info)
-	elseif menuName:GetName() == "HMPTorghastPowersDropDown" then
+	if menuName:GetName() == "HMPTorghastPowersDropDown" then
 		-- Automatic
 		-- Automatically selects the power for the player.
 		info.text = L_GLOBALSTRINGS["Automatic"]
@@ -804,10 +674,6 @@ function HelpMePlayLoadSettings()
 				end
 			end
 			
-			if HelpMePlayOptionsDB.ChromieTimeExpansion then
-				UIDropDownMenu_SetText(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
-			end
-			
 			if HelpMePlayOptionsDB.TorghastPowers then
 				if HelpMePlayOptionsDB.TorghastPowers == L_GLOBALSTRINGS["Automatic"] or HelpMePlayOptionsDB.TorghastPowers == true then
 					UIDropDownMenu_SetText(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Automatic"])
@@ -922,7 +788,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare = HelpMePlayOptionsDB.PartyPlayAutoShare
 					HelpMePlayOptionsDB["TempSettings"].Junker = HelpMePlayOptionsDB.Junker.Enabled
 					HelpMePlayOptionsDB["TempSettings"].QuestRewards = HelpMePlayOptionsDB.QuestRewards
-					HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion = HelpMePlayOptionsDB.ChromieTimeExpansion
 					HelpMePlayOptionsDB["TempSettings"].TorghastPowers = HelpMePlayOptionsDB.TorghastPowers
 					HelpMePlayOptionsDB["TempSettings"].Covenant = HelpMePlayOptionsDB.Covenant
 					HelpMePlayOptionsDB["TempSettings"].BFAZoneSelection = HelpMePlayOptionsDB.BFAZoneSelection
@@ -949,7 +814,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlayAutoShare = false
 					HelpMePlayOptionsDB.Junker.Enabled = false
 					HelpMePlayOptionsDB.QuestRewards = L_GLOBALSTRINGS["Disabled"]
-					HelpMePlayOptionsDB.ChromieTimeExpansion = 0
 					HelpMePlayOptionsDB.TorghastPowers = L_GLOBALSTRINGS["Disabled"]
 					HelpMePlayOptionsDB.Covenant = L_GLOBALSTRINGS["Disabled"]
 					HelpMePlayOptionsDB.BFAZoneSelection = L_GLOBALSTRINGS["Disabled"]
@@ -976,7 +840,6 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayAutoShareCB:SetChecked(false)
 					HMPEnableJunkerCB:SetChecked(false)
 					UIDropDownMenu_SetSelectedValue(HMPQuestRewardDropDown, L_GLOBALSTRINGS["Disabled"])
-					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, L_GLOBALSTRINGS["Battle for Azeroth"])
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, L_GLOBALSTRINGS["Disabled"])
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, L_GLOBALSTRINGS["Disabled"])
@@ -1008,7 +871,6 @@ function HelpMePlayLoadSettings()
 					HelpMePlayOptionsDB.PartyPlayAutoShare = HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare
 					HelpMePlayOptionsDB.Junker.Enabled = HelpMePlayOptionsDB["TempSettings"].Junker
 					HelpMePlayOptionsDB.QuestRewards = HelpMePlayOptionsDB["TempSettings"].QuestRewards
-					HelpMePlayOptionsDB.ChromieTimeExpansion = HelpMePlayOptionsDB["TempSettings"].ChromieTimeExpansion
 					HelpMePlayOptionsDB.TorghastPowers = HelpMePlayOptionsDB["TempSettings"].TorghastPowers
 					HelpMePlayOptionsDB.Covenant = HelpMePlayOptionsDB["TempSettings"].Covenant
 					HelpMePlayOptionsDB.BFAZoneSelection = HelpMePlayOptionsDB["TempSettings"].BFAZoneSelection
@@ -1034,7 +896,6 @@ function HelpMePlayLoadSettings()
 					HMPPartyPlayAutoShareCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].PartyPlayAutoShare)
 					HMPEnableJunkerCB:SetChecked(HelpMePlayOptionsDB["TempSettings"].Junker)
 					UIDropDownMenu_SetSelectedValue(HMPQuestRewardDropDown, HelpMePlayOptionsDB.QuestRewards)
-					UIDropDownMenu_SetSelectedValue(HMPChromieTimeDropDown, GetChromieTimeExpansionName(HelpMePlayOptionsDB.ChromieTimeExpansion))
 					UIDropDownMenu_SetSelectedValue(HMPTorghastPowersDropDown, HelpMePlayOptionsDB.TorghastPowers)
 					UIDropDownMenu_SetSelectedValue(HMPCovenantsDropDown, HelpMePlayOptionsDB.Covenant)
 					UIDropDownMenu_SetSelectedValue(HMPBFAZoneSelDropDown, HelpMePlayOptionsDB.BFAZoneSelection)
@@ -1339,15 +1200,6 @@ function HelpMePlayLoadSettings()
 				addonTable.HideTooltip(self)
 			end)
 			UIDropDownMenu_Initialize(HMPQuestRewardDropDown, DropDownMenu_Initialize)
-			
-			-- Chromie Time DropDown
-			HMPChromieTimeDropDown:SetScript("OnEnter", function(self)
-				addonTable.ShowTooltip(self, L_GLOBALSTRINGS["Chromie Time DropDown"])
-			end)
-			HMPChromieTimeDropDown:SetScript("OnLeave", function(self)
-				addonTable.HideTooltip(self)
-			end)
-			UIDropDownMenu_Initialize(HMPChromieTimeDropDown, DropDownMenu_Initialize)
 			
 			-- Torghast Powers DropDown
 			HMPTorghastPowersDropDown:SetScript("OnEnter", function(self)
