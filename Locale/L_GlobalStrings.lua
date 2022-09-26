@@ -103,7 +103,7 @@ if (isLocaleSupported) then
 	-- End: 	DropDowns
 	--
 	-- Start: 	Tabs
-	L_GLOBALSTRINGS["Tabs.General"] 															= "General"
+	L_GLOBALSTRINGS["Tabs.General"] 															= "|T136243:0|t" .. " " .. "General" -- Icon: Engineering
 	L_GLOBALSTRINGS["Tabs.Features"] 															= "Features"
 	L_GLOBALSTRINGS["Tabs.Quests"] 																= "Quests"
 	L_GLOBALSTRINGS["Tabs.Garrisons"] 															= "Garrisons"
