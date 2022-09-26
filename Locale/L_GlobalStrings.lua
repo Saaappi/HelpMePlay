@@ -180,6 +180,9 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	DropDowns
 	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
+	-- End: 	DropDowns
+	--
+	-- Start: 	Chromie Time DropDowns
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.Title"]												= "Chromie Time"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.Desc"]												= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.BC"]													= "The Burning Crusade"
@@ -191,11 +194,17 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.BFA"]												= "Battle for Azeroth"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.SL"]													= "Shadowlands"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.DF"]													= "Dragonflight"
+	-- End: 	Chromie Time DropDowns
+	--
+	-- Start: 	Torghast DropDowns
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"]										= "Anima Powers"
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"]										= "Choose how the addon should respond to Anima powers.\n\n|cffFFD100Automatic|r: Automatically select powers based on a static power list.\n|cffFFD100No Epics|r: Automatically select powers based on a static power list but ignore all epic powers.\n|cffFFD100Notify|r: Suggest powers to you via the in-game chat window."
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"]										= "Automatic"
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.NoEpics"]									= "No Epics (Automatic)"
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"]									= "Notify"
+	-- End: 	Torghast DropDowns
+	--
+	-- Start: 	Junker DropDowns
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"]											= "Rarity"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"]												= "Select the minimum item rarity threshold for Junker |cffFFD100NOT|r to sell.\n\nSetting this rarity to Uncommon, for example, would tell rarity to sell all Poor and Common items without player input."
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"]												= "|cff9D9D9DPoor|r"
@@ -203,7 +212,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"]											= "|cff1EFF00Uncommon|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Rare"]												= "|cff0070DDRare|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"]												= "|cffA335EEEpic|r"
-	-- End: 	DropDowns
+	-- End: 	Junker DropDowns
 	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
