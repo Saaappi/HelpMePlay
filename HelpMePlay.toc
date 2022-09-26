@@ -40,7 +40,7 @@ Data\MapsDB.lua
 Data\WaypointsDB.lua
 Data\EmotesDB.lua
 Data\GarrisonDB.lua
-Data\MerchantDB.lua
+Data\QuestItemDB.lua
 Data\VehicleDB.lua
 Data\NotesDB.lua
 Data\TalentsDB.lua
