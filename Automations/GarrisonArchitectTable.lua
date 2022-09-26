@@ -24,7 +24,7 @@ e:RegisterEvent("GARRISON_ARCHITECT_OPENED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GARRISON_ARCHITECT_OPENED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.GarrisonTables == false or HelpMePlayOptionsDB.GarrisonTables == nil then return end
+		if HelpMePlayDB.ArchitectTableEnabled == false or HelpMePlayDB.ArchitectTableEnabled == nil then return false end
 		local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
 		if garrisonLevel == 1 then
 			local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)

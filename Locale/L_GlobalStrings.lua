@@ -160,6 +160,15 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
 	-- End: 	Quests Toggles
 	--
+	-- Start: 	Garrison Toggles
+	L_GLOBALSTRINGS["Quests.Toggle.ArchitectTable"] 											= "Architect Table"
+	L_GLOBALSTRINGS["Quests.Toggle.ArchitectTableDesc"] 										= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
+	L_GLOBALSTRINGS["Quests.Toggle.MissionTable"] 												= "Mission Table"
+	L_GLOBALSTRINGS["Quests.Toggle.MissionTableDesc"] 											= "If enabled, allows the addon to automatically start the first mission in your Garrison."
+	L_GLOBALSTRINGS["Quests.Toggle.GarrisonOutposts"] 											= "Outposts"
+	L_GLOBALSTRINGS["Quests.Toggle.GarrisonOutpostsDesc"] 										= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
+	-- End: 	Garrison Toggles
+	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Garrison Tables"]															= "Garrison Tables"
 	L_GLOBALSTRINGS["Merchants"]																= "Merchants"

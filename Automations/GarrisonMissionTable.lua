@@ -25,7 +25,7 @@ e:RegisterEvent("GARRISON_MISSION_NPC_OPENED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GARRISON_MISSION_NPC_OPENED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.GarrisonTables == false or HelpMePlayOptionsDB.GarrisonTables == nil then return end
+		if HelpMePlayDB.MissionTableEnabled == false or HelpMePlayDB.MissionTableEnabled == nil then return false end
 		if C_Garrison.IsAtGarrisonMissionNPC() then
 			local npc = ...
 			if npc == 1 then
