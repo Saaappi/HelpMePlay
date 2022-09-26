@@ -79,12 +79,9 @@ local function CheckTalents(talentTree, currencyId)
 end
 
 local function GetTalentTreeInfo(talentTreeId)
-	if talentTreeId == 153 then
-		-- War Resources (Mission Table)
-		CheckTalents(addonTable.WARRESOURCES, 1560)
-	elseif talentTreeId == 271 then
-		-- Titan Research Archive
-		CheckTalents(addonTable.TITANICRESEARCH, 1719)
+	if talentTreeId == 271 then
+		-- Titanic Research Archive
+		if HelpMePlayDB.TitanicResearchEnabled then CheckTalents(addonTable.TITANICRESEARCH, 1719) end
 	elseif talentTreeId == 461 then
 		-- The Box of Many Things
 		if HelpMePlayDB.BoxOfManyThingsEnabled then CheckTalents(addonTable.BOXOFMANYTHINGS, 1904) end

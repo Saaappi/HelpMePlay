@@ -88,6 +88,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.About"] 															= "About"
 	L_GLOBALSTRINGS["Header.Resources"] 														= "Resources"
 	L_GLOBALSTRINGS["Header.Garrisons"] 														= "Garrisons"
+	L_GLOBALSTRINGS["Header.VisionsOfNzoth"] 													= "Visions of N'Zoth"
 	L_GLOBALSTRINGS["Header.Torghast"] 															= "Torghast"
 	-- End: 	Headers
 	--
@@ -146,14 +147,16 @@ if (isLocaleSupported) then
 	-- End: 	Quests Toggles
 	--
 	-- Start: 	Expansion Features Toggles
-	L_GLOBALSTRINGS["Expansion Features.Toggle.ArchitectTable"] 											= "Architect Table"
-	L_GLOBALSTRINGS["Expansion Features.Toggle.ArchitectTableDesc"] 										= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
-	L_GLOBALSTRINGS["Expansion Features.Toggle.MissionTable"] 												= "Mission Table"
-	L_GLOBALSTRINGS["Expansion Features.Toggle.MissionTableDesc"] 											= "If enabled, allows the addon to automatically start the first mission in your Garrison."
-	L_GLOBALSTRINGS["Expansion Features.Toggle.GarrisonOutposts"] 											= "Outposts"
-	L_GLOBALSTRINGS["Expansion Features.Toggle.GarrisonOutpostsDesc"] 										= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
-	L_GLOBALSTRINGS["Expansion Features.Toggle.BoxOfManyThings"] 											= "The Box of Many Things"
-	L_GLOBALSTRINGS["Expansion Features.Toggle.BoxOfManyThingsDesc"] 										= "Check this button if you want the addon to inform you of the best path through |cffFFD100The Box of Many Things|r."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"] 											= "Architect Table"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"] 										= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"] 											= "Mission Table"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTableDesc"] 										= "If enabled, allows the addon to automatically start the first mission in your Garrison."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutposts"] 										= "Outposts"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutpostsDesc"] 									= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThings"] 										= "The Box of Many Things"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"] 									= "Check this button if you want the addon to inform you of the best path through |cffFFD100The Box of Many Things|r."
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearch"] 										= "Titanic Research"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearchDesc"] 									= "Check this button if you want the addon to inform you of the best path through |cffFFD100Titanic Research|r."
 	-- End: 	Expansion Features Toggles
 	--
 	-- Start: 	DropDowns
