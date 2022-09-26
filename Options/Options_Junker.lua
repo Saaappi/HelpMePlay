@@ -17,7 +17,14 @@ local junkerOptions = {
 			desc = L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.JunkerEnabled end,
-			set = function(info, val) HelpMePlayDB.JunkerEnabled = val end,
+			set = function(_, val)
+				HelpMePlayDB.JunkerEnabled = val
+				if val then
+					HelpMePlay:ShowJunkerButton()
+				else
+					HelpMePlay:HideJunkerButton()
+				end
+			end,
 		},
 		toggle_header = {
 			name = L_GLOBALSTRINGS["Header.Toggles"],

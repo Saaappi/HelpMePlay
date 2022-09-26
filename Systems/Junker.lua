@@ -11,7 +11,7 @@ local normalTexture = e:CreateTexture()
 local pushedTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 
-function ShowJunkerButton()
+function HelpMePlay:ShowJunkerButton()
 	-- Texture work. Let's recreate the bag sorting button.
 	normalTexture:SetTexture("Interface\\ContainerFrame\\Bags")
 	normalTexture:SetSize(28, 26)
@@ -35,6 +35,10 @@ function ShowJunkerButton()
 	HMPJunkerMerchantButton:SetPoint("TOPLEFT", 64, -28)
 	
 	HMPJunkerMerchantButton:Show()
+end
+
+function HelpMePlay:HideJunkerButton()
+	HMPJunkerMerchantButton:Hide()
 end
 
 function HelpMePlaySellItems()
@@ -139,9 +143,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if event == "MERCHANT_SHOW" then
 		if HelpMePlayDB.JunkerEnabled == false or HelpMePlayDB.JunkerEnabled == nil then
-			HMPJunkerMerchantButton:Hide()
+			HelpMePlay:HideJunkerButton()
 		else
-			ShowJunkerButton()
+			HelpMePlay:ShowJunkerButton()
 		end
 	end
 end)
