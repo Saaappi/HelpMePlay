@@ -150,16 +150,16 @@ GameTooltip:HookScript("OnTooltipSetItem", function(self)
 		local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 		if HelpMePlayJunkerGlobalDB[itemId] then
 			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Sell Item Text Global"])
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"])
 		elseif HelpMePlayJunkerGlobalBlacklistDB[itemId] then
 			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Blacklisted Item Text Global"])
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"])
 		elseif HelpMePlayJunkerDB[itemId] then
 			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Sell Item Text"])
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"])
 		elseif HelpMePlayJunkerBlacklistDB[itemId] then
 			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["Junker: Blacklisted Item Text"])
+			self:AddDoubleLine(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cff00FFFF(" .. L_GLOBALSTRINGS["Tab: Junker"] .. ")|r:", L_GLOBALSTRINGS["JJunker.Tooltip.Text.Blacklisted"])
 		end
 	end
 end)

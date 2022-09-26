@@ -171,6 +171,13 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.UI.Text.ButtonDesc"] 												= "This button can be used to trigger the selling process.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End: 	Junker UI Text Elements
 	--
+	-- Start: 	Junker Tooltip Text Elements
+	L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"]													= "|cffFFFFFFSELL|r"
+	L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"]											= "|cffFFFFFFSELL (GLOBAL)|r"
+	L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"]											= "|cffFFFFFFBLACKLISTED|r"
+	L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"]									= "|cffFFFFFFBLACKLISTED (GLOBAL)|r"
+	-- End: 	Junker Tooltip Text Elements
+	--
 	-- Start: 	DropDowns
 	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
 	L_GLOBALSTRINGS["DropDowns.ChromieTime.Title"]												= "Chromie Time"
@@ -208,10 +215,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Calculate"]																= "Calculate"
 	L_GLOBALSTRINGS["Expand"]																	= "Expand"
 	L_GLOBALSTRINGS["Collapse"]																	= "Collapse"
-	L_GLOBALSTRINGS["Junker: Sell Item Text"]													= "|cffFFFFFFSELL|r"
-	L_GLOBALSTRINGS["Junker: Sell Item Text Global"]											= "|cffFFFFFFSELL (GLOBAL)|r"
-	L_GLOBALSTRINGS["Junker: Blacklisted Item Text"]											= "|cffFFFFFFBLACKLISTED|r"
-	L_GLOBALSTRINGS["Junker: Blacklisted Item Text Global"]										= "|cffFFFFFFBLACKLISTED (GLOBAL)|r"
 	L_GLOBALSTRINGS["Import from List"]															= "Import from List"
 	L_GLOBALSTRINGS["Reagent Copy Message"]														= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
 	L_GLOBALSTRINGS["Junker Import Message"]													= "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFF6600Note|r: Only GLOBAL lists will be imported from these addons."
@@ -230,7 +233,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
 	L_GLOBALSTRINGS["Covenants DropDown"]														= "|cffFFFFFFCovenants|r\nAutomates the Covenant to select when interacting with\nthe Helm of Domination."
-	L_GLOBALSTRINGS["Junker: Rarity DropDown"]													= "Select the maximum rarity threshold for filtering items. Items at\nthe quality you choose and below are considered.\n\nDefault: |cff9d9d9dPoor|r"
 	L_GLOBALSTRINGS["Calculate Button"]															= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Expand Button"]															= "Expands the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Collapse Button"]															= "Collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
