@@ -180,8 +180,6 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Threads of Fate"]															= "Threads of Fate"
-	L_GLOBALSTRINGS["Chromie Time"]																= "Chromie Time"
-	L_GLOBALSTRINGS["Current Expansion"]														= "Current Expansion"
 	L_GLOBALSTRINGS["Torghast Powers"]															= "Torghast Powers"
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
