@@ -200,7 +200,7 @@ if (isLocaleSupported) then
 	-- Start: 	Junker Output Text
 	L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromAddOnText"] 								= "Imported all items from %s to Junker!"
 	L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromListText"] 									= "Imported %s item(s) to Junker!"
-	L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabled"] 										= "No auto sell addon enabled."
+	L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabledText"] 									= "No auto sell addon enabled."
 	-- End: 	Junker Output Text
 	--
 	-- Start: 	DropDowns
@@ -239,16 +239,24 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"]												= "|cffA335EEEpic|r"
 	-- End: 	Junker DropDowns
 	--
+	-- Start: 	Trade Skill UI Buttons
+	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Text"] 								= "<->"
+	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Desc"] 								= "Expands or collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Text"] 										= "Calculate"
+	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Desc"] 										= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
+	-- End: 	Trade Skill UI Buttons
+	--
+	-- Start: 	Trade Skill UI Output Text
+	L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"] 						= "Reagent calculation in progress..."
+	-- End: 	Trade Skill UI Output Text
+	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
 	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
-	L_GLOBALSTRINGS["Soulbound"]																= "Soulbound"
 	L_GLOBALSTRINGS["Import"]																	= "Import"
 	L_GLOBALSTRINGS["Add"]																		= "Add"
 	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
 	L_GLOBALSTRINGS["Calculate"]																= "Calculate"
-	L_GLOBALSTRINGS["Expand"]																	= "Expand"
-	L_GLOBALSTRINGS["Collapse"]																	= "Collapse"
 	L_GLOBALSTRINGS["Reagent Copy Message"]														= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
 	-- End:		UI Text Elements
 	--
@@ -262,9 +270,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
-	L_GLOBALSTRINGS["Calculate Button"]															= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["Expand Button"]															= "Expands the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["Collapse Button"]															= "Collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End:		Tooltip Text Elements
 	--
 	-- Start: 	Text Output
@@ -283,7 +288,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
 	L_GLOBALSTRINGS["Quest Removed Text"]														= "Removed"
 	L_GLOBALSTRINGS["Quest Accepted Text"]														= "Accepted"
-	L_GLOBALSTRINGS["Profession Reagents being Calculated"]										= "Reagent calculation in progress..."
 	-- End:		Text Output
 	--
 	-- Start:	Warning Text Output

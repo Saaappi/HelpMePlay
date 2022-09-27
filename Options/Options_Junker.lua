@@ -76,7 +76,7 @@ local junkerOptions = {
 							end
 							addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromAddOnText"], "Dejunk"))
 						else
-							addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabled"])
+							addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabledText"])
 						end
 					end,
 					OnCancel = function(self, data)
