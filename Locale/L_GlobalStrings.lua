@@ -167,6 +167,14 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumableDesc"] 										= "Automatically sell appropriate items of type |cffFFD100Consumable|r."
 	-- End: 	Junker Toggles
 	--
+	-- Start: 	Junker Buttons
+	L_GLOBALSTRINGS["Junker.Button.Import"] 													= "Import"
+	L_GLOBALSTRINGS["Junker.Button.Import.InitialText"] 										= "|T132281:36|t\n\n" .. "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFFD100NOTE|r: Only account-wide lists will be imported from these addons."
+	L_GLOBALSTRINGS["Junker.Button.Import.CancelText"] 											= "|T132281:36|t\n\n" .. "Please paste your comma-delimited list of items in the editbox below."
+	L_GLOBALSTRINGS["Junker.Button.Import.FromAddOnText"] 										= "Import from AddOn"
+	L_GLOBALSTRINGS["Junker.Button.Import.FromListText"] 										= "Import from List"
+	-- End: 	Junker Buttons
+	--
 	-- Start: 	Junker UI Text Elements
 	L_GLOBALSTRINGS["Junker.UI.Text.ButtonDesc"] 												= "This button can be used to trigger the selling process.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End: 	Junker UI Text Elements
@@ -177,6 +185,12 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"]											= "|cffFFFFFFBLACKLISTED|r"
 	L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"]									= "|cffFFFFFFBLACKLISTED (GLOBAL)|r"
 	-- End: 	Junker Tooltip Text Elements
+	--
+	-- Start: 	Junker Output Text
+	L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromAddOnText"] 								= "Imported all items from %s to Junker!"
+	L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromListText"] 									= "Imported %s item(s) to Junker!"
+	L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabled"] 										= "No auto sell addon enabled."
+	-- End: 	Junker Output Text
 	--
 	-- Start: 	DropDowns
 	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
@@ -224,11 +238,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Calculate"]																= "Calculate"
 	L_GLOBALSTRINGS["Expand"]																	= "Expand"
 	L_GLOBALSTRINGS["Collapse"]																	= "Collapse"
-	L_GLOBALSTRINGS["Import from List"]															= "Import from List"
 	L_GLOBALSTRINGS["Reagent Copy Message"]														= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
-	L_GLOBALSTRINGS["Junker Import Message"]													= "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFF6600Note|r: Only GLOBAL lists will be imported from these addons."
-	L_GLOBALSTRINGS["Junker Import Item List Message"]											= "Please paste your comma-delimited list of items in the editbox below."
-	L_GLOBALSTRINGS["Import from AddOn"]														= "Import from AddOn"
 	-- End:		UI Text Elements
 	--
 	-- Start:	Tooltip Text Elements
@@ -251,12 +261,9 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
 	L_GLOBALSTRINGS["Addon Short Name"]															= "HMP"
 	L_GLOBALSTRINGS["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
-	L_GLOBALSTRINGS["Imported To Junker From List Text"]										= "Imported %s item(s) to Junker!"
-	L_GLOBALSTRINGS["Imported To Junker Text"]													= "Imported all items from %s to Junker!"
 	L_GLOBALSTRINGS["Level Congrats Text"]														= "Congratulations on reaching level %s! Suggested talent: %s"
 	L_GLOBALSTRINGS["Dialog Removed"]															= "Removed \"%s\" from database."
 	L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
-	L_GLOBALSTRINGS["No Auto Sell AddOn Enabled"]												= "No auto sell addon enabled."
 	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else."
 	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
 	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed"

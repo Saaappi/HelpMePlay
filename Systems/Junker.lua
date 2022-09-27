@@ -11,6 +11,24 @@ local normalTexture = e:CreateTexture()
 local pushedTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 
+function HelpMePlay:ImportToJunker(itemId, instruction)
+	itemId = tonumber(itemId)
+	if instruction == "ADD" then
+		if HelpMePlayJunkerDB[itemId] then
+			HelpMePlayJunkerDB[itemId] = nil
+		else
+			HelpMePlayJunkerDB[itemId] = true
+		end
+	else
+		if HelpMePlayJunkerBlacklistDB[itemId] then
+			HelpMePlayJunkerBlacklistDB[itemId] = nil
+		else
+			HelpMePlayJunkerBlacklistDB[itemId] = true
+		end
+	end
+	return
+end
+
 function HelpMePlay:ShowJunkerButton()
 	-- Texture work. Let's recreate the bag sorting button.
 	normalTexture:SetTexture("Interface\\ContainerFrame\\Bags")

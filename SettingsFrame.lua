@@ -4,24 +4,6 @@ local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local icon = ""
 
-local function ImportToJunker(itemId, instruction)
-	itemId = tonumber(itemId)
-	if instruction == "ADD" then
-		if HelpMePlayJunkerDB[itemId] then
-			HelpMePlayJunkerDB[itemId] = nil
-		else
-			HelpMePlayJunkerDB[itemId] = true
-		end
-	else
-		if HelpMePlayJunkerBlacklistDB[itemId] then
-			HelpMePlayJunkerBlacklistDB[itemId] = nil
-		else
-			HelpMePlayJunkerBlacklistDB[itemId] = true
-		end
-	end
-	return
-end
-
 local function DropDownMenu_Initialize(menuName)
 	local selectedValue = UIDropDownMenu_GetSelectedValue(menuName)
 	local info = UIDropDownMenu_CreateInfo()
