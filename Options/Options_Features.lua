@@ -101,6 +101,40 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.WarModeEnabled end,
 			set = function(info, val) HelpMePlayDB.WarModeEnabled = val end,
 		},
+		dropdown_header = {
+			name = L_GLOBALSTRINGS["Header.DropDowns"],
+			order = 20,
+			type = "header",
+		},
+		covenant_dropdown = {
+			name = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Title"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[1] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Kyrian"],
+				[2] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Venthyr"],
+				[3] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"],
+				[4] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"],
+			},
+			sorting = {
+				[1] = 0, 	-- Disabled
+				[2] = 1, 	-- Kyrian
+				[3] = 3, 	-- Necrolord
+				[4] = 4, 	-- Night Fae
+				[5] = 2, 	-- Venthyr
+			},
+			get = function()
+				if not HelpMePlayDB.CovenantId then
+					return 0
+				else
+					return HelpMePlayDB.CovenantId
+				end
+			end,
+			set = function(_, covenantId) HelpMePlayDB.CovenantId = covenantId end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions

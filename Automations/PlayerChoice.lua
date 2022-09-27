@@ -41,16 +41,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 							HideUIPanel(PlayerChoiceFrame)
 						end
 					elseif id == addonTable.PLAYERCHOICE["Shadowlands Covenant Map: Covenant Selection"] then
-						if HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Kyrian"] then
+						if HelpMePlayDB.CovenantId == 1 then
 							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Venthyr"] then
+						elseif HelpMePlayDB.CovenantId == 2 then
 							SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Necrolord"] then
+						elseif HelpMePlayDB.CovenantId == 3 then
 							SendPlayerChoiceResponse(choiceInfo.options[3].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						elseif HelpMePlayOptionsDB.Covenant == L_GLOBALSTRINGS["Night Fae"] then
+						elseif HelpMePlayDB.CovenantId == 4 then
 							SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end

@@ -131,6 +131,15 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"] 												= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\n\nDoes |cffFF0000NOT|r apply above level 50."
 	-- End: 	Features Toggles
 	--
+	-- Start: 	Features DropDowns
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Title"] 										= "Covenants"
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Desc"] 										= "Automates the Covenant to select when interacting with board in Oribos."
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Kyrian"] 										= "|T3257748:0|t" .. " " .. "Kyrian"
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"] 									= "|T3257749:0|t" .. " " .. "Necrolord"
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"] 									= "|T3257750:0|t" .. " " .. "Night Fae"
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Venthyr"] 										= "|T3257751:0|t" .. " " .. "Venthyr"
+	-- End: 	Features DropDowns
+	--
 	-- Start: 	Quests Toggles
 	L_GLOBALSTRINGS["Quests.Toggle.AcceptQuests"] 												= "Accept Quests"
 	L_GLOBALSTRINGS["Quests.Toggle.AcceptQuestsDesc"] 											= "Automatically accept all quests."
@@ -251,7 +260,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
 	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
-	L_GLOBALSTRINGS["Covenants DropDown"]														= "|cffFFFFFFCovenants|r\nAutomates the Covenant to select when interacting with\nthe Helm of Domination."
 	L_GLOBALSTRINGS["Calculate Button"]															= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Expand Button"]															= "Expands the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Collapse Button"]															= "Collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
