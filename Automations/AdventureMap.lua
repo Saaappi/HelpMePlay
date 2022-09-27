@@ -28,10 +28,10 @@ e:RegisterEvent("ADVENTURE_MAP_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HelpMePlayDB.AdventureMapsEnabled == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
 		local faction = UnitFactionGroup("player")
 		local mapId = C_AdventureMap.GetMapID()
 		if mapId == 1011 then -- Zandalar
-			if HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Disabled"] or HelpMePlayOptionsDB.BFAZoneSelection == nil then return end
 			--[[
 				Description:
 					This adventure map is used for Horde (leveling)
@@ -57,7 +57,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 		if mapId == 1014 then -- Kul Tiras
-			if HelpMePlayOptionsDB.BFAZoneSelection == L_GLOBALSTRINGS["Disabled"] or HelpMePlayOptionsDB.BFAZoneSelection == nil then return end
 			--[[
 				Description:
 					This adventure map is used for Alliance (leveling)
@@ -90,7 +89,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 					
 					This includes Torghast.
 			]]--
-			if HelpMePlayOptionsDB.SLZoneSelection == L_GLOBALSTRINGS["Disabled"] or HelpMePlayOptionsDB.SLZoneSelection == nil then return end
 			if HelpMePlayOptionsDB.SLZoneSelection ~= L_GLOBALSTRINGS["Random"] then
 				if C_QuestLog.IsQuestFlaggedCompleted(addonTable.ADVENTURE_MAP_QUESTS["Shadowlands"][HelpMePlayOptionsDB.SLZoneSelection]) == false then
 					C_AdventureMap.StartQuest(addonTable.ADVENTURE_MAP_QUESTS["Shadowlands"][HelpMePlayOptionsDB.SLZoneSelection])

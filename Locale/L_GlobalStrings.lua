@@ -149,6 +149,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in or out of Threads of Fate for Shadowlands.\n\n|cffFFD100Checked|r: Threads of Fate\n|cffFFD100Unchecked|r: Story"
+	L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"] 												= "Adventure Maps"
+	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
 	-- End: 	Quests Toggles
 	--
 	-- Start: 	Expansion Features Toggles

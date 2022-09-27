@@ -41,6 +41,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							HideUIPanel(PlayerChoiceFrame)
 						end
 					elseif id == addonTable.PLAYERCHOICE["Shadowlands Covenant Map: Covenant Selection"] then
+						if HelpMePlayDB.CovenantId == 0 or HelpMePlayDB.CovenantId == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
 						if HelpMePlayDB.CovenantId == 1 then
 							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
@@ -57,6 +58,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				else
 					if addonTable.PLAYERCHOICE_MAPS[mapId] then
+						if HelpMePlayDB.AdventureMapsEnabled == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
 						for i = 1, 3 do
 							if choiceInfo.options[i].header == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
 								SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)

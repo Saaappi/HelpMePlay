@@ -45,6 +45,14 @@ local questOptions = {
 			get = function(info) return HelpMePlayDB.ThreadsOfFateEnabled end,
 			set = function(info, val) HelpMePlayDB.ThreadsOfFateEnabled = val end,
 		},
+		adventure_maps = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"],
+			order = 5,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.AdventureMapsEnabled end,
+			set = function(info, val) HelpMePlayDB.AdventureMapsEnabled = val end,
+		},
 		dropdown_header = {
 			name = L_GLOBALSTRINGS["Header.DropDowns"],
 			order = 10,
