@@ -47,12 +47,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 					C_AdventureMap.StartQuest(51572) -- Foothold: Vol'dun
 				end
 			else
-				if HelpMePlayOptionsDB.BFAZoneSelection ~= L_GLOBALSTRINGS["Random"] then
-					if C_QuestLog.IsQuestFlaggedCompleted(addonTable.ADVENTURE_MAP_QUESTS[faction][HelpMePlayOptionsDB.BFAZoneSelection]) == false then
-						C_AdventureMap.StartQuest(addonTable.ADVENTURE_MAP_QUESTS[faction][HelpMePlayOptionsDB.BFAZoneSelection])
-					end
+				if HelpMePlayDB.ZoneId_BFA == 0 or HelpMePlayDB.ZoneId_BFA == false or HelpMePlayDB.ZoneId_BFA == nil then return false end
+				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA) == false then
+					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA)
 				else
-					C_AdventureMap.StartQuest(addonTable.ADVENTURE_MAP_QUESTS[faction][Get_RandomAdventureMapZone(faction)])
+					for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Horde"]) do
+						if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
+							C_AdventureMap.StartQuest(questId)
+						end
+					end
 				end
 			end
 		end
@@ -64,12 +67,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 					war campaign footholds.
 			]]--
 			if faction == "Alliance" then
-				if HelpMePlayOptionsDB.BFAZoneSelection ~= L_GLOBALSTRINGS["Random"] then
-					if C_QuestLog.IsQuestFlaggedCompleted(addonTable.ADVENTURE_MAP_QUESTS[faction][HelpMePlayOptionsDB.BFAZoneSelection]) == false then
-						C_AdventureMap.StartQuest(addonTable.ADVENTURE_MAP_QUESTS[faction][HelpMePlayOptionsDB.BFAZoneSelection])
-					end
+				if HelpMePlayDB.ZoneId_BFA == 0 or HelpMePlayDB.ZoneId_BFA == false or HelpMePlayDB.ZoneId_BFA == nil then return false end
+				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA) == false then
+					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA)
 				else
-					C_AdventureMap.StartQuest(addonTable.ADVENTURE_MAP_QUESTS[faction][Get_RandomAdventureMapZone(faction)])
+					for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Alliance"]) do
+						if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
+							C_AdventureMap.StartQuest(questId)
+						end
+					end
 				end
 			else
 				if C_QuestLog.IsQuestFlaggedCompleted(51801) == false then
@@ -86,15 +92,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 				Description:
 					This adventure map is used for selecting
 					a leveling zone in the Shadowlands.
-					
-					This includes Torghast.
 			]]--
-			if HelpMePlayOptionsDB.SLZoneSelection ~= L_GLOBALSTRINGS["Random"] then
-				if C_QuestLog.IsQuestFlaggedCompleted(addonTable.ADVENTURE_MAP_QUESTS["Shadowlands"][HelpMePlayOptionsDB.SLZoneSelection]) == false then
-					C_AdventureMap.StartQuest(addonTable.ADVENTURE_MAP_QUESTS["Shadowlands"][HelpMePlayOptionsDB.SLZoneSelection])
-				end
+			if HelpMePlayDB.ZoneId_SL == 0 or HelpMePlayDB.ZoneId_SL == false or HelpMePlayDB.ZoneId_SL == nil then return false end
+			if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_SL) == false then
+				C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_SL)
 			else
-				C_AdventureMap.StartQuest(addonTable.ADVENTURE_MAP_QUESTS["Shadowlands"][Get_RandomAdventureMapZone("Shadowlands")])
+				for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["SL"]) do
+					if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
+						C_AdventureMap.StartQuest(questId)
+					end
+				end
 			end
 		end
 	end

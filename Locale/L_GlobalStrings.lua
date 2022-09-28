@@ -58,13 +58,6 @@ if (isLocaleSupported) then
 	-- End:		Keybinds
 	--
 	-- Start:	DropDowns
-	L_GLOBALSTRINGS["Stormsong Valley"]															= "Stormsong Valley"
-	L_GLOBALSTRINGS["Tiragarde Sound"]															= "Tiragarde Sound"
-	L_GLOBALSTRINGS["Drustvar"]																	= "Drustvar"
-	L_GLOBALSTRINGS["Nazmir"]																	= "Nazmir"
-	L_GLOBALSTRINGS["Vol'dun"]																	= "Vol'dun"
-	L_GLOBALSTRINGS["Zuldazar"]																	= "Zuldazar"
-	L_GLOBALSTRINGS["Random"]																	= "Random"
 	L_GLOBALSTRINGS["Item Level"]																= "Item Level"
 	L_GLOBALSTRINGS["Sell Price"]																= "Sell Price"
 	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
@@ -154,6 +147,35 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
 	-- End: 	Quests Toggles
 	--
+	-- Start: 	Quests DropDowns
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"]										= "Chromie Time"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"]										= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"]											= "The Burning Crusade"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"]										= "Wrath of the Lich King"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"]										= "Cataclysm"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.MOP"]											= "Mists of Pandaria"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"]											= "Warlords of Draenor"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"]										= "Legion"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"]											= "Battle for Azeroth"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"]											= "Shadowlands"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"]											= "Dragonflight"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"]									= "BFA Zone Selection"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"]									= "Automates the first zone to select in |cffFFD100Battle for Azeroth|r."
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.STORMSONGVALLEY"]						= "Stormsong Valley"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.TIRAGARDESOUND"]						= "Tiragarde Sound"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.DRUSTVAR"]								= "Drustvar"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.NAZMIR"]								= "Nazmir"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.VOLDUN"]								= "Vol'dun"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.ZULDAZAR"]								= "Zuldazar"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"]									= "SL Zone Selection"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Desc"]									= "Automates the first zone to select in |cffFFD100Shadowlands|r."
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.ARDENWEALD"]								= "Ardenweald"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.BASTION"]								= "Bastion"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.MALDRAXXUS"]								= "Maldraxxus"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.REVENDRETH"]								= "Revendreth"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.TORGHAST"]								= "Torghast"
+	-- End: 	Quests DropDowns
+	--
 	-- Start: 	Party Play Toggles
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"
@@ -226,20 +248,6 @@ if (isLocaleSupported) then
 	-- Start: 	DropDowns
 	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
 	-- End: 	DropDowns
-	--
-	-- Start: 	Chromie Time DropDowns
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.Title"]												= "Chromie Time"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.Desc"]												= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.BC"]													= "The Burning Crusade"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.WOTLK"]												= "Wrath of the Lich King"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.CATA"]												= "Cataclysm"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.MOP"]												= "Mists of Pandaria"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.WOD"]												= "Warlords of Draenor"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.LEGION"]												= "Legion"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.BFA"]												= "Battle for Azeroth"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.SL"]													= "Shadowlands"
-	L_GLOBALSTRINGS["DropDowns.ChromieTime.DF"]													= "Dragonflight"
-	-- End: 	Chromie Time DropDowns
 	--
 	-- Start: 	Torghast DropDowns
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"]										= "Anima Powers"

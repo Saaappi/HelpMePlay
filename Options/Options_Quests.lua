@@ -59,20 +59,22 @@ local questOptions = {
 			type = "header",
 		},
 		chromietime_dropdown = {
-			name = L_GLOBALSTRINGS["DropDowns.ChromieTime.Title"],
+			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],
 			order = 11,
-			desc = L_GLOBALSTRINGS["DropDowns.ChromieTime.Desc"],
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"],
 			type = "select",
 			style = "dropdown",
 			values = {
 				[99] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-				[6] = L_GLOBALSTRINGS["DropDowns.ChromieTime.BC"],
-				[7] = L_GLOBALSTRINGS["DropDowns.ChromieTime.WOTLK"],
-				[5] = L_GLOBALSTRINGS["DropDowns.ChromieTime.CATA"],
-				[8] = L_GLOBALSTRINGS["DropDowns.ChromieTime.MOP"],
-				[9] = L_GLOBALSTRINGS["DropDowns.ChromieTime.WOD"],
-				[10] = L_GLOBALSTRINGS["DropDowns.ChromieTime.LEGION"],
-				[0] = L_GLOBALSTRINGS["DropDowns.ChromieTime.BFA"],
+				[6] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"],
+				[7] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"],
+				[5] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"],
+				[8] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.MOP"],
+				[9] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"],
+				[10] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"],
+				[0] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"],
+				[11] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"],
+				[12] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"],
 			},
 			sorting = { -- Sort the options chronologically by expansion.
 				[1] = 99, 	-- Disabled
@@ -92,6 +94,88 @@ local questOptions = {
 				end
 			end,
 			set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
+		},
+		bfa_zone_selection_dropdown = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"],
+			order = 12,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = function()
+				if UnitFactionGroup("player") == "Alliance" then
+					values = {
+						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+						[47962] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.STORMSONGVALLEY"],
+						[47960] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.TIRAGARDESOUND"],
+						[47961] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.DRUSTVAR"],
+					}
+				else
+					values = {
+						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+						[47512] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.NAZMIR"],
+						[47513] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.VOLDUN"],
+						[47514] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.ZULDAZAR"],
+					}
+				end
+				return values
+			end,
+			sorting = function()
+				if UnitFactionGroup("player") == "Alliance" then
+					values = {
+						[1] = 0,
+						[2] = 47961,
+						[3] = 47960,
+						[4] = 47962,
+					}
+				else
+					values = {
+						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+						[5] = 47512,
+						[6] = 47513,
+						[7] = 47514,
+					}
+				end
+				return values
+			end,
+			get = function()
+				if not HelpMePlayDB.ZoneId_BFA then
+					return 0
+				else
+					return HelpMePlayDB.ZoneId_BFA
+				end
+			end,
+			set = function(_, zoneId) HelpMePlayDB.ZoneId_BFA = zoneId end,
+		},
+		sl_zone_selection_dropdown = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"],
+			order = 13,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[62275] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.BASTION"],
+				[62277] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.ARDENWEALD"],
+				[62278] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.MALDRAXXUS"],
+				[62279] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.REVENDRETH"],
+				[64846] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.TORGHAST"],
+			},
+			sorting = {
+				[1] = 0,
+				[2] = 62277,
+				[3] = 62275,
+				[4] = 62278,
+				[5] = 62279,
+				[6] = 64846,
+			},
+			get = function()
+				if not HelpMePlayDB.ZoneId_SL then
+					return 0
+				else
+					return HelpMePlayDB.ZoneId_SL
+				end
+			end,
+			set = function(_, zoneId) HelpMePlayDB.ZoneId_SL = zoneId end,
 		},
 		party_play_header = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
