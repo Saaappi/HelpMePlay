@@ -52,7 +52,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GROUP_JOINED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		addonTable.Print(L_GLOBALSTRINGS["Party Play Enabled Warning Text"])
 	end
 	if event == "QUEST_ACCEPTED" then
@@ -64,15 +64,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Share the quest with the player's
 		-- party.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		local questId = ...
 		HelpMePlayCharacterQuestsDB[questId] = { title = Get_QuestTitleFromId[questId], progressPercent = 0 }
 		if UnitInParty("player") then
 			if isRegistered then
-				if HelpMePlayOptionsDB.PartyPlayAnnounce then
+				if HelpMePlayDB.PartyPlayAnnounceEnabled then
 					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
-				if HelpMePlayOptionsDB.PartyPlayAutoShare then
+				if HelpMePlayDB.PartyPlayAutoShareEnabled then
 					if C_QuestLog.IsPushableQuest(questId) then
 						C_QuestLog.SetSelectedQuest(questId)
 						QuestLogPushQuest()
@@ -92,13 +92,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- the player didn't turn it in, so
 		-- report the message to chat.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		local questId = ...
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 			if HelpMePlayCharacterQuestsDB[questId] then
-				-- The player abandoned the quest or
-				-- left the area (eg. world quests).
-				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+				if HelpMePlayDB.PartyPlayAnnounceEnabled then
+					-- The player abandoned the quest or
+					-- left the area (eg. world quests).
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+				end
 				HelpMePlayCharacterQuestsDB[questId] = nil
 			end
 		end)
@@ -109,12 +111,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Report to party chat the a quest
 		-- was turned in.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		local questId = ...
 		HelpMePlayCharacterQuestsDB[questId] = nil
 		if UnitInParty("player") then
 			if isRegistered then
-				C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+				if HelpMePlayDB.PartyPlayAnnounceEnabled then
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+				end
 			end
 		end
 	end
@@ -125,14 +129,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- This is used in cases like:
 		-- 6/6 Bewitched Bear slain
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		if UnitInParty("player") then
 			local supportedMsgTypes = { 290, 292, 293, 294, 295 }
 			local msgType, msg = ...
 			for _, supportedMsgType in ipairs(supportedMsgTypes) do
 				if supportedMsgType == msgType then
 					if isRegistered then
-						C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. msg)
+						if HelpMePlayDB.PartyPlayAnnounceEnabled then
+							C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. msg)
+						end
 					end
 				end
 			end
@@ -142,7 +148,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Used explicitly to handle quests
 		-- with progress bars.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayOptionsDB.PartyPlay == false or HelpMePlayOptionsDB.PartyPlay == nil then return end
+		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		if UnitInParty("player") then
 			local unit = ...
 			if unit == "player" then
@@ -156,7 +162,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 								local progressPercent = GetQuestProgressBarPercent(questId)
 								if progressPercent ~= questData.progressPercent then
 									if isRegistered then
-										C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. text .. " (" .. questData.title .. ")", "PARTY")
+										if HelpMePlayDB.PartyPlayAnnounceEnabled then
+											C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. text .. " (" .. questData.title .. ")", "PARTY")
+										end
 									end
 									questData.progressPercent = progressPercent
 								end

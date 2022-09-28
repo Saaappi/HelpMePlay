@@ -93,6 +93,35 @@ local questOptions = {
 			end,
 			set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
 		},
+		party_play_header = {
+			name = L_GLOBALSTRINGS["Header.PartyPlay"],
+			order = 20,
+			type = "header",
+		},
+		party_play_enable = {
+			name = L_GLOBALSTRINGS["General.Toggle.Enable"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.PartyPlayEnabled end,
+			set = function(info, val) HelpMePlayDB.PartyPlayEnabled = val end,
+		},
+		party_play_announce = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"],
+			order = 22,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.PartyPlayAnnounceEnabled end,
+			set = function(info, val) HelpMePlayDB.PartyPlayAnnounceEnabled = val end,
+		},
+		party_play_auto_share = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.PartyPlayAutoShareEnabled end,
+			set = function(info, val) HelpMePlayDB.PartyPlayAutoShareEnabled = val end,
+		},
 	},	
 }	
 addonTable.questOptions = questOptions	
