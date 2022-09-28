@@ -128,10 +128,9 @@ local featuresOptions = {
 			},
 			get = function()
 				if not HelpMePlayDB.CovenantId then
-					return 0
-				else
-					return HelpMePlayDB.CovenantId
+					HelpMePlayDB.CovenantId = 0
 				end
+				return HelpMePlayDB.CovenantId
 			end,
 			set = function(_, covenantId) HelpMePlayDB.CovenantId = covenantId end,
 		},

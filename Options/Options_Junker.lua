@@ -176,10 +176,9 @@ local junkerOptions = {
 			},
 			get = function()
 				if not HelpMePlayDB.RarityId then
-					return 0
-				else
-					return HelpMePlayDB.RarityId
+					HelpMePlayDB.RarityId = 0
 				end
+				return HelpMePlayDB.RarityId
 			end,
 			set = function(_, rarityId) HelpMePlayDB.RarityId = rarityId end,
 		},

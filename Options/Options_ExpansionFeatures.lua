@@ -83,10 +83,9 @@ local expansionFeatures = {
 			},
 			get = function()
 				if not HelpMePlayDB.TorghastPowersId then
-					return 0
-				else
-					return HelpMePlayDB.TorghastPowersId
+					HelpMePlayDB.TorghastPowersId = 0
 				end
+				return HelpMePlayDB.TorghastPowersId
 			end,
 			set = function(_, torghastPowersId) HelpMePlayDB.TorghastPowersId = torghastPowersId end,
 		},

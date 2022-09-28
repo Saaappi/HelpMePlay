@@ -76,10 +76,9 @@ local questOptions = {
 			},
 			get = function()
 				if not HelpMePlayDB.QuestRewardId then
-					return 0
-				else
-					return HelpMePlayDB.QuestRewardId
+					HelpMePlayDB.QuestRewardId = 0
 				end
+				return HelpMePlayDB.QuestRewardId
 			end,
 			set = function(_, questRewardId) HelpMePlayDB.QuestRewardId = questRewardId end,
 		},
@@ -115,10 +114,9 @@ local questOptions = {
 			},
 			get = function()
 				if not HelpMePlayDB.ChromieTimeId then
-					return 0
-				else
-					return HelpMePlayDB.ChromieTimeId
+					HelpMePlayDB.ChromieTimeId = 0
 				end
+				return HelpMePlayDB.ChromieTimeId
 			end,
 			set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
 		},
@@ -166,10 +164,9 @@ local questOptions = {
 			end,
 			get = function()
 				if not HelpMePlayDB.ZoneId_BFA then
-					return 0
-				else
-					return HelpMePlayDB.ZoneId_BFA
+					HelpMePlayDB.ZoneId_BFA = 0
 				end
+				return HelpMePlayDB.ZoneId_BFA
 			end,
 			set = function(_, zoneId) HelpMePlayDB.ZoneId_BFA = zoneId end,
 		},
@@ -197,10 +194,9 @@ local questOptions = {
 			},
 			get = function()
 				if not HelpMePlayDB.ZoneId_SL then
-					return 0
-				else
-					return HelpMePlayDB.ZoneId_SL
+					HelpMePlayDB.ZoneId_SL = 0
 				end
+				return HelpMePlayDB.ZoneId_SL
 			end,
 			set = function(_, zoneId) HelpMePlayDB.ZoneId_SL = zoneId end,
 		},
