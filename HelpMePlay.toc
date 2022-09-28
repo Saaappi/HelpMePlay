@@ -83,7 +83,6 @@ Systems\TradeSkills.lua
 Systems\Transmog.lua
 Systems\Commands.lua
 Systems\TalentSystems.lua
-Systems\Talents.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
 Systems\Junker.lua
