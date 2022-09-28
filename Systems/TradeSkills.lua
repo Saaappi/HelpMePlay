@@ -81,9 +81,6 @@ local function CalculateReagents()
 										end)
 										return
 									end
-								else
-									addonTable.Print(L_GLOBALSTRINGS["Reagent Data Missing"] .. " |cffe6cc80" .. date("%X") .. "|r")
-									return
 								end
 							end
 						end
@@ -101,7 +98,7 @@ local function CalculateReagents()
 		end
 	
 		StaticPopupDialogs["HELPMEPLAY_REAGENTSTRING_POPUP"] = {
-			text = L_GLOBALSTRINGS["Reagent Copy Message"],
+			text = L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.PopupText"],
 			button1 = "OK",
 			OnShow = function(self, data)
 				self.editBox:SetText(reagentString)

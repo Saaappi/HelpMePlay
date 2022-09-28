@@ -27,10 +27,6 @@ for i=1,#supportedLocales do
 	end
 end
 
-if (isLocaleSupported == false) then
-	addonTable.Print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
-end
-
 if (isLocaleSupported) then
 	-- Start: 	Commands
 	L_GLOBALSTRINGS["Slash HMP"]																= "hmp"
@@ -222,6 +218,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Button.Import"] 													= "Import"
 	L_GLOBALSTRINGS["Junker.Button.Import.InitialText"] 										= "|T132281:36|t\n\n" .. "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFFD100NOTE|r: Only account-wide lists will be imported from these addons."
 	L_GLOBALSTRINGS["Junker.Button.Import.CancelText"] 											= "|T132281:36|t\n\n" .. "Please paste your comma-delimited list of items in the editbox below."
+	L_GLOBALSTRINGS["Junker.Button.Import.AddText"] 											= "Add"
+	L_GLOBALSTRINGS["Junker.Button.Import.BlacklistText"] 										= "Blacklist"
 	L_GLOBALSTRINGS["Junker.Button.Import.FromAddOnText"] 										= "Import from AddOn"
 	L_GLOBALSTRINGS["Junker.Button.Import.FromListText"] 										= "Import from List"
 	-- End: 	Junker Buttons
@@ -268,6 +266,7 @@ if (isLocaleSupported) then
 	-- Start: 	Trade Skill UI Buttons
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Text"] 								= "<->"
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Desc"] 								= "Expands or collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.PopupText"] 								= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Text"] 										= "Calculate"
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Desc"] 										= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End: 	Trade Skill UI Buttons
@@ -276,72 +275,54 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"] 						= "Reagent calculation in progress..."
 	-- End: 	Trade Skill UI Output Text
 	--
-	-- Start: 	UI Text Elements
-	L_GLOBALSTRINGS["Talents"]																	= "Talents"
-	L_GLOBALSTRINGS["Import"]																	= "Import"
-	L_GLOBALSTRINGS["Add"]																		= "Add"
-	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
-	L_GLOBALSTRINGS["Calculate"]																= "Calculate"
-	L_GLOBALSTRINGS["Reagent Copy Message"]														= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
-	-- End:		UI Text Elements
+	-- Start: 	Inventory UI Buttons
+	L_GLOBALSTRINGS["TradeSkill.UI.Button.Inventory.Desc"] 										= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
+	-- End: 	Inventory UI Buttons
 	--
-	-- Start:	Tooltip Text Elements
-	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	L_GLOBALSTRINGS["Talents Check Button"]														= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nsystems like |cffFFFFFFThe Box of Many Things|r.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."
-	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
-	-- End:		Tooltip Text Elements
+	-- Start: 	Minimap UI Buttons
+	L_GLOBALSTRINGS["Minimap.UI.Button.SubText"] 												= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
+	-- End: 	Minimap UI Buttons
 	--
 	-- Start: 	Text Output
+	L_GLOBALSTRINGS["Text.Output.Acronym"]														= "HMP"
 	L_GLOBALSTRINGS["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
-	L_GLOBALSTRINGS["Addon Short Name"]															= "HMP"
 	L_GLOBALSTRINGS["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
-	L_GLOBALSTRINGS["Level Congrats Text"]														= "Congratulations on reaching level %s! Suggested talent: %s"
 	L_GLOBALSTRINGS["Dialog Removed"]															= "Removed \"%s\" from database."
-	L_GLOBALSTRINGS["Cinematic or Movie Not Skipped"]											= "The cinematic or movie was intentionally NOT skipped!"
 	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else."
 	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
 	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed"
-	L_GLOBALSTRINGS["War Mode Reminder: Alliance"]												= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
-	L_GLOBALSTRINGS["War Mode Reminder: Horde"]													= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
 	-- End:		Text Output
 	--
-	-- Start:	Warning Text Output
-	L_GLOBALSTRINGS["Red WARNING"]																= "|cffFF0000WARNING:|r "
-	L_GLOBALSTRINGS["Reagent Data Missing"]														= "[|cffFF7900WARNING|r] Critical reagent data wasn't processed successfully. Please try again."
-	L_GLOBALSTRINGS["Locale Not Supported"]														= addonName .. " does NOT support " .. locale .. "! Please consider aiding in updating the addon to work for your language."
-	-- End:		Warning Text Output
-	--
-	-- Start:	Speech Creatures
-	L_GLOBALSTRINGS["Al'dalil"]																	= "Al'dalil"
-	L_GLOBALSTRINGS["Playful Trickster"]														= "Playful Trickster"
-	L_GLOBALSTRINGS["Trainer Ikaros"]															= "Trainer Ikaros"
-	-- End:		Speech Creatures
+	-- Start: 	Notifications
+	L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"] 									= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
+	L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"] 										= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
+	-- End: 	Notifications
 	--
 	-- Start:	Speech Text Checks
-	L_GLOBALSTRINGS["Playful Trickster: Praise"]												= "not so much as a word of praise!"
-	L_GLOBALSTRINGS["Playful Trickster: Cheer"]													= "the other spriggans were all cheering my name for days!"
-	L_GLOBALSTRINGS["Playful Trickster: Dance"]													= "dance with me!"
-	L_GLOBALSTRINGS["Playful Trickster: Introduce"]												= "introductions are an important part of first impressions!"
-	L_GLOBALSTRINGS["Playful Trickster: Thank"]													= "some ask permission, and always thank us for our trouble."
-	L_GLOBALSTRINGS["Playful Trickster: Flex"]													= "how strong he must have been!"
-	L_GLOBALSTRINGS["Al'dalil: Buttons 1"]														= "buttons! quickly, the buttons!"
-	L_GLOBALSTRINGS["Al'dalil: Buttons 2"]														= "start pressing buttons!"
-	L_GLOBALSTRINGS["Al'dalil: Lever 1"]														= "use the lever, maw walker!"
-	L_GLOBALSTRINGS["Al'dalil: Lever 2"]														= "pull on one of the levers!"
-	L_GLOBALSTRINGS["Al'dalil: Bonk 1"]															= "a sharp strike to the head always works!"
-	L_GLOBALSTRINGS["Al'dalil: Bonk 2"]															= "there are no operating instructions! try hitting it!"
-	L_GLOBALSTRINGS["Trainer Ikaros: Dodge"]													= "dodge"
-	L_GLOBALSTRINGS["Trainer Ikaros: Strike"]													= "strike"
-	L_GLOBALSTRINGS["Trainer Ikaros: Jab"]														= "jab"
-	L_GLOBALSTRINGS["Trainer Ikaros: Sweep"]													= "sweep"
-	L_GLOBALSTRINGS["Trainer Ikaros: Kick"]														= "kick"
-	L_GLOBALSTRINGS["Trainer Ikaros: Parry"]													= "parry"
-	L_GLOBALSTRINGS["Soul Eater: Shake"]														= "the soul eater tries to shake you off! hold on tightly!"
-	L_GLOBALSTRINGS["Soul Eater: Veer"]															= "the soul eater tries to veer away. give it a kick in the right direction!"
-	L_GLOBALSTRINGS["Soul Eater: Writhe"]														= "the soul eater writhes about. pull the reins to tire it!"
-	L_GLOBALSTRINGS["Taloned Flayedwing: Praise"]												= "the flayedwing is flying smoothly, praise them!"
-	L_GLOBALSTRINGS["Taloned Flayedwing: Scared"]												= "the flayedwing is scared, soothe it with gentle pats!"
-	L_GLOBALSTRINGS["Taloned Flayedwing: Shake"]												= "the flayedwing is trying to shake you off, hold on tight!"
+	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Praise"]											= "not so much as a word of praise!"
+	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Cheer"]											= "the other spriggans were all cheering my name for days!"
+	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Dance"]											= "dance with me!"
+	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Introduce"]										= "introductions are an important part of first impressions!"
+	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Thank"]											= "some ask permission, and always thank us for our trouble."
+	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Flex"]												= "how strong he must have been!"
+	L_GLOBALSTRINGS["Speech.Al'dalil.Buttons1"]													= "buttons! quickly, the buttons!"
+	L_GLOBALSTRINGS["Speech.Al'dalil.Buttons2"]													= "start pressing buttons!"
+	L_GLOBALSTRINGS["Speech.Al'dalil.Lever1"]													= "use the lever, maw walker!"
+	L_GLOBALSTRINGS["Speech.Al'dalil.Lever2"]													= "pull on one of the levers!"
+	L_GLOBALSTRINGS["Speech.Al'dalil.Bonk1"]													= "a sharp strike to the head always works!"
+	L_GLOBALSTRINGS["Speech.Al'dalil.Bonk2"]													= "there are no operating instructions! try hitting it!"
+	L_GLOBALSTRINGS["Speech.TrainerIkaros.Dodge"]												= "dodge"
+	L_GLOBALSTRINGS["Speech.TrainerIkaros.Strike"]												= "strike"
+	L_GLOBALSTRINGS["Speech.TrainerIkaros.Jab"]													= "jab"
+	L_GLOBALSTRINGS["Speech.TrainerIkaros.Sweep"]												= "sweep"
+	L_GLOBALSTRINGS["Speech.TrainerIkaros.Kick"]												= "kick"
+	L_GLOBALSTRINGS["Speech.TrainerIkaros.Parry"]												= "parry"
+	L_GLOBALSTRINGS["Speech.SoulEater.Shake"]													= "the soul eater tries to shake you off! hold on tightly!"
+	L_GLOBALSTRINGS["Speech.SoulEater.Veer"]													= "the soul eater tries to veer away. give it a kick in the right direction!"
+	L_GLOBALSTRINGS["Speech.SoulEater.Writhe"]													= "the soul eater writhes about. pull the reins to tire it!"
+	L_GLOBALSTRINGS["Speech.TalonedFlayedwing.Praise"]											= "the flayedwing is flying smoothly, praise them!"
+	L_GLOBALSTRINGS["Speech.TalonedFlayedwing.Scared"]											= "the flayedwing is scared, soothe it with gentle pats!"
+	L_GLOBALSTRINGS["Speech.TalonedFlayedwing.Shake"]											= "the flayedwing is trying to shake you off, hold on tight!"
 	-- End:		Speech Text Checks
 end
 

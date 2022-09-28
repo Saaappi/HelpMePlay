@@ -91,8 +91,8 @@ local junkerOptions = {
 						-- Import each item id into the table.
 						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT_ITEMLIST"] = {
 							text = L_GLOBALSTRINGS["Junker.Button.Import.CancelText"],
-							button1 = L_GLOBALSTRINGS["Add"],
-							button2 = L_GLOBALSTRINGS["Blacklist"],
+							button1 = L_GLOBALSTRINGS["Junker.Button.Import.AddText"],
+							button2 = L_GLOBALSTRINGS["Junker.Button.Import.BlacklistText"],
 							button3 = CANCEL,
 							OnAccept = function(self)
 								local count = 0

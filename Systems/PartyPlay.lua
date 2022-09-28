@@ -70,7 +70,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestAcceptedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestAcceptedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
 				if HelpMePlayDB.PartyPlayAutoShareEnabled then
 					if C_QuestLog.IsPushableQuest(questId) then
@@ -99,7 +99,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
 					-- The player abandoned the quest or
 					-- left the area (eg. world quests).
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestRemovedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestRemovedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
 				HelpMePlayCharacterQuestsDB[questId] = nil
 			end
@@ -117,7 +117,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestTurnedInText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestTurnedInText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
 			end
 		end
@@ -137,7 +137,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if supportedMsgType == msgType then
 					if isRegistered then
 						if HelpMePlayDB.PartyPlayAnnounceEnabled then
-							C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. msg)
+							C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. msg)
 						end
 					end
 				end
@@ -163,7 +163,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 								if progressPercent ~= questData.progressPercent then
 									if isRegistered then
 										if HelpMePlayDB.PartyPlayAnnounceEnabled then
-											C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. text .. " (" .. questData.title .. ")", "PARTY")
+											C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. text .. " (" .. questData.title .. ")", "PARTY")
 										end
 									end
 									questData.progressPercent = progressPercent

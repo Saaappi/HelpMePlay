@@ -28,10 +28,6 @@ for i=1,#supportedLocales do
 	end
 end
 
-if (isLocaleSupported == false) then
-	addonTable.Print(L_GLOBALSTRINGS["Red WARNING"] .. L_GLOBALSTRINGS["Locale Not Supported"] .. " @" .. L_GLOBALSTRINGS["Discord"])
-end
-
 if (isLocaleSupported) then
 	-- Dialog
 	L_DIALOG["Are you enjoying yourself?"]													= "Are you enjoying yourself?"

@@ -28,10 +28,6 @@ for i=1,#supportedLocales do
 	end
 end
 
-if (isLocaleSupported == false) then
-	addonTable.Print(L["Red WARNING"] .. L["Locale Not Supported"] .. " @" .. L["Discord"])
-end
-
 if (isLocaleSupported) then
 	L_WAYPOINTS["Waypoint: Treasure"]														= "Treasure"
 	L_WAYPOINTS["Waypoint: Explorer Doc"]													= "Explorer Doc"

@@ -175,7 +175,7 @@ end)
 
 HMPTransmogButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(L_GLOBALSTRINGS["Transmog Button"])
+	GameTooltip:SetText(L_GLOBALSTRINGS["TradeSkill.UI.Button.Inventory.Desc"])
 	GameTooltip:Show()
 end)
 
