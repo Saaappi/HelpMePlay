@@ -116,7 +116,7 @@ local questOptions = {
 		},
 		party_play_auto_share = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"],
-			order = 21,
+			order = 23,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.PartyPlayAutoShareEnabled end,

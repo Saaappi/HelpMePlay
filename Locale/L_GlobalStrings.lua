@@ -157,9 +157,9 @@ if (isLocaleSupported) then
 	-- Start: 	Party Play Toggles
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"
-	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"]										= "Uncheck this button if you don't want |cffFFD100Party Play|r to announce any of your activity."
+	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"]										= "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"]											= "Auto Share"
-	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"]										= "Uncheck this button if you don't want |cffFFD100Party Play|r to automatically share quests as you accept them."
+	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"]										= "Automatically share quests with party members as you accept them. For best results, your party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
 	-- End: 	Party Play Toggles
 	--
 	-- Start: 	Expansion Features Toggles
