@@ -162,6 +162,17 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"]										= "Automatically share quests with party members as you accept them. For best results, your party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
 	-- End: 	Party Play Toggles
 	--
+	-- Start: 	Party Play Output Text
+	L_GLOBALSTRINGS["PartyPlay.Output.Text.EnabledWarningText"] 								= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
+	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestTurnedInText"] 									= "Turned in"
+	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestAcceptedText"] 									= "Accepted"
+	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestRemovedText"] 									= "Removed"
+	-- End: 	Party Play Output Text
+	--
+	-- Start: 	Party Play Input Text
+	L_GLOBALSTRINGS["PartyPlay.Input.Text.AlreadyOnQuestText"] 									= "already on that quest."
+	-- End: 	Party Play Input Text
+	--
 	-- Start: 	Expansion Features Toggles
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"] 									= "Architect Table"
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"] 								= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
@@ -261,7 +272,6 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	UI Text Elements
 	L_GLOBALSTRINGS["Talents"]																	= "Talents"
-	L_GLOBALSTRINGS["Party Play"]																= "Party Play"
 	L_GLOBALSTRINGS["Import"]																	= "Import"
 	L_GLOBALSTRINGS["Add"]																		= "Add"
 	L_GLOBALSTRINGS["Blacklist"]																= "Blacklist"
@@ -288,12 +298,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else."
 	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
 	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed"
-	L_GLOBALSTRINGS["Party Play Enabled Warning Text"]											= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
 	L_GLOBALSTRINGS["War Mode Reminder: Alliance"]												= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
 	L_GLOBALSTRINGS["War Mode Reminder: Horde"]													= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
-	L_GLOBALSTRINGS["Quest Turned In Text"]														= "Turned in"
-	L_GLOBALSTRINGS["Quest Removed Text"]														= "Removed"
-	L_GLOBALSTRINGS["Quest Accepted Text"]														= "Accepted"
 	-- End:		Text Output
 	--
 	-- Start:	Warning Text Output
@@ -307,10 +313,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Playful Trickster"]														= "Playful Trickster"
 	L_GLOBALSTRINGS["Trainer Ikaros"]															= "Trainer Ikaros"
 	-- End:		Speech Creatures
-	--
-	-- Start:	In-Game Error Checks
-	L_GLOBALSTRINGS["Already on that quest."]													= "already on that quest."
-	-- End:		In-Game Error Checks
 	--
 	-- Start:	Speech Text Checks
 	L_GLOBALSTRINGS["Playful Trickster: Praise"]												= "not so much as a word of praise!"

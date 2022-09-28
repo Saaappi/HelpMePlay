@@ -12,7 +12,7 @@ local function Filter_ChatFrame(self, event, msg, author, ...)
 	-- I don't want the auto share feature to
 	-- report the "%s is already on that quest"
 	-- message to the chat frame.
-	if msg:find(L_GLOBALSTRINGS["Already on that quest."]) then
+	if msg:find(L_GLOBALSTRINGS["PartyPlay.Input.Text.AlreadyOnQuestText"]) then
 		return true
 	end
 end
@@ -53,7 +53,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GROUP_JOINED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		addonTable.Print(L_GLOBALSTRINGS["Party Play Enabled Warning Text"])
+		addonTable.Print(L_GLOBALSTRINGS["PartyPlay.Output.Text.EnabledWarningText"])
 	end
 	if event == "QUEST_ACCEPTED" then
 		-- Add the quest to the table.
@@ -70,7 +70,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Accepted Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestAcceptedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
 				if HelpMePlayDB.PartyPlayAutoShareEnabled then
 					if C_QuestLog.IsPushableQuest(questId) then
@@ -99,7 +99,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
 					-- The player abandoned the quest or
 					-- left the area (eg. world quests).
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Removed Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestRemovedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
 				HelpMePlayCharacterQuestsDB[questId] = nil
 			end
@@ -117,7 +117,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["Quest Turned In Text"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Addon Short Name"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestTurnedInText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
 				end
 			end
 		end
