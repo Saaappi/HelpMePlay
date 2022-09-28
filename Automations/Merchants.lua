@@ -51,24 +51,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 								local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)
 								for _, t in ipairs(addonTable.MERCHANTS[id]) do
 									if itemID == t.itemID then
-										if next(t["extendedCost"]) then
-											local currentQuantity = C_CurrencyInfo.GetCurrencyInfo(t["extendedCost"].currencyId).quantity
-											if currentQuantity > t["extendedCost"].amount then
-												if t["extendedCost"].checkForTransactionItem then
-													local count = GetItemCount(t.itemID, true)
-													if count == 0 then
-														BuyMerchantItem(i, t.quantity)
-														break
-													end
-												else
-													BuyMerchantItem(i, t.quantity)
-													break
-												end
-											end
-										else
-											BuyMerchantItem(i, t.quantity)
-											break
-										end
+										BuyMerchantItem(i, t.quantity)
+										break
 									end
 									break
 								end
