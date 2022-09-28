@@ -57,12 +57,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Add to Junker Global Blacklist"]											= "Add to Junker Global Blacklist"
 	-- End:		Keybinds
 	--
-	-- Start:	DropDowns
-	L_GLOBALSTRINGS["Item Level"]																= "Item Level"
-	L_GLOBALSTRINGS["Sell Price"]																= "Sell Price"
-	L_GLOBALSTRINGS["Disabled"]																	= "Disabled"
-	-- End: 	DropDowns
-	--
 	-- Start: 	Tabs
 	L_GLOBALSTRINGS["Tabs.General"] 															= "|T136243:0|t" .. " " .. "General" -- Icon: Engineering
 	L_GLOBALSTRINGS["Tabs.Features"] 															= "|T134152:0|t" .. " " .. "Features" -- Icon: Hertz Locker (Achievement)
@@ -174,6 +168,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.MALDRAXXUS"]								= "|T3551338:0|t" .. " " .. "Maldraxxus"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.REVENDRETH"]								= "|T3551339:0|t" .. " " .. "Revendreth"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.TORGHAST"]								= "|T3257863:0|t" .. " " .. "Torghast"
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"]										= "Quest Rewards"
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"]									= "Item Level"
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"]									= "Sell Price"
 	-- End: 	Quests DropDowns
 	--
 	-- Start: 	Party Play Toggles
@@ -291,9 +289,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Minimap Icon Subtext"]														= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
 	L_GLOBALSTRINGS["Talents Check Button"]														= "Suggests talents for your current specialization upon\nreaching talent levels. This setting also applies to talent\nsystems like |cffFFFFFFThe Box of Many Things|r.\n\n|cffCB453DNote|r: This feature won't output info if Logging is disabled."
 	L_GLOBALSTRINGS["Transmog Button"]															= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["Quest Rewards DropDown"]													= "|cffFFFFFFQuest Rewards|r\nAutomates how quest rewards are selected.\n\n|cffFFFFFFItem Level:|r Selects a reward with a higher item level.\n|cffFFFFFFSell Price:|r Selects the reward with the highest sell price and automatically adds it to Junker."
-	L_GLOBALSTRINGS["BFA Zone Selection DropDown"]												= "|cffFFFFFFBattle for Azeroth Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Boralus\nor Zuldazar."
-	L_GLOBALSTRINGS["SL Zone Selection DropDown"]												= "|cffFFFFFFShadowlands Zone Selection|r\nPick the zone you want the automation to\nselect from the adventure map in Oribos."
 	-- End:		Tooltip Text Elements
 	--
 	-- Start: 	Text Output

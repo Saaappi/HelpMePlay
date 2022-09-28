@@ -90,12 +90,12 @@ end)
 function HMP_CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
 	if numQuestChoices > 1 then
-		if HelpMePlayOptionsDB.Quests then
-			if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Disabled"] then return end
+		if HelpMePlayDB.CompleteQuestsEnabled then
+			if HelpMePlayDB.QuestRewardId == 0 or HelpMePlayDB.QuestRewardId == false or HelpMePlayDB.QuestRewardId == nil then return false end
 			
-			if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
+			if HelpMePlayDB.QuestRewardId == 1 then
 				itemLevels = {}
-			elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
+			elseif HelpMePlayDB.QuestRewardId == 2 then
 				sellPrices = {}
 			end
 			

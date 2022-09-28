@@ -58,9 +58,34 @@ local questOptions = {
 			order = 10,
 			type = "header",
 		},
-		chromietime_dropdown = {
-			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],
+		quest_reward_dropdown = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"],
 			order = 11,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"],
+				[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"],
+			},
+			sorting = { -- Sort the options chronologically by expansion.
+				[1] = 0, 	-- Disabled
+				[2] = 1, 	-- Item Level
+				[3] = 2, 	-- Sell Price
+			},
+			get = function()
+				if not HelpMePlayDB.QuestRewardId then
+					return 0
+				else
+					return HelpMePlayDB.QuestRewardId
+				end
+			end,
+			set = function(_, questRewardId) HelpMePlayDB.QuestRewardId = questRewardId end,
+		},
+		chromie_time_dropdown = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],
+			order = 12,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -73,8 +98,8 @@ local questOptions = {
 				[9] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"],
 				[10] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"],
 				[0] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"],
-				[11] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"],
-				[12] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"],
+				--[11] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"], (NYI)
+				--[12] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"], (NYI)
 			},
 			sorting = { -- Sort the options chronologically by expansion.
 				[1] = 99, 	-- Disabled
@@ -85,6 +110,8 @@ local questOptions = {
 				[6] = 9, 	-- WOD
 				[7] = 10, 	-- Legion
 				[8] = 0, 	-- BFA
+				--[9] = 11, -- SL (NYI)
+				--[10] = 12, -- DF (NYI)
 			},
 			get = function()
 				if not HelpMePlayDB.ChromieTimeId then
@@ -97,7 +124,7 @@ local questOptions = {
 		},
 		bfa_zone_selection_dropdown = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"],
-			order = 12,
+			order = 13,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -148,7 +175,7 @@ local questOptions = {
 		},
 		sl_zone_selection_dropdown = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"],
-			order = 13,
+			order = 14,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Desc"],
 			type = "select",
 			style = "dropdown",
