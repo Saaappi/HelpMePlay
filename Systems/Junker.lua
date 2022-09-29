@@ -177,7 +177,7 @@ GameTooltip:HookScript("OnTooltipSetItem", function(self)
 			self:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"])
 		elseif HelpMePlayJunkerBlacklistDB[itemId] then
 			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["JJunker.Tooltip.Text.Blacklisted"])
+			self:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"])
 		end
 	end
 end)
