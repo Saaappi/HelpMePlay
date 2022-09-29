@@ -8,24 +8,37 @@ local main = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		festive_text = {
+			name = function()
+				if date("%m") == "10" then
+					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"]
+				elseif date("%m") == "12" then
+					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"]
+				else
+					return ""
+				end
+			end,
+			order = 0,
+			type = "description",
+		},
 		about_header = {
 			name = L_GLOBALSTRINGS["Header.About"],
-			order = 0,
+			order = 1,
 			type = "header",
 		},
 		versionText = {
 			name = L_GLOBALSTRINGS["MainOptions.Version"],
-			order = 1,
+			order = 2,
 			type = "description",
 		},
 		authorText = {
 			name = L_GLOBALSTRINGS["MainOptions.Author"],
-			order = 2,
+			order = 3,
 			type = "description",
 		},
 		contactText = {
 			name = L_GLOBALSTRINGS["MainOptions.Contact"],
-			order = 3,
+			order = 4,
 			type = "description",
 		},
 		resources_header = {

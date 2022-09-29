@@ -72,6 +72,8 @@ if (isLocaleSupported) then
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions
+	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|T236545:0|t" .. " " .. "Happy |cffF99943Hallow's End|r!" .. " " .. "Good luck on your" .. " " .. "|cffa335ee|Hitem:37012::::::::60:73:::::::::|h[The Horseman's Reins]|h|r" .. " " .. "this year!" .. " " .. "|T236545:0|t"
+	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|T133169:0|t" .. " " .. "Merry |cff3EA425Winter Veil|r!" .. " " .. "'Tis the season to be jolly! Fa-la-la-la-la-Ogri'la! Good luck on your" .. " " .. "|cffa335ee|Hitem:128671::::::::60:73:::::::::|h[Minion of Grumpus]|h|r" .. " " .. "this year!" .. " " .. "|T133170:0|t"
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
