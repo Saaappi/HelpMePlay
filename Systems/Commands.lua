@@ -56,7 +56,7 @@ local function Dialog(gossip)
 			local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
 			if index ~= 0 then
 				table.remove(HelpMePlayPlayerDialogDB[npcId]["g"], index)
-				addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+				addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
 			else
 				table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
 			end
@@ -65,7 +65,7 @@ local function Dialog(gossip)
 		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
 		if index ~= 0 then
 			table.remove(HelpMePlayPlayerDialogDB, index)
-			addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+			addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
 		else
 			table.insert(HelpMePlayPlayerDialogDB[0]["g"], gossip)
 		end
@@ -87,7 +87,7 @@ local function Confirm(gossip)
 				local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
 				if index ~= 0 then
 					table.remove(HelpMePlayPlayerDialogDB[npcId]["c"], index)
-					addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+					addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
 				else
 					table.insert(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
 				end
@@ -97,7 +97,7 @@ local function Confirm(gossip)
 		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
 		if index ~= 0 then
 			table.remove(HelpMePlayPlayerDialogDB, index)
-			addonTable.Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Dialog Removed"], gossip))
+			addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
 		else
 			table.insert(HelpMePlayPlayerDialogDB, gossip)
 		end
@@ -113,11 +113,11 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			InterfaceAddOnsList_Update()
 			InterfaceOptionsFrame_OpenToCategory(addonTable.mainOptions)
 		end
-	elseif cmd == L_GLOBALSTRINGS["Dialog Command"] and arg1 ~= nil then
+	elseif cmd == L_GLOBALSTRINGS["Command.Dialog"] and arg1 ~= nil then
 		Dialog(arg1)
-	elseif cmd == L_GLOBALSTRINGS["Confirm Command"] and arg1 ~= nil then
+	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] and arg1 ~= nil then
 		Confirm(arg1)
-	elseif cmd == L_GLOBALSTRINGS["Quest Command"] and arg1 ~= nil then
+	elseif cmd == L_GLOBALSTRINGS["Command.Quest"] and arg1 ~= nil then
 		-- A shorthand way to check if a given quest has
 		-- been completed by the current player.
 		--
@@ -126,8 +126,8 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		if tonumber(arg1) then
 			self:Print(tostring(C_QuestLog.IsQuestFlaggedCompleted(arg1)))
 		end
-	elseif cmd == L_GLOBALSTRINGS["Ignore Command"] and arg1 ~= nil and arg2 ~= nil then
-		if arg1 == L_GLOBALSTRINGS["Ignore NPC"] then
+	elseif cmd == L_GLOBALSTRINGS["Command.Ignore"] and arg1 ~= nil and arg2 ~= nil then
+		if arg1 == L_GLOBALSTRINGS["Command.Subcommand.Ignore.NPC"] then
 			local npcId = tonumber(arg2)
 			if npcId then
 				if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
@@ -148,7 +148,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 					end
 				end
 			end
-		elseif arg1 == L_GLOBALSTRINGS["Quest Command"] then
+		elseif arg1 == L_GLOBALSTRINGS["Command.Quest"] then
 			local questId = tonumber(arg2)
 			if questId then
 				if HelpMePlayIgnoredQuestsDB[questId] == nil then
@@ -158,11 +158,11 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end
 			end
 		end
-	elseif cmd == L_GLOBALSTRINGS["Junker Command"] and arg1 ~= nil and arg2 ~= nil then
+	elseif cmd == L_GLOBALSTRINGS["Command.Junker"] and arg1 ~= nil and arg2 ~= nil then
 		local count = 0
 		arg2 = addonTable.StringToTable(arg2, " ")
 		for _, item in ipairs(arg2) do
-			if arg1 == L_GLOBALSTRINGS["Add Subcommand"] then
+			if arg1 == L_GLOBALSTRINGS["Command.Subcommand.Junker.Add"] then
 				if HelpMePlayJunkerDB[item] then
 					HelpMePlayJunkerDB[item] = nil
 				else
@@ -170,7 +170,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 					HelpMePlayJunkerDB[item] = true
 					count = count + 1
 				end
-			elseif arg1 == L_GLOBALSTRINGS["Blacklist Subcommand"] then
+			elseif arg1 == L_GLOBALSTRINGS["Command.Subcommand.Junker.Blacklist"] then
 				if HelpMePlayJunkerBlacklistDB[item] then
 					HelpMePlayJunkerBlacklistDB[item] = nil
 				else
@@ -180,17 +180,8 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end
 			end
 		end
-		self:Print(string.format(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
-	elseif cmd == L_GLOBALSTRINGS["Reset Command"] then
-		-- Let's reset the position to the original position
-		-- defined by the addon.
-		if HelpMePlayOptionsDB.point then
-			HelpMePlayOptionsDB.point = "CENTER"
-			HelpMePlayOptionsDB.relativePoint = "CENTER"
-			HelpMePlayOptionsDB.xOffs = 0
-			HelpMePlayOptionsDB.yOffs = 325
-		end
+		self:Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
-		self:Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Reset Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
+		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
 end

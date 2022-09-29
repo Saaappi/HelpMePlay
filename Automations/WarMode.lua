@@ -22,9 +22,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local _, newLevel = ...
 		if newLevel == 20 then
 			if UnitFactionGroup("player") == "Alliance" then
-				addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"])
+				addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"])
 			else
-				addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"])
+				addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"])
 			end
 		end
 	end

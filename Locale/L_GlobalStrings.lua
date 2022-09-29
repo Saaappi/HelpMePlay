@@ -29,28 +29,27 @@ end
 
 if (isLocaleSupported) then
 	-- Start: 	Commands
-	L_GLOBALSTRINGS["Slash HMP"]																= "hmp"
-	L_GLOBALSTRINGS["Confirm Command"]															= "confirm"
-	L_GLOBALSTRINGS["Dialog Command"]															= "dialog"
-	L_GLOBALSTRINGS["Ignore Command"]															= "ignore"
-	L_GLOBALSTRINGS["Quest Command"]															= "quest"
-	L_GLOBALSTRINGS["Junker Command"]															= "junker"
-	L_GLOBALSTRINGS["Help Command"]																= "help"
-	L_GLOBALSTRINGS["Reset Command"]															= "reset"
-	L_GLOBALSTRINGS["Add Subcommand"]															= "add"
-	L_GLOBALSTRINGS["Blacklist Subcommand"]														= "blacklist"
+	L_GLOBALSTRINGS["Command.Slash1"]															= "hmp"
+	L_GLOBALSTRINGS["Command.Confirm"] 															= "confirm"
+	L_GLOBALSTRINGS["Command.Dialog"] 															= "dialog"
+	L_GLOBALSTRINGS["Command.Ignore"] 															= "ignore"
+	L_GLOBALSTRINGS["Command.Quest"] 															= "quest"
+	L_GLOBALSTRINGS["Command.Junker"] 															= "junker"
+	L_GLOBALSTRINGS["Command.Help"] 															= "help"
 	-- End: 	Commands
+	--
 	-- Start:	Subcommands
-	L_GLOBALSTRINGS["Ignore NPC"]																= "npc"
+	L_GLOBALSTRINGS["Command.Subcommand.Ignore.NPC"]											= "npc"
+	L_GLOBALSTRINGS["Command.Subcommand.Junker.Add"] 											= "add"
+	L_GLOBALSTRINGS["Command.Subcommand.Junker.Blacklist"] 										= "blacklist"
 	-- End:		Subcommands
 	--
 	-- Start:	Keybinds
-	L_GLOBALSTRINGS["Open Settings"]															= "Open Settings"
-	L_GLOBALSTRINGS["Calculate Reagents"]														= "Calculate Reagents"
-	L_GLOBALSTRINGS["Add to Junker"]															= "Add to Junker"
-	L_GLOBALSTRINGS["Add to Junker Global"]														= "Add to Junker Global"
-	L_GLOBALSTRINGS["Add to Junker Blacklist"]													= "Add to Junker Blacklist"
-	L_GLOBALSTRINGS["Add to Junker Global Blacklist"]											= "Add to Junker Global Blacklist"
+	L_GLOBALSTRINGS["Keybind.OpenSettings"]														= "Open Settings"
+	L_GLOBALSTRINGS["Keybind.Junker.Add"]														= "Add to Junker"
+	L_GLOBALSTRINGS["Keybind.Junker.Add.Global"]												= "Add to Junker Global"
+	L_GLOBALSTRINGS["Keybind.Junker.Blacklist"]													= "Add to Junker Blacklist"
+	L_GLOBALSTRINGS["Keybind.Junker.Blacklist.Global"]											= "Add to Junker Global Blacklist"
 	-- End:		Keybinds
 	--
 	-- Start: 	Tabs
@@ -285,12 +284,11 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Text Output
 	L_GLOBALSTRINGS["Text.Output.Acronym"]														= "HMP"
-	L_GLOBALSTRINGS["Colored Addon Name"]														= "|cff00FFFF"..addonName.."|r"
-	L_GLOBALSTRINGS["Available Commands"]														= "|cffFFFFFFAvailable Commands|r"
-	L_GLOBALSTRINGS["Dialog Removed"]															= "Removed \"%s\" from database."
-	L_GLOBALSTRINGS["Prequisite Talent Being Researched"]										= "There is a prerequisite talent being researched. Please come back later or research something else."
-	L_GLOBALSTRINGS["Talent Purchase Text"]														= "Purchase the following talent: "
-	L_GLOBALSTRINGS["Talent Not Enough Currency Text"]											= "You need more currency! Amount Needed"
+	L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"]												= "|cff00FFFF"..addonName.."|r"
+	L_GLOBALSTRINGS["Text.Output.DialogRemoved"]												= "Removed \"%s\" from database."
+	L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"]											= "You need more currency! Amount Needed"
+	L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"]							= "There is a prerequisite talent being researched. Please come back later or research something else."
+	L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"]											= "Purchase the following talent: "
 	-- End:		Text Output
 	--
 	-- Start: 	Notifications

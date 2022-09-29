@@ -180,7 +180,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			addonTable.HideTooltip(self)
 		end)
 		HMPProfessionCalculateButton:SetScript("OnClick", function(self)
-			addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"])
+			addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"])
 			CalculateReagents()
 		end)
 	end

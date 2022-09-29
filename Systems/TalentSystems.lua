@@ -31,9 +31,9 @@ local function CheckTalents(talentTree, currencyId)
 								-- send a spell link to the chat frame.
 								-- If not, then use the perk name.
 								if v.print == "spell" and talentInfo.perkSpellID ~= 0 then
-									addonTable.Print(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
+									addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 								else
-									addonTable.Print(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
+									addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 								end
 							else
 								-- Let's do some quick math to determine
@@ -44,7 +44,7 @@ local function CheckTalents(talentTree, currencyId)
 								hours, minutes = string.split(".", tostring(prerequisiteTalentId.timeRemaining / 3600))
 								minutes, seconds = string.split(".", tonumber(("0."..minutes) * 60))
 								seconds = string.split(".", tonumber(("0."..seconds) * 60))
-								addonTable.Print(L_GLOBALSTRINGS["Prequisite Talent Being Researched"] .. " |T" .. prerequisiteTalentId.icon .. ":0|t |cffEFC503" .. prerequisiteTalentId.name .. "|r: " .. hours .. ":" .. minutes .. ":" .. seconds)
+								addonTable.Print(L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"] .. " |T" .. prerequisiteTalentId.icon .. ":0|t |cffEFC503" .. prerequisiteTalentId.name .. "|r: " .. hours .. ":" .. minutes .. ":" .. seconds)
 							end
 						else
 							if talentInfo.talentAvailability == 0 then
@@ -54,12 +54,12 @@ local function CheckTalents(talentTree, currencyId)
 								-- send a spell link to the chat frame.
 								-- If not, then use the perk name.
 								if v.print == "spell" and talentInfo.perkSpellID ~= 0 then
-									addonTable.Print(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
+									addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 								else
-									addonTable.Print(L_GLOBALSTRINGS["Talent Purchase Text"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
+									addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 								end
 							else
-								addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Prequisite Talent Being Researched"])
+								addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"])
 							end
 						end
 						
@@ -69,7 +69,7 @@ local function CheckTalents(talentTree, currencyId)
 						-- currency the player
 						-- will need for the next talent,
 						-- then break from the loop.
-						addonTable.Print(L_GLOBALSTRINGS["Colored Addon Name"] .. ": " .. L_GLOBALSTRINGS["Talent Not Enough Currency Text"] .. ": " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
+						addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"] .. ": " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
 						return
 					end
 				end

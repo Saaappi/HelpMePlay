@@ -19,7 +19,7 @@ function HelpMePlay:MinimapIcon(bool)
 				type = "launcher",
 				icon = "Interface\\Icons\\achievement_reputation_08",
 				OnTooltipShow = function(tooltip)
-					tooltip:SetText(L_GLOBALSTRINGS["Colored Addon Name"] .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:SetText(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
 					tooltip:AddLine(L_GLOBALSTRINGS["Minimap.UI.Button.SubText"])
 					tooltip:Show()
 				end,
