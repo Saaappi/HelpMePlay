@@ -11,14 +11,15 @@ local main = {
 		festive_text = {
 			name = function()
 				if date("%m") == "10" then
-					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"]
+					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd.Icon"] .. L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd.Text"]
 				elseif date("%m") == "12" then
-					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"]
+					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil.Icon"] .. L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil.Text"]
 				else
 					return ""
 				end
 			end,
 			order = 0,
+			fontSize = "medium",
 			type = "description",
 		},
 		about_header = {
