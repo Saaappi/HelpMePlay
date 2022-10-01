@@ -1,9 +1,7 @@
 local addonName, addonTable = ...
-local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local numTabs = 4
 local icon = ""
 
 function HelpMePlay:MinimapIcon(bool)
@@ -17,7 +15,7 @@ function HelpMePlay:MinimapIcon(bool)
 			-- information for the minimap icon.
 			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
 				type = "launcher",
-				icon = "Interface\\Icons\\achievement_reputation_08",
+				icon = "236688", -- 100 Exalted Reputations (Achievement)
 				OnTooltipShow = function(tooltip)
 					tooltip:SetText(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
 					tooltip:AddLine(L_GLOBALSTRINGS["Minimap.UI.Button.SubText"])
@@ -28,7 +26,7 @@ function HelpMePlay:MinimapIcon(bool)
 			
 			-- Register the minimap button with the
 			-- LDB.
-			icon:Register(addonName, iconLDB, HelpMePlayOptionsDB)
+			icon:Register(addonName, iconLDB, HelpMePlayDB)
 			icon:Show(addonName)
 		end
 	else
