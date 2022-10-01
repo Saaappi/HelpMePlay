@@ -51,9 +51,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
 		local addonLoaded = ...
 		if addonLoaded == addonName then
-			if HelpMePlayOptionsDB == nil then
-				HelpMePlayOptionsDB = {}
-			end
 			if HelpMePlayIgnoredCreaturesDB == nil then
 				HelpMePlayIgnoredCreaturesDB = {}
 			end
@@ -85,9 +82,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 			if HelpMePlayJunkerGlobalBlacklistDB == nil then
 				HelpMePlayJunkerGlobalBlacklistDB = {}
-			end
-			if HelpMePlayOptionsDB.MinimapIcon then
-				HelpMePlayShowMinimapIcon(true)
 			end
 		end
 	end
