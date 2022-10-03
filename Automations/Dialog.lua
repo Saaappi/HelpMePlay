@@ -289,7 +289,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.DialogEnabled == false or HelpMePlayDB.DialogEnabled == nil then return false end
 		local _, message = ...
-		if HelpMePlayOptionsDB.Dialog == false or HelpMePlayOptionsDB.Dialog == nil then return end
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
@@ -304,7 +303,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
 		local activeQuests = C_GossipInfo.GetActiveQuests()
-		if HelpMePlayOptionsDB.Quests then
+		if HelpMePlayDB.AcceptQuests then
 			if next(activeQuests) then
 				CheckActiveQuests(activeQuests)
 			elseif numAvailableQuests > 0 then
