@@ -113,6 +113,41 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			InterfaceAddOnsList_Update()
 			InterfaceOptionsFrame_OpenToCategory(addonTable.mainOptions)
 		end
+	elseif cmd == "1" then
+		if InterfaceOptionsFrame:IsVisible() then
+			InterfaceOptionsFrameOkay:Click()
+		else
+			InterfaceAddOnsList_Update()
+			InterfaceOptionsFrame_OpenToCategory(addonTable.generalOptions)
+		end
+	elseif cmd == "2" then
+		if InterfaceOptionsFrame:IsVisible() then
+			InterfaceOptionsFrameOkay:Click()
+		else
+			InterfaceAddOnsList_Update()
+			InterfaceOptionsFrame_OpenToCategory(addonTable.featuresOptions)
+		end
+	elseif cmd == "3" then
+		if InterfaceOptionsFrame:IsVisible() then
+			InterfaceOptionsFrameOkay:Click()
+		else
+			InterfaceAddOnsList_Update()
+			InterfaceOptionsFrame_OpenToCategory(addonTable.questOptions)
+		end
+	elseif cmd == "4" then
+		if InterfaceOptionsFrame:IsVisible() then
+			InterfaceOptionsFrameOkay:Click()
+		else
+			InterfaceAddOnsList_Update()
+			InterfaceOptionsFrame_OpenToCategory(addonTable.expansionFeatures)
+		end
+	elseif cmd == "5" then
+		if InterfaceOptionsFrame:IsVisible() then
+			InterfaceOptionsFrameOkay:Click()
+		else
+			InterfaceAddOnsList_Update()
+			InterfaceOptionsFrame_OpenToCategory(addonTable.junkerOptions)
+		end
 	elseif cmd == L_GLOBALSTRINGS["Command.Dialog"] and arg1 ~= nil then
 		Dialog(arg1)
 	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] and arg1 ~= nil then

@@ -12,19 +12,19 @@ function HelpMePlay:OnInitialize()
 	self:RegisterChatCommand(L_GLOBALSTRINGS["Command.Slash1"], "SlashCommandHandler")
 	
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_GeneralOptions", addonTable.generalOptions)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_GeneralOptions", L_GLOBALSTRINGS["Tabs.General"], addonName)
+	self.generalOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_GeneralOptions", L_GLOBALSTRINGS["Tabs.General"], addonName); addonTable.generalOptions = self.generalOptions
 	
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_FeaturesOptions", addonTable.featuresOptions)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_FeaturesOptions", L_GLOBALSTRINGS["Tabs.Features"], addonName)
+	self.featuresOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_FeaturesOptions", L_GLOBALSTRINGS["Tabs.Features"], addonName); addonTable.featuresOptions = self.featuresOptions
 	
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_QuestOptions", addonTable.questOptions)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_QuestOptions", L_GLOBALSTRINGS["Tabs.Quests"], addonName)
+	self.questOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_QuestOptions", L_GLOBALSTRINGS["Tabs.Quests"], addonName); addonTable.questOptions = self.questOptions
 	
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_ExpansionFeatures", addonTable.expansionFeatures)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ExpansionFeatures", L_GLOBALSTRINGS["Tabs.ExpansionFeatures"], addonName)
+	self.expansionFeatures = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ExpansionFeatures", L_GLOBALSTRINGS["Tabs.ExpansionFeatures"], addonName); addonTable.expansionFeatures = self.expansionFeatures
 	
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Junker", addonTable.junkerOptions)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Junker", L_GLOBALSTRINGS["Tabs.Junker"], addonName)
+	self.junkerOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Junker", L_GLOBALSTRINGS["Tabs.Junker"], addonName); addonTable.junkerOptions = self.junkerOptions
 	
 	-- Default Options
 	if HelpMePlayDB == nil then
