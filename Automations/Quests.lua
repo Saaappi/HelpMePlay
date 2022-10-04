@@ -132,7 +132,7 @@ function HMP_CompleteQuest()
 							
 							questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
 							_, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
-							if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Item Level"] then
+							if HelpMePlayDB.QuestRewardId == 1 then
 								if equipLoc == "INVTYPE_FINGER" then
 									for j = 11, 12 do
 										equippedItemItemLink = GetInventoryItemLink("player", j)
@@ -198,7 +198,7 @@ function HMP_CompleteQuest()
 										break
 									end
 								end
-							elseif HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
+							elseif HelpMePlayDB.QuestRewardId == 2 then
 								if sellPrice > 0 then
 									local totalSellPrice = 0
 									local phSellPrice = quantity*sellPrice
@@ -219,7 +219,7 @@ function HMP_CompleteQuest()
 						-- reward automation is told to pick the reward by sell price, then
 						-- automatically add the item to the GLOBAL Junker table.
 						GetQuestReward(bestItemIndex)
-						if HelpMePlayOptionsDB.QuestRewards == L_GLOBALSTRINGS["Sell Price"] then
+						if HelpMePlayDB.QuestRewardId == 2 then
 							HelpMePlayJunkerGlobalDB[itemId] = true
 						end
 					end
