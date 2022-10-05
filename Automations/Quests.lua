@@ -487,7 +487,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		for i=1, C_QuestLog.GetNumQuestLogEntries() do
 			local id = C_QuestLog.GetQuestIDForLogIndex(i)
 			if id == questId and HelpMePlayIgnoredQuestsDB[questId] then
-				SelectQuestLogEntry(i)
+				C_QuestLog.SetSelectedQuest(id)
 				SetAbandonQuest()
 				AbandonQuest()
 			end
