@@ -312,6 +312,9 @@ local function QUEST_GREETING()
 			end
 		end
 		for i=1, GetNumAvailableQuests() do
+			local _, _, _, _, questId = GetAvailableQuestInfo(i)
+			if HelpMePlayIgnoredQuestsDB[questId] then return end
+			
 			SelectAvailableQuest(i)
 		end
 	end
