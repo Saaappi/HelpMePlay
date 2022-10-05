@@ -42,6 +42,7 @@ Data\GarrisonDB.lua
 Data\QuestItemDB.lua
 Data\VehicleDB.lua
 Data\NotesDB.lua
+Data\CovenantsDB.lua
 Data\PlayerChoiceDB.lua
 Data\SpeechDB.lua
 Data\QuestRewardsDB.lua
