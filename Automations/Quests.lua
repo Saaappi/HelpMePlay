@@ -472,7 +472,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			AutoQuestPopupTracker_RemovePopUp(questId)
-			ObjectiveTrackerFrame.HeaderMenu.MinimizeButton:Click()
 		end)
 
 		if select(2, IsAddOnLoaded("Immersion")) then
