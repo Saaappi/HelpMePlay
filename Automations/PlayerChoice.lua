@@ -54,6 +54,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 						elseif HelpMePlayDB.CovenantId == 4 then
 							SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
+						elseif HelpMePlayDB.CovenantId == 5 then
+							local _, _, classId = UnitClass("player")
+							local specIndex = GetSpecialization()
+							local specId = GetSpecializationInfo(specIndex)
+							
+							SendPlayerChoiceResponse(choiceInfo.options[addonTable.COVENANTS_BY_SPEC[classId][specId]].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
 						end
 					end
 				else

@@ -118,13 +118,15 @@ local featuresOptions = {
 				[2] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Venthyr"],
 				[3] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"],
 				[4] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"],
+				[5] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Auto"],
 			},
 			sorting = {
 				[1] = 0, 	-- Disabled
-				[2] = 1, 	-- Kyrian
-				[3] = 3, 	-- Necrolord
-				[4] = 4, 	-- Night Fae
-				[5] = 2, 	-- Venthyr
+				[2] = 5, 	-- Auto
+				[3] = 1, 	-- Kyrian
+				[4] = 3, 	-- Necrolord
+				[5] = 4, 	-- Night Fae
+				[6] = 2, 	-- Venthyr
 			},
 			get = function()
 				if not HelpMePlayDB.CovenantId then

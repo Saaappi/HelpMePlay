@@ -120,7 +120,8 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Features DropDowns
 	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Title"] 										= "Covenants"
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Desc"] 										= "Automates the Covenant to select when interacting with board in Oribos."
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Desc"] 										= "Automates the Covenant to select when interacting with board in Oribos.\n\nIf you select |cffFFD100Auto|r, then HelpMePlay will select your covenant based on your class and specialization."
+	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Auto"] 										= "Auto"
 	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Kyrian"] 										= "|T3257748:0|t" .. " " .. "Kyrian"
 	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"] 									= "|T3257749:0|t" .. " " .. "Necrolord"
 	L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"] 									= "|T3257750:0|t" .. " " .. "Night Fae"
