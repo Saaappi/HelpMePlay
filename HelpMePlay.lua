@@ -38,14 +38,6 @@ function HelpMePlay:OnInitialize()
 	end
 end
 
-function HelpMePlay:OnEnable()
-	-- Called when the addon is enabled
-end
-
-function HelpMePlay:OnDisable()
-	-- Called when the addon is disabled
-end
-
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
@@ -82,6 +74,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 			if HelpMePlayJunkerGlobalBlacklistDB == nil then
 				HelpMePlayJunkerGlobalBlacklistDB = {}
+			end
+			if HelpMePlayDB.TheMawEnabled == nil then
+				HelpMePlayDB.TheMawEnabled = false
 			end
 		end
 	end
