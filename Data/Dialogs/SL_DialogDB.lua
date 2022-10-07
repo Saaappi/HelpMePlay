@@ -18,34 +18,6 @@ local DIALOG_SL = {
 			},
 		},
 	},
-	[169501] = { -- Shadowlands Wormhole
-		["g"] = {
-			{
-				["text"] 		= L_DIALOG["Wormhole: Revendreth, Court of the Venthyr"],
-				["condition"] 	= "level.equal",
-				["level"] 		= 51,
-				["index"]		= 5,
-			},
-			{
-				["text"] 		= L_DIALOG["Wormhole: Ardenweald, Forest of the Night Fae"],
-				["condition"] 	= "level.equal",
-				["level"] 		= 54,
-				["index"]		= 4,
-			},
-			{
-				["text"] 		= L_DIALOG["Wormhole: Maldraxxus, Citadel of the Necrolords"],
-				["condition"] 	= "level.equal",
-				["level"] 		= 57,
-				["index"]		= 3,
-			},
-			{
-				["text"] 		= L_DIALOG["Wormhole: Bastion, Home of the Kyrian"],
-				["condition"] 	= "level.equal",
-				["level"] 		= 59,
-				["index"]		= 2,
-			},
-		},
-	},
 	-- Oribos
 	[159478] = { -- Tal-Inara
 		["g"] = {
@@ -1318,16 +1290,16 @@ local DIALOG_SL = {
 	[160163] = { -- The Accuser
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["The Accuser 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[160233] = { -- The Accuser
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["The Accuser 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
