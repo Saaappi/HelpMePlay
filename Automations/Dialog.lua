@@ -26,6 +26,7 @@ local function GetParentMapID(mapId)
 			parentMapId = mapInfo.mapID
 		end
 	end
+	return parentMapId
 end
 
 local function SelectGossipOption(options, npcId, parentMapId)
