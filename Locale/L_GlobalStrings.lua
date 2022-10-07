@@ -139,6 +139,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in or out of Threads of Fate for Shadowlands.\n\n|cffFFD100Checked|r: Threads of Fate\n|cffFFD100Unchecked|r: Story"
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"] 												= "Adventure Maps"
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
+	L_GLOBALSTRINGS["Quests.Toggle.TheMaw"] 													= "The Maw"
+	L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"] 												= "Toggles whether or not the addon should choose The Maw or skip it.\n\n|cffFFD100Checked|r: Do The Maw\n|cffFFD100Unchecked|r: Skip The Maw"
 	-- End: 	Quests Toggles
 	--
 	-- Start: 	Quests DropDowns

@@ -153,8 +153,8 @@ local DIALOG_BFA = {
 	[137066] = { -- 7th Legion Magus
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["7th Legion Magus 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},

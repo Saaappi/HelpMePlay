@@ -96,6 +96,11 @@ local function SelectGossipOption(options, npcId, parentMapId)
 					if C_QuestLog.IsOnQuest(gossip.q) then
 						C_GossipInfo.SelectOption(gossip.o)
 					end
+				elseif gossip.c == "addon.setting" then
+					if HelpMePlayDB[gossip.s] == gossip.r then
+						C_GossipInfo.SelectOption(gossip.o)
+						return
+					end
 				end
 			end
 		end
@@ -165,6 +170,11 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 			elseif gossip.condition == "quest.active" then
 				if C_QuestLog.IsOnQuest(gossip.q) then
 					C_GossipInfo.SelectOption(index)
+					return
+				end
+			elseif gossip.c == "addon.setting" then
+				if HelpMePlayDB[gossip.s] == gossip.r then
+					C_GossipInfo.SelectOption(gossip.o)
 					return
 				end
 			end
