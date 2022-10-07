@@ -50,8 +50,8 @@ local DIALOG_SL = {
 	[159478] = { -- Tal-Inara
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Tal-Inara 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 			{
 				["text"] 		= L_DIALOG["Tal-Inara 2"],
@@ -118,8 +118,8 @@ local DIALOG_SL = {
 	[174871] = { -- Fatescribe Roh-Tahl
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Fatescribe Roh-Tahl 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},

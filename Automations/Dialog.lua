@@ -124,18 +124,18 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 	if HelpMePlayPlayerDialogDB[npcId] then
 		if HelpMePlayPlayerDialogDB[npcId]["c"] then
 			for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
-				if string.find(string.lower(message), string.lower(text)) then
+				--[[if string.find(string.lower(message), string.lower(text)) then
 					StaticPopup1Button1:Click("LeftButton")
 					return
-				end
+				end]]
 			end
 		end
 	else
 		for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-			if string.find(string.lower(message), string.lower(text)) then
+			--[[if string.find(string.lower(message), string.lower(text)) then
 				StaticPopup1Button1:Click("LeftButton")
 				return
-			end
+			end]]
 		end
 	end
 	
@@ -143,10 +143,10 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 	if dialogTable[npcId] then
 		for id, gossip in pairs(dialogTable[npcId]["c"]) do
 			if gossip.condition == "none" then
-				if string.find(string.lower(message), string.lower(gossip.text)) then
+				--[[if string.find(string.lower(message), string.lower(gossip.text)) then
 					StaticPopup1Button1:Click("LeftButton")
 					return
-				end
+				end]]
 			elseif gossip.condition == "level.higher" then
 				if UnitLevel("player") > gossip.l then
 					StaticPopup1Button1:Click("LeftButton")

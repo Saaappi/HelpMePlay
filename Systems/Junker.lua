@@ -131,15 +131,6 @@ function HelpMePlaySellItems()
 									end
 								end
 							end
-						else
-							if HelpMePlayJunkerGlobalDB[itemId] or HelpMePlayJunkerDB[itemId] then
-								print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.Junker.ItemWithoutSellPrice"])
-								WorldFrame:HookScript("OnMouseDown", function()
-									PickupContainerItem(bagId, slotId)
-									DeleteCursorItem()
-									return
-								end)
-							end
 						end
 					end
 				end
