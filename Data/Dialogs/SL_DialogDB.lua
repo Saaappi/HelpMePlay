@@ -1976,8 +1976,8 @@ local DIALOG_SL = {
 	[175127] = { -- Wayfinder
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Wayfinder 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
@@ -2000,168 +2000,168 @@ local DIALOG_SL = {
 	[168979] = { -- Meatball
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[167839] = { -- Partially-Infused Soul Remnant
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Partially-Infused Soul Remnant 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[166123] = { -- Indigo
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[152418] = { -- Gallath
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[166151] = { -- Moriaz the Red
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[171920] = { -- Ayeleth
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[171901] = { -- Kaletar
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["I will free you."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[172264] = { -- Yira'lya
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["I will free you."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[172261] = { -- Chalkyth
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[157426] = { -- Indri the Treesinger
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[178932] = { -- Ve'lor the Messenger
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[166147] = { -- Calix
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[157406] = { -- Renavyth
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["I will assist you."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[166148] = { -- Sawn
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["I will assist you."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[172244] = { -- Blisswing
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[171996] = { -- Kythekios
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[179671] = { -- Ella
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[179669] = { -- Spore of Marasmius
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[172260] = { -- Karynmwylyann
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[157432] = { -- Bloodletter Phantoriax
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},
 	[171867] = { -- Dug Gravewell
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Yes, I will help."],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},

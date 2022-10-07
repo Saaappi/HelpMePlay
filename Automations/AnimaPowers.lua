@@ -198,7 +198,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 
 					if responseId ~= 0 then
-						if HHelpMePlayDB.TorghastPowersId == 1 then
+						if HelpMePlayDB.TorghastPowersId == 1 then
 							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
 							highestPriority = 9
 						else
