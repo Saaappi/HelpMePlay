@@ -145,8 +145,8 @@ local DIALOG_BFA = {
 	[122370] = { -- Cyrus Crestfall
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["Cyrus Crestfall 1"],
-				["condition"] 	= "none",
+				["o"] 			= 1,
+				["c"] 			= "none",
 			},
 		},
 	},

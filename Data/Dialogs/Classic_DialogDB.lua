@@ -1124,9 +1124,14 @@ local DIALOG_CLASSIC = {
 	[120590] = { -- Lady Jaina Proudmoore
 		["g"] = {
 			{
-				["text"] 		= L_DIALOG["I'm ready to set sail!"],
-				["condition"] 	= "level.lower",
-				["level"]		= 50,
+				["o"] 	= 1,
+				["c"] 	= "level.lower",
+				["l"] 	= 50,
+			},
+			{
+				["o"] 	= 2,
+				["c"] 	= "level.higher",
+				["l"] 	= 49,
 			},
 		},
 	},
