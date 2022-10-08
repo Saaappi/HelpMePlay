@@ -32,6 +32,22 @@ local DIALOG_SL = {
 	-- Maldraxxus
 	-- End of Maldraxxus
 	-- Ardenweald
+	[157949] = { -- Heartwood Grove Holdout
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
+	[158006] = { -- Heartwood Grove Holdout
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
 	-- End of Ardenweald
 	-- Revendreth
 	[167838] = { -- Globknob
