@@ -48,12 +48,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 						for i = 1, numMerchantItems do
 							local merchantItemLink = GetMerchantItemLink(i)
 							if merchantItemLink then
-								local _, itemID = strsplit(":", merchantItemLink); itemID = tonumber(itemID)
-								for _, t in ipairs(addonTable.MERCHANTS[id]) do
-									if itemID == t.itemID then
-										BuyMerchantItem(i, t.quantity)
-										break
-									end
+								local _, _, _, _, _, itemType = GetItemInfo(itemLink)
+								if itemType == "Quest" then
+									BuyMerchantItem(i, 1)
 									break
 								end
 							end
