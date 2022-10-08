@@ -92,12 +92,28 @@ local function SelectGossipOption(options, npcId, parentMapId)
 					if GetMoney("player") > gossip.m then
 						C_GossipInfo.SelectOption(gossip.o)
 					end
-				elseif gossip.c == "quest.isActive" then
-					if C_QuestLog.IsOnQuest(gossip.q) then
+				elseif gossip.c == "quests.isActive" then
+					local openDialog = false
+					for _, id in ipairs(gossip.q) do
+						if C_QuestLog.IsOnQuest(id) then
+							openDialog = true
+						else
+							openDialog = false
+						end
+					end
+					if openDialog then
 						C_GossipInfo.SelectOption(gossip.o)
 					end
-				elseif gossip.c == "quest.notActive" then
-					if C_QuestLog.IsOnQuest(gossip.q) == false then
+				elseif gossip.c == "quests.notActive" then
+					local openDialog = false
+					for _, id in ipairs(gossip.q) do
+						if C_QuestLog.IsOnQuest(id) == false then
+							openDialog = true
+						else
+							openDialog = false
+						end
+					end
+					if openDialog then
 						C_GossipInfo.SelectOption(gossip.o)
 					end
 				elseif gossip.c == "quest.obj.isComplete" then

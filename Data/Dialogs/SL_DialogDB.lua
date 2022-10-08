@@ -9,13 +9,8 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "quest.notActive",
-				["q"] 			= 62739, -- Restoring Balance
-			},
-			{
-				["o"] 			= 1,
-				["c"] 			= "quest.notActive",
-				["q"] 			= 63036, -- Restoring Balance
+				["c"] 			= "quests.notActive",
+				["q"] 			= { 62739, 63036 }, -- Restoring Balance
 			},
 		},
 	},
