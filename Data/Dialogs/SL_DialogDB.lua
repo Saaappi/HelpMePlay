@@ -13,7 +13,8 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= "quest.notActive",
+				["q"] 			= 63036, -- Restoring Balance
 			},
 		},
 	},
@@ -69,8 +70,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 2,
-				["c"] 			= "quest.isActive",
-				["q"] 			= 60177, -- Reason for the Treason
+				["c"] 			= "none",
 			},
 		},
 	},
@@ -123,6 +123,46 @@ local DIALOG_SL = {
 		},
 	},
 	[160233] = { -- The Accuser
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
+	[169238] = { -- Courier Araak
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
+	[166543] = { -- Dobwobble
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
+	[166541] = { -- Cobwobble
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
+	[166542] = { -- Slobwobble
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
+	[165921] = { -- Courier Araak
 		["g"] = {
 			{
 				["o"] 			= 1,

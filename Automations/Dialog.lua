@@ -96,6 +96,10 @@ local function SelectGossipOption(options, npcId, parentMapId)
 					if C_QuestLog.IsOnQuest(gossip.q) then
 						C_GossipInfo.SelectOption(gossip.o)
 					end
+				elseif gossip.c == "quest.notActive" then
+					if C_QuestLog.IsOnQuest(gossip.q) == false then
+						C_GossipInfo.SelectOption(gossip.o)
+					end
 				elseif gossip.c == "addon.setting" then
 					if HelpMePlayDB[gossip.s] == gossip.r then
 						C_GossipInfo.SelectOption(gossip.o)
@@ -147,30 +151,34 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end]]
-			elseif gossip.condition == "level.higher" then
+			elseif gossip.c == "level.higher" then
 				if UnitLevel("player") > gossip.l then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "level.equal" then
+			elseif gossip.c == "level.equal" then
 				if UnitLevel("player") == gossip.l then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "level.lower" then
+			elseif gossip.c == "level.lower" then
 				if UnitLevel("player") < gossip.l then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "money.higher" then
+			elseif gossip.c == "money.higher" then
 				if GetMoney("player") > gossip.m then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "quest.isActive" then
+			elseif gossip.c == "quest.isActive" then
 				if C_QuestLog.IsOnQuest(gossip.q) then
-					C_GossipInfo.SelectOption(index)
+					C_GossipInfo.SelectOption(gossip.o)
 					return
+				end
+			elseif gossip.c == "quest.notActive" then
+				if C_QuestLog.IsOnQuest(gossip.q) == false then
+					C_GossipInfo.SelectOption(gossip.o)
 				end
 			elseif gossip.c == "addon.setting" then
 				if HelpMePlayDB[gossip.s] == gossip.r then
