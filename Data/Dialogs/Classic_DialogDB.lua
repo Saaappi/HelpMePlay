@@ -10,12 +10,12 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["o"] 	= 1,
-				["c"] 	= "level.lower",
+				["c"] 	= { "level.lower" },
 				["l"] 	= 50,
 			},
 			{
 				["o"] 	= 2,
-				["c"] 	= "level.higher",
+				["c"] 	= { "level.higher" },
 				["l"] 	= 49,
 			},
 		},
@@ -24,13 +24,13 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{ -- Do The Maw
 				["o"] 	= 1,
-				["c"] 	= "addon.setting",
+				["c"] 	= { "addon.setting" },
 				["s"] 	= "TheMawEnabled",
 				["r"] 	= true,
 			},
 			{ -- Skip The Maw
 				["o"] 	= 2,
-				["c"] 	= "addon.setting",
+				["c"] 	= { "addon.setting" },
 				["s"] 	= "TheMawEnabled",
 				["r"] 	= false,
 			},

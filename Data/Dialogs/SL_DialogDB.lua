@@ -19,7 +19,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -29,7 +29,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -37,7 +37,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -65,7 +65,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 2,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -77,7 +77,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -85,7 +85,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -93,7 +93,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "quest.obj.isNotComplete",
+				["c"] 			= { "quest.obj.isNotComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 1,
 			},
@@ -103,7 +103,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "quest.obj.isNotComplete",
+				["c"] 			= { "quest.obj.isNotComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 2,
 			},
@@ -113,7 +113,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "quest.obj.isNotComplete",
+				["c"] 			= { "quest.obj.isNotComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 3,
 			},
@@ -125,7 +125,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -133,7 +133,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -141,7 +141,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -149,7 +149,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -157,7 +157,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 2,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -165,7 +165,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -173,7 +173,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -181,7 +181,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -189,7 +189,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -197,7 +197,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -205,7 +205,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -213,7 +213,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -221,7 +221,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -229,7 +229,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -237,7 +237,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -245,7 +245,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -253,7 +253,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -265,7 +265,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -273,7 +273,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -281,7 +281,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -289,7 +289,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -297,7 +297,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -305,7 +305,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -313,7 +313,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -321,7 +321,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -329,7 +329,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -337,7 +337,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -345,7 +345,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -353,7 +353,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -361,7 +361,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -369,7 +369,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -377,7 +377,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -385,7 +385,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -393,7 +393,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -401,7 +401,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -409,7 +409,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -417,7 +417,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -425,7 +425,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -433,7 +433,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},

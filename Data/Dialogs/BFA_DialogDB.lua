@@ -20,7 +20,7 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
@@ -28,7 +28,7 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},

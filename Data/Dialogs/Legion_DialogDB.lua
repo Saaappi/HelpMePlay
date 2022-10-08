@@ -9,7 +9,7 @@ local DIALOG_LEGION = {
 		["g"] = {
 			{
 				["o"] 			= 1, -- Ravencrest Cemetary
-				["c"] 			= "none",
+				["c"] 			= { "none" },
 			},
 		},
 	},
