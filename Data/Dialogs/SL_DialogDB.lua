@@ -6,14 +6,6 @@ local DIALOG_SL = {
 	-- No Map Association
 	[0] = {
 		["g"] = {
-			{
-				["text"] 		= L_DIALOG["Ancient Translocator 1"],
-				["condition"] 	= "none",
-			},
-			{
-				["text"] 		= L_DIALOG["Repository Console 1"],
-				["condition"] 	= "none",
-			},
 		},
 	},
 	-- Oribos
