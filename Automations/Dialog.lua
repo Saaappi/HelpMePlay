@@ -72,67 +72,77 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	
 	local dialogTable = GetDialogTable(parentMapId)
 	if dialogTable[npcId] then
+		local useDialog = false
 		for index, gossipSubTable in ipairs(options) do
 			for _, gossip in pairs(dialogTable[npcId]["g"]) do
-				if gossip.c == "none" then
+				for _, condition in ipairs(gossip.c) do
+					if condition == "none" then
+						C_GossipInfo.SelectOption(gossip.o)
+					elseif condition == "level.higher" then
+						if UnitLevel("player") > gossip.l then
+							useDialog = true
+						else
+							return
+						end
+					elseif condition == "level.equal" then
+						if UnitLevel("player") == gossip.l then
+							useDialog = true
+						else
+							return
+						end
+					elseif condition == "level.lower" then
+						if UnitLevel("player") < gossip.l then
+							useDialog = true
+						else
+							return
+						end
+					elseif condition == "money.higher" then
+						if GetMoney("player") > gossip.m then
+							useDialog = true
+						else
+							return
+						end
+					elseif condition == "quests.isActive" then
+						for _, id in ipairs(gossip.q) do
+							if C_QuestLog.IsOnQuest(id) then
+								useDialog = true
+							else
+								return
+							end
+						end
+					elseif condition == "quests.notActive" then
+						for _, id in ipairs(gossip.q) do
+							if C_QuestLog.IsOnQuest(id) == false then
+								useDialog = true
+							else
+								return
+							end
+						end
+					elseif condition == "quest.obj.isComplete" then
+						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+						if objectives[gossip.obj].finished then
+							useDialog = true
+						else
+							return
+						end
+					elseif condition == "quest.obj.isNotComplete" then
+						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+						if objectives[gossip.obj].finished == false then
+							useDialog = true
+						else
+							return
+						end
+					elseif condition == "addon.setting" then
+						if HelpMePlayDB[gossip.s] == gossip.r then
+							useDialog = true
+						else
+							return
+						end
+					end
+				end
+				if useDialog then
 					C_GossipInfo.SelectOption(gossip.o)
-				elseif gossip.c == "level.higher" then
-					if UnitLevel("player") > gossip.l then
-						C_GossipInfo.SelectOption(gossip.o)
-					end
-				elseif gossip.c == "level.equal" then
-					if UnitLevel("player") == gossip.l then
-						C_GossipInfo.SelectOption(gossip.o)
-					end
-				elseif gossip.c == "level.lower" then
-					if UnitLevel("player") < gossip.l then
-						C_GossipInfo.SelectOption(gossip.o)
-					end
-				elseif gossip.c == "money.higher" then
-					if GetMoney("player") > gossip.m then
-						C_GossipInfo.SelectOption(gossip.o)
-					end
-				elseif gossip.c == "quests.isActive" then
-					local openDialog = false
-					for _, id in ipairs(gossip.q) do
-						if C_QuestLog.IsOnQuest(id) then
-							openDialog = true
-						else
-							openDialog = false
-						end
-					end
-					if openDialog then
-						C_GossipInfo.SelectOption(gossip.o)
-					end
-				elseif gossip.c == "quests.notActive" then
-					local openDialog = false
-					for _, id in ipairs(gossip.q) do
-						if C_QuestLog.IsOnQuest(id) == false then
-							openDialog = true
-						else
-							openDialog = false
-						end
-					end
-					if openDialog then
-						C_GossipInfo.SelectOption(gossip.o)
-					end
-				elseif gossip.c == "quest.obj.isComplete" then
-					local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-					if objectives[gossip.obj].finished then
-						C_GossipInfo.SelectOption(gossip.o)
-						return
-					end
-				elseif gossip.c == "quest.obj.isNotComplete" then
-					local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-					if objectives[gossip.obj].finished == false then
-						C_GossipInfo.SelectOption(gossip.o)
-						return
-					end
-				elseif gossip.c == "addon.setting" then
-					if HelpMePlayDB[gossip.s] == gossip.r then
-						C_GossipInfo.SelectOption(gossip.o)
-						return
-					end
+					return
 				end
 			end
 		end

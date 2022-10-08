@@ -9,8 +9,9 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "quests.notActive",
+				["c"] 			= { "quests.notActive", "level.lower" },
 				["q"] 			= { 62739, 63036 }, -- Restoring Balance
+				["l"] 			= 60,
 			},
 		},
 	},
@@ -44,18 +45,18 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "quest.isActive",
-				["q"] 			= 57933, -- We Can Rebuild Him
+				["c"] 			= "quests.isActive",
+				["q"] 			= { 57933 }, -- We Can Rebuild Him
 			},
 			{
 				["o"] 			= 1,
-				["c"] 			= "quest.isActive",
-				["q"] 			= 62241, -- Training Regimen (WQ)
+				["c"] 			= "quests.isActive",
+				["q"] 			= { 62241 }, -- Training Regimen (WQ)
 			},
 			{
 				["o"] 			= 2,
-				["c"] 			= "quest.isActive",
-				["q"] 			= 60296, -- Pride or Unit
+				["c"] 			= "quests.isActive",
+				["q"] 			= { 60296 }, -- Pride or Unit
 			},
 		},
 		["c"] = true,
