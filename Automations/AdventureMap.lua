@@ -100,6 +100,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["SL"]) do
 					if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
 						C_AdventureMap.StartQuest(questId)
+						return
 					end
 				end
 			end

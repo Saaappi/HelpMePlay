@@ -100,6 +100,8 @@ local function SelectGossipOption(options, npcId, parentMapId)
 					if C_QuestLog.IsOnQuest(gossip.q) == false then
 						C_GossipInfo.SelectOption(gossip.o)
 					end
+				elseif gossip.c == "quest.obj.isComplete" then
+				elseif gossip.c == "quest.obj.isNotComplete" then
 				elseif gossip.c == "addon.setting" then
 					if HelpMePlayDB[gossip.s] == gossip.r then
 						C_GossipInfo.SelectOption(gossip.o)
@@ -180,6 +182,8 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 				if C_QuestLog.IsOnQuest(gossip.q) == false then
 					C_GossipInfo.SelectOption(gossip.o)
 				end
+			elseif gossip.c == "quest.obj.isComplete" then
+			elseif gossip.c == "quest.obj.isNotComplete" then
 			elseif gossip.c == "addon.setting" then
 				if HelpMePlayDB[gossip.s] == gossip.r then
 					C_GossipInfo.SelectOption(gossip.o)
