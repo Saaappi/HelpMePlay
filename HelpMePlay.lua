@@ -52,10 +52,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayPlayerDialogDB == nil then
 				HelpMePlayPlayerDialogDB = {}
 			end
-			if HelpMePlayPlayerDialogDB[0] == nil then
-				HelpMePlayPlayerDialogDB[0] = {}
-				HelpMePlayPlayerDialogDB[0]["g"] = {}
-			end
 			if HelpMePlaySavesDB == nil then
 				HelpMePlaySavesDB = {}
 			end
@@ -77,6 +73,21 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 			if HelpMePlayDB.TheMawEnabled == nil then
 				HelpMePlayDB.TheMawEnabled = false
+			end
+			
+			-- Clear the player-submitted dialogs.
+			--
+			-- This should only ever occur once.
+			for _, tbl in pairs(HelpMePlayPlayerDialogDB) do
+				if type(tbl) == "table" then
+					for _, dialog in ipairs(tbl.g) do
+						if type(dialog) == "string" then
+							HelpMePlayPlayerDialogDB = {}
+							print("Table is in incorrect format.")
+							return
+						end
+					end
+				end
 			end
 		end
 	end

@@ -56,15 +56,8 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	for index, gossipSubTable in ipairs(options) do
 		if HelpMePlayPlayerDialogDB[npcId] then
 			if HelpMePlayPlayerDialogDB[npcId]["g"] then
-				for _, optionId in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
-					C_GossipInfo.SelectOption(optionId)
-				end
-			end
-		else
-			for _, optionId in ipairs(HelpMePlayPlayerDialogDB) do
-				if id == index then
+				for _, index in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
 					C_GossipInfo.SelectOption(index)
-					return
 				end
 			end
 		end
@@ -165,19 +158,8 @@ end
 local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 	if HelpMePlayPlayerDialogDB[npcId] then
 		if HelpMePlayPlayerDialogDB[npcId]["c"] then
-			for _, text in ipairs(HelpMePlayPlayerDialogDB[npcId]["c"]) do
-				--[[if string.find(string.lower(message), string.lower(text)) then
-					StaticPopup1Button1:Click("LeftButton")
-					return
-				end]]
-			end
-		end
-	else
-		for _, text in ipairs(HelpMePlayPlayerDialogDB) do
-			--[[if string.find(string.lower(message), string.lower(text)) then
-				StaticPopup1Button1:Click("LeftButton")
-				return
-			end]]
+			StaticPopup1Button1:Click("LeftButton")
+			return
 		end
 	end
 	

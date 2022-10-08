@@ -5,74 +5,29 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
--- Search a number-indexed table for a
--- specific text.
---
--- Return the index or 0.
---
--- If the table passed to the function
--- is nil, then instantiate an empty
--- table.
-local function ContainsByID(tbl, str)
-	if tbl == nil then
-		tbl = {}
-	end
-	for index, text in ipairs(tbl) do
-		if string.find(string.lower(text), string.lower(str)) then
-			return index
-		end
-	end
-	return 0
-end
-
 local function Dialog(gossip)
 	if tonumber(gossip) then
-		-- The player passed a gossip index
-		-- to the command, so let's determine
-		-- the appropriate text to insert to
-		-- the table.
-		local numOptions = C_GossipInfo.GetNumOptions()
-		if numOptions > 0 and (tonumber(gossip) > 0 and tonumber(gossip) <= numOptions) then
-			local options = C_GossipInfo.GetOptions()
-			for i = 1, #options do
-				if i == tonumber(gossip) then
-					gossip = options[i].gossipOptionID
-					break
+		local guid = UnitGUID("target")
+		if guid then
+			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+			if not HelpMePlayPlayerDialogDB[npcId] then
+				HelpMePlayPlayerDialogDB[npcId] = {}
+			end
+			if not HelpMePlayPlayerDialogDB[npcId]["g"] then
+				HelpMePlayPlayerDialogDB[npcId]["g"] = {}
+				table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], tonumber(gossip))
+			else
+				if tonumber(gossip) == 0 then
+					HelpMePlayPlayerDialogDB[npcId] = nil
+				else
+					table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], tonumber(gossip))
 				end
 			end
 		end
 	end
-	
-	local guid = UnitGUID("target")
-	if guid then
-		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-		if not HelpMePlayPlayerDialogDB[npcId] then
-			HelpMePlayPlayerDialogDB[npcId] = {}
-		end
-		if not HelpMePlayPlayerDialogDB[npcId]["g"] then
-			HelpMePlayPlayerDialogDB[npcId]["g"] = {}
-			table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
-		else
-			local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
-			if index ~= 0 then
-				table.remove(HelpMePlayPlayerDialogDB[npcId]["g"], index)
-				addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
-			else
-				table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], gossip)
-			end
-		end
-	else
-		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
-		if index ~= 0 then
-			table.remove(HelpMePlayPlayerDialogDB, index)
-			addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
-		else
-			table.insert(HelpMePlayPlayerDialogDB[0]["g"], gossip)
-		end
-	end
 end
 
-local function Confirm(gossip)
+local function Confirm()
 	local guid = UnitGUID("target")
 	if guid then
 		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
@@ -80,26 +35,11 @@ local function Confirm(gossip)
 			HelpMePlayPlayerDialogDB[npcId] = {}
 		end
 		if not HelpMePlayPlayerDialogDB[npcId]["c"] then
-			HelpMePlayPlayerDialogDB[npcId]["c"] = {}
-			table.insert(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
+			HelpMePlayPlayerDialogDB[npcId]["c"] = true
 		else
 			if HelpMePlayPlayerDialogDB[npcId]["c"] then
-				local index = ContainsByID(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
-				if index ~= 0 then
-					table.remove(HelpMePlayPlayerDialogDB[npcId]["c"], index)
-					addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
-				else
-					table.insert(HelpMePlayPlayerDialogDB[npcId]["c"], gossip)
-				end
+				HelpMePlayPlayerDialogDB[npcId]["c"] = nil
 			end
-		end
-	else
-		local index = ContainsByID(HelpMePlayPlayerDialogDB, gossip)
-		if index ~= 0 then
-			table.remove(HelpMePlayPlayerDialogDB, index)
-			addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DialogRemoved"], gossip))
-		else
-			table.insert(HelpMePlayPlayerDialogDB, gossip)
 		end
 	end
 end
@@ -150,8 +90,8 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 	elseif cmd == L_GLOBALSTRINGS["Command.Dialog"] and arg1 ~= nil then
 		Dialog(arg1)
-	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] and arg1 ~= nil then
-		Confirm(arg1)
+	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] then
+		Confirm()
 	elseif cmd == L_GLOBALSTRINGS["Command.Quest"] and arg1 ~= nil then
 		-- A shorthand way to check if a given quest has
 		-- been completed by the current player.
