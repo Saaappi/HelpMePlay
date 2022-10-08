@@ -69,6 +69,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.VisionsOfNzoth"] 													= "Visions of N'Zoth"
 	L_GLOBALSTRINGS["Header.Torghast"] 															= "Torghast"
 	L_GLOBALSTRINGS["Header.PartyPlay"] 														= "Party Play"
+	L_GLOBALSTRINGS["Header.ExpansionIntros"] 													= "Expansion Intros"
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions

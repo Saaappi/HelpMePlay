@@ -53,9 +53,14 @@ local questOptions = {
 			get = function() return HelpMePlayDB.AdventureMapsEnabled end,
 			set = function(_, val) HelpMePlayDB.AdventureMapsEnabled = val end,
 		},
+		expansion_intros_header = {
+			name = L_GLOBALSTRINGS["Header.ExpansionIntros"],
+			order = 10,
+			type = "header",
+		},
 		the_maw = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.TheMaw"],
-			order = 6,
+			order = 11,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.TheMawEnabled end,
@@ -63,12 +68,12 @@ local questOptions = {
 		},
 		dropdown_header = {
 			name = L_GLOBALSTRINGS["Header.DropDowns"],
-			order = 10,
+			order = 20,
 			type = "header",
 		},
 		quest_reward_dropdown = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"],
-			order = 11,
+			order = 21,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -92,7 +97,7 @@ local questOptions = {
 		},
 		chromie_time_dropdown = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],
-			order = 12,
+			order = 22,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -130,7 +135,7 @@ local questOptions = {
 		},
 		bfa_zone_selection_dropdown = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"],
-			order = 13,
+			order = 23,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -180,7 +185,7 @@ local questOptions = {
 		},
 		sl_zone_selection_dropdown = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"],
-			order = 14,
+			order = 24,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -210,12 +215,12 @@ local questOptions = {
 		},
 		party_play_header = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
-			order = 20,
+			order = 30,
 			type = "header",
 		},
 		party_play_enable = {
 			name = L_GLOBALSTRINGS["General.Toggle.Enable"],
-			order = 21,
+			order = 31,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.PartyPlayEnabled end,
@@ -223,7 +228,7 @@ local questOptions = {
 		},
 		party_play_announce = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"],
-			order = 22,
+			order = 32,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.PartyPlayAnnounceEnabled end,
@@ -231,7 +236,7 @@ local questOptions = {
 		},
 		party_play_auto_share = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"],
-			order = 23,
+			order = 33,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.PartyPlayAutoShareEnabled end,
