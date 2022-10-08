@@ -12,8 +12,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local guid = UnitGUID("target") or UnitGUID("mouseover")
 		local numMerchantItems = GetMerchantNumItems()
 		for i = 1, numMerchantItems do
-			local merchantItemLink = GetMerchantItemLink(i)
-			if merchantItemLink then
+			local itemLink = GetMerchantItemLink(i)
+			if itemLink then
 				local _, _, _, _, _, itemType = GetItemInfo(itemLink)
 				if itemType == "Quest" then
 					BuyMerchantItem(i, 1)

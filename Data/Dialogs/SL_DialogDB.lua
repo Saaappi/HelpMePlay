@@ -24,6 +24,22 @@ local DIALOG_SL = {
 	},
 	-- End of Oribos
 	-- Bastion
+	[159277] = { -- Aspirant Leda
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
+	[159278] = { -- Aspirant Ikaran
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "none",
+			},
+		},
+	},
 	-- End of Bastion
 	-- Maldraxxus
 	-- End of Maldraxxus
