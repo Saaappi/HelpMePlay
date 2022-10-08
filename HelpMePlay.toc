@@ -44,6 +44,7 @@ Data\CovenantsDB.lua
 Data\PlayerChoiceDB.lua
 Data\SpeechDB.lua
 Data\QuestRewardsDB.lua
+Data\SoulbindsDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
 Data\TalentSystems\CypherOfFirstOnesDB.lua
@@ -79,6 +80,7 @@ Automations\Quests.lua
 # Systems
 Systems\TradeSkills.lua
 Systems\Transmog.lua
+Systems\Soulbinds.lua
 Systems\Commands.lua
 Systems\TalentSystems.lua
 Systems\Notes.lua

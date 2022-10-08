@@ -43,7 +43,10 @@ local SOULBINDS_BY_SPEC = {
 	},
 	[9] = { -- Warlock
 		[265] = 4, 	-- Affliction (Night Fae)
-		[266] = 4, 	-- Demonology (Night Fae)
+		[266] = { 	-- Demonology (Night Fae)
+			["soulbind"] = 2, -- Dreamweaver
+			
+		},
 		[267] = 4, 	-- Destruction (Night Fae)
 	},
 	[10] = { -- Monk

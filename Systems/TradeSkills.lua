@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function InsertReagent(tbl, reagentName, itemId, count)
@@ -128,36 +127,6 @@ e:SetScript("OnEvent", function(self, event, addon)
 		-- The button that allows the player to collapse
 		-- the headers and their children in the trade
 		-- skill frame.
-		local expandCollapseButton = _G.CreateFrame(
-			"Button",
-			"HMPProfessionExpandCollapseButton",
-			TradeSkillFrame,
-			"UIPanelButtonTemplate"
-		)
-		HMPProfessionExpandCollapseButton:SetSize(80, 22)
-		HMPProfessionExpandCollapseButton:SetText(L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Text"])
-		HMPProfessionExpandCollapseButton:SetPoint("RIGHT", TradeSkillFrame.SearchBox, "LEFT", -10, 0)
-		HMPProfessionExpandCollapseButton:Show()
-		
-		HMPProfessionExpandCollapseButton:SetScript("OnEnter", function(self)
-			addonTable.ShowTooltip(self, L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Desc"])
-		end)
-		HMPProfessionExpandCollapseButton:SetScript("OnLeave", function(self)
-			addonTable.HideTooltip(self)
-		end)
-		HMPProfessionExpandCollapseButton:SetScript("OnClick", function(self)
-			if HelpMePlayDB.TradeSkillCategoriesCollapsed == false or HelpMePlayDB.TradeSkillCategoriesCollapsed == nil then
-				for _, category in pairs({C_TradeSkillUI.GetCategories()}) do
-					TradeSkillFrame.RecipeList:SetCategoryCollapsed(category, true)
-					HelpMePlayDB.TradeSkillCategoriesCollapsed = true
-				end
-			else
-				for _, category in pairs({C_TradeSkillUI.GetCategories()}) do
-					TradeSkillFrame.RecipeList:SetCategoryCollapsed(category, false)
-					HelpMePlayDB.TradeSkillCategoriesCollapsed = false
-				end
-			end
-		end)
 		
 		-- Set the size and point of the Calculate button.
 		-- Ideally, it sits to the left of the Filter
