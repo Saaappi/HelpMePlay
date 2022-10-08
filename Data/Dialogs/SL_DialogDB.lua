@@ -4,10 +4,6 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_SL = {
 	-- Supported Maps: 1409 (Exile's Reach), 1550 (The Shadowlands)
 	-- No Map Association
-	[0] = {
-		["g"] = {
-		},
-	},
 	-- Oribos
 	[159478] = { -- Tal-Inara
 		["g"] = {
