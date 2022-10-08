@@ -48,6 +48,36 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[159428] = { -- Groonoomcrooek
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "quest.obj.isNotComplete",
+				["q"] 			= 57865, -- Ages-Echoing Wisdom
+				["obj"] 		= 1,
+			},
+		},
+	},
+	[159427] = { -- Elder Finnan
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "quest.obj.isNotComplete",
+				["q"] 			= 57865, -- Ages-Echoing Wisdom
+				["obj"] 		= 2,
+			},
+		},
+	},
+	[159465] = { -- Elder Gwenna
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "quest.obj.isNotComplete",
+				["q"] 			= 57865, -- Ages-Echoing Wisdom
+				["obj"] 		= 3,
+			},
+		},
+	},
 	-- End of Ardenweald
 	-- Revendreth
 	[167838] = { -- Globknob
