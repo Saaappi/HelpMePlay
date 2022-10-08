@@ -40,6 +40,34 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[158765] = { -- Pelodis
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= "quest.isActive",
+				["q"] 			= 57933, -- We Can Rebuild Him
+			},
+			{
+				["o"] 			= 1,
+				["c"] 			= "quest.isActive",
+				["q"] 			= 62241, -- Training Regimen (WQ)
+			},
+			{
+				["o"] 			= 2,
+				["c"] 			= "quest.isActive",
+				["q"] 			= 60296, -- Pride or Unit
+			},
+		},
+		["c"] = true,
+	},
+	[157696] = { -- Nemea
+		["g"] = {
+			{
+				["o"] 			= 2,
+				["c"] 			= "none",
+			},
+		},
+	},
 	-- End of Bastion
 	-- Maldraxxus
 	-- End of Maldraxxus

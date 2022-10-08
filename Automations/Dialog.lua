@@ -157,59 +157,9 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 	
 	local dialogTable = GetDialogTable(parentMapId)
 	if dialogTable[npcId] then
-		for id, gossip in pairs(dialogTable[npcId]["c"]) do
-			if gossip.condition == "none" then
-				--[[if string.find(string.lower(message), string.lower(gossip.text)) then
-					StaticPopup1Button1:Click("LeftButton")
-					return
-				end]]
-			elseif gossip.c == "level.higher" then
-				if UnitLevel("player") > gossip.l then
-					StaticPopup1Button1:Click("LeftButton")
-					return
-				end
-			elseif gossip.c == "level.equal" then
-				if UnitLevel("player") == gossip.l then
-					StaticPopup1Button1:Click("LeftButton")
-					return
-				end
-			elseif gossip.c == "level.lower" then
-				if UnitLevel("player") < gossip.l then
-					StaticPopup1Button1:Click("LeftButton")
-					return
-				end
-			elseif gossip.c == "money.higher" then
-				if GetMoney("player") > gossip.m then
-					StaticPopup1Button1:Click("LeftButton")
-					return
-				end
-			elseif gossip.c == "quest.isActive" then
-				if C_QuestLog.IsOnQuest(gossip.q) then
-					C_GossipInfo.SelectOption(gossip.o)
-					return
-				end
-			elseif gossip.c == "quest.notActive" then
-				if C_QuestLog.IsOnQuest(gossip.q) == false then
-					C_GossipInfo.SelectOption(gossip.o)
-				end
-			elseif gossip.c == "quest.obj.isComplete" then
-				local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-				if objectives[gossip.obj].finished then
-					C_GossipInfo.SelectOption(gossip.o)
-					return
-				end
-			elseif gossip.c == "quest.obj.isNotComplete" then
-				local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-				if objectives[gossip.obj].finished == false then
-					C_GossipInfo.SelectOption(gossip.o)
-					return
-				end
-			elseif gossip.c == "addon.setting" then
-				if HelpMePlayDB[gossip.s] == gossip.r then
-					C_GossipInfo.SelectOption(gossip.o)
-					return
-				end
-			end
+		if dialogTable[npcId]["c"] then
+			StaticPopup1Button1:Click("LeftButton")
+			return
 		end
 	end
 end
