@@ -162,12 +162,12 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "money.greaterThan" then
+			elseif gossip.condition == "money.higher" then
 				if GetMoney("player") > gossip.m then
 					StaticPopup1Button1:Click("LeftButton")
 					return
 				end
-			elseif gossip.condition == "quest.active" then
+			elseif gossip.condition == "quest.isActive" then
 				if C_QuestLog.IsOnQuest(gossip.q) then
 					C_GossipInfo.SelectOption(index)
 					return
