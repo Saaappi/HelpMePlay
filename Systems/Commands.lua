@@ -36,7 +36,7 @@ local function Dialog(gossip)
 			local options = C_GossipInfo.GetOptions()
 			for i = 1, #options do
 				if i == tonumber(gossip) then
-					gossip = options[i].name
+					gossip = options[i].gossipOptionID
 					break
 				end
 			end
