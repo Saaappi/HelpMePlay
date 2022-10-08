@@ -101,7 +101,17 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						C_GossipInfo.SelectOption(gossip.o)
 					end
 				elseif gossip.c == "quest.obj.isComplete" then
+					local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+					if objectives[gossip.obj].finished then
+						C_GossipInfo.SelectOption(gossip.o)
+						return
+					end
 				elseif gossip.c == "quest.obj.isNotComplete" then
+					local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+					if objectives[gossip.obj].finished == false then
+						C_GossipInfo.SelectOption(gossip.o)
+						return
+					end
 				elseif gossip.c == "addon.setting" then
 					if HelpMePlayDB[gossip.s] == gossip.r then
 						C_GossipInfo.SelectOption(gossip.o)
@@ -183,7 +193,17 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 					C_GossipInfo.SelectOption(gossip.o)
 				end
 			elseif gossip.c == "quest.obj.isComplete" then
+				local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+				if objectives[gossip.obj].finished then
+					C_GossipInfo.SelectOption(gossip.o)
+					return
+				end
 			elseif gossip.c == "quest.obj.isNotComplete" then
+				local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+				if objectives[gossip.obj].finished == false then
+					C_GossipInfo.SelectOption(gossip.o)
+					return
+				end
 			elseif gossip.c == "addon.setting" then
 				if HelpMePlayDB[gossip.s] == gossip.r then
 					C_GossipInfo.SelectOption(gossip.o)
