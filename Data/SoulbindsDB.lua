@@ -67,7 +67,56 @@ local SOULBINDS_BY_SPEC = {
 	},
 	[4] = { -- Rogue
 		[259] = nil, 	-- Assassination (Venthyr)
-		[260] = nil, 	-- Outlaw (Kyrian)
+		[260] = { 		-- Outlaw (Kyrian)
+			["id"] 		= 18, -- Forgelite Prime Mikanikos
+			["tree"] 	= 365,
+			["conduits"] = {
+				{ -- 1
+					["n"] = 1381,
+					["c"] = 244, -- Count the Odds
+				},
+				{ -- 2
+					["n"] = 1408,
+					["c"] = 0,
+				},
+				{ -- 3
+					["n"] = 1379,
+					["c"] = 233, -- Quick Decisions
+				},
+				{ -- 4
+					["n"] = 1417,
+					["c"] = 0,
+				},
+				{ -- 5
+					["n"] = 1380,
+					["c"] = 231, -- Recuperator
+				},
+				{ -- 6
+					["n"] = 1415,
+					["c"] = 243, -- Sleight of Hand
+				},
+				{ -- 7
+					["n"] = 1412,
+					["c"] = 0,
+				},
+				{ -- 8
+					["n"] = 1831,
+					["c"] = 225, -- Reverberation
+				},
+				{ -- 9
+					["n"] = 1832,
+					["c"] = 0,
+				},
+				{ -- 10
+					["n"] = 1834,
+					["c"] = 230, -- Nimble Fingers
+				},
+				{ -- 11
+					["n"] = 1836,
+					["c"] = 0,
+				},
+			},
+		},
 		[261] = nil, 	-- Subtlety (Venthyr)
 	},
 	[5] = { -- Priest

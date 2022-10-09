@@ -302,7 +302,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"]											= "You need more currency! Amount Needed"
 	L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"]							= "There is a prerequisite talent being researched. Please come back later or research something else."
 	L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"]											= "Purchase the following talent: "
-	L_GLOBALSTRINGS["Text.Output.SpecUnsupporteForSoulbinds"]									= "Cannot continue. This class or specialization is unsupported."
 	L_GLOBALSTRINGS["Text.Output.AssignedSoulbindLocked"]										= "Cannot continue. Assigned soulbind is locked."
 	L_GLOBALSTRINGS["Text.Output.ConduitNodesIncorrect"]										= "One or more conduit nodes are incorrect. You will need to press the |cffFFD100Setup|r button again."
 	L_GLOBALSTRINGS["Text.Output.ConduitsNotUnlocked"]											= "Cannot continue. Please unlock all nodes, then try again."
