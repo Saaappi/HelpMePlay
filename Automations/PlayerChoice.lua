@@ -63,17 +63,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 							HideUIPanel(PlayerChoiceFrame)
 						end
 					end
-				else
-					if addonTable.PLAYERCHOICE_MAPS[mapId] then
-						if HelpMePlayDB.AdventureMapsEnabled == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
-						for i = 1, 3 do
-							if choiceInfo.options[i].header == addonTable.PLAYERCHOICE["Tanaan Jungle"] then
-								SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
-								HideUIPanel(PlayerChoiceFrame)
-								break
-							end
-						end
-					end
 				end
 			end
 		end
