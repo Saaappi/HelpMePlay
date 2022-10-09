@@ -2,44 +2,44 @@ local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local SOULBINDS_BY_SPEC = {
 	[1] = { -- Warrior
-		[71] = {}, 	-- Arms (Night Fae)
-		[72] = {}, 	-- Fury (Kyrian)
-		[73] = {}, 	-- Protection (Kyrian)
+		[71] = nil, 	-- Arms (Night Fae)
+		[72] = nil, 	-- Fury (Kyrian)
+		[73] = nil, 	-- Protection (Kyrian)
 	},
 	[2] = { -- Paladin
-		[65] = {}, 	-- Holy (Venthyr)
-		[66] = {}, 	-- Protection (Kyrian)
-		[70] = {}, 	-- Retribution (Kyrian)
+		[65] = nil, 	-- Holy (Venthyr)
+		[66] = nil, 	-- Protection (Kyrian)
+		[70] = nil, 	-- Retribution (Kyrian)
 	},
 	[3] = { -- Hunter
-		[253] = {}, 	-- Beast Mastery (Night Fae)
-		[254] = {}, 	-- Marksmanship (Kyrian)
-		[255] = {}, 	-- Survival (Kyrian)
+		[253] = nil, 	-- Beast Mastery (Night Fae)
+		[254] = nil, 	-- Marksmanship (Kyrian)
+		[255] = nil, 	-- Survival (Kyrian)
 	},
 	[4] = { -- Rogue
-		[259] = {}, 	-- Assassination (Venthyr)
-		[260] = {}, 	-- Outlaw (Kyrian)
-		[261] = {}, 	-- Subtlety (Venthyr)
+		[259] = nil, 	-- Assassination (Venthyr)
+		[260] = nil, 	-- Outlaw (Kyrian)
+		[261] = nil, 	-- Subtlety (Venthyr)
 	},
 	[5] = { -- Priest
-		[256] = {}, 	-- Discipline (Kyrian)
-		[257] = {}, 	-- Holy (Night Fae)
-		[258] = {}, 	-- Shadow (Necrolord)
+		[256] = nil, 	-- Discipline (Kyrian)
+		[257] = nil, 	-- Holy (Night Fae)
+		[258] = nil, 	-- Shadow (Necrolord)
 	},
 	[6] = { -- Death Knight
-		[250] = {}, 	-- Blood (Venthyr)
-		[251] = {}, 	-- Frost (Night Fae)
-		[252] = {}, 	-- Unholy (Night Fae)
+		[250] = nil, 	-- Blood (Venthyr)
+		[251] = nil, 	-- Frost (Night Fae)
+		[252] = nil, 	-- Unholy (Night Fae)
 	},
 	[7] = { -- Shaman
-		[262] = {}, 	-- Elemental (Necrolord)
-		[263] = {}, 	-- Enhancement (Necrolord)
-		[264] = {}, 	-- Restoration (Venthyr)
+		[262] = nil, 	-- Elemental (Necrolord)
+		[263] = nil, 	-- Enhancement (Necrolord)
+		[264] = nil, 	-- Restoration (Venthyr)
 	},
 	[8] = { -- Mage
-		[62] = {}, 	-- Arcane (Kyrian)
-		[63] = {}, 	-- Fire (Night Fae)
-		[64] = {}, 	-- Frost (Night Fae)
+		[62] = nil, 	-- Arcane (Kyrian)
+		[63] = nil, 	-- Fire (Night Fae)
+		[64] = nil, 	-- Frost (Night Fae)
 	},
 	[9] = { -- Warlock
 		[265] = {}, 	-- Affliction (Night Fae)
@@ -96,23 +96,23 @@ local SOULBINDS_BY_SPEC = {
 		[267] = {}, 	-- Destruction (Night Fae)
 	},
 	[10] = { -- Monk
-		[268] = {}, 	-- Brewmaster (Night Fae)
-		[270] = {}, 	-- Mistweaver (Venthyr)
-		[269] = {}, 	-- Windwalker (Necrolord)
+		[268] = nil, 	-- Brewmaster (Night Fae)
+		[270] = nil, 	-- Mistweaver (Venthyr)
+		[269] = nil, 	-- Windwalker (Necrolord)
 	},
 	[11] = { -- Druid
-		[102] = {}, 	-- Balance (Night Fae)
-		[103] = {}, 	-- Feral (Night Fae)
-		[104] = {}, 	-- Guardian (Night Fae)
-		[105] = {}, 	-- Restoration (Night Fae)
+		[102] = nil, 	-- Balance (Night Fae)
+		[103] = nil, 	-- Feral (Night Fae)
+		[104] = nil, 	-- Guardian (Night Fae)
+		[105] = nil, 	-- Restoration (Night Fae)
 	},
 	[12] = { -- Demon Hunter
-		[577] = {}, 	-- Havoc (Venthyr)
-		[581] = {}, 	-- Vengeance (Kyrian)
+		[577] = nil, 	-- Havoc (Venthyr)
+		[581] = nil, 	-- Vengeance (Kyrian)
 	},
 	[13] = { -- Evoker
-		[1467] = {}, -- Devastation (Night Fae)
-		[1468] = {}, -- Preservation (Night Fae)
+		[1467] = nil, -- Devastation (Night Fae)
+		[1468] = nil, -- Preservation (Night Fae)
 	},
 }
 

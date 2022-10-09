@@ -15,6 +15,19 @@ e:SetScript("OnEvent", function(self, event, addon, ...)
 		HMPSoulbindButton:SetSize(80, 22)
 		HMPSoulbindButton:SetText(L_GLOBALSTRINGS["Soulbind.UI.Button.Setup.Text"])
 		HMPSoulbindButton:SetPoint("TOPLEFT", SoulbindViewer, "TOPLEFT", 60, -200)
+		
+		-- First get the player's class and specialization.
+		local _, _, classId = UnitClass("player")
+		local specIndex = GetSpecialization()
+		local specId = GetSpecializationInfo(specIndex)
+		
+		local soulbind = addonTable.SOULBINDS_BY_SPEC[classId][specId]
+		if soulbind == nil then -- This spec is currently unsupported.
+			HMPSoulbindButton:SetEnabled(false)
+			return
+		else
+			HMPSoulbindButton:SetEnabled(true)
+		end
 
 		HMPSoulbindButton:SetScript("OnEnter", function(self)
 			addonTable.ShowTooltip(self, L_GLOBALSTRINGS["Soulbind.UI.Button.Setup.Desc"])
@@ -24,18 +37,6 @@ e:SetScript("OnEvent", function(self, event, addon, ...)
 		end)
 		HMPSoulbindButton:SetScript("OnClick", function(self)
 			if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-			
-			-- First get the player's class and specialization.
-			local _, _, classId = UnitClass("player")
-			local specIndex = GetSpecialization()
-			local specId = GetSpecializationInfo(specIndex)
-			
-			local soulbind = addonTable.SOULBINDS_BY_SPEC[classId][specId]
-			if soulbind == {} then
-				-- This spec is currently unsupported.
-				print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.SpecUnsupporteForSoulbinds"])
-				return
-			end
 			
 			-- Determine if the assigned soulbind is unlocked.
 			if C_Soulbinds.GetSoulbindData(soulbind.id).unlocked then
