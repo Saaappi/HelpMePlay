@@ -1,12 +1,12 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_DIALOG = addonTable.L_DIALOG
-local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
--- Architect Table
 e:RegisterEvent("GARRISON_ARCHITECT_OPENED")
+e:RegisterEvent("GARRISON_MISSION_NPC_OPENED")
+e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
+	-- Architect Table
 	if event == "GARRISON_ARCHITECT_OPENED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.ArchitectTableEnabled == false or HelpMePlayDB.ArchitectTableEnabled == nil then return false end
@@ -28,11 +28,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
-end)
-
--- Mission Table
-e:RegisterEvent("GARRISON_MISSION_NPC_OPENED")
-e:SetScript("OnEvent", function(self, event, ...)
+	
+	-- Mission Table
 	if event == "GARRISON_MISSION_NPC_OPENED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.MissionTableEnabled == false or HelpMePlayDB.MissionTableEnabled == nil then return false end
@@ -69,11 +66,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
-end)
-
--- Outposts
-e:RegisterEvent("PLAYER_CHOICE_UPDATE")
-e:SetScript("OnEvent", function(self, event, ...)
+	
+	-- Outposts
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GarrisonOutpostsEnabled == false or HelpMePlayDB.GarrisonOutpostsEnabled == nil then return false end

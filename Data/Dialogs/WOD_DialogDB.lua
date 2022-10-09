@@ -4,6 +4,22 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_WOD = {
 	-- Supported Maps: 572 (Draenor)
 	-- Garrison (Alliance)
+	[84455] = { -- Assistant Brightstone
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[81441] = { -- Shelly Hamby
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Garrison (Alliance)
 	-- Gorgrond
 	-- End of Gorgrond
