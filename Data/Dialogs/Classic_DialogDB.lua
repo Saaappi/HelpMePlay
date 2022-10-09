@@ -11,7 +11,7 @@ local DIALOG_CLASSIC = {
 			{
 				["o"] 	= 2,
 				["c"] 	= { "quests.isActive" },
-				["q"] 	= { 26131 },
+				["q"] 	= { 26131 }, -- Reinforcements for Loch Modan
 			},
 		},
 	},
