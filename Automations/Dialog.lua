@@ -44,7 +44,7 @@ local function GetDialogTable(parentMapId)
 		dialogTable = addonTable.DIALOG_BFA
 	elseif parentMapId == 946 or parentMapId == 947 then
 		dialogTable = addonTable.DIALOG_COSMIC
-	elseif parentMapId == 1409 or parentMapId == 1550 then
+	elseif parentMapId == 1409 or parentMapId == 1550 or parentMapId == 1610 then
 		dialogTable = addonTable.DIALOG_SL
 	elseif parentMapId == 1978 then
 		dialogTable = addonTable.DIALOG_DF

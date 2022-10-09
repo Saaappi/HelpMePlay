@@ -70,8 +70,6 @@ local DIALOG_SL = {
 		},
 	},
 	-- End of Bastion
-	-- Maldraxxus
-	-- End of Maldraxxus
 	-- Ardenweald
 	[157949] = { -- Heartwood Grove Holdout
 		["g"] = {
@@ -438,10 +436,42 @@ local DIALOG_SL = {
 		},
 	},
 	-- End of Torghast
-	-- Zereth Mortis
-	-- End of Zereth Mortis
 	-- Exile's Reach
+	[153211] = { -- Meredy Huntswell
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[164835] = { -- Kee-La (Monk Only)
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[156943] = { -- Meredy Huntswell
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Exile's Reach
+	-- Darkmaul Citadel
+	[161350] = { -- Captain Garrick
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	-- End of Darkmaul Citadel
 }
 
 addonTable.DIALOG_SL = DIALOG_SL
