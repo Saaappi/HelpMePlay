@@ -22,7 +22,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local playerLevel = UnitLevel("player")
 				if playerLevel < ctMaxLevel then
 					if UnitChromieTimeID("player") ~= HelpMePlayDB.ChromieTimeId then
-						C_ChromieTime.SelectChromieTimeOption(HelpMePlayOptionsDB.ChromieTimeExpansion)
+						C_ChromieTime.SelectChromieTimeOption(HelpMePlayDB.ChromieTimeId)
 					end
 				end
 			end)
