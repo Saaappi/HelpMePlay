@@ -82,6 +82,16 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	[107934] = { -- Recruiter Lee
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "quests.isActive" },
+				["q"] 	= { 42782 }, -- To Be Prepared
+			},
+		},
+		["c"] = true,
+	},
 	-- End of Stormwind City
 	-- Durotar
 	-- End of Durotar
