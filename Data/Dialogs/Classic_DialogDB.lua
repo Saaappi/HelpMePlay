@@ -20,6 +20,14 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	[154169] = { -- Captain Garrick
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	[171789] = { -- High Inquisitor Whitemane
 		["g"] = {
 			{ -- Do The Maw

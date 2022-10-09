@@ -195,7 +195,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.DialogEnabled == false or HelpMePlayDB.DialogEnabled == nil then return end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		local numAvailableQuests = C_GossipInfo.GetNumAvailableQuests()
+		local availableQuests = C_GossipInfo.GetAvailableQuests()
 		local activeQuests = C_GossipInfo.GetActiveQuests()
 		if HelpMePlayDB.AcceptQuestsEnabled then
 			if next(activeQuests) then
@@ -213,10 +213,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 					ProcessDialogTree(parentMapId)
 				end
-			elseif numAvailableQuests > 0 then
-				for i = 1, numAvailableQuests do
-					C_GossipInfo.SelectAvailableQuest(i)
+			elseif next(availableQuests) then
+				for i = 1, #availableQuests do
+					if addonTable.IGNORED_QUESTS[availableQuests[i].questID] == false then
+						C_GossipInfo.SelectAvailableQuest(i)
+					end
 				end
+				print(parentMapId)
+				ProcessDialogTree(parentMapId)
 			else
 				ProcessDialogTree(parentMapId)
 			end
