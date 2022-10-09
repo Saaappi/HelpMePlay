@@ -308,14 +308,14 @@ local function QUEST_GREETING()
 			
 			local _, isComplete = GetActiveTitle(i)
 			if isComplete then
-				C_QuestLog.SelectActiveQuest(i)
+				SelectActiveQuest(i)
 			end
 		end
 		for i=1, GetNumAvailableQuests() do
 			local _, _, _, _, questId = GetAvailableQuestInfo(i)
 			if HelpMePlayIgnoredQuestsDB[questId] then return end
 			
-			C_QuestLog.SelectAvailableQuest(i)
+			SelectAvailableQuest(i)
 		end
 	end
 end

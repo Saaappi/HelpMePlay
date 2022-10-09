@@ -5,6 +5,17 @@ local DIALOG_CLASSIC = {
 	-- Supported Maps: 12 (Kalimdor), 13 (Eastern Kingdoms)
 	-- Blasted Lands
 	-- End of Blasted Lands
+	-- Ironforge
+	[1573] = { -- Gryth Thurden
+		["g"] = {
+			{
+				["o"] 	= 2,
+				["c"] 	= { "quests.isActive" },
+				["q"] 	= { 26131 },
+			},
+		},
+	},
+	-- End of Ironforge
 	-- Stormwind City
 	[120590] = { -- Lady Jaina Proudmoore
 		["g"] = {
