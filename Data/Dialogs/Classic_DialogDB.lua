@@ -93,10 +93,6 @@ local DIALOG_CLASSIC = {
 		["c"] = true,
 	},
 	-- End of Stormwind City
-	-- Durotar
-	-- End of Durotar
-	-- Orgrimmar
-	-- End of Orgrimmar
 }
 
 addonTable.DIALOG_CLASSIC = DIALOG_CLASSIC
