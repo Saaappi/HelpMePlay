@@ -146,7 +146,8 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Quests DropDowns
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"]										= "Chromie Time"
-	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"]										= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"]										= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Kraken Latte|r is an option that will select Legion first, then Warlords of Draenor. The route itself remains the same.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.KrakenLatte"]									= "Kraken Latte"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"]											= "The Burning Crusade"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"]										= "Wrath of the Lich King"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"]										= "Cataclysm"

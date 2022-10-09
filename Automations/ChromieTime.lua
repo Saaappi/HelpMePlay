@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local ctMaxLevel = 50
+local ctMaxLevel = 60
 
 --[[
 	Description:
@@ -21,8 +21,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 				local playerLevel = UnitLevel("player")
 				if playerLevel < ctMaxLevel then
-					if UnitChromieTimeID("player") ~= HelpMePlayDB.ChromieTimeId then
-						C_ChromieTime.SelectChromieTimeOption(HelpMePlayDB.ChromieTimeId)
+					if HelpMePlayDB.ChromieTimeId == 98 then
+						if UnitChromieTimeID("player") ~= 9 then
+							C_ChromieTime.SelectChromieTimeOption(10) 	-- Legion
+							C_ChromieTime.SelectChromieTimeOption(9) 	-- WOD
+						end
+					else
+						if UnitChromieTimeID("player") ~= HelpMePlayDB.ChromieTimeId then
+							C_ChromieTime.SelectChromieTimeOption(HelpMePlayDB.ChromieTimeId)
+						end
 					end
 				end
 			end)
