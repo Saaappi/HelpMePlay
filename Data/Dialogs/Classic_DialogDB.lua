@@ -12,6 +12,7 @@ local DIALOG_CLASSIC = {
 				["f"] 	= "Alliance",
 			},
 		},
+		["c"] = true,
 	},
 	-- End of Blasted Lands
 	-- Ironforge
