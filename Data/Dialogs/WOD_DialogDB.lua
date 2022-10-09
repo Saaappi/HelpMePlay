@@ -20,6 +20,15 @@ local DIALOG_WOD = {
 			},
 		},
 	},
+	[81103] = { -- Dungar Longdrink
+		["g"] = {
+			{
+				["o"] 	= 2,
+				["c"] 	= { "level.higher" },
+				["l"] 	= 30,
+			},
+		},
+	},
 	-- End of Garrison (Alliance)
 	-- Gorgrond
 	-- End of Gorgrond
