@@ -2,7 +2,56 @@ local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local SOULBINDS_BY_SPEC = {
 	[1] = { -- Warrior
-		[71] = nil, 	-- Arms (Night Fae)
+		[71] = { 		-- Arms (Night Fae)
+			["id"] 		= 6, -- Korayn
+			["tree"] 	= 334,
+			["conduits"] = {
+				{ -- 1
+					["n"] = 1209,
+					["c"] = 190, -- Destructive Reverberations
+				},
+				{ -- 2
+					["n"] = 1204,
+					["c"] = 0,
+				},
+				{ -- 3
+					["n"] = 1210,
+					["c"] = 8, -- Inspiring Presence
+				},
+				{ -- 4
+					["n"] = 1216,
+					["c"] = 0,
+				},
+				{ -- 5
+					["n"] = 1215,
+					["c"] = 5, -- Stalwart Guardian
+				},
+				{ -- 6
+					["n"] = 1213,
+					["c"] = 10, -- Fueled by Violence
+				},
+				{ -- 7
+					["n"] = 1206,
+					["c"] = 0,
+				},
+				{ -- 8
+					["n"] = 1849,
+					["c"] = 12, -- Crash the Ramparts
+				},
+				{ -- 9
+					["n"] = 1850,
+					["c"] = 0,
+				},
+				{ -- 10
+					["n"] = 1852,
+					["c"] = 283, -- Condensed Anima Sphere
+				},
+				{ -- 11
+					["n"] = 1848,
+					["c"] = 0,
+				},
+			},
+		},
 		[72] = nil, 	-- Fury (Kyrian)
 		[73] = nil, 	-- Protection (Kyrian)
 	},
@@ -43,7 +92,7 @@ local SOULBINDS_BY_SPEC = {
 	},
 	[9] = { -- Warlock
 		[265] = {}, 	-- Affliction (Night Fae)
-		[266] = { 	-- Demonology (Night Fae)
+		[266] = { 		-- Demonology (Night Fae)
 			["id"] 		= 2, -- Dreamweaver
 			["tree"] 	= 275,
 			["conduits"] = {
