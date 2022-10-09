@@ -4,7 +4,6 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local IGNORED_QUESTS = {
-	[26137] 	= true, -- Checking on the Boys
 	[39781] 	= true, -- Neltharion's Lair: Death to the Underking
 	[40567] 	= true, -- Darkheart Thicket: Enter the Nightmare
 	[53437] 	= true, -- The MOTHERLODE!!: Raw Deal

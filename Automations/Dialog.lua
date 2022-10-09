@@ -125,6 +125,12 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						else
 							return
 						end
+					elseif condition == "player.faction" then
+						if (UnitFactionGroup("player")) == gossip.f then
+							useDialog = true
+						else
+							return
+						end
 					elseif condition == "addon.setting" then
 						if HelpMePlayDB[gossip.s] == gossip.r then
 							useDialog = true

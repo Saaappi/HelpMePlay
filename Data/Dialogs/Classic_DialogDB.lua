@@ -4,6 +4,15 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_CLASSIC = {
 	-- Supported Maps: 12 (Kalimdor), 13 (Eastern Kingdoms)
 	-- Blasted Lands
+	[78423] = { -- Archmage Khadgar
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "player.faction" },
+				["f"] 	= "Alliance",
+			},
+		},
+	},
 	-- End of Blasted Lands
 	-- Ironforge
 	[1573] = { -- Gryth Thurden
@@ -28,6 +37,15 @@ local DIALOG_CLASSIC = {
 				["o"] 	= 2,
 				["c"] 	= { "level.higher" },
 				["l"] 	= 49,
+			},
+		},
+	},
+	[149626] = { -- Vanguard Battlemage
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "quests.isActive" },
+				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
 			},
 		},
 	},
