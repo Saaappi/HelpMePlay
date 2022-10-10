@@ -90,7 +90,7 @@ function HelpMePlaySellItems()
 				--
 				-- We need to ensure the item isn't on
 				-- the blacklist.
-				if HelpMePlayJunkerGlobalBlacklistDB[itemId] == nil or HelpMePlayJunkerBlacklistDB[itemId] == nil then
+				if not HelpMePlayJunkerGlobalBlacklistDB[itemId] and not HelpMePlayJunkerBlacklistDB[itemId] then
 					local _, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
 					local _, itemType = GetItemInfoInstant(itemId)
 					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)

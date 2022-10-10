@@ -14,6 +14,86 @@ local DIALOG_LEGION = {
 		},
 	},
 	-- Highmountain
+	[98825] = { -- Spiritwalker Ebonhorn
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99745] = { -- Snazzle Shinyfinder
+		["g"] = {
+			{
+				["o"] 			= 2,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99746] = { -- Trytooth Hardchisel
+		["g"] = {
+			{
+				["o"] 			= 2,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99747] = { -- Kindle Candlecrafter
+		["g"] = {
+			{
+				["o"] 			= 2,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99748] = { -- Kindle Candlecrafter
+		["g"] = {
+			{
+				["o"] 			= 2,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99781] = { -- Snazzle Shinyfinder
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99782] = { -- Trytooth Hardchisel
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99784] = { -- Kindle Candlecrafter
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[95403] = { -- Windmaster Julan
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[96286] = { -- Navarrogg
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Highmountain
 	-- Val'sharah
 	[91462] = { -- Malfurion Stormrage
