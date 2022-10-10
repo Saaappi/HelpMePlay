@@ -30,7 +30,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
-				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
+				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID)
+				if tonumber(id) then
+					id = tonumber(id)
+				else
+					id = choiceInfo.choiceID
+				end
+				
 				if id then
 					if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
 						if HelpMePlayDB.ThreadsOfFateEnabled then
@@ -61,6 +67,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 							
 							SendPlayerChoiceResponse(choiceInfo.options[addonTable.COVENANTS_BY_SPEC[classId][specId]].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
+						end
+					elseif id == addonTable.PLAYERCHOICE["Warchief's Command Board"] or id == addonTable.PLAYERCHOICE["Hero's Call Board"] then
+						for i = 1, 3 do
+							if choiceInfo.options[i].choiceArtID == 1851147 then
+								print(choiceInfo.options[i].header)
+							end
 						end
 					end
 				end
