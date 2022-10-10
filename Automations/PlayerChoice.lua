@@ -71,7 +71,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 					elseif id == addonTable.PLAYERCHOICE["Warchief's Command Board"] or id == addonTable.PLAYERCHOICE["Hero's Call Board"] then
 						for i = 1, 3 do
 							if choiceInfo.options[i].choiceArtID == 1851147 then
-								print(choiceInfo.options[i].header)
+								SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
+								HideUIPanel(PlayerChoiceFrame)
 							end
 						end
 					end
