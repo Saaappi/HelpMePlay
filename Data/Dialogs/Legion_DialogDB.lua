@@ -16,6 +16,14 @@ local DIALOG_LEGION = {
 	-- Highmountain
 	-- End of Highmountain
 	-- Val'sharah
+	[91462] = { -- Malfurion Stormrage
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Val'sharah
 }
 

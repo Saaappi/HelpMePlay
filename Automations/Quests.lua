@@ -449,7 +449,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
 		local questId = ...
-		C_QuestLog.AddQuestWatch(questId, 0)
 		if select(2, IsAddOnLoaded("TomTom")) and HelpMePlayDB.WaypointsEnabled then
 			for quest, questData in pairs(addonTable.WAYPOINTS) do
 				if quest == questId then
