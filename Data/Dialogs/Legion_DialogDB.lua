@@ -24,6 +24,30 @@ local DIALOG_LEGION = {
 			},
 		},
 	},
+	[108642] = { -- Keeper Remulos
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[91109] = { -- Malfurion Stormrage
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[92742] = { -- Ysera
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Val'sharah
 }
 
