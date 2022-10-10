@@ -81,6 +81,7 @@ local DIALOG_CLASSIC = {
 				["r"] 	= false,
 			},
 		},
+		["c"] = true,
 	},
 	[107934] = { -- Recruiter Lee
 		["g"] = {
