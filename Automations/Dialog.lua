@@ -225,7 +225,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 						C_GossipInfo.SelectAvailableQuest(i)
 					end
 				end
-				print(parentMapId)
 				ProcessDialogTree(parentMapId)
 			else
 				ProcessDialogTree(parentMapId)
