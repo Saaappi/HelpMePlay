@@ -94,6 +94,46 @@ local DIALOG_LEGION = {
 			},
 		},
 	},
+	[98773] = { -- Lasan Skyhorn
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99619] = { -- Navarrogg
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[96591] = { -- Amateur Hunter
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[98804] = { -- Amateur Hunter
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[94434] = { -- Addie Fizzlebog
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Highmountain
 	-- Val'sharah
 	[91462] = { -- Malfurion Stormrage
