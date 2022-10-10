@@ -48,6 +48,62 @@ local DIALOG_LEGION = {
 			},
 		},
 	},
+	[104739] = { -- Tyrande Whisperwind
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[104799] = { -- Tyrande Whisperwind
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[92734] = { -- Penelope Heathrow
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[92620] = { -- Commander Jarod Shadowsong
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[94974] = { -- Sirius Ebonwing
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[94975] = { -- Asha Ravensong
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[94976] = { -- Cassiel Nightthorn
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Val'sharah
 }
 
