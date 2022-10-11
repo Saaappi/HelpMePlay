@@ -203,7 +203,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"] 								= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"] 									= "Mission Table"
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTableDesc"] 								= "If enabled, allows the addon to automatically start the first mission in your Garrison."
-	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutposts"] 								= "Outposts"
+	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutposts"] 								= "Garrison Outposts"
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutpostsDesc"] 							= "If enabled, allows the addon to automatically choose your Garrison outposts.\n\n|cffFFD100NOTE|r: Gorgrond is the only supported zone right now."
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThings"] 								= "The Box of Many Things"
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"] 							= "Check this button if you want the addon to inform you of the best path through |cffFFD100The Box of Many Things|r."

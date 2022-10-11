@@ -13,7 +13,7 @@ local expansionFeatures = {
 			order = 0,
 			type = "header",
 		},
-		architect_table = {
+		architectTable = {
 			name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"],
 			order = 1,
 			desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"],
@@ -21,28 +21,28 @@ local expansionFeatures = {
 			get = function(info) return HelpMePlayDB.ArchitectTableEnabled end,
 			set = function(info, val) HelpMePlayDB.ArchitectTableEnabled = val end,
 		},
-		mission_table = {
-			name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"],
-			order = 2,
-			desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTableDesc"],
-			type = "toggle",
-			get = function(info) return HelpMePlayDB.MissionTableEnabled end,
-			set = function(info, val) HelpMePlayDB.MissionTableEnabled = val end,
-		},
-		outposts = {
+		garrisonOutposts = {
 			name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutposts"],
-			order = 3,
+			order = 2,
 			desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutpostsDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.GarrisonOutpostsEnabled end,
 			set = function(info, val) HelpMePlayDB.GarrisonOutpostsEnabled = val end,
+		},
+		missionTable = {
+			name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"],
+			order = 3,
+			desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTableDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.MissionTableEnabled end,
+			set = function(info, val) HelpMePlayDB.MissionTableEnabled = val end,
 		},
 		visions_header = {
 			name = L_GLOBALSTRINGS["Header.VisionsOfNzoth"],
 			order = 10,
 			type = "header",
 		},
-		titan_research = {
+		titanResearch = {
 			name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearch"],
 			order = 11,
 			desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearchDesc"],
@@ -55,7 +55,7 @@ local expansionFeatures = {
 			order = 20,
 			type = "header",
 		},
-		box_of_many_things = {
+		boxOfManyThings = {
 			name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThings"],
 			order = 21,
 			desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"],
@@ -63,7 +63,7 @@ local expansionFeatures = {
 			get = function(info) return HelpMePlayDB.BoxOfManyThingsEnabled end,
 			set = function(info, val) HelpMePlayDB.BoxOfManyThingsEnabled = val end,
 		},
-		torghast_animapower_dropdown = {
+		animaPowers = {
 			name = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"],
 			order = 22,
 			desc = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"],
