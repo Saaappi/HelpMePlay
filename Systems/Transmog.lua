@@ -34,12 +34,6 @@ local function RequipOriginalItems(equippedItems)
 end
 
 local function LearnAllUnknownTransmog(equippedItems)
-	local itemLink
-	local sourceId
-	local canCollectSource
-	local appearanceInfo = {}
-	local sourceInfo = {}
-	
 	-- Open the player bags, then close them
 	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
@@ -48,21 +42,17 @@ local function LearnAllUnknownTransmog(equippedItems)
 			CloseAllBags()
 			for i=0, NUM_BAG_SLOTS do -- We iterate through the inventory, bags 0 to 4.
 				for j=1, GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
-					_, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
+					local _, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
 					if itemLink then -- If we return a valid item link, then continue.
-						_, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
+						local _, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 						if sourceId then -- If we return a valid source ID, then continue.
-							sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
+							local sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
 							if sourceInfo.isCollected == false then
-								_, canCollectSource = C_TransmogCollection.PlayerCanCollectSource(sourceId)
+								local _, canCollectSource = C_TransmogCollection.PlayerCanCollectSource(sourceId)
 								if canCollectSource then -- The player can learn the source on the current character.
-									if appearanceInfo then
-										if appearanceInfo.sourceIsCollected == false then -- If the player hasn't already learned the source, then continue.
-											EquipItemByName(itemLink)
-											if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
-												StaticPopup1Button1:Click("LeftButton")
-											end
-										end
+									EquipItemByName(itemLink)
+									if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
+										StaticPopup1Button1:Click("LeftButton")
 									end
 								end
 							end
