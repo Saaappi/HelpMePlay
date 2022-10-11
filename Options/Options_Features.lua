@@ -109,12 +109,12 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.WaypointsEnabled end,
 			set = function(info, val) HelpMePlayDB.WaypointsEnabled = val end,
 		},
-		dropdown_header = {
+		dropDown_header = {
 			name = L_GLOBALSTRINGS["Header.DropDowns"],
 			order = 20,
 			type = "header",
 		},
-		covenant_dropdown = {
+		covenants = {
 			name = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Title"],
 			order = 21,
 			desc = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Desc"],
