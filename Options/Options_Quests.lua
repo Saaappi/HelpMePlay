@@ -13,7 +13,7 @@ local questOptions = {
 			order = 0,
 			type = "header",
 		},
-		accept_quests = {
+		acceptQuests = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.AcceptQuests"],
 			order = 1,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.AcceptQuestsDesc"],
@@ -21,44 +21,44 @@ local questOptions = {
 			get = function() return HelpMePlayDB.AcceptQuestsEnabled end,
 			set = function(_, val) HelpMePlayDB.AcceptQuestsEnabled = val end,
 		},
-		complete_quests = {
-			name = L_GLOBALSTRINGS["Quests.Toggle.CompleteQuests"],
-			order = 2,
-			desc = L_GLOBALSTRINGS["Quests.Toggle.CompleteQuestsDesc"],
-			type = "toggle",
-			get = function() return HelpMePlayDB.CompleteQuestsEnabled end,
-			set = function(_, val) HelpMePlayDB.CompleteQuestsEnabled = val end,
-		},
-		purchase_quest_items = {
-			name = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"],
-			order = 3,
-			desc = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"],
-			type = "toggle",
-			get = function() return HelpMePlayDB.PurchaseQuestItemsEnabled end,
-			set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
-		},
-		threads_of_fate = {
-			name = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"],
-			order = 4,
-			desc = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"],
-			type = "toggle",
-			get = function() return HelpMePlayDB.ThreadsOfFateEnabled end,
-			set = function(_, val) HelpMePlayDB.ThreadsOfFateEnabled = val end,
-		},
-		adventure_maps = {
+		adventureMaps = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"],
-			order = 5,
+			order = 2,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.AdventureMapsEnabled end,
 			set = function(_, val) HelpMePlayDB.AdventureMapsEnabled = val end,
 		},
-		expansion_intros_header = {
+		completeQuests = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.CompleteQuests"],
+			order = 3,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.CompleteQuestsDesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.CompleteQuestsEnabled end,
+			set = function(_, val) HelpMePlayDB.CompleteQuestsEnabled = val end,
+		},
+		purchaseQuestItems = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"],
+			order = 4,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.PurchaseQuestItemsEnabled end,
+			set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
+		},
+		threadsOfFate = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"],
+			order = 5,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.ThreadsOfFateEnabled end,
+			set = function(_, val) HelpMePlayDB.ThreadsOfFateEnabled = val end,
+		},
+		expansionIntro_header = {
 			name = L_GLOBALSTRINGS["Header.ExpansionIntros"],
 			order = 10,
 			type = "header",
 		},
-		the_maw = {
+		theMaw = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.TheMaw"],
 			order = 11,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"],
@@ -66,76 +66,14 @@ local questOptions = {
 			get = function() return HelpMePlayDB.TheMawEnabled end,
 			set = function(_, val) HelpMePlayDB.TheMawEnabled = val end,
 		},
-		dropdown_header = {
+		dropDown_header = {
 			name = L_GLOBALSTRINGS["Header.DropDowns"],
 			order = 20,
 			type = "header",
 		},
-		quest_reward_dropdown = {
-			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"],
-			order = 21,
-			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"],
-			type = "select",
-			style = "dropdown",
-			values = {
-				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"],
-				[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"],
-			},
-			sorting = { -- Sort the options chronologically by expansion.
-				[1] = 0, 	-- Disabled
-				[2] = 1, 	-- Item Level
-				[3] = 2, 	-- Sell Price
-			},
-			get = function()
-				if not HelpMePlayDB.QuestRewardId then
-					HelpMePlayDB.QuestRewardId = 0
-				end
-				return HelpMePlayDB.QuestRewardId
-			end,
-			set = function(_, questRewardId) HelpMePlayDB.QuestRewardId = questRewardId end,
-		},
-		chromie_time_dropdown = {
-			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],
-			order = 22,
-			desc = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"],
-			type = "select",
-			style = "dropdown",
-			values = {
-				[99] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-				[6] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"],
-				[7] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"],
-				[5] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"],
-				[8] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.MOP"],
-				[9] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"],
-				[10] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"],
-				[0] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"],
-				--[11] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"], (NYI)
-				--[12] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"], (NYI)
-			},
-			sorting = { -- Sort the options chronologically by expansion.
-				[1] = 99, 	-- Disabled
-				[2] = 6, 	-- BC
-				[3] = 7, 	-- WOTLK
-				[4] = 5, 	-- CATA (Classic)
-				[5] = 8, 	-- MOP
-				[6] = 9, 	-- WOD
-				[7] = 10, 	-- Legion
-				[8] = 0, 	-- BFA
-				--[9] = 11, -- SL (NYI)
-				--[10] = 12, -- DF (NYI)
-			},
-			get = function()
-				if not HelpMePlayDB.ChromieTimeId then
-					HelpMePlayDB.ChromieTimeId = 0
-				end
-				return HelpMePlayDB.ChromieTimeId
-			end,
-			set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
-		},
-		bfa_zone_selection_dropdown = {
+		zoneSelection_BattleForAzeroth = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"],
-			order = 23,
+			order = 21,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -183,7 +121,69 @@ local questOptions = {
 			end,
 			set = function(_, zoneId) HelpMePlayDB.ZoneId_BFA = zoneId end,
 		},
-		sl_zone_selection_dropdown = {
+		chromieTime = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],
+			order = 22,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[99] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[6] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"],
+				[7] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"],
+				[5] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"],
+				[8] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.MOP"],
+				[9] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"],
+				[10] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"],
+				[0] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"],
+				--[11] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"], (NYI)
+				--[12] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"], (NYI)
+			},
+			sorting = { -- Sort the options chronologically by expansion.
+				[1] = 99, 	-- Disabled
+				[2] = 6, 	-- BC
+				[3] = 7, 	-- WOTLK
+				[4] = 5, 	-- CATA (Classic)
+				[5] = 8, 	-- MOP
+				[6] = 9, 	-- WOD
+				[7] = 10, 	-- Legion
+				[8] = 0, 	-- BFA
+				--[9] = 11, -- SL (NYI)
+				--[10] = 12, -- DF (NYI)
+			},
+			get = function()
+				if not HelpMePlayDB.ChromieTimeId then
+					HelpMePlayDB.ChromieTimeId = 0
+				end
+				return HelpMePlayDB.ChromieTimeId
+			end,
+			set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
+		},
+		questRewards = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"],
+			order = 23,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"],
+				[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"],
+			},
+			sorting = { -- Sort the options chronologically by expansion.
+				[1] = 0, 	-- Disabled
+				[2] = 1, 	-- Item Level
+				[3] = 2, 	-- Sell Price
+			},
+			get = function()
+				if not HelpMePlayDB.QuestRewardId then
+					HelpMePlayDB.QuestRewardId = 0
+				end
+				return HelpMePlayDB.QuestRewardId
+			end,
+			set = function(_, questRewardId) HelpMePlayDB.QuestRewardId = questRewardId end,
+		},
+		zoneSelection_Shadowlands = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"],
 			order = 24,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Desc"],
@@ -213,12 +213,12 @@ local questOptions = {
 			end,
 			set = function(_, zoneId) HelpMePlayDB.ZoneId_SL = zoneId end,
 		},
-		party_play_header = {
+		partyPlay_header = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
 			order = 30,
 			type = "header",
 		},
-		party_play_enable = {
+		partyPlayEnable = {
 			name = L_GLOBALSTRINGS["General.Toggle.Enable"],
 			order = 31,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"],
@@ -226,7 +226,7 @@ local questOptions = {
 			get = function() return HelpMePlayDB.PartyPlayEnabled end,
 			set = function(_, val) HelpMePlayDB.PartyPlayEnabled = val end,
 		},
-		party_play_announce = {
+		partyPlayAnnounce = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"],
 			order = 32,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"],
@@ -234,7 +234,7 @@ local questOptions = {
 			get = function() return HelpMePlayDB.PartyPlayAnnounceEnabled end,
 			set = function(_, val) HelpMePlayDB.PartyPlayAnnounceEnabled = val end,
 		},
-		party_play_auto_share = {
+		partyPlayAutoShare = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"],
 			order = 33,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"],
