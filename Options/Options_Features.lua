@@ -71,7 +71,7 @@ local featuresOptions = {
 		},
 		speech = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Speech"],
-			order = 9,
+			order = 8,
 			desc = L_GLOBALSTRINGS["Features.Toggle.SpeechDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.SpeechEnabled end,
