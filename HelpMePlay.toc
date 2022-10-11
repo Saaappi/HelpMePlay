@@ -69,6 +69,7 @@ Automations\Garrisons.lua
 Automations\WarMode.lua
 Automations\PlayerChoice.lua
 Automations\Merchants.lua
+Automations\ReadyChecks.lua
 Automations\Emotes.lua
 Automations\Speech.lua
 Automations\Dialog.lua
