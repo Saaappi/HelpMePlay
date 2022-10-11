@@ -26,7 +26,7 @@ local junkerOptions = {
 				end
 			end,
 		},
-		safe_mode = {
+		safeMode = {
 			name = L_GLOBALSTRINGS["Junker.Toggle.SafeMode"],
 			order = 1,
 			desc = L_GLOBALSTRINGS["Junker.Toggle.SafeModeDesc"],
@@ -34,7 +34,7 @@ local junkerOptions = {
 			get = function(info) return HelpMePlayDB.JunkerSafeModeEnabled end,
 			set = function(_, val) HelpMePlayDB.JunkerSafeModeEnabled = val end,
 		},
-		soulbound_mode = {
+		soulboundMode = {
 			name = L_GLOBALSTRINGS["Junker.Toggle.SoulboundMode"],
 			order = 2,
 			desc = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"],
@@ -140,7 +140,7 @@ local junkerOptions = {
 			order = 10,
 			type = "header",
 		},
-		junker_armor = {
+		itemType_armor = {
 			name = L_GLOBALSTRINGS["Junker.Toggle.JunkerArmor"],
 			order = 11,
 			desc = L_GLOBALSTRINGS["Junker.Toggle.JunkerArmorDesc"],
@@ -148,7 +148,7 @@ local junkerOptions = {
 			get = function(info) return HelpMePlayDB.Armor end,
 			set = function(_, val) HelpMePlayDB.Armor = val end,
 		},
-		junker_consumable = {
+		itemType_consumable = {
 			name = L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumable"],
 			order = 12,
 			desc = L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumableDesc"],
@@ -156,12 +156,12 @@ local junkerOptions = {
 			get = function(info) return HelpMePlayDB.Consumable end,
 			set = function(_, val) HelpMePlayDB.Consumable = val end,
 		},
-		dropdown_header = {
+		dropDown_header = {
 			name = L_GLOBALSTRINGS["Header.DropDowns"],
 			order = 20,
 			type = "header",
 		},
-		junker_rarity_dropdown = {
+		rarity = {
 			name = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"],
 			order = 21,
 			desc = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"],
