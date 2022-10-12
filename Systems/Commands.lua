@@ -156,6 +156,31 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			end
 		end
 		self:Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
+	elseif cmd == L_GLOBALSTRINGS["Command.Soulbind"] and arg1 ~= nil then
+		-- This command should only be available to the Author's characters.
+		if not addonTable.GUID[UnitGUID("player")] then return end
+		
+		-- Create an empty table we'll use for sorting the data
+		-- later.
+		--
+		-- Get the node data for the provided soulbind (via ID).
+		-- Soulbinds can be found @ https://wow.tools/dbc/?dbc=soulbind
+		local sortingTbl = {}
+		local nodes = C_Soulbinds.GetTree(arg1).nodes
+		
+		-- Add the node data, the ID and the corresponding row,
+		-- to the sorting table in a contiguous format.
+		for _, node in ipairs(nodes) do
+			table.insert(sortingTbl, { node.ID, node.row })
+		end
+		
+		-- Sort the sorting table in a descending order (high to low).
+		table.sort(sortingTbl, function(a, b) return a[2] < b[2] end)
+		
+		-- Print the sorting table.
+		for _, node in ipairs(sortingTbl) do
+			print(node[1] .. ": " .. node[2])
+		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end

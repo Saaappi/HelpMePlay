@@ -30,6 +30,7 @@ Options\Options_ExpansionFeatures.lua
 Options\Options_Junker.lua
 
 # Data
+Data\SystemDB.lua
 Data\ConstantsDB.lua
 Data\IconDB.lua
 Data\AnimaPowersDB.lua

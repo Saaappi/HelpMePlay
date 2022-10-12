@@ -196,7 +196,56 @@ local SOULBINDS_BY_SPEC = {
 	[10] = { -- Monk
 		[268] = nil, 	-- Brewmaster (Night Fae)
 		[270] = nil, 	-- Mistweaver (Venthyr)
-		[269] = nil, 	-- Windwalker (Necrolord)
+		[269] = { 		-- Windwalker (Necrolord)
+			["id"] 		= 5, -- Emeni
+			["tree"] 	= 330,
+			["conduits"] = {
+				{ -- 1
+					["n"] = 1154,
+					["c"] = 160, -- Resolute Barrier
+				},
+				{ -- 2
+					["n"] = 1770, --1163
+					["c"] = 204, -- Borne of Blood
+				},
+				{ -- 3
+					["n"] = 827,
+					["c"] = 0, 
+				},
+				{ -- 4
+					["n"] = 1156,
+					["c"] = 205, -- Carnivorous Stalkers
+				},
+				{ -- 5
+					["n"] = 832,
+					["c"] = 222, -- Diabolic Bloodstone
+				},
+				{ -- 6
+					["n"] = 1169, --1165
+					["c"] = 0,
+				},
+				{ -- 7
+					["n"] = 1160, --1158
+					["c"] = 0,
+				},
+				{ -- 8
+					["n"] = 1843,
+					["c"] = 207, -- Fel Commando
+				},
+				{ -- 9
+					["n"] = 1845,
+					["c"] = 0,
+				},
+				{ -- 10
+					["n"] = 1847, --1801
+					["c"] = 168, -- Shade of Terror
+				},
+				{ -- 11
+					["n"] = 1802,
+					["c"] = 0,
+				},
+			}
+		},
 	},
 	[11] = { -- Druid
 		[102] = nil, 	-- Balance (Night Fae)

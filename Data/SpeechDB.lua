@@ -1,8 +1,6 @@
 local addonName, addonTable = ...
-local e = CreateFrame("Frame")
-local L_DIALOG = addonTable.L_DIALOG
-local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+
 local SPEECH = {
 	[L_GLOBALSTRINGS["Speech.PlayfulTrickster.Praise"]]				= { type="emote", emote="praise" },
 	[L_GLOBALSTRINGS["Speech.PlayfulTrickster.Cheer"]]				= { type="emote", emote="cheer" },

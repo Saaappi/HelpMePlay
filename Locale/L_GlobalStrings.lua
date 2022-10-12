@@ -36,6 +36,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Command.Quest"] 															= "quest"
 	L_GLOBALSTRINGS["Command.Junker"] 															= "junker"
 	L_GLOBALSTRINGS["Command.Help"] 															= "help"
+	L_GLOBALSTRINGS["Command.Soulbind"] 														= "soulbind"
 	-- End: 	Commands
 	--
 	-- Start:	Subcommands
