@@ -3,12 +3,12 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local SOULBINDS_BY_SPEC = {
 	[1] = { -- Warrior
 		[71] = { 		-- Arms (Night Fae)
-			["id"] 		= 6, -- Korayn
+			["id"] 		= 6, 		-- Korayn
 			["tree"] 	= 334,
 			["conduits"] = {
 				{ -- 1
 					["n"] = 1209,
-					["c"] = 190, -- Destructive Reverberations
+					["c"] = 190, 	-- Destructive Reverberations
 				},
 				{ -- 2
 					["n"] = 1204,
@@ -16,7 +16,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 3
 					["n"] = 1210,
-					["c"] = 8, -- Inspiring Presence
+					["c"] = 8, 		-- Inspiring Presence
 				},
 				{ -- 4
 					["n"] = 1216,
@@ -24,11 +24,11 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 5
 					["n"] = 1215,
-					["c"] = 5, -- Stalwart Guardian
+					["c"] = 5, 		-- Stalwart Guardian
 				},
 				{ -- 6
 					["n"] = 1213,
-					["c"] = 10, -- Fueled by Violence
+					["c"] = 10, 	-- Fueled by Violence
 				},
 				{ -- 7
 					["n"] = 1206,
@@ -36,7 +36,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 8
 					["n"] = 1849,
-					["c"] = 12, -- Crash the Ramparts
+					["c"] = 12, 	-- Crash the Ramparts
 				},
 				{ -- 9
 					["n"] = 1850,
@@ -44,7 +44,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 10
 					["n"] = 1852,
-					["c"] = 283, -- Condensed Anima Sphere
+					["c"] = 283, 	-- Condensed Anima Sphere
 				},
 				{ -- 11
 					["n"] = 1848,
@@ -68,12 +68,12 @@ local SOULBINDS_BY_SPEC = {
 	[4] = { -- Rogue
 		[259] = nil, 	-- Assassination (Venthyr)
 		[260] = { 		-- Outlaw (Kyrian)
-			["id"] 		= 18, -- Forgelite Prime Mikanikos
+			["id"] 		= 18, 		-- Forgelite Prime Mikanikos
 			["tree"] 	= 365,
 			["conduits"] = {
 				{ -- 1
 					["n"] = 1381,
-					["c"] = 244, -- Count the Odds
+					["c"] = 244, 	-- Count the Odds
 				},
 				{ -- 2
 					["n"] = 1408,
@@ -81,7 +81,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 3
 					["n"] = 1379,
-					["c"] = 233, -- Quick Decisions
+					["c"] = 233, 	-- Quick Decisions
 				},
 				{ -- 4
 					["n"] = 1417,
@@ -89,11 +89,11 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 5
 					["n"] = 1380,
-					["c"] = 231, -- Recuperator
+					["c"] = 231, 	-- Recuperator
 				},
 				{ -- 6
 					["n"] = 1415,
-					["c"] = 243, -- Sleight of Hand
+					["c"] = 243, 	-- Sleight of Hand
 				},
 				{ -- 7
 					["n"] = 1412,
@@ -101,7 +101,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 8
 					["n"] = 1831,
-					["c"] = 225, -- Reverberation
+					["c"] = 225, 	-- Reverberation
 				},
 				{ -- 9
 					["n"] = 1832,
@@ -109,7 +109,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 10
 					["n"] = 1834,
-					["c"] = 230, -- Nimble Fingers
+					["c"] = 230, 	-- Nimble Fingers
 				},
 				{ -- 11
 					["n"] = 1836,
@@ -142,16 +142,16 @@ local SOULBINDS_BY_SPEC = {
 	[9] = { -- Warlock
 		[265] = {}, 	-- Affliction (Night Fae)
 		[266] = { 		-- Demonology (Night Fae)
-			["id"] 		= 2, -- Dreamweaver
+			["id"] 		= 2, 		-- Dreamweaver
 			["tree"] 	= 275,
 			["conduits"] = {
 				{ -- 1
 					["n"] = 870,
-					["c"] = 160, -- Resolute Barrier
+					["c"] = 160, 	-- Resolute Barrier
 				},
 				{ -- 2
 					["n"] = 836,
-					["c"] = 204, -- Borne of Blood
+					["c"] = 204, 	-- Borne of Blood
 				},
 				{ -- 3
 					["n"] = 827,
@@ -159,11 +159,11 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 4
 					["n"] = 830,
-					["c"] = 205, -- Carnivorous Stalkers
+					["c"] = 205, 	-- Carnivorous Stalkers
 				},
 				{ -- 5
 					["n"] = 832,
-					["c"] = 222, -- Diabolic Bloodstone
+					["c"] = 222, 	-- Diabolic Bloodstone
 				},
 				{ -- 6
 					["n"] = 834,
@@ -175,7 +175,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 8
 					["n"] = 1843,
-					["c"] = 207, -- Fel Commando
+					["c"] = 207, 	-- Fel Commando
 				},
 				{ -- 9
 					["n"] = 1845,
@@ -183,7 +183,7 @@ local SOULBINDS_BY_SPEC = {
 				},
 				{ -- 10
 					["n"] = 1847,
-					["c"] = 168, -- Shade of Terror
+					["c"] = 168, 	-- Shade of Terror
 				},
 				{ -- 11
 					["n"] = 1848,
@@ -197,48 +197,48 @@ local SOULBINDS_BY_SPEC = {
 		[268] = nil, 	-- Brewmaster (Night Fae)
 		[270] = nil, 	-- Mistweaver (Venthyr)
 		[269] = { 		-- Windwalker (Necrolord)
-			["id"] 		= 5, -- Emeni
+			["id"] 		= 5, 		-- Emeni
 			["tree"] 	= 330,
 			["conduits"] = {
 				{ -- 1
-					["n"] = 1154,
-					["c"] = 160, -- Resolute Barrier
+					["n"] = 1168,
+					["c"] = 22, 	-- Coordinated Offensive
 				},
 				{ -- 2
-					["n"] = 1770, --1163
-					["c"] = 204, -- Borne of Blood
+					["n"] = 1163,
+					["c"] = 0,
 				},
 				{ -- 3
-					["n"] = 827,
-					["c"] = 0, 
+					["n"] = 1767,
+					["c"] = 42, 	-- Tumbling Technique
 				},
 				{ -- 4
 					["n"] = 1156,
-					["c"] = 205, -- Carnivorous Stalkers
-				},
-				{ -- 5
-					["n"] = 832,
-					["c"] = 222, -- Diabolic Bloodstone
-				},
-				{ -- 6
-					["n"] = 1169, --1165
 					["c"] = 0,
 				},
+				{ -- 5
+					["n"] = 1167,
+					["c"] = 15, 	-- Harm Denial
+				},
+				{ -- 6
+					["n"] = 1164,
+					["c"] = 60, 	-- Bone Marrow Hops
+				},
 				{ -- 7
-					["n"] = 1160, --1158
+					["n"] = 1158,
 					["c"] = 0,
 				},
 				{ -- 8
-					["n"] = 1843,
-					["c"] = 207, -- Fel Commando
+					["n"] = 1799,
+					["c"] = 19, 	-- Calculated Strikes
 				},
 				{ -- 9
-					["n"] = 1845,
+					["n"] = 1800,
 					["c"] = 0,
 				},
 				{ -- 10
-					["n"] = 1847, --1801
-					["c"] = 168, -- Shade of Terror
+					["n"] = 1801,
+					["c"] = 25, 	-- Grounding Breath
 				},
 				{ -- 11
 					["n"] = 1802,

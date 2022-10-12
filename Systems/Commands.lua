@@ -175,11 +175,43 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 		
 		-- Sort the sorting table in a descending order (high to low).
+		-- The sort is based on the row number.
 		table.sort(sortingTbl, function(a, b) return a[2] < b[2] end)
 		
 		-- Print the sorting table.
 		for _, node in ipairs(sortingTbl) do
 			print(node[1] .. ": " .. node[2])
+		end
+	elseif cmd == L_GLOBALSTRINGS["Command.Conduit"] and arg1 ~= nil then
+		--[[
+			0: Finesse
+			1: Potency
+			2: Endurance
+		]]--
+	
+		-- This command should only be available to the Author's characters.
+		if not addonTable.GUID[UnitGUID("player")] then return end
+		
+		-- Create an empty table we'll use for sorting the data
+		-- later.
+		--
+		-- Get the conduit data for the provided conduit type (via ID).
+		--
+		-- Add the node data, the ID and the corresponding row,
+		-- to the sorting table in a contiguous format.
+		local sortingTbl = {}
+		local conduits = C_Soulbinds.GetConduitCollection(arg1)
+		for _, conduit in ipairs(conduits) do
+			table.insert(sortingTbl, { conduit.conduitID, conduit.conduitItemID })
+		end
+		
+		-- Sort the sorting table in a descending order (high to low).
+		-- The sort is based on the conduit item ID.
+		table.sort(sortingTbl, function(a, b) return a[2] < b[2] end)
+		
+		-- Print the sorting table.
+		for _, conduit in ipairs(sortingTbl) do
+			print(conduit[2] .. ": " .. conduit[1])
 		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
