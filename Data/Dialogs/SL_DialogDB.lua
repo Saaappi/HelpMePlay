@@ -436,7 +436,7 @@ local DIALOG_SL = {
 		},
 	},
 	-- End of Torghast
-	-- Exile's Reach
+	-- Exile's Reach (Alliance)
 	[153211] = { -- Meredy Huntswell
 		["g"] = {
 			{
@@ -461,8 +461,8 @@ local DIALOG_SL = {
 			},
 		},
 	},
-	-- End of Exile's Reach
-	-- Darkmaul Citadel
+	-- End of Exile's Reach (Alliance)
+	-- Darkmaul Citadel (Alliance)
 	[161350] = { -- Captain Garrick
 		["g"] = {
 			{
@@ -471,7 +471,7 @@ local DIALOG_SL = {
 			},
 		},
 	},
-	-- End of Darkmaul Citadel
+	-- End of Darkmaul Citadel (Alliance)
 }
 
 addonTable.DIALOG_SL = DIALOG_SL
