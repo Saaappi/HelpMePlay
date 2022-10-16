@@ -32,6 +32,31 @@ local DIALOG_BFA = {
 			},
 		},
 	},
+	[135612] = { -- Halford Wyrmbane
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[135681] = { -- Grand Admiral Jes-Tereth
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.isActive" },
+				["q"] 			= { 51308 }, -- Zuldazar Foothold
+			},
+		},
+	},
+	[143690] = { -- Captured Zandalari Troll
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Boralus
 }
 
