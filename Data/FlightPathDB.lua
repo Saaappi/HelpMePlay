@@ -7,7 +7,7 @@ local FLIGHT_PATHS = {
 				["p"] 	= 1673, -- Lorlathil, Val'sharah
 				["c"] 	= { "quests.isComplete", "level.between", "target.is" },
 				["q"] 	= { 44663 }, -- In the Blink of an Eye
-				["l"] 	= { 30, 60 },
+				["l"] 	= { 30, 32 },
 				["t"] 	= 96813, -- Aludane Whitecloud
 			},
 		},
