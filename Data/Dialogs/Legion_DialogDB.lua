@@ -110,6 +110,30 @@ local DIALOG_LEGION = {
 			},
 		},
 	},
+	[106153] = { -- Tarvim Daywalker
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[106191] = { -- Old Nefu
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[106115] = { -- Red Skymane
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	[96591] = { -- Amateur Hunter
 		["g"] = {
 			{
