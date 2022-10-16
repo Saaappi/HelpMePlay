@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function GetMapID(mapId)
 	if mapId then
@@ -18,7 +17,7 @@ end
 
 local function TakeFlightPath(mapId)
 	local takeFlightPath = false
-	local flightPathName = ""
+	local flightPathNodeId = 0
 	if next(addonTable.FLIGHT_PATHS[mapId]) then
 		for _, flightPath in pairs(addonTable.FLIGHT_PATHS[mapId]["g"]) do
 			for _, condition in ipairs(flightPath.c) do
@@ -28,7 +27,7 @@ local function TakeFlightPath(mapId)
 					
 					if playerLevel >= minLevel and playerLevel <= maxLevel then
 						takeFlightPath = true
-						flightPathName = flightPath.p
+						flightPathNodeId = flightPath.p
 					else
 						return
 					end
@@ -36,7 +35,7 @@ local function TakeFlightPath(mapId)
 					for _, id in ipairs(flightPath.q) do
 						if C_QuestLog.IsOnQuest(id) then
 							takeFlightPath = true
-							flightPathName = flightPath.p
+							flightPathNodeId = flightPath.p
 						else
 							return
 						end
@@ -45,7 +44,7 @@ local function TakeFlightPath(mapId)
 					for _, id in ipairs(flightPath.q) do
 						if C_QuestLog.IsQuestFlaggedCompleted(id) then
 							takeFlightPath = true
-							flightPathName = flightPath.p
+							flightPathNodeId = flightPath.p
 						else
 							return
 						end
@@ -54,14 +53,14 @@ local function TakeFlightPath(mapId)
 					local npcId = select(6, string.split("-", UnitGUID("target"))); npcId = tonumber(npcId)
 					if npcId == flightPath.t then
 						takeFlightPath = true
-						flightPathName = flightPath.p
+						flightPathNodeId = flightPath.p
 					else
 						return
 					end
 				elseif condition == "player.faction" then
 					if (UnitFactionGroup("player")) == flightPath.f then
 						takeFlightPath = true
-						flightPathName = flightPath.p
+						flightPathNodeId = flightPath.p
 					else
 						return
 					end
@@ -70,10 +69,11 @@ local function TakeFlightPath(mapId)
 		end
 	end
 	if takeFlightPath then
+		local flightPaths = C_TaxiMap.GetTaxiNodesForMap(mapId)
 		for i = 1, NumTaxiNodes() do
-			local taxiNodeName = TaxiNodeName(i)
-			if string.find(string.lower(taxiNodeName), string.lower(flightPathName)) then
+			if flightPaths[i].nodeID == flightPathNodeId then
 				TakeTaxiNode(i)
+				return
 			end
 		end
 	end
