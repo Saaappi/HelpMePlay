@@ -18,7 +18,7 @@ end
 local function TakeFlightPath(mapId)
 	local takeFlightPath = false
 	local flightPathNodeId = 0
-	if next(addonTable.FLIGHT_PATHS[mapId]) then
+	if addonTable.FLIGHT_PATHS[mapId] ~= nil then
 		for _, flightPath in pairs(addonTable.FLIGHT_PATHS[mapId]["g"]) do
 			for _, condition in ipairs(flightPath.c) do
 				if condition == "level.between" then
