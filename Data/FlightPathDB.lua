@@ -2,6 +2,17 @@ local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local FLIGHT_PATHS = {
+	[627] = { -- Dalaran (Legion)
+		["g"] = {
+			{
+				["p"] 	= "Lorlathil, Val'sharah",
+				["c"] 	= { "quests.isComplete", "level.between", "target.is" },
+				["q"] 	= { 44663 }, -- In the Blink of an Eye
+				["l"] 	= { 30, 32 },
+				["t"] 	= 96813, -- Aludane Whitecloud
+			},
+		},
+	},
 	[650] = { -- Highmountain
 		["g"] = {
 			{

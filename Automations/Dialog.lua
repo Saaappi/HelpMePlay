@@ -89,6 +89,15 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						else
 							return
 						end
+					elseif condition == "level.between" then
+						local minLevel, maxLevel = gossip.l[1], gossip.l[2]
+						local playerLevel = UnitLevel("player")
+						
+						if playerLevel >= minLevel and playerLevel <= maxLevel then
+							useDialog = true
+						else
+							return
+						end
 					elseif condition == "money.higher" then
 						if GetMoney("player") > gossip.m then
 							useDialog = true
@@ -106,6 +115,14 @@ local function SelectGossipOption(options, npcId, parentMapId)
 					elseif condition == "quests.notActive" then
 						for _, id in ipairs(gossip.q) do
 							if C_QuestLog.IsOnQuest(id) == false then
+								useDialog = true
+							else
+								return
+							end
+						end
+					elseif condition == "quests.isComplete" then
+						for _, id in ipairs(gossip.q) do
+							if C_QuestLog.IsQuestFlaggedCompleted(id) then
 								useDialog = true
 							else
 								return

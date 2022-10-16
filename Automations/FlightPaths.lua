@@ -6,7 +6,7 @@ local function GetMapID(mapId)
 	if mapId then
 		local mapInfo = C_Map.GetMapInfo(mapId)
 		if mapInfo then
-			if mapInfo.mapType ~= 3 then
+			if mapInfo.mapType ~= 3 and mapInfo.mapType ~= 4 then
 				GetMapID(mapInfo.parentMapID)
 			else
 				mapId = mapInfo.mapID
@@ -19,31 +19,52 @@ end
 local function TakeFlightPath(mapId)
 	local takeFlightPath = false
 	local flightPathName = ""
-	for _, flightPath in pairs(addonTable.FLIGHT_PATHS[mapId]["g"]) do
-		for _, condition in ipairs(flightPath.c) do
-			if condition == "quests.isActive" then
-				for _, id in ipairs(flightPath.q) do
-					if C_QuestLog.IsOnQuest(id) then
+	if next(addonTable.FLIGHT_PATHS[mapId]) then
+		for _, flightPath in pairs(addonTable.FLIGHT_PATHS[mapId]["g"]) do
+			for _, condition in ipairs(flightPath.c) do
+				if condition == "level.between" then
+					local minLevel, maxLevel = flightPath.l[1], flightPath.l[2]
+					local playerLevel = UnitLevel("player")
+					
+					if playerLevel >= minLevel and playerLevel <= maxLevel then
 						takeFlightPath = true
 						flightPathName = flightPath.p
 					else
 						return
 					end
-				end
-			elseif condition == "target.is" then
-				local npcId = select(6, string.split("-", UnitGUID("target"))); npcId = tonumber(npcId)
-				if npcId == flightPath.t then
-					takeFlightPath = true
-					flightPathName = flightPath.p
-				else
-					return
-				end
-			elseif condition == "player.faction" then
-				if (UnitFactionGroup("player")) == flightPath.f then
-					takeFlightPath = true
-					flightPathName = flightPath.p
-				else
-					return
+				elseif condition == "quests.isActive" then
+					for _, id in ipairs(flightPath.q) do
+						if C_QuestLog.IsOnQuest(id) then
+							takeFlightPath = true
+							flightPathName = flightPath.p
+						else
+							return
+						end
+					end
+				elseif condition == "quests.isComplete" then
+					for _, id in ipairs(flightPath.q) do
+						if C_QuestLog.IsQuestFlaggedCompleted(id) then
+							takeFlightPath = true
+							flightPathName = flightPath.p
+						else
+							return
+						end
+					end
+				elseif condition == "target.is" then
+					local npcId = select(6, string.split("-", UnitGUID("target"))); npcId = tonumber(npcId)
+					if npcId == flightPath.t then
+						takeFlightPath = true
+						flightPathName = flightPath.p
+					else
+						return
+					end
+				elseif condition == "player.faction" then
+					if (UnitFactionGroup("player")) == flightPath.f then
+						takeFlightPath = true
+						flightPathName = flightPath.p
+					else
+						return
+					end
 				end
 			end
 		end
