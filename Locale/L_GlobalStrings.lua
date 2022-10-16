@@ -103,6 +103,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.DialogDesc"] 												= "Automates the selection of dialog options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all dialogs!"
 	L_GLOBALSTRINGS["Features.Toggle.Emotes"] 													= "Emotes"
 	L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"] 												= "Automates emotes for specific NPCs.\n\nExamples:\n- |cffFFD100Lake Frog|r: A Blade Fit For A Champion (Argent Tournament)\n- |cffFFD100Runestones|r: Repeat After Me (Maldraxxus)"
+	L_GLOBALSTRINGS["Features.Toggle.FlightPaths"] 												= "Flight Paths"
+	L_GLOBALSTRINGS["Features.Toggle.FlightPathsDesc"] 											= "Toggle to automatically take flight paths when you meet specific conditions."
 	L_GLOBALSTRINGS["Features.Toggle.Notes"] 													= "Notes"
 	L_GLOBALSTRINGS["Features.Toggle.NotesDesc"] 												= "Adds notes to select NPC tooltips.\n\nExample:\n- |cffFFD100Lever-Locked Chests|r: Torghast"
 	L_GLOBALSTRINGS["Features.Toggle.Queues"] 													= "Queues"
