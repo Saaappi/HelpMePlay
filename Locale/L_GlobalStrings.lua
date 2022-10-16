@@ -311,6 +311,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.AssignedSoulbindLocked"]										= "Cannot continue. Assigned soulbind is locked."
 	L_GLOBALSTRINGS["Text.Output.ConduitNodesIncorrect"]										= "One or more conduit nodes are incorrect. You will need to press the |cffFFD100Setup|r button again."
 	L_GLOBALSTRINGS["Text.Output.ConduitsNotUnlocked"]											= "Cannot continue. Please unlock all nodes, then try again."
+	L_GLOBALSTRINGS["Text.Output.FlyingTo"]														= "Flying to:"
 	-- End:		Text Output
 	--
 	-- Start: 	Notifications

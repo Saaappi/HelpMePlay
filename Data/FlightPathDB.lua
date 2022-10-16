@@ -1,24 +1,18 @@
 local addonName, addonTable = ...
 
 local FLIGHT_PATHS = {
-	[627] = { -- Dalaran (Legion)
+	[993] = { -- Broken Isles
 		["g"] = {
 			{
 				["p"] 	= 1673, -- Lorlathil, Val'sharah
-				["c"] 	= { "quests.isComplete", "level.between", "target.is" },
+				["c"] 	= { "quests.isComplete", "level.between" },
 				["q"] 	= { 44663 }, -- In the Blink of an Eye
 				["l"] 	= { 30, 32 },
-				["t"] 	= 96813, -- Aludane Whitecloud
 			},
-		},
-	},
-	[650] = { -- Highmountain
-		["g"] = {
 			{
 				["p"] 	= 1719, -- Thunder Totem, Highmountain
-				["c"] 	= { "quests.isActive", "target.is" },
+				["c"] 	= { "quests.isActive" },
 				["q"] 	= { 39580 }, -- The High Chieftain
-				["t"] 	= 96565, -- Chofa Nighthoof
 			},
 		},
 	},
