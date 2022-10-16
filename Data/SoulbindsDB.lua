@@ -131,7 +131,56 @@ local SOULBINDS_BY_SPEC = {
 	},
 	[7] = { -- Shaman
 		[262] = nil, 	-- Elemental (Necrolord)
-		[263] = nil, 	-- Enhancement (Necrolord)
+		[263] = { 		-- Enhancement (Necrolord)
+			["id"] 		= 10, 		-- Bonesmith Heirmir
+			["tree"] 	= 349,
+			["conduits"] = {
+				{ -- 1
+					["n"] = 1265,
+					["c"] = 110, 	-- Focused Lightning
+				},
+				{ -- 2
+					["n"] = 1267,
+					["c"] = 0,
+				},
+				{ -- 3
+					["n"] = 1276,
+					["c"] = 95, 	-- Thunderous Paws
+				},
+				{ -- 4
+					["n"] = 1270,
+					["c"] = 0,
+				},
+				{ -- 5
+					["n"] = 1263,
+					["c"] = 94, 	-- Vital Accretion
+				},
+				{ -- 6
+					["n"] = 1264,
+					["c"] = 111, 	-- Magma Fist
+				},
+				{ -- 7
+					["n"] = 1269,
+					["c"] = 0,
+				},
+				{ -- 8
+					["n"] = 1805,
+					["c"] = 147, 	-- Tumbling Waves
+				},
+				{ -- 9
+					["n"] = 1806,
+					["c"] = 0,
+				},
+				{ -- 10
+					["n"] = 1808,
+					["c"] = 283, 	-- Condensed Anima Sphere
+				},
+				{ -- 11
+					["n"] = 1810,
+					["c"] = 0,
+				},
+			},
+		},
 		[264] = nil, 	-- Restoration (Venthyr)
 	},
 	[8] = { -- Mage
@@ -189,7 +238,7 @@ local SOULBINDS_BY_SPEC = {
 					["n"] = 1848,
 					["c"] = 0,
 				},
-			}
+			},
 		},
 		[267] = {}, 	-- Destruction (Night Fae)
 	},
@@ -244,7 +293,7 @@ local SOULBINDS_BY_SPEC = {
 					["n"] = 1802,
 					["c"] = 0,
 				},
-			}
+			},
 		},
 	},
 	[11] = { -- Druid
