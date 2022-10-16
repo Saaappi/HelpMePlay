@@ -7,6 +7,7 @@ local function TakeFlightPath(flightPathNodeId, mapId)
 	for i, taxiNodeData in ipairs(taxiNodes) do
 		local dest, zone = string.split(",", taxiNodeData.name); zone = zone:gsub("%s+", "")
 		if taxiNodeData.nodeID == flightPathNodeId then
+			if taxiNodeData.state ~= _G.Enum.FlightPathState.Reachable then return end
 			if _G.IsMounted() then
 				_G.Dismount()
 			end
