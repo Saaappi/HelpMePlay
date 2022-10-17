@@ -30,24 +30,14 @@ local function GetDialogTable(parentMapId)
 	local dialogTable
 	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
 		dialogTable = addonTable.DIALOG_CLASSIC
-	elseif parentMapId == 101 then
-		dialogTable = addonTable.DIALOG_TBC
-	elseif parentMapId == 113 then
-		dialogTable = addonTable.DIALOG_WOTLK
-	elseif parentMapId == 424 then
-		dialogTable = addonTable.DIALOG_MOP
 	elseif parentMapId == 572 then
 		dialogTable = addonTable.DIALOG_WOD
 	elseif parentMapId == 619 or parentMapId == 905 then
 		dialogTable = addonTable.DIALOG_LEGION
 	elseif parentMapId == 875 or parentMapId == 876 then
 		dialogTable = addonTable.DIALOG_BFA
-	elseif parentMapId == 946 or parentMapId == 947 then
-		dialogTable = addonTable.DIALOG_COSMIC
 	elseif parentMapId == 1409 or parentMapId == 1550 or parentMapId == 1610 then
 		dialogTable = addonTable.DIALOG_SL
-	elseif parentMapId == 1978 then
-		dialogTable = addonTable.DIALOG_DF
 	end
 	return dialogTable
 end
