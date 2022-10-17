@@ -29,6 +29,38 @@ local DIALOG_WOD = {
 	},
 	-- End of Garrison (Alliance)
 	-- Gorgrond
+	[81018] = { -- Rangari Kolaan
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[81013] = { -- Rangari Rajess
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[81020] = { -- Rangari Jonaa
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[84766] = { -- Glirin
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Gorgrond
 	-- Tanaan Jungle
 	[78556] = { -- Ariok
