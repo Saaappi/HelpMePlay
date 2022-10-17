@@ -28,6 +28,14 @@ local DIALOG_BFA = {
 			},
 		},
 	},
+	[135383] = { -- Barnard "The Smasher" Baysworth
+		["g"] = {
+			{
+				["o"] 			= 2,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Vol'dun
 	-- Nazmir
 	[139620] = { -- Desha Stormwallow
