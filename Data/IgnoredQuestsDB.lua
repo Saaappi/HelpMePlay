@@ -9,6 +9,7 @@ local IGNORED_QUESTS = {
 	[53437] 	= true, -- The MOTHERLODE!!: Raw Deal
 	[58092] 	= true, -- Halls of Atonement: Your Absolution
 	[59583] 	= true, -- Welcome to Stormwind
+	[60343] 	= true, -- Welcome to Orgrimmar
 	[62371] 	= true, -- Tirna Scithe: A Warning Silence
 }
 
