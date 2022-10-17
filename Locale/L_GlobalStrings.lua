@@ -75,8 +75,8 @@ if (isLocaleSupported) then
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions
-	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/HallowsEnd:64|t" .. "\n\n" .. "Happy |cffF99943Hallow's End|r! Good luck on your |cffA335EE[The Horseman's Reins]|r this year!"
-	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/WinterVeil:64|t" .. "\n\n" .. "Merry |cff3EA425Winter Veil|r! 'Tis the season to be jolly! Fa-la-la-la-la-Ogri'la! Good luck on your |cffA335EE[Minion of Grumpus]|r this year!"
+	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/HallowsEnd:64|t" .. "\n\n" .. "Happy |cffF99943Hallow's End|r! Good luck on your |T132501:0|t |cffA335EE[The Horseman's Reins]|r this year!"
+	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/WinterVeil:64|t" .. "\n\n" .. "Merry |cff3EA425Winter Veil|r! 'Tis the season to be jolly! Fa-la-la-la-la-Ogri'la! Good luck on your |T1245298:0|t |cffA335EE[Minion of Grumpus]|r this year!"
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
