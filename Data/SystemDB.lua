@@ -5,6 +5,7 @@ local GUID = {
 	["Player-1426-0DEEAE42"] = 0, -- Artaius (Aerie Peak)
 	["Player-1426-0ADB1BEE"] = 0, -- Grimfeast (Aerie Peak)
 	["Player-1426-0DEE000B"] = 0, -- Highchants (Aerie Peak)
+	["Player-1426-0DDCECA0"] = 0, -- Spookasem (Aerie Peak)
 }
 
 addonTable.GUID = GUID

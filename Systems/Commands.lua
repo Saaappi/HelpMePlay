@@ -213,6 +213,19 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		for _, conduit in ipairs(sortingTbl) do
 			print(conduit[2] .. ": " .. conduit[1])
 		end
+	elseif cmd == L_GLOBALSTRINGS["Command.Taxi"] and arg1 ~= nil then
+		-- This command should only be available to the Author's characters.
+		if not addonTable.GUID[UnitGUID("player")] then return end
+		
+		-- The flight map frame must be visible.
+		if not FlightMapFrame:IsVisible() then return end
+		
+		for _, taxiNodeData in ipairs(C_TaxiMap.GetAllTaxiNodes(GetTaxiMapID())) do
+			local dest, zone = string.split(",", taxiNodeData.name); zone = zone:gsub("%s+", "")
+			if string.find(string.lower(dest), string.lower(arg1)) then
+				return dest .. ", " .. zone .. ": " .. taxiNodeData.nodeID
+			end
+		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end

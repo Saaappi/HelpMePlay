@@ -38,6 +38,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Command.Help"] 															= "help"
 	L_GLOBALSTRINGS["Command.Conduit"] 															= "conduit"
 	L_GLOBALSTRINGS["Command.Soulbind"] 														= "soulbind"
+	L_GLOBALSTRINGS["Command.Taxi"] 															= "taxi"
 	-- End: 	Commands
 	--
 	-- Start:	Subcommands
