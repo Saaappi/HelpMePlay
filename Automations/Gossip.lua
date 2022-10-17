@@ -4,17 +4,6 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function GetParentMapID(mapId)
-	--[[
-		Description:
-			Gets the parent map ID of the current map, if available.
-			For example, Neltharion's Vault in Highmountain, is a child
-			map whose parent map ID would be that of Highmountain.
-			
-			This function will end the moment it detects a continent.
-			Example: Neltharion's Vault (OK) > Highmountain (OK) > Broken Isles (X)
-			
-			In the above example, the last "OK" wins the return.
-	]]--
 	if mapId then
 		local mapInfo = C_Map.GetMapInfo(mapId)
 		if mapInfo.mapType ~= 2 and mapInfo.parentMapID ~= 0 then
@@ -26,20 +15,20 @@ local function GetParentMapID(mapId)
 	return parentMapId
 end
 
-local function GetDialogTable(parentMapId)
-	local dialogTable
+local function GetGossipTable(parentMapId)
+	local gossipTable
 	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
-		dialogTable = addonTable.DIALOG_CLASSIC
+		gossipTable = addonTable.DIALOG_CLASSIC
 	elseif parentMapId == 572 then
-		dialogTable = addonTable.DIALOG_WOD
+		gossipTable = addonTable.DIALOG_WOD
 	elseif parentMapId == 619 or parentMapId == 905 then
-		dialogTable = addonTable.DIALOG_LEGION
+		gossipTable = addonTable.DIALOG_LEGION
 	elseif parentMapId == 875 or parentMapId == 876 then
-		dialogTable = addonTable.DIALOG_BFA
+		gossipTable = addonTable.DIALOG_BFA
 	elseif parentMapId == 1409 or parentMapId == 1550 or parentMapId == 1610 then
-		dialogTable = addonTable.DIALOG_SL
+		gossipTable = addonTable.DIALOG_SL
 	end
-	return dialogTable
+	return gossipTable
 end
 
 local function SelectGossipOption(options, npcId, parentMapId)
@@ -53,10 +42,10 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		end
 	end
 	
-	local dialogTable = GetDialogTable(parentMapId)
-	if dialogTable[npcId] then
+	local gossipTable = GetGossipTable(parentMapId)
+	if gossipTable[npcId] then
 		for index, gossipSubTable in ipairs(options) do
-			for _, gossip in pairs(dialogTable[npcId]["g"]) do
+			for _, gossip in pairs(gossipTable[npcId]["g"]) do
 				local numConditions = #gossip.c
 				local numConditionsMatched = 0
 				for _, condition in ipairs(gossip.c) do
@@ -165,9 +154,9 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 		end
 	end
 	
-	local dialogTable = GetDialogTable(parentMapId)
-	if dialogTable[npcId] then
-		if dialogTable[npcId]["c"] then
+	local gossipTable = GetGossipTable(parentMapId)
+	if gossipTable[npcId] then
+		if gossipTable[npcId]["c"] then
 			StaticPopup1Button1:Click("LeftButton")
 			return
 		end
@@ -180,7 +169,7 @@ e:RegisterEvent("GOSSIP_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.DialogEnabled == false or HelpMePlayDB.DialogEnabled == nil then return false end
+		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
 		local _, message = ...
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
@@ -194,7 +183,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.DialogEnabled == false or HelpMePlayDB.DialogEnabled == nil then return end
+		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		local availableQuests = C_GossipInfo.GetAvailableQuests()
