@@ -1,7 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_DIALOG = addonTable.L_DIALOG
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function GetParentMapID(mapId)
 	if mapId then
