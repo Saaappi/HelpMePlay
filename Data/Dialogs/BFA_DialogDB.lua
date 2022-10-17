@@ -20,6 +20,14 @@ local DIALOG_BFA = {
 	},
 	-- End of Zuldazar
 	-- Vol'dun
+	[137559] = { -- Private James
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Vol'dun
 	-- Nazmir
 	[139620] = { -- Desha Stormwallow
