@@ -10,6 +10,14 @@ local DIALOG_BFA = {
 	-- Tiragarde Sound
 	-- End of Tiragarde Sound
 	-- Zuldazar
+	[143334] = { -- Daria Smithson
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Zuldazar
 	-- Vol'dun
 	-- End of Vol'dun
@@ -46,6 +54,11 @@ local DIALOG_BFA = {
 				["o"] 			= 1,
 				["c"] 			= { "quests.isActive" },
 				["q"] 			= { 51308 }, -- Zuldazar Foothold
+			},
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.isActive" },
+				["q"] 			= { 51088 }, -- Heart of Darkness
 			},
 		},
 	},

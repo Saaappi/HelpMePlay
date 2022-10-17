@@ -75,19 +75,19 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						if UnitLevel("player") > gossip.l then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "level.equal" then
 						if UnitLevel("player") == gossip.l then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "level.lower" then
 						if UnitLevel("player") < gossip.l then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "level.between" then
 						local minLevel, maxLevel = gossip.l[1], gossip.l[2]
@@ -96,20 +96,20 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						if playerLevel >= minLevel and playerLevel <= maxLevel then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "money.higher" then
 						if GetMoney("player") > gossip.m then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "quests.isActive" then
 						for _, id in ipairs(gossip.q) do
 							if C_QuestLog.IsOnQuest(id) then
 								useDialog = true
 							else
-								return
+								useDialog = false
 							end
 						end
 					elseif condition == "quests.notActive" then
@@ -117,7 +117,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 							if C_QuestLog.IsOnQuest(id) == false then
 								useDialog = true
 							else
-								return
+								useDialog = false
 							end
 						end
 					elseif condition == "quests.isComplete" then
@@ -125,7 +125,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 							if C_QuestLog.IsQuestFlaggedCompleted(id) then
 								useDialog = true
 							else
-								return
+								useDialog = false
 							end
 						end
 					elseif condition == "quest.obj.isComplete" then
@@ -133,24 +133,26 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						if objectives[gossip.obj].finished then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "quest.obj.isNotComplete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
 						if objectives[gossip.obj].finished == false then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "player.faction" then
 						if (UnitFactionGroup("player")) == gossip.f then
 							useDialog = true
 						else
-							return
+							useDialog = false
 						end
 					elseif condition == "addon.setting" then
 						if HelpMePlayDB[gossip.s] == gossip.r then
-							return
+							useDialog = true
+						else
+							useDialog = false
 						end
 					end
 				end
