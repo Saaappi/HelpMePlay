@@ -16,6 +16,10 @@ local FLIGHT_PATHS = {
 			},
 		},
 	},
+	[1208] = { -- Eastern Kingdoms
+		["g"] = {
+		},
+	},
 	[1922] = { -- Warlords of Draenor
 		["g"] = {
 			{

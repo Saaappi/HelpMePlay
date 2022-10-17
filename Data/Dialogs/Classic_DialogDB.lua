@@ -51,14 +51,6 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
-	[167032] = { -- Chromie
-		["g"] = {
-			{
-				["o"] 	= 1,
-				["c"] 	= { "none" },
-			},
-		},
-	},
 	[171789] = { -- High Inquisitor Whitemane
 		["g"] = {
 			{ -- Do The Maw
@@ -97,6 +89,16 @@ local DIALOG_CLASSIC = {
 		},
 	},
 	-- End of Orgrimmar
+	-- Neutral
+	[167032] = { -- Chromie (present in both Stormwind and Orgrimmar)
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of Neutral
 }
 
 addonTable.DIALOG_CLASSIC = DIALOG_CLASSIC
