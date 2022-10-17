@@ -150,7 +150,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						end
 					elseif condition == "addon.setting" then
 						if HelpMePlayDB[gossip.s] == gossip.r then
-							useDialog = true
+							return
 						end
 					end
 				end

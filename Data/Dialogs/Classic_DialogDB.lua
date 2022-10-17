@@ -34,11 +34,6 @@ local DIALOG_CLASSIC = {
 				["c"] 	= { "level.lower" },
 				["l"] 	= 50,
 			},
-			{
-				["o"] 	= 2,
-				["c"] 	= { "level.higher" },
-				["l"] 	= 49,
-			},
 		},
 	},
 	[149626] = { -- Vanguard Battlemage
