@@ -52,11 +52,11 @@ Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
 Data\TalentSystems\CypherOfFirstOnesDB.lua
 Data\TalentSystems\WarResourcesDB.lua
-Data\Dialogs\Classic_DialogDB.lua
-Data\Dialogs\WOD_DialogDB.lua
-Data\Dialogs\Legion_DialogDB.lua
-Data\Dialogs\BFA_DialogDB.lua
-Data\Dialogs\SL_DialogDB.lua
+Data\Gossips\Classic_GossipDB.lua
+Data\Gossips\WOD_GossipDB.lua
+Data\Gossips\Legion_GossipDB.lua
+Data\Gossips\BFA_GossipDB.lua
+Data\Gossips\SL_GossipDB.lua
 
 # Automations
 Automations\ChromieTime.lua
@@ -70,7 +70,7 @@ Automations\Merchants.lua
 Automations\ReadyChecks.lua
 Automations\Emotes.lua
 Automations\Speech.lua
-Automations\Dialog.lua
+Automations\Gossip.lua
 Automations\Vehicles.lua
 Automations\Queues.lua
 Automations\Repairs.lua
