@@ -471,8 +471,40 @@ local DIALOG_SL = {
 	},
 	-- End of Darkmaul Citadel (Alliance)
 	-- Exile's Reach (Horde)
+	[167298] = { -- Herbert Gloomburst
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[167598] = { -- Herbert Gloomburst
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[162943] = { -- Hjalmar the Undying (Warrior Only)
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Exile's Reach (Horde)
 	-- Darkmaul Citadel (Horde)
+	[167663] = { -- Warlord Breka Grimaxe
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Darkmaul Citadel (Horde)
 }
 
