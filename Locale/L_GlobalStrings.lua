@@ -55,11 +55,11 @@ if (isLocaleSupported) then
 	-- End:		Keybinds
 	--
 	-- Start: 	Tabs
-	L_GLOBALSTRINGS["Tabs.General"] 															= "|T136243:0|t" .. " " .. "General" -- Icon: Engineering
-	L_GLOBALSTRINGS["Tabs.Features"] 															= "|T134152:0|t" .. " " .. "Features" -- Icon: Hertz Locker (Achievement)
-	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|T464068:0|t" .. " " .. "Quests" -- Icon: That's a Lot of Turn Ins (Achievement)
-	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "|T3257863:0|t" .. " " .. "Expansion Features" -- Icon: Hoarder of Torghast (Achievement)
-	L_GLOBALSTRINGS["Tabs.Junker"] 																= "|T132281:0|t" .. " " .. "Junker" -- Icon: Repair
+	L_GLOBALSTRINGS["Tabs.General"] 															= "|TInterface/AddOns/HelpMePlay/Assets/general:16|t" .. " " .. "General"
+	L_GLOBALSTRINGS["Tabs.Features"] 															= "|TInterface/AddOns/HelpMePlay/Assets/features:16|t" .. " " .. "Features"
+	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|TInterface/AddOns/HelpMePlay/Assets/quest:16|t" .. " " .. "Quests"
+	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "|TInterface/AddOns/HelpMePlay/Assets/expansion:16|t" .. " " .. "Expansion Features"
+	L_GLOBALSTRINGS["Tabs.Junker"] 																= "|TInterface/AddOns/HelpMePlay/Assets/junker:16|t" .. " " .. "Junker"
 	-- End: 	Tabs
 	--
 	-- Start: 	Headers
