@@ -470,6 +470,10 @@ local DIALOG_SL = {
 		},
 	},
 	-- End of Darkmaul Citadel (Alliance)
+	-- Exile's Reach (Horde)
+	-- End of Exile's Reach (Horde)
+	-- Darkmaul Citadel (Horde)
+	-- End of Darkmaul Citadel (Horde)
 }
 
 addonTable.DIALOG_SL = DIALOG_SL
