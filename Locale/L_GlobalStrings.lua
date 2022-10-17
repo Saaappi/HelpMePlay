@@ -98,8 +98,8 @@ if (isLocaleSupported) then
 	-- Start: 	Features Toggles
 	L_GLOBALSTRINGS["Features.Toggle.Cinematics"] 												= "Cinematics"
 	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
-	L_GLOBALSTRINGS["Features.Toggle.Dialog"] 													= "Dialog"
-	L_GLOBALSTRINGS["Features.Toggle.DialogDesc"] 												= "Automates the selection of dialog options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all dialogs!"
+	L_GLOBALSTRINGS["Features.Toggle.Gossip"] 													= "Gossip"
+	L_GLOBALSTRINGS["Features.Toggle.GossipDesc"] 												= "Automates the selection of gossip options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all gossips!"
 	L_GLOBALSTRINGS["Features.Toggle.Emotes"] 													= "Emotes"
 	L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"] 												= "Automates emotes for specific NPCs.\n\nExamples:\n- |cffFFD100Lake Frog|r: A Blade Fit For A Champion (Argent Tournament)\n- |cffFFD100Runestones|r: Repeat After Me (Maldraxxus)"
 	L_GLOBALSTRINGS["Features.Toggle.FlightPaths"] 												= "Flight Paths"

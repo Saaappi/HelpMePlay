@@ -21,13 +21,13 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.CinematicsEnabled end,
 			set = function(info, val) HelpMePlayDB.CinematicsEnabled = val end,
 		},
-		dialog = {
-			name = L_GLOBALSTRINGS["Features.Toggle.Dialog"],
+		gossip = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
 			order = 2,
-			desc = L_GLOBALSTRINGS["Features.Toggle.DialogDesc"],
+			desc = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
 			type = "toggle",
-			get = function(info) return HelpMePlayDB.DialogEnabled end,
-			set = function(info, val) HelpMePlayDB.DialogEnabled = val end,
+			get = function(info) return HelpMePlayDB.GossipEnabled end,
+			set = function(info, val) HelpMePlayDB.GossipEnabled = val end,
 		},
 		emotes = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Emotes"],
