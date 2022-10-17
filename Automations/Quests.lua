@@ -278,7 +278,7 @@ local function Get_AvailableQuests(gossipInfo)
 		end)
 	else
 		for i, quest in ipairs(gossipInfo) do
-			if HelpMePlayIgnoredQuestsDB[quest.questID] then
+			if HelpMePlayIgnoredQuestsDB[quest.questID] or addonTable.IGNORED_QUESTS[questId] then
 				-- do nothing
 			else
 				C_GossipInfo.SelectAvailableQuest(i)
@@ -302,18 +302,20 @@ local function QUEST_GREETING()
 			QUEST_GREETING()
 		end)
 	else
-		for i=1, GetNumActiveQuests() do
+		for i = 1, GetNumActiveQuests() do
 			local questId = GetActiveQuestID(i)
 			if HelpMePlayIgnoredQuestsDB[questId] then return end
+			if addonTable.IGNORED_QUESTS[questId] then return end
 			
 			local _, isComplete = GetActiveTitle(i)
 			if isComplete then
 				SelectActiveQuest(i)
 			end
 		end
-		for i=1, GetNumAvailableQuests() do
+		for i = 1, GetNumAvailableQuests() do
 			local _, _, _, _, questId = GetAvailableQuestInfo(i)
 			if HelpMePlayIgnoredQuestsDB[questId] then return end
+			if addonTable.IGNORED_QUESTS[questId] then return end
 			
 			SelectAvailableQuest(i)
 		end
@@ -486,9 +488,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- from being auto accepted. If that's the case,
 		-- simply remove it from the player's log if it's
 		-- on the ignore list.
-		for i=1, C_QuestLog.GetNumQuestLogEntries() do
+		for i = 1, C_QuestLog.GetNumQuestLogEntries() do
 			local id = C_QuestLog.GetQuestIDForLogIndex(i)
-			if id == questId and HelpMePlayIgnoredQuestsDB[questId] then
+			if id == questId and (HelpMePlayIgnoredQuestsDB[questId] or addonTable.IGNORED_QUESTS[questId]) then
 				C_QuestLog.SetSelectedQuest(id)
 				C_QuestLog.SetAbandonQuest()
 				C_QuestLog.AbandonQuest()
