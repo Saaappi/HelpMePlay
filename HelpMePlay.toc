@@ -52,11 +52,7 @@ Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
 Data\TalentSystems\CypherOfFirstOnesDB.lua
 Data\TalentSystems\WarResourcesDB.lua
-Data\Dialogs\Cosmic_DialogDB.lua
 Data\Dialogs\Classic_DialogDB.lua
-Data\Dialogs\TBC_DialogDB.lua
-Data\Dialogs\WOTLK_DialogDB.lua
-Data\Dialogs\MOP_DialogDB.lua
 Data\Dialogs\WOD_DialogDB.lua
 Data\Dialogs\Legion_DialogDB.lua
 Data\Dialogs\BFA_DialogDB.lua

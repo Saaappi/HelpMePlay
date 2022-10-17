@@ -1,6 +1,4 @@
 local addonName, addonTable = ...
-local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_CLASSIC = {
 	-- Supported Maps: 12 (Kalimdor), 13 (Eastern Kingdoms)
 	-- Blasted Lands

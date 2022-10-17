@@ -1,7 +1,4 @@
 local addonName, addonTable = ...
-local e = CreateFrame("Frame")
-local L_NOTES = addonTable.L_NOTES
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_LEGION = {
 	-- Supported Maps: 619 (Broken Isles), 905 (Argus)
 	-- Objects

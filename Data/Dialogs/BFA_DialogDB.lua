@@ -1,6 +1,4 @@
 local addonName, addonTable = ...
-local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_BFA = {
 	-- Supported Maps 875 (Zandalar), 876 (Kul Tiras)
 	-- Drustvar

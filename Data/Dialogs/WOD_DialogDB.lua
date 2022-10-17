@@ -1,6 +1,4 @@
 local addonName, addonTable = ...
-local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DIALOG_WOD = {
 	-- Supported Maps: 572 (Draenor)
 	-- Garrison (Alliance)
