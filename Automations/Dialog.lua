@@ -65,98 +65,87 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	
 	local dialogTable = GetDialogTable(parentMapId)
 	if dialogTable[npcId] then
-		local useDialog = false
 		for index, gossipSubTable in ipairs(options) do
 			for _, gossip in pairs(dialogTable[npcId]["g"]) do
+				local numConditions = #gossip.c
+				local numConditionsMatched = 0
 				for _, condition in ipairs(gossip.c) do
 					if condition == "none" then
 						C_GossipInfo.SelectOption(gossip.o)
 					elseif condition == "level.higher" then
 						if UnitLevel("player") > gossip.l then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "level.equal" then
 						if UnitLevel("player") == gossip.l then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "level.lower" then
 						if UnitLevel("player") < gossip.l then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "level.between" then
 						local minLevel, maxLevel = gossip.l[1], gossip.l[2]
 						local playerLevel = UnitLevel("player")
 						
 						if playerLevel >= minLevel and playerLevel <= maxLevel then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "money.higher" then
 						if GetMoney("player") > gossip.m then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "quests.isActive" then
-						for _, id in ipairs(gossip.q) do
-							if C_QuestLog.IsOnQuest(id) then
-								useDialog = true
-							else
-								useDialog = false
+						local numQuests = #gossip.q
+						for i = 1, numQuests do
+							if C_QuestLog.IsOnQuest(gossip.q[i]) then
+								numQuests = numQuests - 1
+								if numQuests == 0 then
+									numConditionsMatched = numConditionsMatched + 1
+								end
 							end
 						end
 					elseif condition == "quests.notActive" then
-						for _, id in ipairs(gossip.q) do
-							if C_QuestLog.IsOnQuest(id) == false then
-								useDialog = true
-							else
-								useDialog = false
+						local numQuests = #gossip.q
+						for i = 1, numQuests do
+							if C_QuestLog.IsOnQuest(gossip.q[i]) == false then
+								numQuests = numQuests - 1
+								if numQuests == 0 then
+									numConditionsMatched = numConditionsMatched + 1
+								end
 							end
 						end
 					elseif condition == "quests.isComplete" then
-						for _, id in ipairs(gossip.q) do
-							if C_QuestLog.IsQuestFlaggedCompleted(id) then
-								useDialog = true
-							else
-								useDialog = false
+						local numQuests = #gossip.q
+						for i = 1, numQuests do
+							if C_QuestLog.IsQuestFlaggedCompleted(gossip.q[i]) then
+								numQuests = numQuests - 1
+								if numQuests == 0 then
+									numConditionsMatched = numConditionsMatched + 1
+								end
 							end
 						end
 					elseif condition == "quest.obj.isComplete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
 						if objectives[gossip.obj].finished then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "quest.obj.isNotComplete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
 						if objectives[gossip.obj].finished == false then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "player.faction" then
 						if (UnitFactionGroup("player")) == gossip.f then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "addon.setting" then
 						if HelpMePlayDB[gossip.s] == gossip.r then
-							useDialog = true
-						else
-							useDialog = false
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					end
 				end
-				if useDialog then
+				if numConditionsMatched == numConditions then
 					C_GossipInfo.SelectOption(gossip.o)
 					return
 				end

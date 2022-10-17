@@ -22,6 +22,14 @@ local DIALOG_BFA = {
 	-- Vol'dun
 	-- End of Vol'dun
 	-- Nazmir
+	[139620] = { -- Desha Stormwallow
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Nazmir
 	-- Boralus
 	[122370] = { -- Cyrus Crestfall
@@ -59,6 +67,11 @@ local DIALOG_BFA = {
 				["o"] 			= 1,
 				["c"] 			= { "quests.isActive" },
 				["q"] 			= { 51088 }, -- Heart of Darkness
+			},
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.isActive" },
+				["q"] 			= { 51283 }, -- Voyage to the West
 			},
 		},
 	},
