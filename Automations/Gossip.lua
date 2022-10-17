@@ -164,7 +164,6 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 end
 
 e:RegisterEvent("GOSSIP_CONFIRM")
-e:RegisterEvent("GOSSIP_CONFIRM_CANCEL")
 e:RegisterEvent("GOSSIP_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_CONFIRM" then
