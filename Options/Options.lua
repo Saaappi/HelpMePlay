@@ -8,12 +8,12 @@ local main = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		festive_text = {
+		festiveText = {
 			name = function()
 				if date("%m") == "10" then
-					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd.Icon"] .. L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd.Text"]
+					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"]
 				elseif date("%m") == "12" then
-					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil.Icon"] .. L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil.Text"]
+					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"]
 				else
 					return ""
 				end

@@ -55,11 +55,11 @@ if (isLocaleSupported) then
 	-- End:		Keybinds
 	--
 	-- Start: 	Tabs
-	L_GLOBALSTRINGS["Tabs.General"] 															= "|TInterface/AddOns/HelpMePlay/Assets/general:16|t" .. " " .. "General"
-	L_GLOBALSTRINGS["Tabs.Features"] 															= "|TInterface/AddOns/HelpMePlay/Assets/features:16|t" .. " " .. "Features"
-	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|TInterface/AddOns/HelpMePlay/Assets/quest:16|t" .. " " .. "Quests"
-	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "|TInterface/AddOns/HelpMePlay/Assets/expansion:16|t" .. " " .. "Expansion Features"
-	L_GLOBALSTRINGS["Tabs.Junker"] 																= "|TInterface/AddOns/HelpMePlay/Assets/junker:16|t" .. " " .. "Junker"
+	L_GLOBALSTRINGS["Tabs.General"] 															= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/general:16|t" .. " " .. "General"
+	L_GLOBALSTRINGS["Tabs.Features"] 															= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/features:16|t" .. " " .. "Features"
+	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/quest:16|t" .. " " .. "Quests"
+	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/expansion:16|t" .. " " .. "Expansion Features"
+	L_GLOBALSTRINGS["Tabs.Junker"] 																= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/junker:16|t" .. " " .. "Junker"
 	-- End: 	Tabs
 	--
 	-- Start: 	Headers
@@ -75,10 +75,8 @@ if (isLocaleSupported) then
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions
-	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd.Icon"] 										= "|T236545:36|t"
-	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd.Text"] 										= "\n\n" .. "Happy |cffF99943Hallow's End|r!" .. " " .. "Good luck on your" .. " " .. "|cffA335EE[The Horseman's Reins]|r" .. " " .. "this year!"
-	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil.Icon"] 										= "|T1339669:36|t"
-	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil.Text"] 										= "Merry |cff3EA425Winter Veil|r!" .. " " .. "'Tis the season to be jolly! Fa-la-la-la-la-Ogri'la! Good luck on your" .. " " .. "|cffA335EE[Minion of Grumpus]|r" .. " " .. "this year!"
+	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/HallowsEnd:64|t" .. "\n\n" .. "Happy |cffF99943Hallow's End|r! Good luck on your |cffA335EE[The Horseman's Reins]|r this year!"
+	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/WinterVeil:64|t" .. "\n\n" .. "Merry |cff3EA425Winter Veil|r! 'Tis the season to be jolly! Fa-la-la-la-la-Ogri'la! Good luck on your |cffA335EE[Minion of Grumpus]|r this year!"
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
