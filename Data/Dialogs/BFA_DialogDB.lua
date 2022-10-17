@@ -10,6 +10,14 @@ local DIALOG_BFA = {
 	-- Tiragarde Sound
 	-- End of Tiragarde Sound
 	-- Zuldazar
+	[143690] = { -- Captured Zandalari Troll
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	[143334] = { -- Daria Smithson
 		["g"] = {
 			{
@@ -88,14 +96,6 @@ local DIALOG_BFA = {
 				["o"] 			= 1,
 				["c"] 			= { "quests.isActive" },
 				["q"] 			= { 51283 }, -- Voyage to the West
-			},
-		},
-	},
-	[143690] = { -- Captured Zandalari Troll
-		["g"] = {
-			{
-				["o"] 			= 1,
-				["c"] 			= { "none" },
 			},
 		},
 	},
