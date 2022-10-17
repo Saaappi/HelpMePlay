@@ -87,6 +87,16 @@ local DIALOG_CLASSIC = {
 		["c"] = true,
 	},
 	-- End of Stormwind City
+	-- Orgrimmar
+	[168431] = { -- Warlord Breka Grimaxe
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of Orgrimmar
 }
 
 addonTable.DIALOG_CLASSIC = DIALOG_CLASSIC
