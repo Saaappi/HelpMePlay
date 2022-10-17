@@ -20,7 +20,8 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "none" },
+				["c"] 			= { "quests.isActive" },
+				["q"] 			= { 51968 }, -- Return to Boralus
 			},
 		},
 	},
@@ -38,7 +39,8 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 2,
-				["c"] 			= { "none" },
+				["c"] 			= { "quests.isActive" },
+				["q"] 			= { 51969 }, -- Return to Boralus
 			},
 		},
 	},
@@ -48,7 +50,8 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "none" },
+				["c"] 			= { "quests.isActive" },
+				["q"] 			= { 51967 }, -- Return to Boralus
 			},
 		},
 	},
