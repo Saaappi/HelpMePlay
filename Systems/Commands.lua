@@ -223,7 +223,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		for _, taxiNodeData in ipairs(C_TaxiMap.GetAllTaxiNodes(GetTaxiMapID())) do
 			local dest, zone = string.split(",", taxiNodeData.name); zone = zone:gsub("%s+", "")
 			if string.find(string.lower(dest), string.lower(arg1)) then
-				return dest .. ", " .. zone .. ": " .. taxiNodeData.nodeID
+				print(dest .. ", " .. zone .. ": " .. taxiNodeData.nodeID)
 			end
 		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then

@@ -19,7 +19,7 @@ local FLIGHT_PATHS = {
 	[1922] = { -- Warlords of Draenor
 		["g"] = {
 			{
-				["p"] 	= 1673, -- Wildwood Wash, Gorgrond
+				["p"] 	= 1518, -- Wildwood Wash, Gorgrond
 				["c"] 	= { "quests.isActive", "target.is" },
 				["q"] 	= { 35556 }, -- The Secrets of Gorgrond
 				["t"] 	= 85959, -- Ernst ten Bosch
