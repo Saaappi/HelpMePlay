@@ -176,7 +176,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.REVENDRETH"]								= "|T3551339:0|t" .. " " .. "Revendreth"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.TORGHAST"]								= "|T3257863:0|t" .. " " .. "Torghast"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"]										= "Quest Rewards"
-	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected. |cffFFD100Note|r: This automation is ignored for max-level players.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"]									= "Item Level"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"]									= "Sell Price"
 	-- End: 	Quests DropDowns
