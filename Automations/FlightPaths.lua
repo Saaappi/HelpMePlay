@@ -19,70 +19,43 @@ local function TakeFlightPath(flightPathNodeId, mapId)
 end
 
 local function GetFlightPathInfo(mapId)
-	local takeFlightPath = false
-	local flightPathNodeId = 0
-	local criteriaCount = nil
-	
 	if addonTable.FLIGHT_PATHS[mapId] ~= nil then
 		for i = 1, #addonTable.FLIGHT_PATHS[mapId]["g"] do
 			local flightPath = addonTable.FLIGHT_PATHS[mapId]["g"][i]
-			local criteriaCount = #flightPath.c
-			
+			local numConditions = #flightPath.c
+			local numConditionsMatched = 0
 			for _, condition in ipairs(flightPath.c) do
 				if condition == "level.between" then
 					local minLevel, maxLevel = flightPath.l[1], flightPath.l[2]
 					local playerLevel = UnitLevel("player")
-					
 					if playerLevel >= minLevel and playerLevel <= maxLevel then
-						takeFlightPath = true
-						criteriaCount = criteriaCount - 1
-						flightPathNodeId = flightPath.p
-					else
-						return
+						numConditionsMatched = numConditionsMatched + 1
 					end
 				elseif condition == "quests.isActive" then
 					for _, id in ipairs(flightPath.q) do
 						if C_QuestLog.IsOnQuest(id) then
-							takeFlightPath = true
-							criteriaCount = criteriaCount - 1
-							flightPathNodeId = flightPath.p
-						else
-							return
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					end
 				elseif condition == "quests.isComplete" then
 					for _, id in ipairs(flightPath.q) do
 						if C_QuestLog.IsQuestFlaggedCompleted(id) then
-							takeFlightPath = true
-							criteriaCount = criteriaCount - 1
-							flightPathNodeId = flightPath.p
-						else
-							return
+							numConditionsMatched = numConditionsMatched + 1
 						end
 					end
 				elseif condition == "target.is" then
 					local npcId = select(6, string.split("-", UnitGUID("target"))); npcId = tonumber(npcId)
 					if npcId == flightPath.t then
-						takeFlightPath = true
-						criteriaCount = criteriaCount - 1
-						flightPathNodeId = flightPath.p
-					else
-						return
+						numConditionsMatched = numConditionsMatched + 1
 					end
 				elseif condition == "player.faction" then
 					if (UnitFactionGroup("player")) == flightPath.f then
-						takeFlightPath = true
-						criteriaCount = criteriaCount - 1
-						flightPathNodeId = flightPath.p
-					else
-						return
+						numConditionsMatched = numConditionsMatched + 1
 					end
 				end
-				
-				if criteriaCount == 0 and takeFlightPath then
-					-- We must have found a match.
-					TakeFlightPath(flightPathNodeId, mapId)
-				end
+			end
+			if numConditionsMatched == numConditions then
+				TakeFlightPath(flightPath.p, mapId)
 			end
 		end
 	end
