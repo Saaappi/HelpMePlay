@@ -21,17 +21,10 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.CinematicsEnabled end,
 			set = function(info, val) HelpMePlayDB.CinematicsEnabled = val end,
 		},
-		gossip = {
-			name = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
-			order = 2,
-			desc = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
-			type = "toggle",
-			get = function(info) return HelpMePlayDB.GossipEnabled end,
-			set = function(info, val) HelpMePlayDB.GossipEnabled = val end,
-		},
+		
 		emotes = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Emotes"],
-			order = 3,
+			order = 2,
 			desc = L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.EmotesEnabled end,
@@ -39,11 +32,19 @@ local featuresOptions = {
 		},
 		flightPaths = {
 			name = L_GLOBALSTRINGS["Features.Toggle.FlightPaths"],
-			order = 4,
+			order = 3,
 			desc = L_GLOBALSTRINGS["Features.Toggle.FlightPathsDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.FlightPathsEnabled end,
 			set = function(info, val) HelpMePlayDB.FlightPathsEnabled = val end,
+		},
+		gossip = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
+			order = 4,
+			desc = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.GossipEnabled end,
+			set = function(info, val) HelpMePlayDB.GossipEnabled = val end,
 		},
 		notes = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Notes"],
