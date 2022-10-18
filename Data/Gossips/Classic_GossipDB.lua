@@ -108,6 +108,32 @@ local DIALOG_CLASSIC = {
 		},
 	},
 	-- End of Silverpine Forest
+	-- Hillsbrad Foothills
+	[47444] = { -- Dumass
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[47443] = { -- Kingslayer Orkus
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[47442] = { -- Johnny Awesome
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of Hillsbrad Foothills
 	-- Neutral
 	[167032] = { -- Chromie (present in both Stormwind and Orgrimmar)
 		["g"] = {
