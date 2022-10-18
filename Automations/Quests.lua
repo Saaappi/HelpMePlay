@@ -474,6 +474,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 		
+		C_QuestLog.AddQuestWatch(questId)
+		
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			AutoQuestPopupTracker_RemovePopUp(questId)
 		end)
