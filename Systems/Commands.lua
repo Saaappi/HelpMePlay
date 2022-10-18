@@ -221,9 +221,9 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		if not FlightMapFrame:IsVisible() then return end
 		
 		for _, taxiNodeData in ipairs(C_TaxiMap.GetAllTaxiNodes(GetTaxiMapID())) do
-			local dest, zone = string.split(",", taxiNodeData.name); zone = zone:gsub("%s+", "")
+			local dest, zone = string.split(",", taxiNodeData.name)
 			if string.find(string.lower(dest), string.lower(arg1)) then
-				print(dest .. ", " .. zone .. ": " .. taxiNodeData.nodeID)
+				print(dest .. "," .. zone .. ": " .. taxiNodeData.nodeID)
 			end
 		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
