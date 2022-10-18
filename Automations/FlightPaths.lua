@@ -52,6 +52,10 @@ local function GetFlightPathInfo(mapId)
 					if (UnitFactionGroup("player")) == flightPath.f then
 						numConditionsMatched = numConditionsMatched + 1
 					end
+				elseif condition == "map" then
+					if C_Map.GetBestMapForUnit("player") == flightPath.m then
+						numConditionsMatched = numConditionsMatched + 1
+					end
 				end
 			end
 			if numConditionsMatched == numConditions then

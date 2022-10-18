@@ -99,6 +99,14 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	[45752] = { -- Ambermill Dimensional Portal
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Silverpine Forest
 	-- Neutral
 	[167032] = { -- Chromie (present in both Stormwind and Orgrimmar)
