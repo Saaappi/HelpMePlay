@@ -18,7 +18,7 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["o"] 	= 2,
-				["c"] 	= { "quests.isActive" },
+				["c"] 	= { "quests.active" },
 				["q"] 	= { 26131 }, -- Reinforcements for Loch Modan
 			},
 		},
@@ -38,7 +38,7 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["o"] 	= 1,
-				["c"] 	= { "quests.isActive" },
+				["c"] 	= { "quests.active" },
 				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
 			},
 		},
@@ -72,7 +72,7 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["o"] 	= 1,
-				["c"] 	= { "quests.isActive" },
+				["c"] 	= { "quests.active" },
 				["q"] 	= { 42782 }, -- To Be Prepared
 			},
 		},
@@ -89,6 +89,17 @@ local DIALOG_CLASSIC = {
 		},
 	},
 	-- End of Orgrimmar
+	-- Silverpine Forest
+	[44825] = { -- Bat Handler Maggotbreath
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 26998 }, -- Iterating Upon Success
+			},
+		},
+	},
+	-- End of Silverpine Forest
 	-- Neutral
 	[167032] = { -- Chromie (present in both Stormwind and Orgrimmar)
 		["g"] = {

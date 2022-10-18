@@ -43,17 +43,17 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= "quests.isActive",
+				["c"] 			= "quests.active",
 				["q"] 			= { 57933 }, -- We Can Rebuild Him
 			},
 			{
 				["o"] 			= 1,
-				["c"] 			= "quests.isActive",
+				["c"] 			= "quests.active",
 				["q"] 			= { 62241 }, -- Training Regimen (WQ)
 			},
 			{
 				["o"] 			= 2,
-				["c"] 			= "quests.isActive",
+				["c"] 			= "quests.active",
 				["q"] 			= { 60296 }, -- Pride or Unit
 			},
 		},
@@ -89,7 +89,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quest.obj.isNotComplete" },
+				["c"] 			= { "quest.obj.notComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 1,
 			},
@@ -99,7 +99,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quest.obj.isNotComplete" },
+				["c"] 			= { "quest.obj.notComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 2,
 			},
@@ -109,7 +109,7 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quest.obj.isNotComplete" },
+				["c"] 			= { "quest.obj.notComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 3,
 			},

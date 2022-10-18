@@ -75,8 +75,7 @@ local DIALOG_WOD = {
 		["g"] = {
 			{
 				["o"] 	= 1,
-				["c"] 	= { "quests.isActive" },
-				["q"] 	= { 35747 }, -- Taking a Trip to the Top of the Tank
+				["c"] 	= { "none" },
 			},
 		},
 	},

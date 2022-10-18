@@ -72,7 +72,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						if GetMoney("player") > gossip.m then
 							numConditionsMatched = numConditionsMatched + 1
 						end
-					elseif condition == "quests.isActive" then
+					elseif condition == "quests.active" then
 						local numQuests = #gossip.q
 						for i = 1, numQuests do
 							if C_QuestLog.IsOnQuest(gossip.q[i]) then
@@ -92,7 +92,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 								end
 							end
 						end
-					elseif condition == "quests.isComplete" then
+					elseif condition == "quests.complete" then
 						local numQuests = #gossip.q
 						for i = 1, numQuests do
 							if C_QuestLog.IsQuestFlaggedCompleted(gossip.q[i]) then
@@ -102,12 +102,12 @@ local function SelectGossipOption(options, npcId, parentMapId)
 								end
 							end
 						end
-					elseif condition == "quest.obj.isComplete" then
+					elseif condition == "quest.obj.complete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
 						if objectives[gossip.obj].finished then
 							numConditionsMatched = numConditionsMatched + 1
 						end
-					elseif condition == "quest.obj.isNotComplete" then
+					elseif condition == "quest.obj.notComplete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
 						if objectives[gossip.obj].finished == false then
 							numConditionsMatched = numConditionsMatched + 1

@@ -20,7 +20,7 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quests.isActive" },
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 51968 }, -- Return to Boralus
 			},
 		},
@@ -39,7 +39,7 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 2,
-				["c"] 			= { "quests.isActive" },
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 51969 }, -- Return to Boralus
 			},
 		},
@@ -50,7 +50,7 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quests.isActive" },
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 51967 }, -- Return to Boralus
 			},
 		},
@@ -85,17 +85,17 @@ local DIALOG_BFA = {
 		["g"] = {
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quests.isActive" },
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 51308 }, -- Zuldazar Foothold
 			},
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quests.isActive" },
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 51088 }, -- Heart of Darkness
 			},
 			{
 				["o"] 			= 1,
-				["c"] 			= { "quests.isActive" },
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 51283 }, -- Voyage to the West
 			},
 		},
