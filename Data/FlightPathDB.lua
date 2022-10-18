@@ -23,6 +23,16 @@ local FLIGHT_PATHS = {
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 27096 }, -- Orcs are in Order
 			},
+			{
+				["p"] 	= 10, -- The Sepulcher, Silverpine Forest
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 27476 }, -- Dalar Dawnweaver
+			},
+			{
+				["p"] 	= 654, -- The Forsaken Front, Silverpine Forest
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 27484 }, -- Only One May Enter
+			},
 		},
 	},
 	[1922] = { -- Warlords of Draenor
