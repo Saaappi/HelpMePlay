@@ -105,10 +105,10 @@ local questOptions = {
 					}
 				else
 					values = {
-						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-						[5] = 47512,
-						[6] = 47513,
-						[7] = 47514,
+						[1] = 0,
+						[2] = 47512,
+						[3] = 47513,
+						[4] = 47514,
 					}
 				end
 				return values

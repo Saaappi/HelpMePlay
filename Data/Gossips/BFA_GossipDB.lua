@@ -1,13 +1,13 @@
 local addonName, addonTable = ...
 local DIALOG_BFA = {
 	-- Supported Maps 875 (Zandalar), 876 (Kul Tiras)
-	-- Drustvar
-	-- End of Drustvar
-	-- Stormsong Valley
-	-- End of Stormsong Valley
-	-- Tiragarde Sound
-	-- End of Tiragarde Sound
-	-- Zuldazar
+	-- Drustvar (Horde)
+	-- End of Drustvar (Horde)
+	-- Stormsong Valley (Horde)
+	-- End of Stormsong Valley (Horde)
+	-- Tiragarde Sound (Horde)
+	-- End of Tiragarde Sound (Horde)
+	-- Zuldazar (Alliance)
 	[143690] = { -- Captured Zandalari Troll
 		["g"] = {
 			{
@@ -25,8 +25,18 @@ local DIALOG_BFA = {
 			},
 		},
 	},
-	-- End of Zuldazar
-	-- Vol'dun
+	-- End of Zuldazar (Alliance)
+	-- Zuldazar (Horde)
+	[120169] = { -- Princess Talanji
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	-- End of Zuldazar (Horde)
+	-- Vol'dun (Alliance)
 	[137559] = { -- Private James
 		["g"] = {
 			{
@@ -44,8 +54,8 @@ local DIALOG_BFA = {
 			},
 		},
 	},
-	-- End of Vol'dun
-	-- Nazmir
+	-- End of Vol'dun (Alliance)
+	-- Nazmir (Alliance)
 	[139620] = { -- Desha Stormwallow
 		["g"] = {
 			{
@@ -55,7 +65,7 @@ local DIALOG_BFA = {
 			},
 		},
 	},
-	-- End of Nazmir
+	-- End of Nazmir (Alliance)
 	-- Boralus
 	[122370] = { -- Cyrus Crestfall
 		["g"] = {

@@ -79,6 +79,14 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	[135205] = { -- Nathanos Blightcaller
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Orgrimmar
 	-- Silverpine Forest
 	[44825] = { -- Bat Handler Maggotbreath
