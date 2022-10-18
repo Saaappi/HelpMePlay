@@ -28,6 +28,34 @@ local DIALOG_WOD = {
 		},
 	},
 	-- End of Garrison (Alliance)
+	-- Garrison (Horde)
+	[86775] = { -- Senior Peon II
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[80225] = { -- Skaggit
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[79407] = { -- Bron Skyhorn
+		["g"] = {
+			{
+				["o"] 	= 2,
+				["c"] 	= { "quests.active", "level.higher" },
+				["q"] 	= { 36706 }, -- Ashran Appearance
+				["l"] 	= 41,
+			},
+		},
+	},
+	-- End of Garrison (Horde)
 	-- Gorgrond
 	[81018] = { -- Rangari Kolaan
 		["g"] = {
