@@ -35,6 +35,10 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **War Mode** - The free 10%, or higher, experience gain is undeniably a boon to the leveling experience. When enabled, HelpMePlay will automatically opt the player into War Mode upon their next visit to Orgrimmar or Stormwind.
 - **Waypoints** - HelpMePlay, if configured, will automatically plot waypoints when specific quests are accepted.
 
+### Buttons
+- **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
+- **Professions** - If you like collecting in World of Warcraft, then you probably enjoy professions. Perhaps not... BUT! There are many collectibles in production professions like Blacksmithing. It can be tough to calculate all the reagents you require to craft all the transmog. HelpMePlay can calculate all the reagents you would need to craft all KNOWN recipes for appearances you've yet to collect. Simply open a production profession (e.g. Blacksmithing) and locate the "Calculate" button in the upper right.
+
 ## Quest Features
 
 ### Toggles
@@ -80,11 +84,16 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 #### Dropdowns
 - **Anima Powers** - Players can instruct HelpMePlay to take powers on their behalf, suggest powers to them, or be silent and do nothing.
 
-## Systems
-- **Junker** - Junker is a full-scale inventory management system built directly into HelpMePlay. Junker can vendor any item at whatever quality YOU decide. It can also vendor items by their type (e.g. consumable, armor, etc). If that's not enough, players can import a full comma-delimited list of items, or even add them by hovering over them in the inventory and using a keybind! Visit a merchant and select the broom icon in the upper left of the vendor window.
+## Junker Features
 
-- **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
-- **Professions** - If you like collecting in World of Warcraft, then you probably enjoy professions. Perhaps not... BUT! There are many collectibles in production professions like Blacksmithing. It can be tough to calculate all the reagents you require to craft all the transmog. HelpMePlay can calculate all the reagents you would need to craft all KNOWN recipes for appearances you've yet to collect. Simply open a production profession (e.g. Blacksmithing) and locate the "Calculate" button in the upper right.
+### Toggles
+- **Safe Mode** - Tell the Junker subsystem to sell items in batches of 12, allowing you to use the buyback tab in case something is sold by mistake.
+- **Soulbound Mode** - If enabled, the Junker subsystem will sell any soulbound and equipable item that is 30 or more item levels below your current item level.
+- **Armor** - If enabled, the Junker subsystem will sell any item of type "Armor".
+- **Consumables** - If enabled, the Junker subsystem will sell any item of type "Consumable".
+
+### Dropdowns
+- **Rarity** - Select a rarity for Junker to filter items. Any item with a rarity at or below the chosen threshold will be sold to a merchant. *It's recommended to keep this at the default option, Poor.*
 
 ## Commands
 - **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
