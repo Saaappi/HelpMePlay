@@ -77,7 +77,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if choiceInfo then
 				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
 				if id then
-					if id == addonTable.PLAYERCHOICE["Drafting Table: Gorgrond"] then
+					if id == 74594 or id == 81119 then
+						-- 74594: Durotan
+						-- 81119: Drafting Table
 						SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					end

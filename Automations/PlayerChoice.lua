@@ -38,7 +38,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 				
 				if id then
-					if id == addonTable.PLAYERCHOICE["Fatescribe Roh-Tahl"] then
+					if id == 174871 then
+						-- Fatescribe Roh-Tahl
+						-- Threads of Fate or Story Mode
 						if HelpMePlayDB.ThreadsOfFateEnabled then
 							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
@@ -46,7 +48,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end
-					elseif id == addonTable.PLAYERCHOICE["Shadowlands Covenant Map: Covenant Selection (Low)"] or id == addonTable.PLAYERCHOICE["Shadowlands Covenant Map: Covenant Selection (Max)"] then
+					elseif id == 355352 or id == 357514 then
 						if HelpMePlayDB.CovenantId == 0 or HelpMePlayDB.CovenantId == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
 						if HelpMePlayDB.CovenantId == 1 then
 							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
@@ -68,9 +70,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 							SendPlayerChoiceResponse(choiceInfo.options[addonTable.COVENANTS_BY_SPEC[classId][specId]].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end
-					elseif id == addonTable.PLAYERCHOICE["Warchief's Command Board"] or id == addonTable.PLAYERCHOICE["Hero's Call Board"] then
+					elseif id == 342 or id == 352 then
+						-- 342: Warchief's Command Board
+						-- 352: Hero's Call Board
 						for i = 1, 3 do
 							if choiceInfo.options[i].choiceArtID == 1851147 then
+								-- Tanaan Jungle
 								SendPlayerChoiceResponse(choiceInfo.options[i].buttons[1].id)
 								HideUIPanel(PlayerChoiceFrame)
 							end
