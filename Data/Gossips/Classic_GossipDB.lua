@@ -34,15 +34,6 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
-	[149626] = { -- Vanguard Battlemage
-		["g"] = {
-			{
-				["o"] 	= 1,
-				["c"] 	= { "quests.active" },
-				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
-			},
-		},
-	},
 	[154169] = { -- Captain Garrick
 		["g"] = {
 			{
@@ -167,6 +158,15 @@ local DIALOG_CLASSIC = {
 	},
 	-- End of Hillsbrad Foothills
 	-- Neutral
+	[149626] = { -- Vanguard Battlemage (present in both Stormwind and Orgrimmar)
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
+			},
+		},
+	},
 	[167032] = { -- Chromie (present in both Stormwind and Orgrimmar)
 		["g"] = {
 			{
