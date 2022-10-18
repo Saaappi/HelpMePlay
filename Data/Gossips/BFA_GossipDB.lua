@@ -37,6 +37,15 @@ local DIALOG_BFA = {
 			},
 		},
 	},
+	[138097] = { -- Muka Stormbreaker
+		["g"] = {
+			{
+				["o"] 			= 2,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 51986 }, -- Return to Zuldazar
+			},
+		},
+	},
 	-- End of Stormsong Valley (Horde)
 	-- Tiragarde Sound (Horde)
 	[137675] = { -- Shadow Hunter Ty'jin
