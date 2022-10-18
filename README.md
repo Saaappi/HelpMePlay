@@ -12,8 +12,10 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Systems](#systems)
+- [General Features](#General Features)
+- [Quest Features](#Quest Features)
+- [Expansion Features](#Expansion Features)
+- [Junker Features](#Junker Features)
 - [Commands](#commands)
 - [Resources](#resources)
 
