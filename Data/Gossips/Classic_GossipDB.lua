@@ -133,6 +133,38 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	[48218] = { -- Kingslayer Orkus
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[48503] = { -- Kingslayer Orkus
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[48922] = { -- Instructor Rufus
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[48923] = { -- Drill Sergeant Magnus
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Hillsbrad Foothills
 	-- Neutral
 	[167032] = { -- Chromie (present in both Stormwind and Orgrimmar)
