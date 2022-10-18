@@ -53,7 +53,16 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **The Maw** - Toggle to opt in or out of playing through The Maw.
 
 ### Dropdowns
+- **BFA Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Battle for Azeroth*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
 - **Chromie Time** - Automates entering Chromie Time. HelpMePlay will enter the expansion the player selects in the options!
+- **Quest Rewards** - Pick how you wish HelpMePlay to select quest rewards. Options are by item level upgrade (heirlooms are ignored) and sell price.
+- **SL Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Shadowlands*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
+
+### Party Play
+Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what!
+
+- **Announce** - Share your quest progress in Party chat. *This output is verbose.*
+- **Auto Share** - Share quests with your party as you accept them. *For the best results, all party members should have HelpMePlay.*
 
 ## Expansion Features
 - **Anima Powers** - Players can instruct HelpMePlay to take powers on their behalf, suggest powers to them, or be silent and do nothing.
@@ -63,7 +72,6 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Junker** - Junker is a full-scale inventory management system built directly into HelpMePlay. Junker can vendor any item at whatever quality YOU decide. It can also vendor items by their type (e.g. consumable, armor, etc). If that's not enough, players can import a full comma-delimited list of items, or even add them by hovering over them in the inventory and using a keybind! Visit a merchant and select the broom icon in the upper left of the vendor window.
 
 - **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
-- **Party Play** - Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what! Oh, and Party Play can also enable the auto-sharing of quests with your friend(s)!
 - **Professions** - If you like collecting in World of Warcraft, then you probably enjoy professions. Perhaps not... BUT! There are many collectibles in production professions like Blacksmithing. It can be tough to calculate all the reagents you require to craft all the transmog. HelpMePlay can calculate all the reagents you would need to craft all KNOWN recipes for appearances you've yet to collect. Simply open a production profession (e.g. Blacksmithing) and locate the "Calculate" button in the upper right.
 
 ## Commands
