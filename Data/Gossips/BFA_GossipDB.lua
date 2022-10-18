@@ -2,10 +2,84 @@ local addonName, addonTable = ...
 local DIALOG_BFA = {
 	-- Supported Maps 875 (Zandalar), 876 (Kul Tiras)
 	-- Drustvar (Horde)
+	[137613] = { -- Hobart Grapplehammer
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[137397] = { -- Wormhole
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[139519] = { -- Swellthrasher
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 51985 }, -- Return to Zuldazar
+			},
+		},
+	},
 	-- End of Drustvar (Horde)
 	-- Stormsong Valley (Horde)
+	[138137] = { -- Huelo
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	-- End of Stormsong Valley (Horde)
 	-- Tiragarde Sound (Horde)
+	[137675] = { -- Shadow Hunter Ty'jin
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[137807] = { -- Navigator Swink
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[137798] = { -- Boatswain Taryn
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[137800] = { -- Quartermaster Killian
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[139524] = { -- Erul Dawnbrook
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 51984 }, -- Return to Zuldazar
+			},
+		},
+	},
 	-- End of Tiragarde Sound (Horde)
 	-- Zuldazar (Alliance)
 	[143690] = { -- Captured Zandalari Troll
@@ -50,6 +124,16 @@ local DIALOG_BFA = {
 				["o"] 			= 1,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51340 }, -- Drustvar Ho!
+			},
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 51421 }, -- Shiver Me Timbers
+			},
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 51532 }, -- Storming In
 			},
 		},
 	},

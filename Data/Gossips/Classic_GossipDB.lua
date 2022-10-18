@@ -179,7 +179,8 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["o"] 	= 1,
-				["c"] 	= { "none" },
+				["c"] 	= { "chromieTime" },
+				["ct"] 	= 0, -- not in Chromie Time (default timeline)
 			},
 		},
 	},

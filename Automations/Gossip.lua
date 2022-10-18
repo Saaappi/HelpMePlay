@@ -121,6 +121,10 @@ local function SelectGossipOption(options, npcId, parentMapId)
 							if C_Map.GetBestMapForUnit("player") == gossip.m then
 								numConditionsMatched = numConditionsMatched + 1
 							end
+						elseif condition == "chromieTime" then
+							if UnitChromieTimeID("player") == gossip.ct then
+								numConditionsMatched = numConditionsMatched + 1
+							end
 						elseif condition == "addon.setting" then
 							if HelpMePlayDB[gossip.s] == gossip.r then
 								numConditionsMatched = numConditionsMatched + 1

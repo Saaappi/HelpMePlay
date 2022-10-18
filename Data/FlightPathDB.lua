@@ -16,6 +16,15 @@ local FLIGHT_PATHS = {
 			},
 		},
 	},
+	[1014] = { -- Kul Tiras
+		["g"] = {
+			{
+				["p"] 	= 2127, -- Anyport, Drustvar
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 51985 }, -- Return to Zuldazar
+			},
+		},
+	},
 	[1208] = { -- Eastern Kingdoms
 		["g"] = {
 			{

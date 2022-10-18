@@ -11,7 +11,7 @@ local function TakeFlightPath(flightPathNodeId, mapId)
 			if _G.IsMounted() then
 				_G.Dismount()
 			end
-			print(string.format("%s: %s [%s]!", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.FlyingTo"], dest))
+			print(string.format("%s: %s [|cffFFD100%s|r]!", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.FlyingTo"], dest))
 			TakeTaxiNode(taxiNodeData.slotIndex)
 			return
 		end
