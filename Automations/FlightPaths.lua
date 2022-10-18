@@ -31,13 +31,13 @@ local function GetFlightPathInfo(mapId)
 					if playerLevel >= minLevel and playerLevel <= maxLevel then
 						numConditionsMatched = numConditionsMatched + 1
 					end
-				elseif condition == "quests.isActive" then
+				elseif condition == "quests.active" then
 					for _, id in ipairs(flightPath.q) do
 						if C_QuestLog.IsOnQuest(id) then
 							numConditionsMatched = numConditionsMatched + 1
 						end
 					end
-				elseif condition == "quests.isComplete" then
+				elseif condition == "quests.complete" then
 					for _, id in ipairs(flightPath.q) do
 						if C_QuestLog.IsQuestFlaggedCompleted(id) then
 							numConditionsMatched = numConditionsMatched + 1

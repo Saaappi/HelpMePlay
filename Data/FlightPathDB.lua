@@ -5,13 +5,13 @@ local FLIGHT_PATHS = {
 		["g"] = {
 			{
 				["p"] 	= 1673, -- Lorlathil, Val'sharah
-				["c"] 	= { "quests.isComplete", "level.between" },
+				["c"] 	= { "quests.complete", "level.between" },
 				["q"] 	= { 44663 }, -- In the Blink of an Eye
 				["l"] 	= { 30, 32 },
 			},
 			{
 				["p"] 	= 1719, -- Thunder Totem, Highmountain
-				["c"] 	= { "quests.isActive" },
+				["c"] 	= { "quests.active" },
 				["q"] 	= { 39580 }, -- The High Chieftain
 			},
 		},
@@ -24,7 +24,7 @@ local FLIGHT_PATHS = {
 		["g"] = {
 			{
 				["p"] 	= 1518, -- Wildwood Wash, Gorgrond
-				["c"] 	= { "quests.isActive", "target.is" },
+				["c"] 	= { "quests.active", "target.is" },
 				["q"] 	= { 35556 }, -- The Secrets of Gorgrond
 				["t"] 	= 85959, -- Ernst ten Bosch
 			},
