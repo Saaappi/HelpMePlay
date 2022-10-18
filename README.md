@@ -35,15 +35,8 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **War Mode** - The free 10%, or higher, experience gain is undeniably a boon to the leveling experience. When enabled, HelpMePlay will automatically opt the player into War Mode upon their next visit to Orgrimmar or Stormwind.
 - **Waypoints** - HelpMePlay, if configured, will automatically plot waypoints when specific quests are accepted.
 
-- **Garrison Tables** - HelpMePlay can both build your Garrison outposts AND plot important BEGINNER structures in your Garrison. Not only that, it can also start the initial mission you receive shortly after starting Frostfire Ridge or Shadowmoon Valley.
-
-- **Player Choice** - There are moments in the game where players are given a choice (e.g. Story .vs. Threads of Fate), and HelpMePlay can make the decision for you. Take Threads of Fate as an example, HelpMePlay will automatically select Threads of Fate and enter "FATE" so you don't have to!
-
-
-
-
-
 ## Quest Features
+
 ### Toggles
 - **Accept Quests** - Automatically accept any quest.
 - **Adventure Maps** - Automates accepting quests from "adventure maps". These are found in Oribos, Boralus Harbor, Dazar'alor, and more!
@@ -65,6 +58,21 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 - **Auto Share** - Share quests with your party as you accept them. *For the best results, all party members should have HelpMePlay.*
 
 ## Expansion Features
+
+### Garrisons
+- **Architect Table** - Allows HelpMePlay to plot and construct your Garrison barracks. *This only applies to level 1 Garrisons!*
+- **Garrison Outposts** - HelpMePlay will automatically select the proper Garrison outpost in other Draenor zones. *Currently only Gorgrond is supported.*
+- **Mission Table** - Allows HelpMePlay to automatically start your first Garrison mission.
+
+### Visions of N'Zoth
+- **Titanic Research** - HelpMePlay will provide you with the best path through Titanic Research for easier Visions!
+
+### Torghast
+
+#### Toggles
+- **The Box of Many Things** - HelpMePlay will provide you with the best path through The Box of Many Things for easier Torghast completion!
+
+#### Dropdowns
 - **Anima Powers** - Players can instruct HelpMePlay to take powers on their behalf, suggest powers to them, or be silent and do nothing.
 
 ## Systems
