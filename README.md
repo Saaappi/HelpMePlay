@@ -17,27 +17,48 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - [Commands](#commands)
 - [Resources](#resources)
 
-## Features
+## General Features
+*Gossips and Flight Paths are based on Kraken Latte's leveling path!*
 
-- **Adventure Maps** - Automates accepting quests from "adventure maps". These are found in Oribos, Boralus Harbor, Dazar'alor, and more!
-- **Anima Powers** - Players can instruct HelpMePlay to take powers on their behalf, suggest powers to them, or be silent and do nothing.
-- **Chromie Time** - Automates entering Chromie Time. HelpMePlay will enter the expansion the player selects in the options!
 - **Cinematics** - Gracefully cancel *most* in-game cinematics and movies.
-- **Dialog** - Automates selecting appropriate dialog from NPCs both at and before max level. Players can even add their own!
 - **Emotes** - Don't remember which emote to use on the stones in Maldraxxus? HelpMePlay is capable of using the appropriate emote simply by targeting these stones.
-- **Garrison Tables** - HelpMePlay can both build your Garrison outposts AND plot important BEGINNER structures in your Garrison. Not only that, it can also start the initial mission you receive shortly after starting Frostfire Ridge or Shadowmoon Valley.
-- **Merchants** - Don't want to select "Learn" for individual spells from trainers? HelpMePlay can learn everything for you without breaking the bank! Additionally, HelpMePlay can automatically purchase quest items for you!
-- **Player Choice** - There are moments in the game where players are given a choice (e.g. Story .vs. Threads of Fate), and HelpMePlay can make the decision for you. Take Threads of Fate as an example, HelpMePlay will automatically select Threads of Fate and enter "FATE" so you don't have to!
-- **Quests** - HelpMePlay can accept and complete quests. In addition to that common feature, HelpMePlay can also automatically select quest rewards based on sell price OR item level upgrade. *Heirloom slots are automatically ignored.*
+- **Flight Paths** - Let HelpMePlay sweep you off your feet, carrying you to the destinations you need to go!
+- **Gossips** - Automates selecting appropriate gossip from NPCs. Players can even add their own!
+- **Notes** - HelpMePlay can add helpful tips to NPC tooltips. Can't remember which Gatamatos to click during [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation)? Me neither! HelpMePlay will let you know which to click if you hover over them.
 - **Queues** - Tired of missing your queue pops while you're AFK? HelpMePlay will accept the queue at lightning speed, granting you precious time to take care of the important things in life (like grabbing a drink for your dungeon ventures.)
+- **Ready Checks** - Toggle this handy feature on to always be ready when your raid leader sends out a ready check!
 - **Repairs** - Automatically repair your items in town before you head out to slay more gnolls!
 - **Speech** - HelpMePlay can interact with the in-game world through NPC and system speech. For example, the trickster during "[The Games We Play](https://www.wowhead.com/quest=57870/the-games-we-play)" in Ardenweald, simply target the trickster, and HelpMePlay will automatically react to the trickster's speech. Enjoy some much deserved rest and relaxation!
+- **Trainers** - Don't want to select "Learn" for individual spells from trainers? HelpMePlay can learn everything for you without breaking the bank!
+- **Vehicles** - Allows HelpMePlay to automatically exit vehicles on your behalf. *This is currently only used in Highmountain on Murky's egg.*
 - **War Mode** - The free 10%, or higher, experience gain is undeniably a boon to the leveling experience. When enabled, HelpMePlay will automatically opt the player into War Mode upon their next visit to Orgrimmar or Stormwind.
+- **Waypoints** - HelpMePlay, if configured, will automatically plot waypoints when specific quests are accepted.
+
+- **Garrison Tables** - HelpMePlay can both build your Garrison outposts AND plot important BEGINNER structures in your Garrison. Not only that, it can also start the initial mission you receive shortly after starting Frostfire Ridge or Shadowmoon Valley.
+
+- **Player Choice** - There are moments in the game where players are given a choice (e.g. Story .vs. Threads of Fate), and HelpMePlay can make the decision for you. Take Threads of Fate as an example, HelpMePlay will automatically select Threads of Fate and enter "FATE" so you don't have to!
+
+
+
+
+
+## Quest Features
+- **Accept Quests** - Automatically accept any quest.
+- **Adventure Maps** - Automates accepting quests from "adventure maps". These are found in Oribos, Boralus Harbor, Dazar'alor, and more!
+- **Complete Quests** - Automatically complete any quest.
+- **Purchase Quest Items** - Automatically purchase quest items from vendors.
+- **Threads of Fate** - Allow HelpMePlay to select Threads of Fate or Story Mode on your behalf for leveling in *Shadowlands*.
+- **The Maw** - Toggle to opt in or out of playing through The Maw.
+
+- **Chromie Time** - Automates entering Chromie Time. HelpMePlay will enter the expansion the player selects in the options!
+
+## Expansion Features
+- **Anima Powers** - Players can instruct HelpMePlay to take powers on their behalf, suggest powers to them, or be silent and do nothing.
 
 ## Systems
 - **Talent Systems** - Want to know the best path for [**The Box of Many Things**](https://www.wowhead.com/guides/box-of-many-things-torghast-talent-system-shadowlands) or the [**Cyphers of the First Ones**](https://www.wowhead.com/guides/cypher-of-the-first-ones-research-zereth-mortis-progression)? HelpMePlay can not only provide that path, but can also let you know when you're missing currency (and how much!)
 - **Junker** - Junker is a full-scale inventory management system built directly into HelpMePlay. Junker can vendor any item at whatever quality YOU decide. It can also vendor items by their type (e.g. consumable, armor, etc). If that's not enough, players can import a full comma-delimited list of items, or even add them by hovering over them in the inventory and using a keybind! Visit a merchant and select the broom icon in the upper left of the vendor window.
-- **Notes** - HelpMePlay can add helpful tips to NPC tooltips. Can't remember which Gatamatos to click during [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation)? Me neither! HelpMePlay will let you know which to click if you hover over them.
+
 - **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
 - **Party Play** - Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what! Oh, and Party Play can also enable the auto-sharing of quests with your friend(s)!
 - **Professions** - If you like collecting in World of Warcraft, then you probably enjoy professions. Perhaps not... BUT! There are many collectibles in production professions like Blacksmithing. It can be tough to calculate all the reagents you require to craft all the transmog. HelpMePlay can calculate all the reagents you would need to craft all KNOWN recipes for appearances you've yet to collect. Simply open a production profession (e.g. Blacksmithing) and locate the "Calculate" button in the upper right.
