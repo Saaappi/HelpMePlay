@@ -70,6 +70,18 @@ local DIALOG_CLASSIC = {
 		["c"] = true,
 	},
 	-- End of Stormwind City
+	-- Durotar
+	[4311] = { -- Holgar Stormaxe
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 44281 }, -- To Be Prepared
+			},
+		},
+		["c"] = true,
+	},
+	-- End of Durotar
 	-- Orgrimmar
 	[168431] = { -- Warlord Breka Grimaxe
 		["g"] = {
