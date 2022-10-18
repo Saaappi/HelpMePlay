@@ -93,7 +93,7 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 - **Consumables** - If enabled, the Junker subsystem will sell any item of type "Consumable".
 
 ### Dropdowns
-- **Rarity** - Select a rarity for Junker to filter items. Any item with a rarity at or below the chosen threshold will be sold to a merchant. *It's recommended to keep this at the default option, Poor.*
+- **Rarity** - Select a rarity for Junker to filter items. Any item with a rarity at or below the chosen threshold will be sold to a merchant. *It's recommended to keep this on the default option.*
 
 ## Commands
 - **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).

@@ -268,7 +268,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Junker DropDowns
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"]											= "Rarity"
-	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"]												= "Select the minimum item rarity threshold for Junker |cffFFD100NOT|r to sell.\n\nSetting this rarity to Uncommon, for example, would tell rarity to sell all Poor and Common items without player input."
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"]												= "Select the maximum item rarity threshold for Junker to sell.\n\nSetting this rarity to Uncommon, for example, would tell rarity to sell all Poor, Common, and Uncommon items without player input."
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"]												= "|cff9D9D9DPoor|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Common"]											= "|cffFFFFFFCommon|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"]											= "|cff1EFF00Uncommon|r"
