@@ -39,9 +39,9 @@ local FLIGHT_PATHS = {
 		["g"] = {
 			{
 				["p"] 	= 1518, -- Wildwood Wash, Gorgrond
-				["c"] 	= { "quests.active", "target.is" },
+				["c"] 	= { "quests.active", "map" },
 				["q"] 	= { 35556 }, -- The Secrets of Gorgrond
-				["t"] 	= 85959, -- Ernst ten Bosch
+				["m"] 	= 622, -- Stormshield, Ashran
 			},
 		},
 	},
