@@ -18,6 +18,11 @@ local FLIGHT_PATHS = {
 	},
 	[1208] = { -- Eastern Kingdoms
 		["g"] = {
+			{
+				["p"] 	= 645, -- Forsaken High Command, Silverpine Forest
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 27096 }, -- Orcs are in Order
+			},
 		},
 	},
 	[1922] = { -- Warlords of Draenor
