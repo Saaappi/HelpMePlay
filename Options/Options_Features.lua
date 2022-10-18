@@ -41,7 +41,7 @@ local featuresOptions = {
 		gossip = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
 			order = 4,
-			desc = L_GLOBALSTRINGS["Features.Toggle.Gossip"],
+			desc = L_GLOBALSTRINGS["Features.Toggle.GossipDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.GossipEnabled end,
 			set = function(info, val) HelpMePlayDB.GossipEnabled = val end,
