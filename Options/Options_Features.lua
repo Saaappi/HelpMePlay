@@ -118,41 +118,6 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.WaypointsEnabled end,
 			set = function(info, val) HelpMePlayDB.WaypointsEnabled = val end,
 		},
-		dropDown_header = {
-			name = L_GLOBALSTRINGS["Header.DropDowns"],
-			order = 20,
-			type = "header",
-		},
-		covenants = {
-			name = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Title"],
-			order = 21,
-			desc = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Desc"],
-			type = "select",
-			style = "dropdown",
-			values = {
-				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-				[1] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Kyrian"],
-				[2] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Venthyr"],
-				[3] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"],
-				[4] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"],
-				[5] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Auto"],
-			},
-			sorting = {
-				[1] = 0, 	-- Disabled
-				[2] = 5, 	-- Auto
-				[3] = 1, 	-- Kyrian
-				[4] = 3, 	-- Necrolord
-				[5] = 4, 	-- Night Fae
-				[6] = 2, 	-- Venthyr
-			},
-			get = function()
-				if not HelpMePlayDB.CovenantId then
-					HelpMePlayDB.CovenantId = 0
-				end
-				return HelpMePlayDB.CovenantId
-			end,
-			set = function(_, covenantId) HelpMePlayDB.CovenantId = covenantId end,
-		},
 	},
 }
 addonTable.featuresOptions = featuresOptions

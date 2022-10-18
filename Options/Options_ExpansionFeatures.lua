@@ -8,7 +8,7 @@ local expansionFeatures = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		garrison_header = {
+		garrisonHeader = {
 			name = L_GLOBALSTRINGS["Header.Garrisons"],
 			order = 0,
 			type = "header",
@@ -37,7 +37,7 @@ local expansionFeatures = {
 			get = function(info) return HelpMePlayDB.MissionTableEnabled end,
 			set = function(info, val) HelpMePlayDB.MissionTableEnabled = val end,
 		},
-		visions_header = {
+		visionsHeader = {
 			name = L_GLOBALSTRINGS["Header.VisionsOfNzoth"],
 			order = 10,
 			type = "header",
@@ -50,14 +50,49 @@ local expansionFeatures = {
 			get = function(info) return HelpMePlayDB.TitanResearchEnabled end,
 			set = function(info, val) HelpMePlayDB.TitanResearchEnabled = val end,
 		},
-		torghast_header = {
-			name = L_GLOBALSTRINGS["Header.Torghast"],
+		covenantsHeader = {
+			name = L_GLOBALSTRINGS["Header.Covenants"],
 			order = 20,
+			type = "header",
+		},
+		covenants = {
+			name = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Title"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[1] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Kyrian"],
+				[2] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Venthyr"],
+				[3] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Necrolord"],
+				[4] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.NightFae"],
+				[5] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Auto"],
+			},
+			sorting = {
+				[1] = 0, 	-- Disabled
+				[2] = 5, 	-- Auto
+				[3] = 1, 	-- Kyrian
+				[4] = 3, 	-- Necrolord
+				[5] = 4, 	-- Night Fae
+				[6] = 2, 	-- Venthyr
+			},
+			get = function()
+				if not HelpMePlayDB.CovenantId then
+					HelpMePlayDB.CovenantId = 0
+				end
+				return HelpMePlayDB.CovenantId
+			end,
+			set = function(_, covenantId) HelpMePlayDB.CovenantId = covenantId end,
+		},
+		torghastHeader = {
+			name = L_GLOBALSTRINGS["Header.Torghast"],
+			order = 30,
 			type = "header",
 		},
 		boxOfManyThings = {
 			name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThings"],
-			order = 21,
+			order = 31,
 			desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.BoxOfManyThingsEnabled end,
@@ -65,7 +100,7 @@ local expansionFeatures = {
 		},
 		animaPowers = {
 			name = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"],
-			order = 22,
+			order = 32,
 			desc = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"],
 			type = "select",
 			style = "dropdown",

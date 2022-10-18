@@ -67,6 +67,11 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 ### Visions of N'Zoth
 - **Titanic Research** - HelpMePlay will provide you with the best path through Titanic Research for easier Visions!
 
+### Covenants
+
+#### Dropdowns
+- **Covenant Choice** - If you want all your characters in one covenant, make the choice here. If you want HelpMePlay to choose your covenant for you, you can make that choice here!
+
 ### Torghast
 
 #### Toggles
@@ -76,7 +81,6 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 - **Anima Powers** - Players can instruct HelpMePlay to take powers on their behalf, suggest powers to them, or be silent and do nothing.
 
 ## Systems
-- **Talent Systems** - Want to know the best path for [**The Box of Many Things**](https://www.wowhead.com/guides/box-of-many-things-torghast-talent-system-shadowlands) or the [**Cyphers of the First Ones**](https://www.wowhead.com/guides/cypher-of-the-first-ones-research-zereth-mortis-progression)? HelpMePlay can not only provide that path, but can also let you know when you're missing currency (and how much!)
 - **Junker** - Junker is a full-scale inventory management system built directly into HelpMePlay. Junker can vendor any item at whatever quality YOU decide. It can also vendor items by their type (e.g. consumable, armor, etc). If that's not enough, players can import a full comma-delimited list of items, or even add them by hovering over them in the inventory and using a keybind! Visit a merchant and select the broom icon in the upper left of the vendor window.
 
 - **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?

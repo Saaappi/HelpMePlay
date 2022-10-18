@@ -70,6 +70,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.Resources"] 														= "Resources"
 	L_GLOBALSTRINGS["Header.Garrisons"] 														= "Garrisons"
 	L_GLOBALSTRINGS["Header.VisionsOfNzoth"] 													= "Visions of N'Zoth"
+	L_GLOBALSTRINGS["Header.Covenants"] 														= "Covenants"
 	L_GLOBALSTRINGS["Header.Torghast"] 															= "Torghast"
 	L_GLOBALSTRINGS["Header.PartyPlay"] 														= "Party Play"
 	L_GLOBALSTRINGS["Header.ExpansionIntros"] 													= "Expansion Intros"
@@ -123,16 +124,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Waypoints"] 												= "Waypoints"
 	L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"] 											= "If eligible, when a quest is accepted, the addon will automatically plot appropriate waypoints."
 	-- End: 	Features Toggles
-	--
-	-- Start: 	Features DropDowns
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Title"] 										= "Covenants"
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Desc"] 										= "Automates the Covenant to select when interacting with board in Oribos.\n\nIf you select |cffFFD100Auto|r, then HelpMePlay will select your covenant based on your class and specialization."
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Auto"] 										= "Auto"
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Kyrian"] 										= "|T3257748:0|t" .. " " .. "Kyrian"
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"] 									= "|T3257749:0|t" .. " " .. "Necrolord"
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"] 									= "|T3257750:0|t" .. " " .. "Night Fae"
-	L_GLOBALSTRINGS["DropDowns.Features.Covenant.Venthyr"] 										= "|T3257751:0|t" .. " " .. "Venthyr"
-	-- End: 	Features DropDowns
 	--
 	-- Start: 	Quests Toggles
 	L_GLOBALSTRINGS["Quests.Toggle.AcceptQuests"] 												= "Accept Quests"
@@ -213,6 +204,16 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearch"] 								= "Titanic Research"
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearchDesc"] 							= "Check this button if you want the addon to inform you of the best path through |cffFFD100Titanic Research|r."
 	-- End: 	Expansion Features Toggles
+	--
+	-- Start: 	Expansion Features DropDowns
+	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Title"] 								= "Covenant Choice"
+	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Desc"] 								= "Automates the Covenant to select when interacting with board in Oribos.\n\nIf you select |cffFFD100Auto|r, then HelpMePlay will select your covenant based on your class and specialization."
+	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Auto"] 								= "Auto"
+	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Kyrian"] 								= "|T3257748:0|t" .. " " .. "Kyrian"
+	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Necrolord"] 							= "|T3257749:0|t" .. " " .. "Necrolord"
+	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.NightFae"] 							= "|T3257750:0|t" .. " " .. "Night Fae"
+	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Venthyr"] 							= "|T3257751:0|t" .. " " .. "Venthyr"
+	-- End: 	Expansion Features DropDowns
 	--
 	-- Start: 	Junker Toggles
 	L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"] 												= "Enables and disables the Junker subsystem.\n\nBy default, Junker will auto sell player-defined and poor quality items. Use the buttons below to filter in additional items.\n\nAlternatively, use the Import button to import items from another auto sell addon or a comma-delimited list of item IDs.\n\n|cffFFD100/hmp junker add id|r\n\n|cffFFD100/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items you don't have in your inventory."
