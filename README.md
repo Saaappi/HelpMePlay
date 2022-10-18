@@ -20,6 +20,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 ## General Features
 *Gossips and Flight Paths are based on Kraken Latte's leveling path!*
 
+### Toggles
 - **Cinematics** - Gracefully cancel *most* in-game cinematics and movies.
 - **Emotes** - Don't remember which emote to use on the stones in Maldraxxus? HelpMePlay is capable of using the appropriate emote simply by targeting these stones.
 - **Flight Paths** - Let HelpMePlay sweep you off your feet, carrying you to the destinations you need to go!
@@ -43,6 +44,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 
 
 ## Quest Features
+### Toggles
 - **Accept Quests** - Automatically accept any quest.
 - **Adventure Maps** - Automates accepting quests from "adventure maps". These are found in Oribos, Boralus Harbor, Dazar'alor, and more!
 - **Complete Quests** - Automatically complete any quest.
@@ -50,6 +52,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Threads of Fate** - Allow HelpMePlay to select Threads of Fate or Story Mode on your behalf for leveling in *Shadowlands*.
 - **The Maw** - Toggle to opt in or out of playing through The Maw.
 
+### Dropdowns
 - **Chromie Time** - Automates entering Chromie Time. HelpMePlay will enter the expansion the player selects in the options!
 
 ## Expansion Features
