@@ -35,6 +35,24 @@ local DIALOG_BFA = {
 			},
 		},
 	},
+	[143913] = { -- Eitrigg
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 51340 }, -- Drustvar Ho!
+			},
+		},
+	},
+	[135690] = { -- Dread-Admiral Tattersail
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 51340 }, -- Drustvar Ho!
+			},
+		},
+	},
 	-- End of Zuldazar (Horde)
 	-- Vol'dun (Alliance)
 	[137559] = { -- Private James

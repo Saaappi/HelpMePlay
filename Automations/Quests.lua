@@ -518,7 +518,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if GUID then
 				local _, _, _, _, _, npcId = string.split("-", GUID); npcId = tonumber(npcId)
 				if HelpMePlayIgnoredCreaturesDB[npcId] then return end
-				if addonTable.IGNORED_QUESTS[npcId][GetQuestID()] then QuestFrameDeclineButton:Click() end
+				if addonTable.IGNORED_QUESTS[GetQuestID()] then QuestFrameDeclineButton:Click() end
 			end
 			QUEST_DETAIL(false)
 		end
