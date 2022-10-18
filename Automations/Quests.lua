@@ -245,7 +245,7 @@ end
 		If the active quest is complete, then call the
 		HMP_CompleteQuest function.
 ]]--
-local function Complete_ActiveQuests(gossipInfo)
+local function CompleteActiveQuests(gossipInfo)
 	if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return end
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
@@ -270,17 +270,15 @@ end
 		call the function based on the delay until the key
 		is no longer held.
 ]]--
-local function Get_AvailableQuests(gossipInfo)
+local function GetAvailableQuests(gossipInfo)
 	if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			Get_AvailableQuests(gossipInfo)
 		end)
 	else
-		for i, quest in ipairs(gossipInfo) do
-			if HelpMePlayIgnoredQuestsDB[quest.questID] or addonTable.IGNORED_QUESTS[questId] then
-				-- do nothing
-			else
+		for i, questData in ipairs(gossipInfo) do
+			if not HelpMePlayIgnoredQuestsDB[questData.questID] and not addonTable.IGNORED_QUESTS[questData.questID] then
 				C_GossipInfo.SelectAvailableQuest(i)
 			end
 		end
@@ -441,10 +439,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local activeQuests = C_GossipInfo.GetActiveQuests()
 		local availableQuests = C_GossipInfo.GetAvailableQuests()
 		if activeQuests then
-			Complete_ActiveQuests(activeQuests)
+			CompleteActiveQuests(activeQuests)
 		end
 		if availableQuests then
-			Get_AvailableQuests(availableQuests)
+			GetAvailableQuests(availableQuests)
 		end
 	end
 	if event == "QUEST_ACCEPTED" then
@@ -516,10 +514,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if QuestGetAutoAccept() then
 			QUEST_DETAIL(true)
 		else
-			local guid = UnitGUID("target")
-			if guid then
-				local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+			local GUID = UnitGUID("target")
+			if GUID then
+				local _, _, _, _, _, npcId = string.split("-", GUID); npcId = tonumber(npcId)
 				if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+				if addonTable.IGNORED_QUESTS[npcId][GetQuestID()] then QuestFrameDeclineButton:Click() end
 			end
 			QUEST_DETAIL(false)
 		end
@@ -528,9 +527,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return false end
 		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
-		local guid = UnitGUID("target")
-		if guid then
-			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+		local GUID = UnitGUID("target")
+		if GUID then
+			local _, _, _, _, _, npcId = string.split("-", GUID); npcId = tonumber(npcId)
 			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		end
 		QUEST_GREETING()
