@@ -74,6 +74,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.Torghast"] 															= "Torghast"
 	L_GLOBALSTRINGS["Header.PartyPlay"] 														= "Party Play"
 	L_GLOBALSTRINGS["Header.ExpansionIntros"] 													= "Expansion Intros"
+	L_GLOBALSTRINGS["Header.Extras"] 															= "Extras"
 	-- End: 	Headers
 	--
 	-- Start: 	Descriptions
@@ -123,6 +124,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"] 												= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\n\nDoes |cffFF0000NOT|r apply above level 50."
 	L_GLOBALSTRINGS["Features.Toggle.Waypoints"] 												= "Waypoints"
 	L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"] 											= "If eligible, when a quest is accepted, the addon will automatically plot appropriate waypoints."
+	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
+	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss."
 	-- End: 	Features Toggles
 	--
 	-- Start: 	Quests Toggles

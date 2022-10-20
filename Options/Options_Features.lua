@@ -8,7 +8,7 @@ local featuresOptions = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		toggle_header = {
+		toggleHeader = {
 			name = L_GLOBALSTRINGS["Header.Toggles"],
 			order = 0,
 			type = "header",
@@ -117,6 +117,19 @@ local featuresOptions = {
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.WaypointsEnabled end,
 			set = function(info, val) HelpMePlayDB.WaypointsEnabled = val end,
+		},
+		extrasHeader = {
+			name = L_GLOBALSTRINGS["Header.Extras"],
+			order = 20,
+			type = "header",
+		},
+		holidayQueues = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.HolidayQueuesEnabled end,
+			set = function(info, val) HelpMePlayDB.HolidayQueuesEnabled = val end,
 		},
 	},
 }

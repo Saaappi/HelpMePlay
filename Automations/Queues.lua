@@ -22,7 +22,7 @@ e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_ENTERING_WORLD" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.QueuesEnabled then
+		if HelpMePlayDB.HolidayQueuesEnabled then
 			local isInitialLogin = ...
 			if isInitialLogin then
 				if date("%m") == "10" then -- Headless Horseman
