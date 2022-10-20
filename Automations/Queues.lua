@@ -25,7 +25,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.HolidayQueuesEnabled then
 			local isInitialLogin, isReload = ...
 			if isInitialLogin or isReload then
-				if date("%m") == "10" then -- Headless Horseman
+				if date("%m") == "10" then -- Hallow's End
 					local isDailyRewardCollected = GetLFGDungeonRewards(285)
 					if isDailyRewardCollected == false then
 						if not select(11, C_MountJournal.GetMountInfoByID(219)) then
@@ -73,7 +73,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "ZONE_CHANGED_NEW_AREA" then
-		if date("%m") == "10" then -- Headless Horseman
+		if date("%m") == "10" then -- Hallow's End
 			local isDailyRewardCollected = GetLFGDungeonRewards(285)
 			if isDailyRewardCollected then
 				HMPQueueButton:Hide()
@@ -94,7 +94,7 @@ end)
 
 HMPQueueButton:HookScript("OnClick", function(self)
 	SetLFGRoles(false, true, true, true)
-	if date("%m/%d %H:%M") <= "11/01 11:00" then
+	if date("%m/%d %H:%M") <= "11/01 11:00" then -- Hallow's End
 		LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 285, LFDDungeonList, LFDHiddenByCollapseList)
 	elseif date("%m/%d %H:%M") <= "02/20 10:00" then -- Love is in the Air
 		LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 288, LFDDungeonList, LFDHiddenByCollapseList)
