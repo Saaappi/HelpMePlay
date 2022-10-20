@@ -92,9 +92,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local _, _, _, _, _, _, _, _, _, itemId = GetContainerItemInfo(bagId, i)
 			if itemId then
 				if containers[itemId] then
-					print(bagId)
-					print(i)
-					--UseContainerItem(bagId, i)
+					UseContainerItem(bagId, i)
+					break
 				end
 			end
 		end
