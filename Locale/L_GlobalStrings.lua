@@ -125,7 +125,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Waypoints"] 												= "Waypoints"
 	L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"] 											= "If eligible, when a quest is accepted, the addon will automatically plot appropriate waypoints."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
-	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss."
+	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
 	-- End: 	Features Toggles
 	--
 	-- Start: 	Quests Toggles
@@ -298,7 +298,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	UI Buttons
 	L_GLOBALSTRINGS["UI.Button.Inventory.Desc"] 												= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["UI.Button.Queue.Desc"] 													= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End: 	UI Buttons
 	--
 	-- Start: 	Minimap UI Buttons

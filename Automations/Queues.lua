@@ -23,8 +23,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_ENTERING_WORLD" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.HolidayQueuesEnabled then
-			local isInitialLogin = ...
-			if isInitialLogin then
+			local isInitialLogin, isReload = ...
+			if isInitialLogin or isReload then
 				if date("%m") == "10" then -- Headless Horseman
 					local isDailyRewardCollected = GetLFGDungeonRewards(285)
 					if isDailyRewardCollected == false then
@@ -105,7 +105,7 @@ end)
 
 HMPQueueButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.Queue.Desc"])
+	GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"])
 	GameTooltip:Show()
 end)
 
