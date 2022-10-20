@@ -6,6 +6,7 @@ local GUID = {
 	["Player-1426-0ADB1BEE"] 	= 0, -- Grimfeast (Aerie Peak)
 	["Player-61-0ED311BA"] 		= 0, -- Helpmeplays (Aerie Peak)
 	["Player-1426-0DEE000B"] 	= 0, -- Highchants (Aerie Peak)
+	["Player-1426-0DDBAD46"] 	= 0, -- Pieromancer (Aerie Peak)
 	["Player-1426-0DDCECA0"] 	= 0, -- Spookasem (Aerie Peak)
 }
 

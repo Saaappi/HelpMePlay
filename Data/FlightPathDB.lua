@@ -28,6 +28,12 @@ local FLIGHT_PATHS = {
 	[1208] = { -- Eastern Kingdoms
 		["g"] = {
 			{
+				["p"] 	= 6, -- Ironforge, Dun Morogh
+				["c"] 	= { "quests.active", "level.between" },
+				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
+				["l"] 	= { 10, 11 },
+			},
+			{
 				["p"] 	= 645, -- Forsaken High Command, Silverpine Forest
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 27096 }, -- Orcs are in Order
