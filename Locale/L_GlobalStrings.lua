@@ -295,7 +295,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	UI Buttons
 	L_GLOBALSTRINGS["UI.Button.Inventory.Desc"] 												= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["UI.Button.Queue.Desc"] 													= "Automatically queue for the current holiday boss using the\nlast queued role.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["UI.Button.Queue.Desc"] 													= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End: 	UI Buttons
 	--
 	-- Start: 	Minimap UI Buttons
