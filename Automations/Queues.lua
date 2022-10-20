@@ -3,12 +3,6 @@ local e = CreateFrame("Frame")
 local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local dailyContainers = {
-	[54535] = true, -- Keg-Shaped Treasure Chest (Rare)
-	[54537] = true, -- Heart-Shaped Box (Epic)
-	[117392] = true, -- Loot-Filled Pumpkin (Epic)
-	[117393] = true, -- Keg-Shaped Treasure Chest (Epic)
-}
 local HMPQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPQueueButton",
