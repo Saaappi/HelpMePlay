@@ -293,9 +293,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Soulbind.UI.Button.Setup.Desc"] 											= "Automatically enables and configures your soulbind based\non your class and specialization.\n\n|cffADD8E6Added by HelpMePlay|r"
 	-- End: 	Soulbind UI Buttons
 	--
-	-- Start: 	Inventory UI Buttons
-	L_GLOBALSTRINGS["TradeSkill.UI.Button.Inventory.Desc"] 										= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
-	-- End: 	Inventory UI Buttons
+	-- Start: 	UI Buttons
+	L_GLOBALSTRINGS["UI.Button.Inventory.Desc"] 												= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["UI.Button.Queue.Desc"] 													= "Automatically queue for Headless Horseman using the\nlast queued role.\n\n|cffADD8E6Added by HelpMePlay|r"
+	-- End: 	UI Buttons
 	--
 	-- Start: 	Minimap UI Buttons
 	L_GLOBALSTRINGS["Minimap.UI.Button.SubText"] 												= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
