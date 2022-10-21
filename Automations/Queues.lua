@@ -88,21 +88,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "ZONE_CHANGED_NEW_AREA" then
-		local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
-		if calendarDate.month == "10" then -- Hallow's End
-			local isDailyRewardCollected = GetLFGDungeonRewards(285)
-			if isDailyRewardCollected then
-				HMPQueueButton:Hide()
-			end
-		elseif calendarDate.month == "09" then -- Brewfest
-			local isDailyRewardCollected = GetLFGDungeonRewards(287)
-			if isDailyRewardCollected then
-				HMPQueueButton:Hide()
-			end
-		elseif calendarDate.month == "02" then -- Love is in the Air
-			local isDailyRewardCollected = GetLFGDungeonRewards(288)
-			if isDailyRewardCollected then
-				HMPQueueButton:Hide()
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HelpMePlayDB.HolidayQueuesEnabled then
+			local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
+			if calendarDate.month == 10 and calendarDate.monthDay > 6 then -- Hallow's End
+				local isDailyRewardCollected = GetLFGDungeonRewards(285)
+				if isDailyRewardCollected then
+					HMPQueueButton:Hide()
+				end
+			elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Brewfest
+				local isDailyRewardCollected = GetLFGDungeonRewards(287)
+				if isDailyRewardCollected then
+					HMPQueueButton:Hide()
+				end
+			elseif calendarDate.month == 2 then -- Love is in the Air
+				local isDailyRewardCollected = GetLFGDungeonRewards(288)
+				if isDailyRewardCollected then
+					HMPQueueButton:Hide()
+				end
 			end
 		end
 	end
