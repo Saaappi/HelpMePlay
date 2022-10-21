@@ -112,13 +112,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 end)
 
 HMPQueueButton:HookScript("OnClick", function(self)
-	SetLFGRoles(false, true, true, true)
-	if date("%m/%d %H:%M") <= "11/01 11:00" then -- Hallow's End
-		LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 285, LFDDungeonList, LFDHiddenByCollapseList)
-	elseif date("%m/%d %H:%M") <= "02/20 10:00" then -- Love is in the Air
-		LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 288, LFDDungeonList, LFDHiddenByCollapseList)
-	elseif date("%m/%d %H:%M") <= "10/06 10:00" then -- Brewfest
-		LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 287, LFDDungeonList, LFDHiddenByCollapseList)
+	local hasData = GetLFGQueueStats(LE_LFG_CATEGORY_LFD)
+	if not hasData then
+		SetLFGRoles(false, true, true, true)
+		if date("%m/%d %H:%M") <= "11/01 11:00" then -- Hallow's End
+			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 285, LFDDungeonList, LFDHiddenByCollapseList)
+		elseif date("%m/%d %H:%M") <= "02/20 10:00" then -- Love is in the Air
+			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 288, LFDDungeonList, LFDHiddenByCollapseList)
+		elseif date("%m/%d %H:%M") <= "10/06 10:00" then -- Brewfest
+			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 287, LFDDungeonList, LFDHiddenByCollapseList)
+		end
 	end
 end)
 
