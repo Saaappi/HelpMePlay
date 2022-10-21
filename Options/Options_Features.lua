@@ -123,9 +123,17 @@ local featuresOptions = {
 			order = 20,
 			type = "header",
 		},
+		openables = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Extras.Openables"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.OpenablesDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.OpenablesEnabled end,
+			set = function(info, val) HelpMePlayDB.OpenablesEnabled = val end,
+		},
 		holidayQueues = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"],
-			order = 21,
+			order = 22,
 			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.HolidayQueuesEnabled end,
