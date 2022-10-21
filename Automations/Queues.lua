@@ -114,12 +114,14 @@ end)
 HMPQueueButton:HookScript("OnClick", function(self)
 	local hasData = GetLFGQueueStats(LE_LFG_CATEGORY_LFD)
 	if not hasData then
+		local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
+		
 		SetLFGRoles(false, true, true, true)
-		if date("%m/%d %H:%M") <= "11/01 11:00" then -- Hallow's End
+		if calendarDate.month == 10 and calendarDate.monthDay > 6 then
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 285, LFDDungeonList, LFDHiddenByCollapseList)
-		elseif date("%m/%d %H:%M") <= "02/20 10:00" then -- Love is in the Air
+		elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Love is in the Air
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 288, LFDDungeonList, LFDHiddenByCollapseList)
-		elseif date("%m/%d %H:%M") <= "10/06 10:00" then -- Brewfest
+		elseif calendarDate.month == 2 then -- Brewfest
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 287, LFDDungeonList, LFDHiddenByCollapseList)
 		end
 	end
