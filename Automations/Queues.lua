@@ -25,8 +25,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.HolidayQueuesEnabled then
 			local isInitialLogin, isReload = ...
 			if isInitialLogin or isReload then
+				local isDailyRewardCollected = false
 				local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
 				local timeStamp = calendarDate.month .. "/" .. calendarDate.monthDay .. " " .. calendarDate.hour .. ":" .. calendarDate.minute
+				GameTimeFrame:Click(); CalendarCloseButton:Click()
+				
 				for i = 1, C_Calendar.GetNumDayEvents(0, calendarDate.monthDay) do
 					local event = C_Calendar.GetDayEvent(0, calendarDate.monthDay, i)
 					if event then
@@ -34,7 +37,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 						local endTime = event.endTime.month .. "/" .. event.endTime.monthDay .. " " .. event.endTime.hour .. ":00"
 						if event.eventID == 324 then -- Hallow's End
 							if timeStamp >= startTime and timeStamp <= endTime then
-								local isDailyRewardCollected = GetLFGDungeonRewards(285)
+								isDailyRewardCollected = GetLFGDungeonRewards(285)
 								if not isDailyRewardCollected then
 									if not select(11, C_MountJournal.GetMountInfoByID(219)) then
 										normalTexture:SetTexture("Interface\\ICONS\\inv_belt_12")
@@ -44,7 +47,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							end
 						elseif event.eventID == 372 then -- Brewfest
 							if timeStamp >= startTime and timeStamp <= endTime then
-								local isDailyRewardCollected = GetLFGDungeonRewards(287)
+								isDailyRewardCollected = GetLFGDungeonRewards(287)
 								if not isDailyRewardCollected then
 									if not select(11, C_MountJournal.GetMountInfoByID(202)) or not select(11, C_MountJournal.GetMountInfoByID(226)) then
 										normalTexture:SetTexture("Interface\\ICONS\\ability_mount_kotobrewfest")
@@ -54,7 +57,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							end
 						elseif event.eventID == 423 then -- Love is in the Air
 							if timeStamp >= startTime and timeStamp <= endTime then
-								local isDailyRewardCollected = GetLFGDungeonRewards(288)
+								isDailyRewardCollected = GetLFGDungeonRewards(288)
 								if not isDailyRewardCollected then
 									if not select(11, C_MountJournal.GetMountInfoByID(352)) then
 										normalTexture:SetTexture("Interface\\ICONS\\inv_rocketmountpink")
@@ -76,22 +79,27 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HMPQueueButton:SetSize(28, 26)
 				HMPQueueButton:SetPoint("BOTTOM", 0, 40)
 
-				HMPQueueButton:Show()
+				if not isDailyRewardCollected then
+					HMPQueueButton:Show()
+				else
+					HMPQueueButton:Hide()
+				end
 			end
 		end
 	end
 	if event == "ZONE_CHANGED_NEW_AREA" then
-		if date("%m") == "10" then -- Hallow's End
+		local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
+		if calendarDate.month == "10" then -- Hallow's End
 			local isDailyRewardCollected = GetLFGDungeonRewards(285)
 			if isDailyRewardCollected then
 				HMPQueueButton:Hide()
 			end
-		elseif date("%m") == "09" then -- Brewfest
+		elseif calendarDate.month == "09" then -- Brewfest
 			local isDailyRewardCollected = GetLFGDungeonRewards(287)
 			if isDailyRewardCollected then
 				HMPQueueButton:Hide()
 			end
-		elseif date("%m") == "02" then -- Love is in the Air
+		elseif calendarDate.month == "02" then -- Love is in the Air
 			local isDailyRewardCollected = GetLFGDungeonRewards(288)
 			if isDailyRewardCollected then
 				HMPQueueButton:Hide()
