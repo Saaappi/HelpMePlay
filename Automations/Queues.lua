@@ -6,14 +6,13 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local HMPQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPQueueButton",
-	_G.CharacterMicroButton,
+	_G.LFDMicroButton,
 	"OptionsButtonTemplate"
 )
 
 local function GetTimeForHoliday(eventId)
 	local startTime, endTime = "", ""
-	local numEvents = C_Calendar.GetNumDayEvents(0, date("%d"))
-	for i = 1, numEvents do
+	for i = 1, 10 do
 		local eventData = C_Calendar.GetDayEvent(0, date("%d"), i)
 		if eventData.eventID == eventId then
 			startTime = eventData.startTime.month .. "/" .. eventData.startTime.monthDay .. " " .. eventData.startTime.hour .. ":00"
@@ -83,7 +82,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HMPQueueButton:SetHighlightTexture(highlightTexture, "ADD")
 				
 				HMPQueueButton:SetSize(28, 26)
-				HMPQueueButton:SetPoint("LEFT", -30, 0)
+				HMPQueueButton:SetPoint("BOTTOM", 0, 40)
 
 				HMPQueueButton:Show()
 			end
