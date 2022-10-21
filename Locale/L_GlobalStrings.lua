@@ -77,27 +77,28 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.Extras"] 															= "Extras"
 	-- End: 	Headers
 	--
-	-- Start: 	Descriptions
+	-- Start: 	General DropDowns
+	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
+	-- End: 	General DropDowns
+	--
+	-- Start: 	Main Options (Options.lua)
 	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/HallowsEnd:64|t" .. "\n\n" .. "Happy |cffF99943Hallow's End|r! Good luck on your |T132501:0|t |cffA335EE[The Horseman's Reins]|r this year!"
 	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/WinterVeil:64|t" .. "\n\n" .. "Merry |cff3EA425Winter Veil|r! 'Tis the season to be jolly! Fa-la-la-la-la-Ogri'la! Good luck on your |T1245298:0|t |cffA335EE[Minion of Grumpus]|r this year!"
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
-	-- End: 	Descriptions
+	L_GLOBALSTRINGS["General.Button.OpenIssue"] 												= "Open Issue"
+	L_GLOBALSTRINGS["General.Button.OpenIssue.Text"] 											= "|T236688:36|t\n\nCopy the link below, and thank you for opening an issue!"
+	-- End: 	Main Options (Options.lua)
 	--
-	-- Start: 	General Toggles
+	-- Start: 	General Options (Options_General.lua)
 	L_GLOBALSTRINGS["General.Toggle.Enable"] 													= "Enable"
 	L_GLOBALSTRINGS["General.Toggle.EnableDesc"] 												= "Enables and disables addon functionality.\n\nChecked: |cff218721Enabled|r\nUnchecked: |cffFF0000Disabled|r"
 	L_GLOBALSTRINGS["General.Toggle.MinimapIcon"] 												= "Minimap Icon"
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
-	-- End: 	General Toggles
+	-- End: 	General Options (Options_General.lua)
 	--
-	-- Start: 	General Buttons
-	L_GLOBALSTRINGS["General.Button.OpenIssue"] 												= "Open Issue"
-	L_GLOBALSTRINGS["General.Button.OpenIssue.Text"] 											= "|T236688:36|t\n\nCopy the link below, and thank you for opening an issue!"
-	-- End: 	General Buttons
-	--
-	-- Start: 	Features Toggles
+	-- Start: 	Features Options (Options_Features.lua)
 	L_GLOBALSTRINGS["Features.Toggle.Cinematics"] 												= "Cinematics"
 	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
 	L_GLOBALSTRINGS["Features.Toggle.Gossip"] 													= "Gossip"
@@ -126,9 +127,9 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"] 											= "If eligible, when a quest is accepted, the addon will automatically plot appropriate waypoints."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
-	-- End: 	Features Toggles
+	-- End: 	Features Options (Options_Features.lua)
 	--
-	-- Start: 	Quests Toggles
+	-- Start: 	Quests Options (Options_Quests.lua)
 	L_GLOBALSTRINGS["Quests.Toggle.AcceptQuests"] 												= "Accept Quests"
 	L_GLOBALSTRINGS["Quests.Toggle.AcceptQuestsDesc"] 											= "Automatically accept all quests."
 	L_GLOBALSTRINGS["Quests.Toggle.CompleteQuests"] 											= "Complete Quests"
@@ -141,9 +142,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
 	L_GLOBALSTRINGS["Quests.Toggle.TheMaw"] 													= "The Maw"
 	L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"] 												= "Toggles whether or not the addon should choose The Maw or skip it.\n\n|cffFFD100Checked|r: Do The Maw\n|cffFFD100Unchecked|r: Skip The Maw"
-	-- End: 	Quests Toggles
 	--
-	-- Start: 	Quests DropDowns
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"]										= "Chromie Time"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"]										= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"]											= "The Burning Crusade"
@@ -174,28 +173,20 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected. |cffFFD100Note|r: This automation is ignored for max-level players.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"]									= "Item Level"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"]									= "Sell Price"
-	-- End: 	Quests DropDowns
 	--
-	-- Start: 	Party Play Toggles
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"]										= "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"]											= "Auto Share"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"]										= "Automatically share quests with party members as you accept them. For best results, your party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
-	-- End: 	Party Play Toggles
-	--
-	-- Start: 	Party Play Output Text
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.EnabledWarningText"] 								= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestTurnedInText"] 									= "Turned in"
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestAcceptedText"] 									= "Accepted"
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestRemovedText"] 									= "Removed"
-	-- End: 	Party Play Output Text
-	--
-	-- Start: 	Party Play Input Text
 	L_GLOBALSTRINGS["PartyPlay.Input.Text.AlreadyOnQuestText"] 									= "already on that quest."
-	-- End: 	Party Play Input Text
+	-- End: 	Quests Options (Options_Quests.lua)
 	--
-	-- Start: 	Expansion Features Toggles
+	-- Start: 	Expansion Features (Options_ExpansionFeatures.lua)
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"] 									= "Architect Table"
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"] 								= "If enabled, allows the addon to automatically plot beginner buildings at the start of your Garrison."
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"] 									= "Mission Table"
@@ -206,9 +197,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"] 							= "Check this button if you want the addon to inform you of the best path through |cffFFD100The Box of Many Things|r."
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearch"] 								= "Titanic Research"
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearchDesc"] 							= "Check this button if you want the addon to inform you of the best path through |cffFFD100Titanic Research|r."
-	-- End: 	Expansion Features Toggles
 	--
-	-- Start: 	Expansion Features DropDowns
 	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Title"] 								= "Covenant Choice"
 	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Desc"] 								= "Automates the Covenant to select when interacting with the board in Oribos.\n\nIf you select |cffFFD100Auto|r, then HelpMePlay will select your covenant based on your class and specialization."
 	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Auto"] 								= "Auto"
@@ -216,9 +205,15 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Necrolord"] 							= "|T3257749:0|t" .. " " .. "Necrolord"
 	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.NightFae"] 							= "|T3257750:0|t" .. " " .. "Night Fae"
 	L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Venthyr"] 							= "|T3257751:0|t" .. " " .. "Venthyr"
-	-- End: 	Expansion Features DropDowns
 	--
-	-- Start: 	Junker Toggles
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"]										= "Anima Powers"
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"]										= "Choose how the addon should respond to Anima powers.\n\n|cffFFD100Automatic|r: Automatically select powers based on a static power list.\n|cffFFD100No Epics|r: Automatically select powers based on a static power list but ignore all epic powers.\n|cffFFD100Notify|r: Suggest powers to you via the in-game chat window."
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"]										= "Automatic"
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.NoEpics"]									= "No Epics (Automatic)"
+	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"]									= "Notify"
+	-- End: 	Expansion Features (Options_ExpansionFeatures.lua)
+	--
+	-- Start: 	Junker Options (Options_Junker.lua)
 	L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"] 												= "Enables and disables the Junker subsystem.\n\nBy default, Junker will auto sell player-defined and poor quality items. Use the buttons below to filter in additional items.\n\nAlternatively, use the Import button to import items from another auto sell addon or a comma-delimited list of item IDs.\n\n|cffFFD100/hmp junker add id|r\n\n|cffFFD100/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items you don't have in your inventory."
 	L_GLOBALSTRINGS["Junker.Toggle.SafeMode"] 													= "Safe Mode"
 	L_GLOBALSTRINGS["Junker.Toggle.SafeModeDesc"] 												= "When |cffFFD100Safe Mode|r is enabled, Junker will sell items in batches of 12. This ensures the player can use the buy back tab to repurchase items."
@@ -228,9 +223,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Toggle.JunkerArmorDesc"] 											= "Automatically sell appropriate items of type |cffFFD100Armor|r."
 	L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumable"] 											= "Consumables"
 	L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumableDesc"] 										= "Automatically sell appropriate items of type |cffFFD100Consumable|r."
-	-- End: 	Junker Toggles
 	--
-	-- Start: 	Junker Buttons
 	L_GLOBALSTRINGS["Junker.Button.Import"] 													= "Import"
 	L_GLOBALSTRINGS["Junker.Button.Import.InitialText"] 										= "|T132281:36|t\n\n" .. "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFFD100NOTE|r: Only account-wide lists will be imported from these addons."
 	L_GLOBALSTRINGS["Junker.Button.Import.CancelText"] 											= "|T132281:36|t\n\n" .. "Please paste your comma-delimited list of items in the editbox below."
@@ -238,38 +231,18 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Button.Import.BlacklistText"] 										= "Blacklist"
 	L_GLOBALSTRINGS["Junker.Button.Import.FromAddOnText"] 										= "Import from AddOn"
 	L_GLOBALSTRINGS["Junker.Button.Import.FromListText"] 										= "Import from List"
-	-- End: 	Junker Buttons
 	--
-	-- Start: 	Junker UI Text Elements
 	L_GLOBALSTRINGS["Junker.UI.Text.ButtonDesc"] 												= "This button can be used to trigger the selling process.\n\n|cffADD8E6Added by HelpMePlay|r"
-	-- End: 	Junker UI Text Elements
 	--
-	-- Start: 	Junker Tooltip Text Elements
 	L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"]													= "|cffFFFFFFSELL|r"
 	L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"]											= "|cffFFFFFFSELL (GLOBAL)|r"
 	L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"]											= "|cffFFFFFFBLACKLISTED|r"
 	L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"]									= "|cffFFFFFFBLACKLISTED (GLOBAL)|r"
-	-- End: 	Junker Tooltip Text Elements
 	--
-	-- Start: 	Junker Output Text
 	L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromAddOnText"] 								= "Imported all items from %s to Junker!"
 	L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromListText"] 									= "Imported %s item(s) to Junker!"
 	L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabledText"] 									= "No auto sell addon enabled."
-	-- End: 	Junker Output Text
 	--
-	-- Start: 	DropDowns
-	L_GLOBALSTRINGS["DropDowns.Disabled"]														= "Disabled"
-	-- End: 	DropDowns
-	--
-	-- Start: 	Torghast DropDowns
-	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"]										= "Anima Powers"
-	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"]										= "Choose how the addon should respond to Anima powers.\n\n|cffFFD100Automatic|r: Automatically select powers based on a static power list.\n|cffFFD100No Epics|r: Automatically select powers based on a static power list but ignore all epic powers.\n|cffFFD100Notify|r: Suggest powers to you via the in-game chat window."
-	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"]										= "Automatic"
-	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.NoEpics"]									= "No Epics (Automatic)"
-	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"]									= "Notify"
-	-- End: 	Torghast DropDowns
-	--
-	-- Start: 	Junker DropDowns
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"]											= "Rarity"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"]												= "Select the maximum item rarity threshold for Junker to sell.\n\nSetting this rarity to Uncommon, for example, would tell rarity to sell all Poor, Common, and Uncommon items without player input."
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"]												= "|cff9D9D9DPoor|r"
@@ -277,33 +250,26 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"]											= "|cff1EFF00Uncommon|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Rare"]												= "|cff0070DDRare|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"]												= "|cffA335EEEpic|r"
-	-- End: 	Junker DropDowns
+	-- End: 	Junker Options (Options_Junker.lua)
 	--
-	-- Start: 	Trade Skill UI Buttons
+	-- Start: 	UI
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Text"] 								= "<->"
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Desc"] 								= "Expands or collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.PopupText"] 								= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Text"] 										= "Calculate"
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Desc"] 										= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
-	-- End: 	Trade Skill UI Buttons
 	--
-	-- Start: 	Trade Skill UI Output Text
 	L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"] 						= "Reagent calculation in progress..."
-	-- End: 	Trade Skill UI Output Text
 	--
-	-- Start: 	Soulbind UI Buttons
 	L_GLOBALSTRINGS["Soulbind.UI.Button.Setup.Text"] 											= "Setup"
 	L_GLOBALSTRINGS["Soulbind.UI.Button.Setup.Desc"] 											= "Automatically enables and configures your soulbind based\non your class and specialization.\n\n|cffADD8E6Added by HelpMePlay|r"
-	-- End: 	Soulbind UI Buttons
 	--
-	-- Start: 	UI Buttons
 	L_GLOBALSTRINGS["UI.Button.Inventory.Desc"] 												= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
-	-- End: 	UI Buttons
 	--
-	-- Start: 	Minimap UI Buttons
+	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
+	--
 	L_GLOBALSTRINGS["Minimap.UI.Button.SubText"] 												= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
-	-- End: 	Minimap UI Buttons
+	-- End: 	UI
 	--
 	-- Start: 	Text Output
 	L_GLOBALSTRINGS["Text.Output.Acronym"]														= "HMP"
@@ -316,12 +282,9 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.ConduitNodesIncorrect"]										= "One or more conduit nodes are incorrect. You will need to press the |cffFFD100Setup|r button again."
 	L_GLOBALSTRINGS["Text.Output.ConduitsNotUnlocked"]											= "Cannot continue. Please unlock all nodes, then try again."
 	L_GLOBALSTRINGS["Text.Output.FlyingTo"]														= "Flying to:"
-	-- End:		Text Output
-	--
-	-- Start: 	Notifications
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"] 									= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"] 										= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
-	-- End: 	Notifications
+	-- End:		Text Output
 	--
 	-- Start:	Speech Text Checks
 	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Praise"]											= "not so much as a word of praise!"
