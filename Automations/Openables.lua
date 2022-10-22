@@ -31,7 +31,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							
 							HMPQueueButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 							
-							normalTexture:SetTexture(item.texture)
+							normalTexture:SetTexture("Interface\\ICONS\\INV_Misc_Bag_28_Halloween")
 							normalTexture:SetSize(32, 32)
 				
 							HMPOpenableButton:SetNormalTexture(normalTexture)
@@ -52,4 +52,17 @@ end)
 HMPOpenableButton:HookScript("OnClick", function(self)
 	UseContainerItem(bag, bagSlot)
 	self:Hide()
+end)
+
+HMPOpenableButton:HookScript("OnEnter", function(self)
+	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+	GameTooltip:SetBagItem(bag, bagSlot)
+	GameTooltip:SetClampedToScreen(true)
+	GameTooltip:Show()
+end)
+
+HMPOpenableButton:HookScript("OnLeave", function(self)
+	if GameTooltip:GetOwner() == self then
+		GameTooltip:Hide()
+	end
 end)
