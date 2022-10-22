@@ -22,10 +22,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if bagId and fileIconId then
 			local numSlots = GetContainerNumSlots(bagId)
 			for slot = 1, numSlots do
-				local item = GetContainerItemInfo(bagId, slot)
-				if item then
-					if item.lootable then
-						if item.texture == fileIconId then
+				local texture, _, _, _, _, lootable = GetContainerItemInfo(bagId, slot)
+				if texture then
+					if lootable then
+						if texture == fileIconId then
 							bag = bagId
 							bagSlot = slot
 							
