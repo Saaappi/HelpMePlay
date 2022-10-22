@@ -79,7 +79,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HMPQueueButton:SetSize(28, 26)
 				HMPQueueButton:SetPoint("BOTTOM", 0, 40)
 
-				if not isDailyRewardCollected then
+				if not isDailyRewardCollected and UnitLevel("player") >= 50 then
 					HMPQueueButton:Show()
 				else
 					HMPQueueButton:Hide()
