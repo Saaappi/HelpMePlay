@@ -72,7 +72,6 @@ Automations\Speech.lua
 Automations\Gossip.lua
 Automations\Vehicles.lua
 Automations\Queues.lua
-Automations\Openables.lua
 Automations\Repairs.lua
 Automations\Cinematics.lua
 Automations\Quests.lua
