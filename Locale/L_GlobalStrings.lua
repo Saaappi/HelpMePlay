@@ -128,7 +128,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.Openables"] 										= "Openables"
-	L_GLOBALSTRINGS["Features.Toggle.Extras.OpenablesDesc"] 									= "Add a dynamic button to the center of your screen when an item is added to your inventory to open!"
+	L_GLOBALSTRINGS["Features.Toggle.Extras.OpenablesDesc"] 									= "Add a dynamic button next to the Character micro menu when an item is added to your inventory to open!\n\n|cffFFD100NOTE|r: This does NOT completely replace New Openables!"
 	-- End: 	Features Options (Options_Features.lua)
 	--
 	-- Start: 	Quests Options (Options_Quests.lua)
