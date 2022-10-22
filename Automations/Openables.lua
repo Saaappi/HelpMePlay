@@ -13,25 +13,25 @@ local highlightTexture = e:CreateTexture()
 highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
 highlightTexture:SetSize(28, 29)
 
-e:RegisterEvent("ITEM_PUSH")
+e:RegisterEvent("ITEM_DATA_LOAD_RESULT")
 e:SetScript("OnEvent", function(self, event, ...)
-	if event == "ITEM_PUSH" then
+	if event == "ITEM_DATA_LOAD_RESULT" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.OpenablesEnabled == false or HelpMePlayDB.OpenablesEnabled == nil then return false end
-		local bagId, fileIconId = ...
-		if bagId and fileIconId then
+		local itemId = ...
+		for bagId = 0, 4 do
 			local numSlots = GetContainerNumSlots(bagId)
 			for slot = 1, numSlots do
-				local texture, _, _, _, _, lootable = GetContainerItemInfo(bagId, slot)
+				local texture, _, _, _, _, lootable, _, _, _, containerItemId = GetContainerItemInfo(bagId, slot)
 				if texture then
 					if lootable then
-						if texture == fileIconId then
+						if containerItemId == itemId then
 							bag = bagId
 							bagSlot = slot
 							
 							HMPQueueButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 							
-							normalTexture:SetTexture("Interface\\ICONS\\INV_Misc_Bag_28_Halloween")
+							normalTexture:SetTexture("Interface\\ICONS\\inv_misc_bag_10")
 							normalTexture:SetSize(32, 32)
 				
 							HMPOpenableButton:SetNormalTexture(normalTexture)
@@ -41,6 +41,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							HMPOpenableButton:SetPoint("LEFT", -45, 0)
 				
 							HMPOpenableButton:Show()
+							return
 						end
 					end
 				end
