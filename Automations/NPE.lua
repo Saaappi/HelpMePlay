@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 
 local function HideFrame(frame)
 	if frame == "NPE_PointerFrame" then
-		if NPE_PointerFrame_1Content then
+		if NPE_PointerFrame_1.Arrow_DOWN1 then
 			NPE_PointerFrame_1Content:Hide()
 			NPE_PointerFrame_1.Glow:Hide()
 			NPE_PointerFrame_1.Arrow_UP1:Hide()
@@ -15,7 +15,7 @@ local function HideFrame(frame)
 			NPE_PointerFrame_1.Arrow_DOWN1:Hide()
 			NPE_PointerFrame_1.Arrow_DOWN2:Hide()
 		end
-		if NPE_PointerFrame_2Content then
+		if NPE_PointerFrame_2.Arrow_DOWN1 then
 			NPE_PointerFrame_2Content:Hide()
 			NPE_PointerFrame_2.Glow:Hide()
 			NPE_PointerFrame_2.Arrow_UP1:Hide()
