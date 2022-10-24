@@ -127,6 +127,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"] 											= "If eligible, when a quest is accepted, the addon will automatically plot appropriate waypoints."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
+	L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPE"] 											= "Hide NPE"
+	L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPEDesc"] 										= "Toggle to hide the new player experience popups on Exile's Reach."
 	-- End: 	Features Options (Options_Features.lua)
 	--
 	-- Start: 	Quests Options (Options_Quests.lua)
