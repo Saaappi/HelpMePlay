@@ -26,6 +26,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 			else
 				addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"])
 			end
+			
+			local mapId = C_Map.GetBestMapForUnit("player")
+			if (mapId == 84 or mapId == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
+				if C_PvP.IsWarModeDesired() == false then
+					C_Timer.After(addonTable.CONSTANTS["FIVE_SECONDS"], function()
+						C_PvP.ToggleWarMode()
+					end)
+				end
+			end
 		end
 	end
 	if event == "ZONE_CHANGED_NEW_AREA" then

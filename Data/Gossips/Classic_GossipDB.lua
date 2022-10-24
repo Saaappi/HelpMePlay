@@ -176,6 +176,16 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	-- Eastern Plaguelands (Death Knight)
+	[28406] = { -- Death Knight Initiate
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of Eastern Plaguelands (Death Knight)
 	-- End of Hillsbrad Foothills
 	-- Neutral
 	[149626] = { -- Vanguard Battlemage (present in both Stormwind and Orgrimmar)
