@@ -1,107 +1,25 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 
-local function HideFrame(frame)
-	if frame == "NPE_PointerFrame" then
-		if NPE_PointerFrame_1 then
-			if NPE_PointerFrame_1.Arrow_DOWN1 then
-				NPE_PointerFrame_1Content:Hide()
-				NPE_PointerFrame_1.Glow:Hide()
-				NPE_PointerFrame_1.Arrow_UP1:Hide()
-				NPE_PointerFrame_1.Arrow_UP2:Hide()
-				NPE_PointerFrame_1.Arrow_LEFT1:Hide()
-				NPE_PointerFrame_1.Arrow_LEFT2:Hide()
-				NPE_PointerFrame_1.Arrow_RIGHT1:Hide()
-				NPE_PointerFrame_1.Arrow_RIGHT2:Hide()
-				NPE_PointerFrame_1.Arrow_DOWN1:Hide()
-				NPE_PointerFrame_1.Arrow_DOWN2:Hide()
+e:RegisterEvent("ADDON_LOADED")
+e:SetScript("OnEvent", function(self, event, addon, ...)
+	if event == "ADDON_LOADED" and addon == "Blizzard_NewPlayerExperience" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HelpMePlayDB.HideNPE == false or HelpMePlayDB.HideNPE == nil then return false end
+		
+		hooksecurefunc(NPE_TutorialKeyboardMouseFrame_Frame, "ShowTutorial", function(self)
+			self:Hide()
+		end)
+		hooksecurefunc(NPE_TutorialMainFrame_Frame, "ShowTutorial", function(self)
+			self:Hide()
+		end)
+		hooksecurefunc(NPE_TutorialPointerFrame, "Show", function(self)
+			for i = 1, 2 do
+				local frame = _G["NPE_PointerFrame_"..i]
+				if frame then
+					frame:Hide()
+				end
 			end
-		end
-		if NPE_PointerFrame_2 then
-			if NPE_PointerFrame_2.Arrow_DOWN1 then
-				NPE_PointerFrame_2Content:Hide()
-				NPE_PointerFrame_2.Glow:Hide()
-				NPE_PointerFrame_2.Arrow_UP1:Hide()
-				NPE_PointerFrame_2.Arrow_UP2:Hide()
-				NPE_PointerFrame_2.Arrow_LEFT1:Hide()
-				NPE_PointerFrame_2.Arrow_LEFT2:Hide()
-				NPE_PointerFrame_2.Arrow_RIGHT1:Hide()
-				NPE_PointerFrame_2.Arrow_RIGHT2:Hide()
-				NPE_PointerFrame_2.Arrow_DOWN1:Hide()
-				NPE_PointerFrame_2.Arrow_DOWN2:Hide()
-			end
-		end
-	elseif frame == "KeyboardMouseFrame" then
-		if NPE_TutorialKeyboardMouseFrame_Frame:IsVisible() then
-			NPE_TutorialKeyboardMouseFrame_Frame:Hide()
-		end
-	elseif frame == "TutorialMainFrame" then
-		if NPE_TutorialMainFrame_Frame:IsVisible() then
-			NPE_TutorialMainFrame_Frame:Hide()
-			NPE_TutorialWalk_Frame:Hide()
-		end
-	elseif frame == "SingleKeyFrame" then
-		if NPE_TutorialSingleKeyFrame_Frame:IsVisible() then
-			NPE_TutorialSingleKeyFrame_Frame:Hide()
-		end
-	end
-end
-
-e:RegisterEvent("GET_ITEM_INFO_RECEIVED")
-e:RegisterEvent("CHAT_MSG_LOOT")
-e:RegisterEvent("LEARNED_SPELL_IN_TAB")
-e:RegisterEvent("PLAYER_ENTERING_WORLD")
-e:RegisterEvent("PLAYER_XP_UPDATE")
-e:RegisterEvent("PLAYER_LEVEL_CHANGED")
-e:SetScript("OnEvent", function(self, event, ...)
-	if event == "GET_ITEM_INFO_RECEIVED" then
-		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.HideNPE == false or HelpMePlayDB.HideNPE == nil then return false end
-		
-		if ContainerFrame1:IsVisible() then
-			local mapId = C_Map.GetBestMapForUnit("player")
-			if mapId == 1409 or mapId == 1609 or mapId == 1610 then
-				C_Timer.After(1.5, function()
-					HideFrame("NPE_PointerFrame")
-				end)
-			end
-		end
-	end
-	
-	if event == "CHAT_MSG_LOOT" or event == "LEARNED_SPELL_IN_TAB" then
-		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.HideNPE == false or HelpMePlayDB.HideNPE == nil then return false end
-		
-		local mapId = C_Map.GetBestMapForUnit("player")
-		if mapId == 1409 or mapId == 1609 or mapId == 1610 then
-			C_Timer.After(1.5, function()
-				HideFrame("NPE_PointerFrame")
-			end)
-		end
-	end
-	
-	if event == "PLAYER_ENTERING_WORLD" then
-		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.HideNPE == false or HelpMePlayDB.HideNPE == nil then return false end
-		
-		local mapId = C_Map.GetBestMapForUnit("player")
-		if mapId == 1726 or mapId == 1727 then
-			C_Timer.After(1.5, function()
-				HideFrame("KeyboardMouseFrame")
-				HideFrame("TutorialMainFrame")
-			end)
-		end
-	end
-	
-	if event == "PLAYER_XP_UPDATE" or event == "PLAYER_LEVEL_CHANGED" then
-		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.HideNPE == false or HelpMePlayDB.HideNPE == nil then return false end
-		
-		local mapId = C_Map.GetBestMapForUnit("player")
-		if mapId == 1409 or mapId == 1609 or mapId == 1726 or mapId == 1727 then
-			C_Timer.After(1.5, function()
-				HideFrame("NPE_PointerFrame")
-			end)
-		end
+		end)
 	end
 end)
