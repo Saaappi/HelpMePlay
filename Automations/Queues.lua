@@ -17,9 +17,18 @@ LFGDungeonReadyDialogEnterDungeonButton:SetScript("OnShow", function()
 	end
 end)
 
-e:RegisterEvent("PLAYER_ENTERING_WORLD")
+e:RegisterEvent("QUEST_ACCEPTED")
+e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:SetScript("OnEvent", function(self, event, ...)
+	if event == "QUEST_ACCEPTED" then
+		local questId = ...
+		local dungeonId = addonTable.DUNGEON_QUEST_QUEUES[questId]
+		if dungeonId then
+			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, dungeonId, LFDDungeonList, LFDHiddenByCollapseList)
+		end
+	end
+	
 	if event == "PLAYER_ENTERING_WORLD" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.HolidayQueuesEnabled then
