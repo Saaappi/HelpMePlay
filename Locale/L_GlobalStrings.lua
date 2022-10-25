@@ -128,7 +128,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPE"] 											= "Hide NPE"
-	L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPEDesc"] 										= "Toggle to hide the new player experience popups on Exile's Reach."
+	L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPEDesc"] 										= "Toggle to hide the new player experience popups on Exile's Reach.\n\n|cffFFD100NOTE|r: This can often lead to the bag frame being stuck open. HelpMePlay should take care of this for you."
 	-- End: 	Features Options (Options_Features.lua)
 	--
 	-- Start: 	Quests Options (Options_Quests.lua)

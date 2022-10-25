@@ -20,6 +20,10 @@ e:SetScript("OnEvent", function(self, event, addon, ...)
 					frame:Hide()
 				end
 			end
+			
+			C_Timer.After(2, function()
+				CloseAllBags()
+			end)
 		end)
 	end
 end)
