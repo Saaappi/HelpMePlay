@@ -9,10 +9,4 @@ local GUID = {
 	["Player-1426-0DDCECA0"] 	= 0, -- Spookasem (Aerie Peak)
 }
 
-local DUNGEON_QUEST_QUEUES = {
-	[55992] 	= 2043, -- Darkmaul Citadel (A)
-	[59984] 	= 2043, -- Darkmaul Citadel (H)
-}
-
 addonTable.GUID = GUID
-addonTable.DUNGEON_QUEST_QUEUES = DUNGEON_QUEST_QUEUES

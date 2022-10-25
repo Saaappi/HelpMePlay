@@ -487,6 +487,14 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[163024] = { -- Coulston Nereus (Rogue Only)
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	[162943] = { -- Hjalmar the Undying (Warrior Only)
 		["g"] = {
 			{
