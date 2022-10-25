@@ -37,6 +37,10 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **War Mode** - The free 10%, or higher, experience gain is undeniably a boon to the leveling experience. When enabled, HelpMePlay will automatically opt the player into War Mode upon their next visit to Orgrimmar or Stormwind.
 - **Waypoints** - HelpMePlay, if configured, will automatically plot waypoints when specific quests are accepted.
 
+### Extras
+- **Holiday Queues** - Add a button above the LFD icon to queue for the current holiday boss. *This button will only appear if you're level 50+, your character isn't saved, and you don't have the mount(s) associated to the event.*
+- **Hide NPE** - Attempts to hide all the New Player Experience popups while on Exile's Reach.
+
 ### Buttons
 - **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
 - **Professions** - If you like collecting in World of Warcraft, then you probably enjoy professions. Perhaps not... BUT! There are many collectibles in production professions like Blacksmithing. It can be tough to calculate all the reagents you require to craft all the transmog. HelpMePlay can calculate all the reagents you would need to craft all KNOWN recipes for appearances you've yet to collect. Simply open a production profession (e.g. Blacksmithing) and locate the "Calculate" button in the upper right.
