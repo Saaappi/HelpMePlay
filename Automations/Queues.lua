@@ -22,6 +22,7 @@ e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_ACCEPTED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		local questId = ...
 		local dungeonId = addonTable.DUNGEON_QUEST_QUEUES[questId]
 		if dungeonId then
