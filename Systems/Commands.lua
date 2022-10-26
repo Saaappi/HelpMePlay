@@ -47,17 +47,7 @@ end
 function HelpMePlay:SlashCommandHandler(cmd)
 	local cmd, arg1, arg2 = string.split(" ", cmd)
 	if not cmd or cmd == "" then
-		Settings.OpenToCategory(addonTable.mainOptions)
-	elseif cmd == "1" then
-		Settings.OpenToCategory(addonTable.generalOptions)
-	elseif cmd == "2" then
-		Settings.OpenToCategory(addonTable.featuresOptions)
-	elseif cmd == "3" then
-		Settings.OpenToCategory(addonTable.questOptions)
-	elseif cmd == "4" then
-		Settings.OpenToCategory(addonTable.expansionFeatures)
-	elseif cmd == "5" then
-		Settings.OpenToCategory(addonTable.junkerOptions)
+		Settings.OpenToCategory(addonName)
 	elseif cmd == L_GLOBALSTRINGS["Command.Dialog"] and arg1 ~= nil then
 		Dialog(arg1)
 	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] then
