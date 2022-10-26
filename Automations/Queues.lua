@@ -3,10 +3,17 @@ local e = CreateFrame("Frame")
 local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local queueInfo = ""
 local HMPQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPQueueButton",
 	_G.LFDMicroButton,
+	"OptionsButtonTemplate"
+)
+local HMPDungeonQueueButton = _G.CreateFrame(
+	"Button",
+	"HMPDungeonQueueButton",
+	UIParent,
 	"OptionsButtonTemplate"
 )
 
@@ -17,7 +24,8 @@ LFGDungeonReadyDialogEnterDungeonButton:SetScript("OnShow", function()
 	end
 end)
 
-e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+e:RegisterEvent("PLAYER_ENTERING_WORLD")
+e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_ENTERING_WORLD" then
@@ -87,6 +95,27 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
+	
+	if event == "QUEST_ACCEPTED" then
+		local questId = ...
+		dungeonInfo = addonTable.DUNGEON_QUEUES_BY_QUEST[questId]
+		if dungeonInfo ~= "" then
+			normalTexture:SetTexture("Interface\\ICONS\\levelupicon-lfd")
+			normalTexture:SetSize(28, 26)
+			highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+			highlightTexture:SetSize(24, 23)
+			
+			HMPDungeonQueueButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+			
+			HMPDungeonQueueButton:SetNormalTexture(normalTexture)
+			HMPDungeonQueueButton:SetHighlightTexture(highlightTexture, "ADD")
+			
+			HMPDungeonQueueButton:SetSize(28, 26)
+			HMPDungeonQueueButton:SetPoint("CENTER", 0, 0)
+			HMPDungeonQueueButton:Show()
+		end
+	end
+	
 	if event == "ZONE_CHANGED_NEW_AREA" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.HolidayQueuesEnabled then
@@ -134,6 +163,25 @@ HMPQueueButton:HookScript("OnEnter", function(self)
 end)
 
 HMPQueueButton:HookScript("OnLeave", function(self)
+	if GameTooltip:GetOwner() == self then
+		GameTooltip:Hide()
+	end
+end)
+
+HMPDungeonQueueButton:HookScript("OnClick", function(self)
+	local hasData = GetLFGQueueStats(LE_LFG_CATEGORY_LFD)
+	if not hasData then
+		LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, dungeonInfo.id, LFDDungeonList, LFDHiddenByCollapseList)
+	end
+end)
+
+HMPDungeonQueueButton:HookScript("OnEnter", function(self)
+	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+	GameTooltip:SetText("|cffFFD100" .. dungeonInfo.name .. "|r")
+	GameTooltip:Show()
+end)
+
+HMPDungeonQueueButton:HookScript("OnLeave", function(self)
 	if GameTooltip:GetOwner() == self then
 		GameTooltip:Hide()
 	end
