@@ -33,11 +33,11 @@ function HelpMePlay:ShowJunkerButton()
 	-- Texture work. Let's recreate the bag sorting button.
 	normalTexture:SetTexture("Interface\\ContainerFrame\\Bags")
 	normalTexture:SetSize(28, 26)
-	normalTexture:SetTexCoord(0.3125, 0.421875, 0.5390625, 0.640625)
+	normalTexture:SetTexCoord(0.181640625, 0.302734375, 0.1796875, 0.421875)
 	
 	pushedTexture:SetTexture("Interface\\ContainerFrame\\Bags")
 	pushedTexture:SetSize(28, 26)
-	pushedTexture:SetTexCoord(0.1640625, 0.2734375, 0.8359375, 0.9375)
+	pushedTexture:SetTexCoord(0.001953125, 0.123046875, 0.66796875, 0.91015625)
 	
 	highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
 	highlightTexture:SetSize(24, 23)
