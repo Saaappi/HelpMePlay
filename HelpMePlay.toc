@@ -45,6 +45,7 @@ Data\NotesDB.lua
 Data\CovenantsDB.lua
 Data\SpeechDB.lua
 Data\QuestRewardsDB.lua
+Data\DungeonQueuesDB.lua
 Data\SoulbindsDB.lua
 Data\IgnoredQuestsDB.lua
 Data\TalentSystems\TitanicResearchDB.lua

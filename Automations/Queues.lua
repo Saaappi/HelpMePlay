@@ -100,7 +100,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local questId = ...
 		dungeonInfo = addonTable.DUNGEON_QUEUES_BY_QUEST[questId]
 		if dungeonInfo ~= "" then
-			normalTexture:SetTexture("Interface\\ICONS\\levelupicon-lfd")
+			normalTexture:SetTexture(dungeonInfo.t)
 			normalTexture:SetSize(28, 26)
 			highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
 			highlightTexture:SetSize(24, 23)
@@ -177,7 +177,7 @@ end)
 
 HMPDungeonQueueButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText("|cffFFD100" .. dungeonInfo.name .. "|r")
+	GameTooltip:SetText(string.format(L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"], "|cffFFD100" .. dungeonInfo.name .. "|r"))
 	GameTooltip:Show()
 end)
 
