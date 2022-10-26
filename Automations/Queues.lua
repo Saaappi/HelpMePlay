@@ -173,6 +173,7 @@ HMPDungeonQueueButton:HookScript("OnClick", function(self)
 	if not hasData then
 		LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, dungeonInfo.id, LFDDungeonList, LFDHiddenByCollapseList)
 	end
+	HMPDungeonQueueButton:Hide()
 end)
 
 HMPDungeonQueueButton:HookScript("OnEnter", function(self)
