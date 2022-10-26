@@ -193,37 +193,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		--[[local availableQuests = C_GossipInfo.GetAvailableQuests()
-		local activeQuests = C_GossipInfo.GetActiveQuests()
-		if HelpMePlayDB.AcceptQuestsEnabled then
-			if next(activeQuests) then
-				if #activeQuests == 1 then
-					if activeQuests[1].isComplete then
-						HMP_CompleteQuest()
-					else
-						ProcessDialogTree(parentMapId)
-					end
-				else
-					for i = 1, #activeQuests do
-						if activeQuests[i].isComplete then
-							HMP_CompleteQuest()
-						end
-					end
-					ProcessDialogTree(parentMapId)
-				end
-			elseif next(availableQuests) then
-				for i = 1, #availableQuests do
-					if addonTable.IGNORED_QUESTS[availableQuests[i].questID] == false then
-						C_GossipInfo.SelectAvailableQuest(i)
-					end
-				end
-				ProcessDialogTree(parentMapId)
-			else
-				ProcessDialogTree(parentMapId)
-			end
-		else
-			ProcessDialogTree(parentMapId)
-		end]]
 		ProcessDialogTree(parentMapId)
 	end
 end)
