@@ -7,9 +7,9 @@ local COVENANTS_BY_SPEC = {
 [3] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"],
 [4] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"],
 	[1] = { -- Warrior
-		[71] = 4, 	-- Arms (Night Fae)
+		[71] = 1, 	-- Arms (Kyrian)
 		[72] = 1, 	-- Fury (Kyrian)
-		[73] = 1, 	-- Protection (Kyrian)
+		[73] = 3, 	-- Protection (Necrolord)
 	},
 	[2] = { -- Paladin
 		[65] = 2, 	-- Holy (Venthyr)
@@ -18,13 +18,13 @@ local COVENANTS_BY_SPEC = {
 	},
 	[3] = { -- Hunter
 		[253] = 4, 	-- Beast Mastery (Night Fae)
-		[254] = 1, 	-- Marksmanship (Kyrian)
+		[254] = 4, 	-- Marksmanship (Night Fae)
 		[255] = 1, 	-- Survival (Kyrian)
 	},
 	[4] = { -- Rogue
 		[259] = 2, 	-- Assassination (Venthyr)
-		[260] = 1, 	-- Outlaw (Kyrian)
-		[261] = 2, 	-- Subtlety (Venthyr)
+		[260] = 2, 	-- Outlaw (Venthyr)
+		[261] = 1, 	-- Subtlety (Kyrian)
 	},
 	[5] = { -- Priest
 		[256] = 1, 	-- Discipline (Kyrian)
@@ -32,14 +32,14 @@ local COVENANTS_BY_SPEC = {
 		[258] = 3, 	-- Shadow (Necrolord)
 	},
 	[6] = { -- Death Knight
-		[250] = 2, 	-- Blood (Venthyr)
+		[250] = 4, 	-- Blood (Night Fae)
 		[251] = 4, 	-- Frost (Night Fae)
-		[252] = 4, 	-- Unholy (Night Fae)
+		[252] = 3, 	-- Unholy (Necrolord)
 	},
 	[7] = { -- Shaman
-		[262] = 3, 	-- Elemental (Necrolord)
+		[262] = 4, 	-- Elemental (Night Fae)
 		[263] = 3, 	-- Enhancement (Necrolord)
-		[264] = 2, 	-- Restoration (Venthyr)
+		[264] = 1, 	-- Restoration (Kyrian)
 	},
 	[8] = { -- Mage
 		[62] = 1, 	-- Arcane (Kyrian)
@@ -48,19 +48,19 @@ local COVENANTS_BY_SPEC = {
 	},
 	[9] = { -- Warlock
 		[265] = 4, 	-- Affliction (Night Fae)
-		[266] = 4, 	-- Demonology (Night Fae)
+		[266] = 3, 	-- Demonology (Necrolord)
 		[267] = 4, 	-- Destruction (Night Fae)
 	},
 	[10] = { -- Monk
-		[268] = 4, 	-- Brewmaster (Night Fae)
+		[268] = 1, 	-- Brewmaster (Kyrian)
 		[270] = 2, 	-- Mistweaver (Venthyr)
 		[269] = 3, 	-- Windwalker (Necrolord)
 	},
 	[11] = { -- Druid
-		[102] = 4, 	-- Balance (Night Fae)
+		[102] = 2, 	-- Balance (Venthyr)
 		[103] = 4, 	-- Feral (Night Fae)
-		[104] = 4, 	-- Guardian (Night Fae)
-		[105] = 4, 	-- Restoration (Night Fae)
+		[104] = 2, 	-- Guardian (Venthyr)
+		[105] = 3, 	-- Restoration (Necrolord)
 	},
 	[12] = { -- Demon Hunter
 		[577] = 2, 	-- Havoc (Venthyr)

@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayIgnoredQuestsDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
-## Version: 2.0.0
+## Version: 2.0.1
 ## OptionalDeps: Ace3
 
 # Functions
