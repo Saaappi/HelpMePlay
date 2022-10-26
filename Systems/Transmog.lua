@@ -151,8 +151,13 @@ else
 	highlightTexture:SetSize(24, 24)
 	HMPTransmogButton:SetSize(24, 24)
 	hooksecurefunc("ContainerFrame_OnShow", function(self)
-		HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
-		HMPTransmogButton:Show()
+		if ContainerFrameCombinedBags:IsVisible() then
+			HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrameCombinedBags, "TOPLEFT", -10, -10)
+			HMPTransmogButton:Show()
+		else
+			HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
+			HMPTransmogButton:Show()
+		end
 	end)
 	hooksecurefunc("ContainerFrame_OnHide", function(self)
 		HMPTransmogButton:Hide()
