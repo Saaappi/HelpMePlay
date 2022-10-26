@@ -200,7 +200,7 @@ local DIALOG_CLASSIC = {
 	[167032] = { -- Chromie (present in both Stormwind and Orgrimmar)
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 51901,
 				["c"] 	= { "chromieTime" },
 				["ct"] 	= 0, -- not in Chromie Time (default timeline)
 			},

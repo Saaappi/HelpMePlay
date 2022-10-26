@@ -44,97 +44,95 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	if gossipTable[npcId] then
 		for index, gossipSubTable in ipairs(options) do
 			for _, gossip in pairs(gossipTable[npcId]["g"]) do
-				if gossipSubTable.type == "gossip" then
-					local numConditions = #gossip.c
-					local numConditionsMatched = 0
-					for _, condition in ipairs(gossip.c) do
-						if condition == "none" then
-							C_GossipInfo.SelectOption(gossip.o)
-						elseif condition == "level.higher" then
-							if UnitLevel("player") > gossip.l then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "level.equal" then
-							if UnitLevel("player") == gossip.l then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "level.lower" then
-							if UnitLevel("player") < gossip.l then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "level.between" then
-							local minLevel, maxLevel = gossip.l[1], gossip.l[2]
-							local playerLevel = UnitLevel("player")
-							
-							if playerLevel >= minLevel and playerLevel <= maxLevel then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "money.higher" then
-							if GetMoney("player") > gossip.m then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "quests.active" then
-							local numQuests = #gossip.q
-							for i = 1, numQuests do
-								if C_QuestLog.IsOnQuest(gossip.q[i]) then
-									numQuests = numQuests - 1
-									if numQuests == 0 then
-										numConditionsMatched = numConditionsMatched + 1
-									end
+				local numConditions = #gossip.c
+				local numConditionsMatched = 0
+				for _, condition in ipairs(gossip.c) do
+					if condition == "none" then
+						C_GossipInfo.SelectOption(gossip.o)
+					elseif condition == "level.higher" then
+						if UnitLevel("player") > gossip.l then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "level.equal" then
+						if UnitLevel("player") == gossip.l then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "level.lower" then
+						if UnitLevel("player") < gossip.l then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "level.between" then
+						local minLevel, maxLevel = gossip.l[1], gossip.l[2]
+						local playerLevel = UnitLevel("player")
+						
+						if playerLevel >= minLevel and playerLevel <= maxLevel then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "money.higher" then
+						if GetMoney("player") > gossip.m then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "quests.active" then
+						local numQuests = #gossip.q
+						for i = 1, numQuests do
+							if C_QuestLog.IsOnQuest(gossip.q[i]) then
+								numQuests = numQuests - 1
+								if numQuests == 0 then
+									numConditionsMatched = numConditionsMatched + 1
 								end
-							end
-						elseif condition == "quests.notActive" then
-							local numQuests = #gossip.q
-							for i = 1, numQuests do
-								if C_QuestLog.IsOnQuest(gossip.q[i]) == false then
-									numQuests = numQuests - 1
-									if numQuests == 0 then
-										numConditionsMatched = numConditionsMatched + 1
-									end
-								end
-							end
-						elseif condition == "quests.complete" then
-							local numQuests = #gossip.q
-							for i = 1, numQuests do
-								if C_QuestLog.IsQuestFlaggedCompleted(gossip.q[i]) then
-									numQuests = numQuests - 1
-									if numQuests == 0 then
-										numConditionsMatched = numConditionsMatched + 1
-									end
-								end
-							end
-						elseif condition == "quest.obj.complete" then
-							local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-							if objectives[gossip.obj].finished then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "quest.obj.notComplete" then
-							local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-							if objectives[gossip.obj].finished == false then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "player.faction" then
-							if (UnitFactionGroup("player")) == gossip.f then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "map" then
-							if C_Map.GetBestMapForUnit("player") == gossip.m then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "chromieTime" then
-							if UnitChromieTimeID("player") == gossip.ct then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						elseif condition == "addon.setting" then
-							if HelpMePlayDB[gossip.s] == gossip.r then
-								numConditionsMatched = numConditionsMatched + 1
 							end
 						end
+					elseif condition == "quests.notActive" then
+						local numQuests = #gossip.q
+						for i = 1, numQuests do
+							if C_QuestLog.IsOnQuest(gossip.q[i]) == false then
+								numQuests = numQuests - 1
+								if numQuests == 0 then
+									numConditionsMatched = numConditionsMatched + 1
+								end
+							end
+						end
+					elseif condition == "quests.complete" then
+						local numQuests = #gossip.q
+						for i = 1, numQuests do
+							if C_QuestLog.IsQuestFlaggedCompleted(gossip.q[i]) then
+								numQuests = numQuests - 1
+								if numQuests == 0 then
+									numConditionsMatched = numConditionsMatched + 1
+								end
+							end
+						end
+					elseif condition == "quest.obj.complete" then
+						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+						if objectives[gossip.obj].finished then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "quest.obj.notComplete" then
+						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
+						if objectives[gossip.obj].finished == false then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "player.faction" then
+						if (UnitFactionGroup("player")) == gossip.f then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "map" then
+						if C_Map.GetBestMapForUnit("player") == gossip.m then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "chromieTime" then
+						if UnitChromieTimeID("player") == gossip.ct then
+							numConditionsMatched = numConditionsMatched + 1
+						end
+					elseif condition == "addon.setting" then
+						if HelpMePlayDB[gossip.s] == gossip.r then
+							numConditionsMatched = numConditionsMatched + 1
+						end
 					end
-					if numConditionsMatched == numConditions then
-						C_GossipInfo.SelectOption(gossip.o)
-						return
-					end
+				end
+				if numConditionsMatched == numConditions then
+					C_GossipInfo.SelectOption(gossip.o)
+					return
 				end
 			end
 		end
