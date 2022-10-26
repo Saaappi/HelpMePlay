@@ -8,13 +8,13 @@ local HMPQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPQueueButton",
 	_G.LFDMicroButton,
-	"OptionsButtonTemplate"
+	"UIPanelButtonTemplate"
 )
 local HMPDungeonQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPDungeonQueueButton",
 	UIParent,
-	"OptionsButtonTemplate"
+	"UIPanelButtonTemplate"
 )
 
 LFGDungeonReadyDialogEnterDungeonButton:SetScript("OnShow", function()

@@ -7,7 +7,7 @@ local HMPTransmogButton = _G.CreateFrame(
 	"Button",
 	"HMPTransmogButton",
 	nil,
-	"OptionsButtonTemplate"
+	"UIPanelButtonTemplate"
 )
 local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()

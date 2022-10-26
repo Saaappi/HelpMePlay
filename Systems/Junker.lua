@@ -5,7 +5,7 @@ addonTable.HMPJunkerMerchantButton = _G.CreateFrame(
 	"Button",
 	"HMPJunkerMerchantButton",
 	_G.MerchantFrame,
-	"OptionsButtonTemplate"
+	"UIPanelButtonTemplate"
 )
 local normalTexture = e:CreateTexture()
 local pushedTexture = e:CreateTexture()
