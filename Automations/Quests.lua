@@ -233,53 +233,34 @@ function HMP_CompleteQuest()
 	end
 end
 
---[[
-	Description:
-		Active quests are those that have been accepted
-		by the player. They may or may not be complete.
-		
-		If the SHIFT key is being held down, then recursively
-		call the function based on the delay until the key
-		is no longer held.
-		
-		If the active quest is complete, then call the
-		HMP_CompleteQuest function.
-]]--
 local function CompleteActiveQuests(gossipInfo)
 	if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return end
+	
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-			Complete_ActiveQuests(gossipInfo)
+			CompleteActiveQuests(gossipInfo)
 		end)
 	else
-		for i, gossip in ipairs(gossipInfo) do
-			if gossip.isComplete then
-				C_GossipInfo.SelectActiveQuest(i)
+		for i, questData in ipairs(gossipInfo) do
+			if questData.isComplete then
+				C_GossipInfo.SelectActiveQuest(questData.questID)
 				HMP_CompleteQuest()
 			end
 		end
 	end
 end
 
---[[
-	Description:
-		Available quests are those that have yet to be
-		accepted by the player.
-		
-		If the SHIFT key is being held down, then recursively
-		call the function based on the delay until the key
-		is no longer held.
-]]--
 local function GetAvailableQuests(gossipInfo)
 	if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
+	
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-			Get_AvailableQuests(gossipInfo)
+			GetAvailableQuests(gossipInfo)
 		end)
 	else
 		for i, questData in ipairs(gossipInfo) do
 			if not HelpMePlayIgnoredQuestsDB[questData.questID] and not addonTable.IGNORED_QUESTS[questData.questID] then
-				C_GossipInfo.SelectAvailableQuest(i)
+				C_GossipInfo.SelectAvailableQuest(questData.questID)
 			end
 		end
 	end
@@ -353,12 +334,6 @@ end
 		Some NPCs are ignored. We don't want to run any
 		code if the NPC is ignored.
 		
-		GOSSIP_SHOW
-			Some quest givers have their quests listed in
-			a gossip table. If that's the case, then we
-			must process the quests like we would ordinary
-			gossips.
-		
 		QUEST_ACCEPTED
 			Sometimes an accepted quest isn't automatically
 			added to the objective tracker. Let's make sure
@@ -420,7 +395,7 @@ end
 			Check if the quest is completable, then complete
 			the quest.
 ]]--
-e:RegisterEvent("GOSSIP_SHOW")
+e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_AUTOCOMPLETE")
 e:RegisterEvent("QUEST_COMPLETE")
@@ -428,23 +403,31 @@ e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_PROGRESS")
 e:SetScript("OnEvent", function(self, event, ...)
-	if event == "GOSSIP_SHOW" then
+	
+	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		local guid = UnitGUID("target")
-		if guid then
-			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
-		end
+		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
+		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		
-		local activeQuests = C_GossipInfo.GetActiveQuests()
-		local availableQuests = C_GossipInfo.GetAvailableQuests()
-		if activeQuests then
-			CompleteActiveQuests(activeQuests)
-		end
-		if availableQuests then
-			GetAvailableQuests(availableQuests)
+		local type = ...
+		if type == 3 then -- Gossip
+			local guid = UnitGUID("target")
+			if guid then
+				local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
+				if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+			end
+			
+			local activeQuests = C_GossipInfo.GetActiveQuests()
+			local availableQuests = C_GossipInfo.GetAvailableQuests()
+			if activeQuests then
+				CompleteActiveQuests(activeQuests)
+			end
+			if availableQuests then
+				GetAvailableQuests(availableQuests)
+			end
 		end
 	end
+	
 	if event == "QUEST_ACCEPTED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
