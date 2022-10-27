@@ -99,7 +99,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_ACCEPTED" then
 		local questId = ...
 		dungeonInfo = addonTable.DUNGEON_QUEUES_BY_QUEST[questId]
-		if dungeonInfo ~= "" then
+		if dungeonInfo then
 			normalTexture:SetTexture(dungeonInfo.t)
 			normalTexture:SetSize(28, 26)
 			highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
