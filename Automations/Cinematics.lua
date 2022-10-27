@@ -32,7 +32,7 @@ _G["MovieFrame_PlayMovie"] = function(self, movieId)
 		end
 	end
 	
-	C_Timer.After(0.5,
+	C_Timer.After(0.5, function()
 		self:StopMovie(movieId)
 		self:Hide()
 		GameMovieFinished()
