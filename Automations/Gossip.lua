@@ -146,6 +146,11 @@ local function ProcessDialogTree(parentMapId)
 	if unitGUID then
 		local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
 		if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+		
+		for i = 1, #gossipOptions do
+			print(npcId .. " - " .. i .. " - " .. gossipOptions[i].gossipOptionID)
+		end
+		
 		SelectGossipOption(gossipOptions, npcId, parentMapId)
 	else
 		SelectGossipOption(gossipOptions, 0, parentMapId)
@@ -176,9 +181,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
 		
-		local a = true
-		if a then return false end
-		
 		local _, message = ...
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
@@ -193,9 +195,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
-		
-		local a = true
-		if a then return false end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		ProcessDialogTree(parentMapId)

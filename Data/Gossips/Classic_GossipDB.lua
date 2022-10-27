@@ -17,7 +17,7 @@ local DIALOG_CLASSIC = {
 	[1573] = { -- Gryth Thurden
 		["g"] = {
 			{
-				["o"] 	= 2,
+				["o"] 	= 31712,
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 26131 }, -- Reinforcements for Loch Modan
 			},
