@@ -83,6 +83,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayJunkerGlobalBlacklistDB == nil then
 				HelpMePlayJunkerGlobalBlacklistDB = {}
 			end
+			if HelpMePlayQuestMobsDB == nil then
+				HelpMePlayQuestMobsDB = {}
+			end
 			if HelpMePlayDB.TheMawEnabled == nil then
 				HelpMePlayDB.TheMawEnabled = false
 			end

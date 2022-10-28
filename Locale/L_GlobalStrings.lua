@@ -147,6 +147,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
 	L_GLOBALSTRINGS["Quests.Toggle.TheMaw"] 													= "The Maw"
 	L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"] 												= "Toggles whether or not the addon should choose The Maw or skip it.\n\n|cffFFD100Checked|r: Do The Maw\n|cffFFD100Unchecked|r: Skip The Maw"
+	L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobs"] 											= "Quest Mobs"
+	L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobsDesc"] 										= "Toggle to show an icon on the nameplate of NPCs required for quests."
 	--
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"]										= "Chromie Time"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"]										= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"

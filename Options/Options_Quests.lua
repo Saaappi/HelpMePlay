@@ -213,14 +213,27 @@ local questOptions = {
 			end,
 			set = function(_, zoneId) HelpMePlayDB.ZoneId_SL = zoneId end,
 		},
-		partyPlay_header = {
-			name = L_GLOBALSTRINGS["Header.PartyPlay"],
+		extrasHeader = {
+			name = L_GLOBALSTRINGS["Header.Extras"],
 			order = 30,
+			type = "header",
+		},
+		questMobs = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobs"],
+			order = 31,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobsDesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.QuestMobsEnabled end,
+			set = function(_, val) HelpMePlayDB.QuestMobsEnabled = val end,
+		},
+		partyPlayHeader = {
+			name = L_GLOBALSTRINGS["Header.PartyPlay"],
+			order = 40,
 			type = "header",
 		},
 		partyPlayEnable = {
 			name = L_GLOBALSTRINGS["General.Toggle.Enable"],
-			order = 31,
+			order = 41,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.PartyPlayEnabled end,
@@ -228,7 +241,7 @@ local questOptions = {
 		},
 		partyPlayAnnounce = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"],
-			order = 32,
+			order = 42,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.PartyPlayAnnounceEnabled end,
@@ -236,7 +249,7 @@ local questOptions = {
 		},
 		partyPlayAutoShare = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"],
-			order = 33,
+			order = 43,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.PartyPlayAutoShareEnabled end,
