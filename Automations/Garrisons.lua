@@ -33,11 +33,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 			if HelpMePlayDB.MissionTableEnabled == false or HelpMePlayDB.MissionTableEnabled == nil then return false end
 			
-			local npc = ...
-			if npc == 1 then
-				if GarrisonMissionTutorialFrame:IsVisible() then
-					GarrisonMissionTutorialFrame:Hide()
-				end
+			C_Timer.After(0.5, function()
+				GarrisonMissionTutorialFrame:Hide()
 				local missions = C_Garrison.GetAvailableMissions(1)
 				local followers = C_Garrison.GetFollowers(1)
 				local faction = UnitFactionGroup("player")
@@ -62,7 +59,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 						end
 					end
 				end
-			end
+				HideUIPanel(GarrisonMissionFrame)
+			end)
 		end
 	end
 	
