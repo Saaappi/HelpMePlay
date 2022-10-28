@@ -21,7 +21,7 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 end)
 
 -- Movies
-_G["MovieFrame_PlayMovie"] = function(self, movieId)
+hooksecurefunc("MovieFrame_PlayMovie", function(self, movieId)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.CinematicsEnabled == false or HelpMePlayDB.CinematicsEnabled == nil then return false end
 	
@@ -38,4 +38,4 @@ _G["MovieFrame_PlayMovie"] = function(self, movieId)
 		GameMovieFinished()
 	end)
 	return true
-end
+end)
