@@ -97,6 +97,7 @@ Systems\TalentSystems.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
 Systems\Junker.lua
+Systems\PersonalHealth.lua
 
 # General Stuff
 Keybinding.lua

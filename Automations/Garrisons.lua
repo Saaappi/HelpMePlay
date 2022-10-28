@@ -10,7 +10,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.ArchitectTableEnabled == false or HelpMePlayDB.ArchitectTableEnabled == nil then return false end
 		
-		local type = ...
 		if type == 30 then -- Architect Table
 			local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
 			if garrisonLevel == 1 then

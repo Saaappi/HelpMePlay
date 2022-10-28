@@ -75,6 +75,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.PartyPlay"] 														= "Party Play"
 	L_GLOBALSTRINGS["Header.ExpansionIntros"] 													= "Expansion Intros"
 	L_GLOBALSTRINGS["Header.Extras"] 															= "Extras"
+	L_GLOBALSTRINGS["Header.PersonalHealth"] 													= "Personal Health"
 	-- End: 	Headers
 	--
 	-- Start: 	General DropDowns
@@ -129,6 +130,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPE"] 											= "Hide NPE"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPEDesc"] 										= "Toggle to hide the new player experience popups on Exile's Reach.\n\n|cffFFD100NOTE|r: This can often lead to the bag frame being stuck open. HelpMePlay should take care of this for you. This feature isn't completely foolproof, there are conditions under which Blizzard will force the popups."
+	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminder"] 							= "Water Reminder"
+	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminderDesc"] 						= "Toggle this if you would like the addon to remind you to take sips of water.\n\nReminders are sent at random intervals between 10 and 20 minutes."
 	-- End: 	Features Options (Options_Features.lua)
 	--
 	-- Start: 	Quests Options (Options_Quests.lua)
@@ -289,6 +292,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.FlyingTo"]														= "Flying to:"
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"] 									= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"] 										= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
+	L_GLOBALSTRINGS["Text.Output.WaterReminder"] 												= "|T463570:0|t Hey, listen! You should take a sip of water! |T463570:0|t"
 	-- End:		Text Output
 	--
 	-- Start:	Speech Text Checks

@@ -140,6 +140,19 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.HideNPE end,
 			set = function(info, val) HelpMePlayDB.HideNPE = val end,
 		},
+		personalHealthHeader = {
+			name = L_GLOBALSTRINGS["Header.PersonalHealth"],
+			order = 30,
+			type = "header",
+		},
+		waterReminder = {
+			name = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminder"],
+			order = 31,
+			desc = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminderDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.WaterReminderEnabled end,
+			set = function(info, val) HelpMePlayDB.WaterReminderEnabled = val end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions
