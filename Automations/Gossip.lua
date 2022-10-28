@@ -181,6 +181,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
 		
+		local a = true
+		if a then return end
+		
 		local _, message = ...
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
@@ -195,6 +198,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
+		
+		local a = true
+		if a then return end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		ProcessDialogTree(parentMapId)
