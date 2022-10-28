@@ -521,6 +521,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		if IsQuestCompletable() then
+			QuestFrameCompleteButton:Click()
 			CompleteQuest()
 		end
 	end
