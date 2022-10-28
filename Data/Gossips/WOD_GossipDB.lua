@@ -2,6 +2,14 @@ local addonName, addonTable = ...
 local DIALOG_WOD = {
 	-- Supported Maps: 572 (Draenor)
 	-- Garrison (Alliance)
+	[79243] = { -- Baros Alexston
+		["g"] = {
+			{
+				["o"] 	= 1,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	[84455] = { -- Assistant Brightstone
 		["g"] = {
 			{
@@ -100,14 +108,6 @@ local DIALOG_WOD = {
 		},
 	},
 	[78568] = { -- Thaelin Darkanvil
-		["g"] = {
-			{
-				["o"] 	= 1,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	[79243] = { -- Baros Alexston
 		["g"] = {
 			{
 				["o"] 	= 1,

@@ -42,9 +42,17 @@ local junkerOptions = {
 			get = function(info) return HelpMePlayDB.JunkerSoulboundModeEnabled end,
 			set = function(_, val) HelpMePlayDB.JunkerSoulboundModeEnabled = val end,
 		},
+		autoSell = {
+			name = L_GLOBALSTRINGS["Junker.Toggle.AutoSell"],
+			order = 3,
+			desc = L_GLOBALSTRINGS["Junker.Toggle.AutoSellDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.JunkerAutoSellEnabled end,
+			set = function(_, val) HelpMePlayDB.JunkerAutoSellEnabled = val end,
+		},
 		importBtn = {
 			name = L_GLOBALSTRINGS["Junker.Button.Import"],
-			order = 3,
+			order = 4,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {

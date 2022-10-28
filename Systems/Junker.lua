@@ -158,6 +158,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 			HelpMePlay:HideJunkerButton()
 		else
 			HelpMePlay:ShowJunkerButton()
+			
+			if HelpMePlayDB.JunkerAutoSellEnabled then
+				if HelpMePlayDB.JunkerSafeModeEnabled then
+					HelpMePlaySellItems()
+				else
+					for i = 1, 12 do
+						HelpMePlaySellItems()
+					end
+				end
+			end
 		end
 	end
 end)
