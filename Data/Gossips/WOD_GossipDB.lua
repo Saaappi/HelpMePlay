@@ -29,7 +29,7 @@ local DIALOG_WOD = {
 	[81103] = { -- Dungar Longdrink
 		["g"] = {
 			{
-				["o"] 	= 2,
+				["o"] 	= 42839,
 				["c"] 	= { "level.higher" },
 				["l"] 	= 30,
 			},
