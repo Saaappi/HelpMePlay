@@ -5,7 +5,7 @@ local DIALOG_WOD = {
 	[79243] = { -- Baros Alexston
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 43035,
 				["c"] 	= { "none" },
 			},
 		},
@@ -13,7 +13,7 @@ local DIALOG_WOD = {
 	[84455] = { -- Assistant Brightstone
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42666,
 				["c"] 	= { "none" },
 			},
 		},
@@ -21,7 +21,7 @@ local DIALOG_WOD = {
 	[81441] = { -- Shelly Hamby
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42677,
 				["c"] 	= { "none" },
 			},
 		},
@@ -110,7 +110,7 @@ local DIALOG_WOD = {
 	[78568] = { -- Thaelin Darkanvil
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42452,
 				["c"] 	= { "none" },
 			},
 		},

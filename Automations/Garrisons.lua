@@ -2,38 +2,37 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-e:RegisterEvent("GARRISON_ARCHITECT_OPENED")
-e:RegisterEvent("GARRISON_MISSION_NPC_OPENED")
+e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	-- Architect Table
-	if event == "GARRISON_ARCHITECT_OPENED" then
+	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.ArchitectTableEnabled == false or HelpMePlayDB.ArchitectTableEnabled == nil then return false end
-		local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
-		if garrisonLevel == 1 then
-			local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)
-			if HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == false or HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == nil then
-				for i = 1, #plotsForBuilding do
-					local buildingId = C_Garrison.GetOwnedBuildingInfo(plotsForBuilding[i])
-					if buildingId ~= nil then
+		
+		local type = ...
+		if type == 30 then -- Architect Table
+			local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
+			if garrisonLevel == 1 then
+				local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)
+				if HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == false or HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == nil then
+					for i = 1, #plotsForBuilding do
+						local buildingId = C_Garrison.GetOwnedBuildingInfo(plotsForBuilding[i])
+						if buildingId ~= nil then
+							HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
+							return
+						end
+						C_Garrison.PlaceBuilding(plotsForBuilding[i], 26)
+						PlaySound(SOUNDKIT.UI_GARRISON_ARCHITECT_TABLE_UPGRADE_START)
+						HideUIPanel(GarrisonBuildingFrame)
 						HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
-						return
 					end
-					C_Garrison.PlaceBuilding(plotsForBuilding[i], 26)
-					PlaySound(SOUNDKIT.UI_GARRISON_ARCHITECT_TABLE_UPGRADE_START)
-					GarrisonBuildingFrame.CloseButton:Click()
-					HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
 				end
 			end
-		end
-	end
-	
-	-- Mission Table
-	if event == "GARRISON_MISSION_NPC_OPENED" then
-		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.MissionTableEnabled == false or HelpMePlayDB.MissionTableEnabled == nil then return false end
-		if C_Garrison.IsAtGarrisonMissionNPC() then
+		elseif type == 32 then -- Mission Table
+			if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+			if HelpMePlayDB.MissionTableEnabled == false or HelpMePlayDB.MissionTableEnabled == nil then return false end
+			
 			local npc = ...
 			if npc == 1 then
 				if GarrisonMissionTutorialFrame:IsVisible() then
