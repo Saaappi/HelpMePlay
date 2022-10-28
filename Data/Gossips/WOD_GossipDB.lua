@@ -68,7 +68,7 @@ local DIALOG_WOD = {
 	[81018] = { -- Rangari Kolaan
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42547,
 				["c"] 	= { "none" },
 			},
 		},
@@ -76,7 +76,7 @@ local DIALOG_WOD = {
 	[81013] = { -- Rangari Rajess
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42546,
 				["c"] 	= { "none" },
 			},
 		},
@@ -84,7 +84,7 @@ local DIALOG_WOD = {
 	[81020] = { -- Rangari Jonaa
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42548,
 				["c"] 	= { "none" },
 			},
 		},
@@ -92,7 +92,7 @@ local DIALOG_WOD = {
 	[84766] = { -- Glirin
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42999,
 				["c"] 	= { "none" },
 			},
 		},
