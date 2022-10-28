@@ -9,7 +9,7 @@ local function WaterReminder()
 	local interval = (math.random(10, 20))*60
 	C_Timer.After(interval, function()
 		print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.WaterReminder"])
-		PlaySound(182170) -- PutDownWoodLarge
+		PlaySound(110896, "Master", true, true) -- SPELL_8.0_Stormsong_FoulTidewater_PickUp
 		WaterReminder()
 	end)
 end

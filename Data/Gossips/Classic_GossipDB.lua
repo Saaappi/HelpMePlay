@@ -62,7 +62,7 @@ local DIALOG_CLASSIC = {
 	[107934] = { -- Recruiter Lee
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 47484,
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 42782 }, -- To Be Prepared
 			},
