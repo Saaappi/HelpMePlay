@@ -160,7 +160,7 @@ local DIALOG_LEGION = {
 	[91462] = { -- Malfurion Stormrage
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44675,
 				["c"] 			= { "none" },
 			},
 		},
