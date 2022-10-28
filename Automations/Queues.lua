@@ -13,7 +13,7 @@ local HMPQueueButton = _G.CreateFrame(
 local HMPDungeonQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPDungeonQueueButton",
-	UIParent,
+	_G.LFDMicroButton,
 	"UIPanelButtonTemplate"
 )
 
@@ -111,7 +111,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			HMPDungeonQueueButton:SetHighlightTexture(highlightTexture, "ADD")
 			
 			HMPDungeonQueueButton:SetSize(28, 26)
-			HMPDungeonQueueButton:SetPoint("CENTER", 0, 0)
+			HMPDungeonQueueButton:SetPoint("BOTTOM", 0, 40)
 			HMPDungeonQueueButton:Show()
 		end
 	end
