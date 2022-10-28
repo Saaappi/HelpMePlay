@@ -87,7 +87,7 @@ end)
 		If the quest reward has the highest sell price, then choose that
 		reward and automatically add it to the global Junker sell table.
 ]]--
-function HMP_CompleteQuest()
+local function CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
 	if numQuestChoices > 1 then
 		if HelpMePlayDB.CompleteQuestsEnabled then
@@ -244,7 +244,7 @@ local function CompleteActiveQuests(gossipInfo)
 		for i, questData in ipairs(gossipInfo) do
 			if questData.isComplete then
 				C_GossipInfo.SelectActiveQuest(questData.questID)
-				HMP_CompleteQuest()
+				CompleteQuest()
 			end
 		end
 	end
@@ -457,7 +457,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		C_QuestLog.AddQuestWatch(questId)
 		
-		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+		hooksecurefunc("AutoQuestPopupTracker_AddPopUp", function()
 			AutoQuestPopupTracker_RemovePopUp(questId)
 		end)
 
@@ -489,7 +489,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
-		HMP_CompleteQuest()
+		CompleteQuest()
 	end
 	if event == "QUEST_DETAIL" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end

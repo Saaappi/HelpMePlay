@@ -5,7 +5,7 @@ local DIALOG_CLASSIC = {
 	[78423] = { -- Archmage Khadgar
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 43231,
 				["c"] 	= { "player.faction" },
 				["f"] 	= "Alliance",
 			},
@@ -191,7 +191,7 @@ local DIALOG_CLASSIC = {
 	[149626] = { -- Vanguard Battlemage (present in both Stormwind and Orgrimmar)
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 51033,
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
 			},
