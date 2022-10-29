@@ -164,6 +164,18 @@ local function CompleteQuest()
 										bestItemIndex = i
 									end
 								end
+							elseif equipLoc == "" then
+								-- These are normally artifact relics.
+								--
+								-- Quests with artifact relics for a reward
+								-- are usually all artifact relics.
+								if sellPrice > 0 then
+									local totalSellPrice = 0
+									local phSellPrice = quantity*sellPrice
+									if phSellPrice > totalSellPrice then
+										bestItemIndex = i
+									end
+								end
 							else
 								local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
 								if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
@@ -428,7 +440,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		C_QuestLog.AddQuestWatch(questId)
 		
-		hooksecurefunc("AutoQuestPopupTracker_AddPopUp", function()
+		hooksecurefunc("AutoQuestPopupTracker_RemovePopUp", function()
 			AutoQuestPopupTracker_RemovePopUp(questId)
 		end)
 

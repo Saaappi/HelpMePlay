@@ -192,7 +192,7 @@ local DIALOG_LEGION = {
 	[104739] = { -- Tyrande Whisperwind
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 45498,
 				["c"] 			= { "none" },
 			},
 		},
@@ -200,7 +200,7 @@ local DIALOG_LEGION = {
 	[104799] = { -- Tyrande Whisperwind
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 45380,
 				["c"] 			= { "none" },
 			},
 		},
