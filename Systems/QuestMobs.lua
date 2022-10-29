@@ -21,8 +21,12 @@ local function UpdateNamePlate(namePlate, unit)
 				else
 					icon:SetPoint("TOP", 0, 10)
 				end
-				icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
-				icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
+				if HelpMePlayDB.QuestMobIcon == 0 then
+					icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
+					icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
+				elseif HelpMePlayDB.QuestMobIcon == 1 then
+					icon:SetTexture("Interface\\ICONS\\quest_khadgar")
+				end
 				
 				icon:Show()
 				return

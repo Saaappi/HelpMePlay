@@ -234,6 +234,40 @@ local questOptions = {
 				HelpMePlayDB.QuestMobsEnabled = val
 			end,
 		},
+		questMobsIcon = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Name"],
+			order = 32,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Default"],
+				[1] = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Khadgar"],
+			},
+			sorting = {
+				[1] = 0,
+				[2] = 1,
+			},
+			get = function()
+				if not HelpMePlayDB.QuestMobIcon then
+					HelpMePlayDB.QuestMobIcon = 0
+				end
+				return HelpMePlayDB.QuestMobIcon
+			end,
+			set = function(_, iconId)
+				local namePlates = C_NamePlate.GetNamePlates()
+				for i = 1, #namePlates do
+					if namePlates[i][addonName.."Icon"] then
+						if iconId == 0 then
+							namePlates[i][addonName.."Icon"]:SetAtlas("Mobile-QuestIcon")
+						elseif iconId == 1 then
+							namePlates[i][addonName.."Icon"]:SetTexture("Interface\\ICONS\\quest_khadgar")
+						end
+					end
+				end
+				HelpMePlayDB.QuestMobIcon = iconId
+			end,
+		},
 		partyPlayHeader = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
 			order = 40,

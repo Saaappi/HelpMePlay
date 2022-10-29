@@ -178,6 +178,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected. |cffFFD100Note|r: This automation is ignored for max-level players.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"]									= "Item Level"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"]									= "Sell Price"
+	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Name"]									= "Quest Mobs Icon"
+	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Desc"]									= "Select an icon that the addon should show on the NPC's nameplate."
+	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Default"]							= "Default"
+	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Khadgar"]							= "Khadgar (Dadgar)"
 	--
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"
