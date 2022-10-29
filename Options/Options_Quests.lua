@@ -43,9 +43,17 @@ local questOptions = {
 			get = function() return HelpMePlayDB.PurchaseQuestItemsEnabled end,
 			set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
 		},
+		equipQuestRewards = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewards"],
+			order = 5,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.AutoEquipQuestRewardsEnabled end,
+			set = function(_, val) HelpMePlayDB.AutoEquipQuestRewardsEnabled = val end,
+		},
 		threadsOfFate = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"],
-			order = 5,
+			order = 6,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.ThreadsOfFateEnabled end,
@@ -211,15 +219,15 @@ local questOptions = {
 			end,
 			set = function(_, zoneId) HelpMePlayDB.ZoneId_SL = zoneId end,
 		},
-		extrasHeader = {
-			name = L_GLOBALSTRINGS["Header.Extras"],
+		questMobsHeader = {
+			name = L_GLOBALSTRINGS["Header.QuestMobs"],
 			order = 30,
 			type = "header",
 		},
 		questMobs = {
-			name = L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobs"],
+			name = L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobs"],
 			order = 31,
-			desc = L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobsDesc"],
+			desc = L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobsDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.QuestMobsEnabled end,
 			set = function(_, val)
@@ -235,14 +243,14 @@ local questOptions = {
 			end,
 		},
 		questMobsIcon = {
-			name = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Name"],
+			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Name"],
 			order = 32,
-			desc = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Desc"],
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Desc"],
 			type = "select",
 			style = "dropdown",
 			values = {
-				[0] = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Default"],
-				[1] = L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Khadgar"],
+				[0] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Default"],
+				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Khadgar"],
 			},
 			sorting = {
 				[1] = 0,

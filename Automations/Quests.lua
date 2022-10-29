@@ -385,9 +385,9 @@ e:RegisterEvent("QUEST_AUTOCOMPLETE")
 e:RegisterEvent("QUEST_COMPLETE")
 e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
+e:RegisterEvent("QUEST_LOOT_RECEIVED")
 e:RegisterEvent("QUEST_PROGRESS")
 e:SetScript("OnEvent", function(self, event, ...)
-	
 	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
@@ -503,6 +503,27 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		end
 		QUEST_GREETING()
+	end
+	if event == "QUEST_LOOT_RECEIVED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return end
+		if HelpMePlayDB.AutoEquipQuestRewardsEnabled == false or HelpMePlayDB.AutoEquipQuestRewardsEnabled == nil then return end
+	
+		local _, itemLink = ...
+		if itemLink then
+			local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
+			for bagId = 0, 4 do
+				for slotId = 1, GetContainerNumSlots(bagId) do
+					local _, _, _, _, _, _, _, _, _, containerItemItemId = GetContainerItemInfo(bagId, slotId)
+					if containerItemItemId then
+						if containerItemItemId == itemId then
+							if not UnitAffectingCombat("player") then
+								EquipItemByName(containerItemItemId)
+							end
+						end
+					end
+				end
+			end
+		end
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end

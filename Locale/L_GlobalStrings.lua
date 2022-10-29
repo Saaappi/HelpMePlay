@@ -76,6 +76,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.ExpansionIntros"] 													= "Expansion Intros"
 	L_GLOBALSTRINGS["Header.Extras"] 															= "Extras"
 	L_GLOBALSTRINGS["Header.PersonalHealth"] 													= "Personal Health"
+	L_GLOBALSTRINGS["Header.QuestMobs"] 														= "Quest Mobs"
 	-- End: 	Headers
 	--
 	-- Start: 	General DropDowns
@@ -141,14 +142,16 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.CompleteQuestsDesc"] 										= "Automatically complete all quests."
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"] 										= "Purchase Quest Items"
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
+	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewards"] 										= "Equip Quest Rewards"
+	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"] 									= "Toggle to have the addon automatically equip quest rewards.\n\n|cffFFD100NOTE|r: This only applies to players with the Item Level option chosen for quest rewards."
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in or out of Threads of Fate for Shadowlands.\n\n|cffFFD100Checked|r: Threads of Fate\n|cffFFD100Unchecked|r: Story"
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"] 												= "Adventure Maps"
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
 	L_GLOBALSTRINGS["Quests.Toggle.TheMaw"] 													= "The Maw"
 	L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"] 												= "Toggles whether or not the addon should choose The Maw or skip it.\n\n|cffFFD100Checked|r: Do The Maw\n|cffFFD100Unchecked|r: Skip The Maw"
-	L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobs"] 											= "Quest Mobs"
-	L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobsDesc"] 										= "Toggle to show an icon on the nameplate of NPCs required for quests."
+	L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobs"] 										= "Quest Mobs"
+	L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobsDesc"] 									= "Toggle to show an icon on the nameplate of NPCs required for quests."
 	--
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"]										= "Chromie Time"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"]										= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
@@ -180,10 +183,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected. |cffFFD100Note|r: This automation is ignored for max-level players.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"]									= "Item Level"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"]									= "Sell Price"
-	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Name"]									= "Quest Mobs Icon"
-	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Desc"]									= "Select an icon that the addon should show on the NPC's nameplate."
-	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Default"]							= "Default"
-	L_GLOBALSTRINGS["Quests.DropDowns.Extras.QuestMobs.Option.Khadgar"]							= "Khadgar (Dadgar)"
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Name"]											= "Quest Mobs Icon"
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Desc"]											= "Select an icon that the addon should show on the NPC's nameplate."
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Default"]								= "Default"
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Khadgar"]								= "Khadgar (Dadgar)"
 	--
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"

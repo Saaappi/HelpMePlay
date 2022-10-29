@@ -11,9 +11,9 @@ local FLIGHT_PATHS = {
 			},
 			{
 				["p"] 	= 1777, -- Sylvan Falls, Highmountain
-				["c"] 	= { "level.between", "target.is" },
+				["c"] 	= { "level.between", "quests.complete" },
 				["l"] 	= { 38, 40 },
-				["t"] 	= 93940, -- Douglas Carrington
+				["t"] 	= { 38721 }, -- Lieutenant of the Tower
 			},
 			{
 				["p"] 	= 1719, -- Thunder Totem, Highmountain
