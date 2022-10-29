@@ -1,11 +1,27 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_DIALOG = addonTable.L_DIALOG
-local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
+local inventorySlots = {
+	["INVTYPE_HEAD"] 		= 1,
+	["INVTYPE_NECK"] 		= 2,
+	["INVTYPE_SHOULDER"] 	= 3,
+	["INVTYPE_CLOAK"] 		= 4,
+	["INVTYPE_ROBE"] 		= 5,
+	["INVTYPE_TABARD"] 		= 19,
+	["INVTYPE_WRIST"] 		= 9,
+	["INVTYPE_2HWEAPON"] 	= 17,
+	["INVTYPE_HAND"] 		= 10,
+	["INVTYPE_WAIST"] 		= 6,
+	["INVTYPE_LEGS"] 		= 7,
+	["INVTYPE_FEET"] 		= 8,
+	["INVTYPE_FINGER1"] 	= 11,
+	["INVTYPE_FINGER2"] 	= 12,
+	["INVTYPE_TRINKET1"] 	= 13,
+	["INVTYPE_TRINKET2"] 	= 14,
+}
 
 --[[
 	Description:
@@ -99,132 +115,87 @@ local function CompleteQuest()
 				sellPrices = {}
 			end
 			
-			ToggleCharacter("PaperDollFrame")
-			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-				CharacterFrameCloseButton:Click()
-				
-				local bestItemIndex = 0
-				local equipLoc = ""
-				local equippedItemItemLink = ""
-				local equippedItemItemLevel = 0
-				local itemId = 0
-				local questRewardItemLink = ""
-				local questRewardItemLevel = 0
-				local quantity = 0
-				local quality = 0
-				local sellPrice = 0
-				local playerLevel = UnitLevel("player")
-				
-				if playerLevel < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
-					for i = 1, numQuestChoices do
-						_, _, quantity = GetQuestItemInfo("choice", i)
-						questRewardItemLink = GetQuestItemLink("choice", i)
-						if questRewardItemLink then
-							_, itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
-							
-							-- Before we continue, let's make sure we aren't supposed to take
-							-- a specific reward from the current quest. For example, we always
-							-- want to take the Champion's Purse from Argent Tournament dailies.
-							if addonTable.QUESTREWARDS[itemId] then
-								bestItemIndex = i
-								break
-							end
-							
-							questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
-							_, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
-							if HelpMePlayDB.QuestRewardId == 1 then
-								if equipLoc == "INVTYPE_FINGER" then
-									for j = 11, 12 do
-										equippedItemItemLink = GetInventoryItemLink("player", j)
-										if equippedItemItemLink then
-											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
-												bestItemIndex = i
-											end
-										else
-											bestItemIndex = i
-											break
-										end
-									end
-								elseif equipLoc == "INVTYPE_TRINKET" then
-									for j = 13, 14 do
-										equippedItemItemLink = GetInventoryItemLink("player", j)
-										if equippedItemItemLink then
-											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
-												bestItemIndex = i
-											end
-										else
-											bestItemIndex = i
-											break
-										end
-									end
-								elseif equipLoc == "INVTYPE_WEAPON" then
-									for j = 16, 17 do
-										equippedItemItemLink = GetInventoryItemLink("player", j)
-										if equippedItemItemLink then
-											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
-												bestItemIndex = i
-											end
-										else
-											bestItemIndex = i
-											break
-										end
-									end
-								elseif equipLoc == "INVTYPE_2HWEAPON" and UnitClass("player") == 1 and GetSpecializationInfo(2) == 72 then
-									-- This is to account for fury warriors since they can dual wield 2H weapons.
-									for j = 16, 17 do
-										equippedItemItemLink = GetInventoryItemLink("player", j)
-										if equippedItemItemLink then
-											equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-											if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
-												bestItemIndex = i
-											end
-										else
-											bestItemIndex = i
-											break
-										end
-									end
-								else
-									equippedItemItemLink = GetInventoryItemLink("player", addonTable.CONSTANTS[equipLoc])
-									if equippedItemItemLink then
-										equippedItemItemLevel = GetDetailedItemLevelInfo(equippedItemItemLink)
-										if (questRewardItemLevel > equippedItemItemLevel) and quality ~= 7 then
-											bestItemIndex = i
-										end
-									else
-										bestItemIndex = i
-										break
-									end
-								end
-							elseif HelpMePlayDB.QuestRewardId == 2 then
-								if sellPrice > 0 then
-									local totalSellPrice = 0
-									local phSellPrice = quantity*sellPrice
-									if phSellPrice > totalSellPrice then
-										bestItemIndex = i
-									end
-								end
-							end
+			local bestItemIndex = 0
+			local itemId = 0
+			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
+				for i=1, numQuestChoices do
+					local _, _, quantity = GetQuestItemInfo("choice", i)
+					local questRewardItemLink = GetQuestItemLink("choice", i)
+					if questRewardItemLink then
+						_, itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
+						
+						-- Before we continue, let's make sure we aren't supposed to take
+						-- a specific reward from the current quest. For example, we always
+						-- want to take the Champion's Purse from Argent Tournament dailies.
+						if addonTable.QUESTREWARDS[itemId] then
+							bestItemIndex = i
+							break
 						end
-					end
-					
-					if bestItemIndex == 0 then
-						-- All quest rewards were of the same item level or sell price.
-						-- Pick a random reward.
-						GetQuestReward(random(1, numQuestChoices))
-					else
-						-- Get the quest reward at the specified best index. If the quest
-						-- reward automation is told to pick the reward by sell price, then
-						-- automatically add the item to the GLOBAL Junker table.
-						GetQuestReward(bestItemIndex)
-						if HelpMePlayDB.QuestRewardId == 2 then
-							HelpMePlayJunkerGlobalDB[itemId] = true
+						
+						local questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
+						local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
+						if HelpMePlayDB.QuestRewardId == 1 then
+							if equipLoc == "INVTYPE_FINGER" then
+								for invSlotId = 11, 12 do
+									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+										bestItemIndex = i
+									end
+								end
+							elseif equipLoc == "INVTYPE_TRINKET" then
+								for invSlotId = 13, 14 do
+									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+										bestItemIndex = i
+									end
+								end
+							elseif equipLoc == "INVTYPE_WEAPON" then
+								for j = 16, 17 do
+									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+										bestItemIndex = i
+									end
+								end
+							elseif equipLoc == "INVTYPE_2HWEAPON" and UnitClass("player") == 1 and GetSpecializationInfo(2) == 72 then
+								-- This is to account for fury warriors since they can dual wield 2H weapons.
+								for j = 16, 17 do
+									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+										bestItemIndex = i
+									end
+								end
+							else
+								local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+								if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+									bestItemIndex = i
+								end
+							end
+						elseif HelpMePlayDB.QuestRewardId == 2 then
+							if sellPrice > 0 then
+								local totalSellPrice = 0
+								local phSellPrice = quantity*sellPrice
+								if phSellPrice > totalSellPrice then
+									bestItemIndex = i
+								end
+							end
 						end
 					end
 				end
-			end)
+				
+				if bestItemIndex == 0 then
+					-- All quest rewards were of the same item level or sell price.
+					-- Pick a random reward.
+					GetQuestReward(random(1, numQuestChoices))
+				else
+					-- Get the quest reward at the specified best index. If the quest
+					-- reward automation is told to pick the reward by sell price, then
+					-- automatically add the item to the GLOBAL Junker table.
+					GetQuestReward(bestItemIndex)
+					if HelpMePlayDB.QuestRewardId == 2 then
+						HelpMePlayJunkerGlobalDB[itemId] = true
+					end
+				end
+			end
 		end
 	elseif numQuestChoices == 1 then
 		GetQuestReward(1)
