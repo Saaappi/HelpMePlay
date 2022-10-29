@@ -126,6 +126,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"] 												= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\n\nDoes |cffFF0000NOT|r apply above level 50."
 	L_GLOBALSTRINGS["Features.Toggle.Waypoints"] 												= "Waypoints"
 	L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"] 											= "If eligible, when a quest is accepted, the addon will automatically plot appropriate waypoints."
+	L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHead"] 										= "Talking Head"
+	L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHeadDesc"] 									= "Toggle to hide the talking head popup."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
 	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminder"] 							= "Water Reminder"

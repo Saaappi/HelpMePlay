@@ -124,9 +124,17 @@ local featuresOptions = {
 			order = 20,
 			type = "header",
 		},
+		talkingHead = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHead"],
+			order = 21,
+			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHeadDesc"],
+			type = "toggle",
+			get = function(info) return HelpMePlayDB.TalkingHeadEnabled end,
+			set = function(info, val) HelpMePlayDB.TalkingHeadEnabled = val end,
+		},
 		holidayQueues = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"],
-			order = 21,
+			order = 22,
 			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.HolidayQueuesEnabled end,

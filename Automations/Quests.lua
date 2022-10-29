@@ -414,6 +414,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_ACCEPTED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
+		
 		local questId = ...
 		if select(2, IsAddOnLoaded("TomTom")) and HelpMePlayDB.WaypointsEnabled then
 			for quest, questData in pairs(addonTable.WAYPOINTS) do
@@ -440,8 +441,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		C_QuestLog.AddQuestWatch(questId)
 		
-		hooksecurefunc("AutoQuestPopupTracker_RemovePopUp", function()
-			AutoQuestPopupTracker_RemovePopUp(questId)
+		hooksecurefunc("AutoQuestPopupTracker_AddPopUp", function()
+			C_Timer.After(0.5, function()
+				AutoQuestPopupTracker_RemovePopUp(questId)
+			end)
 		end)
 
 		if select(2, IsAddOnLoaded("Immersion")) then

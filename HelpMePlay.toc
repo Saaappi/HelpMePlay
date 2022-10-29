@@ -97,6 +97,7 @@ Systems\Notes.lua
 Systems\PartyPlay.lua
 Systems\Junker.lua
 Systems\QuestMobs.lua
+Systems\TalkingHead.lua
 Systems\PersonalHealth.lua
 
 # General Stuff

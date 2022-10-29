@@ -208,7 +208,7 @@ local DIALOG_LEGION = {
 	[92734] = { -- Penelope Heathrow
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44454,
 				["c"] 			= { "none" },
 			},
 		},
@@ -216,7 +216,7 @@ local DIALOG_LEGION = {
 	[92620] = { -- Commander Jarod Shadowsong
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44726,
 				["c"] 			= { "none" },
 			},
 		},
