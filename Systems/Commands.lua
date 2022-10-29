@@ -175,7 +175,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 	elseif cmd == L_GLOBALSTRINGS["Command.Taxi"] and arg1 ~= nil then
 		-- This command should only be available to the Author's characters.
-		if not addonTable.GUID[UnitGUID("player")] then return end
+		--if not addonTable.GUID[UnitGUID("player")] then return end
 		
 		-- The flight map frame must be visible.
 		if not FlightMapFrame:IsVisible() then return end

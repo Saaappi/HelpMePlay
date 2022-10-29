@@ -10,6 +10,12 @@ local FLIGHT_PATHS = {
 				["l"] 	= { 30, 32 },
 			},
 			{
+				["p"] 	= 1777, -- Sylvan Falls, Highmountain
+				["c"] 	= { "level.between", "target.is" },
+				["l"] 	= { 38, 40 },
+				["t"] 	= 93940, -- Douglas Carrington
+			},
+			{
 				["p"] 	= 1719, -- Thunder Totem, Highmountain
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 39580 }, -- The High Chieftain
