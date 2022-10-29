@@ -1,6 +1,4 @@
 local addonName, addonTable = ...
-local L_DIALOG = addonTable.L_DIALOG
-local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local questOptions = {
@@ -224,7 +222,17 @@ local questOptions = {
 			desc = L_GLOBALSTRINGS["Quests.Toggle.Extras.QuestMobsDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.QuestMobsEnabled end,
-			set = function(_, val) HelpMePlayDB.QuestMobsEnabled = val end,
+			set = function(_, val)
+				if val == false then
+					local namePlates = C_NamePlate.GetNamePlates()
+					for i = 1, #namePlates do
+						if namePlates[i][addonName.."Icon"] then
+							namePlates[i][addonName.."Icon"]:Hide()
+						end
+					end
+				end
+				HelpMePlayDB.QuestMobsEnabled = val
+			end,
 		},
 		partyPlayHeader = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
