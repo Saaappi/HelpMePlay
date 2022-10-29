@@ -86,7 +86,6 @@ Automations\Repairs.lua
 Automations\Cinematics.lua
 Automations\Quests.lua
 Automations\FlightPaths.lua
-Automations\NPE.lua
 
 # Systems
 Systems\TradeSkills.lua

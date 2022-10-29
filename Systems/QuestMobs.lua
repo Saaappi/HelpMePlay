@@ -5,7 +5,7 @@ local tooltip = _G.CreateFrame("GameTooltip", "HMPQuestTooltip", nil, "GameToolt
 
 local function AddIconToNameplate(unit)
 	unit.questIcon = _G.CreateFrame("Frame", nil, unit)
-	unit.questIcon:SetSize(16, 16)
+	unit.questIcon:SetSize(20, 20)
 	unit.questIcon:SetPoint("TOP", 0, 10)   
 
 	unit.questIconTexture = unit.questIcon:CreateTexture(nil, "OVERLAY")                                   
@@ -16,51 +16,20 @@ local function AddIconToNameplate(unit)
 	unit.questIcon:Show()
 end
 
-local function RemoveIconFromNameplate(unit)
-	unit.questIcon:Hide()
-end
-
-hooksecurefunc(NamePlateDriverFrame, "OnNamePlateCreated", function(base)
+hooksecurefunc("CompactUnitFrame_UpdateName", function(frame)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.QuestMobsEnabled == false or HelpMePlayDB.QuestMobsEnabled == nil then return false end
 	
-	if base.UnitFrame then
-		local unitFrame = base.UnitFrame
-		if unitFrame.unit then
-			if not UnitIsPlayer(unitFrame.unit) then
-				tooltip:SetOwner(WorldFrame, "ANCHOR_NONE")
-				tooltip:SetHyperlink("unit:" .. UnitGUID(base.UnitFrame.unit))
-				for i = 3, tooltip:NumLines() do
-					local line = _G["HMPQuestTooltipTextLeft" .. i]
-					local text = line:GetText()
-					local unitIsForQuest = string.match(text, "\%\)$") or string.match(text, "^[%d](\/)[%d]")
-					if unitIsForQuest then
-						AddIconToNameplate(base.UnitFrame)
-					end
-				end
-			end
-		end
-	end
-end)
-
-hooksecurefunc(NamePlateDriverFrame, "OnNamePlateAdded", function(base)
-	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-	if HelpMePlayDB.QuestMobsEnabled == false or HelpMePlayDB.QuestMobsEnabled == nil then return false end
-	
-	if base.UnitFrame then
-		local unitFrame = base.UnitFrame
-		if unitFrame.unit then
-			if not UnitIsPlayer(unitFrame.unit) then
-				tooltip:SetOwner(WorldFrame, "ANCHOR_NONE")
-				tooltip:SetHyperlink("unit:" .. UnitGUID(base.UnitFrame.unit))
-				for i = 3, tooltip:NumLines() do
-					local line = _G["HMPQuestTooltipTextLeft" .. i]
-					local text = line:GetText()
-					local unitIsForQuest = string.match(text, "\%\)$") or string.match(text, "^[%d](\/)[%d]")
-					if unitIsForQuest then
-						AddIconToNameplate(base.UnitFrame)
-					end
-				end
+	local GUID = UnitGUID(frame.unit)
+	local fType = string.split("-", GUID)
+	if fType ~= "Player" then
+		tooltip:SetOwner(WorldFrame, "ANCHOR_NONE")
+		tooltip:SetHyperlink("unit:" .. GUID)
+		for i = 3, tooltip:NumLines() do
+			local line = _G["HMPQuestTooltipTextLeft"..i]
+			local text = line:GetText()
+			if string.find(text, "\%\)") or string.find(text, "%d\/%d") then
+				AddIconToNameplate(frame)
 			end
 		end
 	end
@@ -70,21 +39,11 @@ hooksecurefunc(NamePlateDriverFrame, "OnNamePlateRemoved", function(base)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.QuestMobsEnabled == false or HelpMePlayDB.QuestMobsEnabled == nil then return false end
 	
-	if base.UnitFrame then
-		local unitFrame = base.UnitFrame
-		if unitFrame.unit then
-			if not UnitIsPlayer(unitFrame.unit) then
-				tooltip:SetOwner(WorldFrame, "ANCHOR_NONE")
-				tooltip:SetHyperlink("unit:" .. UnitGUID(base.UnitFrame.unit))
-				for i = 3, tooltip:NumLines() do
-					local line = _G["HMPQuestTooltipTextLeft" .. i]
-					local text = line:GetText()
-					local unitIsForQuest = string.match(text, "\%\)$") or string.match(text, "^[%d](\/)[%d]")
-					if unitIsForQuest then
-						RemoveIconFromNameplate(base.UnitFrame)
-					end
-				end
-			end
-		end
+	base.UnitFrame.questIcon:Hide()
+	base.UnitFrame.questIconTexture = nil
+	base.UnitFrame.questIcon = nil
+	for k,v in pairs(base.UnitFrame) do
+		print(k)
 	end
 end)
+
