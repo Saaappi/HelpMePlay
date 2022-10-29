@@ -5,7 +5,7 @@ local DIALOG_LEGION = {
 	[0] = {
 		["g"] = {
 			{
-				["o"] 			= 1, -- Ravencrest Cemetary
+				["o"] 			= 45050, -- Ravencrest Cemetary
 				["c"] 			= { "none" },
 			},
 		},
@@ -224,7 +224,7 @@ local DIALOG_LEGION = {
 	[94974] = { -- Sirius Ebonwing
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44302,
 				["c"] 			= { "none" },
 			},
 		},
@@ -232,7 +232,7 @@ local DIALOG_LEGION = {
 	[94975] = { -- Asha Ravensong
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44306,
 				["c"] 			= { "none" },
 			},
 		},
@@ -240,7 +240,7 @@ local DIALOG_LEGION = {
 	[94976] = { -- Cassiel Nightthorn
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44304,
 				["c"] 			= { "none" },
 			},
 		},
