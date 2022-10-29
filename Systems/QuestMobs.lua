@@ -24,10 +24,6 @@ local function UpdateNamePlate(namePlate, unit)
 				icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
 				icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
 				
-				for k,v in pairs(namePlate) do
-					print(k)
-				end
-				
 				icon:Show()
 				return
 			end
