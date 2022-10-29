@@ -132,14 +132,6 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.HolidayQueuesEnabled end,
 			set = function(info, val) HelpMePlayDB.HolidayQueuesEnabled = val end,
 		},
-		hideNPE = {
-			name = L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPE"],
-			order = 22,
-			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.HideNPEDesc"],
-			type = "toggle",
-			get = function(info) return HelpMePlayDB.HideNPE end,
-			set = function(info, val) HelpMePlayDB.HideNPE = val end,
-		},
 		personalHealthHeader = {
 			name = L_GLOBALSTRINGS["Header.PersonalHealth"],
 			order = 30,
