@@ -16,7 +16,11 @@ local function UpdateNamePlate(namePlate, unit)
 			if string.find(text, "\%\)") or string.find(text, "%d\/%d") then
 				icon:ClearAllPoints()
 				icon:SetSize(20, 20)
-				icon:SetPoint("TOP", 0, 10)
+				if (IsAddOnLoaded("Plater")) then
+					icon:SetPoint("TOPLEFT", 0, 15)
+				else
+					icon:SetPoint("TOP", 0, 10)
+				end
 				icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
 				icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
 				
