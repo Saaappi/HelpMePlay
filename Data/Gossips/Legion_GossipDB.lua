@@ -168,7 +168,7 @@ local DIALOG_LEGION = {
 	[108642] = { -- Keeper Remulos
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 45772,
 				["c"] 			= { "none" },
 			},
 		},
