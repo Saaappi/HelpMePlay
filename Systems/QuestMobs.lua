@@ -13,21 +13,20 @@ local function UpdateNamePlate(namePlate, unit)
 		for i = 3, tooltip:NumLines() do
 			local line = _G["HMPQuestTooltipTextLeft"..i]
 			local text = line:GetText()
-			if string.find(text, "\%\)") or string.find(text, "%d\/%d") then
+			if text:match("(%d+)%%") or text:match("(%d+)/(%d+)") then
 				local continue = true
-				local minProgress, maxProgress = string.find(text, "%d\/%d")
-				local percentProgress = string.find(text, "%d%%")
+				local minProgress, maxProgress = text:match("(%d+)/(%d+)")
+				local percentProgress = text:match("(%d+)%%")
 				if minProgress and maxProgress then
-					minProgress = tonumber(string.sub(text, minProgress, minProgress))
-					maxProgress = tonumber(string.sub(text, maxProgress, maxProgress))
-				
+					minProgress = tonumber(minProgress)
+					maxProgress = tonumber(maxProgress)
 					if minProgress == maxProgress then
 						continue = false
 					end
 				end
 				
 				if percentProgress then
-					percentProgress = tonumber(string.sub(text, percentProgress, percentProgress))
+					percentProgress = tonumber(percentProgress)
 					if percentProgress == 100 then
 						continue = false
 					end
