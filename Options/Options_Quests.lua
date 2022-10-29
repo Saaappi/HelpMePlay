@@ -262,6 +262,7 @@ local questOptions = {
 							namePlates[i][addonName.."Icon"]:SetAtlas("Mobile-QuestIcon")
 						elseif iconId == 1 then
 							namePlates[i][addonName.."Icon"]:SetTexture("Interface\\ICONS\\quest_khadgar")
+							PlaySound(66561, "Master") -- VO_703_Archmage_Khadgar_16
 						end
 					end
 				end
