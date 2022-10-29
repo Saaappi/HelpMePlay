@@ -14,22 +14,43 @@ local function UpdateNamePlate(namePlate, unit)
 			local line = _G["HMPQuestTooltipTextLeft"..i]
 			local text = line:GetText()
 			if string.find(text, "\%\)") or string.find(text, "%d\/%d") then
-				icon:ClearAllPoints()
-				icon:SetSize(20, 20)
-				if (IsAddOnLoaded("Plater")) then
-					icon:SetPoint("TOPLEFT", 0, 15)
-				else
-					icon:SetPoint("TOP", 0, 10)
-				end
-				if HelpMePlayDB.QuestMobIcon == 0 then
-					icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
-					icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
-				elseif HelpMePlayDB.QuestMobIcon == 1 then
-					icon:SetTexture("Interface\\ICONS\\quest_khadgar")
+				local continue = true
+				local minProgress, maxProgress = string.find(text, "%d\/%d")
+				local percentProgress = string.find(text, "%d%%")
+				if minProgress and maxProgress then
+					minProgress = tonumber(string.sub(text, minProgress, minProgress))
+					maxProgress = tonumber(string.sub(text, maxProgress, maxProgress))
+				
+					if minProgress == maxProgress then
+						continue = false
+					end
 				end
 				
-				icon:Show()
-				return
+				if percentProgress then
+					percentProgress = tonumber(string.sub(text, percentProgress, percentProgress))
+					if percentProgress == 100 then
+						continue = false
+					end
+				end
+				
+				if continue then
+					icon:ClearAllPoints()
+					icon:SetSize(20, 20)
+					if (IsAddOnLoaded("Plater")) then
+						icon:SetPoint("TOPLEFT", 0, 15)
+					else
+						icon:SetPoint("TOP", 0, 10)
+					end
+					if HelpMePlayDB.QuestMobIcon == 0 then
+						icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
+						icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
+					elseif HelpMePlayDB.QuestMobIcon == 1 then
+						icon:SetTexture("Interface\\ICONS\\quest_khadgar")
+					end
+					
+					icon:Show()
+					return
+				end
 			end
 		end
 	end
