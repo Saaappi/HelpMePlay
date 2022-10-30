@@ -509,15 +509,20 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.AutoEquipQuestRewardsEnabled == false or HelpMePlayDB.AutoEquipQuestRewardsEnabled == nil then return end
 	
 		local _, itemLink = ...
-		if itemLink then
-			local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-			for bagId = 0, 4 do
-				for slotId = 1, GetContainerNumSlots(bagId) do
-					local _, _, _, _, _, _, _, _, _, containerItemItemId = GetContainerItemInfo(bagId, slotId)
-					if containerItemItemId then
-						if containerItemItemId == itemId then
-							if not UnitAffectingCombat("player") then
-								EquipItemByName(containerItemItemId)
+		if UnitLevel("player") < 60 then
+			if not UnitAffectingCombat("player") then
+				if itemLink then
+					for bagId = 0, 4 do
+						for slotId = 1, GetContainerNumSlots(bagId) do
+							local bagItemGUID = C_Item.GetItemGUID(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
+							if bagItemGUID then
+								local bagItemLocation = C_Item.GetItemLocation(bagItemGUID)
+								local bagItemInvSlotId = C_Item.GetItemInventoryType(bagItemLocation)
+								local bagItemItemLevel = C_Item.GetCurrentItemLevel(bagItemLocation)
+								local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(bagItemInvSlotId))
+								if bagItemItemLevel > equippedItemItemLevel then
+									EquipItemByName(itemLink, bagItemInvSlotId)
+								end
 							end
 						end
 					end

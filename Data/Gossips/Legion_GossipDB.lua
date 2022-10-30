@@ -14,7 +14,7 @@ local DIALOG_LEGION = {
 	[98825] = { -- Spiritwalker Ebonhorn
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44611,
 				["c"] 			= { "none" },
 			},
 		},
@@ -22,7 +22,7 @@ local DIALOG_LEGION = {
 	[99745] = { -- Snazzle Shinyfinder
 		["g"] = {
 			{
-				["o"] 			= 2,
+				["o"] 			= 44447,
 				["c"] 			= { "none" },
 			},
 		},
@@ -30,7 +30,7 @@ local DIALOG_LEGION = {
 	[99746] = { -- Trytooth Hardchisel
 		["g"] = {
 			{
-				["o"] 			= 2,
+				["o"] 			= 44347,
 				["c"] 			= { "none" },
 			},
 		},
@@ -38,15 +38,15 @@ local DIALOG_LEGION = {
 	[99747] = { -- Kindle Candlecrafter
 		["g"] = {
 			{
-				["o"] 			= 2,
+				["o"] 			= 45092,
 				["c"] 			= { "none" },
 			},
 		},
 	},
-	[99748] = { -- Kindle Candlecrafter
+	[99748] = { -- Dug Digger
 		["g"] = {
 			{
-				["o"] 			= 2,
+				["o"] 			= 45094,
 				["c"] 			= { "none" },
 			},
 		},
@@ -54,7 +54,7 @@ local DIALOG_LEGION = {
 	[99781] = { -- Snazzle Shinyfinder
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 45095,
 				["c"] 			= { "none" },
 			},
 		},
@@ -62,7 +62,11 @@ local DIALOG_LEGION = {
 	[99782] = { -- Trytooth Hardchisel
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 45096,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 45097,
 				["c"] 			= { "none" },
 			},
 		},
@@ -70,7 +74,7 @@ local DIALOG_LEGION = {
 	[99784] = { -- Kindle Candlecrafter
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 45098,
 				["c"] 			= { "none" },
 			},
 		},
@@ -78,7 +82,7 @@ local DIALOG_LEGION = {
 	[95403] = { -- Windmaster Julan
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44135,
 				["c"] 			= { "none" },
 			},
 		},
