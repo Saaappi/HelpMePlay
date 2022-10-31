@@ -60,10 +60,12 @@ end
 
 e:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 e:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
-e:SetScript("OnEvent", function(self, event, unit)
+e:SetScript("OnEvent", function(self, event, ...)
 	if event == "NAME_PLATE_UNIT_ADDED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.QuestMobsEnabled == false or HelpMePlayDB.QuestMobsEnabled == nil then return false end
+		
+		local unit = ...
 		
 		local namePlate = C_NamePlate.GetNamePlateForUnit(unit)
 		UpdateNamePlate(namePlate, unit)
@@ -72,6 +74,8 @@ e:SetScript("OnEvent", function(self, event, unit)
 	if event == "NAME_PLATE_UNIT_REMOVED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.QuestMobsEnabled == false or HelpMePlayDB.QuestMobsEnabled == nil then return false end
+		
+		local unit = ...
 		
 		local namePlate = C_NamePlate.GetNamePlateForUnit(unit)
         if namePlate[iconKey] then

@@ -526,7 +526,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 										local inventorySlot = inventorySlots[equipLoc]
 										local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 										if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) then
-											print(string.format("%s: %s %s%s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+											print(string.format("%s: %s |T%s:0|t%s!", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 											ClearCursor()
 											PickupContainerItem(bagId, slotId)
 											EquipCursorItem(inventorySlots[equipLoc])
