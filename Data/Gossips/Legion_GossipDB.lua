@@ -90,7 +90,7 @@ local DIALOG_LEGION = {
 	[96286] = { -- Navarrogg
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44308,
 				["c"] 			= { "none" },
 			},
 		},

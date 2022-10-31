@@ -6,9 +6,9 @@ local DIALOG_SL = {
 	[159478] = { -- Tal-Inara
 		["g"] = {
 			{
-				["o"] 			= 1,
-				["c"] 			= { "quests.notActive", "level.lower" },
-				["q"] 			= { 62739, 63036 }, -- Restoring Balance
+				["o"] 			= 53547,
+				["c"] 			= { "quests.active", "level.lower" },
+				["q"] 			= { 62159 }, -- Aiding the Shadowlands
 				["l"] 			= 60,
 			},
 		},
@@ -16,7 +16,7 @@ local DIALOG_SL = {
 	[174871] = { -- Fatescribe Roh-Tahl
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 52127,
 				["c"] 			= { "none" },
 			},
 		},
@@ -200,7 +200,7 @@ local DIALOG_SL = {
 	[160163] = { -- The Accuser
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49481,
 				["c"] 			= { "none" },
 			},
 		},
@@ -208,7 +208,7 @@ local DIALOG_SL = {
 	[160233] = { -- The Accuser
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49482,
 				["c"] 			= { "none" },
 			},
 		},

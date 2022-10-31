@@ -45,13 +45,13 @@ local DIALOG_CLASSIC = {
 	[171789] = { -- High Inquisitor Whitemane
 		["g"] = {
 			{ -- Do The Maw
-				["o"] 	= 1,
+				["o"] 	= 52724,
 				["c"] 	= { "addon.setting" },
 				["s"] 	= "TheMawEnabled",
 				["r"] 	= true,
 			},
 			{ -- Skip The Maw
-				["o"] 	= 2,
+				["o"] 	= 52725,
 				["c"] 	= { "addon.setting" },
 				["s"] 	= "TheMawEnabled",
 				["r"] 	= false,

@@ -442,10 +442,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		C_QuestLog.AddQuestWatch(questId)
 		
-		hooksecurefunc("AutoQuestPopupTracker_AddPopUp", function()
-			C_Timer.After(0.5, function()
-				AutoQuestPopupTracker_RemovePopUp(questId)
-			end)
+		C_Timer.After(0.5, function()
+			AutoQuestPopupTracker_RemovePopUp(questId)
 		end)
 
 		if select(2, IsAddOnLoaded("Immersion")) then
@@ -508,20 +506,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return end
 		if HelpMePlayDB.AutoEquipQuestRewardsEnabled == false or HelpMePlayDB.AutoEquipQuestRewardsEnabled == nil then return end
 	
-		local _, itemLink = ...
+		local _, questItemLink = ...
 		if UnitLevel("player") < 60 then
 			if not UnitAffectingCombat("player") then
-				if itemLink then
+				if questItemLink then
+					local questItemItemLevel = GetDetailedItemLevelInfo(questItemLink)
+					local _, _, _, equipLoc = GetItemInfoInstant(questItemLink)
 					for bagId = 0, 4 do
 						for slotId = 1, GetContainerNumSlots(bagId) do
-							local bagItemGUID = C_Item.GetItemGUID(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
-							if bagItemGUID then
-								local bagItemLocation = C_Item.GetItemLocation(bagItemGUID)
-								local bagItemInvSlotId = C_Item.GetItemInventoryType(bagItemLocation)
-								local bagItemItemLevel = C_Item.GetCurrentItemLevel(bagItemLocation)
-								local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(bagItemInvSlotId))
-								if bagItemItemLevel > equippedItemItemLevel then
-									EquipItemByName(itemLink, bagItemInvSlotId)
+							local containerItemInfo = GetContainerItemInfo(bagId, slotId)
+							if containerItemInfo then
+								local containerItemLink = select(7, containerItemInfo)
+								if containerItemLink == questItemLink then
+									local containerItemItemLevel = GetDetailedItemLevelInfo(containerItemLink)
+									if containerItemItemLevel > questItemItemLevel then
+										ClearCursor()
+										PickupContainerItem(bagId, slotId)
+										EquipCursorItem(inventorySlots[equipLoc])
+									end
 								end
 							end
 						end
