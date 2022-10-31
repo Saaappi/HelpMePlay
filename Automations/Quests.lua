@@ -22,6 +22,13 @@ local inventorySlots = {
 	["INVTYPE_FEET"] 			= 8,
 }
 
+local function EquipItemUpgrade(bagId, slotId, equipLoc)
+	print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+	ClearCursor()
+	PickupContainerItem(bagId, slotId)
+	EquipCursorItem(inventorySlots[equipLoc])
+end
+
 --[[
 	Description:
 		Allows the player to use the CONTROL and ALT
@@ -525,35 +532,26 @@ e:SetScript("OnEvent", function(self, event, ...)
 										if equipLoc == "INVTYPE_FINGER" then
 											for i = 11, 12 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
-													break
+													EquipItemUpgrade(bagId, slotId, equipLoc)
 												end
 											end
 										elseif equipLoc == "INVTYPE_TRINKET" then
 											for i = 13, 14 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
-													break
+													EquipItemUpgrade(bagId, slotId, equipLoc)
 												end
 											end
 										elseif equipLoc == "INVTYPE_WEAPON" then
 											for i = 16, 17 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
-													break
+													EquipItemUpgrade(bagId, slotId, equipLoc)
 												end
 											end
 										else
 											local inventorySlot = inventorySlots[equipLoc]
 											if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) then
-												print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
-												ClearCursor()
-												PickupContainerItem(bagId, slotId)
-												EquipCursorItem(inventorySlots[equipLoc])
+												EquipItemUpgrade(bagId, slotId, equipLoc)
 											end
-										end
-										if equipLoc == "INVTYPE_FINGER" or equipLoc == "INVTYPE_TRINKET" then
-											print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
-											ClearCursor()
-											PickupContainerItem(bagId, slotId)
-											EquipCursorItem(inventorySlots[equipLoc])
 										end
 									end
 								end
