@@ -505,24 +505,32 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_LOOT_RECEIVED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return end
 		if HelpMePlayDB.AutoEquipQuestRewardsEnabled == false or HelpMePlayDB.AutoEquipQuestRewardsEnabled == nil then return end
+		if HelpMePlayDB.QuestRewardId ~= 1 then return end
 	
 		local _, questItemLink = ...
-		if UnitLevel("player") < 60 then
-			if not UnitAffectingCombat("player") then
-				if questItemLink then
-					local questItemItemLevel = GetDetailedItemLevelInfo(questItemLink)
-					local _, _, _, equipLoc = GetItemInfoInstant(questItemLink)
-					for bagId = 0, 4 do
-						for slotId = 1, GetContainerNumSlots(bagId) do
-							local containerItemInfo = GetContainerItemInfo(bagId, slotId)
-							if containerItemInfo then
-								local containerItemLink = select(7, containerItemInfo)
-								if containerItemLink == questItemLink then
-									local containerItemItemLevel = GetDetailedItemLevelInfo(containerItemLink)
-									if containerItemItemLevel > questItemItemLevel then
-										ClearCursor()
-										PickupContainerItem(bagId, slotId)
-										EquipCursorItem(inventorySlots[equipLoc])
+		C_Timer.After(0.5, function()
+			if UnitLevel("player") < 60 then
+				if not UnitAffectingCombat("player") then
+					if questItemLink then
+						local questItemItemLevel = GetDetailedItemLevelInfo(questItemLink)
+						local _, _, _, equipLoc = GetItemInfoInstant(questItemLink)
+						local _, questItemId = string.split(":", questItemLink); questItemId = tonumber(questItemId)
+						for bagId = 0, 4 do
+							for slotId = 1, GetContainerNumSlots(bagId) do
+								local containerItemInfo = GetContainerItemInfo(bagId, slotId)
+								if containerItemInfo then
+									local containerItemId = C_Item.GetItemID(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
+									local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
+									local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
+									if containerItemId == questItemId then
+										local inventorySlot = inventorySlots[equipLoc]
+										local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
+										if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) then
+											print(string.format("%s: %s %s%s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+											ClearCursor()
+											PickupContainerItem(bagId, slotId)
+											EquipCursorItem(inventorySlots[equipLoc])
+										end
 									end
 								end
 							end
@@ -530,7 +538,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				end
 			end
-		end
+		end)
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
