@@ -132,7 +132,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
 	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminder"] 							= "Water Reminder"
-	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminderDesc"] 						= "Toggle this if you would like the addon to remind you to take sips of water.\n\nReminders are sent at random intervals between 10 and 20 minutes."
+	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminderDesc"] 						= "Toggle this if you would like the addon to remind you to take sips of water."
+	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMinDelay"] 							= "Minimum Delay"
+	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMinDelayDesc"] 						= "Select the minimum delay before the addon will show the water reminder message.\n\n|cffFFD100NOTE|r: If you do not set this value, then the minimum delay defaults to 10 minutes."
+	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMaxDelay"] 							= "Maximum Delay"
+	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMaxDelayDesc"] 						= "Select the maximum delay before the addon will show the water reminder message.\n\n|cffFFD100NOTE|r: If you do not set this value, then the maximum delay defaults to 20 minutes."
 	-- End: 	Features Options (Options_Features.lua)
 	--
 	-- Start: 	Quests Options (Options_Quests.lua)

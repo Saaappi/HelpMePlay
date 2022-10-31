@@ -153,6 +153,38 @@ local featuresOptions = {
 			get = function(info) return HelpMePlayDB.WaterReminderEnabled end,
 			set = function(info, val) HelpMePlayDB.WaterReminderEnabled = val end,
 		},
+		waterReminderMinDelay = {
+			name = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMinDelay"],
+			order = 32,
+			type = "range",
+			min = 5,
+			max = 30,
+			step = 1,
+			desc = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMinDelayDesc"],
+			get = function()
+				if not HelpMePlayDB.WaterReminderMinDelay then
+					HelpMePlayDB.WaterReminderMinDelay = 10
+				end
+				return HelpMePlayDB.WaterReminderMinDelay
+			end,
+			set = function(_, val) HelpMePlayDB.WaterReminderMinDelay = val end,
+		},
+		waterReminderMaxDelay = {
+			name = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMaxDelay"],
+			order = 33,
+			type = "range",
+			min = 5,
+			max = 30,
+			step = 1,
+			desc = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMaxDelayDesc"],
+			get = function()
+				if not HelpMePlayDB.WaterReminderMaxDelay then
+					HelpMePlayDB.WaterReminderMaxDelay = 20
+				end
+				return HelpMePlayDB.WaterReminderMaxDelay
+			end,
+			set = function(_, val) HelpMePlayDB.WaterReminderMaxDelay = val end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions
