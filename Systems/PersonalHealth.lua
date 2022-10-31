@@ -6,9 +6,10 @@ local function WaterReminder()
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.WaterReminderEnabled == false or HelpMePlayDB.WaterReminderEnabled == nil then return false end
 		
-	local interval = (math.random(1, 2))*60
+	local interval = (math.random(10, 20))*60
 	C_Timer.After(interval, function()
-		UIErrorsFrame:AddMessage("|cffFFD100" .. L_GLOBALSTRINGS["Text.Output.WaterReminder"] .. "|r")
+		UIErrorsFrame:SetTimeVisible(5)
+		UIErrorsFrame:AddMessage("|cffFFD100" .. L_GLOBALSTRINGS["Text.Output.WaterReminder"] .. "|r", 1, 0, 0, nil)
 		PlaySound(110896, "Master", true, true) -- SPELL_8.0_Stormsong_FoulTidewater_PickUp
 		WaterReminder()
 	end)
