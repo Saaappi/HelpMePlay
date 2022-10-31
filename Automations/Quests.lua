@@ -5,23 +5,21 @@ local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
 local inventorySlots = {
-	["INVTYPE_HEAD"] 		= 1,
-	["INVTYPE_NECK"] 		= 2,
-	["INVTYPE_SHOULDER"] 	= 3,
-	["INVTYPE_CLOAK"] 		= 15,
-	["INVTYPE_ROBE"] 		= 5,
-	["INVTYPE_BODY"] 		= 4,
-	["INVTYPE_TABARD"] 		= 19,
-	["INVTYPE_WRIST"] 		= 9,
-	["INVTYPE_2HWEAPON"] 	= 17,
-	["INVTYPE_HAND"] 		= 10,
-	["INVTYPE_WAIST"] 		= 6,
-	["INVTYPE_LEGS"] 		= 7,
-	["INVTYPE_FEET"] 		= 8,
-	["INVTYPE_FINGER1"] 	= 11,
-	["INVTYPE_FINGER2"] 	= 12,
-	["INVTYPE_TRINKET1"] 	= 13,
-	["INVTYPE_TRINKET2"] 	= 14,
+	["INVTYPE_HEAD"] 			= 1,
+	["INVTYPE_NECK"] 			= 2,
+	["INVTYPE_SHOULDER"] 		= 3,
+	["INVTYPE_CLOAK"] 			= 15,
+	["INVTYPE_ROBE"] 			= 5,
+	["INVTYPE_TABARD"] 			= 19,
+	["INVTYPE_WRIST"] 			= 9,
+	["INVTYPE_2HWEAPON"] 		= 16,
+	["INVTYPE_WEAPONMAINHAND"] 	= 16,
+	["INVTYPE_WEAPONOFFHAND"] 	= 17,
+	["INVTYPE_HOLDABLE"] 		= 17,
+	["INVTYPE_HAND"] 			= 10,
+	["INVTYPE_WAIST"] 			= 6,
+	["INVTYPE_LEGS"] 			= 7,
+	["INVTYPE_FEET"] 			= 8,
 }
 
 --[[
@@ -523,9 +521,35 @@ e:SetScript("OnEvent", function(self, event, ...)
 									local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									if containerItemId == questItemId then
-										local inventorySlot = inventorySlots[equipLoc]
 										local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
-										if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) then
+										if equipLoc == "INVTYPE_FINGER" then
+											for i = 11, 12 do
+												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
+													break
+												end
+											end
+										elseif equipLoc == "INVTYPE_TRINKET" then
+											for i = 13, 14 do
+												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
+													break
+												end
+											end
+										elseif equipLoc == "INVTYPE_WEAPON" then
+											for i = 16, 17 do
+												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
+													break
+												end
+											end
+										else
+											local inventorySlot = inventorySlots[equipLoc]
+											if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) then
+												print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+												ClearCursor()
+												PickupContainerItem(bagId, slotId)
+												EquipCursorItem(inventorySlots[equipLoc])
+											end
+										end
+										if equipLoc == "INVTYPE_FINGER" or equipLoc == "INVTYPE_TRINKET" then
 											print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 											ClearCursor()
 											PickupContainerItem(bagId, slotId)

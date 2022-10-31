@@ -51,9 +51,8 @@ function HelpMePlay:OnInitialize()
 end
 
 e:RegisterEvent("ADDON_LOADED")
-e:SetScript("OnEvent", function(self, event, ...)
+e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
-		local addonLoaded = ...
 		if addonLoaded == addonName then
 			if HelpMePlayIgnoredCreaturesDB == nil then
 				HelpMePlayIgnoredCreaturesDB = {}
