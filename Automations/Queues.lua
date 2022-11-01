@@ -155,10 +155,10 @@ HMPQueueButton:HookScript("OnClick", function(self)
 		local _, _, _, _, role = GetSpecializationInfo(GetSpecialization())
 		if role == "TANK" then
 			SetLFGRoles(false, true, false, false)
-		elseif role == "DAMAGER" then
-			SetLFGRoles(false, false, false, true)
-		else
+		elseif role == "HEALER" then
 			SetLFGRoles(false, false, true, false)
+		else
+			SetLFGRoles(false, false, false, true)
 		end
 		
 		if calendarDate.month == 10 and calendarDate.monthDay > 6 then
