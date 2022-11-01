@@ -48,7 +48,7 @@ local DIALOG_SL = {
 	[159277] = { -- Aspirant Leda
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49551,
 				["c"] 			= { "none" },
 			},
 		},
@@ -56,7 +56,7 @@ local DIALOG_SL = {
 	[159278] = { -- Aspirant Ikaran
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49554,
 				["c"] 			= { "none" },
 			},
 		},
@@ -64,7 +64,7 @@ local DIALOG_SL = {
 	[158765] = { -- Pelodis
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49984,
 				["c"] 			= "quests.active",
 				["q"] 			= { 57933 }, -- We Can Rebuild Him
 			},

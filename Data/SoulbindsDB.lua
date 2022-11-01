@@ -185,7 +185,56 @@ local SOULBINDS_BY_SPEC = {
 	},
 	[8] = { -- Mage
 		[62] = nil, 	-- Arcane (Kyrian)
-		[63] = nil, 	-- Fire (Night Fae)
+		[63] = { 		-- Fire (Night Fae)
+			["id"] = 2, 			-- Dreamweaver
+			["tree"] = 275,
+			["conduits"] = {
+				{ -- 1
+					["n"] = 835,
+					["c"] = 26, 	-- Flow of Time
+				},
+				{ -- 2
+					["n"] = 836,
+					["c"] = 30, 	-- Infernal Cascade
+				},
+				{ -- 3
+					["n"] = 827,
+					["c"] = 0, 
+				},
+				{ -- 4
+					["n"] = 830,
+					["c"] = 38, 	-- Discipline of the Grove
+				},
+				{ -- 5
+					["n"] = 832,
+					["c"] = 48, 	-- Diverted Energy
+				},
+				{ -- 6
+					["n"] = 834,
+					["c"] = 0,
+				},
+				{ -- 7
+					["n"] = 824,
+					["c"] = 0,
+				},
+				{ -- 8
+					["n"] = 1843,
+					["c"] = 249, 	-- Controlled Destruction
+				},
+				{ -- 9
+					["n"] = 1845,
+					["c"] = 0,
+				},
+				{ -- 10
+					["n"] = 1847,
+					["c"] = 29, 	-- Grounding Surge
+				},
+				{ -- 11
+					["n"] = 1848,
+					["c"] = 0,
+				},
+			},
+		},
 		[64] = nil, 	-- Frost (Night Fae)
 	},
 	[9] = { -- Warlock
@@ -313,3 +362,13 @@ local SOULBINDS_BY_SPEC = {
 }
 
 addonTable.SOULBINDS_BY_SPEC = SOULBINDS_BY_SPEC
+
+--[[
+	Dreamweaver:
+	1: 870 (left) | 835 (right)
+	3: 827 (left) | 826 (mid) | 828 (right)
+	4: 830 (left) | 829 (mid) | 831 (right)
+	6: 833 (left) | 834 (right)
+	9: 1844 (left) | 1845 (right)
+	10: 1846 (left) | 1847 (right)
+]]
