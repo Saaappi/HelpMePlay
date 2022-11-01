@@ -179,8 +179,10 @@ local function ProcessDialogTree(parentMapId)
 		local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
 		if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		
-		for i = 1, #gossipOptions do
-			--print(npcId .. " - " .. i .. " - " .. gossipOptions[i].gossipOptionID)
+		if HelpMePlayDB.DevModeEnabled then
+			for i = 1, #gossipOptions do
+				print(npcId .. " | " .. i .. " | " .. gossipOptions[i].gossipOptionID)
+			end
 		end
 		
 		SelectGossipOption(gossipOptions, npcId, parentMapId)
