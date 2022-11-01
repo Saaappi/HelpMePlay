@@ -26,7 +26,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Cinematics** - Gracefully cancel *most* in-game cinematics and movies.
 - **Emotes** - Don't remember which emote to use on the stones in Maldraxxus? HelpMePlay is capable of using the appropriate emote simply by targeting these stones.
 - **Flight Paths** - Let HelpMePlay sweep you off your feet, carrying you to the destinations you need to go!
-- **Gossips** - Automates selecting appropriate gossip from NPCs. Players can even add their own!
+- **Gossip** - Automates selecting appropriate gossip from NPCs. Players can even add their own!
 - **Notes** - HelpMePlay can add helpful tips to NPC tooltips. Can't remember which Gatamatos to click during [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation)? Me neither! HelpMePlay will let you know which to click if you hover over them.
 - **Queues** - Tired of missing your queue pops while you're AFK? HelpMePlay will accept the queue at lightning speed, granting you precious time to take care of the important things in life (like grabbing a drink for your dungeon ventures.)
 - **Ready Checks** - Toggle this handy feature on to always be ready when your raid leader sends out a ready check!
@@ -38,8 +38,11 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Waypoints** - HelpMePlay, if configured, will automatically plot waypoints when specific quests are accepted.
 
 ### Extras
+- **Talking Head** - Silence the talking head popup. We can only handle so much Khadgar!
 - **Holiday Queues** - Add a button above the LFD icon to queue for the current holiday boss. *This button will only appear if you're level 50+, your character isn't saved, and you don't have the mount(s) associated to the event.*
-- **Hide NPE** - Attempts to hide all the New Player Experience popups while on Exile's Reach.
+
+### Personal Health
+- **Water Reminder** - Feel like you don't drink enough water while you play? Check this button and adjust the minimum and maximum delays to be notified to sip on water.
 
 ### Buttons
 - **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
@@ -52,7 +55,10 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Adventure Maps** - Automates accepting quests from "adventure maps". These are found in Oribos, Boralus Harbor, Dazar'alor, and more!
 - **Complete Quests** - Automatically complete any quest.
 - **Purchase Quest Items** - Automatically purchase quest items from vendors.
+- **Equip Quest Rewards** - When you choose Item Level as your quest reward option, the addon can automatically equip these rewards once selected.
 - **Threads of Fate** - Allow HelpMePlay to select Threads of Fate or Story Mode on your behalf for leveling in *Shadowlands*.
+
+### Expansion Intros
 - **The Maw** - Toggle to opt in or out of playing through The Maw.
 
 ### Dropdowns
@@ -60,6 +66,10 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Chromie Time** - Automates entering Chromie Time. HelpMePlay will enter the expansion the player selects in the options!
 - **Quest Rewards** - Pick how you wish HelpMePlay to select quest rewards. Options are by item level upgrade (heirlooms are ignored) and sell price.
 - **SL Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Shadowlands*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
+
+### Quest Mobs
+- **Quest Mobs** - Add an icon over the nameplate of enemies required for your quests.
+- **Quest Mobs Icon** - Either keep the default icon or change it to Khadgar (Dadgar)!
 
 ### Party Play
 Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what!
@@ -95,6 +105,7 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 ### Toggles
 - **Safe Mode** - Tell the Junker subsystem to sell items in batches of 12, allowing you to use the buyback tab in case something is sold by mistake.
 - **Soulbound Mode** - If enabled, the Junker subsystem will sell any soulbound and equipable item that is 30 or more item levels below your current item level.
+- **Auto Sell** - If enabled, Junker will auto sell items from your inventory when the merchant window is opened.
 - **Armor** - If enabled, the Junker subsystem will sell any item of type "Armor".
 - **Consumables** - If enabled, the Junker subsystem will sell any item of type "Consumable".
 
