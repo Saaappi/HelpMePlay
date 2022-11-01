@@ -26,8 +26,7 @@ local function EquipItemUpgrade(bagId, slotId, equipLoc, containerItemIcon, cont
 	print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 	ClearCursor()
 	PickupContainerItem(bagId, slotId)
-	--EquipCursorItem(equipLoc)
-	EquipItemByName(containerItemLink, equipLoc)
+	EquipCursorItem(equipLoc)
 end
 
 hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
@@ -488,26 +487,26 @@ e:SetScript("OnEvent", function(self, event, ...)
 										local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 										if equipLoc == "INVTYPE_FINGER" then
 											for i = 11, 12 do
-												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
+												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
 													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_TRINKET" then
 											for i = 13, 14 do
-												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
+												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
 													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_WEAPON" then
 											for i = 16, 17 do
-												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
+												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
 													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
 												end
 											end
 										else
 											local inventorySlot = inventorySlots[equipLoc]
-											if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) then
-												EquipItemUpgrade(bagId, slotId, inventorySlot[equipLoc], containerItemIcon, containerItemLink)
+											if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
+												EquipItemUpgrade(bagId, slotId, inventorySlots[equipLoc], containerItemIcon, containerItemLink)
 											end
 										end
 									end

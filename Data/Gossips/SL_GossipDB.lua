@@ -8,19 +8,19 @@ local DIALOG_SL = {
 				["o"] 			= 51938, -- Revendreth
 				["c"] 			= { "quests.notComplete", "level.lower" },
 				["q"] 			= { 62778 }, -- Reinforcing Revendreth
-				["l"] 			= 60,
+				["l"] 			= 52,
 			},
 			{
 				["o"] 			= 51937, -- Ardenweald
-				["c"] 			= { "quests.complete", "level.higher" },
+				["c"] 			= { "quests.complete", "level.lower" },
 				["q"] 			= { 62778 }, -- Reinforcing Revendreth
-				["l"] 			= 53,
+				["l"] 			= 56,
 			},
 			{
 				["o"] 			= 51935, -- Bastion
-				["c"] 			= { "quests.complete", "level.higher" },
+				["c"] 			= { "quests.complete", "level.lower" },
 				["q"] 			= { 62763 }, -- Support the Court
-				["l"] 			= 56,
+				["l"] 			= 59,
 			},
 		},
 	},
@@ -94,7 +94,7 @@ local DIALOG_SL = {
 	[157949] = { -- Heartwood Grove Holdout
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49575,
 				["c"] 			= { "none" },
 			},
 		},
@@ -102,7 +102,7 @@ local DIALOG_SL = {
 	[158006] = { -- Heartwood Grove Holdout
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49575,
 				["c"] 			= { "none" },
 			},
 		},
@@ -110,7 +110,7 @@ local DIALOG_SL = {
 	[159428] = { -- Groonoomcrooek
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49626,
 				["c"] 			= { "quest.obj.notComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 1,
@@ -120,7 +120,7 @@ local DIALOG_SL = {
 	[159427] = { -- Elder Finnan
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49625,
 				["c"] 			= { "quest.obj.notComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 2,
@@ -130,7 +130,7 @@ local DIALOG_SL = {
 	[159465] = { -- Elder Gwenna
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49621,
 				["c"] 			= { "quest.obj.notComplete" },
 				["q"] 			= 57865, -- Ages-Echoing Wisdom
 				["obj"] 		= 3,
