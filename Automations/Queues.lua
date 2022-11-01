@@ -33,6 +33,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.HolidayQueuesEnabled then
 			local isInitialLogin, isReload = ...
 			if isInitialLogin or isReload then
+				local hideButton = false
 				local isDailyRewardCollected = false
 				local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
 				local timeStamp = calendarDate.month .. "/" .. calendarDate.monthDay .. " " .. calendarDate.hour .. ":" .. calendarDate.minute
@@ -52,6 +53,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 										normalTexture:SetSize(28, 26)
 									end
 								end
+							else
+								hideButton = true
 							end
 						elseif event.eventID == 372 then -- Brewfest
 							if timeStamp >= startTime and timeStamp <= endTime then
@@ -62,6 +65,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 										normalTexture:SetSize(28, 26)
 									end
 								end
+							else
+								hideButton = true
 							end
 						elseif event.eventID == 423 then -- Love is in the Air
 							if timeStamp >= startTime and timeStamp <= endTime then
@@ -72,6 +77,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 										normalTexture:SetSize(28, 26)
 									end
 								end
+							else
+								hideButton = true
 							end
 						end
 					end
@@ -87,7 +94,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				HMPQueueButton:SetSize(28, 26)
 				HMPQueueButton:SetPoint("BOTTOM", 0, 40)
 
-				if not isDailyRewardCollected and UnitLevel("player") >= 50 then
+				if not isDailyRewardCollected and UnitLevel("player") >= 50 and hideButton == false then
 					HMPQueueButton:Show()
 				else
 					HMPQueueButton:Hide()
@@ -145,7 +152,15 @@ HMPQueueButton:HookScript("OnClick", function(self)
 	if not hasData then
 		local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
 		
-		SetLFGRoles(false, true, true, true)
+		local _, _, _, _, role = GetSpecializationInfo(GetSpecialization())
+		if role == "TANK" then
+			SetLFGRoles(false, true, false, false)
+		elseif role == "DAMAGER" then
+			SetLFGRoles(false, false, false, true)
+		else
+			SetLFGRoles(false, false, true, false)
+		end
+		
 		if calendarDate.month == 10 and calendarDate.monthDay > 6 then
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 285, LFDDungeonList, LFDHiddenByCollapseList)
 		elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Love is in the Air
