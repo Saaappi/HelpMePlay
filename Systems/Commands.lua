@@ -118,7 +118,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		self:Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
 	elseif cmd == L_GLOBALSTRINGS["Command.Soulbind"] and arg1 ~= nil then
 		-- This command should only be available to the Author's characters.
-		--if not addonTable.GUID[UnitGUID("player")] then return end
+		if not addonTable.GUID[UnitGUID("player")] then return end
 		
 		-- Create an empty table we'll use for sorting the data
 		-- later.
@@ -150,7 +150,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		]]--
 	
 		-- This command should only be available to the Author's characters.
-		--if not addonTable.GUID[UnitGUID("player")] then return end
+		if not addonTable.GUID[UnitGUID("player")] then return end
 		
 		-- Create an empty table we'll use for sorting the data
 		-- later.

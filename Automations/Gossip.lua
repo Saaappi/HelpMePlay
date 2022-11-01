@@ -1,7 +1,25 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
+local currentMapId = 0
+local gossipEnabledMaps = {
+	[84] 	= true, -- Stormwind City
+	[641] 	= true, -- Val'sharah
+	[642] 	= true, -- Darkpens, Val'sharah
+	[1565] 	= true, -- Ardenweald
+	[1603] 	= true, -- Ardenweald
+	[1643] 	= true, -- Ardenweald
+	[1709] 	= true, -- Ardenweald
+	[1739] 	= true, -- Ardenweald
+	[1740] 	= true, -- Ardenweald
+	[2005] 	= true, -- Ardenweald
+	[1525] 	= true, -- Revendreth
+	[1734] 	= true, -- Revendreth
+	[1738] 	= true, -- Revendreth
+	[1742] 	= true, -- Revendreth
+}
 
 local function GetParentMapID(mapId)
+	currentMapId = C_Map.GetBestMapForUnit("player")
 	if mapId then
 		local mapInfo = C_Map.GetMapInfo(mapId)
 		if mapInfo.mapType ~= 2 and mapInfo.parentMapID ~= 0 then
@@ -158,7 +176,7 @@ local function ProcessDialogTree(parentMapId)
 		if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		
 		for i = 1, #gossipOptions do
-			print(npcId .. " - " .. i .. " - " .. gossipOptions[i].gossipOptionID)
+			--print(npcId .. " - " .. i .. " - " .. gossipOptions[i].gossipOptionID)
 		end
 		
 		SelectGossipOption(gossipOptions, npcId, parentMapId)
@@ -199,7 +217,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 			
 			local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-			ConfirmConfirmationMessage(message, npcId, parentMapId)
+			if gossipEnabledMaps[currentMapId] then
+				ConfirmConfirmationMessage(message, npcId, parentMapId)
+			end
 		end
 	end
 	if event == "GOSSIP_SHOW" then
@@ -207,6 +227,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		ProcessDialogTree(parentMapId)
+		if gossipEnabledMaps[currentMapId] then
+			ProcessDialogTree(parentMapId)
+		end
 	end
 end)
