@@ -2,6 +2,28 @@ local addonName, addonTable = ...
 local DIALOG_SL = {
 	-- Supported Maps: 1409 (Exile's Reach), 1550 (The Shadowlands)
 	-- No Map Association
+	[169501] = { -- Shadowlands Wormhole
+		["g"] = {
+			{
+				["o"] 			= 51938, -- Revendreth
+				["c"] 			= { "quests.notComplete", "level.lower" },
+				["q"] 			= { 62778 }, -- Reinforcing Revendreth
+				["l"] 			= 60,
+			},
+			{
+				["o"] 			= 51937, -- Ardenweald
+				["c"] 			= { "quests.complete", "level.higher" },
+				["q"] 			= { 62778 }, -- Reinforcing Revendreth
+				["l"] 			= 53,
+			},
+			{
+				["o"] 			= 51935, -- Bastion
+				["c"] 			= { "quests.complete", "level.higher" },
+				["q"] 			= { 62763 }, -- Support the Court
+				["l"] 			= 56,
+			},
+		},
+	},
 	-- Oribos
 	[159478] = { -- Tal-Inara
 		["g"] = {
@@ -248,7 +270,7 @@ local DIALOG_SL = {
 	[164420] = { -- Laurent
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 50018,
 				["c"] 			= { "none" },
 			},
 		},

@@ -102,6 +102,16 @@ local function SelectGossipOption(options, npcId, parentMapId)
 								end
 							end
 						end
+					elseif condition == "quests.notComplete" then
+						local numQuests = #gossip.q
+						for i = 1, numQuests do
+							if C_QuestLog.IsQuestFlaggedCompleted(gossip.q[i]) == false then
+								numQuests = numQuests - 1
+								if numQuests == 0 then
+									numConditionsMatched = numConditionsMatched + 1
+								end
+							end
+						end
 					elseif condition == "quest.obj.complete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
 						if objectives[gossip.obj].finished then

@@ -38,9 +38,23 @@ local function GetFlightPathInfo(mapId)
 						end
 					end
 				elseif condition == "quests.complete" then
-					for _, id in ipairs(flightPath.q) do
-						if C_QuestLog.IsQuestFlaggedCompleted(id) then
-							numConditionsMatched = numConditionsMatched + 1
+					local numQuests = #flightPath.q
+					for i = 1, numQuests do
+						if C_QuestLog.IsQuestFlaggedCompleted(flightPath.q[i]) == false then
+							numQuests = numQuests - 1
+							if numQuests == 0 then
+								numConditionsMatched = numConditionsMatched + 1
+							end
+						end
+					end
+				elseif condition == "quests.notComplete" then
+					local numQuests = #flightPath.q
+					for i = 1, numQuests do
+						if C_QuestLog.IsQuestFlaggedCompleted(flightPath.q[i]) == false then
+							numQuests = numQuests - 1
+							if numQuests == 0 then
+								numConditionsMatched = numConditionsMatched + 1
+							end
 						end
 					end
 				elseif condition == "target.is" then

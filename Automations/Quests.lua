@@ -5,36 +5,31 @@ local itemLevels = {}
 local sellPrices = {}
 local questRewards = {}
 local inventorySlots = {
-	["INVTYPE_HEAD"] 			= 1,
-	["INVTYPE_NECK"] 			= 2,
-	["INVTYPE_SHOULDER"] 		= 3,
-	["INVTYPE_CLOAK"] 			= 15,
-	["INVTYPE_ROBE"] 			= 5,
-	["INVTYPE_TABARD"] 			= 19,
-	["INVTYPE_WRIST"] 			= 9,
-	["INVTYPE_2HWEAPON"] 		= 16,
-	["INVTYPE_WEAPONMAINHAND"] 	= 16,
-	["INVTYPE_WEAPONOFFHAND"] 	= 17,
-	["INVTYPE_HOLDABLE"] 		= 17,
-	["INVTYPE_HAND"] 			= 10,
-	["INVTYPE_WAIST"] 			= 6,
-	["INVTYPE_LEGS"] 			= 7,
-	["INVTYPE_FEET"] 			= 8,
+	["INVTYPE_HEAD"] 			= INVSLOT_HEAD,
+	["INVTYPE_NECK"] 			= INVSLOT_NECK,
+	["INVTYPE_SHOULDER"] 		= INVSLOT_SHOULDER,
+	["INVTYPE_CLOAK"] 			= INVSLOT_BACK,
+	["INVTYPE_ROBE"] 			= INVSLOT_CHEST,
+	["INVTYPE_TABARD"] 			= INVSLOT_TABARD,
+	["INVTYPE_WRIST"] 			= INVSLOT_WRIST,
+	["INVTYPE_2HWEAPON"] 		= INVSLOT_MAINHAND,
+	["INVTYPE_WEAPONMAINHAND"] 	= INVSLOT_MAINHAND,
+	["INVTYPE_WEAPONOFFHAND"] 	= INVSLOT_OFFHAND,
+	["INVTYPE_HOLDABLE"] 		= INVSLOT_OFFHAND,
+	["INVTYPE_HAND"] 			= INVSLOT_HAND,
+	["INVTYPE_WAIST"] 			= INVSLOT_WAIST,
+	["INVTYPE_LEGS"] 			= INVSLOT_LEGS,
+	["INVTYPE_FEET"] 			= INVSLOT_FEET,
 }
 
-local function EquipItemUpgrade(bagId, slotId, equipLoc)
+local function EquipItemUpgrade(bagId, slotId, equipLoc, containerItemIcon, containerItemLink)
 	print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 	ClearCursor()
 	PickupContainerItem(bagId, slotId)
-	EquipCursorItem(inventorySlots[equipLoc])
+	--EquipCursorItem(equipLoc)
+	EquipItemByName(containerItemLink, equipLoc)
 end
 
---[[
-	Description:
-		Allows the player to use the CONTROL and ALT
-		keys to abandon a single quest from within
-		the quest log.
-]]--
 hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
 	if IsControlKeyDown() or IsAltKeyDown() then
 		C_QuestLog.SetSelectedQuest(self.questID)
@@ -43,12 +38,6 @@ hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
 	end
 end)
 
---[[
-	Description:
-		Allows the player to use the CONTROL and ALT
-		keys to abandon all quests from a zone or
-		area.
-]]--
 hooksecurefunc(QuestLogHeaderCodeMixin, "OnClick", function(self)
 	if IsControlKeyDown() or IsAltKeyDown() then
 		local info = C_QuestLog.GetInfo(self.questLogIndex)
@@ -72,12 +61,6 @@ hooksecurefunc(QuestLogHeaderCodeMixin, "OnClick", function(self)
 	end
 end)
 
---[[
-	Description:
-		Allows the player to use the CONTROL and ALT
-		keys to abandon quests from the objective
-		tracker on the right side of the screen.
-]]--
 hooksecurefunc("QuestMapFrame_OpenToQuestDetails", function(self)
 	local questId = self
 	if IsControlKeyDown() or IsAltKeyDown() then
@@ -88,27 +71,6 @@ hooksecurefunc("QuestMapFrame_OpenToQuestDetails", function(self)
 	end
 end)
 
---[[
-	TODO:
-		Item Level automation will select the last item level
-		upgrade, regardless if it's not the largest upgrade.
-		
-		This needs to account for multiple rewards that are
-		item level upgrades, and always take the largest
-		upgrade.
-	
-	Item Level:
-		If the quest reward is a higher item level and the player's
-		equipped item isn't an heirloom, then set the best item index.
-		
-		If equippedItemItemLevel is nil, that means there isn't
-		an item equipped in the slot. Therefore, it's automatically
-		the best item.
-		
-	Sell Price:
-		If the quest reward has the highest sell price, then choose that
-		reward and automatically add it to the global Junker sell table.
-]]--
 local function CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
 	if numQuestChoices > 1 then
@@ -141,51 +103,69 @@ local function CompleteQuest()
 						local questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
 						local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
 						if HelpMePlayDB.QuestRewardId == 1 then
-							if equipLoc == "INVTYPE_FINGER" then
-								for invSlotId = 11, 12 do
+							if (UnitClass("player") == 1 and GetSpecializationInfo(2) == 72) and equipLoc == "INVTYPE_2HWEAPON" then
+								for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
 									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-										bestItemIndex = i
-									end
-								end
-							elseif equipLoc == "INVTYPE_TRINKET" then
-								for invSlotId = 13, 14 do
-									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-										bestItemIndex = i
-									end
-								end
-							elseif equipLoc == "INVTYPE_WEAPON" then
-								for j = 16, 17 do
-									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-										bestItemIndex = i
-									end
-								end
-							elseif equipLoc == "INVTYPE_2HWEAPON" and UnitClass("player") == 1 and GetSpecializationInfo(2) == 72 then
-								-- This is to account for fury warriors since they can dual wield 2H weapons.
-								for j = 16, 17 do
-									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-										bestItemIndex = i
-									end
-								end
-							elseif equipLoc == "" then
-								-- These are normally artifact relics.
-								--
-								-- Quests with artifact relics for a reward
-								-- are usually all artifact relics.
-								if sellPrice > 0 then
-									local totalSellPrice = 0
-									local phSellPrice = quantity*sellPrice
-									if phSellPrice > totalSellPrice then
 										bestItemIndex = i
 									end
 								end
 							else
-								local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-								if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
-									bestItemIndex = i
+								if equipLoc == "INVTYPE_FINGER" then
+									for invSlotId = INVSLOT_FINGER1, INVSLOT_FINGER2 do
+										if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)) then
+											local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+											if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+												bestItemIndex = i
+											end
+										else
+											bestItemIndex = i
+										end
+									end
+								elseif equipLoc == "INVTYPE_TRINKET" then
+									for invSlotId = INVSLOT_TRINKET1, INVSLOT_TRINKET2 do
+										if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)) then
+											local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+											if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+												bestItemIndex = i
+											end
+										else
+											bestItemIndex = i
+										end
+									end
+								elseif equipLoc == "INVTYPE_WEAPON" then
+									for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
+										if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)) then
+											local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+											if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
+												bestItemIndex = i
+											end
+										end
+									end
+								elseif equipLoc == "INVTYPE_HOLDABLE" then
+									if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) then
+										local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+										if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
+											bestItemIndex = i
+										end
+									end
+								elseif equipLoc == "" then
+									-- These are normally artifact relics.
+									--
+									-- Quests with artifact relics for a reward
+									-- are usually all artifact relics.
+									if sellPrice > 0 then
+										local totalSellPrice = 0
+										local phSellPrice = quantity*sellPrice
+										if phSellPrice > totalSellPrice then
+											bestItemIndex = i
+										end
+									end
+								else
+									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
+										bestItemIndex = i
+									end
 								end
 							end
 						elseif HelpMePlayDB.QuestRewardId == 2 then
@@ -255,15 +235,6 @@ local function GetAvailableQuests(gossipInfo)
 	end
 end
 
---[[
-	Description:
-		QUEST_GREETING fires whenever a quest giver has
-		more than 1 quest to process.
-		
-		If the SHIFT key is being held down, then recursively
-		call the function based on the delay until the key
-		is no longer held.
-]]--
 local function QUEST_GREETING()
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
@@ -290,20 +261,6 @@ local function QUEST_GREETING()
 	end
 end
 
---[[
-	Description:
-		QUEST_DETAIL fires whenever a quest's details
-		are being shown to the player.
-		
-		If the SHIFT key is being held down, then recursively
-		call the function based on the delay until the key
-		is no longer held.
-		
-		If the quest is an auto accept quest, then
-		close the quest frame since the quest is
-		auto accepted. If not, accept the quest and
-		Blizzard will close the frame for us.
-]]--
 local function QUEST_DETAIL(isAutoAccept)
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
@@ -532,25 +489,25 @@ e:SetScript("OnEvent", function(self, event, ...)
 										if equipLoc == "INVTYPE_FINGER" then
 											for i = 11, 12 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
-													EquipItemUpgrade(bagId, slotId, equipLoc)
+													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_TRINKET" then
 											for i = 13, 14 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
-													EquipItemUpgrade(bagId, slotId, equipLoc)
+													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_WEAPON" then
 											for i = 16, 17 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) then
-													EquipItemUpgrade(bagId, slotId, equipLoc)
+													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
 												end
 											end
 										else
 											local inventorySlot = inventorySlots[equipLoc]
 											if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) then
-												EquipItemUpgrade(bagId, slotId, equipLoc)
+												EquipItemUpgrade(bagId, slotId, inventorySlot[equipLoc], containerItemIcon, containerItemLink)
 											end
 										end
 									end
