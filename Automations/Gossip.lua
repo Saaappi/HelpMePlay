@@ -3,6 +3,7 @@ local e = CreateFrame("Frame")
 local currentMapId = 0
 local gossipEnabledMaps = {
 	[84] 	= true, -- Stormwind City
+	[87] 	= true, -- Ironforge
 	[641] 	= true, -- Val'sharah
 	[642] 	= true, -- Darkpens, Val'sharah
 	[1565] 	= true, -- Ardenweald
