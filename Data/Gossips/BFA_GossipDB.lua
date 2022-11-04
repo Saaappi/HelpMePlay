@@ -94,7 +94,7 @@ local DIALOG_BFA = {
 	[143690] = { -- Captured Zandalari Troll
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49408,
 				["c"] 			= { "none" },
 			},
 		},
@@ -102,7 +102,7 @@ local DIALOG_BFA = {
 	[143334] = { -- Daria Smithson
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49161,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51968 }, -- Return to Boralus
 			},
@@ -151,7 +151,7 @@ local DIALOG_BFA = {
 	[137559] = { -- Private James
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48674,
 				["c"] 			= { "none" },
 			},
 		},
@@ -159,7 +159,7 @@ local DIALOG_BFA = {
 	[135383] = { -- Barnard "The Smasher" Baysworth
 		["g"] = {
 			{
-				["o"] 			= 2,
+				["o"] 			= 49007,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51969 }, -- Return to Boralus
 			},
@@ -170,7 +170,7 @@ local DIALOG_BFA = {
 	[139620] = { -- Desha Stormwallow
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48827,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51967 }, -- Return to Boralus
 			},
@@ -181,7 +181,7 @@ local DIALOG_BFA = {
 	[122370] = { -- Cyrus Crestfall
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48242,
 				["c"] 			= { "none" },
 			},
 		},
@@ -189,7 +189,7 @@ local DIALOG_BFA = {
 	[137066] = { -- 7th Legion Magus
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48276,
 				["c"] 			= { "none" },
 			},
 		},
@@ -197,7 +197,7 @@ local DIALOG_BFA = {
 	[135612] = { -- Halford Wyrmbane
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49384,
 				["c"] 			= { "none" },
 			},
 		},
@@ -205,17 +205,17 @@ local DIALOG_BFA = {
 	[135681] = { -- Grand Admiral Jes-Tereth
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48168,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51308 }, -- Zuldazar Foothold
 			},
 			{
-				["o"] 			= 1,
+				["o"] 			= 48164,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51088 }, -- Heart of Darkness
 			},
 			{
-				["o"] 			= 1,
+				["o"] 			= 48162,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51283 }, -- Voyage to the West
 			},

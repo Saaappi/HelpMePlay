@@ -28,11 +28,17 @@ local DIALOG_CLASSIC = {
 	[120590] = { -- Lady Jaina Proudmoore
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 47615,
 				["c"] 	= { "level.lower" },
 				["l"] 	= 50,
 			},
+			{
+				["o"] 	= 47616,
+				["c"] 	= { "level.higher" },
+				["l"] 	= 49,
+			},
 		},
+		["c"] = true,
 	},
 	[154169] = { -- Captain Garrick
 		["g"] = {

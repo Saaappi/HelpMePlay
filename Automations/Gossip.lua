@@ -233,8 +233,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		if gossipEnabledMaps[currentMapId] then
+		--if gossipEnabledMaps[currentMapId] then
 			ProcessDialogTree(parentMapId)
-		end
+		--end
 	end
 end)
