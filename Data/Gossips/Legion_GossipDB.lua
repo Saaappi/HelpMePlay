@@ -14,6 +14,10 @@ local DIALOG_LEGION = {
 	[98825] = { -- Spiritwalker Ebonhorn
 		["g"] = {
 			{
+				["o"] 			= 44610,
+				["c"] 			= { "none" },
+			},
+			{
 				["o"] 			= 44611,
 				["c"] 			= { "none" },
 			},
@@ -98,7 +102,7 @@ local DIALOG_LEGION = {
 	[98773] = { -- Lasan Skyhorn
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44839,
 				["c"] 			= { "none" },
 			},
 		},
@@ -106,7 +110,7 @@ local DIALOG_LEGION = {
 	[99619] = { -- Navarrogg
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44200,
 				["c"] 			= { "none" },
 			},
 		},
@@ -138,7 +142,7 @@ local DIALOG_LEGION = {
 	[96591] = { -- Amateur Hunter
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44518,
 				["c"] 			= { "none" },
 			},
 		},
@@ -146,7 +150,7 @@ local DIALOG_LEGION = {
 	[98804] = { -- Amateur Hunter
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44518,
 				["c"] 			= { "none" },
 			},
 		},
@@ -154,7 +158,7 @@ local DIALOG_LEGION = {
 	[94434] = { -- Addie Fizzlebog
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 44520,
 				["c"] 			= { "none" },
 			},
 		},

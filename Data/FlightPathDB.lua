@@ -11,9 +11,9 @@ local FLIGHT_PATHS = {
 			},
 			{
 				["p"] 	= 1777, -- Sylvan Falls, Highmountain
-				["c"] 	= { "level.between", "quests.complete" },
+				["c"] 	= { "quests.complete", "level.between" },
+				["q"] 	= { 38721 }, -- Lieutenant of the Tower
 				["l"] 	= { 38, 40 },
-				["t"] 	= { 38721 }, -- Lieutenant of the Tower
 			},
 			{
 				["p"] 	= 1719, -- Thunder Totem, Highmountain
