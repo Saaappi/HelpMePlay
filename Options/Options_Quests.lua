@@ -251,10 +251,12 @@ local questOptions = {
 			values = {
 				[0] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Default"],
 				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Khadgar"],
+				[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Skull"],
 			},
 			sorting = {
 				[1] = 0,
 				[2] = 1,
+				[3] = 2,
 			},
 			get = function()
 				if not HelpMePlayDB.QuestMobIcon then

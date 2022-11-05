@@ -193,6 +193,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Desc"]											= "Select an icon that the addon should show on the NPC's nameplate."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Default"]								= "Default"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Khadgar"]								= "Khadgar (Dadgar)"
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Skull"]									= "Skull"
 	--
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
 	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"

@@ -45,6 +45,10 @@ local function UpdateNamePlate(namePlate, unit)
 						icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
 					elseif HelpMePlayDB.QuestMobIcon == 1 then
 						icon:SetTexture("Interface\\ICONS\\quest_khadgar")
+					elseif HelpMePlayDB.QuestMobIcon == 2 then
+						icon:SetSize(36, 36)
+						icon:SetTexture("Interface\\Widgets\\worldstateuitextures")
+						icon:SetTexCoord(0.388672, 0.513672, 0.00390625, 0.253906)
 					end
 					
 					icon:Show()
