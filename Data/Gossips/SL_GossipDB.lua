@@ -466,7 +466,7 @@ local DIALOG_SL = {
 	[156943] = { -- Meredy Huntswell
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 50819,
 				["c"] 			= { "none" },
 			},
 		},
