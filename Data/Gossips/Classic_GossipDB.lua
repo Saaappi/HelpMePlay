@@ -43,7 +43,7 @@ local DIALOG_CLASSIC = {
 	[154169] = { -- Captain Garrick
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 51396,
 				["c"] 	= { "none" },
 			},
 		},
