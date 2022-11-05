@@ -458,15 +458,7 @@ local DIALOG_SL = {
 	[153211] = { -- Meredy Huntswell
 		["g"] = {
 			{
-				["o"] 			= 1,
-				["c"] 			= { "none" },
-			},
-		},
-	},
-	[164835] = { -- Kee-La (Monk Only)
-		["g"] = {
-			{
-				["o"] 			= 1,
+				["o"] 			= 49526,
 				["c"] 			= { "none" },
 			},
 		},
@@ -507,6 +499,16 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	-- End of Exile's Reach (Horde)
+	-- Exile's Reach (Class NPCs)
+	[164835] = { -- Kee-La (Monk Only)
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	[163024] = { -- Coulston Nereus (Rogue Only)
 		["g"] = {
 			{
@@ -518,12 +520,12 @@ local DIALOG_SL = {
 	[162943] = { -- Hjalmar the Undying (Warrior Only)
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 51265,
 				["c"] 			= { "none" },
 			},
 		},
 	},
-	-- End of Exile's Reach (Horde)
+	-- End of Exile's Reach (Class NPCs)
 	-- Darkmaul Citadel (Horde)
 	[167663] = { -- Warlord Breka Grimaxe
 		["g"] = {

@@ -59,7 +59,7 @@ function HelpMePlay:HideJunkerButton()
 	HMPJunkerMerchantButton:Hide()
 end
 
-function HelpMePlaySellItems()
+local function HelpMePlaySellItems()
 	-- Don't iterate over the whole bag.
 	-- Only iterate until we've reached
 	-- the number of used slots for the
