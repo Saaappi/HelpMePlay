@@ -298,7 +298,7 @@ local DIALOG_SL = {
 	[161350] = { -- Captain Garrick
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 51352,
 				["c"] 			= { "none" },
 			},
 		},
