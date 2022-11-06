@@ -504,10 +504,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 												end
 											end
 										else
-											local inventorySlot = inventorySlots[equipLoc]
-											if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlot)) ~= 7 then
-												EquipItemUpgrade(bagId, slotId, inventorySlots[equipLoc], containerItemIcon, containerItemLink)
-											end
+											EquipItemUpgrade(bagId, slotId, inventorySlot, containerItemIcon, containerItemLink)
 										end
 									end
 								end
