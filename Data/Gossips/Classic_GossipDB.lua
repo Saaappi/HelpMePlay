@@ -110,7 +110,7 @@ local DIALOG_CLASSIC = {
 	[44825] = { -- Bat Handler Maggotbreath
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 38211,
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 26998 }, -- Iterating Upon Success
 			},
@@ -182,6 +182,7 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	-- End of Hillsbrad Foothills
 	-- Eastern Plaguelands (Death Knight)
 	[28406] = { -- Death Knight Initiate
 		["g"] = {
@@ -192,7 +193,6 @@ local DIALOG_CLASSIC = {
 		},
 	},
 	-- End of Eastern Plaguelands (Death Knight)
-	-- End of Hillsbrad Foothills
 	-- Neutral
 	[149626] = { -- Vanguard Battlemage (present in both Stormwind and Orgrimmar)
 		["g"] = {
