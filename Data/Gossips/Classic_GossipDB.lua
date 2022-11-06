@@ -92,7 +92,7 @@ local DIALOG_CLASSIC = {
 	[168431] = { -- Warlord Breka Grimaxe
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 51745,
 				["c"] 	= { "none" },
 			},
 		},
