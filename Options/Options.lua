@@ -86,6 +86,7 @@ local main = {
 		},
 		issueBtn = {
 			name = L_GLOBALSTRINGS["MainOptions.Button.OpenIssue"],
+			desc = L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Tooltip"],
 			order = 11,
 			type = "execute",
 			func = function(_, _)

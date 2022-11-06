@@ -91,6 +91,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
 	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue"] 											= "Open Issue"
+	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Tooltip"] 									= "Click the button to get a link to the GitHub page to open a bug report, feature suggestion, or to request a change."
 	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Text"] 										= "|T236688:36|t\n\nCopy the link below, and thank you for opening an issue!"
 	-- End: 	Main Options (Options.lua)
 	--
