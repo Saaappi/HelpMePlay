@@ -48,6 +48,7 @@ local questOptions = {
 			order = 5,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"],
 			type = "toggle",
+			disabled = true,
 			get = function() return HelpMePlayDB.AutoEquipQuestRewardsEnabled end,
 			set = function(_, val) HelpMePlayDB.AutoEquipQuestRewardsEnabled = val end,
 		},

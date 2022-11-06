@@ -37,16 +37,8 @@ function HelpMePlay:OnInitialize()
 		HelpMePlay:MinimapIcon(HelpMePlayDB.MinimapIconEnabled)
 	end
 	
-	-- Dialog was renamed to Gossip. Replace it
-	-- with GossipEnabled, set the old variable
-	-- to nil to remove it and set the new one
-	-- to 'true'.
-	--
-	-- This is temporary and can likely be removed
-	-- in the next release.
-	if HelpMePlayDB.DialogEnabled then
-		HelpMePlayDB.DialogEnabled = nil
-		HelpMePlayDB.GossipEnabled = true
+	if HelpMePlayDB.AutoEquipQuestRewardsEnabled then
+		HelpMePlayDB.AutoEquipQuestRewardsEnabled = false
 	end
 end
 
