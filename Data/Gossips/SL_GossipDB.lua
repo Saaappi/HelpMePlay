@@ -326,7 +326,7 @@ local DIALOG_SL = {
 	[167663] = { -- Warlord Breka Grimaxe
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 52784,
 				["c"] 			= { "none" },
 			},
 		},
