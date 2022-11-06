@@ -41,6 +41,12 @@ local FLIGHT_PATHS = {
 			},
 			{
 				["p"] 	= 645, -- Forsaken High Command, Silverpine Forest
+				["c"] 	= { "target.is", "level.between" },
+				["t"] 	= 43124, -- Anette Williams
+				["l"] 	= { 10, 11 },
+			},
+			{
+				["p"] 	= 645, -- Forsaken High Command, Silverpine Forest
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 27096 }, -- Orcs are in Order
 			},
