@@ -10,7 +10,9 @@ local main = {
 	args = {
 		festiveText = {
 			name = function()
-				if date("%m") == "10" then
+				if date("%m") == "11" then
+					return L_GLOBALSTRINGS["MainOptions.Festive.LoveIsInTheAir"]
+				elseif date("%m") == "10" then
 					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"]
 				elseif date("%m") == "12" then
 					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"]
@@ -22,24 +24,61 @@ local main = {
 			fontSize = "medium",
 			type = "description",
 		},
-		about_header = {
-			name = L_GLOBALSTRINGS["Header.About"],
+		festiveQueueBtn = {
+			name = function()
+				if date("%m") == "11" then
+					return "|cffA335EE[X-45 Heartbreaker]|r"
+				elseif date("%m") == "10" then
+					return "|cffA335EE[The Horseman's Reins]|r"
+				elseif date("%m") == "12" then
+					return "|cffA335EE[Minion of Grumpus]|r"
+				else
+					return ""
+				end
+			end,
 			order = 1,
+			image = function()
+				if date("%m") == "11" then
+					return "Interface\\ICONS\\inv_rocketmountpink"
+				elseif date("%m") == "10" then
+					return "Interface\\ICONS\\inv_belt_12"
+				elseif date("%m") == "12" then
+					return "Interface\\ICONS\\inv_misc_pet_pandaren_yeti_grey"
+				else
+					return ""
+				end
+			end,
+			type = "execute",
+			tooltipHyperlink = function()
+				if date("%m") == "11" then
+					return "|cffa335ee|Hitem:50250::::::::27:253::::::::|h[X-45 Heartbreaker]|h|r"
+				elseif date("%m") == "10" then
+					return "|cffa335ee|Hitem:37012::::::::27:253::::::::|h[The Horseman's Reins]|h|r"
+				elseif date("%m") == "12" then
+					return "|cffa335ee|Hitem:128671::::::::27:253::::::::|h[Minion of Grumpus]|h|r"
+				else
+					return ""
+				end
+			end,
+		},
+		aboutHeader = {
+			name = L_GLOBALSTRINGS["Header.About"],
+			order = 2,
 			type = "header",
 		},
 		versionText = {
 			name = L_GLOBALSTRINGS["MainOptions.Version"],
-			order = 2,
+			order = 3,
 			type = "description",
 		},
 		authorText = {
 			name = L_GLOBALSTRINGS["MainOptions.Author"],
-			order = 3,
+			order = 4,
 			type = "description",
 		},
 		contactText = {
 			name = L_GLOBALSTRINGS["MainOptions.Contact"],
-			order = 4,
+			order = 5,
 			type = "description",
 		},
 		resources_header = {
@@ -48,12 +87,12 @@ local main = {
 			type = "header",
 		},
 		issueBtn = {
-			name = L_GLOBALSTRINGS["General.Button.OpenIssue"],
+			name = L_GLOBALSTRINGS["MainOptions.Button.OpenIssue"],
 			order = 11,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_GITHUB_POPUP"] = {
-					text = L_GLOBALSTRINGS["General.Button.OpenIssue.Text"],
+					text = L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Text"],
 					button1 = "OK",
 					OnShow = function(self, data)
 						self.editBox:SetText("https://github.com/Saaappi/HelpMePlay/issues/new")

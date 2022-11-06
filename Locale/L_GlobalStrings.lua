@@ -84,13 +84,14 @@ if (isLocaleSupported) then
 	-- End: 	General DropDowns
 	--
 	-- Start: 	Main Options (Options.lua)
-	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/HallowsEnd:64|t" .. "\n\n" .. "Happy |cffF99943Hallow's End|r! Good luck on your |T132501:0|t |cffA335EE[The Horseman's Reins]|r this year!"
-	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|TInterface/AddOns/HelpMePlay/Assets/EasterEggs/WinterVeil:64|t" .. "\n\n" .. "Merry |cff3EA425Winter Veil|r! 'Tis the season to be jolly! Fa-la-la-la-la-Ogri'la! Good luck on your |T1245298:0|t |cffA335EE[Minion of Grumpus]|r this year!"
+	L_GLOBALSTRINGS["MainOptions.Festive.LoveIsInTheAir"] 										= "|cffF7B0BBLove is in the Air|r will find its way into our hearts this month!" .. "\n\n" .. "Special Item(s):"
+	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|cffF7741EHallow's End|r creeps in this month!" .. "\n\n" .. "Special Item(s):"
+	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|cffA8D1DFWinter Veil|r is blowing in this month!" .. "\n\n" .. "Special Item(s):"
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
-	L_GLOBALSTRINGS["General.Button.OpenIssue"] 												= "Open Issue"
-	L_GLOBALSTRINGS["General.Button.OpenIssue.Text"] 											= "|T236688:36|t\n\nCopy the link below, and thank you for opening an issue!"
+	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue"] 											= "Open Issue"
+	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Text"] 										= "|T236688:36|t\n\nCopy the link below, and thank you for opening an issue!"
 	-- End: 	Main Options (Options.lua)
 	--
 	-- Start: 	General Options (Options_General.lua)

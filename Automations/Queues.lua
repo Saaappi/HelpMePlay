@@ -161,7 +161,7 @@ HMPQueueButton:HookScript("OnClick", function(self)
 			SetLFGRoles(false, false, false, true)
 		end
 		
-		if calendarDate.month == 10 and calendarDate.monthDay > 6 then
+		if calendarDate.month == 10 and calendarDate.monthDay > 6 then -- Hallow's End
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 285, LFDDungeonList, LFDHiddenByCollapseList)
 		elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Love is in the Air
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 288, LFDDungeonList, LFDHiddenByCollapseList)
