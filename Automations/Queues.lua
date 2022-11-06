@@ -193,7 +193,7 @@ end)
 
 HMPDungeonQueueButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(string.format(L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"], "|cffFFD100" .. dungeonInfo.name .. "|r"))
+	GameTooltip:SetText(string.format(L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"], "|cffFFD100" .. dungeonInfo.n .. "|r"))
 	GameTooltip:Show()
 end)
 

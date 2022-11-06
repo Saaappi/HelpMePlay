@@ -316,7 +316,7 @@ local DIALOG_SL = {
 	[167598] = { -- Herbert Gloomburst
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 54297,
 				["c"] 			= { "none" },
 			},
 		},
@@ -333,7 +333,7 @@ local DIALOG_SL = {
 	},
 	-- End of Darkmaul Citadel (Horde)
 	-- Exile's Reach (Class NPCs)
-	[167309] = { -- Herbert Gloomburst (Hunter Only)
+	[167309] = { -- Herbert Gloomburst (Hunter Only) (Horde)
 		["g"] = {
 			{
 				["o"] 			= 52664,
@@ -341,7 +341,7 @@ local DIALOG_SL = {
 			},
 		},
 	},
-	[167215] = { -- Mithdran Dawntracker (Hunter Only)
+	[167215] = { -- Mithdran Dawntracker (Hunter Only) (Horde)
 		["g"] = {
 			{
 				["o"] 			= 52666,
