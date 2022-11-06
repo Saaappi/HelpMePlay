@@ -37,9 +37,7 @@ local function LearnAllUnknownTransmog(equippedItems)
 	-- Open the player bags, then close them
 	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
-		OpenAllBags()
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
-			CloseAllBags()
 			for i=0, NUM_BAG_SLOTS do -- We iterate through the inventory, bags 0 to 4.
 				for j=1, GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
 					local _, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
@@ -144,6 +142,21 @@ elseif select(2, IsAddOnLoaded("Bagnon")) then
 	hooksecurefunc(Bagnon.InventoryFrame, "OnHide", function(self)
 		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
 		HMPTransmogButton:Hide()
+	end)
+-- ElvUI
+elseif select(2, IsAddOnLoaded("ElvUI")) then
+	normalTexture:SetSize(24, 24)
+	highlightTexture:SetSize(24, 24)
+	HMPTransmogButton:SetSize(24, 24)
+	HelpMePlay:SecureHook("ToggleAllBags", function()
+		C_Timer.After(0.1, function()
+			HMPTransmogButton:SetPoint("TOPRIGHT", ElvUI_ContainerFrame, "TOPLEFT", -5, -1)
+			if ElvUI_ContainerFrame:IsVisible() then
+				HMPTransmogButton:Show()
+			else
+				HMPTransmogButton:Hide()
+			end
+		end)
 	end)
 -- No AddOn
 else
