@@ -119,7 +119,7 @@ local DIALOG_CLASSIC = {
 	[45752] = { -- Ambermill Dimensional Portal
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 37933,
 				["c"] 	= { "none" },
 			},
 		},

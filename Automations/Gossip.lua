@@ -7,6 +7,7 @@ local gossipEnabledMaps = {
 	[1419] 	= true, -- Blasted Lands
 	[84] 	= true, -- Stormwind City
 	[87] 	= true, -- Ironforge
+	[21] 	= true, -- Silverpine Forest
 	[641] 	= true, -- Val'sharah
 	[642] 	= true, -- Darkpens, Val'sharah
 	[650] 	= true, -- Highmountain
