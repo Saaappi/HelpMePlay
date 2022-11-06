@@ -10,55 +10,53 @@ local main = {
 	args = {
 		festiveText = {
 			name = function()
-				if date("%m") == "11" then
+				if date("%m") == "02" then
 					return L_GLOBALSTRINGS["MainOptions.Festive.LoveIsInTheAir"]
 				elseif date("%m") == "10" then
 					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"]
 				elseif date("%m") == "12" then
 					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"]
-				else
-					return ""
 				end
 			end,
 			order = 0,
 			fontSize = "medium",
 			type = "description",
+			hidden = function()
+				if date("%m") ~= "02" or date("%m") ~= "10" or date("%m") ~= "12" then return true end
+			end,
 		},
 		festiveSpecialItemBtn = {
 			name = function()
-				if date("%m") == "2" then
+				if date("%m") == "02" then
 					return "|cffA335EE[X-45 Heartbreaker]|r"
 				elseif date("%m") == "10" then
 					return "|cffA335EE[The Horseman's Reins]|r"
 				elseif date("%m") == "12" then
 					return "|cffA335EE[Minion of Grumpus]|r"
-				else
-					return ""
 				end
 			end,
 			order = 1,
 			image = function()
-				if date("%m") == "2" then
+				if date("%m") == "02" then
 					return "Interface\\ICONS\\inv_rocketmountpink"
 				elseif date("%m") == "10" then
 					return "Interface\\ICONS\\inv_belt_12"
 				elseif date("%m") == "12" then
 					return "Interface\\ICONS\\inv_misc_pet_pandaren_yeti_grey"
-				else
-					return ""
 				end
 			end,
 			type = "execute",
 			tooltipHyperlink = function()
-				if date("%m") == "2" then
+				if date("%m") == "02" then
 					return "|cffa335ee|Hitem:50250::::::::27:253::::::::|h[X-45 Heartbreaker]|h|r"
 				elseif date("%m") == "10" then
 					return "|cffa335ee|Hitem:37012::::::::27:253::::::::|h[The Horseman's Reins]|h|r"
 				elseif date("%m") == "12" then
 					return "|cffa335ee|Hitem:128671::::::::27:253::::::::|h[Minion of Grumpus]|h|r"
-				else
-					return ""
 				end
+			end,
+			hidden = function()
+				if date("%m") ~= "02" or date("%m") ~= "10" or date("%m") ~= "12" then return true end
 			end,
 		},
 		aboutHeader = {
