@@ -26,7 +26,7 @@ local main = {
 		},
 		festiveQueueBtn = {
 			name = function()
-				if date("%m") == "11" then
+				if date("%m") == "2" then
 					return "|cffA335EE[X-45 Heartbreaker]|r"
 				elseif date("%m") == "10" then
 					return "|cffA335EE[The Horseman's Reins]|r"
@@ -38,7 +38,7 @@ local main = {
 			end,
 			order = 1,
 			image = function()
-				if date("%m") == "11" then
+				if date("%m") == "2" then
 					return "Interface\\ICONS\\inv_rocketmountpink"
 				elseif date("%m") == "10" then
 					return "Interface\\ICONS\\inv_belt_12"
@@ -50,7 +50,7 @@ local main = {
 			end,
 			type = "execute",
 			tooltipHyperlink = function()
-				if date("%m") == "11" then
+				if date("%m") == "2" then
 					return "|cffa335ee|Hitem:50250::::::::27:253::::::::|h[X-45 Heartbreaker]|h|r"
 				elseif date("%m") == "10" then
 					return "|cffa335ee|Hitem:37012::::::::27:253::::::::|h[The Horseman's Reins]|h|r"
