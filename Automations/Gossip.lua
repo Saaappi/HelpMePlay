@@ -153,13 +153,17 @@ local function SelectGossipOption(options, npcId, parentMapId)
 						end
 					elseif condition == "quest.obj.complete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-						if objectives[gossip.obj].finished then
-							numConditionsMatched = numConditionsMatched + 1
+						if objectives[gossip.obj] then
+							if objectives[gossip.obj].finished then
+								numConditionsMatched = numConditionsMatched + 1
+							end
 						end
 					elseif condition == "quest.obj.notComplete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-						if objectives[gossip.obj].finished == false then
-							numConditionsMatched = numConditionsMatched + 1
+						if objectives[gossip.obj] then
+							if objectives[gossip.obj].finished == false then
+								numConditionsMatched = numConditionsMatched + 1
+							end
 						end
 					elseif condition == "player.faction" then
 						if (UnitFactionGroup("player")) == gossip.f then

@@ -308,7 +308,7 @@ local DIALOG_SL = {
 	[167298] = { -- Herbert Gloomburst
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 52949,
 				["c"] 			= { "none" },
 			},
 		},
@@ -322,7 +322,35 @@ local DIALOG_SL = {
 		},
 	},
 	-- End of Exile's Reach (Horde)
+	-- Darkmaul Citadel (Horde)
+	[167663] = { -- Warlord Breka Grimaxe
+		["g"] = {
+			{
+				["o"] 			= 1,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	-- End of Darkmaul Citadel (Horde)
 	-- Exile's Reach (Class NPCs)
+	[167309] = { -- Herbert Gloomburst (Hunter Only)
+		["g"] = {
+			{
+				["o"] 			= 52664,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[167215] = { -- Mithdran Dawntracker (Hunter Only)
+		["g"] = {
+			{
+				["o"] 			= 52666,
+				["c"] 			= { "quest.obj.notComplete" },
+				["q"] 			= 60162, -- The Art of Taming
+				["obj"] 		= 3,
+			},
+		},
+	},
 	[164835] = { -- Kee-La (Monk Only)
 		["g"] = {
 			{
@@ -348,16 +376,6 @@ local DIALOG_SL = {
 		},
 	},
 	-- End of Exile's Reach (Class NPCs)
-	-- Darkmaul Citadel (Horde)
-	[167663] = { -- Warlord Breka Grimaxe
-		["g"] = {
-			{
-				["o"] 			= 1,
-				["c"] 			= { "none" },
-			},
-		},
-	},
-	-- End of Darkmaul Citadel (Horde)
 }
 
 addonTable.DIALOG_SL = DIALOG_SL
