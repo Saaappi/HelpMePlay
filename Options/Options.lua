@@ -24,7 +24,7 @@ local main = {
 			fontSize = "medium",
 			type = "description",
 		},
-		festiveQueueBtn = {
+		festiveSpecialItemBtn = {
 			name = function()
 				if date("%m") == "2" then
 					return "|cffA335EE[X-45 Heartbreaker]|r"
