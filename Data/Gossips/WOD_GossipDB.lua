@@ -40,7 +40,7 @@ local DIALOG_WOD = {
 	[86775] = { -- Senior Peon II
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 43217,
 				["c"] 	= { "none" },
 			},
 		},
@@ -48,7 +48,7 @@ local DIALOG_WOD = {
 	[80225] = { -- Skaggit
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 42535,
 				["c"] 	= { "none" },
 			},
 		},

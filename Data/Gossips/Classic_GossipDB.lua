@@ -218,8 +218,15 @@ local DIALOG_CLASSIC = {
 		["g"] = {
 			{
 				["o"] 	= 51033,
-				["c"] 	= { "quests.active" },
+				["c"] 	= { "quests.active", "player.faction" },
 				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
+				["f"] 	= "Alliance",
+			},
+			{
+				["o"] 	= 51034,
+				["c"] 	= { "quests.active", "player.faction" },
+				["q"] 	= { 34398 }, -- Warlords of Draenor: The Dark Portal
+				["f"] 	= "Horde",
 			},
 		},
 	},

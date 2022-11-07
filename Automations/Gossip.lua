@@ -1,44 +1,6 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local currentMapId = 0
-local gossipEnabledMaps = {
-	[17] 	= true, -- Blasted Lands
-	[1246] 	= true, -- Blasted Lands
-	[1419] 	= true, -- Blasted Lands
-	[84] 	= true, -- Stormwind City
-	[87] 	= true, -- Ironforge
-	[21] 	= true, -- Silverpine Forest
-	[641] 	= true, -- Val'sharah
-	[642] 	= true, -- Darkpens, Val'sharah
-	[650] 	= true, -- Highmountain
-	[652] 	= true, -- Thunder Totem, Highmountain
-	[654] 	= true, -- Mucksnout Den, Highmountain
-	[657] 	= true, -- Path of Huln (Floor 1), Highmountain
-	[658] 	= true, -- Path of Huln (Floor 2), Highmountain
-	[659] 	= true, -- Stonedark Grotto, Highmountain
-	[750] 	= true, -- Thunder Totem, Highmountain
-	[1189] 	= true, -- Highmountain
-	[862] 	= true, -- Zuldazar
-	[1181] 	= true, -- Zuldazar
-	[1193] 	= true, -- Zuldazar
-	[863] 	= true, -- Nazmir
-	[1194] 	= true, -- Nazmir
-	[864] 	= true, -- Vol'dun
-	[1195] 	= true, -- Vol'dun
-	[1409] 	= true, -- Exile's Reach
-	[1610] 	= true, -- Terrace of Reanimation, Darkmaul Citadel
-	[1565] 	= true, -- Ardenweald
-	[1603] 	= true, -- Ardenweald
-	[1643] 	= true, -- Ardenweald
-	[1709] 	= true, -- Ardenweald
-	[1739] 	= true, -- Ardenweald
-	[1740] 	= true, -- Ardenweald
-	[2005] 	= true, -- Ardenweald
-	[1525] 	= true, -- Revendreth
-	[1734] 	= true, -- Revendreth
-	[1738] 	= true, -- Revendreth
-	[1742] 	= true, -- Revendreth
-}
 
 local function GetParentMapID(mapId)
 	currentMapId = C_Map.GetBestMapForUnit("player")
@@ -255,8 +217,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		--if gossipEnabledMaps[currentMapId] then
-			ProcessDialogTree(parentMapId)
-		--end
+		ProcessDialogTree(parentMapId)
 	end
 end)
