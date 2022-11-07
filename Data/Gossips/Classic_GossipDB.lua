@@ -80,7 +80,7 @@ local DIALOG_CLASSIC = {
 	[4311] = { -- Holgar Stormaxe
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 47485,
 				["c"] 	= { "quests.active" },
 				["q"] 	= { 44281 }, -- To Be Prepared
 			},
