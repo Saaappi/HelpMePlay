@@ -100,7 +100,7 @@ local DIALOG_CLASSIC = {
 	[135205] = { -- Nathanos Blightcaller
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 49081,
 				["c"] 	= { "none" },
 			},
 		},

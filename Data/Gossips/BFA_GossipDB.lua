@@ -5,7 +5,11 @@ local DIALOG_BFA = {
 	[137613] = { -- Hobart Grapplehammer
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48266,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 48267,
 				["c"] 			= { "none" },
 			},
 		},
@@ -13,7 +17,11 @@ local DIALOG_BFA = {
 	[137397] = { -- Wormhole
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48157,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 48158,
 				["c"] 			= { "none" },
 			},
 		},
@@ -21,7 +29,7 @@ local DIALOG_BFA = {
 	[139519] = { -- Swellthrasher
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48793,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51985 }, -- Return to Zuldazar
 			},
@@ -32,7 +40,7 @@ local DIALOG_BFA = {
 	[138137] = { -- Huelo
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48742,
 				["c"] 			= { "none" },
 			},
 		},
@@ -40,7 +48,7 @@ local DIALOG_BFA = {
 	[138097] = { -- Muka Stormbreaker
 		["g"] = {
 			{
-				["o"] 			= 2,
+				["o"] 			= 48826,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51986 }, -- Return to Zuldazar
 			},
@@ -51,7 +59,7 @@ local DIALOG_BFA = {
 	[137675] = { -- Shadow Hunter Ty'jin
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48775,
 				["c"] 			= { "none" },
 			},
 		},
@@ -59,7 +67,7 @@ local DIALOG_BFA = {
 	[137807] = { -- Navigator Swink
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48768,
 				["c"] 			= { "none" },
 			},
 		},
@@ -67,7 +75,7 @@ local DIALOG_BFA = {
 	[137798] = { -- Boatswain Taryn
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48767,
 				["c"] 			= { "none" },
 			},
 		},
@@ -75,7 +83,7 @@ local DIALOG_BFA = {
 	[137800] = { -- Quartermaster Killian
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48675,
 				["c"] 			= { "none" },
 			},
 		},
@@ -83,7 +91,7 @@ local DIALOG_BFA = {
 	[139524] = { -- Erul Dawnbrook
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48794,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51984 }, -- Return to Zuldazar
 			},
@@ -113,7 +121,7 @@ local DIALOG_BFA = {
 	[120169] = { -- Princess Talanji
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 47851,
 				["c"] 			= { "none" },
 			},
 		},
@@ -121,7 +129,7 @@ local DIALOG_BFA = {
 	[143913] = { -- Eitrigg
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 49250,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51340 }, -- Drustvar Ho!
 			},
@@ -130,17 +138,17 @@ local DIALOG_BFA = {
 	[135690] = { -- Dread-Admiral Tattersail
 		["g"] = {
 			{
-				["o"] 			= 1,
+				["o"] 			= 48342,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51340 }, -- Drustvar Ho!
 			},
 			{
-				["o"] 			= 1,
+				["o"] 			= 48345,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51421 }, -- Shiver Me Timbers
 			},
 			{
-				["o"] 			= 1,
+				["o"] 			= 48343,
 				["c"] 			= { "quests.active" },
 				["q"] 			= { 51532 }, -- Storming In
 			},
