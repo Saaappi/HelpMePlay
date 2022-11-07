@@ -129,7 +129,11 @@ local DIALOG_CLASSIC = {
 	[47444] = { -- Dumass
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 39812,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 39344,
 				["c"] 	= { "none" },
 			},
 		},
@@ -137,7 +141,15 @@ local DIALOG_CLASSIC = {
 	[47443] = { -- Kingslayer Orkus
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 39118,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 39073,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 39072,
 				["c"] 	= { "none" },
 			},
 		},
@@ -145,7 +157,15 @@ local DIALOG_CLASSIC = {
 	[47442] = { -- Johnny Awesome
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 38308,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 39120,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 39119,
 				["c"] 	= { "none" },
 			},
 		},
@@ -153,7 +173,7 @@ local DIALOG_CLASSIC = {
 	[48218] = { -- Kingslayer Orkus
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 39520,
 				["c"] 	= { "none" },
 			},
 		},
@@ -161,7 +181,7 @@ local DIALOG_CLASSIC = {
 	[48503] = { -- Kingslayer Orkus
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 39079,
 				["c"] 	= { "none" },
 			},
 		},
@@ -169,7 +189,7 @@ local DIALOG_CLASSIC = {
 	[48922] = { -- Instructor Rufus
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 39691,
 				["c"] 	= { "none" },
 			},
 		},
@@ -177,7 +197,7 @@ local DIALOG_CLASSIC = {
 	[48923] = { -- Drill Sergeant Magnus
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 39521,
 				["c"] 	= { "none" },
 			},
 		},

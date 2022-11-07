@@ -101,7 +101,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.MinimapIcon"] 												= "Minimap Icon"
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
 	L_GLOBALSTRINGS["General.Toggle.DevMode"] 													= "Developer Mode"
-	L_GLOBALSTRINGS["General.Toggle.DevModeDesc"] 												= "Toggle to have the addon spew out extra information for various functions.\n\nThis is really just a developer thing."
+	L_GLOBALSTRINGS["General.Toggle.DevModeDesc"] 												= "Toggle and the addon will output \"random\" information at \"spontaneous\" moments.\n\nThis really should be for the author's eyes only but... have fun!"
 	-- End: 	General Options (Options_General.lua)
 	--
 	-- Start: 	Features Options (Options_Features.lua)
