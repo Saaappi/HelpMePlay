@@ -56,7 +56,7 @@ local DIALOG_WOD = {
 	[79407] = { -- Bron Skyhorn
 		["g"] = {
 			{
-				["o"] 	= 2,
+				["o"] 	= 42828,
 				["c"] 	= { "quests.active", "level.higher" },
 				["q"] 	= { 36706 }, -- Ashran Appearance
 				["l"] 	= 41,
