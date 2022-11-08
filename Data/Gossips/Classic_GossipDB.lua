@@ -105,6 +105,23 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	[171791] = { -- Nazgrim
+		["g"] = {
+			{ -- Do The Maw
+				["o"] 	= 52729,
+				["c"] 	= { "addon.setting" },
+				["s"] 	= "TheMawEnabled",
+				["r"] 	= true,
+			},
+			{ -- Skip The Maw
+				["o"] 	= 52727,
+				["c"] 	= { "addon.setting" },
+				["s"] 	= "TheMawEnabled",
+				["r"] 	= false,
+			},
+		},
+		["c"] = true,
+	},
 	-- End of Orgrimmar
 	-- Silverpine Forest
 	[44825] = { -- Bat Handler Maggotbreath
