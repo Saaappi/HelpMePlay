@@ -24,6 +24,44 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	-- The Maw
+	[166980] = { -- Lady Jaina Proudmoore
+		["g"] = {
+			{
+				["o"] 			= 53556,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 51881,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 51882,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 51883,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 54098,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 53540,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[165918] = { -- Highlord Darion Mograine
+		["g"] = {
+			{
+				["o"] 			= 54157,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	-- End of The Maw
 	-- Oribos
 	[159478] = { -- Tal-Inara
 		["g"] = {
