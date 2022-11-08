@@ -207,7 +207,7 @@ local DIALOG_CLASSIC = {
 	[28406] = { -- Death Knight Initiate
 		["g"] = {
 			{
-				["o"] 	= 1,
+				["o"] 	= 37188,
 				["c"] 	= { "none" },
 			},
 		},
