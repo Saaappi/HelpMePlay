@@ -1,6 +1,6 @@
 local addonName, addonTable = ...
 local DIALOG_LEGION = {
-	-- Supported Maps: 619 (Broken Isles), 905 (Argus)
+	-- Supported Maps: 619 (Broken Isles), 630 (Azsuna), 905 (Argus)
 	-- Objects
 	[0] = {
 		["g"] = {
@@ -10,6 +10,116 @@ local DIALOG_LEGION = {
 			},
 		},
 	},
+	-- Mardum, the Shattered Abyss
+	[99914] = { -- Ashtongue Mystic
+		["g"] = {
+			{
+				["o"] 			= 45047,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99915] = { -- Sevis Brightflame
+		["g"] = {
+			{
+				["o"] 			= 45048,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 45101,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[94435] = { -- Matron Mother Malevolence
+		["g"] = {
+			{
+				["o"] 			= 44865,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[90247] = { -- Battlelord Gaardoun
+		["g"] = {
+			{
+				["o"] 			= 42930,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[93693] = { -- Lady S'theno
+		["g"] = {
+			{
+				["o"] 			= 44410,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[96436] = { -- Jace Darkweaver
+		["g"] = {
+			{
+				["o"] 			= 45064,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[96655] = { -- Allari the Souleater
+		["g"] = {
+			{
+				["o"] 			= 44405,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[96420] = { -- Cyana Nightglaive
+		["g"] = {
+			{
+				["o"] 			= 44440,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[99045] = { -- Kor'vas Bloodthorn
+		["g"] = {
+			{
+				["o"] 			= 44442,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[93127] = { -- Kayn Sunfury
+		["g"] = {
+			{
+				["o"] 			= 44408,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[96652] = { -- Mannethrel Darkstar
+		["g"] = {
+			{
+				["o"] 			= 44661,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[96653] = { -- Izal Whitemoon
+		["g"] = {
+			{
+				["o"] 			= 44646,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	[97644] = { -- Kor'vas Bloodthorn
+		["g"] = {
+			{
+				["o"] 			= 44913,
+				["c"] 			= { "none" },
+			},
+		},
+	},
+	-- End of Mardum, the Shattered Abyss
 	-- Highmountain
 	[98825] = { -- Spiritwalker Ebonhorn
 		["g"] = {

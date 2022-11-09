@@ -48,6 +48,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 							SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end
+					elseif id == 97644 then
+						-- Kor'vas Bloodthorn
+						-- Always chooses Kayn Sunfury
+						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
 					elseif id == 355352 or id == 357514 then
 						if HelpMePlayDB.CovenantId == 0 or HelpMePlayDB.CovenantId == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
 						if HelpMePlayDB.CovenantId == 1 then

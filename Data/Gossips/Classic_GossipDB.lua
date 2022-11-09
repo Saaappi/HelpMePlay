@@ -87,8 +87,24 @@ local DIALOG_CLASSIC = {
 		},
 		["c"] = true,
 	},
+	[100866] = { -- Lady Sylvanas Windrunner
+		["g"] = {
+			{
+				["o"] 	= 44962,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Durotar
 	-- Orgrimmar
+	[100636] = { -- High Overlord Saurfang
+		["g"] = {
+			{
+				["o"] 	= 45115,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	[168431] = { -- Warlord Breka Grimaxe
 		["g"] = {
 			{
