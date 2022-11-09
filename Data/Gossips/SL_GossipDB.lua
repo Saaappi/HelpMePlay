@@ -109,6 +109,11 @@ local DIALOG_SL = {
 			{
 				["o"] 			= 52786,
 				["c"] 			= { "quests.active" },
+				["q"] 			= { 58103 }, -- Pride or Unit
+			},
+			{
+				["o"] 			= 52786,
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 60296 }, -- Pride or Unit
 			},
 		},
@@ -116,6 +121,11 @@ local DIALOG_SL = {
 	},
 	[157696] = { -- Nemea
 		["g"] = {
+			{
+				["o"] 			= 52814,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 58103 }, -- Pride or Unit
+			},
 			{
 				["o"] 			= 52814,
 				["c"] 			= { "quests.active" },
