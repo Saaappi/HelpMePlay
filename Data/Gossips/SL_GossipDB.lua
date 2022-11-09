@@ -103,17 +103,12 @@ local DIALOG_SL = {
 		["g"] = {
 			{
 				["o"] 			= 49984,
-				["c"] 			= "quests.active",
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 57933 }, -- We Can Rebuild Him
 			},
 			{
-				["o"] 			= 1,
-				["c"] 			= "quests.active",
-				["q"] 			= { 62241 }, -- Training Regimen (WQ)
-			},
-			{
-				["o"] 			= 2,
-				["c"] 			= "quests.active",
+				["o"] 			= 52786,
+				["c"] 			= { "quests.active" },
 				["q"] 			= { 60296 }, -- Pride or Unit
 			},
 		},
@@ -122,10 +117,12 @@ local DIALOG_SL = {
 	[157696] = { -- Nemea
 		["g"] = {
 			{
-				["o"] 			= 2,
-				["c"] 			= { "none" },
+				["o"] 			= 52814,
+				["c"] 			= { "quests.active" },
+				["q"] 			= { 60296 }, -- Pride or Unit
 			},
 		},
+		["c"] = true,
 	},
 	-- End of Bastion
 	-- Ardenweald
