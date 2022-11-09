@@ -207,9 +207,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 			
 			local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-			if gossipEnabledMaps[currentMapId] then
-				ConfirmConfirmationMessage(message, npcId, parentMapId)
-			end
+			ConfirmConfirmationMessage(message, npcId, parentMapId)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
