@@ -106,10 +106,11 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 		-- The player doesn't have anything in the currently
 		-- examined slot. Since there's nothing for comparison,
 		-- we can't continue.
-		print(L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"])
+		print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"])
 		if HelpMePlayDB.DevModeEnabled then
 			print(itemLink .. " | EnumID: " .. C_Item.GetItemInventoryTypeByID(itemId))
 		end
+		bestItemIndex = -1
 	end
 end
 
@@ -196,7 +197,9 @@ local function CompleteQuest()
 					end
 				end
 				
-				if bestItemIndex == 0 then
+				if bestItemIndex == -1 then
+					return
+				elseif bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
 					--GetQuestReward(random(1, numQuestChoices))
