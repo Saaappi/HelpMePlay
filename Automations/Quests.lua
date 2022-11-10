@@ -22,6 +22,9 @@ local inventorySlots = {
 	["INVTYPE_LEGS"] 			= INVSLOT_LEGS,
 	["INVTYPE_FEET"] 			= INVSLOT_FEET,
 }
+local enumInventoryTypes = {
+	[26] = inventorySlots["INVTYPE_RANGEDRIGHT"]
+}
 
 local function EquipItemUpgrade(bagId, slotId, equipLoc, containerItemIcon, containerItemLink)
 	print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
@@ -103,7 +106,11 @@ local function CompleteQuest()
 						local questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
 						local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
 						if HelpMePlayDB.QuestRewardId == 1 then
-							if (UnitClass("player") == 1 and GetSpecializationInfo(2) == 72) and equipLoc == "INVTYPE_2HWEAPON" then
+							local currentItemEquipLoc = select(4, GetItemInfoInstant(C_Item.GetItemLink(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))))
+							if equipLoc == currentItemEquipLoc then
+								print(questRewardItemLink)
+							end
+							--[[if (UnitClass("player") == 1 and GetSpecializationInfo(2) == 72) and equipLoc == "INVTYPE_2HWEAPON" then
 								for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
 									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
@@ -167,7 +174,7 @@ local function CompleteQuest()
 										bestItemIndex = i
 									end
 								end
-							end
+							end]]
 						elseif HelpMePlayDB.QuestRewardId == 2 then
 							if sellPrice > 0 then
 								local totalSellPrice = 0
@@ -180,7 +187,7 @@ local function CompleteQuest()
 					end
 				end
 				
-				if bestItemIndex == 0 then
+				--[[if bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
 					GetQuestReward(random(1, numQuestChoices))
@@ -192,7 +199,7 @@ local function CompleteQuest()
 					if HelpMePlayDB.QuestRewardId == 2 then
 						HelpMePlayJunkerGlobalDB[itemId] = true
 					end
-				end
+				end]]
 			end
 		end
 	elseif numQuestChoices == 1 then
