@@ -22,15 +22,71 @@ local inventorySlots = {
 	["INVTYPE_LEGS"] 			= INVSLOT_LEGS,
 	["INVTYPE_FEET"] 			= INVSLOT_FEET,
 }
-local enumInventoryTypes = {
-	[26] = inventorySlots["INVTYPE_RANGEDRIGHT"]
-}
+local bestItemIndex = 0
+local invEquipSlotId = 0
 
-local function EquipItemUpgrade(bagId, slotId, equipLoc, containerItemIcon, containerItemLink)
+local function EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 	print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 	ClearCursor()
 	PickupContainerItem(bagId, slotId)
-	EquipCursorItem(equipLoc)
+	EquipCursorItem(invEquipSlotId)
+end
+
+local function IsItemAnUpgrade(itemId, itemLink)
+	local questRewardItemLevel = GetDetailedItemLevelInfo(itemLink)
+	local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(itemLink)
+	local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+	if itemExists then
+		-- The player has an item equipped in the
+		-- currently examined slot.
+		local currentItemEquipLoc = select(4, GetItemInfoInstant(C_Item.GetItemLink(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))))
+		if equipLoc == currentItemEquipLoc then
+			-- The item equip locations are a match.
+			-- We only ever want to consider rewards
+			-- that match what the player has equipped.
+			local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+			local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+			if equippedItemQuality ~= 7 then
+				-- The player doesn't have an Heirloom equipped
+				-- in the current slot.
+				if questRewardItemLevel > equippedItemItemLevel then
+					-- The quest reward has a higher item level
+					-- than what's equipped.
+					-- This is the new BEST item.
+					bestItemIndex = i
+					invEquipSlotId = inventorySlots[equipLoc]
+				end
+			end
+		end
+	elseif equipLoc == "INVTYPE_FINGER" then
+		for invSlotId = INVSLOT_FINGER1, INVSLOT_FINGER2 do
+			local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+			if not itemExists then
+				bestItemIndex = i
+				invEquipSlotId = invSlotId
+			else
+				-- TODO
+			end
+		end
+	elseif equipLoc == "INVTYPE_TRINKET" then
+		for invSlotId = INVSLOT_TRINKET1, INVSLOT_TRINKET2 do
+			local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+			if not itemExists then
+				bestItemIndex = i
+				invEquipSlotId = invSlotId
+			else
+				-- TODO
+			end
+		end
+	else
+		-- The player doesn't have anything in the currently
+		-- examined slot. Since there's nothing for comparison,
+		-- we can't continue.
+		print("No match found. Do you have anything equipped?")
+		if HelpMePlayDB.DevModeEnabled then
+			print(itemLink .. " | EnumID: " .. C_Item.GetItemInventoryTypeByID(itemId))
+		end
+	end
 end
 
 hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
@@ -86,7 +142,6 @@ local function CompleteQuest()
 				sellPrices = {}
 			end
 			
-			local bestItemIndex = 0
 			local itemId = 0
 			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 				for i=1, numQuestChoices do
@@ -102,35 +157,9 @@ local function CompleteQuest()
 							bestItemIndex = i
 							break
 						end
-						
-						local questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
-						local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
+
 						if HelpMePlayDB.QuestRewardId == 1 then
-							local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-							if itemExists then
-								-- The player has an item equipped in the
-								-- currently examined slot.
-								local currentItemEquipLoc = select(4, GetItemInfoInstant(C_Item.GetItemLink(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))))
-								if equipLoc == currentItemEquipLoc then
-									-- The item equip locations are a match.
-									-- We only ever want to consider rewards
-									-- that match what the player has equipped.
-									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-									local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-									if equippedItemQuality ~= 7 then
-										-- The player doesn't have an Heirloom equipped
-										-- in the current slot.
-										if questRewardItemLevel > equippedItemItemLevel then
-											-- The quest reward has a higher item level
-											-- than what's equipped.
-											-- This is the new BEST item.
-											bestItemIndex = i
-										end
-									end
-								end
-							else
-								print("No quest reward match found.")
-							end
+							IsItemAnUpgrade(itemId, questRewardItemLink)
 							--[[if (UnitClass("player") == 1 and GetSpecializationInfo(2) == 72) and equipLoc == "INVTYPE_2HWEAPON" then
 								for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
 									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
@@ -208,19 +237,20 @@ local function CompleteQuest()
 					end
 				end
 				
-				--[[if bestItemIndex == 0 then
+				if bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
-					GetQuestReward(random(1, numQuestChoices))
+					--GetQuestReward(random(1, numQuestChoices))
 				else
 					-- Get the quest reward at the specified best index. If the quest
 					-- reward automation is told to pick the reward by sell price, then
 					-- automatically add the item to the GLOBAL Junker table.
-					GetQuestReward(bestItemIndex)
+					--[[GetQuestReward(bestItemIndex)
 					if HelpMePlayDB.QuestRewardId == 2 then
 						HelpMePlayJunkerGlobalDB[itemId] = true
-					end
-				end]]
+					end]]
+					print(bestItemIndex)
+				end
 			end
 		end
 	elseif numQuestChoices == 1 then
@@ -517,19 +547,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 										if equipLoc == "INVTYPE_FINGER" then
 											for i = 11, 12 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
-													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
+													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_TRINKET" then
 											for i = 13, 14 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
-													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
+													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_WEAPON" then
 											for i = 16, 17 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
-													EquipItemUpgrade(bagId, slotId, i, containerItemIcon, containerItemLink)
+													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 												end
 											end
 										else
@@ -538,7 +568,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 													EquipItemUpgrade(bagId, slotId, inventorySlots[equipLoc], containerItemIcon, containerItemLink)
 												end
 											else
-												EquipItemUpgrade(bagId, slotId, inventorySlots[equipLoc], containerItemIcon, containerItemLink)
+												EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 											end
 										end
 									end
