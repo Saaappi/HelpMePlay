@@ -106,9 +106,30 @@ local function CompleteQuest()
 						local questRewardItemLevel = GetDetailedItemLevelInfo(questRewardItemLink)
 						local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(questRewardItemLink)
 						if HelpMePlayDB.QuestRewardId == 1 then
-							local currentItemEquipLoc = select(4, GetItemInfoInstant(C_Item.GetItemLink(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))))
-							if equipLoc == currentItemEquipLoc then
-								print(questRewardItemLink)
+							local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+							if itemExists then
+								-- The player has an item equipped in the
+								-- currently examined slot.
+								local currentItemEquipLoc = select(4, GetItemInfoInstant(C_Item.GetItemLink(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))))
+								if equipLoc == currentItemEquipLoc then
+									-- The item equip locations are a match.
+									-- We only ever want to consider rewards
+									-- that match what the player has equipped.
+									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+									local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
+									if equippedItemQuality ~= 7 then
+										-- The player doesn't have an Heirloom equipped
+										-- in the current slot.
+										if questRewardItemLevel > equippedItemItemLevel then
+											-- The quest reward has a higher item level
+											-- than what's equipped.
+											-- This is the new BEST item.
+											bestItemIndex = i
+										end
+									end
+								end
+							else
+								print("No quest reward match found.")
 							end
 							--[[if (UnitClass("player") == 1 and GetSpecializationInfo(2) == 72) and equipLoc == "INVTYPE_2HWEAPON" then
 								for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
