@@ -202,16 +202,15 @@ local function CompleteQuest()
 				elseif bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
-					--GetQuestReward(random(1, numQuestChoices))
+					GetQuestReward(random(1, numQuestChoices))
 				else
 					-- Get the quest reward at the specified best index. If the quest
 					-- reward automation is told to pick the reward by sell price, then
 					-- automatically add the item to the GLOBAL Junker table.
-					--[[GetQuestReward(bestItemIndex)
+					GetQuestReward(bestItemIndex)
 					if HelpMePlayDB.QuestRewardId == 2 then
 						HelpMePlayJunkerGlobalDB[itemId] = true
-					end]]
-					print(bestItemIndex)
+					end
 				end
 			end
 		end
@@ -505,7 +504,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 									local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									if containerItemId == questItemId then
-										local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
+										EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
+										--[[local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 										if equipLoc == "INVTYPE_FINGER" then
 											for i = 11, 12 do
 												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
@@ -532,7 +532,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 											else
 												EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 											end
-										end
+										end]]
 									end
 								end
 							end
