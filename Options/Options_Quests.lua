@@ -121,12 +121,18 @@ local questOptions = {
 				return values
 			end,
 			get = function()
+				local faction = UnitFactionGroup("player")
 				if not HelpMePlayDB.ZoneId_BFA then
-					HelpMePlayDB.ZoneId_BFA = 0
+					HelpMePlayDB.ZoneId_BFA = {}
+					HelpMePlayDB.ZoneId_BFA["Alliance"] = 0
+					HelpMePlayDB.ZoneId_BFA["Horde"] = 0
 				end
-				return HelpMePlayDB.ZoneId_BFA
+				return HelpMePlayDB.ZoneId_BFA[faction]
 			end,
-			set = function(_, zoneId) HelpMePlayDB.ZoneId_BFA = zoneId end,
+			set = function(_, zoneId)
+				local faction = UnitFactionGroup("player")
+				HelpMePlayDB.ZoneId_BFA[faction] = zoneId
+			end,
 		},
 		chromieTime = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],

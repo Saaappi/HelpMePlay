@@ -47,9 +47,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 					C_AdventureMap.StartQuest(51572) -- Foothold: Vol'dun
 				end
 			else
-				if HelpMePlayDB.ZoneId_BFA == 0 or HelpMePlayDB.ZoneId_BFA == false or HelpMePlayDB.ZoneId_BFA == nil then return false end
-				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA) == false then
-					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA)
+				if HelpMePlayDB.ZoneId_BFA[faction] == 0 or HelpMePlayDB.ZoneId_BFA[faction] == false or HelpMePlayDB.ZoneId_BFA[faction] == nil then return false end
+				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA[faction]) == false then
+					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA[faction])
 				else
 					for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Horde"]) do
 						if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
@@ -67,9 +67,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 					war campaign footholds.
 			]]--
 			if faction == "Alliance" then
-				if HelpMePlayDB.ZoneId_BFA == 0 or HelpMePlayDB.ZoneId_BFA == false or HelpMePlayDB.ZoneId_BFA == nil then return false end
-				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA) == false then
-					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA)
+				if HelpMePlayDB.ZoneId_BFA[faction] == 0 or HelpMePlayDB.ZoneId_BFA[faction] == false or HelpMePlayDB.ZoneId_BFA[faction] == nil then return false end
+				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA[faction]) == false then
+					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA[faction])
 				else
 					for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Alliance"]) do
 						if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then

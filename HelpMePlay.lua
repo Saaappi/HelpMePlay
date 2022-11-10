@@ -37,8 +37,10 @@ function HelpMePlay:OnInitialize()
 		HelpMePlay:MinimapIcon(HelpMePlayDB.MinimapIconEnabled)
 	end
 	
-	if HelpMePlayDB.AutoEquipQuestRewardsEnabled then
-		HelpMePlayDB.AutoEquipQuestRewardsEnabled = false
+	-- Reset the Zone ID for BFA to nil if it's not a
+	-- table so it adopts the new format.
+	if type(HelpMePlayDB.ZoneId_BFA) ~= "table" then
+		HelpMePlayDB.ZoneId_BFA = nil
 	end
 end
 
