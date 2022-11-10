@@ -32,7 +32,7 @@ local function EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemL
 	EquipCursorItem(invEquipSlotId)
 end
 
-local function IsItemAnUpgrade(itemId, itemLink)
+local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 	local questRewardItemLevel = GetDetailedItemLevelInfo(itemLink)
 	local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(itemLink)
 	local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
@@ -53,7 +53,7 @@ local function IsItemAnUpgrade(itemId, itemLink)
 					-- The quest reward has a higher item level
 					-- than what's equipped.
 					-- This is the new BEST item.
-					bestItemIndex = i
+					bestItemIndex = rewardIndex
 					invEquipSlotId = inventorySlots[equipLoc]
 				end
 			end
@@ -62,27 +62,51 @@ local function IsItemAnUpgrade(itemId, itemLink)
 		for invSlotId = INVSLOT_FINGER1, INVSLOT_FINGER2 do
 			local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 			if not itemExists then
-				bestItemIndex = i
+				bestItemIndex = rewardIndex
 				invEquipSlotId = invSlotId
 			else
-				-- TODO
+				local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				if equippedItemQuality ~= 7 then
+					-- The player doesn't have an Heirloom equipped
+					-- in the current slot.
+					if questRewardItemLevel > equippedItemItemLevel then
+						-- The quest reward has a higher item level
+						-- than what's equipped.
+						-- This is the new BEST item.
+						bestItemIndex = rewardIndex
+						invEquipSlotId = invSlotId
+					end
+				end
 			end
 		end
 	elseif equipLoc == "INVTYPE_TRINKET" then
 		for invSlotId = INVSLOT_TRINKET1, INVSLOT_TRINKET2 do
 			local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 			if not itemExists then
-				bestItemIndex = i
+				bestItemIndex = rewardIndex
 				invEquipSlotId = invSlotId
 			else
-				-- TODO
+				local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				if equippedItemQuality ~= 7 then
+					-- The player doesn't have an Heirloom equipped
+					-- in the current slot.
+					if questRewardItemLevel > equippedItemItemLevel then
+						-- The quest reward has a higher item level
+						-- than what's equipped.
+						-- This is the new BEST item.
+						bestItemIndex = rewardIndex
+						invEquipSlotId = invSlotId
+					end
+				end
 			end
 		end
 	else
 		-- The player doesn't have anything in the currently
 		-- examined slot. Since there's nothing for comparison,
 		-- we can't continue.
-		print("No match found. Do you have anything equipped?")
+		print(L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"])
 		if HelpMePlayDB.DevModeEnabled then
 			print(itemLink .. " | EnumID: " .. C_Item.GetItemInventoryTypeByID(itemId))
 		end
@@ -159,72 +183,7 @@ local function CompleteQuest()
 						end
 
 						if HelpMePlayDB.QuestRewardId == 1 then
-							IsItemAnUpgrade(itemId, questRewardItemLink)
-							--[[if (UnitClass("player") == 1 and GetSpecializationInfo(2) == 72) and equipLoc == "INVTYPE_2HWEAPON" then
-								for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
-									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-										bestItemIndex = i
-									end
-								end
-							else
-								if equipLoc == "INVTYPE_FINGER" then
-									for invSlotId = INVSLOT_FINGER1, INVSLOT_FINGER2 do
-										if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)) then
-											local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-											if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-												bestItemIndex = i
-											end
-										else
-											bestItemIndex = i
-										end
-									end
-								elseif equipLoc == "INVTYPE_TRINKET" then
-									for invSlotId = INVSLOT_TRINKET1, INVSLOT_TRINKET2 do
-										if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)) then
-											local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-											if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-												bestItemIndex = i
-											end
-										else
-											bestItemIndex = i
-										end
-									end
-								elseif equipLoc == "INVTYPE_WEAPON" then
-									for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
-										if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)) then
-											local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-											if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId)) ~= 7 then
-												bestItemIndex = i
-											end
-										end
-									end
-								elseif equipLoc == "INVTYPE_HOLDABLE" then
-									if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) then
-										local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-										if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
-											bestItemIndex = i
-										end
-									end
-								elseif equipLoc == "" then
-									-- These are normally artifact relics.
-									--
-									-- Quests with artifact relics for a reward
-									-- are usually all artifact relics.
-									if sellPrice > 0 then
-										local totalSellPrice = 0
-										local phSellPrice = quantity*sellPrice
-										if phSellPrice > totalSellPrice then
-											bestItemIndex = i
-										end
-									end
-								else
-									local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-									if (questRewardItemLevel > equippedItemItemLevel) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
-										bestItemIndex = i
-									end
-								end
-							end]]
+							IsItemAnUpgrade(itemId, questRewardItemLink, i)
 						elseif HelpMePlayDB.QuestRewardId == 2 then
 							if sellPrice > 0 then
 								local totalSellPrice = 0

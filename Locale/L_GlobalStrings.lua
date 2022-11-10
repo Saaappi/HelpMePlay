@@ -316,6 +316,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"] 										= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
 	L_GLOBALSTRINGS["Text.Output.WaterReminder"] 												= "|T463570:0|t Hey, listen! You should take a sip of water! |T463570:0|t"
 	L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"] 											= "Equipping an item upgrade."
+	L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"] 											= "No match found. Do you have anything equipped?"
 	-- End:		Text Output
 	--
 	-- Start:	Speech Text Checks
