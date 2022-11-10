@@ -67,6 +67,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.Toggles"] 															= "Toggles"
 	L_GLOBALSTRINGS["Header.DropDowns"] 														= "DropDowns"
 	L_GLOBALSTRINGS["Header.About"] 															= "About"
+	L_GLOBALSTRINGS["Header.Acknowledgments"] 													= "Acknowledgments"
 	L_GLOBALSTRINGS["Header.Resources"] 														= "Resources"
 	L_GLOBALSTRINGS["Header.Garrisons"] 														= "Garrisons"
 	L_GLOBALSTRINGS["Header.VisionsOfNzoth"] 													= "Visions of N'Zoth"
@@ -93,6 +94,9 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue"] 											= "Open Issue"
 	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Tooltip"] 									= "Click the button to get a link to the GitHub page to open a bug report, feature suggestion, or to request a change."
 	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Text"] 										= "|T236688:36|t\n\nCopy the link below, and thank you for opening an issue!"
+	L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Title"] 					= "|cff7C38DFKraken Latte|r"
+	L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Desc"] 						= "Kraken is an avid World of Warcraft player! She has extensive knowledge of game story and an insurmountable amount of leveling experience.\n\nHer content has inspired me to spend countless hours pouring over the codebase of HelpMePlay, bringing all of you the best product I can.\n\nIf you're interested, she uploads frequently to her YouTube channel and began streaming live on Twitch.tv!\n\nClick this button to get a link to her YouTube channel."
+	L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Text"] 						= "Thanks for showing an interest in Kraken Latte's content! She'll be enthused to have you around.\n\nCopy the YouTube link below. Enjoy!"
 	-- End: 	Main Options (Options.lua)
 	--
 	-- Start: 	General Options (Options_General.lua)
