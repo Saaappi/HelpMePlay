@@ -1,6 +1,12 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local calculateButton = _G.CreateFrame(
+	"Button",
+	"HMPProfessionCalculateButton",
+	ProfessionsFrame,
+	"UIPanelButtonTemplate"
+)
 
 local function InsertReagent(tbl, reagentName, itemId, count)
 	-- If < count > turns out to be negative, then the
@@ -33,8 +39,10 @@ local function CalculateReagents()
 	--
 	-- The skill line ID to names can be found @
 	-- https://wowpedia.fandom.com/wiki/TradeSkillLineID
-	local _, _, _, _, _, parentSkillId = C_TradeSkillUI.GetTradeSkillLine()
-	if (parentSkillId == 164) or (parentSkillId == 165) or (parentSkillId == 197) or (parentSkillId == 202) or (parentSkillId == 755) then
+	local profession = C_TradeSkillUI.GetBaseProfessionInfo()
+	local professionId = profession.professionID
+	if (professionId == 164) or (professionId == 165) or (professionId == 197) or (professionId == 202) or (professionId == 755) then
+		addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"])
 		for _, recipeId in pairs(recipes) do
 			local recipeInfo = C_TradeSkillUI.GetRecipeInfo(recipeId)
 			-- If the recipe is known to the player, let's
@@ -51,6 +59,8 @@ local function CalculateReagents()
 						if sourceInfo.isCollected == false then
 							-- Get the total number of reagents used
 							-- to craft the item.
+							print(recipeInfo.name)
+							print(recipeId)
 							local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
 							-- Iterate over each reagent used to
 							-- craft the item. We'll use this number
@@ -115,32 +125,31 @@ local function CalculateReagents()
 	end
 end
 
-e:RegisterEvent("ADDON_LOADED")
-e:SetScript("OnEvent", function(self, event, addon)
-	if event == "ADDON_LOADED" and addon == "Blizzard_TradeSkillUI" then
+e:RegisterEvent("TRADE_SKILL_CLOSE")
+e:RegisterEvent("TRADE_SKILL_SHOW")
+e:SetScript("OnEvent", function(self, event, ...)
+	if event == "TRADE_SKILL_CLOSE" then
+		if HMPProfessionCalculateButton then
+			HMPProfessionCalculateButton:ClearAllPoints()
+			HMPProfessionCalculateButton:Hide()
+		end
+	end
+	
+	if event == "TRADE_SKILL_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		
-		-- Shift the search box to the right to make room for
-		-- the expand/collapse button.
-		TradeSkillFrame.SearchBox:SetPoint("TOPLEFT", TradeSkillFrame, "TOPLEFT", 280, -54)
-		
-		-- The button that allows the player to collapse
-		-- the headers and their children in the trade
-		-- skill frame.
 		
 		-- Set the size and point of the Calculate button.
 		-- Ideally, it sits to the left of the Filter
 		-- dropdown.
-		local calculateButton = _G.CreateFrame(
-			"Button",
-			"HMPProfessionCalculateButton",
-			TradeSkillFrame,
-			"UIPanelButtonTemplate"
-		)
 		HMPProfessionCalculateButton:SetSize(80, 22)
 		HMPProfessionCalculateButton:SetText(L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Text"])
-		HMPProfessionCalculateButton:SetPoint("RIGHT", TradeSkillFrame.FilterButton, "LEFT", -10, 0)
-		HMPProfessionCalculateButton:Show()
+		
+		local profession = C_TradeSkillUI.GetBaseProfessionInfo()
+		local professionId = profession.professionID
+		if (professionId == 164) or (professionId == 165) or (professionId == 197) or (professionId == 202) or (professionId == 755) then
+			HMPProfessionCalculateButton:SetPoint("TOPLEFT", ProfessionsFramePortrait, "BOTTOMRIGHT", 10, 5)
+			HMPProfessionCalculateButton:Show()
+		end
 		
 		HMPProfessionCalculateButton:SetScript("OnEnter", function(self)
 			addonTable.ShowTooltip(self, L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Desc"])
@@ -149,7 +158,6 @@ e:SetScript("OnEvent", function(self, event, addon)
 			addonTable.HideTooltip(self)
 		end)
 		HMPProfessionCalculateButton:SetScript("OnClick", function(self)
-			addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"])
 			CalculateReagents()
 		end)
 	end
