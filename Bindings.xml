@@ -1,17 +1,19 @@
 <Bindings>
-	<Binding name="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="AddOns">
+	<Binding name="HELPMEPLAY_OPEN_SETTINGS" description="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="|cffFFD100HelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_OPEN_SETTINGS"))
 	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER" category="AddOns">
+	
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER" description="HELPMEPLAY_ADD_TO_JUNKER" header="JUNKER_ADD" category="|cffFFD100HelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER"))
 	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST" category="AddOns">
-		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST"))
-	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL" category="AddOns">
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL" description="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL" category="|cffFFD100HelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_GLOBAL"))
 	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST" category="AddOns">
+	
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST" description="HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST" header="JUNKER_BLACKLIST" category="|cffFFD100HelpMePlay|r">
+		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST"))
+	</Binding>
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST" description="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST" category="|cffFFD100HelpMePlay|r">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST"))
 	</Binding>
 </Bindings>
