@@ -59,8 +59,6 @@ local function CalculateReagents()
 						if sourceInfo.isCollected == false then
 							-- Get the total number of reagents used
 							-- to craft the item.
-							print(recipeInfo.name)
-							print(recipeId)
 							local numReagents = C_TradeSkillUI.GetRecipeNumReagents(recipeId)
 							-- Iterate over each reagent used to
 							-- craft the item. We'll use this number
