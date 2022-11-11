@@ -1,17 +1,17 @@
 <Bindings>
-	<Binding name="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="|cff00FFFFHelpMePlay|r">
+	<Binding name="HELPMEPLAY_OPEN_SETTINGS" header="HELPMEPLAY" category="AddOns">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_OPEN_SETTINGS"))
 	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER" category="|cff00FFFFHelpMePlay|r">
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER" category="AddOns">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER"))
 	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST" category="|cff00FFFFHelpMePlay|r">
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST" category="AddOns">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_BLACKLIST"))
 	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL" category="|cff00FFFFHelpMePlay|r">
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL" category="AddOns">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_GLOBAL"))
 	</Binding>
-	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST" category="|cff00FFFFHelpMePlay|r">
+	<Binding name="HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST" category="AddOns">
 		HelpMePlayKeyPressHandler(GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST"))
 	</Binding>
 </Bindings>
