@@ -88,7 +88,6 @@ Automations\Quests.lua
 Automations\FlightPaths.lua
 
 # Systems
-Systems\TradeSkills.lua
 Systems\Transmog.lua
 Systems\Soulbinds.lua
 Systems\Commands.lua
