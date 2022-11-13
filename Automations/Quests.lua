@@ -17,6 +17,7 @@ local inventorySlots = {
 	["INVTYPE_WEAPONMAINHAND"] 	= INVSLOT_MAINHAND,
 	["INVTYPE_WEAPONOFFHAND"] 	= INVSLOT_OFFHAND,
 	["INVTYPE_HOLDABLE"] 		= INVSLOT_OFFHAND,
+	["INVTYPE_SHIELD"] 			= INVSLOT_OFFHAND,
 	["INVTYPE_HAND"] 			= INVSLOT_HAND,
 	["INVTYPE_WAIST"] 			= INVSLOT_WAIST,
 	["INVTYPE_LEGS"] 			= INVSLOT_LEGS,
@@ -504,7 +505,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 									local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									if containerItemId == questItemId then
-										EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
+										if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
+											EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
+										end
 										--[[local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 										if equipLoc == "INVTYPE_FINGER" then
 											for i = 11, 12 do
