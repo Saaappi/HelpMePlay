@@ -505,37 +505,45 @@ e:SetScript("OnEvent", function(self, event, ...)
 									local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									if containerItemId == questItemId then
-										if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
-											EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-										end
-										--[[local containerItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 										if equipLoc == "INVTYPE_FINGER" then
 											for i = 11, 12 do
-												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
+												if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(i)) then
+													if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
+														EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
+													end
+												else
 													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_TRINKET" then
 											for i = 13, 14 do
-												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
+												if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(i)) then
+													if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
+														EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
+													end
+												else
 													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 												end
 											end
 										elseif equipLoc == "INVTYPE_WEAPON" then
 											for i = 16, 17 do
-												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(i)) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
+												if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(i)) then
+													if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
+														EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
+													end
+												else
 													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 												end
 											end
 										else
 											if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) then
-												if containerItemItemLevel > C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) and C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
+												if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
 													EquipItemUpgrade(bagId, slotId, inventorySlots[equipLoc], containerItemIcon, containerItemLink)
 												end
 											else
 												EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 											end
-										end]]
+										end
 									end
 								end
 							end
