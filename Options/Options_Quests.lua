@@ -256,33 +256,65 @@ local questOptions = {
 			style = "dropdown",
 			values = {
 				[0] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Default"],
-				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Khadgar"],
-				[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Skull"],
+				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Custom"],
 			},
 			sorting = {
 				[1] = 0,
 				[2] = 1,
-				[3] = 2,
 			},
 			get = function()
 				if not HelpMePlayDB.QuestMobIcon then
-					HelpMePlayDB.QuestMobIcon = 0
+					HelpMePlayDB.QuestMobIconId = 0
+					HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
 				end
-				return HelpMePlayDB.QuestMobIcon
+				return HelpMePlayDB.QuestMobIconId
 			end,
 			set = function(_, iconId)
 				local namePlates = C_NamePlate.GetNamePlates()
+				local icon = ""
+				
+				if iconId == 0 then
+					icon = "Mobile-QuestIcon"
+				elseif iconId == 1 then
+					StaticPopupDialogs["HELPMEPLAY_QUESTMOBSICON_CUSTOM"] = {
+						text = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Custom.Text"],
+						button1 = "OK",
+						OnShow = function(self, data)
+							self.editBox:SetText("")
+							self.editBox:HighlightText()
+						end,
+						OnAccept = function(self)
+							icon = "Interface\\ICONS\\" .. self.editBox:GetText(); HelpMePlayDB.QuestMobIcon = icon
+							for i = 1, #namePlates do
+								if namePlates[i][addonName.."Icon"] then
+									namePlates[i][addonName.."Icon"]:SetTexture(icon)
+								end
+							end
+						end,
+						timeout = 30,
+						showAlert = true,
+						whileDead = false,
+						hideOnEscape = true,
+						enterClicksFirstButton = true,
+						hasEditBox = true,
+						preferredIndex = 3,
+					}
+					StaticPopup_Show("HELPMEPLAY_QUESTMOBSICON_CUSTOM")
+				end
+				
 				for i = 1, #namePlates do
 					if namePlates[i][addonName.."Icon"] then
 						if iconId == 0 then
-							namePlates[i][addonName.."Icon"]:SetAtlas("Mobile-QuestIcon")
-						elseif iconId == 1 then
-							namePlates[i][addonName.."Icon"]:SetTexture("Interface\\ICONS\\quest_khadgar")
-							PlaySound(66561, "Master") -- VO_703_Archmage_Khadgar_16
+							namePlates[i][addonName.."Icon"]:SetAtlas(icon)
 						end
 					end
 				end
-				HelpMePlayDB.QuestMobIcon = iconId
+				
+				HelpMePlayDB.QuestMobIconId = iconId
+				
+				if iconId == 0 then
+					HelpMePlayDB.QuestMobIcon = icon
+				end
 			end,
 		},
 		partyPlayHeader = {

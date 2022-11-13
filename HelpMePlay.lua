@@ -42,6 +42,13 @@ function HelpMePlay:OnInitialize()
 	if type(HelpMePlayDB.ZoneId_BFA) ~= "table" then
 		HelpMePlayDB.ZoneId_BFA = nil
 	end
+	
+	-- Reset the quest mobs icon to 0 since backend changes
+	-- were made.
+	if HelpMePlayDB.QuestMobIcon == 0 or HelpMePlayDB.QuestMobIcon == 1 then
+		HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
+		HelpMePlayDB.QuestMobIconId = 0
+	end
 end
 
 e:RegisterEvent("ADDON_LOADED")
