@@ -291,7 +291,6 @@ local questOptions = {
 								end
 							end
 						end,
-						timeout = 30,
 						showAlert = true,
 						whileDead = false,
 						hideOnEscape = true,
