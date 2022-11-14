@@ -29,6 +29,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Gossip** - Automates selecting appropriate gossip from NPCs. Players can even add their own!
 - **Notes** - HelpMePlay can add helpful tips to NPC tooltips. Can't remember which Gatamatos to click during [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation)? Me neither! HelpMePlay will let you know which to click if you hover over them.
 - **Queues** - Tired of missing your queue pops while you're AFK? HelpMePlay will accept the queue at lightning speed, granting you precious time to take care of the important things in life (like grabbing a drink for your dungeon ventures.)
+   - **Holiday Queues** - Use a special queue button to immediately queue for the active holiday boss.
 - **Ready Checks** - Toggle this handy feature on to always be ready when your raid leader sends out a ready check!
 - **Repairs** - Automatically repair your items in town before you head out to slay more gnolls!
 - **Speech** - HelpMePlay can interact with the in-game world through NPC and system speech. For example, the trickster during "[The Games We Play](https://www.wowhead.com/quest=57870/the-games-we-play)" in Ardenweald, simply target the trickster, and HelpMePlay will automatically react to the trickster's speech. Enjoy some much deserved rest and relaxation!
