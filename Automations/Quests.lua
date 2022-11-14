@@ -562,7 +562,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 										else
 											if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) then
 												if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
-													EquipItemUpgrade(bagId, slotId, inventorySlots[equipLoc], containerItemIcon, containerItemLink)
+													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 												end
 											else
 												EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
