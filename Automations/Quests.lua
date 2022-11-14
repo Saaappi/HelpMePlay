@@ -23,6 +23,7 @@ local inventorySlots = {
 	["INVTYPE_WAIST"] 			= INVSLOT_WAIST,
 	["INVTYPE_LEGS"] 			= INVSLOT_LEGS,
 	["INVTYPE_FEET"] 			= INVSLOT_FEET,
+	["INVTYPE_TRINKET"] 		= INVSLOT_TRINKET1,
 }
 local bestItemIndex = 0
 local invEquipSlotId = 0
@@ -38,7 +39,7 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 	local questRewardItemLevel = GetDetailedItemLevelInfo(itemLink)
 	local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(itemLink)
 	local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-	if itemExists then
+	if itemExists and (equipLoc ~= "INVTYPE_FINGER" or equipLoc ~= "INVTYPE_TRINKET" or equipLoc ~= "INVTYPE_WEAPON") then
 		-- The player has an item equipped in the
 		-- currently examined slot.
 		local currentItemEquipLoc = select(4, GetItemInfoInstant(C_Item.GetItemLink(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))))
@@ -84,6 +85,28 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 		end
 	elseif equipLoc == "INVTYPE_TRINKET" then
 		for invSlotId = INVSLOT_TRINKET1, INVSLOT_TRINKET2 do
+			local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+			if not itemExists then
+				bestItemIndex = rewardIndex
+				invEquipSlotId = invSlotId
+			else
+				local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				if equippedItemQuality ~= 7 then
+					-- The player doesn't have an Heirloom equipped
+					-- in the current slot.
+					if questRewardItemLevel > equippedItemItemLevel then
+						-- The quest reward has a higher item level
+						-- than what's equipped.
+						-- This is the new BEST item.
+						bestItemIndex = rewardIndex
+						invEquipSlotId = invSlotId
+					end
+				end
+			end
+		end
+	elseif equipLoc == "INVTYPE_WEAPON" then
+		for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
 			local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 			if not itemExists then
 				bestItemIndex = rewardIndex
