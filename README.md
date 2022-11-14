@@ -56,7 +56,6 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Complete Quests** - Automatically complete any quest.
 - **Purchase Quest Items** - Automatically purchase quest items from vendors.
 - **Equip Quest Rewards** - When you choose Item Level as your quest reward option, the addon can automatically equip these rewards once selected.
-- **Threads of Fate** - Allow HelpMePlay to select Threads of Fate or Story Mode on your behalf for leveling in *Shadowlands*.
 
 ### Expansion Intros
 - **The Maw** - Toggle to opt in or out of playing through The Maw.
