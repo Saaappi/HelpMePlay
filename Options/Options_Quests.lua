@@ -354,6 +354,38 @@ local questOptions = {
 				HelpMePlayDB.QuestMobIconPosition = iconPositionId
 			end,
 		},
+		questMobsIconXOffset = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset"],
+			order = 34,
+			type = "range",
+			min = -20,
+			max = 20,
+			step = 1,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset.Desc"],
+			get = function()
+				if not HelpMePlayDB.QuestMobIconXOffset then
+					HelpMePlayDB.QuestMobIconXOffset = 0
+				end
+				return HelpMePlayDB.QuestMobIconXOffset
+			end,
+			set = function(_, val) HelpMePlayDB.QuestMobIconXOffset = val end,
+		},
+		questMobsIconYOffset = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset"],
+			order = 35,
+			type = "range",
+			min = -20,
+			max = 20,
+			step = 1,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset.Desc"],
+			get = function()
+				if not HelpMePlayDB.QuestMobIconYOffset then
+					HelpMePlayDB.QuestMobIconYOffset = 0
+				end
+				return HelpMePlayDB.QuestMobIconYOffset
+			end,
+			set = function(_, val) HelpMePlayDB.QuestMobIconYOffset = val end,
+		},
 		partyPlayHeader = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
 			order = 40,
