@@ -36,23 +36,23 @@ local function UpdateNamePlate(namePlate, unit)
 					icon:ClearAllPoints()
 					icon:SetSize(20, 20)
 					if HelpMePlayDB.QuestMobIconPosition == 0 then
-						icon:SetPoint("TOP", 0, 0)
+						icon:SetPoint("TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 1 then
-						icon:SetPoint("BOTTOM", 0, 0)
+						icon:SetPoint("BOTTOM", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 2 then
-						icon:SetPoint("LEFT", 0, 0)
+						icon:SetPoint("LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 3 then
-						icon:SetPoint("RIGHT", 0, 0)
+						icon:SetPoint("RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 4 then
-						icon:SetPoint("TOPLEFT", 0, 0)
+						icon:SetPoint("TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 5 then
-						icon:SetPoint("TOPRIGHT", 0, 0)
+						icon:SetPoint("TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 6 then
-						icon:SetPoint("BOTTOMLEFT", 0, 0)
+						icon:SetPoint("BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 7 then
-						icon:SetPoint("BOTTOMRIGHT", 0, 0)
+						icon:SetPoint("BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif HelpMePlayDB.QuestMobIconPosition == 8 then
-						icon:SetPoint("CENTER", 0, 0)
+						icon:SetPoint("CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					end
 					if HelpMePlayDB.QuestMobIconId == 0 then
 						icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
