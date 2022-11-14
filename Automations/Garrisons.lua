@@ -12,7 +12,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local type = ...
 		if type == 30 then -- Architect Table
-			local garrisonLevel = C_Garrison.GetGarrisonInfo(2); print(garrisonLevel)
+			local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
 			if garrisonLevel == 1 then
 				local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)
 				if HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == false or HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == nil then
