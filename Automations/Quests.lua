@@ -24,6 +24,7 @@ local inventorySlots = {
 	["INVTYPE_WAIST"] 			= INVSLOT_WAIST,
 	["INVTYPE_LEGS"] 			= INVSLOT_LEGS,
 	["INVTYPE_FEET"] 			= INVSLOT_FEET,
+	["INVTYPE_FINGER"] 			= INVSLOT_FINGER1,
 	["INVTYPE_TRINKET"] 		= INVSLOT_TRINKET1,
 }
 local bestItemIndex = 0

@@ -316,6 +316,44 @@ local questOptions = {
 				end
 			end,
 		},
+		questMobsIconPosition = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition"],
+			order = 33,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Top"],
+				[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Bottom"],
+				[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Left"],
+				[3] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Right"],
+				[4] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.TopLeft"],
+				[5] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.TopRight"],
+				[6] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.BottomLeft"],
+				[7] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.BottomRight"],
+				[8] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Center"],
+			},
+			sorting = {
+				[1] = 0,
+				[2] = 1,
+				[3] = 2,
+				[4] = 3,
+				[5] = 4,
+				[6] = 5,
+				[7] = 6,
+				[8] = 7,
+				[9] = 8,
+			},
+			get = function()
+				if not HelpMePlayDB.QuestMobIconPosition then
+					HelpMePlayDB.QuestMobIconPosition = 8
+				end
+				return HelpMePlayDB.QuestMobIconPosition
+			end,
+			set = function(_, iconPositionId)
+				HelpMePlayDB.QuestMobIconPosition = iconPositionId
+			end,
+		},
 		partyPlayHeader = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
 			order = 40,

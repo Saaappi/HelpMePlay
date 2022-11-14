@@ -35,10 +35,24 @@ local function UpdateNamePlate(namePlate, unit)
 				if continue then
 					icon:ClearAllPoints()
 					icon:SetSize(20, 20)
-					if (IsAddOnLoaded("Plater")) then
-						icon:SetPoint("TOPLEFT", 0, 15)
-					else
-						icon:SetPoint("TOP", 0, 10)
+					if HelpMePlayDB.QuestMobIconPosition == 0 then
+						icon:SetPoint("TOP", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 1 then
+						icon:SetPoint("BOTTOM", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 2 then
+						icon:SetPoint("LEFT", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 3 then
+						icon:SetPoint("RIGHT", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 4 then
+						icon:SetPoint("TOPLEFT", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 5 then
+						icon:SetPoint("TOPRIGHT", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 6 then
+						icon:SetPoint("BOTTOMLEFT", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 7 then
+						icon:SetPoint("BOTTOMRIGHT", 0, 0)
+					elseif HelpMePlayDB.QuestMobIconPosition == 8 then
+						icon:SetPoint("CENTER", 0, 0)
 					end
 					if HelpMePlayDB.QuestMobIconId == 0 then
 						icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
