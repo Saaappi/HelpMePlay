@@ -51,6 +51,14 @@ local questOptions = {
 			get = function() return HelpMePlayDB.AutoEquipQuestRewardsEnabled end,
 			set = function(_, val) HelpMePlayDB.AutoEquipQuestRewardsEnabled = val end,
 		},
+		threadsOfFate = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"],
+			order = 6,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.ThreadsOfFateEnabled end,
+			set = function(_, val) HelpMePlayDB.ThreadsOfFateEnabled = val end,
+		},
 		expansionIntro_header = {
 			name = L_GLOBALSTRINGS["Header.ExpansionIntros"],
 			order = 10,

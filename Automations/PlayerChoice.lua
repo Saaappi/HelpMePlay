@@ -38,7 +38,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 				
 				if id then
-					if id == 97644 then
+					if id == 174871 then
+						-- Fatescribe Roh-Tahl
+						-- Threads of Fate or Story Mode
+						if HelpMePlayDB.ThreadsOfFateEnabled then
+							SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						end
+					elseif id == 97644 then
 						-- Kor'vas Bloodthorn
 						-- Always chooses Kayn Sunfury
 						SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)

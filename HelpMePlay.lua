@@ -49,11 +49,6 @@ function HelpMePlay:OnInitialize()
 		HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
 		HelpMePlayDB.QuestMobIconId = 0
 	end
-	
-	-- Wipe the Threads of Fate option.
-	if HelpMePlayDB.ThreadsOfFateEnabled or HelpMePlayDB.ThreadsOfFateEnabled == false then
-		HelpMePlayDB.ThreadsOfFateEnabled = nil
-	end
 end
 
 e:RegisterEvent("ADDON_LOADED")
