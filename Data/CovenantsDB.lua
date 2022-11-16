@@ -1,11 +1,6 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local COVENANTS_BY_SPEC = {
-
-[1] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Kyrian"],
-[2] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Venthyr"],
-[3] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.Necrolord"],
-[4] = L_GLOBALSTRINGS["DropDowns.Features.Covenant.NightFae"],
 	[1] = { -- Warrior
 		[71] = 1, 	-- Arms (Kyrian)
 		[72] = 1, 	-- Fury (Kyrian)
