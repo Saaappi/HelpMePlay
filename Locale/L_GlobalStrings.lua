@@ -157,7 +157,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewards"] 										= "Equip Quest Rewards"
 	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"] 									= "Toggle to have the addon automatically equip quest rewards.\n\n|cffFFD100NOTE|r: This only applies to players with the Item Level option chosen for quest rewards."
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
-	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in or out of Threads of Fate for Shadowlands.\n\n|cffFFD100Checked|r: Threads of Fate\n|cffFFD100Unchecked|r: Story"
+	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in for Threads of Fate automation."
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"] 												= "Adventure Maps"
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
 	L_GLOBALSTRINGS["Quests.Toggle.TheMaw"] 													= "The Maw"
