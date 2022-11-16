@@ -80,6 +80,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 							else
 								hideButton = true
 							end
+						else
+							hideButton = true
 						end
 					end
 				end
