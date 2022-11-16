@@ -136,7 +136,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					if choiceInfo.numOptions == 1 then
 						bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 						responseId = bestPower.options[1].buttons[1].id
-						SendPlayerChoiceResponse(responseId)
+						C_PlayerChoice.SendPlayerChoiceResponse(responseId)
 						HideUIPanel(PlayerChoiceFrame)
 					else
 						local _, _, classId = UnitClass("player")
@@ -202,7 +202,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
 							highestPriority = 9
 						else
-							SendPlayerChoiceResponse(responseId)
+							C_PlayerChoice.SendPlayerChoiceResponse(responseId)
 							HideUIPanel(PlayerChoiceFrame)
 							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower.options[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[1].spellID))
 							highestPriority = 9
