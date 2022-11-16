@@ -27,6 +27,8 @@ local function GetGossipTable(parentMapId)
 		gossipTable = addonTable.DIALOG_BFA
 	elseif parentMapId == 1409 or parentMapId == 1550 or parentMapId == 1610 then
 		gossipTable = addonTable.DIALOG_SL
+	elseif parentMapId == 1978 then
+		gossipTable = addonTable.DIALOG_DF
 	end
 	return gossipTable
 end

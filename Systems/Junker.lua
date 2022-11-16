@@ -81,33 +81,33 @@ local function HelpMePlaySellItems()
 	local soldItemCount = 0
 	local _, avgItemLevel = GetAverageItemLevel()
 	for bagId = 0, 4 do
-		for slotId = 0, GetContainerNumSlots(bagId) do
-			local itemId = GetContainerItemID(bagId, slotId)
+		for slotId = 0, C_Container.GetContainerNumSlots(bagId) do
+			local itemId = C_Container.GetContainerItemID(bagId, slotId)
 			if itemId then
-				local itemLink = GetContainerItemLink(bagId, slotId)
+				local itemLink = C_Container.GetContainerItemLink(bagId, slotId)
 				-- Certain items won't have an id.
 				-- Let's avoid those.
 				--
 				-- We need to ensure the item isn't on
 				-- the blacklist.
 				if not HelpMePlayJunkerGlobalBlacklistDB[itemId] and not HelpMePlayJunkerBlacklistDB[itemId] then
-					local _, _, _, itemQuality = GetContainerItemInfo(bagId, slotId)
+					local _, _, _, itemQuality = C_Container.GetContainerItemInfo(bagId, slotId); print(itemQuality)
 					local _, itemType = GetItemInfoInstant(itemId)
 					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
 					if sellPrice then
 						if sellPrice > 0 then
 							if HelpMePlayJunkerGlobalDB[itemId] or HelpMePlayJunkerDB[itemId] then
-								UseContainerItem(bagId, slotId)
+								C_Container.UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
 							end
 							
 							if itemQuality <= HelpMePlayDB.RarityId then
-								UseContainerItem(bagId, slotId)
+								C_Container.UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
 							end
 							
 							if HelpMePlayDB[itemType] then
-								UseContainerItem(bagId, slotId)
+								C_Container.UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
 							end
 							
@@ -125,7 +125,7 @@ local function HelpMePlaySellItems()
 									local itemLevel = GetDetailedItemLevelInfo(itemLink)
 									if (itemLevel+30) <= avgItemLevel then
 										if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
-											UseContainerItem(bagId, slotId)
+											C_Container.UseContainerItem(bagId, slotId)
 											soldItemCount = soldItemCount + 1
 										end
 									end
