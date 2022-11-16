@@ -1,6 +1,10 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+local function StartsWith(text, prefix)
+	return text:find(prefix, 1, true) == 1
+end
+
 local questOptions = {
 	name = L_GLOBALSTRINGS["Tabs.Quests"],
 	handler = HelpMePlay,
@@ -284,10 +288,19 @@ local questOptions = {
 							self.editBox:HighlightText()
 						end,
 						OnAccept = function(self)
-							icon = "Interface\\ICONS\\" .. self.editBox:GetText(); HelpMePlayDB.QuestMobIcon = icon
-							for i = 1, #namePlates do
-								if namePlates[i][addonName.."Icon"] then
-									namePlates[i][addonName.."Icon"]:SetTexture(icon)
+							if StartsWith(self.editBox:GetText(), "#") then
+								icon = string.sub(self.editBox:GetText(), 2)
+								for i = 1, #namePlates do
+									if namePlates[i][addonName.."Icon"] then
+										namePlates[i][addonName.."Icon"]:SetAtlas(icon)
+									end
+								end
+							else
+								icon = "Interface\\ICONS\\" .. self.editBox:GetText(); HelpMePlayDB.QuestMobIcon = icon
+								for i = 1, #namePlates do
+									if namePlates[i][addonName.."Icon"] then
+										namePlates[i][addonName.."Icon"]:SetTexture(icon)
+									end
 								end
 							end
 						end,
