@@ -524,8 +524,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 						local _, _, _, equipLoc = GetItemInfoInstant(questItemLink)
 						local _, questItemId = string.split(":", questItemLink); questItemId = tonumber(questItemId)
 						for bagId = 0, 4 do
-							for slotId = 1, GetContainerNumSlots(bagId) do
-								local containerItemInfo = GetContainerItemInfo(bagId, slotId)
+							for slotId = 1, C_Container.GetContainerNumSlots(bagId) do
+								local containerItemInfo = C_Container.GetContainerItemInfo(bagId, slotId)
 								if containerItemInfo then
 									local containerItemId = C_Item.GetItemID(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
 									local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagId, slotId))

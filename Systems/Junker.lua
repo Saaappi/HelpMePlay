@@ -173,21 +173,23 @@ e:SetScript("OnEvent", function(self, event, ...)
 end)
 
 local function OnTooltipSetItem(tooltip, data)
-	local _, itemLink = tooltip:GetItem()
-	if itemLink then
-		local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-		if HelpMePlayJunkerGlobalDB[itemId] then
-			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"])
-		elseif HelpMePlayJunkerGlobalBlacklistDB[itemId] then
-			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"])
-		elseif HelpMePlayJunkerDB[itemId] then
-			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"])
-		elseif HelpMePlayJunkerBlacklistDB[itemId] then
-			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"])
+	if tooltip then
+		local _, itemLink = tooltip:GetItem()
+		if itemLink then
+			local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
+			if HelpMePlayJunkerGlobalDB[itemId] then
+				tooltip:AddLine(" ")
+				tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"])
+			elseif HelpMePlayJunkerGlobalBlacklistDB[itemId] then
+				tooltip:AddLine(" ")
+				tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"])
+			elseif HelpMePlayJunkerDB[itemId] then
+				tooltip:AddLine(" ")
+				tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"])
+			elseif HelpMePlayJunkerBlacklistDB[itemId] then
+				tooltip:AddLine(" ")
+				tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"])
+			end
 		end
 	end
 end
