@@ -172,25 +172,27 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 end)
 
-GameTooltip:HookScript("OnTooltipSetItem", function(self)
-	local _, itemLink = self:GetItem()
+local function OnTooltipSetItem(tooltip, data)
+	local _, itemLink = tooltip:GetItem()
 	if itemLink then
 		local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 		if HelpMePlayJunkerGlobalDB[itemId] then
-			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"])
+			tooltip:AddLine(" ")
+			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"])
 		elseif HelpMePlayJunkerGlobalBlacklistDB[itemId] then
-			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"])
+			tooltip:AddLine(" ")
+			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"])
 		elseif HelpMePlayJunkerDB[itemId] then
-			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"])
+			tooltip:AddLine(" ")
+			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"])
 		elseif HelpMePlayJunkerBlacklistDB[itemId] then
-			self:AddLine(" ")
-			self:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"])
+			tooltip:AddLine(" ")
+			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"])
 		end
 	end
-end)
+end
+
+TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, OnTooltipSetItem)
 
 HMPJunkerMerchantButton:HookScript("OnClick", function(self)
 	HelpMePlaySellItems()
