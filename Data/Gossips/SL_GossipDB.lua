@@ -73,6 +73,18 @@ local DIALOG_SL = {
 			},
 		},
 	},
+	[164173] = { -- Fatescribe Roh-Tahl
+		["g"] = {
+			{
+				["o"] 			= 51613,
+				["c"] 			= { "none" },
+			},
+			{
+				["o"] 			= 51817,
+				["c"] 			= { "none" },
+			},
+		},
+	},
 	[174871] = { -- Fatescribe Roh-Tahl
 		["g"] = {
 			{

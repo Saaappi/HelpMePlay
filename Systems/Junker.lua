@@ -91,7 +91,7 @@ local function HelpMePlaySellItems()
 				-- We need to ensure the item isn't on
 				-- the blacklist.
 				if not HelpMePlayJunkerGlobalBlacklistDB[itemId] and not HelpMePlayJunkerBlacklistDB[itemId] then
-					local _, _, _, itemQuality = C_Container.GetContainerItemInfo(bagId, slotId); print(itemQuality)
+					local _, _, _, itemQuality = C_Container.GetContainerItemInfo(bagId, slotId)
 					local _, itemType = GetItemInfoInstant(itemId)
 					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
 					if sellPrice then

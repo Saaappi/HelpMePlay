@@ -1,121 +1,32 @@
 local addonName, addonTable = ...
 local DIALOG_DF = {
 	-- Supported Maps: 1978 (Dragon Isles)
-	-- Garrison (Alliance)
-	[79243] = { -- Baros Alexston
+	-- The Forbidden Reach
+	[182317] = { -- Scalecommander Cindrethresh
 		["g"] = {
 			{
-				["o"] 	= 43035,
+				["o"] 	= 54978,
 				["c"] 	= { "none" },
 			},
 		},
 	},
-	[84455] = { -- Assistant Brightstone
+	[182610] = { -- Scalecommander Viridia
 		["g"] = {
 			{
-				["o"] 	= 42666,
+				["o"] 	= 51849,
 				["c"] 	= { "none" },
 			},
 		},
 	},
-	[81441] = { -- Shelly Hamby
+	[182611] = { -- Scalecommander Sarkareth
 		["g"] = {
 			{
-				["o"] 	= 42677,
+				["o"] 	= 51850,
 				["c"] 	= { "none" },
 			},
 		},
 	},
-	[81103] = { -- Dungar Longdrink
-		["g"] = {
-			{
-				["o"] 	= 42839,
-				["c"] 	= { "level.higher" },
-				["l"] 	= 30,
-			},
-		},
-	},
-	-- End of Garrison (Alliance)
-	-- Garrison (Horde)
-	[86775] = { -- Senior Peon II
-		["g"] = {
-			{
-				["o"] 	= 43217,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	[80225] = { -- Skaggit
-		["g"] = {
-			{
-				["o"] 	= 42535,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	[79407] = { -- Bron Skyhorn
-		["g"] = {
-			{
-				["o"] 	= 42828,
-				["c"] 	= { "quests.active", "level.higher" },
-				["q"] 	= { 36706 }, -- Ashran Appearance
-				["l"] 	= 41,
-			},
-		},
-	},
-	-- End of Garrison (Horde)
-	-- Gorgrond
-	[81018] = { -- Rangari Kolaan
-		["g"] = {
-			{
-				["o"] 	= 42547,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	[81013] = { -- Rangari Rajess
-		["g"] = {
-			{
-				["o"] 	= 42546,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	[81020] = { -- Rangari Jonaa
-		["g"] = {
-			{
-				["o"] 	= 42548,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	[84766] = { -- Glirin
-		["g"] = {
-			{
-				["o"] 	= 42999,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	-- End of Gorgrond
-	-- Tanaan Jungle
-	[78556] = { -- Ariok
-		["g"] = {
-			{
-				["o"] 	= 43152,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	[78568] = { -- Thaelin Darkanvil
-		["g"] = {
-			{
-				["o"] 	= 42452,
-				["c"] 	= { "none" },
-			},
-		},
-	},
-	-- End of Tanaan Jungle
+	-- End of The Forbidden Reach
 }
 
 addonTable.DIALOG_DF = DIALOG_DF

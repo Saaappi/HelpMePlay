@@ -33,7 +33,7 @@ local invEquipSlotId = 0
 local function EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
 	print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 	ClearCursor()
-	PickupContainerItem(bagId, slotId)
+	C_Container.PickupContainerItem(bagId, slotId)
 	EquipCursorItem(invEquipSlotId)
 end
 

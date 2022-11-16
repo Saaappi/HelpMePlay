@@ -75,6 +75,18 @@ local DIALOG_CLASSIC = {
 		},
 		["c"] = true,
 	},
+	[189569] = { -- Wrathion
+		["g"] = {
+			{
+				["o"] 	= 55659,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 55882,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Stormwind City
 	-- Durotar
 	[4311] = { -- Holgar Stormaxe
