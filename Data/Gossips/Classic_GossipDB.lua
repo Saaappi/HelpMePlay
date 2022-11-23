@@ -87,6 +87,46 @@ local DIALOG_CLASSIC = {
 			},
 		},
 	},
+	[189767] = { -- Thaelin Darkanvil
+		["g"] = {
+			{
+				["o"] 	= 55651,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[189765] = { -- Cataloger Wulferd
+		["g"] = {
+			{
+				["o"] 	= 55650,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[189763] = { -- Pathfinder Jeb
+		["g"] = {
+			{
+				["o"] 	= 55649,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[198401] = { -- Dervishian
+		["g"] = {
+			{
+				["o"] 	= 107417,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[193450] = { -- Archmage Khadgar
+		["g"] = {
+			{
+				["o"] 	= 55739,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Stormwind City
 	-- Durotar
 	[4311] = { -- Holgar Stormaxe
