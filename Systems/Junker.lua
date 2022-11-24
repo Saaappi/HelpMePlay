@@ -173,6 +173,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 end)
 
 local function OnTooltipSetItem(tooltip, data)
+	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if tooltip then
 		local _, itemLink = tooltip:GetItem()
 		if itemLink then
