@@ -70,6 +70,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Quest Mobs** - Add an icon over the nameplate of enemies required for your quests.
 - **Quest Mobs Icon** - Either keep the default icon or change it to something you want!
 - **Quest Mobs Icon Position** - Place the icon practically anywhere on the nameplate.
+  - test
 - **Quest Mobs Icon Offsets** - Shift the icon on the X and Y offsets.
 
 ### Party Play
