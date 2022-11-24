@@ -76,9 +76,10 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 A custom icon can either be the those used for spells, items, achievements, etc, or they can be atlases too! Here's how to do both.
 
 ##### Atlas
+An atlas in _World of Warcraft_ is a texture containing subtextures. [see example](https://static.wikia.nocookie.net/wowpedia/images/d/d1/AtlasID_ClassTrialThanksFrame.png/revision/latest?cb=20190528205129)
 
 ##### Icons
-1. Go to Wowhead and search for something that uses that icon you want.
+1. Go to Wowhead and search for something that uses the icon you want.
 2. Select the icon on the page.
 3. Use the value in the name field.
 
