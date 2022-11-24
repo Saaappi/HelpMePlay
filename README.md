@@ -73,11 +73,16 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Quest Mobs Icon Offsets** - Shift the icon on the X and Y offsets.
 
 #### Custom Icons
-Custom icons can either be the icons used for spells, items, achievements, etc. Alternatively, players can use atlases too! Here's how to do both.
+A custom icon can either be the those used for spells, items, achievements, etc, or they can be atlases too! Here's how to do both.
 
 ##### Atlas
 
 ##### Icons
+1. Go to Wowhead and search for something that uses that icon you want.
+2. Select the icon on the page.
+3. Use the value in the name field.
+
+[<img src="https://i.ibb.co/k9J4JY2/icons.png" width="100%">]
 
 ### Party Play
 Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what!
