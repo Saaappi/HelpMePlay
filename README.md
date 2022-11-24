@@ -73,10 +73,15 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Quest Mobs Icon Offsets** - Shift the icon on the X and Y offsets.
 
 #### Custom Icons
-A custom icon can either be the those used for spells, items, achievements, etc, or they can be atlases too! Here's how to do both.
+A custom icon can either be those used for spells, items, achievements, etc, or they can be atlases too! Here's how to do both.
 
 ##### Atlas
 An atlas in _World of Warcraft_ is a texture containing subtextures. [see example](https://static.wikia.nocookie.net/wowpedia/images/d/d1/AtlasID_ClassTrialThanksFrame.png/revision/latest?cb=20190528205129)
+
+1. Go to [this](https://www.townlong-yak.com/framexml/10.0.2/Helix/AtlasInfo.lua) page and find the name of the atlas you want.
+2. Use the value of the key name.
+
+<img src="https://i.ibb.co/yP472nJ/Untitled.png" width="50%">
 
 ##### Icons
 1. Go to Wowhead and search for something that uses the icon you want.
