@@ -160,8 +160,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in for Threads of Fate automation."
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"] 												= "Adventure Maps"
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
-	L_GLOBALSTRINGS["Quests.Toggle.TheMaw"] 													= "The Maw"
-	L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"] 												= "Toggles whether or not the addon should choose The Maw or skip it.\n\n|cffFFD100Checked|r: Do The Maw\n|cffFFD100Unchecked|r: Skip The Maw"
+	L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFA"] 										= "Battle for Azeroth"
+	L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFADesc"] 									= "Toggle on or off to either use the BFA introduction experience or skip it.\n\n|cffFFD100Checked|r: Do it\n|cffFFD100Unchecked|r: Skip"
+	L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMaw"] 									= "The Maw"
+	L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMawDesc"] 								= "Toggle on or off to either choose The Maw or skip it.\n\n|cffFFD100Checked|r: Do it\n|cffFFD100Unchecked|r: Skip "
 	L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobs"] 										= "Quest Mobs"
 	L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobsDesc"] 									= "Toggle to show an icon on the nameplate of NPCs required for quests."
 	--

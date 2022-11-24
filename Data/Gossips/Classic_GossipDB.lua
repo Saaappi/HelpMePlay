@@ -27,15 +27,17 @@ local DIALOG_CLASSIC = {
 	-- Stormwind City
 	[120590] = { -- Lady Jaina Proudmoore
 		["g"] = {
-			{
+			{ -- Do
 				["o"] 	= 47615,
-				["c"] 	= { "level.lower" },
-				["l"] 	= 50,
+				["c"] 	= { "addon.setting" },
+				["s"] 	= "BFAIntroEnabled",
+				["r"] 	= true,
 			},
-			{
+			{ -- Skip
 				["o"] 	= 47616,
-				["c"] 	= { "level.higher" },
-				["l"] 	= 49,
+				["c"] 	= { "addon.setting" },
+				["s"] 	= "BFAIntroEnabled",
+				["r"] 	= false,
 			},
 		},
 		["c"] = true,

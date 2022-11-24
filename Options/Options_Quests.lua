@@ -68,10 +68,18 @@ local questOptions = {
 			order = 10,
 			type = "header",
 		},
-		theMaw = {
-			name = L_GLOBALSTRINGS["Quests.Toggle.TheMaw"],
+		bfaIntro = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFA"],
 			order = 11,
-			desc = L_GLOBALSTRINGS["Quests.Toggle.TheMawDesc"],
+			desc = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFADesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.BFAIntroEnabled end,
+			set = function(_, val) HelpMePlayDB.BFAIntroEnabled = val end,
+		},
+		slIntro = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMaw"],
+			order = 12,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMawDesc"],
 			type = "toggle",
 			get = function() return HelpMePlayDB.TheMawEnabled end,
 			set = function(_, val) HelpMePlayDB.TheMawEnabled = val end,
