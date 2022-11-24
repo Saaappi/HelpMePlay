@@ -175,7 +175,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"]										= "Legion"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"]											= "Battle for Azeroth"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"]											= "Shadowlands"
-	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"]											= "Dragonflight"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"]									= "BFA Zone Selection"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"]									= "Automates the first zone to select in |cffFFD100Battle for Azeroth|r."
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.STORMSONGVALLEY"]						= "|T2065627:0|t" .. " " .. "Stormsong Valley"
