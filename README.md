@@ -82,7 +82,7 @@ A custom icon can either be the those used for spells, items, achievements, etc,
 2. Select the icon on the page.
 3. Use the value in the name field.
 
-[<img src="https://i.ibb.co/k9J4JY2/icons.png" width="100%">]
+<img src="https://i.ibb.co/k9J4JY2/icons.png" width="50%">
 
 ### Party Play
 Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what!
