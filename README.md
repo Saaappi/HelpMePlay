@@ -79,9 +79,11 @@ A custom icon can either be those used for spells, items, achievements, etc, or 
 An atlas in _World of Warcraft_ is a texture containing subtextures. [see example](https://static.wikia.nocookie.net/wowpedia/images/d/d1/AtlasID_ClassTrialThanksFrame.png/revision/latest?cb=20190528205129)
 
 1. Go to [this](https://www.townlong-yak.com/framexml/10.0.2/Helix/AtlasInfo.lua) page and find the name of the atlas you want.
-2. Use the value of the key name.
+2. Use the value of the key name prefixed with a **#**.
 
 <img src="https://i.ibb.co/yP472nJ/Untitled.png" width="50%">
+
+In the above example, **ShipMission_DangerousSkull**, is the atlas name. Thus, to use the atlas in game, we would put **#ShipMission_DangerousSkull** as our value.
 
 ##### Icons
 1. Go to Wowhead and search for something that uses the icon you want.
