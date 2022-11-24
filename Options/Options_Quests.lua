@@ -153,7 +153,6 @@ local questOptions = {
 				[10] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"],
 				[0] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"],
 				--[11] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"], (NYI)
-				--[12] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.DF"], (NYI)
 			},
 			sorting = { -- Sort the options chronologically by expansion.
 				[1] = 99, 	-- Disabled
@@ -165,7 +164,6 @@ local questOptions = {
 				[7] = 10, 	-- Legion
 				[8] = 0, 	-- BFA
 				--[9] = 11, -- SL (NYI)
-				--[10] = 12, -- DF (NYI)
 			},
 			get = function()
 				if not HelpMePlayDB.ChromieTimeId then
@@ -371,8 +369,8 @@ local questOptions = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset"],
 			order = 34,
 			type = "range",
-			min = -20,
-			max = 20,
+			min = -30,
+			max = 30,
 			step = 1,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset.Desc"],
 			get = function()
@@ -387,8 +385,8 @@ local questOptions = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset"],
 			order = 35,
 			type = "range",
-			min = -20,
-			max = 20,
+			min = -30,
+			max = 30,
 			step = 1,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset.Desc"],
 			get = function()
