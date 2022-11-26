@@ -452,10 +452,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 		
 		C_QuestLog.AddQuestWatch(questId)
-		
-		C_Timer.After(0.5, function()
-			AutoQuestPopupTracker_RemovePopUp(questId)
-		end)
 
 		if select(2, IsAddOnLoaded("Immersion")) then
 			C_Timer.After(addonTable.CONSTANTS["ONE_TENTH_SECOND"], function()
