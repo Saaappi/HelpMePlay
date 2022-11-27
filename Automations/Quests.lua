@@ -197,14 +197,11 @@ local function CompleteQuest()
 				sellPrices = {}
 			end
 			
-			local itemId = 0
 			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 				for i=1, numQuestChoices do
-					local _, _, quantity = GetQuestItemInfo("choice", i)
+					local _, _, quantity, _, _, itemId = GetQuestItemInfo("choice", i)
 					local questRewardItemLink = GetQuestItemLink("choice", i)
 					if questRewardItemLink then
-						_, itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
-						
 						-- Before we continue, let's make sure we aren't supposed to take
 						-- a specific reward from the current quest. For example, we always
 						-- want to take the Champion's Purse from Argent Tournament dailies.
@@ -216,6 +213,7 @@ local function CompleteQuest()
 						if HelpMePlayDB.QuestRewardId == 1 then
 							IsItemAnUpgrade(itemId, questRewardItemLink, i)
 						elseif HelpMePlayDB.QuestRewardId == 2 then
+							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(questRewardItemLink)
 							if sellPrice > 0 then
 								local totalSellPrice = 0
 								local phSellPrice = quantity*sellPrice
