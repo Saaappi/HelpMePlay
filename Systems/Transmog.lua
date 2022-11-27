@@ -39,8 +39,8 @@ local function LearnAllUnknownTransmog(equippedItems)
 	if not UnitAffectingCombat("player") then
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 			for i=0, NUM_BAG_SLOTS do -- We iterate through the inventory, bags 0 to 4.
-				for j=1, GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
-					local _, _, _, _, _, _, itemLink = GetContainerItemInfo(i, j)
+				for j=1, C_Container.GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
+					local _, _, _, _, _, _, itemLink = C_Container.GetContainerItemInfo(i, j)
 					if itemLink then -- If we return a valid item link, then continue.
 						local _, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
 						if sourceId then -- If we return a valid source ID, then continue.
