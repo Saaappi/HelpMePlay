@@ -80,6 +80,7 @@ Automations\Merchants.lua
 Automations\ReadyChecks.lua
 Automations\Emotes.lua
 Automations\Speech.lua
+Automations\Groups.lua
 Automations\Gossip.lua
 Automations\Vehicles.lua
 Automations\Queues.lua
