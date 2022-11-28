@@ -157,17 +157,6 @@ elseif select(2, IsAddOnLoaded("Bagnon")) then
 	end)
 -- ElvUI
 elseif select(2, IsAddOnLoaded("ElvUI")) then
-	-- Players can have ElvUI enabled but disable
-	-- the addon's inventory functionality. This
-	-- means ElvUI is enabled but they use the stock
-	-- inventory frame (see no addon section below).
-	--
-	-- We need to account for this by checking their
-	-- ElvUI saved variable data.
-	local playerName, realmName = UnitName("player"), GetRealmName()
-	local profileName = playerName .. " - " .. realmName
-	local areBagsEnabled = ElvPrivateDB["profiles"][profileName]["bags"]["enable"]
-	
 	-- This will allow us to hide the Transmog button
 	-- when the ESC key is used to hide the inventory.
 	tinsert(UISpecialFrames, "HMPTransmogButton")
@@ -177,24 +166,52 @@ elseif select(2, IsAddOnLoaded("ElvUI")) then
 	HMPTransmogButton:SetSize(24, 24)
 	HelpMePlay:SecureHook("ToggleAllBags", function()
 		if HelpMePlayDB.TransmogButtonEnabled then
-			C_Timer.After(0.1, function()
-				if areBagsEnabled then
-					HMPTransmogButton:SetPoint("TOPRIGHT", ElvUI_ContainerFrame, "TOPLEFT", -5, -1)
-					if ElvUI_ContainerFrame:IsVisible() then
-						HMPTransmogButton:Show()
-					else
-						HMPTransmogButton:Hide()
-					end
-				else
-					if ContainerFrameCombinedBags:IsVisible() then
-						HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrameCombinedBags, "TOPLEFT", -10, -10)
-						HMPTransmogButton:Show()
-					else
-						HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
-						HMPTransmogButton:Hide()
+			-- Players can have ElvUI enabled but disable
+			-- the addon's inventory functionality. This
+			-- means ElvUI is enabled but they use the stock
+			-- inventory frame (see no addon section below).
+			--
+			-- We need to account for this by checking their
+			-- ElvUI saved variable data.
+			local playerName, realmName = UnitName("player"), GetRealmName()
+			local profileName = playerName .. " - " .. realmName
+			local elvPrivateDB = ElvPrivateDB["profiles"][profileName]
+			
+			local areBagsEnabled = true
+			if elvPrivateDB then
+				for k, v in pairs(elvPrivateDB) do
+					if k == "bags" then
+						areBagsEnabled = false
+						break
 					end
 				end
-			end)
+				if areBagsEnabled then
+					C_Timer.After(0.1, function()
+						HMPTransmogButton:SetPoint("TOPRIGHT", ElvUI_ContainerFrame, "TOPLEFT", -5, -1)
+						if ElvUI_ContainerFrame:IsVisible() then
+							HMPTransmogButton:Show()
+						else
+							HMPTransmogButton:Hide()
+						end
+					end)
+				else
+					C_Timer.After(0.1, function()
+						if ContainerFrameCombinedBags:IsVisible() then
+							HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrameCombinedBags, "TOPLEFT", -10, -10)
+							HMPTransmogButton:Show()
+						elseif ContainerFrame5:IsVisible() then
+							HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -10, -10)
+							HMPTransmogButton:Show()
+						elseif ContainerFrame1:IsVisible() then
+							HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame1, "TOPLEFT", -10, -10)
+							HMPTransmogButton:Show()
+						else
+							HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
+							HMPTransmogButton:Hide()
+						end
+					end)
+				end
+			end
 		end
 	end)
 -- No AddOn
