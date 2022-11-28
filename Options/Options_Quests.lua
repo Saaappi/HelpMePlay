@@ -379,7 +379,7 @@ local questOptions = {
 			type = "range",
 			min = -50,
 			max = 50,
-			step = 1,
+			step = 2,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset.Desc"],
 			get = function()
 				if not HelpMePlayDB.QuestMobIconXOffset then
@@ -395,7 +395,7 @@ local questOptions = {
 			type = "range",
 			min = -50,
 			max = 50,
-			step = 1,
+			step = 2,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset.Desc"],
 			get = function()
 				if not HelpMePlayDB.QuestMobIconYOffset then

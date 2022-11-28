@@ -65,6 +65,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Headers
 	L_GLOBALSTRINGS["Header.Toggles"] 															= "Toggles"
+	L_GLOBALSTRINGS["Header.Buttons"] 															= "Buttons"
 	L_GLOBALSTRINGS["Header.DropDowns"] 														= "DropDowns"
 	L_GLOBALSTRINGS["Header.About"] 															= "About"
 	L_GLOBALSTRINGS["Header.Acknowledgments"] 													= "Acknowledgments"
@@ -106,6 +107,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
 	L_GLOBALSTRINGS["General.Toggle.DevMode"] 													= "Developer Mode"
 	L_GLOBALSTRINGS["General.Toggle.DevModeDesc"] 												= "Toggle and the addon will output \"random\" information at \"spontaneous\" moments.\n\nThis really should be for the author's eyes only but... have fun!"
+	L_GLOBALSTRINGS["General.Toggle.TransmogButton"] 											= "Transmog Button"
+	L_GLOBALSTRINGS["General.Toggle.TransmogButtonDesc"] 										= "Toggle the Transmog button near the inventory on or off."
+	L_GLOBALSTRINGS["General.Toggle.SoulbindButton"] 											= "Soulbind Button"
+	L_GLOBALSTRINGS["General.Toggle.SoulbindButtonDesc"] 										= "Toggle the Soulbind button in the Soulbind interface on or off."
 	-- End: 	General Options (Options_General.lua)
 	--
 	-- Start: 	Features Options (Options_Features.lua)

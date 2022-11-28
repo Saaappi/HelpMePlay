@@ -111,11 +111,15 @@ if select(2, IsAddOnLoaded("AdiBags")) then
 	HMPTransmogButton:SetSize(24, 24)
 	local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 	hooksecurefunc(AdiBags, "OpenAllBags", function(self)
-		HMPTransmogButton:SetPoint("TOPRIGHT", AdiBagsContainer1, "TOPLEFT", -5, -1)
-		HMPTransmogButton:Show()
+		if HelpMePlayDB.TransmogButtonEnabled then
+			HMPTransmogButton:SetPoint("TOPRIGHT", AdiBagsContainer1, "TOPLEFT", -5, -1)
+			HMPTransmogButton:Show()
+		end
 	end)
 	hooksecurefunc(AdiBags, "CloseAllBags", function(self)
-		HMPTransmogButton:Hide()
+		if HelpMePlayDB.TransmogButtonEnabled then
+			HMPTransmogButton:Hide()
+		end
 	end)
 -- ArkInventory
 elseif select(2, IsAddOnLoaded("ArkInventory")) then
@@ -124,11 +128,15 @@ elseif select(2, IsAddOnLoaded("ArkInventory")) then
 	HMPTransmogButton:SetSize(24, 24)
 	local ArkInventory = LibStub("AceAddon-3.0"):GetAddon("ArkInventory")
 	hooksecurefunc(ArkInventory, "Frame_Main_Show", function(self)
-		HMPTransmogButton:SetPoint("TOPRIGHT", ARKINV_Frame1, "TOPLEFT", -5, -1)
-		HMPTransmogButton:Show()
+		if HelpMePlayDB.TransmogButtonEnabled then
+			HMPTransmogButton:SetPoint("TOPRIGHT", ARKINV_Frame1, "TOPLEFT", -5, -1)
+			HMPTransmogButton:Show()
+		end
 	end)
 	hooksecurefunc(ArkInventory, "Frame_Main_Hide", function(self)
-		HMPTransmogButton:Hide()
+		if HelpMePlayDB.TransmogButtonEnabled then
+			HMPTransmogButton:Hide()
+		end
 	end)
 -- Bagnon
 elseif select(2, IsAddOnLoaded("Bagnon")) then
@@ -136,12 +144,16 @@ elseif select(2, IsAddOnLoaded("Bagnon")) then
 	highlightTexture:SetSize(24, 24)
 	HMPTransmogButton:SetSize(24, 24)
 	hooksecurefunc(Bagnon.InventoryFrame, "OnShow", function(self)
-		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
-		HMPTransmogButton:Show()
+		if HelpMePlayDB.TransmogButtonEnabled then
+			HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
+			HMPTransmogButton:Show()
+		end
 	end)
 	hooksecurefunc(Bagnon.InventoryFrame, "OnHide", function(self)
-		HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
-		HMPTransmogButton:Hide()
+		if HelpMePlayDB.TransmogButtonEnabled then
+			HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
+			HMPTransmogButton:Hide()
+		end
 	end)
 -- ElvUI
 elseif select(2, IsAddOnLoaded("ElvUI")) then
@@ -149,14 +161,16 @@ elseif select(2, IsAddOnLoaded("ElvUI")) then
 	highlightTexture:SetSize(24, 24)
 	HMPTransmogButton:SetSize(24, 24)
 	HelpMePlay:SecureHook("ToggleAllBags", function()
-		C_Timer.After(0.1, function()
-			HMPTransmogButton:SetPoint("TOPRIGHT", ElvUI_ContainerFrame, "TOPLEFT", -5, -1)
-			if ElvUI_ContainerFrame:IsVisible() then
-				HMPTransmogButton:Show()
-			else
-				HMPTransmogButton:Hide()
-			end
-		end)
+		if HelpMePlayDB.TransmogButtonEnabled then
+			C_Timer.After(0.1, function()
+				HMPTransmogButton:SetPoint("TOPRIGHT", ElvUI_ContainerFrame, "TOPLEFT", -5, -1)
+				if ElvUI_ContainerFrame:IsVisible() then
+					HMPTransmogButton:Show()
+				else
+					HMPTransmogButton:Hide()
+				end
+			end)
+		end
 	end)
 -- No AddOn
 else
@@ -164,12 +178,14 @@ else
 	highlightTexture:SetSize(24, 24)
 	HMPTransmogButton:SetSize(24, 24)
 	hooksecurefunc("ContainerFrame_OnShow", function(self)
-		if ContainerFrameCombinedBags:IsVisible() then
-			HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrameCombinedBags, "TOPLEFT", -10, -10)
-			HMPTransmogButton:Show()
-		else
-			HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
-			HMPTransmogButton:Show()
+		if HelpMePlayDB.TransmogButtonEnabled then
+			if ContainerFrameCombinedBags:IsVisible() then
+				HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrameCombinedBags, "TOPLEFT", -10, -10)
+				HMPTransmogButton:Show()
+			else
+				HMPTransmogButton:SetPoint("TOPRIGHT", _G.ContainerFrame5, "TOPLEFT", -5, -10)
+				HMPTransmogButton:Show()
+			end
 		end
 	end)
 	hooksecurefunc("ContainerFrame_OnHide", function(self)

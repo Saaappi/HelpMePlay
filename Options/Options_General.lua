@@ -62,13 +62,44 @@ local generalOptions = {
 			get = function(_) return HelpMePlayDB.MinimapIconEnabled end,
 			set = function(_, val) HelpMePlay:MinimapIcon(val) end,
 		},
-		verboseMode = {
+		devMode = {
 			name = L_GLOBALSTRINGS["General.Toggle.DevMode"],
 			order = 3,
 			desc = L_GLOBALSTRINGS["General.Toggle.DevModeDesc"],
 			type = "toggle",
 			get = function(_) return HelpMePlayDB.DevModeEnabled end,
 			set = function(_, val) HelpMePlayDB.DevModeEnabled = val end,
+		},
+		buttonHeader = {
+			name = L_GLOBALSTRINGS["Header.Buttons"],
+			order = 10,
+			type = "header",
+		},
+		transmogButton = {
+			name = L_GLOBALSTRINGS["General.Toggle.TransmogButton"],
+			order = 11,
+			desc = L_GLOBALSTRINGS["General.Toggle.TransmogButtonDesc"],
+			type = "toggle",
+			get = function(_)
+				if not HelpMePlayDB.TransmogButtonEnabled then
+					HelpMePlayDB.TransmogButtonEnabled = false
+				end
+				return HelpMePlayDB.TransmogButtonEnabled
+			end,
+			set = function(_, val) HelpMePlayDB.TransmogButtonEnabled = val end,
+		},
+		soulbindButton = {
+			name = L_GLOBALSTRINGS["General.Toggle.SoulbindButton"],
+			order = 12,
+			desc = L_GLOBALSTRINGS["General.Toggle.SoulbindButtonDesc"],
+			type = "toggle",
+			get = function(_)
+				if not HelpMePlayDB.SoulbindButtonEnabled then
+					HelpMePlayDB.SoulbindButtonEnabled = false
+				end
+				return HelpMePlayDB.SoulbindButtonEnabled
+			end,
+			set = function(_, val) HelpMePlayDB.SoulbindButtonEnabled = val end,
 		},
 	},
 }
