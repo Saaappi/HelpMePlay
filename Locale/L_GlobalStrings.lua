@@ -116,6 +116,8 @@ if (isLocaleSupported) then
 	-- Start: 	Features Options (Options_Features.lua)
 	L_GLOBALSTRINGS["Features.Toggle.Cinematics"] 												= "Cinematics"
 	L_GLOBALSTRINGS["Features.Toggle.CinematicsDesc"] 											= "Automates skipping (most) cinematics and in-game movies.\n\nThere's a minor half-second delay before the automation triggers the skip."
+	L_GLOBALSTRINGS["Features.Toggle.Groups"] 													= "Groups"
+	L_GLOBALSTRINGS["Features.Toggle.GroupsDesc"] 												= "Toggle to automatically accept group invitations."
 	L_GLOBALSTRINGS["Features.Toggle.Gossip"] 													= "Gossip"
 	L_GLOBALSTRINGS["Features.Toggle.GossipDesc"] 												= "Automates the selection of gossip options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all gossips!"
 	L_GLOBALSTRINGS["Features.Toggle.Emotes"] 													= "Emotes"
