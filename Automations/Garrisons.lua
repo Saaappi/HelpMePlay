@@ -45,6 +45,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 								C_Garrison.AddFollowerToMission(mission.missionID, followers[1].followerID)
 								C_Garrison.StartMission(mission.missionID)
 								C_Garrison.CloseMissionNPC()
+								HideUIPanel(GarrisonMissionFrame)
 							end
 						end
 					end
@@ -55,11 +56,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 								C_Garrison.AddFollowerToMission(mission.missionID, followers[1].followerID)
 								C_Garrison.StartMission(mission.missionID)
 								C_Garrison.CloseMissionNPC()
+								HideUIPanel(GarrisonMissionFrame)
 							end
 						end
 					end
 				end
-				HideUIPanel(GarrisonMissionFrame)
 			end)
 		end
 	end
