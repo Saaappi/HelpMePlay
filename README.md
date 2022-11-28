@@ -26,6 +26,7 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Cinematics** - Gracefully cancel *most* in-game cinematics and movies.
 - **Emotes** - Don't remember which emote to use on the stones in Maldraxxus? HelpMePlay is capable of using the appropriate emote simply by targeting these stones.
 - **Flight Paths** - Let HelpMePlay sweep you off your feet, carrying you to the destinations you need to go!
+- **Groups** - Allow HelpMePlay to automatically accept group invitations for you!
 - **Gossip** - Automates selecting appropriate gossip from NPCs. Players can even add their own!
 - **Notes** - HelpMePlay can add helpful tips to NPC tooltips. Can't remember which Gatamatos to click during [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation)? Me neither! HelpMePlay will let you know which to click if you hover over them.
 - **Queues** - Tired of missing your queue pops while you're AFK? HelpMePlay will accept the queue at lightning speed, granting you precious time to take care of the important things in life (like grabbing a drink for your dungeon ventures.)
