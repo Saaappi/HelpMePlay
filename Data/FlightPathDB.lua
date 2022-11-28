@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-
 local FLIGHT_PATHS = {
 	[993] = { -- Broken Isles
 		["g"] = {
