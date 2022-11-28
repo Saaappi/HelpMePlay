@@ -157,6 +157,7 @@ elseif select(2, IsAddOnLoaded("Bagnon")) then
 	end)
 -- ElvUI
 elseif select(2, IsAddOnLoaded("ElvUI")) then
+	tinsert(UISpecialFrames, "HMPTransmogButton")
 	normalTexture:SetSize(24, 24)
 	highlightTexture:SetSize(24, 24)
 	HMPTransmogButton:SetSize(24, 24)
