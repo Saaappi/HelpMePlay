@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayIgnoredQuestsDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB, HelpMePlayQuestMobsDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
-## Version: 2.0.6
+## Version: 2.0.7
 ## OptionalDeps: Ace3
 
 # Functions
@@ -57,6 +57,7 @@ Data\QuestRewardsDB.lua
 Data\DungeonQueuesDB.lua
 Data\SoulbindsDB.lua
 Data\IgnoredQuestsDB.lua
+Data\PlayerTalents\WarriorDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
 Data\TalentSystems\CypherOfFirstOnesDB.lua
@@ -91,6 +92,7 @@ Automations\FlightPaths.lua
 
 # Systems
 Systems\Transmog.lua
+Systems\PlayerTalents.lua
 Systems\Soulbinds.lua
 Systems\Commands.lua
 Systems\TalentSystems.lua
