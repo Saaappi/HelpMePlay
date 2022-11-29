@@ -139,7 +139,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Vehicles"] 												= "Vehicles"
 	L_GLOBALSTRINGS["Features.Toggle.VehiclesDesc"] 											= "When enabled, your character will auto exit certain vehicles.\n\nVehicles are defined by the addon."
 	L_GLOBALSTRINGS["Features.Toggle.WarMode"] 													= "War Mode"
-	L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"] 												= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\n\nDoes |cffFF0000NOT|r apply above level 50."
+	L_GLOBALSTRINGS["Features.Toggle.WarModeDesc"] 												= "Automates opting the player into War Mode when entering Orgrimmar or Stormwind City.\n\nDoes |cffFF0000NOT|r apply above level 60."
 	L_GLOBALSTRINGS["Features.Toggle.Waypoints"] 												= "Waypoints"
 	L_GLOBALSTRINGS["Features.Toggle.WaypointsDesc"] 											= "If eligible, when a quest is accepted, the addon will automatically plot appropriate waypoints."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHead"] 										= "Talking Head"

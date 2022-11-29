@@ -26,7 +26,7 @@ local CONSTANTS = {
 	["INVTYPE_SHIELD"] 			= 17,
 	["INVTYPE_HOLDABLE"] 		= 17,
 	["MAX_PLAYER_LEVEL"] 		= 60,
-	["WAR_MODE_MAX_LEVEL"]		= 50,
+	["WAR_MODE_MAX_LEVEL"]		= 60,
 }
 
 addonTable.CONSTANTS = CONSTANTS
