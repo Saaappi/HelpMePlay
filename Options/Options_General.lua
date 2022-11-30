@@ -101,6 +101,19 @@ local generalOptions = {
 			end,
 			set = function(_, val) HelpMePlayDB.SoulbindButtonEnabled = val end,
 		},
+		talentButton = {
+			name = L_GLOBALSTRINGS["General.Toggle.TalentButton"],
+			order = 13,
+			desc = L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"],
+			type = "toggle",
+			get = function(_)
+				if not HelpMePlayDB.TalentButtonEnabled then
+					HelpMePlayDB.TalentButtonEnabled = false
+				end
+				return HelpMePlayDB.TalentButtonEnabled
+			end,
+			set = function(_, val) HelpMePlayDB.TalentButtonEnabled = val end,
+		},
 	},
 }
 addonTable.generalOptions = generalOptions

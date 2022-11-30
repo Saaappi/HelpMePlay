@@ -1,6 +1,17 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local classes = {
+	["WARRIOR"] = addonTable.WARRIOR_TALENTS
+}
+
+--[[
+	if #node.entryIDs>1 then
+		C_Traits.SetSelection(configID,node.ID,entryID)
+	else
+		C_Traits.PurchaseRank(configID,node.ID)
+	end
+]]
 
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
@@ -10,16 +21,18 @@ e:SetScript("OnEvent", function(self, event, addon)
 		local configID = C_ClassTalents.GetActiveConfigID()
 		local treeID = C_Traits.GetConfigInfo(configID).treeIDs[1]
 		if configID and treeID then
+			local specIndex = GetSpecialization()
+			local specID = GetSpecializationInfo(specIndex)
 			local nodes = C_Traits.GetTreeNodes(treeID)
-			--[[for i=1, #nodes do
-				local nodeInfo = C_Traits.GetNodeInfo(configID, nodes[i])
-				if nodeInfo.ID ~= 0 then
-					print(nodeInfo.ID .. ": " .. C_Traits.GetTraitDescription(nodeInfo.entryIDs[1], nodeInfo.maxRanks))
+			local _, class = UnitClass("player")
+			for k, v in pairs(classes[class]) do
+				if k == specID then
+					for _, traits in ipairs(v) do
+						-- TODO
+						-- Spend talent points?
+					end
 				end
-				if nodeInfo.ID == 90326 then
-					print(C_Traits.GetTraitDescription(nodeInfo.entryIDs[1], nodeInfo.maxRanks))
-				end
-			end]]
+			end
 		end
 	end
 end)
