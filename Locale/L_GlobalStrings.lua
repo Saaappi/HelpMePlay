@@ -113,7 +113,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.SoulbindButton"] 											= "Soulbind Button"
 	L_GLOBALSTRINGS["General.Toggle.SoulbindButtonDesc"] 										= "Toggle the Soulbind button in the Soulbind interface on or off."
 	L_GLOBALSTRINGS["General.Toggle.TalentButton"] 												= "Talent Button"
-	L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"] 											= "Toggle the Talent button the Class Talents interface on or off."
+	L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"] 											= "Toggle the Talent button in the Class Talents interface on or off."
 	-- End: 	General Options (Options_General.lua)
 	--
 	-- Start: 	Features Options (Options_Features.lua)
