@@ -180,6 +180,17 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end
 			end
 		end
+	elseif cmd == L_GLOBALSTRINGS["Command.Trait"] and arg1 ~= nil then
+		if HelpMePlayDB.DevModeEnabled then
+			if tonumber(arg1) then
+				local nodeID = tonumber(arg1)
+				local configID = C_ClassTalents.GetActiveConfigID()
+				print("|cffFFD100Entry IDs:|r")
+				for _, v in ipairs(C_Traits.GetNodeInfo(configID, nodeID).entryIDs) do
+					print(v)
+				end
+			end
+		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end

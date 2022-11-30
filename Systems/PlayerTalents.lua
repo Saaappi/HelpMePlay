@@ -7,9 +7,19 @@ e:SetScript("OnEvent", function(self, event, addon)
 	if event == "ADDON_LOADED" and addon == "Blizzard_ClassTalentUI" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		
-		for i=1, #addonTable.WARRIOR_TALENTS do
-			print(addonTable.WARRIOR_TALENTS[i]["t"])
-			LearnTalent(addonTable.WARRIOR_TALENTS[i]["t"])
+		local configID = C_ClassTalents.GetActiveConfigID()
+		local treeID = C_Traits.GetConfigInfo(configID).treeIDs[1]
+		if configID and treeID then
+			local nodes = C_Traits.GetTreeNodes(treeID)
+			--[[for i=1, #nodes do
+				local nodeInfo = C_Traits.GetNodeInfo(configID, nodes[i])
+				if nodeInfo.ID ~= 0 then
+					print(nodeInfo.ID .. ": " .. C_Traits.GetTraitDescription(nodeInfo.entryIDs[1], nodeInfo.maxRanks))
+				end
+				if nodeInfo.ID == 90326 then
+					print(C_Traits.GetTraitDescription(nodeInfo.entryIDs[1], nodeInfo.maxRanks))
+				end
+			end]]
 		end
 	end
 end)
