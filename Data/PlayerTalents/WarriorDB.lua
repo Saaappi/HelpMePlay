@@ -4,12 +4,14 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local WARRIOR_TALENTS = {
 	[73] = { -- Protection
 		{ -- War Machine
-			["t"] = 90345,
+			["n"] = 90345,
 			["e"] = 112207,
+			["r"] = 1,
 		},
 		{ -- Leeching Strikes
-			["t"] = 90344,
+			["n"] = 90344,
 			["e"] = 112206,
+			["r"] = 1,
 		},
 	},
 }
