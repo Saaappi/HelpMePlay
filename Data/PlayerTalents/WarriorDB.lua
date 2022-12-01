@@ -249,6 +249,250 @@ local WARRIOR_TALENTS = {
 		},
 	},
 	[72] = { -- Fury
+		{ -- War Machine
+			["n"] = 90386,
+			["e"] = 112254,
+		},
+		{ -- Bloodthirst
+			["n"] = 90392,
+			["e"] = 112261,
+		},
+		{ -- Defensive Stance
+			["n"] = 90330,
+			["e"] = 112187,
+		},
+		{ -- Raging Blow
+			["n"] = 90396,
+			["e"] = 112265,
+		},
+		{ -- Rallying Cry
+			["n"] = 90331,
+			["e"] = 112188,
+		},
+		{ -- Improved Enrage
+			["n"] = 90398,
+			["e"] = 112267,
+		},
+		{ -- Leeching Strikes
+			["n"] = 90344,
+			["e"] = 112206,
+		},
+		{ -- Enraged Regeneration
+			["n"] = 90395,
+			["e"] = 112264,
+		},
+		{ -- Fast Footwork
+			["n"] = 90371,
+			["e"] = 112238,
+		},
+		{ -- Improved Execute
+			["n"] = 90430,
+			["e"] = 112301,
+		},
+		{ -- Spell Reflection
+			["n"] = 90385,
+			["e"] = 112253,
+		},
+		{ -- Fresh Meat
+			["n"] = 90399,
+			["e"] = 112268,
+		},
+		{ -- Heroic Leap
+			["n"] = 90346,
+			["e"] = 112208,
+		},
+		{ -- Invigorating Fury
+			["n"] = 90393,
+			["e"] = 112262,
+		},
+		{ -- Frothing Berserker
+			["n"] = 90350,
+			["e"] = 112213,
+		},
+		{ -- Sudden Death
+			["n"] = 90429,
+			["e"] = 112300,
+		},
+		{ -- Furious Blows
+			["n"] = 90336,
+			["e"] = 112197,
+		},
+		{ -- Improved Raging Blow
+			["n"] = 90390,
+			["e"] = 112259,
+		},
+		{ -- Pain and Gain
+			["n"] = 90353,
+			["e"] = 112217,
+		},
+		{ -- Rampage
+			["n"] = 90408,
+			["e"] = 112277,
+		},
+		{ -- Overwhelming Rage
+			["n"] = 90378,
+			["e"] = 112245,
+		},
+		{ -- Cruelty
+			["n"] = 90428,
+			["e"] = 112299,
+		},
+		{ -- Overwhelming Rage
+			["n"] = 90378,
+			["e"] = 112245,
+		},
+		{ -- Improved Whirlwind
+			["n"] = 90427,
+			["e"] = 112298,
+		},
+		{ -- Sidearm
+			["n"] = 90335,
+			["e"] = 112196,
+		},
+		{ -- Wrath and Fury
+			["n"] = 90387,
+			["e"] = 112255,
+		},
+		{ -- Reinforced Plates
+			["n"] = 90368,
+			["e"] = 112235,
+		},
+		{ -- Slaughtering Strikes
+			["n"] = 90411,
+			["e"] = 112280,
+		},
+		{ -- Bounding Stride
+			["n"] = 90355,
+			["e"] = 112219,
+		},
+		{ -- Hack and Slash
+			["n"] = 90407,
+			["e"] = 112276,
+		},
+		{ -- Barbaric Training
+			["n"] = 92222,
+			["e"] = 114294,
+		},
+		{ -- Frenzy
+			["n"] = 90406,
+			["e"] = 112275,
+		},
+		{ -- Double Time
+			["n"] = 90382,
+			["e"] = 112249,
+		},
+		{ -- Recklessness
+			["n"] = 90412,
+			["e"] = 112281,
+		},
+		{ -- Honed Reflexes
+			["n"] = 90367,
+			["e"] = 112234,
+		},
+		{ -- Massacre
+			["n"] = 90410,
+			["e"] = 112279,
+		},
+		{ -- Bitter Immunity
+			["n"] = 90356,
+			["e"] = 112220,
+		},
+		{ -- Meat Cleaver
+			["n"] = 90391,
+			["e"] = 112260,
+		},
+		{ -- Seismic Reverberation
+			["n"] = 90340,
+			["e"] = 112201,
+		},
+		{ -- Raging Armaments
+			["n"] = 90426,
+			["e"] = 112297,
+		},
+		{ -- Dual Wield Specialization
+			["n"] = 90373,
+			["e"] = 112240,
+		},
+		{ -- Critical Thinking
+			["n"] = 90425,
+			["e"] = 112296,
+		},
+		{ -- Cruel Strikes
+			["n"] = 90381,
+			["e"] = 112248,
+		},
+		{ -- Critical Thinking
+			["n"] = 90425,
+			["e"] = 112296,
+		},
+		{ -- Cruel Strikes
+			["n"] = 90381,
+			["e"] = 112248,
+		},
+		{ -- Swift Strikes
+			["n"] = 90416,
+			["e"] = 112286,
+		},
+		{ -- Wild Strikes
+			["n"] = 90360,
+			["e"] = 112224,
+		},
+		{ -- Swift Strikes
+			["n"] = 90416,
+			["e"] = 112286,
+		},
+		{ -- Wild Strikes
+			["n"] = 90360,
+			["e"] = 112224,
+		},
+		{ -- Odyn's Fury
+			["n"] = 90418,
+			["e"] = 112289,
+		},
+		{ -- Armored to the Teeth
+			["n"] = 90258,
+			["e"] = 112108,
+		},
+		{ -- Reckless Abandon
+			["n"] = 90415,
+			["e"] = 112284,
+		},
+		{ -- Armored to the Teeth
+			["n"] = 90258,
+			["e"] = 112108,
+		},
+		{ -- Ravager
+			["n"] = 90388,
+			["e"] = 112256,
+		},
+		{ -- Avatar
+			["n"] = 90365,
+			["e"] = 112232,
+		},
+		{ -- Unbridled Ferocity
+			["n"] = 90414,
+			["e"] = 112283,
+		},
+		{ -- Spear of Bastion
+			["n"] = 90380,
+			["e"] = 112247,
+		},
+		{ -- Titanic Rage
+			["n"] = 90417,
+			["e"] = 112287,
+		},
+		{ -- Elysian Might
+			["n"] = 90323,
+			["e"] = 112180,
+		},
+		{ -- Titan's Torment
+			["n"] = 90362,
+			["e"] = 112226,
+		},
+		{ -- Hurricane
+			["n"] = 90389,
+			["e"] = 112257,
+		},
 	},
 	[73] = { -- Protection
 		{ -- War Machine
