@@ -1,9 +1,23 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local classes = {
-	["WARRIOR"] = addonTable.WARRIOR_TALENTS
-}
+
+local function PurchaseTalents(configID, tbl, specID)
+	C_Timer.After(0.25, function()
+		for _, traits in ipairs(tbl[specID]) do
+			if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
+				local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
+				if #nodeInfo.entryIDs > 1 then
+					C_Traits.SetSelection(configID, traits.n, traits.e)
+				else
+					C_Traits.PurchaseRank(configID, traits.n)
+				end
+				--break
+				--PurchaseTalents(configID, tbl, specID)
+			end
+		end
+	end)
+end
 
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
@@ -33,25 +47,16 @@ e:SetScript("OnEvent", function(self, event, addon)
 		HMPTalentButton:SetSize(24, 24)
 		
 		HMPTalentButton:HookScript("OnClick", function(self)
-			--[[local configID = C_ClassTalents.GetActiveConfigID()
+			local configID = C_ClassTalents.GetActiveConfigID()
 			if configID then
 				local specIndex = GetSpecialization()
 				local specID = GetSpecializationInfo(specIndex)
 				local _, class = UnitClass("player")
-				for k, v in pairs(classes[class]) do
-					if k == specID then
-						for _, traits in ipairs(v) do
-							if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
-								if traits.r ~= C_Traits.GetNodeInfo(configID, traits.n).ranksPurchased then
-									C_Traits.PurchaseRank(configID, traits.n)
-									C_Traits.StageConfig(configID)
-									C_Traits.CommitConfig(configID)
-								end
-							end
-						end
-					end
+				
+				if class == "WARRIOR" then
+					PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
 				end
-			end]]
+			end
 		end)
 
 		HMPTalentButton:HookScript("OnEnter", function(self)
