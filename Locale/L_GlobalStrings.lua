@@ -113,7 +113,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.SoulbindButton"] 											= "Soulbind Button"
 	L_GLOBALSTRINGS["General.Toggle.SoulbindButtonDesc"] 										= "Toggle the Soulbind button in the Soulbind interface on or off."
 	L_GLOBALSTRINGS["General.Toggle.TalentButton"] 												= "Talent Button"
-	L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"] 											= "Toggle the Talent button in the Class Talents interface on or off."
+	L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"] 											= "Toggle the Talent button in the Class Talents interface on or off.\n\nToggling requires a reload to take effect."
 	-- End: 	General Options (Options_General.lua)
 	--
 	-- Start: 	Features Options (Options_Features.lua)
@@ -323,6 +323,8 @@ if (isLocaleSupported) then
 	--
 	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"] 												= "Enter %s\n\n|cffADD8E6Added by HelpMePlay|r"
+	--
+	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "Automatically learns and applies the next talent in\nthe loadout.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["Minimap.UI.Button.SubText"] 												= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
 	-- End: 	UI
