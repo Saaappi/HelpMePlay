@@ -12,10 +12,9 @@ local function PurchaseTalents(configID, tbl, specID)
 				else
 					C_Traits.PurchaseRank(configID, traits.n)
 				end
-				--break
-				--PurchaseTalents(configID, tbl, specID)
 			end
 		end
+		C_Traits.CommitConfig(configID)
 	end)
 end
 
