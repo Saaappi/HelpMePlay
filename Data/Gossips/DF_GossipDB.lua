@@ -474,6 +474,22 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[190937] = { -- Sabellian
+		["g"] = {
+			{
+				["o"] 	= 55381,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[185905] = { -- Alexstrasza the Life-Binder
+		["g"] = {
+			{
+				["o"] 	= 55380,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of The Waking Shores
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
