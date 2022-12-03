@@ -940,6 +940,46 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[196675] = { -- Taivan
+		["g"] = {
+			{
+				["o"] 	= 106972,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[194292] = { -- Taivan
+		["g"] = {
+			{
+				["o"] 	= 56209,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 56208,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 87458,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[188247] = { -- Taivan
+		["g"] = {
+			{
+				["o"] 	= 56231,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[193586] = { -- Teerai Messenger
+		["g"] = {
+			{
+				["o"] 	= 64043,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Ohn'ahran Plains
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
