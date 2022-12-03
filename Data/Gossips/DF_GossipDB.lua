@@ -491,6 +491,128 @@ local DIALOG_DF = {
 		},
 	},
 	-- End of The Waking Shores
+	-- Ohn'ahran Plains
+	[181217] = { -- Sansok Khan
+		["g"] = {
+			{
+				["o"] 	= 56190,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186176] = { -- Aru
+		["g"] = {
+			{
+				["o"] 	= 55270,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186175] = { -- Belika
+		["g"] = {
+			{
+				["o"] 	= 54840,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186183] = { -- Beastmaster Nuqut
+		["g"] = {
+			{
+				["o"] 	= 55228,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[184595] = { -- Ohn Seshteng
+		["g"] = {
+			{
+				["o"] 	= 54838,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 64063,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[185882] = { -- Scout Tomul
+		["g"] = {
+			{
+				["o"] 	= 55267,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[187297] = { -- Nokhud Fighter
+		["g"] = {
+			{
+				["o"] 	= 55277,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[196449] = { -- Elder Odgerel
+		["g"] = {
+			{
+				["o"] 	= 106779,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[192080] = { -- Ohn Arasara
+		["g"] = {
+			{
+				["o"] 	= 107074,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[196437] = { -- Provisioner Zara
+		["g"] = {
+			{
+				["o"] 	= 107058,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[191283] = { -- Sansok Khan
+		["g"] = {
+			{
+				["o"] 	= 56528,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 56515, -- Clan Teerai
+				["c"] 	= { "quest.obj.count.notComplete" },
+				["q"] 	= 66969, -- Clans of the Plains
+				["obj"] = 2,
+				["v"] 	= 1,
+			},
+			{
+				["o"] 	= 56537, -- Clan Ohn'ir
+				["c"] 	= { "quest.obj.count.notComplete" },
+				["q"] 	= 66969, -- Clans of the Plains
+				["obj"] = 2,
+				["v"] 	= 2,
+			},
+			{
+				["o"] 	= 56549, -- Clan Nokhud
+				["c"] 	= { "quest.obj.count.notComplete" },
+				["q"] 	= 66969, -- Clans of the Plains
+				["obj"] = 2,
+				["v"] 	= 3,
+			},
+			{
+				["o"] 	= 56554, -- Clan Shikaar
+				["c"] 	= { "quest.obj.count.notComplete" },
+				["q"] 	= 66969, -- Clans of the Plains
+				["obj"] = 2,
+				["v"] 	= 4,
+			},
+		},
+	},
+	-- End of Ohn'ahran Plains
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
 		["g"] = {
