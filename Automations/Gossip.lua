@@ -181,8 +181,8 @@ local function ProcessDialogTree(parentMapId)
 		if HelpMePlayIgnoredCreaturesDB[npcId] then return end
 		
 		if HelpMePlayDB.DevModeEnabled then
-			for i = 1, #gossipOptions do
-				print(npcId .. " | " .. i .. " | " .. gossipOptions[i].gossipOptionID)
+			for k, v in ipairs(gossipOptions) do
+				print(npcId .. " | " .. v.name .. " | " .. v.gossipOptionID)
 			end
 		end
 		

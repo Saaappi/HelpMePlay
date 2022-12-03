@@ -612,6 +612,14 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[194927] = { -- Gemisath
+		["g"] = {
+			{
+				["o"] 	= 56585,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Ohn'ahran Plains
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
