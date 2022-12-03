@@ -980,6 +980,18 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[198295] = { -- Chimei
+		["g"] = {
+			{
+				["o"] 	= 94791,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 95243,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Ohn'ahran Plains
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
