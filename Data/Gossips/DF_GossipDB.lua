@@ -628,6 +628,62 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[196249] = { -- Matchmaker Osila
+		["g"] = {
+			{
+				["o"] 	= 106837,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[191924] = { -- Hunter Narman
+		["g"] = {
+			{
+				["o"] 	= 107089,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[189594] = { -- Scout Khenyug
+		["g"] = {
+			{
+				["o"] 	= 55139,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[188337] = { -- Herbalist Agura
+		["g"] = {
+			{
+				["o"] 	= 87457,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190585] = { -- Khansguard Hojin
+		["g"] = {
+			{
+				["o"] 	= 56252,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[189593] = { -- Quartermaster Gensai
+		["g"] = {
+			{
+				["o"] 	= 54937,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190950] = { -- Himia, The Blessed
+		["g"] = {
+			{
+				["o"] 	= 56476,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Ohn'ahran Plains
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
