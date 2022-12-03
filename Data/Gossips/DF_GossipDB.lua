@@ -620,6 +620,14 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[186942] = { -- Khansguard Akato
+		["g"] = {
+			{
+				["o"] 	= 54895,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Ohn'ahran Plains
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh

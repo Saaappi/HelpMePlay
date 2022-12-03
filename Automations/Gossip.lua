@@ -182,7 +182,7 @@ local function ProcessDialogTree(parentMapId)
 		
 		if HelpMePlayDB.DevModeEnabled then
 			for k, v in ipairs(gossipOptions) do
-				print(npcId .. " | " .. v.name .. " | " .. v.gossipOptionID)
+				print(npcId .. " | " .. UnitName("target") .. " | " .. v.name .. " | " .. v.gossipOptionID)
 			end
 		end
 		
