@@ -23,6 +23,22 @@ local DIALOG_DF = {
 				["o"] 	= 56253,
 				["c"] 	= { "none" },
 			},
+			{ -- Lingering Image
+				["o"] 	= 54980,
+				["c"] 	= { "none" },
+			},
+			{ -- Lingering Image
+				["o"] 	= 55184,
+				["c"] 	= { "none" },
+			},
+			{ -- Lingering Image
+				["o"] 	= 55183,
+				["c"] 	= { "none" },
+			},
+			{ -- Lingering Image
+				["o"] 	= 55182,
+				["c"] 	= { "none" },
+			},
 		},
 	},
 	-- The Waking Shores
@@ -993,6 +1009,76 @@ local DIALOG_DF = {
 		},
 	},
 	-- End of Ohn'ahran Plains
+	-- The Azure Span
+	[192751] = { -- Julk
+		["g"] = {
+			{
+				["o"] 	= 55247,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[188915] = { -- Supply Portal
+		["g"] = {
+			{
+				["o"] 	= 55328,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 55697,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186187] = { -- Kalecgos
+		["g"] = {
+			{
+				["o"] 	= 54821,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190229] = { -- Korrikunit the Whalebringer
+		["g"] = {
+			{
+				["o"] 	= 55417,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190226] = { -- Jokomuupat
+		["g"] = {
+			{
+				["o"] 	= 55418,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190225] = { -- Babunituk
+		["g"] = {
+			{
+				["o"] 	= 55419,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[183543] = { -- Noriko the All-Remembering
+		["g"] = {
+			{
+				["o"] 	= 54965,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186224] = { -- Brena
+		["g"] = {
+			{
+				["o"] 	= 54825,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of The Azure Span
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
 		["g"] = {
