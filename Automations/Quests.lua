@@ -406,10 +406,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local type = ...
 		if type == 3 then -- Gossip
-			local guid = UnitGUID("target")
-			if guid then
-				local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-				if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+			local unitGUID = UnitGUID("target")
+			if unitGUID then
+				local _, _, _, _, _, npcID = string.split("-", unitGUID); npcID = tonumber(npcID)
+				if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			end
 			
 			local activeQuests = C_GossipInfo.GetActiveQuests()
@@ -491,8 +491,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		else
 			local GUID = UnitGUID("target")
 			if GUID then
-				local _, _, _, _, _, npcId = string.split("-", GUID); npcId = tonumber(npcId)
-				if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+				local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
+				if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 				if addonTable.IGNORED_QUESTS[GetQuestID()] then QuestFrameDeclineButton:Click() end
 			end
 			QUEST_DETAIL(false)
@@ -504,8 +504,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		local GUID = UnitGUID("target")
 		if GUID then
-			local _, _, _, _, _, npcId = string.split("-", GUID); npcId = tonumber(npcId)
-			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+			local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
+			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 		end
 		QUEST_GREETING()
 	end
@@ -583,6 +583,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
+		
+		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		if unitGUID then
+			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+		end
+		
 		if IsQuestCompletable() then
 			QuestFrameCompleteButton:Click()
 			CompleteQuest()

@@ -59,24 +59,24 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		if tonumber(arg1) then
 			self:Print(tostring(C_QuestLog.IsQuestFlaggedCompleted(arg1)))
 		end
-	elseif cmd == L_GLOBALSTRINGS["Command.Ignore"] and arg1 ~= nil and arg2 ~= nil then
+	elseif cmd == L_GLOBALSTRINGS["Command.Ignore"] and arg1 ~= nil then
 		if arg1 == L_GLOBALSTRINGS["Command.Subcommand.Ignore.NPC"] then
-			local npcId = tonumber(arg2)
-			if npcId then
-				if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
-					HelpMePlayIgnoredCreaturesDB[npcId] = true
+			local npcID = tonumber(arg2)
+			if npcID then
+				if HelpMePlayIgnoredCreaturesDB[npcID] == nil then
+					HelpMePlayIgnoredCreaturesDB[npcID] = true
 				else
-					HelpMePlayIgnoredCreaturesDB[npcId] = nil
+					HelpMePlayIgnoredCreaturesDB[npcID] = nil
 				end
 			else
 				if UnitIsPlayer("target") == false then
 					local unitGUID = UnitGUID("target")
 					if unitGUID then
-						local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-						if HelpMePlayIgnoredCreaturesDB[npcId] == nil then
-							HelpMePlayIgnoredCreaturesDB[npcId] = true
+						local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+						if HelpMePlayIgnoredCreaturesDB[npcID] == nil then
+							HelpMePlayIgnoredCreaturesDB[npcID] = true
 						else
-							HelpMePlayIgnoredCreaturesDB[npcId] = nil
+							HelpMePlayIgnoredCreaturesDB[npcID] = nil
 						end
 					end
 				end

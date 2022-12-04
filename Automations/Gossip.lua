@@ -220,16 +220,22 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local index = 1
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
-			local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-			if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			
 			local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-			ConfirmConfirmationMessage(message, npcId, parentMapId)
+			ConfirmConfirmationMessage(message, npcID, parentMapId)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
+		
+		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		if unitGUID then
+			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+		end
 		
 		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
 		ProcessDialogTree(parentMapId)
