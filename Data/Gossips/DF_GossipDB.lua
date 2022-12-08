@@ -3,52 +3,56 @@ local DIALOG_DF = {
 	-- Supported Maps: 1978 (Dragon Isles)
 	[0] = {
 		["g"] = {
-			{ -- Embassy Visitor Log
+			{ -- Embassy Visitor Log (The Waking Shores)
 				["o"] 	= 55746,
 				["c"] 	= { "none" },
 			},
-			{ -- Embassy Visitor Log
+			{ -- Embassy Visitor Log (The Waking Shores)
 				["o"] 	= 55748,
 				["c"] 	= { "none" },
 			},
-			{ -- Embassy Visitor Log
+			{ -- Embassy Visitor Log (The Waking Shores)
 				["o"] 	= 55759,
 				["c"] 	= { "none" },
 			},
-			{ -- Embassy Visitor Log
+			{ -- Embassy Visitor Log (The Waking Shores)
 				["o"] 	= 55776,
 				["c"] 	= { "none" },
 			},
-			{ -- Boku's Belongings
+			{ -- Boku's Belongings (Ohn'ahran Plains)
 				["o"] 	= 56253,
 				["c"] 	= { "none" },
 			},
-			{ -- Lingering Image
+			{ -- Lingering Image (The Azure Span)
 				["o"] 	= 54980,
 				["c"] 	= { "none" },
 			},
-			{ -- Lingering Image
+			{ -- Lingering Image (The Azure Span)
 				["o"] 	= 55184,
 				["c"] 	= { "none" },
 			},
-			{ -- Lingering Image
+			{ -- Lingering Image (The Azure Span)
 				["o"] 	= 55183,
 				["c"] 	= { "none" },
 			},
-			{ -- Lingering Image
+			{ -- Lingering Image (The Azure Span)
 				["o"] 	= 55182,
 				["c"] 	= { "none" },
 			},
-			{ -- Rotting Root
+			{ -- Rotting Root (The Azure Span)
 				["o"] 	= 55350,
 				["c"] 	= { "none" },
 			},
-			{ -- Rotting Root
+			{ -- Rotting Root (The Azure Span)
 				["o"] 	= 54967,
 				["c"] 	= { "none" },
 			},
-			{ -- Rotting Root
+			{ -- Rotting Root (The Azure Span)
 				["o"] 	= 54968,
+				["c"] 	= { "none" },
+			},
+			{ -- Dusty Jar (The Azure Span)
+				["o"] 	= 107106,
 				["c"] 	= { "none" },
 			},
 		},
@@ -1234,6 +1238,42 @@ local DIALOG_DF = {
 		["g"] = {
 			{
 				["o"] 	= 55422,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[191741] = { -- Mysterious Apparition
+		["g"] = {
+			{
+				["o"] 	= 55333,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 54910,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 54911,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 54915,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186280] = { -- Kalecgos
+		["g"] = {
+			{
+				["o"] 	= 54829,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[197201] = { -- Venderthvan
+		["g"] = {
+			{
+				["o"] 	= 107112,
 				["c"] 	= { "none" },
 			},
 		},
