@@ -1230,6 +1230,14 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[189979] = { -- Friendly Gnoll
+		["g"] = {
+			{
+				["o"] 	= 55422,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of The Azure Span
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
