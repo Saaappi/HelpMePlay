@@ -63,6 +63,14 @@ local questOptions = {
 			get = function() return HelpMePlayDB.ThreadsOfFateEnabled end,
 			set = function(_, val) HelpMePlayDB.ThreadsOfFateEnabled = val end,
 		},
+		showQuestCount = {
+			name = L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCount"],
+			order = 7,
+			desc = L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCountDesc"],
+			type = "toggle",
+			get = function() return HelpMePlayDB.ShowQuestCountEnabled end,
+			set = function(_, val) HelpMePlayDB.ShowQuestCountEnabled = val end,
+		},
 		expansionIntro_header = {
 			name = L_GLOBALSTRINGS["Header.ExpansionIntros"],
 			order = 10,
