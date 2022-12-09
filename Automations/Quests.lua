@@ -608,3 +608,8 @@ WorldMapFrame:HookScript("OnShow", function(self)
 		WorldMapFrame.BorderFrame.HMPQuestCountText:SetText("")
 	end
 end)
+WorldMapFrame:HookScript("OnHide", function(self)
+	if WorldMapFrame.BorderFrame.HMPQuestCountText then
+		WorldMapFrame.BorderFrame.HMPQuestCountText:SetText("")
+	end
+end)
