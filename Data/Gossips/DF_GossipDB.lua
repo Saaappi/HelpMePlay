@@ -55,6 +55,10 @@ local DIALOG_DF = {
 				["o"] 	= 107106,
 				["c"] 	= { "none" },
 			},
+			{ -- Valthrux (The Azure Span)
+				["o"] 	= 107025,
+				["c"] 	= { "none" },
+			},
 		},
 	},
 	-- The Waking Shores
@@ -1338,6 +1342,46 @@ local DIALOG_DF = {
 		["g"] = {
 			{
 				["o"] 	= 55063,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[196501] = { -- Alia Sunsoar
+		["g"] = {
+			{
+				["o"] 	= 106989,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190873] = { -- Narn
+		["g"] = {
+			{
+				["o"] 	= 55174,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[187501] = { -- Radza Thunderclaw
+		["g"] = {
+			{
+				["o"] 	= 54654,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186188] = { -- Sindragosa
+		["g"] = {
+			{
+				["o"] 	= 55293,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[196837] = { -- Instructional Crystal
+		["g"] = {
+			{
+				["o"] 	= 107039,
 				["c"] 	= { "none" },
 			},
 		},
