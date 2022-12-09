@@ -30,20 +30,12 @@ e:SetScript("OnEvent", function(self, event, addon)
 			"UIPanelButtonTemplate"
 		)
 		
-		local normalTexture = e:CreateTexture()
-		local highlightTexture = e:CreateTexture()
+		ClassTalentFrame.TalentsTab.ApplyButton:SetPoint("BOTTOM", 0, 15)
 		
-		normalTexture:SetTexture("Interface\\Garrison\\GarrisonBuildingUI")
-		normalTexture:SetTexCoord(0.0908203, 0.123047, 0.757812, 0.833984)
-		highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-		HMPTalentButton:SetNormalTexture(normalTexture)
-		HMPTalentButton:SetHighlightTexture(highlightTexture, "ADD")
+		HMPTalentButton:SetSize(50, 20)
+		HMPTalentButton:SetText(L_GLOBALSTRINGS["UI.Button.Talents"])
 
 		HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-		
-		normalTexture:SetSize(24, 24)
-		highlightTexture:SetSize(24, 24)
-		HMPTalentButton:SetSize(24, 24)
 		
 		HMPTalentButton:HookScript("OnClick", function(self)
 			local configID = C_ClassTalents.GetActiveConfigID()
@@ -71,7 +63,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 		end)
 		
 		if HelpMePlayDB.TalentButtonEnabled then
-			HMPTalentButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -50, 0)
+			HMPTalentButton:SetPoint("CENTER", ClassTalentFrame.TalentsTab.ApplyButton, "CENTER", 0, 30)
 			HMPTalentButton:Show()
 		end
 	end

@@ -326,6 +326,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"] 												= "Enter %s\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
+	L_GLOBALSTRINGS["UI.Button.Talents"] 														= "Learn"
 	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "Automatically learns and applies the next talent in\nthe loadout.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["Minimap.UI.Button.SubText"] 												= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
