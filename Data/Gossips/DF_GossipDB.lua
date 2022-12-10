@@ -1387,6 +1387,58 @@ local DIALOG_DF = {
 		},
 	},
 	-- End of The Azure Span
+	-- Thaldraszus
+	[190440] = { -- Mangled Corpse
+		["g"] = {
+			{
+				["o"] 	= 54894,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190442] = { -- Badly Injured Guardian
+		["g"] = {
+			{
+				["o"] 	= 55103,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190247] = { -- Mangled Corpse
+		["g"] = {
+			{
+				["o"] 	= 54893,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190558] = { -- Guardian Velomir
+		["g"] = {
+			{
+				["o"] 	= 54896,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of Thaldraszus
+	-- Valdrakken
+	[187678] = { -- Alexstrasza the Life-Binder
+		["g"] = {
+			{
+				["o"] 	= 55406,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[189895] = { -- Valdrakken Citizen
+		["g"] = {
+			{
+				["o"] 	= 55202,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of Valdrakken
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
 		["g"] = {

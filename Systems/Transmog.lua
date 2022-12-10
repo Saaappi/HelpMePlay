@@ -51,6 +51,12 @@ local function LearnAllUnknownTransmog(equippedItems)
 									EquipItemByName(itemLink)
 									if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
 										StaticPopup1Button1:Click("LeftButton")
+									else
+										-- This might be a Cosmetic item?
+										C_Container.UseContainerItem(i, j)
+										if StaticPopup1:IsVisible() then
+											StaticPopup1Button1:Click("LeftButton")
+										end
 									end
 								end
 							end
