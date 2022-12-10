@@ -1428,12 +1428,112 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[187280] = { -- Chef Fry-Aerie
+		["g"] = {
+			{
+				["o"] 	= 54665,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 54604,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[187100] = { -- Chromie
+		["g"] = {
+			{
+				["o"] 	= 63842,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[190479] = { -- Andantenormu
+		["g"] = {
+			{
+				["o"] 	= 55340,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[187339] = { -- Siaszerathel
+		["g"] = {
+			{
+				["o"] 	= 56086,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[187504] = { -- Aeonormu
+		["g"] = {
+			{
+				["o"] 	= 55001,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 55190,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186711] = { -- Chromie
+		["g"] = {
+			{
+				["o"] 	= 54696,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[185915] = { -- Andantenormu
+		["g"] = {
+			{
+				["o"] 	= 55814,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[192403] = { -- Soridormi
+		["g"] = {
+			{
+				["o"] 	= 55789,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[192404] = { -- Siaszerathel
+		["g"] = {
+			{
+				["o"] 	= 55815,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[186931] = { -- Nozdormu
+		["g"] = {
+			{
+				["o"] 	= 55840,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[183972] = { -- Chromie
+		["g"] = {
+			{
+				["o"] 	= 55119,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Thaldraszus
 	-- Valdrakken
 	[187678] = { -- Alexstrasza the Life-Binder
 		["g"] = {
 			{
 				["o"] 	= 55406,
+				["c"] 	= { "none" },
+			},
+			{
+				["o"] 	= 107528,
 				["c"] 	= { "none" },
 			},
 		},
@@ -1463,6 +1563,16 @@ local DIALOG_DF = {
 		},
 	},
 	-- End of Valdrakken
+	-- The Black Empire
+	[186499] = { -- Chromie
+		["g"] = {
+			{
+				["o"] 	= 54816,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	-- End of The Black Empire
 	-- The Forbidden Reach
 	[182317] = { -- Scalecommander Cindrethresh
 		["g"] = {
