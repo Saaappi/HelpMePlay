@@ -1420,6 +1420,14 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[197580] = { -- Maldra Flametongue
+		["g"] = {
+			{
+				["o"] 	= 106979,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Thaldraszus
 	-- Valdrakken
 	[187678] = { -- Alexstrasza the Life-Binder
@@ -1434,6 +1442,22 @@ local DIALOG_DF = {
 		["g"] = {
 			{
 				["o"] 	= 55202,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[196878] = { -- Investigator Erima
+		["g"] = {
+			{
+				["o"] 	= 107133,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[196980] = { -- Aesthis
+		["g"] = {
+			{
+				["o"] 	= 107400,
 				["c"] 	= { "none" },
 			},
 		},
