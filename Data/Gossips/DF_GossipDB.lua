@@ -1549,6 +1549,14 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[189869] = { -- Valdrakken Citizen
+		["g"] = {
+			{
+				["o"] 	= 55202,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	[196878] = { -- Investigator Erima
 		["g"] = {
 			{
