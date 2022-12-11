@@ -1576,6 +1576,7 @@ local DIALOG_DF = {
 	-- End of Valdrakken
 	-- The Black Empire
 	[186499] = { -- Chromie
+		-- NEED TO FIX (gossip table doesn't load!)
 		["g"] = {
 			{
 				["o"] 	= 54816,
