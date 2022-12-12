@@ -2,28 +2,6 @@ local addonName, addonTable = ...
 local DIALOG_SL = {
 	-- Supported Maps: 1409 (Exile's Reach), 1550 (The Shadowlands)
 	-- No Map Association
-	[169501] = { -- Shadowlands Wormhole
-		["g"] = {
-			{
-				["o"] 			= 51938, -- Revendreth
-				["c"] 			= { "quests.notComplete", "level.lower" },
-				["q"] 			= { 62778 }, -- Reinforcing Revendreth
-				["l"] 			= 52,
-			},
-			{
-				["o"] 			= 51937, -- Ardenweald
-				["c"] 			= { "quests.complete", "level.lower" },
-				["q"] 			= { 62778 }, -- Reinforcing Revendreth
-				["l"] 			= 56,
-			},
-			{
-				["o"] 			= 51935, -- Bastion
-				["c"] 			= { "quests.complete", "level.lower" },
-				["q"] 			= { 62763 }, -- Support the Court
-				["l"] 			= 59,
-			},
-		},
-	},
 	-- The Maw
 	[166980] = { -- Lady Jaina Proudmoore
 		["g"] = {
