@@ -81,8 +81,19 @@ local questOptions = {
 			order = 11,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFADesc"],
 			type = "toggle",
-			get = function() return HelpMePlayDB.BFAIntroEnabled end,
-			set = function(_, val) HelpMePlayDB.BFAIntroEnabled = val end,
+			get = function()
+				local faction = UnitFactionGroup("player")
+				if not HelpMePlayDB.BFAIntroEnabled then
+					HelpMePlayDB.BFAIntroEnabled = {}
+					HelpMePlayDB.BFAIntroEnabled["Alliance"] = false
+					HelpMePlayDB.BFAIntroEnabled["Horde"] = false
+				end
+				return HelpMePlayDB.BFAIntroEnabled[faction]
+			end,
+			set = function(_, val)
+				local faction = UnitFactionGroup("player")
+				HelpMePlayDB.BFAIntroEnabled[faction] = val
+			end,
 		},
 		slIntro = {
 			name = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMaw"],

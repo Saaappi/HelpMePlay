@@ -37,10 +37,10 @@ function HelpMePlay:OnInitialize()
 		HelpMePlay:MinimapIcon(HelpMePlayDB.MinimapIconEnabled)
 	end
 	
-	-- Reset the Zone ID for BFA to nil if it's not a
-	-- table so it adopts the new format.
-	if type(HelpMePlayDB.ZoneId_BFA) ~= "table" then
-		HelpMePlayDB.ZoneId_BFA = nil
+	-- Reset the BFAIntroEnabled variable under
+	-- the addon's saved variable table.
+	if type(HelpMePlayDB.BFAIntroEnabled) ~= "table" then
+		HelpMePlayDB.BFAIntroEnabled = nil
 	end
 	
 	-- Reset the quest mobs icon to 0 since backend changes
