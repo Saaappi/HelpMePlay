@@ -383,13 +383,12 @@ local DIALOG_DF = {
 		},
 	},
 	[192795] = { -- Scalecommander Emberthal
-		-- NEED TO FIX
 		["g"] = {
 			{
 				["o"] 	= 107399,
-				["c"] 	= { "quest.obj.notComplete" },
-				["q"] 	= 72241, -- Lessons From Our Past
-				["obj"] = 1,
+				["c"] 	= { "quests.notComplete", "quest.obj.notComplete" },
+				["q"] 	= { 72241 }, -- Lessons From Our Past
+				["objs"] = { { ["q"] = 72241, ["o"] = 1 } }, -- Speak with Scalecommander Emberthal
 			},
 		},
 	},

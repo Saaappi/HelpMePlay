@@ -117,23 +117,41 @@ local function SelectGossipOption(options, npcId, parentMapId)
 							end
 						end
 					elseif condition == "quest.obj.complete" then
-						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-						if objectives[gossip.obj] then
-							if objectives[gossip.obj].finished then
-								numConditionsMatched = numConditionsMatched + 1
+						local numQuests = #gossip.objs
+						for i = 1, numQuests do
+							local objectives = {}
+							for k, v in ipairs(gossip.objs) do
+								objectives = C_QuestLog.GetQuestObjectives(v.q)
+								if objectives[v.o] then
+									if objectives[v.o].finished then
+										numQuests = numQuests - 1
+										if numQuests == 0 then
+											numConditionsMatched = numConditionsMatched + 1
+										end
+									end
+								end
+							end
+						end
+					elseif condition == "quest.obj.notComplete" then
+						local numQuests = #gossip.objs
+						for i = 1, numQuests do
+							local objectives = {}
+							for k, v in ipairs(gossip.objs) do
+								objectives = C_QuestLog.GetQuestObjectives(v.q)
+								if objectives[v.o] then
+									if objectives[v.o].finished == false then
+										numQuests = numQuests - 1
+										if numQuests == 0 then
+											numConditionsMatched = numConditionsMatched + 1
+										end
+									end
+								end
 							end
 						end
 					elseif condition == "quest.obj.count.complete" then
 						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
 						if objectives[gossip.obj] then
 							if objectives[gossip.obj].numFulfilled > gossip.v then
-								numConditionsMatched = numConditionsMatched + 1
-							end
-						end
-					elseif condition == "quest.obj.notComplete" then
-						local objectives = C_QuestLog.GetQuestObjectives(gossip.q)
-						if objectives[gossip.obj] then
-							if objectives[gossip.obj].finished == false then
 								numConditionsMatched = numConditionsMatched + 1
 							end
 						end

@@ -147,8 +147,7 @@ local DIALOG_SL = {
 			{
 				["o"] 			= 49626,
 				["c"] 			= { "quest.obj.notComplete" },
-				["q"] 			= 57865, -- Ages-Echoing Wisdom
-				["obj"] 		= 1,
+				["objs"] 		= { { ["q"] = 57865, ["o"] = 1 } }, -- Speak with Groonoomcrooek
 			},
 		},
 	},
@@ -157,8 +156,7 @@ local DIALOG_SL = {
 			{
 				["o"] 			= 49625,
 				["c"] 			= { "quest.obj.notComplete" },
-				["q"] 			= 57865, -- Ages-Echoing Wisdom
-				["obj"] 		= 2,
+				["objs"] 		= { { ["q"] = 57865, ["o"] = 2 } }, -- Speak with Elder Finnan
 			},
 		},
 	},
@@ -167,8 +165,7 @@ local DIALOG_SL = {
 			{
 				["o"] 			= 49621,
 				["c"] 			= { "quest.obj.notComplete" },
-				["q"] 			= 57865, -- Ages-Echoing Wisdom
-				["obj"] 		= 3,
+				["objs"] 		= { { ["q"] = 57865, ["o"] = 3 } }, -- Speak with Elder Gwenna
 			},
 		},
 	},
@@ -381,8 +378,7 @@ local DIALOG_SL = {
 			{
 				["o"] 			= 52666,
 				["c"] 			= { "quest.obj.notComplete" },
-				["q"] 			= 60162, -- The Art of Taming
-				["obj"] 		= 3,
+				["objs"] 		= { { ["q"] = 60162, ["o"] = 3 } }, -- Speak with Mithdran to learn about pet stables
 			},
 		},
 	},
