@@ -21,9 +21,6 @@ local main = {
 			order = 0,
 			fontSize = "medium",
 			type = "description",
-			hidden = function()
-				if date("%m") ~= "02" or date("%m") ~= "10" or date("%m") ~= "12" then return true end
-			end,
 		},
 		festiveSpecialItemBtn = {
 			name = function()
@@ -54,9 +51,6 @@ local main = {
 				elseif date("%m") == "12" then
 					return "|cffa335ee|Hitem:128671::::::::27:253::::::::|h[Minion of Grumpus]|h|r"
 				end
-			end,
-			hidden = function()
-				if date("%m") ~= "02" or date("%m") ~= "10" or date("%m") ~= "12" then return true end
 			end,
 		},
 		aboutHeader = {
