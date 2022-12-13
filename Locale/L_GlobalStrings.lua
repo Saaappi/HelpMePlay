@@ -89,7 +89,7 @@ if (isLocaleSupported) then
 	-- Start: 	Main Options (Options.lua)
 	L_GLOBALSTRINGS["MainOptions.Festive.LoveIsInTheAir"] 										= "|cffF7B0BBLove is in the Air|r will find its way into our hearts this month!" .. "\n\n" .. "Special Item(s):"
 	L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"] 											= "|cffF7741EHallow's End|r creeps in this month!" .. "\n\n" .. "Special Item(s):"
-	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|cffA8D1DFWinter Veil|r is blowing in this month!" .. "\n\n" .. "Special Item(s):"
+	L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"] 											= "|cffA8D1DFWinter Veil|r blows in this month!" .. "\n\n" .. "Special Item(s):"
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
