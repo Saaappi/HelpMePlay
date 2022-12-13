@@ -269,10 +269,10 @@ local questOptions = {
 			},
 			sorting = {
 				[1] = 0,
-				[2] = 72266,
-				[3] = 72267,
+				[2] = 72267,
+				[3] = 72269,
 				[4] = 72268,
-				[5] = 72269,
+				[5] = 72266,
 			},
 			get = function()
 				if not HelpMePlayDB.ZoneID_DF then

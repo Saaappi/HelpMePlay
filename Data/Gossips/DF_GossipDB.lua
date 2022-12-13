@@ -420,7 +420,7 @@ local DIALOG_DF = {
 			},
 		},
 	},
-	[187187] = { -- Blacktalon Assassin
+	[187187] = { -- Blacktalon Avenger
 		["g"] = {
 			{
 				["o"] 	= 54628,
