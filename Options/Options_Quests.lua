@@ -118,16 +118,16 @@ local questOptions = {
 				if UnitFactionGroup("player") == "Alliance" then
 					values = {
 						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-						[47962] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.STORMSONGVALLEY"],
-						[47960] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.TIRAGARDESOUND"],
-						[47961] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.DRUSTVAR"],
+						[47962] = "|T2065627:0|t " .. (C_Map.GetMapInfo(942)).name, -- Stormsong Valley
+						[47960] = "|T2065630:0|t " .. (C_Map.GetMapInfo(895)).name, -- Tiragarde Sound
+						[47961] = "|T2065567:0|t " .. (C_Map.GetMapInfo(896)).name, -- Drustvar
 					}
 				else
 					values = {
 						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-						[47512] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.NAZMIR"],
-						[47513] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.VOLDUN"],
-						[47514] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.ZULDAZAR"],
+						[47512] = "|T2032229:0|t " .. (C_Map.GetMapInfo(863)).name, -- Nazmir
+						[47513] = "|T2065632:0|t " .. (C_Map.GetMapInfo(864)).name, -- Vol'dun
+						[47514] = "|T2065640:0|t " .. (C_Map.GetMapInfo(862)).name, -- Zuldazar
 					}
 				end
 				return values
@@ -232,11 +232,11 @@ local questOptions = {
 			style = "dropdown",
 			values = {
 				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-				[62275] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.BASTION"],
-				[62277] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.ARDENWEALD"],
-				[62278] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.MALDRAXXUS"],
-				[62279] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.REVENDRETH"],
-				[64846] = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.TORGHAST"],
+				[62275] = "|T3551337:0|t " .. (C_Map.GetMapInfo(1569)).name, -- Bastion
+				[62277] = "|T3551336:0|t " .. (C_Map.GetMapInfo(1565)).name, -- Ardenweald
+				[62278] = "|T3551338:0|t " .. (C_Map.GetMapInfo(1536)).name, -- Maldraxxus
+				[62279] = "|T3551339:0|t " .. (C_Map.GetMapInfo(1525)).name, -- Revendreth
+				[64846] = "|T3257863:0|t " .. (C_Map.GetMapInfo(1618)).name, -- Torghast
 			},
 			sorting = {
 				[1] = 0,
@@ -253,6 +253,34 @@ local questOptions = {
 				return HelpMePlayDB.ZoneId_SL
 			end,
 			set = function(_, zoneId) HelpMePlayDB.ZoneId_SL = zoneId end,
+		},
+		zoneSelection_Dragonflight = {
+			name = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.DF.Title"],
+			order = 25,
+			desc = L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.DF.Desc"],
+			type = "select",
+			style = "dropdown",
+			values = {
+				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
+				[72266] = "|T4672500:0|t " .. (C_Map.GetMapInfo(2022)).name, -- The Waking Shores
+				[72267] = "|T4672498:0|t " .. (C_Map.GetMapInfo(2023)).name, -- Ohn'ahran Plains
+				[72268] = "|T4672495:0|t " .. (C_Map.GetMapInfo(2024)).name, -- The Azure Span
+				[72269] = "|T4672499:0|t " .. (C_Map.GetMapInfo(2025)).name, -- Thaldraszus
+			},
+			sorting = {
+				[1] = 0,
+				[2] = 72266,
+				[3] = 72267,
+				[4] = 72268,
+				[5] = 72269,
+			},
+			get = function()
+				if not HelpMePlayDB.ZoneID_DF then
+					HelpMePlayDB.ZoneID_DF = 0
+				end
+				return HelpMePlayDB.ZoneID_DF
+			end,
+			set = function(_, zoneID) HelpMePlayDB.ZoneID_DF = zoneID end,
 		},
 		questMobsHeader = {
 			name = L_GLOBALSTRINGS["Header.QuestMobs"],

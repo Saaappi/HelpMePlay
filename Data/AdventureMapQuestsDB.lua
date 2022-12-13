@@ -13,12 +13,17 @@ local ADVENTURE_MAP_QUESTS = {
 		47513, -- Vol'dun
 	},
 	["SL"] = {
-		
 		64846, -- Torghast
 		62277, -- Ardenweald
 		62279, -- Revendreth
 		62275, -- Bastion
 		62278, -- Maldraxxus
+	},
+	["DF"] = {
+		72266, -- The Waking Shores
+		72267, -- Ohn'ahran Plains
+		72268, -- Azure Span
+		72269, -- Thaldraszus
 	},
 }
 

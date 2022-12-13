@@ -2,40 +2,17 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function Get_RandomAdventureMapZone(faction)
-	--[[
-		Description:
-			Gets a random zone from the adventure map.
-			Variety is the spice of life!
-			
-			Can be used on both BfA and Shadowlands
-			adventure maps.
-	]]--
-	local attempts = 10
-	local randomZone = ""
-	for i = 0, attempts do
-		randomZone = addonTable.ADVENTURE_MAP_QUESTS_INDICES[faction][math.random(#addonTable.ADVENTURE_MAP_QUESTS_INDICES[faction])]
-		if C_QuestLog.IsQuestFlaggedCompleted(addonTable.ADVENTURE_MAP_QUESTS[faction][randomZone]) == false then
-			return randomZone
-		end
-		i = i+1
-	end
-end
-
 e:RegisterEvent("ADVENTURE_MAP_OPEN")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADVENTURE_MAP_OPEN" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AdventureMapsEnabled == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
 		local faction = UnitFactionGroup("player")
-		local mapId = C_AdventureMap.GetMapID()
-		if mapId == 1011 then -- Zandalar
-			--[[
-				Description:
-					This adventure map is used for Horde (leveling)
-					zone selection. For Alliance, it's used to select
-					war campaign footholds.
-			]]--
+		local mapID = C_AdventureMap.GetMapID()
+		if mapID == 1011 then
+			-- Zandalar
+				-- Alliance: Footholds
+				-- Horde: Leveling
 			if faction == "Alliance" then
 				if C_QuestLog.IsQuestFlaggedCompleted(51570) == false then
 					C_AdventureMap.StartQuest(51570) -- Foothold: Zuldazar
@@ -49,29 +26,26 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA[faction]) == false then
 					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA[faction])
 				else
-					for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Horde"]) do
-						if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
-							C_AdventureMap.StartQuest(questId)
+					for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Horde"]) do
+						if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
+							C_AdventureMap.StartQuest(questID)
 						end
 					end
 				end
 			end
 		end
-		if mapId == 1014 then -- Kul Tiras
-			--[[
-				Description:
-					This adventure map is used for Alliance (leveling)
-					zone selection. For Horde, it's used to select
-					war campaign footholds.
-			]]--
+		if mapID == 1014 then
+			-- Kul Tiras
+				-- Alliance: Leveling
+				-- Horde: Footholds
 			if faction == "Alliance" then
 				if HelpMePlayDB.ZoneId_BFA[faction] == 0 or HelpMePlayDB.ZoneId_BFA[faction] == false or HelpMePlayDB.ZoneId_BFA[faction] == nil then return false end
 				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA[faction]) == false then
 					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA[faction])
 				else
-					for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Alliance"]) do
-						if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
-							C_AdventureMap.StartQuest(questId)
+					for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Alliance"]) do
+						if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
+							C_AdventureMap.StartQuest(questID)
 						end
 					end
 				end
@@ -85,19 +59,30 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 		end
-		if mapId == 1647 then -- Shadowlands
-			--[[
-				Description:
-					This adventure map is used for selecting
-					a leveling zone in the Shadowlands.
-			]]--
+		if mapID == 1647 then
+			-- The Shadowlands
 			if HelpMePlayDB.ZoneId_SL == 0 or HelpMePlayDB.ZoneId_SL == false or HelpMePlayDB.ZoneId_SL == nil then return false end
 			if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_SL) == false then
 				C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_SL)
 			else
-				for _, questId in ipairs(addonTable.ADVENTURE_MAP_QUESTS["SL"]) do
-					if C_QuestLog.IsQuestFlaggedCompleted(questId) == false then
-						C_AdventureMap.StartQuest(questId)
+				for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["SL"]) do
+					if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
+						C_AdventureMap.StartQuest(questID)
+						return
+					end
+				end
+			end
+		end
+		
+		if mapID == 2057 then
+			-- Dragon Isles
+			if HelpMePlayDB.ZoneID_DF == 0 or HelpMePlayDB.ZoneID_DF == false or HelpMePlayDB.ZoneID_DF == nil then return false end
+			if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneID_DF) == false then
+				C_AdventureMap.StartQuest(HelpMePlayDB.ZoneID_DF)
+			else
+				for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["DF"]) do
+					if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
+						C_AdventureMap.StartQuest(questID)
 						return
 					end
 				end
