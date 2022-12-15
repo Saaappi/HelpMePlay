@@ -5,21 +5,24 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function Dialog(gossip)
 	if tonumber(gossip) then
-		local guid = UnitGUID("target")
-		if guid then
-			local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-			if not HelpMePlayPlayerDialogDB[npcId] then
-				HelpMePlayPlayerDialogDB[npcId] = {}
-			end
-			if not HelpMePlayPlayerDialogDB[npcId]["g"] then
-				HelpMePlayPlayerDialogDB[npcId]["g"] = {}
-				table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], tonumber(gossip))
+		gossip = tonumber(gossip)
+		local gossips = C_GossipInfo.GetOptions()
+		local npcID = 0
+		local GUID = UnitGUID("target")
+		if GUID then
+			_, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
+		end
+		if not HelpMePlayPlayerDialogDB[npcID] then
+			HelpMePlayPlayerDialogDB[npcID] = {}
+		end
+		if not HelpMePlayPlayerDialogDB[npcID]["g"] then
+			HelpMePlayPlayerDialogDB[npcID]["g"] = {}
+			table.insert(HelpMePlayPlayerDialogDB[npcID]["g"], gossips[gossip].gossipOptionID)
+		else
+			if gossip == 0 then
+				HelpMePlayPlayerDialogDB[npcID] = nil
 			else
-				if tonumber(gossip) == 0 then
-					HelpMePlayPlayerDialogDB[npcId] = nil
-				else
-					table.insert(HelpMePlayPlayerDialogDB[npcId]["g"], tonumber(gossip))
-				end
+				table.insert(HelpMePlayPlayerDialogDB[npcID]["g"], gossips[gossip].gossipOptionID)
 			end
 		end
 	end
