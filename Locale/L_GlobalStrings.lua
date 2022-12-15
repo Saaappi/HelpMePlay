@@ -31,7 +31,7 @@ if (isLocaleSupported) then
 	-- Start: 	Commands
 	L_GLOBALSTRINGS["Command.Slash1"]															= "hmp"
 	L_GLOBALSTRINGS["Command.Confirm"] 															= "confirm"
-	L_GLOBALSTRINGS["Command.Dialog"] 															= "dialog"
+	L_GLOBALSTRINGS["Command.Gossip"] 															= "gossip"
 	L_GLOBALSTRINGS["Command.Ignore"] 															= "ignore"
 	L_GLOBALSTRINGS["Command.Quest"] 															= "quest"
 	L_GLOBALSTRINGS["Command.Junker"] 															= "junker"

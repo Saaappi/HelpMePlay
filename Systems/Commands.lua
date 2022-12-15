@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function Dialog(gossip)
+local function Gossip(gossip)
 	if tonumber(gossip) then
 		gossip = tonumber(gossip)
 		local gossips = C_GossipInfo.GetOptions()
@@ -49,8 +49,8 @@ function HelpMePlay:SlashCommandHandler(cmd)
 	local cmd, arg1, arg2 = string.split(" ", cmd)
 	if not cmd or cmd == "" then
 		Settings.OpenToCategory(addonName)
-	elseif cmd == L_GLOBALSTRINGS["Command.Dialog"] and arg1 ~= nil then
-		Dialog(arg1)
+	elseif cmd == L_GLOBALSTRINGS["Command.Gossip"] and arg1 ~= nil then
+		Gossip(arg1)
 	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] then
 		Confirm()
 	elseif cmd == L_GLOBALSTRINGS["Command.Quest"] and arg1 ~= nil then
