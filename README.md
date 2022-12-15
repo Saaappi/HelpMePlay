@@ -136,8 +136,8 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 
 ## Commands
 - **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
-- **<kbd>/hmp dialog</kbd>** - Adds a dialog to the addon's table. This will allow HelpMePlay to automatically select dialog on the player's behalf. If you're not sure what dialog is, then please [check this out](https://static.icy-veins.com/images/wow/shadowlands/covenants/changing-covenant-rejoin.jpg).
-   - *A cool trick is you can use <kbd>/hmp dialog X</kbd>, where X represents the placement on a list. For example, if an NPC has 6 dialogs, entering <kbd>/hmp dialog 2</kbd> will automatically enter the second dialog into the addon's table.*
+- **<kbd>/hmp gossip</kbd>** - Adds a gossip to the addon's table. This will allow HelpMePlay to automatically select a gossip on the player's behalf. If you're not sure what gossips are, then please [check this out](https://static.icy-veins.com/images/wow/shadowlands/covenants/changing-covenant-rejoin.jpg).
+   - *A cool trick is you can use <kbd>/hmp gossip X</kbd>, where X represents the placement on a list. For example, if an NPC has 6 dialogs, entering <kbd>/hmp gossip 2</kbd> will automatically enter the second gossip into the addon's table.*
 - **<kbd>/hmp ignore</kbd>** - If you don't want HelpMePlay to interact with an NPC or accept a specific quest, you can use this command.
    - *<kbd>/hmp ignore npc id</kbd> can be used to add an NPC to the addon's table. An ID can be omitted if you're targeting the NPC you wish to ignore. HelpMePlay can get the NPC ID from your current target.*
    - *<kbd>/hmp ignore quest id</kbd> can be used to ignore a quest. 'id' should be replaced with the quest's ID. This will ONLY work for quests in a list.*
