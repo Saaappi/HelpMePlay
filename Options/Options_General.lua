@@ -88,22 +88,9 @@ local generalOptions = {
 			end,
 			set = function(_, val) HelpMePlayDB.TransmogButtonEnabled = val end,
 		},
-		soulbindButton = {
-			name = L_GLOBALSTRINGS["General.Toggle.SoulbindButton"],
-			order = 12,
-			desc = L_GLOBALSTRINGS["General.Toggle.SoulbindButtonDesc"],
-			type = "toggle",
-			get = function(_)
-				if not HelpMePlayDB.SoulbindButtonEnabled then
-					HelpMePlayDB.SoulbindButtonEnabled = false
-				end
-				return HelpMePlayDB.SoulbindButtonEnabled
-			end,
-			set = function(_, val) HelpMePlayDB.SoulbindButtonEnabled = val end,
-		},
 		talentButton = {
 			name = L_GLOBALSTRINGS["General.Toggle.TalentButton"],
-			order = 13,
+			order = 12,
 			desc = L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"],
 			type = "toggle",
 			get = function(_)
@@ -116,7 +103,7 @@ local generalOptions = {
 		},
 		dragonridingButton = {
 			name = L_GLOBALSTRINGS["General.Toggle.DragonridingButton"],
-			order = 14,
+			order = 13,
 			desc = L_GLOBALSTRINGS["General.Toggle.DragonridingButtonDesc"],
 			type = "toggle",
 			get = function(_)

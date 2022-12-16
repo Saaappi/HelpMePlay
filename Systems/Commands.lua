@@ -117,60 +117,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			end
 		end
 		self:Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
-	elseif cmd == L_GLOBALSTRINGS["Command.Soulbind"] and arg1 ~= nil then
-		if HelpMePlayDB.DevModeEnabled then
-			-- Create an empty table we'll use for sorting the data
-			-- later.
-			--
-			-- Get the node data for the provided soulbind (via ID).
-			-- Soulbinds can be found @ https://wow.tools/dbc/?dbc=soulbind
-			local sortingTbl = {}
-			local nodes = C_Soulbinds.GetTree(arg1).nodes
-			
-			-- Add the node data, the ID and the corresponding row,
-			-- to the sorting table in a contiguous format.
-			for _, node in ipairs(nodes) do
-				table.insert(sortingTbl, { node.ID, node.row })
-			end
-			
-			-- Sort the sorting table in a descending order (high to low).
-			-- The sort is based on the row number.
-			table.sort(sortingTbl, function(a, b) return a[2] < b[2] end)
-			
-			-- Print the sorting table.
-			for _, node in ipairs(sortingTbl) do
-				print(node[1] .. ": " .. node[2])
-			end
-		end
-	elseif cmd == L_GLOBALSTRINGS["Command.Conduit"] and arg1 ~= nil then
-		--[[
-			0: Finesse
-			1: Potency
-			2: Endurance
-		]]--
-		if HelpMePlayDB.DevModeEnabled then
-			-- Create an empty table we'll use for sorting the data
-			-- later.
-			--
-			-- Get the conduit data for the provided conduit type (via ID).
-			--
-			-- Add the node data, the ID and the corresponding row,
-			-- to the sorting table in a contiguous format.
-			local sortingTbl = {}
-			local conduits = C_Soulbinds.GetConduitCollection(arg1)
-			for _, conduit in ipairs(conduits) do
-				table.insert(sortingTbl, { conduit.conduitID, conduit.conduitItemID })
-			end
-			
-			-- Sort the sorting table in a descending order (high to low).
-			-- The sort is based on the conduit item ID.
-			table.sort(sortingTbl, function(a, b) return a[2] < b[2] end)
-			
-			-- Print the sorting table.
-			for _, conduit in ipairs(sortingTbl) do
-				print(conduit[2] .. ": " .. conduit[1])
-			end
-		end
 	elseif cmd == L_GLOBALSTRINGS["Command.Taxi"] and arg1 ~= nil then
 		if HelpMePlayDB.DevModeEnabled then
 			-- The flight map frame must be visible.
@@ -182,17 +128,25 @@ function HelpMePlay:SlashCommandHandler(cmd)
 					print(dest .. "," .. zone .. ": " .. taxiNodeData.nodeID)
 				end
 			end
+		else
+			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. " " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
 		end
-	elseif cmd == L_GLOBALSTRINGS["Command.Trait"] and arg1 ~= nil then
+	elseif cmd == L_GLOBALSTRINGS["Command.Traits"] then
 		if HelpMePlayDB.DevModeEnabled then
-			if tonumber(arg1) then
-				local nodeID = tonumber(arg1)
-				local configID = C_ClassTalents.GetActiveConfigID()
-				print("|cffFFD100Entry IDs:|r")
-				for _, v in ipairs(C_Traits.GetNodeInfo(configID, nodeID).entryIDs) do
-					print(v)
+			local configID = C_ClassTalents.GetActiveConfigID()
+			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
+			for _, nodeID in ipairs(nodes) do
+				local nodeInfo = C_Traits.GetNodeInfo(nodeID)
+				if #nodeInfo.entryIDs > 1 then
+					for i=1, 2 do
+						print(nodeInfo.ID .. " | " .. nodeInfo.entryIDs[i])
+					end
+				else
+					print(nodeInfo.ID .. " | " .. nodeInfo.entryIDs[1])
 				end
 			end
+		else
+			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. " " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
 		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])

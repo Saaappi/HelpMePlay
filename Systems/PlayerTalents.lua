@@ -38,14 +38,16 @@ e:SetScript("OnEvent", function(self, event, addon)
 		HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
 		HMPTalentButton:HookScript("OnClick", function(self)
-			local configID = C_ClassTalents.GetActiveConfigID()
-			if configID then
-				local specIndex = GetSpecialization()
-				local specID = GetSpecializationInfo(specIndex)
-				local _, class = UnitClass("player")
-				
-				if class == "WARRIOR" then
-					PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
+			if C_ClassTalents.HasUnspentTalentPoints() then
+				local configID = C_ClassTalents.GetActiveConfigID()
+				if configID then
+					local specIndex = GetSpecialization()
+					local specID = GetSpecializationInfo(specIndex)
+					local _, class = UnitClass("player")
+					
+					if class == "WARRIOR" then
+						PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
+					end
 				end
 			end
 		end)

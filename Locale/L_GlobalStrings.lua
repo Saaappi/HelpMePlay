@@ -36,10 +36,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Command.Quest"] 															= "quest"
 	L_GLOBALSTRINGS["Command.Junker"] 															= "junker"
 	L_GLOBALSTRINGS["Command.Help"] 															= "help"
-	L_GLOBALSTRINGS["Command.Conduit"] 															= "conduit"
-	L_GLOBALSTRINGS["Command.Soulbind"] 														= "soulbind"
 	L_GLOBALSTRINGS["Command.Taxi"] 															= "taxi"
-	L_GLOBALSTRINGS["Command.Trait"] 															= "trait"
+	L_GLOBALSTRINGS["Command.Traits"] 															= "traits"
 	-- End: 	Commands
 	--
 	-- Start:	Subcommands
@@ -110,8 +108,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.DevModeDesc"] 												= "Toggle and the addon will output \"random\" information at \"spontaneous\" moments.\n\nThis really should be for the author's eyes only but... have fun!"
 	L_GLOBALSTRINGS["General.Toggle.TransmogButton"] 											= "Transmog Button"
 	L_GLOBALSTRINGS["General.Toggle.TransmogButtonDesc"] 										= "Toggle the Transmog button near the inventory on or off."
-	L_GLOBALSTRINGS["General.Toggle.SoulbindButton"] 											= "Soulbind Button"
-	L_GLOBALSTRINGS["General.Toggle.SoulbindButtonDesc"] 										= "Toggle the Soulbind button in the Soulbind interface on or off."
 	L_GLOBALSTRINGS["General.Toggle.TalentButton"] 												= "Talent Button"
 	L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"] 											= "Toggle the Talent button in the Class Talents interface on or off.\n\nToggling requires a reload to take effect."
 	L_GLOBALSTRINGS["General.Toggle.DragonridingButton"] 										= "Dragonriding Button"
@@ -311,9 +307,6 @@ if (isLocaleSupported) then
 	--
 	L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"] 						= "Reagent calculation in progress..."
 	--
-	L_GLOBALSTRINGS["Soulbind.UI.Button.Setup.Text"] 											= "Setup"
-	L_GLOBALSTRINGS["Soulbind.UI.Button.Setup.Desc"] 											= "Automatically enables and configures your soulbind based\non your class and specialization.\n\n|cffADD8E6Added by HelpMePlay|r"
-	--
 	L_GLOBALSTRINGS["UI.Button.Inventory.Desc"] 												= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
@@ -321,6 +314,7 @@ if (isLocaleSupported) then
 	--
 	L_GLOBALSTRINGS["UI.Button.Learn"] 															= "Learn"
 	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "Automatically learns and applies the next talent in\nthe loadout.\n\n|cffADD8E6Added by HelpMePlay|r"
+	--
 	L_GLOBALSTRINGS["UI.Button.Dragonriding.Desc"] 												= "Automatically learns all possible dragonriding traits.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["Minimap.UI.Button.SubText"] 												= "Configure the addon's settings.\nTailor an experience that best fits your playstyle!"
@@ -333,15 +327,13 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"]											= "You need more currency! Amount Needed"
 	L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"]							= "There is a prerequisite talent being researched. Please come back later or research something else."
 	L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"]											= "Purchase the following talent: "
-	L_GLOBALSTRINGS["Text.Output.AssignedSoulbindLocked"]										= "Cannot continue. Assigned soulbind is locked."
-	L_GLOBALSTRINGS["Text.Output.ConduitNodesIncorrect"]										= "One or more conduit nodes are incorrect. You will need to press the |cffFFD100Setup|r button again."
-	L_GLOBALSTRINGS["Text.Output.ConduitsNotUnlocked"]											= "Cannot continue. Please unlock all nodes, then try again."
 	L_GLOBALSTRINGS["Text.Output.FlyingTo"]														= "Flying to:"
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"] 									= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"] 										= "You leveled to 20! You should return to Orgrimmar, so I can enable War Mode."
 	L_GLOBALSTRINGS["Text.Output.WaterReminder"] 												= "|T463570:0|t Hey, listen! You should take a sip of water! |T463570:0|t"
 	L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"] 											= "Equipping an item upgrade."
 	L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"] 											= "No match found. Do you have anything equipped?"
+	L_GLOBALSTRINGS["Text.Output.DevModeDisabled"] 												= "Developer Mode must be enabled to use this command."
 	-- End:		Text Output
 	--
 	-- Start:	Speech Text Checks

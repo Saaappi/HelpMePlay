@@ -46,7 +46,6 @@ Data\AnimaPowersDB.lua
 Data\FlightPathDB.lua
 Data\WaypointsDB.lua
 Data\CovenantsDB.lua
-Data\SoulbindsDB.lua
 Data\PlayerTalents\WarriorDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
