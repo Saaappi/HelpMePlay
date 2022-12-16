@@ -2,38 +2,38 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local currentMapId = 0
 
-local function GetParentMapID(mapId)
+local function GetParentMapID(mapID)
 	currentMapId = C_Map.GetBestMapForUnit("player")
-	if mapId then
-		local mapInfo = C_Map.GetMapInfo(mapId)
+	if mapID then
+		local mapInfo = C_Map.GetMapInfo(mapID)
 		if mapInfo.mapType ~= 2 and mapInfo.parentMapID ~= 0 then
 			GetParentMapID(mapInfo.parentMapID)
 		else
-			parentMapId = mapInfo.mapID
+			parentMapID = mapInfo.mapID
 		end
 	end
-	return parentMapId
+	return parentMapID
 end
 
-local function GetGossipTable(parentMapId)
+local function GetGossipTable(parentMapID)
 	local gossipTable
-	if parentMapId == 12 or parentMapId == 13 or parentMapId == 948 then
+	if parentMapID == 12 or parentMapID == 13 or parentMapID == 948 then
 		gossipTable = addonTable.DIALOG_CLASSIC
-	elseif parentMapId == 572 then
+	elseif parentMapID == 572 then
 		gossipTable = addonTable.DIALOG_WOD
-	elseif parentMapId == 619 or parentMapId == 630 or parentMapId == 905 then
+	elseif parentMapID == 619 or parentMapID == 630 or parentMapID == 905 then
 		gossipTable = addonTable.DIALOG_LEGION
-	elseif parentMapId == 875 or parentMapId == 876 then
+	elseif parentMapID == 875 or parentMapID == 876 then
 		gossipTable = addonTable.DIALOG_BFA
-	elseif parentMapId == 1409 or parentMapId == 1550 or parentMapId == 1610 then
+	elseif parentMapID == 1409 or parentMapID == 1550 or parentMapID == 1610 then
 		gossipTable = addonTable.DIALOG_SL
-	elseif parentMapId == 947 or parentMapId == 1978 then
+	elseif parentMapID == 1978 or parentMapID == 2089 then
 		gossipTable = addonTable.DIALOG_DF
 	end
 	return gossipTable
 end
 
-local function SelectGossipOption(options, npcId, parentMapId)
+local function SelectGossipOption(options, npcId, parentMapID)
 	for index, gossipSubTable in ipairs(options) do
 		if HelpMePlayPlayerDialogDB[npcId] then
 			if HelpMePlayPlayerDialogDB[npcId]["g"] then
@@ -44,7 +44,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 		end
 	end
 	
-	local gossipTable = GetGossipTable(parentMapId)
+	local gossipTable = GetGossipTable(parentMapID)
 	if gossipTable[npcId] then
 		for index, gossipSubTable in ipairs(options) do
 			for _, gossip in pairs(gossipTable[npcId]["g"]) do
@@ -190,7 +190,7 @@ local function SelectGossipOption(options, npcId, parentMapId)
 	end
 end
 
-local function ProcessDialogTree(parentMapId)
+local function ProcessDialogTree(parentMapID)
 	local index = 1
 	local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 	local gossipOptions = C_GossipInfo.GetOptions()
@@ -204,13 +204,13 @@ local function ProcessDialogTree(parentMapId)
 			end
 		end
 		
-		SelectGossipOption(gossipOptions, npcId, parentMapId)
+		SelectGossipOption(gossipOptions, npcId, parentMapID)
 	else
-		SelectGossipOption(gossipOptions, 0, parentMapId)
+		SelectGossipOption(gossipOptions, 0, parentMapID)
 	end
 end
 
-local function ConfirmConfirmationMessage(message, npcId, parentMapId)
+local function ConfirmConfirmationMessage(message, npcId, parentMapID)
 	if HelpMePlayPlayerDialogDB[npcId] then
 		if HelpMePlayPlayerDialogDB[npcId]["c"] then
 			StaticPopup1Button1:Click("LeftButton")
@@ -218,7 +218,7 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapId)
 		end
 	end
 	
-	local gossipTable = GetGossipTable(parentMapId)
+	local gossipTable = GetGossipTable(parentMapID)
 	if gossipTable[npcId] then
 		if gossipTable[npcId]["c"] then
 			StaticPopup1Button1:Click("LeftButton")
@@ -241,8 +241,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			
-			local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-			ConfirmConfirmationMessage(message, npcID, parentMapId)
+			local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
+			ConfirmConfirmationMessage(message, npcID, parentMapID)
 		end
 	end
 	if event == "GOSSIP_SHOW" then
@@ -255,7 +255,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 		end
 		
-		local parentMapId = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		ProcessDialogTree(parentMapId)
+		local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
+		ProcessDialogTree(parentMapID)
 	end
 end)
