@@ -42,17 +42,11 @@ Options\Options_Junker.lua
 # Data
 Data\MainDB.lua
 Data\ConstantsDB.lua
-Data\IconDB.lua
 Data\AnimaPowersDB.lua
-Data\MapsDB.lua
 Data\FlightPathDB.lua
 Data\WaypointsDB.lua
-Data\GarrisonDB.lua
 Data\CovenantsDB.lua
-Data\SpeechDB.lua
-Data\QuestRewardsDB.lua
 Data\SoulbindsDB.lua
-Data\IgnoredQuestsDB.lua
 Data\PlayerTalents\WarriorDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
