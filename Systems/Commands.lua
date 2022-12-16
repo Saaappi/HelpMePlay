@@ -129,24 +129,36 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end
 			end
 		else
-			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. " " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
+			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
 		end
 	elseif cmd == L_GLOBALSTRINGS["Command.Traits"] then
 		if HelpMePlayDB.DevModeEnabled then
+			local scrollFrame = CreateFrame("ScrollFrame", "HMPTalentScrollFrame", UIParent, "UIPanelScrollFrameTemplate")
+			scrollFrame:SetSize(300,200)
+			scrollFrame:SetPoint("CENTER")
+			local editBox = CreateFrame("EditBox", "HMPTalentEditBox", s)
+			editBox:SetMultiLine(true)
+			editBox:SetAutoFocus(false)
+			editBox:SetFontObject(ChatFontNormal)
+			editBox:SetWidth(300)
+			scrollFrame:SetScrollChild(editBox)
+			tinsert(UISpecialFrames, "HMPTalentScrollFrame")
+			tinsert(UISpecialFrames, "HMPTalentEditBox")
+			
 			local configID = C_ClassTalents.GetActiveConfigID()
 			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
+			local text = "Trait Info:\n"
 			for _, nodeID in ipairs(nodes) do
-				local nodeInfo = C_Traits.GetNodeInfo(nodeID)
-				if #nodeInfo.entryIDs > 1 then
-					for i=1, 2 do
-						print(nodeInfo.ID .. " | " .. nodeInfo.entryIDs[i])
-					end
-				else
-					print(nodeInfo.ID .. " | " .. nodeInfo.entryIDs[1])
+				local nodeInfo = C_Traits.GetNodeInfo(configID, nodeID)
+				for i=1, #nodeInfo.entryIDs do
+					local entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[i])
+					local spellID = C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID
+					text = text .. nodeInfo.ID .. " | " .. nodeInfo.entryIDs[i] .. " | " .. (GetSpellInfo(spellID)) .. "\n"
 				end
 			end
+			editBox:SetText(text)
 		else
-			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. " " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
+			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
 		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
