@@ -2,22 +2,6 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function PurchaseTalents(configID, tbl, specID)
-	C_Timer.After(0.25, function()
-		for _, traits in ipairs(tbl[specID]) do
-			if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
-				local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
-				if #nodeInfo.entryIDs > 1 then
-					C_Traits.SetSelection(configID, traits.n, traits.e)
-				else
-					C_Traits.PurchaseRank(configID, traits.n)
-				end
-			end
-		end
-		C_Traits.CommitConfig(configID)
-	end)
-end
-
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
 	if event == "ADDON_LOADED" and addon == "Blizzard_GenericTraitUI" then
@@ -36,17 +20,20 @@ e:SetScript("OnEvent", function(self, event, addon)
 		HMPDragonridingTraitButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
 		HMPDragonridingTraitButton:HookScript("OnClick", function(self)
-			--[[local configID = C_ClassTalents.GetActiveConfigID()
-			if configID then
-				local specIndex = GetSpecialization()
-				local specID = GetSpecializationInfo(specIndex)
-				local _, class = UnitClass("player")
-				
-				if class == "WARRIOR" then
-					PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
+			local configID = C_Traits.GetConfigIDByTreeID(addonTable.CONSTANTS["DRAGONRIDING_TREE_ID"])
+			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+				for _, node in ipairs(addonTable.DRAGONRIDING_TRAITS) do
+					if C_Traits.CanPurchaseRank(configID, node.nodeID, node.entryID) then
+						local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
+						if #nodeInfo.entryIDs > 1 then
+							C_Traits.SetSelection(configID, node.nodeID, node.entryID)
+						else
+							C_Traits.PurchaseRank(configID, node.nodeID)
+						end
+					end
 				end
-			end]]
-			print("[PH]")
+				C_Traits.CommitConfig(configID)
+			end)
 		end)
 
 		HMPDragonridingTraitButton:HookScript("OnEnter", function(self)

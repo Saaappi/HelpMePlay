@@ -31,6 +31,24 @@ local ADVENTURE_MAP_QUESTS = {
 }
 addonTable.ADVENTURE_MAP_QUESTS = ADVENTURE_MAP_QUESTS
 
+-- Dragonriding
+local DRAGONRIDING_TRAITS = {
+	{ ["nodeID"] = 64066, ["entryID"] = 82387 }, 	-- Take to the Skies
+	{ ["nodeID"] = 81466, ["entryID"] = 102427 }, 	-- Redirection
+	{ ["nodeID"] = 64069, ["entryID"] = 82390 }, 	-- Dynamic Stretching
+	{ ["nodeID"] = 64068, ["entryID"] = 82389 }, 	-- Thrill Chaser
+	{ ["nodeID"] = 64067, ["entryID"] = 82388 }, 	-- Ohn'ahra's Gusts
+	{ ["nodeID"] = 64065, ["entryID"] = 82385 }, 	-- Dragonrider's Compassion
+	{ ["nodeID"] = 64064, ["entryID"] = 82384 }, 	-- Restorative Travels
+	{ ["nodeID"] = 64063, ["entryID"] = 82383 }, 	-- Airborne Tumbling
+	{ ["nodeID"] = 64061, ["entryID"] = 82380 }, 	-- Dragonriding Learner
+	{ ["nodeID"] = 64062, ["entryID"] = 82381 }, 	-- Dragonrider's Hunt
+	{ ["nodeID"] = 64059, ["entryID"] = 82378 }, 	-- Beyond Infinity
+	{ ["nodeID"] = 64060, ["entryID"] = 82379 }, 	-- Yearning for the Sky
+	{ ["nodeID"] = 64058, ["entryID"] = 82377 }, 	-- At Home Aloft
+}
+addonTable.DRAGONRIDING_TRAITS = DRAGONRIDING_TRAITS
+
 -- Dungeon Queues
 local DUNGEON_QUEUES_BY_QUEST = {
 	[55992] = { -- Darkmaul Citadel (A)
