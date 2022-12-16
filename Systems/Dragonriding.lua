@@ -20,25 +20,23 @@ end
 
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
-	if event == "ADDON_LOADED" and addon == "Blizzard_ClassTalentUI" then
+	if event == "ADDON_LOADED" and addon == "Blizzard_GenericTraitUI" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		
-		local talentButton = _G.CreateFrame(
+		local dragonridingTraitButton = _G.CreateFrame(
 			"Button",
-			"HMPTalentButton",
-			ClassTalentFrame.TalentsTab.ApplyButton,
+			"HMPDragonridingTraitButton",
+			GenericTraitFrame.Currency,
 			"UIPanelButtonTemplate"
 		)
 		
-		ClassTalentFrame.TalentsTab.ApplyButton:SetPoint("BOTTOM", 0, 15)
-		
-		HMPTalentButton:SetSize(50, 20)
-		HMPTalentButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+		HMPDragonridingTraitButton:SetSize(50, 20)
+		HMPDragonridingTraitButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
 
-		HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		HMPDragonridingTraitButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
-		HMPTalentButton:HookScript("OnClick", function(self)
-			local configID = C_ClassTalents.GetActiveConfigID()
+		HMPDragonridingTraitButton:HookScript("OnClick", function(self)
+			--[[local configID = C_ClassTalents.GetActiveConfigID()
 			if configID then
 				local specIndex = GetSpecialization()
 				local specID = GetSpecializationInfo(specIndex)
@@ -47,24 +45,25 @@ e:SetScript("OnEvent", function(self, event, addon)
 				if class == "WARRIOR" then
 					PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
 				end
-			end
+			end]]
+			print("[PH]")
 		end)
 
-		HMPTalentButton:HookScript("OnEnter", function(self)
+		HMPDragonridingTraitButton:HookScript("OnEnter", function(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-			GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.Talents.Desc"])
+			GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.Dragonriding.Desc"])
 			GameTooltip:Show()
 		end)
 
-		HMPTalentButton:HookScript("OnLeave", function(self)
+		HMPDragonridingTraitButton:HookScript("OnLeave", function(self)
 			if GameTooltip:GetOwner() == self then
 				GameTooltip:Hide()
 			end
 		end)
 		
-		if HelpMePlayDB.TalentButtonEnabled then
-			HMPTalentButton:SetPoint("CENTER", ClassTalentFrame.TalentsTab.ApplyButton, "CENTER", 0, 30)
-			HMPTalentButton:Show()
+		if HelpMePlayDB.DragonridingButtonEnabled then
+			HMPDragonridingTraitButton:SetPoint("RIGHT", GenericTraitFrame.Currency, "RIGHT", 0, -30)
+			HMPDragonridingTraitButton:Show()
 		end
 	end
 end)

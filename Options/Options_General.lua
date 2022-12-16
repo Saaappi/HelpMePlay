@@ -114,6 +114,19 @@ local generalOptions = {
 			end,
 			set = function(_, val) HelpMePlayDB.TalentButtonEnabled = val end,
 		},
+		dragonridingButton = {
+			name = L_GLOBALSTRINGS["General.Toggle.DragonridingButton"],
+			order = 14,
+			desc = L_GLOBALSTRINGS["General.Toggle.DragonridingButtonDesc"],
+			type = "toggle",
+			get = function(_)
+				if not HelpMePlayDB.DragonridingButtonEnabled then
+					HelpMePlayDB.DragonridingButtonEnabled = false
+				end
+				return HelpMePlayDB.DragonridingButtonEnabled
+			end,
+			set = function(_, val) HelpMePlayDB.DragonridingButtonEnabled = val end,
+		},
 	},
 }
 addonTable.generalOptions = generalOptions

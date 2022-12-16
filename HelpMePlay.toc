@@ -81,6 +81,7 @@ Automations\FlightPaths.lua
 # Systems
 Systems\Transmog.lua
 Systems\PlayerTalents.lua
+Systems\Dragonriding.lua
 Systems\Soulbinds.lua
 Systems\Commands.lua
 Systems\TalentSystems.lua
