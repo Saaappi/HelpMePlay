@@ -451,10 +451,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 		
-		C_QuestLog.AddQuestWatch(questId)
+		if UnitLevel("player") == addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
+			C_QuestLog.AddQuestWatch(questId)
+		end
 
 		if select(2, IsAddOnLoaded("Immersion")) then
-			C_Timer.After(addonTable.CONSTANTS["ONE_TENTH_SECOND"], function()
+			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 				ImmersionFrame.TalkBox.MainFrame.CloseButton:Click()
 			end)
 		end
