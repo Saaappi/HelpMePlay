@@ -40,21 +40,17 @@ Options\Options_ExpansionFeatures.lua
 Options\Options_Junker.lua
 
 # Data
+Data\MainDB.lua
 Data\ConstantsDB.lua
 Data\IconDB.lua
 Data\AnimaPowersDB.lua
-Data\AdventureMapQuestsDB.lua
 Data\MapsDB.lua
 Data\FlightPathDB.lua
 Data\WaypointsDB.lua
-Data\EmotesDB.lua
 Data\GarrisonDB.lua
-Data\VehicleDB.lua
-Data\NotesDB.lua
 Data\CovenantsDB.lua
 Data\SpeechDB.lua
 Data\QuestRewardsDB.lua
-Data\DungeonQueuesDB.lua
 Data\SoulbindsDB.lua
 Data\IgnoredQuestsDB.lua
 Data\PlayerTalents\WarriorDB.lua
