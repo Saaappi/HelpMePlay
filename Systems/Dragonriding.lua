@@ -40,7 +40,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 						C_Traits.CommitConfig(configID)
 					end)
 				end,
-				timeout = 15,
+				timeout = 30,
 				showAlert = true,
 				whileDead = false,
 				hideOnEscape = true,
