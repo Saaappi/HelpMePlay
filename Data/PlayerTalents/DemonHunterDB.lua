@@ -249,6 +249,250 @@ local DEMON_HUNTER_TALENTS = {
 		},
 	},
 	[581] = { -- Vengeance
+		{ -- Vengeful Retreat
+			["n"] = 90942,
+			["e"] = 112853,
+		},
+		{ -- Fel Devastation
+			["n"] = 90991,
+			["e"] = 112908,
+		},
+		{ -- Blazing Path
+			["n"] = 91008,
+			["e"] = 112928,
+		},
+		{ -- Frailty
+			["n"] = 90990,
+			["e"] = 112907,
+		},
+		{ -- Imprison
+			["n"] = 91007,
+			["e"] = 112927,
+		},
+		{ -- Fiery Brand
+			["n"] = 90951,
+			["e"] = 112864,
+		},
+		{ -- Shattered Restoration
+			["n"] = 90950,
+			["e"] = 112863,
+		},
+		{ -- Perfectly Balanced Glaive
+			["n"] = 90968,
+			["e"] = 112883,
+		},
+		{ -- Shattered Restoration
+			["n"] = 90950,
+			["e"] = 112863,
+		},
+		{ -- Deflecting Spikes
+			["n"] = 90989,
+			["e"] = 112906,
+		},
+		{ -- Improved Disrupt
+			["n"] = 90938,
+			["e"] = 112849,
+		},
+		{ -- Meteoric Strikes
+			["n"] = 90953,
+			["e"] = 112866,
+		},
+		{ -- Consume Magic
+			["n"] = 91006,
+			["e"] = 112926,
+		},
+		{ -- Fracture
+			["n"] = 90970,
+			["e"] = 112885,
+		},
+		{ -- Pursuit
+			["n"] = 90940,
+			["e"] = 112851,
+		},
+		{ -- Sigil of Silence
+			["n"] = 90988,
+			["e"] = 112904,
+		},
+		{ -- Felblade
+			["n"] = 90932,
+			["e"] = 112842,
+		},
+		{ -- Agonizing Flames
+			["n"] = 90971,
+			["e"] = 112887,
+		},
+		{ -- Charred Warblades
+			["n"] = 90948,
+			["e"] = 112861,
+		},
+		{ -- Agonizing Flames
+			["n"] = 90971,
+			["e"] = 112887,
+		},
+		{ -- Felfire Haste
+			["n"] = 90939,
+			["e"] = 112850,
+		},
+		{ -- Burning Blood
+			["n"] = 90987,
+			["e"] = 112903,
+		},
+		{ -- Rush of Chaos
+			["n"] = 90933,
+			["e"] = 112844,
+		},
+		{ -- Burning Blood
+			["n"] = 90987,
+			["e"] = 112903,
+		},
+		{ -- Chaos Nova
+			["n"] = 90993,
+			["e"] = 112911,
+		},
+		{ -- Void Reaver
+			["n"] = 90977,
+			["e"] = 112893,
+		},
+		{ -- Soul Rending
+			["n"] = 90936,
+			["e"] = 112847,
+		},
+		{ -- Fallout
+			["n"] = 90972,
+			["e"] = 112888,
+		},
+		{ -- Soul Rending
+			["n"] = 90936,
+			["e"] = 112847,
+		},
+		{ -- Volatile Flameblood
+			["n"] = 90986,
+			["e"] = 112902,
+		},
+		{ -- Infernal Armor
+			["n"] = 91004,
+			["e"] = 112924,
+		},
+		{ -- Soul Furnace
+			["n"] = 90974,
+			["e"] = 112890,
+		},
+		{ -- Infernal Armor
+			["n"] = 91004,
+			["e"] = 112924,
+		},
+		{ -- Darkglare Boon
+			["n"] = 90985,
+			["e"] = 112901,
+		},
+		{ -- Illidari Knowledge
+			["n"] = 90935,
+			["e"] = 112846,
+		},
+		{ -- Darkglare Boon
+			["n"] = 90985,
+			["e"] = 112901,
+		},
+		{ -- Illidari Knowledge
+			["n"] = 90935,
+			["e"] = 112846,
+		},
+		{ -- Fiery Demise
+			["n"] = 90958,
+			["e"] = 112872,
+		},
+		{ -- Demonic
+			["n"] = 91003,
+			["e"] = 112923,
+		},
+		{ -- Fiery Demise
+			["n"] = 90958,
+			["e"] = 112872,
+		},
+		{ -- Will of the Illidari
+			["n"] = 91000,
+			["e"] = 112918,
+		},
+		{ -- Focused Cleave
+			["n"] = 90975,
+			["e"] = 112891,
+		},
+		{ -- Will of the Illidari
+			["n"] = 91000,
+			["e"] = 112918,
+		},
+		{ -- Burning Alive
+			["n"] = 90959,
+			["e"] = 112873,
+		},
+		{ -- Internal Struggle
+			["n"] = 90934,
+			["e"] = 112845,
+		},
+		{ -- Vulnerability
+			["n"] = 90981,
+			["e"] = 112897,
+		},
+		{ -- Soul Sigils
+			["n"] = 90929,
+			["e"] = 112839,
+		},
+		{ -- Vulnerability
+			["n"] = 90981,
+			["e"] = 112897,
+		},
+		{ -- Aldrachi Design
+			["n"] = 90999,
+			["e"] = 112917,
+		},
+		{ -- Charred Flesh
+			["n"] = 90962,
+			["e"] = 112877,
+		},
+		{ -- Erratic Felheart
+			["n"] = 90996,
+			["e"] = 112914,
+		},
+		{ -- Charred Flesh
+			["n"] = 90962,
+			["e"] = 112877,
+		},
+		{ -- Erratic Felheart
+			["n"] = 90996,
+			["e"] = 112914,
+		},
+		{ -- Soulcrush
+			["n"] = 90980,
+			["e"] = 112896,
+		},
+		{ -- The Hunt
+			["n"] = 90927,
+			["e"] = 112837,
+		},
+		{ -- Soul Carver
+			["n"] = 90982,
+			["e"] = 112898,
+		},
+		{ -- Extended Sigils
+			["n"] = 90998,
+			["e"] = 112916,
+		},
+		{ -- Fodder to the Flame
+			["n"] = 90960,
+			["e"] = 112875,
+		},
+		{ -- Collective Anguish
+			["n"] = 90995,
+			["e"] = 112913,
+		},
+		{ -- Down in Flames
+			["n"] = 90961,
+			["e"] = 112876,
+		},
+		{ -- Relentless Pursuit
+			["n"] = 90926,
+			["e"] = 112835,
+		},
 	},
 }
 
