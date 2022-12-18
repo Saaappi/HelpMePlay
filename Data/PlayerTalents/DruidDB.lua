@@ -563,7 +563,7 @@ local DRUID_TALENTS = {
 			["n"] = 82225,
 			["e"] = 103303,
 		},
-		{ -- Berserk - CHECK
+		{ -- Berserk: Ravage
 			["n"] = 82149,
 			["e"] = 103216,
 		},
@@ -635,7 +635,7 @@ local DRUID_TALENTS = {
 			["n"] = 82239,
 			["e"] = 103318,
 		},
-		{ -- Berserk - CHECK
+		{ -- Berserk: Unchecked Aggression
 			["n"] = 82155,
 			["e"] = 103224,
 		},
@@ -659,7 +659,7 @@ local DRUID_TALENTS = {
 			["n"] = 82210,
 			["e"] = 103288,
 		},
-		{ -- Berserk - CHECK
+		{ -- Berserk: Persistence
 			["n"] = 82144,
 			["e"] = 103211,
 		},
