@@ -342,7 +342,7 @@ if (isLocaleSupported) then
 	-- End: 	Single Words
 	--
 	-- Start: 	Player Talents
-	L_GLOBALSTRINGS["PlayerTalents.Config.Name"] 												= "HelpMePlay - Leveling"
+	L_GLOBALSTRINGS["PlayerTalents.Config.Name"] 												= "|cffFF8080HelpMePlay|r"
 	-- End: 	Player Talents
 	--
 	-- Start:	Speech Text Checks

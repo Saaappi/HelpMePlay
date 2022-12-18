@@ -2,6 +2,10 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+local function GetConfigs()
+	return C_ClassTalents.GetConfigIDsBySpecID(PlayerUtil.GetCurrentSpecID())
+end
+
 local function PurchaseTalents(configID, tbl, specID)
 	C_Timer.After(0.25, function()
 		for _, traits in ipairs(tbl[specID]) do
@@ -21,6 +25,7 @@ local function PurchaseTalents(configID, tbl, specID)
 			end
 		end
 		C_Traits.CommitConfig(configID)
+		ClassTalentFrame.TalentsTab.ApplyButton:Click("LeftButton")
 	end)
 end
 
@@ -44,47 +49,65 @@ e:SetScript("OnEvent", function(self, event, addon)
 		HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
 		HMPTalentButton:HookScript("OnClick", function(self)
-			if C_ClassTalents.HasUnspentTalentPoints() then
-				local configID = 0 -- Set the config ID to 0 to start
-				if HelpMePlayDB.TalentConfigID then
-					-- If the config ID was created in an earlier
-					-- session, then load it.
-					C_ClassTalents.LoadConfig(HelpMePlayDB.TalentConfigID, false)
-					configID = C_ClassTalents.GetActiveConfigID()
-				else
-					-- The talent automation is being used for the
-					-- first time, so request a new config and get
-					-- the config ID.
-					--
-					-- Save the new config ID to the main table.
-					C_ClassTalents.RequestNewConfig(L_GLOBALSTRINGS["PlayerTalents.Config.Name"])
-					configID = C_ClassTalents.GetActiveConfigID()
-					HelpMePlayDB.TalentConfigID = configID
+			local configID = 0 -- Set the config ID to 0 to start
+			if HelpMePlaySavesDB.TalentConfigID then
+				-- If the config ID was created in an earlier
+				-- session, then load it.
+				C_ClassTalents.LoadConfig(HelpMePlaySavesDB.TalentConfigID, true)
+				configID = C_ClassTalents.GetActiveConfigID()
+			else
+				-- The talent automation is being used for the
+				-- first time, so request a new config and get
+				-- the config ID.
+				--
+				-- Save the new config ID to the main table.
+				local isConfigCreated = false
+				local configIDs = GetConfigs()
+				for _, id in ipairs(configIDs) do
+					local configInfo = C_Traits.GetConfigInfo(id)
+					if configInfo.name == L_GLOBALSTRINGS["PlayerTalents.Config.Name"] then
+						isConfigCreated = true
+						break
+					end
 				end
 				
-				if configID then
-					local specIndex = GetSpecialization()
-					local specID = GetSpecializationInfo(specIndex)
-					local _, _, classID = UnitClass("player")
-					
-					if classID == 1 then
-						PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
-					elseif classID == 2 then
-						PurchaseTalents(configID, addonTable.PALADIN_TALENTS, specID)
-					elseif classID == 3 then -- Hunter
-					elseif classID == 4 then -- Rogue
-					elseif classID == 5 then -- Priest
-					elseif classID == 6 then -- Death Knight
-					elseif classID == 7 then -- Shaman
-					elseif classID == 8 then -- Mage
-					elseif classID == 9 then -- Warlock
-					elseif classID == 10 then -- Monk
-					elseif classID == 11 then
-						PurchaseTalents(configID, addonTable.DRUID_TALENTS, specID)
-					elseif classID == 12 then
-						PurchaseTalents(configID, addonTable.DEMON_HUNTER_TALENTS, specID)
-					elseif classID == 13 then -- Evoker
-					end
+				if isConfigCreated == false then
+					C_ClassTalents.RequestNewConfig(L_GLOBALSTRINGS["PlayerTalents.Config.Name"])
+					C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
+						configIDs = GetConfigs()
+						for _, id in ipairs(configIDs) do
+							local configInfo = C_Traits.GetConfigInfo(id)
+							if configInfo.name == L_GLOBALSTRINGS["PlayerTalents.Config.Name"] then
+								C_ClassTalents.LoadConfig(id, true)
+								HelpMePlaySavesDB.TalentConfigID = id
+							end
+						end
+					end)
+				end
+				configID = C_ClassTalents.GetActiveConfigID()
+			end
+			
+			if configID then
+				local specID = PlayerUtil.GetCurrentSpecID()
+				local _, _, classID = UnitClass("player")
+				
+				if classID == 1 then
+					PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
+				elseif classID == 2 then
+					PurchaseTalents(configID, addonTable.PALADIN_TALENTS, specID)
+				elseif classID == 3 then -- Hunter
+				elseif classID == 4 then -- Rogue
+				elseif classID == 5 then -- Priest
+				elseif classID == 6 then -- Death Knight
+				elseif classID == 7 then -- Shaman
+				elseif classID == 8 then -- Mage
+				elseif classID == 9 then -- Warlock
+				elseif classID == 10 then -- Monk
+				elseif classID == 11 then
+					PurchaseTalents(configID, addonTable.DRUID_TALENTS, specID)
+				elseif classID == 12 then
+					PurchaseTalents(configID, addonTable.DEMON_HUNTER_TALENTS, specID)
+				elseif classID == 13 then -- Evoker
 				end
 			end
 		end)
