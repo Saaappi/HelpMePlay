@@ -7,6 +7,246 @@ local DRUID_TALENTS = {
 			["n"] = 82220,
 			["e"] = 103298,
 		},
+		{ -- Eclipse
+			["n"] = 88223,
+			["e"] = 109858,
+		},
+		{ -- Improved Barkskin
+			["n"] = 82219,
+			["e"] = 103297,
+		},
+		{ -- Shooting Stars
+			["n"] = 88225,
+			["e"] = 109861,
+		},
+		{ -- Thrash
+			["n"] = 82223,
+			["e"] = 103301,
+		},
+		{ -- Nature's Balance
+			["n"] = 88226,
+			["e"] = 109862,
+		},
+		{ -- Swipe
+			["n"] = 82226,
+			["e"] = 103304,
+		},
+		{ -- Starfall
+			["n"] = 88201,
+			["e"] = 109833,
+		},
+		{ -- Moonkin Form
+			["n"] = 82212,
+			["e"] = 103290,
+		},
+		{ -- Lunar Shrapnel
+			["n"] = 88232,
+			["e"] = 109868,
+		},
+		{ -- Ironfur
+			["n"] = 82227,
+			["e"] = 103305,
+		},
+		{ -- Aetherial Kindling
+			["n"] = 88209,
+			["e"] = 109843,
+		},
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
+		},
+		{ -- Umbral Embrace
+			["n"] = 88216,
+			["e"] = 109850,
+		},
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
+		},
+		{ -- Umbral Embrace
+			["n"] = 88216,
+			["e"] = 109850,
+		},
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
+		},
+		{ -- Solstice
+			["n"] = 88203,
+			["e"] = 109835,
+		},
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
+		},
+		{ -- Solstice
+			["n"] = 88203,
+			["e"] = 109835,
+		},
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
+		},
+		{ -- Force of Nature
+			["n"] = 88210,
+			["e"] = 109844,
+		},
+		{ -- Wild Charge
+			["n"] = 82198,
+			["e"] = 103276,
+		},
+		{ -- Solar Beam
+			["n"] = 88231,
+			["e"] = 109867,
+		},
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
+		},
+		{ -- Stellar Flare
+			["n"] = 91048,
+			["e"] = 109841,
+		},
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
+		},
+		{ -- Twin Moons
+			["n"] = 88208,
+			["e"] = 109842,
+		},
+		{ -- Sunfire
+			["n"] = 82208,
+			["e"] = 103286,
+		},
+		{ -- Orbit Breaker
+			["n"] = 88199,
+			["e"] = 109831,
+		},
+		{ -- Typhoon
+			["n"] = 82209,
+			["e"] = 103287,
+		},
+		{ -- Rattle the Stars
+			["n"] = 88236,
+			["e"] = 109872,
+		},
+		{ -- Soothe
+			["n"] = 82229,
+			["e"] = 103307,
+		},
+		{ -- Waning Twilight
+			["n"] = 88202,
+			["e"] = 109834,
+		},
+		{ -- Improved Sunfire
+			["n"] = 82207,
+			["e"] = 103285,
+		},
+		{ -- Waning Twilight
+			["n"] = 88202,
+			["e"] = 109834,
+		},
+		{ -- Matted Fur
+			["n"] = 82236,
+			["e"] = 103314,
+		},
+		{ -- Celestial Alignment
+			["n"] = 88215,
+			["e"] = 109849,
+		},
+		{ -- Stampeding Roar
+			["n"] = 82234,
+			["e"] = 103312,
+		},
+		{ -- Starlord
+			["n"] = 88200,
+			["e"] = 109832,
+		},
+		{ -- Incapacitating Roar
+			["n"] = 82237,
+			["e"] = 103316,
+		},
+		{ -- Starlord
+			["n"] = 88200,
+			["e"] = 109832,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Nature's Grace
+			["n"] = 88222,
+			["e"] = 109857,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Orbital Strike
+			["n"] = 88221,
+			["e"] = 109856,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Soul of the Forest
+			["n"] = 88212,
+			["e"] = 109846,
+		},
+		{ -- Ursol's Vortex
+			["n"] = 82242,
+			["e"] = 103321,
+		},
+		{ -- Wild Mushroom
+			["n"] = 88220,
+			["e"] = 109854,
+		},
+		{ -- Well-Honed Instincts
+			["n"] = 82246,
+			["e"] = 103326,
+		},
+		{ -- Circle of Life and Death
+			["n"] = 88227,
+			["e"] = 109863,
+		},
+		{ -- Well-Honed Instincts
+			["n"] = 82246,
+			["e"] = 103326,
+		},
+		{ -- Convoke the Spirits
+			["n"] = 88206,
+			["e"] = 109838,
+		},
+		{ -- Improved Stampeding Roar
+			["n"] = 82230,
+			["e"] = 103308,
+		},
+		{ -- Fungal Growth
+			["n"] = 88205,
+			["e"] = 109837,
+		},
+		{ -- Renewal
+			["n"] = 82232,
+			["e"] = 103310,
+		},
+		{ -- Elune's Guidance
+			["n"] = 88228,
+			["e"] = 109864,
+		},
+		{ -- Innervate
+			["n"] = 82243,
+			["e"] = 103323,
+		},
+		{ -- Fury of Elune
+			["n"] = 88224,
+			["e"] = 109859,
+		},
+		{ -- Nature's Vigil
+			["n"] = 82244,
+			["e"] = 103324,
+		},
 	},
 	[103] = { -- Feral
 	},
