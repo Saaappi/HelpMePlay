@@ -164,7 +164,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			
 			-- Append all the traits to the text variable.
 			for _, v in ipairs(traits) do
-				text = text .. "\t\t{ -- " .. v.name .. "\n\t\t\t[\"n\"] = " .. v.nodeID .. ",\n\t\t\t[\"e\"] = " .. v.entryID .. ",\n\t\t}\n"
+				text = text .. "\t\t{ -- " .. v.name .. "\n\t\t\t[\"n\"] = " .. v.nodeID .. ",\n\t\t\t[\"e\"] = " .. v.entryID .. ",\n\t\t},\n"
 			end
 			
 			-- Add the concatenated traits variable to the edit box

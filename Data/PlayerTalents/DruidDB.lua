@@ -3,9 +3,9 @@ local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local DRUID_TALENTS = {
 	[102] = { -- Balance
-		{
-			["n"] = ,
-			["e"] = ,
+		{ -- Frenzied Regeneration
+			["n"] = 82220,
+			["e"] = 103298,
 		},
 	},
 	[103] = { -- Feral
