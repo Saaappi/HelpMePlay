@@ -52,7 +52,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			local configID = 0 -- Set the config ID to 0 to start
 			if HelpMePlaySavesDB.TalentConfigID then
 				-- If the config ID was created in an earlier
-				-- session, then load it.
+				-- session, then load it, if necessary.
 				C_ClassTalents.LoadConfig(HelpMePlaySavesDB.TalentConfigID, true)
 				configID = C_ClassTalents.GetActiveConfigID()
 				ClassTalentHelper.SwitchToLoadoutByName(L_GLOBALSTRINGS["PlayerTalents.Config.Name"])
