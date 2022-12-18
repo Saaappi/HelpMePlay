@@ -491,6 +491,250 @@ local PALADIN_TALENTS = {
 		},
 	},
 	[70] = { -- Retribution
+		{ -- Lay on Hands
+			["n"] = 81597,
+			["e"] = 102583,
+		},
+		{ -- Blade of Justice
+			["n"] = 81526,
+			["e"] = 102498,
+		},
+		{ -- Blinding Light
+			["n"] = 81598,
+			["e"] = 102584,
+		},
+		{ -- Divine Storm
+			["n"] = 81529,
+			["e"] = 102501,
+		},
+		{ -- Divine Steed
+			["n"] = 81632,
+			["e"] = 102625,
+		},
+		{ -- Art of War
+			["n"] = 81547,
+			["e"] = 102523,
+		},
+		{ -- Fist of Justice
+			["n"] = 81602,
+			["e"] = 102589,
+		},
+		{ -- Improved Crusader Strike
+			["n"] = 81528,
+			["e"] = 102500,
+		},
+		{ -- Fist of Justice
+			["n"] = 81602,
+			["e"] = 102589,
+		},
+		{ -- Holy Crusader
+			["n"] = 81527,
+			["e"] = 102499,
+		},
+		{ -- Cavalier
+			["n"] = 81605,
+			["e"] = 102592,
+		},
+		{ -- Holy Blade
+			["n"] = 81546,
+			["e"] = 102522,
+		},
+		{ -- Seasoned Warhorse
+			["n"] = 81631,
+			["e"] = 102624,
+		},
+		{ -- Empyrean Power
+			["n"] = 81532,
+			["e"] = 102504,
+		},
+		{ -- Greater Judgment
+			["n"] = 81603,
+			["e"] = 102590,
+		},
+		{ -- Shield of Vengeance
+			["n"] = 81545,
+			["e"] = 102521,
+		},
+		{ -- Holy Aegis
+			["n"] = 81609,
+			["e"] = 102597,
+		},
+		{ -- Blade of Wrath
+			["n"] = 81521,
+			["e"] = 102491,
+		},
+		{ -- Holy Aegis
+			["n"] = 81609,
+			["e"] = 102597,
+		},
+		{ -- Highlord's Judgment
+			["n"] = 81533,
+			["e"] = 102505,
+		},
+		{ -- Avenging Wrath - CHECK
+			["n"] = 81606,
+			["e"] = 102593,
+		},
+		{ -- Highlord's Judgment
+			["n"] = 81533,
+			["e"] = 102505,
+		},
+		{ -- Rebuke
+			["n"] = 81604,
+			["e"] = 102591,
+		},
+		{ -- Sanctify
+			["n"] = 81544,
+			["e"] = 102519,
+		},
+		{ -- Golden Path
+			["n"] = 81610,
+			["e"] = 102598,
+		},
+		{ -- Wake of Ashes
+			["n"] = 81524,
+			["e"] = 102495,
+		},
+		{ -- Judgment of Light
+			["n"] = 81608,
+			["e"] = 102596,
+		},
+		{ -- Consecrated Blade
+			["n"] = 81553,
+			["e"] = 102531,
+		},
+		{ -- Blessing of Protection
+			["n"] = 81616,
+			["e"] = 102604,
+		},
+		{ -- Boundless Judgment
+			["n"] = 81534,
+			["e"] = 102506,
+		},
+		{ -- Seal of Reprisal
+			["n"] = 81629,
+			["e"] = 102621,
+		},
+		{ -- Sanctification
+			["n"] = 81543,
+			["e"] = 102518,
+		},
+		{ -- Seal of Reprisal
+			["n"] = 81629,
+			["e"] = 102621,
+		},
+		{ -- Radiant Decree
+			["n"] = 81523,
+			["e"] = 102493,
+		},
+		{ -- Afterimage
+			["n"] = 81613,
+			["e"] = 102601,
+		},
+		{ -- Avenging Wrath - CHECK
+			["n"] = 81620,
+			["e"] = 102611,
+		},
+		{ -- Unbreakable Spirit
+			["n"] = 81615,
+			["e"] = 102603,
+		},
+		{ -- Zeal
+			["n"] = 81552,
+			["e"] = 102530,
+		},
+		{ -- Incandescence
+			["n"] = 81628,
+			["e"] = 102620,
+		},
+		{ -- Exorcism
+			["n"] = 81542,
+			["e"] = 102516,
+		},
+		{ -- Aspiration of Divinity
+			["n"] = 81622,
+			["e"] = 102613,
+		},
+		{ -- Healing Hands
+			["n"] = 81551,
+			["e"] = 102527,
+		},
+		{ -- Aspiration of Divinity
+			["n"] = 81622,
+			["e"] = 102613,
+		},
+		{ -- Tempest of the Lightbringer
+			["n"] = 81512,
+			["e"] = 102481,
+		},
+		{ -- Divine Purpose
+			["n"] = 81618,
+			["e"] = 102608,
+		},
+		{ -- Ashes to Ashes
+			["n"] = 81550,
+			["e"] = 102526,
+		},
+		{ -- Hallowed Ground
+			["n"] = 81509,
+			["e"] = 102478,
+		},
+		{ -- Ashes to Ashes
+			["n"] = 81550,
+			["e"] = 102526,
+		},
+		{ -- Of Dusk and Dawn
+			["n"] = 81624,
+			["e"] = 102615,
+		},
+		{ -- Divine Toll
+			["n"] = 81539,
+			["e"] = 102513,
+		},
+		{ -- Seal of Might
+			["n"] = 81621,
+			["e"] = 102612,
+		},
+		{ -- Empyrean Legacy
+			["n"] = 81511,
+			["e"] = 102480,
+		},
+		{ -- Seal of Might
+			["n"] = 81621,
+			["e"] = 102612,
+		},
+		{ -- Virtuous Command
+			["n"] = 81549,
+			["e"] = 102525,
+		},
+		{ -- Seal of Alacrity
+			["n"] = 81619,
+			["e"] = 102609,
+		},
+		{ -- Virtuous Command
+			["n"] = 81549,
+			["e"] = 102525,
+		},
+		{ -- Seal of Alacrity
+			["n"] = 81619,
+			["e"] = 102609,
+		},
+		{ -- Divine Resonance
+			["n"] = 81538,
+			["e"] = 102512,
+		},
+		{ -- Seal of Order
+			["n"] = 81623,
+			["e"] = 102614,
+		},
+		{ -- Final Reckoning
+			["n"] = 81548,
+			["e"] = 102524,
+		},
+		{ -- Sanctified Wrath - CHECK
+			["n"] = 81607,
+			["e"] = 102595,
+		},
 	},
 }
 
