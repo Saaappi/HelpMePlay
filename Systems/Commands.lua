@@ -155,7 +155,9 @@ function HelpMePlay:SlashCommandHandler(cmd)
 					local entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[i])
 					local spellID = C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID
 					
-					table.insert(traits, { ["name"] = (GetSpellInfo(spellID)), ["nodeID"] = nodeInfo.ID, ["entryID"] = nodeInfo.entryIDs[i] })
+					if spellID then
+						table.insert(traits, { ["name"] = (GetSpellInfo(spellID)), ["nodeID"] = nodeInfo.ID, ["entryID"] = nodeInfo.entryIDs[i] })
+					end
 				end
 			end
 			
