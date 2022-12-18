@@ -249,6 +249,250 @@ local DRUID_TALENTS = {
 		},
 	},
 	[103] = { -- Feral
+		{ -- Frenzied Regeneration
+			["n"] = 82220,
+			["e"] = 103298,
+		},
+		{ -- Tiger's Fury
+			["n"] = 82124,
+			["e"] = 103188,
+		},
+		{ -- Starfire
+			["n"] = 91044,
+			["e"] = 112967,
+		},
+		{ -- Omen of Clarity
+			["n"] = 82123,
+			["e"] = 103187,
+		},
+		{ -- Swipe
+			["n"] = 82226,
+			["e"] = 103304,
+		},
+		{ -- Primal Wrath
+			["n"] = 82120,
+			["e"] = 103184,
+		},
+		{ -- Starsurge
+			["n"] = 82200,
+			["e"] = 103278,
+		},
+		{ -- Predator
+			["n"] = 82122,
+			["e"] = 103186,
+		},
+		{ -- Rip
+			["n"] = 82222,
+			["e"] = 103300,
+		},
+		{ -- Merciless Claws
+			["n"] = 82098,
+			["e"] = 103159,
+		},
+		{ -- Moonkin Form
+			["n"] = 91045,
+			["e"] = 112968,
+		},
+		{ -- Sabertooth
+			["n"] = 82102,
+			["e"] = 103163,
+		},
+		{ -- Ironfur
+			["n"] = 82227,
+			["e"] = 103305,
+		},
+		{ -- Tireless Energy
+			["n"] = 82121,
+			["e"] = 103185,
+		},
+		{ -- Killer Instinct
+			["n"] = 82225,
+			["e"] = 103303,
+		},
+		{ -- Tireless Energy
+			["n"] = 82121,
+			["e"] = 103185,
+		},
+		{ -- Killer Instinct
+			["n"] = 82225,
+			["e"] = 103303,
+		},
+		{ -- Pouncing Strikes
+			["n"] = 82119,
+			["e"] = 103183,
+		},
+		{ -- Killer Instinct
+			["n"] = 82225,
+			["e"] = 103303,
+		},
+		{ -- Rampant Ferocity
+			["n"] = 82099,
+			["e"] = 103160,
+		},
+		{ -- Skull Bash
+			["n"] = 82224,
+			["e"] = 103302,
+		},
+		{ -- Berserk
+			["n"] = 82101,
+			["e"] = 103162,
+		},
+		{ -- Feline Swiftness
+			["n"] = 82239,
+			["e"] = 103318,
+		},
+		{ -- Tear Open Wounds
+			["n"] = 82089,
+			["e"] = 103148,
+		},
+		{ -- Feline Swiftness
+			["n"] = 82239,
+			["e"] = 103318,
+		},
+		{ -- Predatory Swiftness
+			["n"] = 82106,
+			["e"] = 103167,
+		},
+		{ -- Wild Charge
+			["n"] = 82198,
+			["e"] = 103276,
+		},
+		{ -- Moment of Clarity
+			["n"] = 82100,
+			["e"] = 103161,
+		},
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
+		},
+		{ -- Infected Wounds
+			["n"] = 82103,
+			["e"] = 103164,
+		},
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
+		},
+		{ -- Dreadful Bleeding
+			["n"] = 82117,
+			["e"] = 103181,
+		},
+		{ -- Primal Fury
+			["n"] = 82238,
+			["e"] = 103317,
+		},
+		{ -- Raging Fury
+			["n"] = 82107,
+			["e"] = 103169,
+		},
+		{ -- Soothe
+			["n"] = 82229,
+			["e"] = 103307,
+		},
+		{ -- Berserk: Heart of the Lion
+			["n"] = 82105,
+			["e"] = 103166,
+		},
+		{ -- Sunfire
+			["n"] = 82208,
+			["e"] = 103286,
+		},
+		{ -- Survival Instincts
+			["n"] = 82116,
+			["e"] = 103180,
+		},
+		{ -- Stampeding Roar
+			["n"] = 82234,
+			["e"] = 103312,
+		},
+		{ -- Berserk: Frenzy
+			["n"] = 82090,
+			["e"] = 103149,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Carnivorous Instinct
+			["n"] = 82110,
+			["e"] = 103173,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Carnivorous Instinct
+			["n"] = 82110,
+			["e"] = 103173,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Frantic Momentum
+			["n"] = 82115,
+			["e"] = 103179,
+		},
+		{ -- Ursol's Vortex
+			["n"] = 82242,
+			["e"] = 103321,
+		},
+		{ -- Frantic Momentum
+			["n"] = 82115,
+			["e"] = 103179,
+		},
+		{ -- Innervate
+			["n"] = 82243,
+			["e"] = 103323,
+		},
+		{ -- Bloodtalons
+			["n"] = 82109,
+			["e"] = 103171,
+		},
+		{ -- Nature's Vigil
+			["n"] = 82244,
+			["e"] = 103324,
+		},
+		{ -- Convoke the Spirits
+			["n"] = 82114,
+			["e"] = 103177,
+		},
+		{ -- Mighty Bash
+			["n"] = 82237,
+			["e"] = 103315,
+		},
+		{ -- Soul of the Forest
+			["n"] = 82096,
+			["e"] = 103157,
+		},
+		{ -- Well-Honed Instincts
+			["n"] = 82246,
+			["e"] = 103326,
+		},
+		{ -- Feral Frenzy
+			["n"] = 82108,
+			["e"] = 103170,
+		},
+		{ -- Well-Honed Instincts
+			["n"] = 82246,
+			["e"] = 103326,
+		},
+		{ -- Ashamane's Guidance
+			["n"] = 82113,
+			["e"] = 103176,
+		},
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
+		},
+		{ -- Circle of Life and Death
+			["n"] = 82095,
+			["e"] = 103156,
+		},
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
+		},
 	},
 	[104] = { -- Guardian
 	},
