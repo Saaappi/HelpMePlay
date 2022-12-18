@@ -3,6 +3,250 @@ local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local PALADIN_TALENTS = {
 	[65] = { -- Holy
+		{ -- Blessing of Freedom
+			["n"] = 81600,
+			["e"] = 102587,
+		},
+		{ -- Holy Shock
+			["n"] = 81555,
+			["e"] = 102534,
+		},
+		{ -- Hammer of Wrath
+			["n"] = 81510,
+			["e"] = 102479,
+		},
+		{ -- Holy Light
+			["n"] = 81569,
+			["e"] = 102550,
+		},
+		{ -- Blinding Light
+			["n"] = 81598,
+			["e"] = 102584,
+		},
+		{ -- Light of Dawn
+			["n"] = 81565,
+			["e"] = 102545,
+		},
+		{ -- Divine Steed
+			["n"] = 81632,
+			["e"] = 102625,
+		},
+		{ -- Divine Insight
+			["n"] = 81572,
+			["e"] = 102554,
+		},
+		{ -- Fist of Justice
+			["n"] = 81602,
+			["e"] = 102589,
+		},
+		{ -- Divine Protection
+			["n"] = 81568,
+			["e"] = 102549,
+		},
+		{ -- Fist of Justice
+			["n"] = 81602,
+			["e"] = 102589,
+		},
+		{ -- Unending Light
+			["n"] = 81564,
+			["e"] = 102544,
+		},
+		{ -- Improved Cleanse
+			["n"] = 81508,
+			["e"] = 102477,
+		},
+		{ -- Moment of Compassion
+			["n"] = 81571,
+			["e"] = 102553,
+		},
+		{ -- Cavalier
+			["n"] = 81605,
+			["e"] = 102592,
+		},
+		{ -- Aura Mastery
+			["n"] = 81567,
+			["e"] = 102548,
+		},
+		{ -- Seasoned Warhorse
+			["n"] = 81631,
+			["e"] = 102624,
+		},
+		{ -- Divine Favor
+			["n"] = 81570,
+			["e"] = 102551,
+		},
+		{ -- Greater Judgment
+			["n"] = 92220,
+			["e"] = 114292,
+		},
+		{ -- Shining Savior
+			["n"] = 81576,
+			["e"] = 102559,
+		},
+		{ -- Holy Aegis
+			["n"] = 81609,
+			["e"] = 102597,
+		},
+		{ -- Imbued Infusions
+			["n"] = 81557,
+			["e"] = 102536,
+		},
+		{ -- Holy Aegis
+			["n"] = 81609,
+			["e"] = 102597,
+		},
+		{ -- Light's Hammer
+			["n"] = 81577,
+			["e"] = 102561,
+		},
+		{ -- Avenging Wrath - CHECK
+			["n"] = 81620,
+			["e"] = 102611,
+		},
+		{ -- Saved by the Light
+			["n"] = 81563,
+			["e"] = 102542,
+		},
+		{ -- Rebuke
+			["n"] = 81604,
+			["e"] = 102591,
+		},
+		{ -- Radiant Onslaught
+			["n"] = 81574,
+			["e"] = 102557,
+		},
+		{ -- Golden Path
+			["n"] = 81610,
+			["e"] = 102598,
+		},
+		{ -- Tower of Radiance
+			["n"] = 81586,
+			["e"] = 102571,
+		},
+		{ -- Judgment of Light
+			["n"] = 81608,
+			["e"] = 102596,
+		},
+		{ -- Echoing Blessings
+			["n"] = 81556,
+			["e"] = 102535,
+		},
+		{ -- Blessing of Protection
+			["n"] = 81616,
+			["e"] = 102604,
+		},
+		{ -- Divine Revelations
+			["n"] = 81578,
+			["e"] = 102562,
+		},
+		{ -- Seal of Mercy
+			["n"] = 81611,
+			["e"] = 102599,
+		},
+		{ -- Second Sunrise
+			["n"] = 81583,
+			["e"] = 102567,
+		},
+		{ -- Seal of Mercy
+			["n"] = 81611,
+			["e"] = 102599,
+		},
+		{ -- Second Sunrise
+			["n"] = 81583,
+			["e"] = 102567,
+		},
+		{ -- Afterimage
+			["n"] = 81613,
+			["e"] = 102601,
+		},
+		{ -- Divine Glimpse
+			["n"] = 81585,
+			["e"] = 102570,
+		},
+		{ -- Unbreakable Spirit
+			["n"] = 81615,
+			["e"] = 102603,
+		},
+		{ -- Divine Glimpse
+			["n"] = 81585,
+			["e"] = 102570,
+		},
+		{ -- Improved Blessing of Protection
+			["n"] = 81617,
+			["e"] = 102606,
+		},
+		{ -- Divine Toll
+			["n"] = 81579,
+			["e"] = 102563,
+		},
+		{ -- Incandescence
+			["n"] = 81628,
+			["e"] = 102620,
+		},
+		{ -- Veneration
+			["n"] = 81581,
+			["e"] = 102565,
+		},
+		{ -- Aspiration of Divinity
+			["n"] = 81622,
+			["e"] = 102613,
+		},
+		{ -- Avenging Wrath - CHECK
+			["n"] = 81606,
+			["e"] = 102593,
+		},
+		{ -- Aspiration of Divinity
+			["n"] = 81622,
+			["e"] = 102613,
+		},
+		{ -- Divine Resonance
+			["n"] = 81596,
+			["e"] = 102582,
+		},
+		{ -- Holy Avenger
+			["n"] = 81618,
+			["e"] = 102607,
+		},
+		{ -- Crusader's Might
+			["n"] = 81594,
+			["e"] = 102580,
+		},
+		{ -- Hallowed Ground
+			["n"] = 81509,
+			["e"] = 102478,
+		},
+		{ -- Crusader's Might
+			["n"] = 81594,
+			["e"] = 102580,
+		},
+		{ -- Of Dusk and Dawn
+			["n"] = 81624,
+			["e"] = 102615,
+		},
+		{ -- Awakening
+			["n"] = 81592,
+			["e"] = 102578,
+		},
+		{ -- Seal of the Crusader
+			["n"] = 81626,
+			["e"] = 102617,
+		},
+		{ -- Glimmer of Light
+			["n"] = 81595,
+			["e"] = 102581,
+		},
+		{ -- Seal of the Crusader
+			["n"] = 81626,
+			["e"] = 102617,
+		},
+		{ -- Blessing of Summer
+			["n"] = 81593,
+			["e"] = 102579,
+		},
+		{ -- Zealot's Paragon
+			["n"] = 81625,
+			["e"] = 102616,
+		},
 	},
 	[66] = { -- Protection
 		{ -- Blessing of Freedom
