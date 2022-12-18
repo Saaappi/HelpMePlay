@@ -148,14 +148,27 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			local configID = C_ClassTalents.GetActiveConfigID()
 			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
 			local text = "Trait Info:\n"
+			local traits = {}
 			for _, nodeID in ipairs(nodes) do
 				local nodeInfo = C_Traits.GetNodeInfo(configID, nodeID)
 				for i=1, #nodeInfo.entryIDs do
 					local entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[i])
 					local spellID = C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID
-					text = text .. nodeInfo.ID .. " | " .. nodeInfo.entryIDs[i] .. " | " .. (GetSpellInfo(spellID)) .. "\n"
+					
+					table.insert(traits, { ["name"] = (GetSpellInfo(spellID)), ["nodeID"] = nodeInfo.ID, ["entryID"] = nodeInfo.entryIDs[i] })
 				end
 			end
+			
+			-- Sort the traits table alphabetically by trait name.
+			table.sort(traits, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
+			
+			-- Append all the traits to the text variable.
+			for _, v in ipairs(traits) do
+				text = text .. v.nodeID .. " | " .. v.entryID .. " | " .. v.name .. "\n"
+			end
+			
+			-- Add the concatenated traits variable to the edit box
+			-- and show it.
 			editBox:SetText(text)
 		else
 			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
