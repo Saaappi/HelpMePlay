@@ -147,7 +147,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			
 			local configID = C_ClassTalents.GetActiveConfigID()
 			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
-			local text = "Trait Info:\n"
+			local text = ""
 			local traits = {}
 			for _, nodeID in ipairs(nodes) do
 				local nodeInfo = C_Traits.GetNodeInfo(configID, nodeID)
@@ -164,7 +164,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			
 			-- Append all the traits to the text variable.
 			for _, v in ipairs(traits) do
-				text = text .. v.nodeID .. " | " .. v.entryID .. " | " .. v.name .. "\n"
+				text = text .. "\t\t{ -- " .. v.name .. "\n\t\t\t[\"n\"] = " .. v.nodeID .. ",\n\t\t\t[\"e\"] = " .. v.entryID .. ",\n\t\t}\n"
 			end
 			
 			-- Add the concatenated traits variable to the edit box
