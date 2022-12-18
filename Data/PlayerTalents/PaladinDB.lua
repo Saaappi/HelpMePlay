@@ -99,9 +99,9 @@ local PALADIN_TALENTS = {
 			["n"] = 81577,
 			["e"] = 102561,
 		},
-		{ -- Avenging Wrath - CHECK
-			["n"] = 81620,
-			["e"] = 102611,
+		{ -- Avenging Wrath
+			["n"] = 81606,
+			["e"] = 102593,
 		},
 		{ -- Saved by the Light
 			["n"] = 81563,
@@ -191,9 +191,9 @@ local PALADIN_TALENTS = {
 			["n"] = 81622,
 			["e"] = 102613,
 		},
-		{ -- Avenging Wrath - CHECK
-			["n"] = 81606,
-			["e"] = 102593,
+		{ -- Avenging Wrath
+			["n"] = 81584,
+			["e"] = 102569,
 		},
 		{ -- Aspiration of Divinity
 			["n"] = 81622,
@@ -333,7 +333,7 @@ local PALADIN_TALENTS = {
 			["n"] = 81499,
 			["e"] = 102468,
 		},
-		{ -- Avenging Wrath - CHECK
+		{ -- Avenging Wrath
 			["n"] = 81606,
 			["e"] = 102593,
 		},
@@ -353,7 +353,7 @@ local PALADIN_TALENTS = {
 			["n"] = 81609,
 			["e"] = 102597,
 		},
-		{ -- Avenging Wrath - CHECK
+		{ -- Avenging Wrath
 			["n"] = 81483,
 			["e"] = 102448,
 		},
@@ -473,9 +473,9 @@ local PALADIN_TALENTS = {
 			["n"] = 81496,
 			["e"] = 102465,
 		},
-		{ -- Sanctuary - CHECK
-			["n"] = 81486,
-			["e"] = 102451,
+		{ -- Sanctified Wrath
+			["n"] = 81620,
+			["e"] = 102611,
 		},
 		{ -- Bulwark of Righteous Fury
 			["n"] = 81491,
@@ -571,7 +571,7 @@ local PALADIN_TALENTS = {
 			["n"] = 81533,
 			["e"] = 102505,
 		},
-		{ -- Avenging Wrath - CHECK
+		{ -- Avenging Wrath
 			["n"] = 81606,
 			["e"] = 102593,
 		},
@@ -631,9 +631,9 @@ local PALADIN_TALENTS = {
 			["n"] = 81613,
 			["e"] = 102601,
 		},
-		{ -- Avenging Wrath - CHECK
-			["n"] = 81620,
-			["e"] = 102611,
+		{ -- Avenging Wrath
+			["n"] = 81525,
+			["e"] = 102497,
 		},
 		{ -- Unbreakable Spirit
 			["n"] = 81615,
@@ -731,9 +731,9 @@ local PALADIN_TALENTS = {
 			["n"] = 81548,
 			["e"] = 102524,
 		},
-		{ -- Sanctified Wrath - CHECK
-			["n"] = 81607,
-			["e"] = 102595,
+		{ -- Sanctified Wrath
+			["n"] = 81620,
+			["e"] = 102611,
 		},
 	},
 }
