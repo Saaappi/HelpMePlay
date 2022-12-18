@@ -495,6 +495,250 @@ local DRUID_TALENTS = {
 		},
 	},
 	[104] = { -- Guardian
+		{ -- Improved Barkskin
+			["n"] = 82219,
+			["e"] = 103297,
+		},
+		{ -- Maul
+			["n"] = 82127,
+			["e"] = 103191,
+		},
+		{ -- Starfire
+			["n"] = 91041,
+			["e"] = 112964,
+		},
+		{ -- Gore
+			["n"] = 82126,
+			["e"] = 103190,
+		},
+		{ -- Starsurge
+			["n"] = 82200,
+			["e"] = 103278,
+		},
+		{ -- Survival Instincts
+			["n"] = 82129,
+			["e"] = 103193,
+		},
+		{ -- Rip
+			["n"] = 82222,
+			["e"] = 103300,
+		},
+		{ -- Brambles
+			["n"] = 82161,
+			["e"] = 103231,
+		},
+		{ -- Swipe
+			["n"] = 82226,
+			["e"] = 103304,
+		},
+		{ -- Ursine Adept
+			["n"] = 82150,
+			["e"] = 103217,
+		},
+		{ -- Verdant Heart
+			["n"] = 82218,
+			["e"] = 103296,
+		},
+		{ -- Mangle
+			["n"] = 82131,
+			["e"] = 103195,
+		},
+		{ -- Moonkin Form
+			["n"] = 91043,
+			["e"] = 112966,
+		},
+		{ -- Innate Resolve
+			["n"] = 82160,
+			["e"] = 103229,
+		},
+		{ -- Killer Instinct
+			["n"] = 82225,
+			["e"] = 103303,
+		},
+		{ -- Gory Fur
+			["n"] = 82132,
+			["e"] = 103196,
+		},
+		{ -- Killer Instinct
+			["n"] = 82225,
+			["e"] = 103303,
+		},
+		{ -- Berserk
+			["n"] = 82149,
+			["e"] = 103216,
+		},
+		{ -- Killer Instinct
+			["n"] = 82225,
+			["e"] = 103303,
+		},
+		{ -- Flashing Claws
+			["n"] = 82157,
+			["e"] = 103226,
+		},
+		{ -- Ironfur
+			["n"] = 82227,
+			["e"] = 103305,
+		},
+		{ -- Flashing Claws
+			["n"] = 82157,
+			["e"] = 103226,
+		},
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
+		},
+		{ -- Vulnerable Flesh
+			["n"] = 82159,
+			["e"] = 103228,
+		},
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
+		},
+		{ -- Vulnerable Flesh
+			["n"] = 82159,
+			["e"] = 103228,
+		},
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
+		},
+		{ -- Survival of the Fittest
+			["n"] = 82143,
+			["e"] = 103210,
+		},
+		{ -- Skull Bash
+			["n"] = 82224,
+			["e"] = 103302,
+		},
+		{ -- Survival of the Fittest
+			["n"] = 82143,
+			["e"] = 103210,
+		},
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
+		},
+		{ -- Tooth and Claw
+			["n"] = 82133,
+			["e"] = 103197,
+		},
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
+		},
+		{ -- After the Wildfire
+			["n"] = 82140,
+			["e"] = 103206,
+		},
+		{ -- Feline Swiftness
+			["n"] = 82239,
+			["e"] = 103318,
+		},
+		{ -- Berserk
+			["n"] = 82155,
+			["e"] = 103224,
+		},
+		{ -- Feline Swiftness
+			["n"] = 82239,
+			["e"] = 103318,
+		},
+		{ -- Fury of Nature
+			["n"] = 82138,
+			["e"] = 103203,
+		},
+		{ -- Wild Charge
+			["n"] = 82198,
+			["e"] = 103276,
+		},
+		{ -- Fury of Nature
+			["n"] = 82138,
+			["e"] = 103203,
+		},
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
+		},
+		{ -- Berserk
+			["n"] = 82144,
+			["e"] = 103211,
+		},
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
+		},
+		{ -- Circle of Life and Death
+			["n"] = 82137,
+			["e"] = 103202,
+		},
+		{ -- Soothe
+			["n"] = 82229,
+			["e"] = 103307,
+		},
+		{ -- Elune's Favored
+			["n"] = 82134,
+			["e"] = 103198,
+		},
+		{ -- Matted Fur
+			["n"] = 82236,
+			["e"] = 103314,
+		},
+		{ -- Scintillating Moonlight
+			["n"] = 82146,
+			["e"] = 103213,
+		},
+		{ -- Stampeding Roar
+			["n"] = 82234,
+			["e"] = 103312,
+		},
+		{ -- Scintillating Moonlight
+			["n"] = 82146,
+			["e"] = 103213,
+		},
+		{ -- Incapacitating Roar
+			["n"] = 82237,
+			["e"] = 103316,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Incarnation: Guardian of Ursoc
+			["n"] = 82136,
+			["e"] = 103201,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Galactic Guardian
+			["n"] = 82147,
+			["e"] = 103214,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Twin Moonfire
+			["n"] = 82145,
+			["e"] = 103212,
+		},
+		{ -- Improved Stampeding Roar
+			["n"] = 82230,
+			["e"] = 103308,
+		},
+		{ -- Ursoc's Guidance
+			["n"] = 82135,
+			["e"] = 103199,
+		},
+		{ -- Heart of the Wild
+			["n"] = 82231,
+			["e"] = 103309,
+		},
+		{ -- Rage of the Sleeper
+			["n"] = 82141,
+			["e"] = 103207,
+		},
 	},
 	[105] = { -- Restoration
 		{ -- Rake
