@@ -47,6 +47,7 @@ Data\FlightPathDB.lua
 Data\WaypointsDB.lua
 Data\CovenantsDB.lua
 Data\PlayerTalents\DruidDB.lua
+Data\PlayerTalents\PaladinDB.lua
 Data\PlayerTalents\WarriorDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
