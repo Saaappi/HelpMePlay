@@ -55,6 +55,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 				-- session, then load it.
 				C_ClassTalents.LoadConfig(HelpMePlaySavesDB.TalentConfigID, true)
 				configID = C_ClassTalents.GetActiveConfigID()
+				ClassTalentHelper.SwitchToLoadoutByName(L_GLOBALSTRINGS["PlayerTalents.Config.Name"])
 			else
 				-- The talent automation is being used for the
 				-- first time, so request a new config and get
