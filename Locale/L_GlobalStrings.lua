@@ -337,6 +337,14 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.DevModeDisabled"] 												= "Developer Mode must be enabled to use this command."
 	-- End:		Text Output
 	--
+	-- Start: 	Single Words
+	L_GLOBALSTRINGS["Learned"]																	= "Learned"
+	-- End: 	Single Words
+	--
+	-- Start: 	Player Talents
+	L_GLOBALSTRINGS["PlayerTalents.Config.Name"] 												= "HelpMePlay - Leveling"
+	-- End: 	Player Talents
+	--
 	-- Start:	Speech Text Checks
 	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Praise"]											= "not so much as a word of praise!"
 	L_GLOBALSTRINGS["Speech.PlayfulTrickster.Cheer"]											= "the other spriggans were all cheering my name for days!"
