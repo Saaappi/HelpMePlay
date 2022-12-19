@@ -8,51 +8,6 @@ local main = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		festiveText = {
-			name = function()
-				if date("%m") == "02" then
-					return L_GLOBALSTRINGS["MainOptions.Festive.LoveIsInTheAir"]
-				elseif date("%m") == "10" then
-					return L_GLOBALSTRINGS["MainOptions.Festive.HallowsEnd"]
-				elseif date("%m") == "12" then
-					return L_GLOBALSTRINGS["MainOptions.Festive.WinterVeil"]
-				end
-			end,
-			order = 0,
-			fontSize = "medium",
-			type = "description",
-		},
-		festiveSpecialItemBtn = {
-			name = function()
-				if date("%m") == "02" then
-					return "|cffA335EE[X-45 Heartbreaker]|r"
-				elseif date("%m") == "10" then
-					return "|cffA335EE[The Horseman's Reins]|r"
-				elseif date("%m") == "12" then
-					return "|cffA335EE[Minion of Grumpus]|r"
-				end
-			end,
-			order = 1,
-			image = function()
-				if date("%m") == "02" then
-					return "Interface\\ICONS\\inv_rocketmountpink"
-				elseif date("%m") == "10" then
-					return "Interface\\ICONS\\inv_belt_12"
-				elseif date("%m") == "12" then
-					return "Interface\\ICONS\\inv_misc_pet_pandaren_yeti_grey"
-				end
-			end,
-			type = "execute",
-			tooltipHyperlink = function()
-				if date("%m") == "02" then
-					return "|cffa335ee|Hitem:50250::::::::27:253::::::::|h[X-45 Heartbreaker]|h|r"
-				elseif date("%m") == "10" then
-					return "|cffa335ee|Hitem:37012::::::::27:253::::::::|h[The Horseman's Reins]|h|r"
-				elseif date("%m") == "12" then
-					return "|cffa335ee|Hitem:128671::::::::27:253::::::::|h[Minion of Grumpus]|h|r"
-				end
-			end,
-		},
 		aboutHeader = {
 			name = L_GLOBALSTRINGS["Header.About"],
 			order = 2,
