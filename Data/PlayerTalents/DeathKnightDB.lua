@@ -495,6 +495,250 @@ local DEATH_KNIGHT_TALENTS = {
 		},
 	},
 	[252] = { -- Unholy
+		{ -- Chains of Ice
+			["n"] = 76081,
+			["e"] = 96210,
+		},
+		{ -- Festering Strike
+			["n"] = 76189,
+			["e"] = 96326,
+		},
+		{ -- Death Strike
+			["n"] = 76071,
+			["e"] = 96200,
+		},
+		{ -- Scourge Strike
+			["n"] = 76190,
+			["e"] = 96327,
+		},
+		{ -- Mind Freeze
+			["n"] = 76082,
+			["e"] = 96211,
+		},
+		{ -- Raise Dead - CHECK
+			["n"] = 76072,
+			["e"] = 96201,
+		},
+		{ -- Cleaving Strikes
+			["n"] = 76073,
+			["e"] = 96202,
+		},
+		{ -- Outbreak
+			["n"] = 76191,
+			["e"] = 96328,
+		},
+		{ -- Anti-Magic Shell
+			["n"] = 76070,
+			["e"] = 96199,
+		},
+		{ -- Dark Transformation
+			["n"] = 76187,
+			["e"] = 96324,
+		},
+		{ -- Coldthirst
+			["n"] = 76045,
+			["e"] = 96173,
+		},
+		{ -- Unholy Blight
+			["n"] = 76162,
+			["e"] = 96296,
+		},
+		{ -- Improved Death Strike
+			["n"] = 76067,
+			["e"] = 96196,
+		},
+		{ -- Improved Festering Strike
+			["n"] = 76192,
+			["e"] = 96329,
+		},
+		{ -- March of Darkness
+			["n"] = 76069,
+			["e"] = 96198,
+		},
+		{ -- Improved Festering Strike
+			["n"] = 76192,
+			["e"] = 96329,
+		},
+		{ -- Enfeeble
+			["n"] = 76060,
+			["e"] = 96189,
+		},
+		{ -- Infected Claws
+			["n"] = 76182,
+			["e"] = 96318,
+		},
+		{ -- Icebound Fortitude
+			["n"] = 76084,
+			["e"] = 96213,
+		},
+		{ -- Epidemic
+			["n"] = 76161,
+			["e"] = 96295,
+		},
+		{ -- Veteran of the Third War
+			["n"] = 76068,
+			["e"] = 96197,
+		},
+		{ -- Replenishing Wounds
+			["n"] = 76163,
+			["e"] = 96297,
+		},
+		{ -- Veteran of the Third War
+			["n"] = 76068,
+			["e"] = 96197,
+		},
+		{ -- Plaguebringer
+			["n"] = 76183,
+			["e"] = 96319,
+		},
+		{ -- Brittle
+			["n"] = 76061,
+			["e"] = 96190,
+		},
+		{ -- Sudden Doom
+			["n"] = 76179,
+			["e"] = 96314,
+		},
+		{ -- Merciless Strikes
+			["n"] = 76085,
+			["e"] = 96214,
+		},
+		{ -- Ebon Fever
+			["n"] = 76164,
+			["e"] = 96298,
+		},
+		{ -- Might of Thassarian
+			["n"] = 76076,
+			["e"] = 96205,
+		},
+		{ -- Unholy Command
+			["n"] = 76194,
+			["e"] = 96331,
+		},
+		{ -- Gloom Ward
+			["n"] = 76052,
+			["e"] = 96180,
+		},
+		{ -- Unholy Command
+			["n"] = 76194,
+			["e"] = 96331,
+		},
+		{ -- Asphyxiate
+			["n"] = 76064,
+			["e"] = 96193,
+		},
+		{ -- Improved Death Coil
+			["n"] = 76184,
+			["e"] = 96321,
+		},
+		{ -- Death's Reach
+			["n"] = 76057,
+			["e"] = 96186,
+		},
+		{ -- Improved Death Coil
+			["n"] = 76184,
+			["e"] = 96321,
+		},
+		{ -- Runic Attenuation
+			["n"] = 76087,
+			["e"] = 96216,
+		},
+		{ -- Rotten Touch
+			["n"] = 76178,
+			["e"] = 96313,
+		},
+		{ -- Unholy Ground
+			["n"] = 76058,
+			["e"] = 96187,
+		},
+		{ -- Unholy Pact
+			["n"] = 76180,
+			["e"] = 96316,
+		},
+		{ -- Blood Draw
+			["n"] = 76079,
+			["e"] = 96208,
+		},
+		{ -- Eternal Agony
+			["n"] = 76195,
+			["e"] = 96332,
+		},
+		{ -- Blood Draw
+			["n"] = 76079,
+			["e"] = 96208,
+		},
+		{ -- Coil of Devastation
+			["n"] = 76156,
+			["e"] = 96290,
+		},
+		{ -- Death's Echo
+			["n"] = 76056,
+			["e"] = 96184,
+		},
+		{ -- Army of the Dead
+			["n"] = 76196,
+			["e"] = 96333,
+		},
+		{ -- Icy Talons
+			["n"] = 76051,
+			["e"] = 96179,
+		},
+		{ -- Summon Gargoyle
+			["n"] = 76176,
+			["e"] = 96311,
+		},
+		{ -- Icy Talons
+			["n"] = 76051,
+			["e"] = 96179,
+		},
+		{ -- Ghoulish Frenzy
+			["n"] = 76154,
+			["e"] = 96288,
+		},
+		{ -- Rune Mastery
+			["n"] = 76080,
+			["e"] = 96209,
+		},
+		{ -- Ghoulish Frenzy
+			["n"] = 76154,
+			["e"] = 96288,
+		},
+		{ -- Rune Mastery
+			["n"] = 76080,
+			["e"] = 96209,
+		},
+		{ -- Army of the Damned
+			["n"] = 76153,
+			["e"] = 96287,
+		},
+		{ -- Unholy Bond
+			["n"] = 76055,
+			["e"] = 96183,
+		},
+		{ -- Morbidity
+			["n"] = 76197,
+			["e"] = 96334,
+		},
+		{ -- Unholy Bond
+			["n"] = 76055,
+			["e"] = 96183,
+		},
+		{ -- Morbidity
+			["n"] = 76197,
+			["e"] = 96334,
+		},
+		{ -- Empower Rune Weapon
+			["n"] = 76050,
+			["e"] = 96178,
+		},
+		{ -- Superstrain
+			["n"] = 76155,
+			["e"] = 96289,
+		},
+		{ -- Abomination Limb
+			["n"] = 76049,
+			["e"] = 96177,
+		},
 	},
 }
 
