@@ -249,6 +249,250 @@ local HUNTER_TALENTS = {
 		},
 	},
 	[254] = { -- Marksmanship
+		{ -- Concussive Shot
+			["n"] = 79906,
+			["e"] = 100616,
+		},
+		{ -- Aimed Shot
+			["n"] = 79873,
+			["e"] = 100578,
+		},
+		{ -- Trailblazer
+			["n"] = 79931,
+			["e"] = 100644,
+		},
+		{ -- Crack Shot
+			["n"] = 79895,
+			["e"] = 100600,
+		},
+		{ -- Trailblazer
+			["n"] = 79931,
+			["e"] = 100644,
+		},
+		{ -- Improved Steady Shot
+			["n"] = 79898,
+			["e"] = 100604,
+		},
+		{ -- Posthaste
+			["n"] = 79921,
+			["e"] = 100634,
+		},
+		{ -- Precise Shots
+			["n"] = 79877,
+			["e"] = 100582,
+		},
+		{ -- Posthaste
+			["n"] = 79921,
+			["e"] = 100634,
+		},
+		{ -- Precise Shots
+			["n"] = 79877,
+			["e"] = 100582,
+		},
+		{ -- Improved Kill Shot
+			["n"] = 79930,
+			["e"] = 100643,
+		},
+		{ -- Rapid Fire
+			["n"] = 79880,
+			["e"] = 100585,
+		},
+		{ -- Counter Shot
+			["n"] = 79836,
+			["e"] = 100540,
+		},
+		{ -- Chimaera Shot
+			["n"] = 79915,
+			["e"] = 100627,
+		},
+		{ -- Natural Mending
+			["n"] = 79925,
+			["e"] = 100638,
+		},
+		{ -- Streamline
+			["n"] = 79893,
+			["e"] = 100598,
+		},
+		{ -- Tar Trap
+			["n"] = 79928,
+			["e"] = 100641,
+		},
+		{ -- Streamline
+			["n"] = 79893,
+			["e"] = 100598,
+		},
+		{ -- Misdirection
+			["n"] = 79924,
+			["e"] = 100637,
+		},
+		{ -- Careful Aim
+			["n"] = 79879,
+			["e"] = 100584,
+		},
+		{ -- Survival of the Fittest
+			["n"] = 79821,
+			["e"] = 100523,
+		},
+		{ -- Careful Aim
+			["n"] = 79879,
+			["e"] = 100584,
+		},
+		{ -- Tranquilizing Shot
+			["n"] = 79907,
+			["e"] = 100617,
+		},
+		{ -- Surging Shots
+			["n"] = 79897,
+			["e"] = 100602,
+		},
+		{ -- Nature's Endurance
+			["n"] = 79820,
+			["e"] = 100521,
+		},
+		{ -- Target Practice
+			["n"] = 79886,
+			["e"] = 100591,
+		},
+		{ -- Born To Be Wild
+			["n"] = 79933,
+			["e"] = 100646,
+		},
+		{ -- Focused Aim
+			["n"] = 79896,
+			["e"] = 100601,
+		},
+		{ -- Born To Be Wild
+			["n"] = 79933,
+			["e"] = 100646,
+		},
+		{ -- Focused Aim
+			["n"] = 79896,
+			["e"] = 100601,
+		},
+		{ -- Intimidation
+			["n"] = 79910,
+			["e"] = 100621,
+		},
+		{ -- Multi-Shot
+			["n"] = 79840,
+			["e"] = 100544,
+		},
+		{ -- Binding Shot
+			["n"] = 79937,
+			["e"] = 100650,
+		},
+		{ -- Double Tap
+			["n"] = 79874,
+			["e"] = 100579,
+		},
+		{ -- Camouflage
+			["n"] = 79934,
+			["e"] = 100647,
+		},
+		{ -- Trick Shots
+			["n"] = 79875,
+			["e"] = 100580,
+		},
+		{ -- Pathfinding
+			["n"] = 79918,
+			["e"] = 100631,
+		},
+		{ -- Volley
+			["n"] = 79890,
+			["e"] = 100595,
+		},
+		{ -- Pathfinding
+			["n"] = 79918,
+			["e"] = 100631,
+		},
+		{ -- Serpentstalker's Trickery
+			["n"] = 79881,
+			["e"] = 100586,
+		},
+		{ -- Keen Eyesight
+			["n"] = 79922,
+			["e"] = 100635,
+		},
+		{ -- Heavy Ammo
+			["n"] = 79903,
+			["e"] = 100611,
+		},
+		{ -- Keen Eyesight
+			["n"] = 79922,
+			["e"] = 100635,
+		},
+		{ -- Trueshot
+			["n"] = 79882,
+			["e"] = 100587,
+		},
+		{ -- Master Marksman
+			["n"] = 79913,
+			["e"] = 100625,
+		},
+		{ -- Lock and Load
+			["n"] = 79884,
+			["e"] = 100589,
+		},
+		{ -- Master Marksman
+			["n"] = 79913,
+			["e"] = 100625,
+		},
+		{ -- Bulletstorm
+			["n"] = 79817,
+			["e"] = 100517,
+		},
+		{ -- Serrated Shots
+			["n"] = 79814,
+			["e"] = 100513,
+		},
+		{ -- Eagletalon's True Focus
+			["n"] = 79901,
+			["e"] = 100607,
+		},
+		{ -- Arctic Bola
+			["n"] = 79815,
+			["e"] = 100514,
+		},
+		{ -- Eagletalon's True Focus
+			["n"] = 79901,
+			["e"] = 100607,
+		},
+		{ -- Arctic Bola
+			["n"] = 79815,
+			["e"] = 100514,
+		},
+		{ -- Wailing Arrow
+			["n"] = 79885,
+			["e"] = 100590,
+		},
+		{ -- Serpent Sting
+			["n"] = 79905,
+			["e"] = 100615,
+		},
+		{ -- Salvo
+			["n"] = 79830,
+			["e"] = 100534,
+		},
+		{ -- Death Chakram
+			["n"] = 79916,
+			["e"] = 100628,
+		},
+		{ -- Unerring Vision
+			["n"] = 79902,
+			["e"] = 100608,
+		},
+		{ -- Barrage
+			["n"] = 79914,
+			["e"] = 100526,
+		},
+		{ -- Windrunner's Barrage
+			["n"] = 79813,
+			["e"] = 100512,
+		},
+		{ -- Poison Injection
+			["n"] = 79911,
+			["e"] = 100623,
+		},
 	},
 	[255] = { -- Survival
 	},
