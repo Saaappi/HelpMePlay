@@ -249,6 +249,250 @@ local ROGUE_TALENTS = {
 		},
 	},
 	[260] = { -- Outlaw
+		{ -- Shiv
+			["n"] = 90740,
+			["e"] = 112630,
+		},
+		{ -- Opportunity
+			["n"] = 90683,
+			["e"] = 112571,
+		},
+		{ -- Sap
+			["n"] = 90685,
+			["e"] = 112573,
+		},
+		{ -- Blade Flurry
+			["n"] = 90674,
+			["e"] = 112561,
+		},
+		{ -- Evasion
+			["n"] = 90764,
+			["e"] = 112657,
+		},
+		{ -- Grappling Hook
+			["n"] = 90682,
+			["e"] = 112570,
+		},
+		{ -- Feint
+			["n"] = 90742,
+			["e"] = 112632,
+		},
+		{ -- Combat Potency
+			["n"] = 90646,
+			["e"] = 112532,
+		},
+		{ -- Cloak of Shadows
+			["n"] = 90697,
+			["e"] = 112585,
+		},
+		{ -- Hit and Run
+			["n"] = 90673,
+			["e"] = 112560,
+		},
+		{ -- Numbing Poison
+			["n"] = 90763,
+			["e"] = 112656,
+		},
+		{ -- Retractable Hook
+			["n"] = 90681,
+			["e"] = 112569,
+		},
+		{ -- Nimble Fingers
+			["n"] = 90745,
+			["e"] = 112635,
+		},
+		{ -- Combat Stamina
+			["n"] = 90648,
+			["e"] = 112534,
+		},
+		{ -- Shadowrunner
+			["n"] = 90687,
+			["e"] = 112575,
+		},
+		{ -- Adrenaline Rush
+			["n"] = 90659,
+			["e"] = 112545,
+		},
+		{ -- Fleet Footed
+			["n"] = 90762,
+			["e"] = 112654,
+		},
+		{ -- Ruthlessness
+			["n"] = 90680,
+			["e"] = 112568,
+		},
+		{ -- Improved Sprint
+			["n"] = 90746,
+			["e"] = 112636,
+		},
+		{ -- Restless Blades
+			["n"] = 90658,
+			["e"] = 112544,
+		},
+		{ -- Shadowstep
+			["n"] = 90695,
+			["e"] = 112583,
+		},
+		{ -- Fatal Flourish
+			["n"] = 90662,
+			["e"] = 112548,
+		},
+		{ -- Virulent Poisons
+			["n"] = 90761,
+			["e"] = 112653,
+		},
+		{ -- Heavy Hitter
+			["n"] = 90642,
+			["e"] = 112528,
+		},
+		{ -- Deadened Nerves
+			["n"] = 90743,
+			["e"] = 112633,
+		},
+		{ -- Devious Stratagem
+			["n"] = 90679,
+			["e"] = 112567,
+		},
+		{ -- Tight Spender
+			["n"] = 90694,
+			["e"] = 112582,
+		},
+		{ -- Roll the Bones
+			["n"] = 90657,
+			["e"] = 112543,
+		},
+		{ -- Deadly Precision
+			["n"] = 90760,
+			["e"] = 112652,
+		},
+		{ -- Quick Draw
+			["n"] = 90663,
+			["e"] = 112549,
+		},
+		{ -- Deadly Precision
+			["n"] = 90760,
+			["e"] = 112652,
+		},
+		{ -- Audacity
+			["n"] = 90641,
+			["e"] = 112527,
+		},
+		{ -- Thief's Versatility
+			["n"] = 90753,
+			["e"] = 112645,
+		},
+		{ -- Loaded Dice
+			["n"] = 90656,
+			["e"] = 112542,
+		},
+		{ -- Thief's Versatility
+			["n"] = 90753,
+			["e"] = 112645,
+		},
+		{ -- Dancing Steel
+			["n"] = 90669,
+			["e"] = 112556,
+		},
+		{ -- Nightstalker
+			["n"] = 90693,
+			["e"] = 112581,
+		},
+		{ -- Triple Threat
+			["n"] = 90678,
+			["e"] = 112566,
+		},
+		{ -- Nightstalker
+			["n"] = 90693,
+			["e"] = 112581,
+		},
+		{ -- Triple Threat
+			["n"] = 90678,
+			["e"] = 112566,
+		},
+		{ -- Vigor
+			["n"] = 90759,
+			["e"] = 112651,
+		},
+		{ -- Improved Main Gauche
+			["n"] = 90668,
+			["e"] = 112555,
+		},
+		{ -- Acrobatic Strikes
+			["n"] = 90752,
+			["e"] = 112644,
+		},
+		{ -- Improved Main Gauche
+			["n"] = 90668,
+			["e"] = 112555,
+		},
+		{ -- Improved Ambush
+			["n"] = 90692,
+			["e"] = 112580,
+		},
+		{ -- Blade Rush
+			["n"] = 90644,
+			["e"] = 112530,
+		},
+		{ -- Lethality
+			["n"] = 90749,
+			["e"] = 112640,
+		},
+		{ -- Precise Cuts
+			["n"] = 90667,
+			["e"] = 112554,
+		},
+		{ -- Lethality
+			["n"] = 90749,
+			["e"] = 112640,
+		},
+		{ -- Take 'em by Surprise
+			["n"] = 90676,
+			["e"] = 112563,
+		},
+		{ -- Alacrity
+			["n"] = 90751,
+			["e"] = 112643,
+		},
+		{ -- Take 'em by Surprise
+			["n"] = 90676,
+			["e"] = 112563,
+		},
+		{ -- Alacrity
+			["n"] = 90751,
+			["e"] = 112643,
+		},
+		{ -- Fan the Hammer
+			["n"] = 90666,
+			["e"] = 112553,
+		},
+		{ -- Soothing Darkness
+			["n"] = 90691,
+			["e"] = 112579,
+		},
+		{ -- Fan the Hammer
+			["n"] = 90666,
+			["e"] = 112553,
+		},
+		{ -- Deeper Stratagem
+			["n"] = 90750,
+			["e"] = 112642,
+		},
+		{ -- Hidden Opportunity
+			["n"] = 90675,
+			["e"] = 112562,
+		},
+		{ -- Find Weakness
+			["n"] = 90690,
+			["e"] = 112578,
+		},
+		{ -- Greenskin's Wickers
+			["n"] = 90665,
+			["e"] = 112552,
+		},
+		{ -- Find Weakness
+			["n"] = 90690,
+			["e"] = 112578,
+		},
 	},
 	[261] = { -- Subtlety
 	},
