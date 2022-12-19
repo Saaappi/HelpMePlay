@@ -142,8 +142,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			editBox:SetFontObject(ChatFontNormal)
 			editBox:SetWidth(300)
 			scrollFrame:SetScrollChild(editBox)
-			tinsert(UISpecialFrames, "HMPTalentScrollFrame")
-			tinsert(UISpecialFrames, "HMPTalentEditBox")
 			
 			local configID = C_ClassTalents.GetActiveConfigID()
 			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
@@ -172,6 +170,12 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			-- Add the concatenated traits variable to the edit box
 			-- and show it.
 			editBox:SetText(text)
+			
+			-- Hide the frames after a short time.
+			C_Timer.After(5, function()
+				HMPTalentEditBox:Hide()
+				HMPTalentScrollFrame:Hide()
+			end)
 		else
 			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
 		end
