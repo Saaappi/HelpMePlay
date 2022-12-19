@@ -46,9 +46,15 @@ Data\AnimaPowersDB.lua
 Data\FlightPathDB.lua
 Data\WaypointsDB.lua
 Data\CovenantsDB.lua
+Data\PlayerTalents\DeathKnightDB.lua
 Data\PlayerTalents\DemonHunterDB.lua
 Data\PlayerTalents\DruidDB.lua
+Data\PlayerTalents\EvokerDB.lua
+Data\PlayerTalents\HunterDB.lua
+Data\PlayerTalents\MageDB.lua
+Data\PlayerTalents\MonkDB.lua
 Data\PlayerTalents\PaladinDB.lua
+Data\PlayerTalents\RogueDB.lua
 Data\PlayerTalents\WarriorDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
