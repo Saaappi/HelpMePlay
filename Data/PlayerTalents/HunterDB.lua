@@ -495,6 +495,250 @@ local HUNTER_TALENTS = {
 		},
 	},
 	[255] = { -- Survival
+		{ -- Kill Shot
+			["n"] = 79833,
+			["e"] = 100537,
+		},
+		{ -- Raptor Strike
+			["n"] = 79847,
+			["e"] = 100551,
+		},
+		{ -- Trailblazer
+			["n"] = 79931,
+			["e"] = 100644,
+		},
+		{ -- Wildfire Bomb
+			["n"] = 79863,
+			["e"] = 100568,
+		},
+		{ -- Trailblazer
+			["n"] = 79931,
+			["e"] = 100644,
+		},
+		{ -- Tip of the Spear
+			["n"] = 79849,
+			["e"] = 100554,
+		},
+		{ -- Posthaste
+			["n"] = 79921,
+			["e"] = 100634,
+		},
+		{ -- Tip of the Spear
+			["n"] = 79849,
+			["e"] = 100554,
+		},
+		{ -- Posthaste
+			["n"] = 79921,
+			["e"] = 100634,
+		},
+		{ -- Ferocity
+			["n"] = 79845,
+			["e"] = 100549,
+		},
+		{ -- Improved Kill Shot
+			["n"] = 79930,
+			["e"] = 100643,
+		},
+		{ -- Harpoon
+			["n"] = 79842,
+			["e"] = 100546,
+		},
+		{ -- Muzzle
+			["n"] = 79837,
+			["e"] = 100543,
+		},
+		{ -- Bloodseeker
+			["n"] = 79859,
+			["e"] = 100564,
+		},
+		{ -- Natural Mending
+			["n"] = 79925,
+			["e"] = 100638,
+		},
+		{ -- Terms of Engagement
+			["n"] = 79862,
+			["e"] = 100567,
+		},
+		{ -- Natural Mending
+			["n"] = 79925,
+			["e"] = 100638,
+		},
+		{ -- Guerrilla Tactics
+			["n"] = 79867,
+			["e"] = 100572,
+		},
+		{ -- Tar Trap
+			["n"] = 79928,
+			["e"] = 100641,
+		},
+		{ -- Butchery
+			["n"] = 79848,
+			["e"] = 100552,
+		},
+		{ -- Misdirection
+			["n"] = 79924,
+			["e"] = 100637,
+		},
+		{ -- Mongoose Bite
+			["n"] = 79861,
+			["e"] = 100566,
+		},
+		{ -- Survival of the Fittest
+			["n"] = 79821,
+			["e"] = 100523,
+		},
+		{ -- Intense Focus
+			["n"] = 79827,
+			["e"] = 100531,
+		},
+		{ -- Nature's Endurance
+			["n"] = 79820,
+			["e"] = 100521,
+		},
+		{ -- Improved Wildfire Bomb
+			["n"] = 79850,
+			["e"] = 100555,
+		},
+		{ -- Born To Be Wild
+			["n"] = 79933,
+			["e"] = 100646,
+		},
+		{ -- Improved Wildfire Bomb
+			["n"] = 79850,
+			["e"] = 100555,
+		},
+		{ -- Born To Be Wild
+			["n"] = 79933,
+			["e"] = 100646,
+		},
+		{ -- Frenzy Strikes
+			["n"] = 79844,
+			["e"] = 100548,
+		},
+		{ -- Binding Shot
+			["n"] = 79937,
+			["e"] = 100650,
+		},
+		{ -- Flanking Strike
+			["n"] = 79841,
+			["e"] = 100545,
+		},
+		{ -- Rejuvenating Wind
+			["n"] = 79909,
+			["e"] = 100619,
+		},
+		{ -- Spear Focus
+			["n"] = 79853,
+			["e"] = 100558,
+		},
+		{ -- Rejuvenating Wind
+			["n"] = 79909,
+			["e"] = 100619,
+		},
+		{ -- Spear Focus
+			["n"] = 79853,
+			["e"] = 100558,
+		},
+		{ -- Camouflage
+			["n"] = 79934,
+			["e"] = 100647,
+		},
+		{ -- Viper's Venom
+			["n"] = 79826,
+			["e"] = 100530,
+		},
+		{ -- Hunter's Avoidance
+			["n"] = 79832,
+			["e"] = 100536,
+		},
+		{ -- Viper's Venom
+			["n"] = 79826,
+			["e"] = 100530,
+		},
+		{ -- Keen Eyesight
+			["n"] = 79922,
+			["e"] = 100635,
+		},
+		{ -- Sharp Edges
+			["n"] = 79843,
+			["e"] = 100547,
+		},
+		{ -- Keen Eyesight
+			["n"] = 79922,
+			["e"] = 100635,
+		},
+		{ -- Sweeping Spear
+			["n"] = 79856,
+			["e"] = 100561,
+		},
+		{ -- Master Marksman
+			["n"] = 79913,
+			["e"] = 100625,
+		},
+		{ -- Sweeping Spear
+			["n"] = 79856,
+			["e"] = 100561,
+		},
+		{ -- Master Marksman
+			["n"] = 79913,
+			["e"] = 100625,
+		},
+		{ -- Wildfire Infusion
+			["n"] = 79870,
+			["e"] = 100575,
+		},
+		{ -- Serrated Shots
+			["n"] = 79814,
+			["e"] = 100513,
+		},
+		{ -- Coordinated Assault
+			["n"] = 79865,
+			["e"] = 100570,
+		},
+		{ -- Arctic Bola
+			["n"] = 79815,
+			["e"] = 100514,
+		},
+		{ -- Ranger
+			["n"] = 79825,
+			["e"] = 100529,
+		},
+		{ -- Arctic Bola
+			["n"] = 79815,
+			["e"] = 100514,
+		},
+		{ -- Ranger
+			["n"] = 79825,
+			["e"] = 100529,
+		},
+		{ -- Serpent Sting
+			["n"] = 79905,
+			["e"] = 100615,
+		},
+		{ -- Coordinated Kill
+			["n"] = 79824,
+			["e"] = 100528,
+		},
+		{ -- Death Chakram
+			["n"] = 79916,
+			["e"] = 100628,
+		},
+		{ -- Coordinated Kill
+			["n"] = 79824,
+			["e"] = 100528,
+		},
+		{ -- Explosive Shot
+			["n"] = 79914,
+			["e"] = 100626,
+		},
+		{ -- Birds of Prey
+			["n"] = 79864,
+			["e"] = 100569,
+		},
+		{ -- Poison Injection
+			["n"] = 79911,
+			["e"] = 100623,
+		},
 	},
 }
 
