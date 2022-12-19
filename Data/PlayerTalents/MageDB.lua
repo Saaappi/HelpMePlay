@@ -496,7 +496,250 @@ local MAGE_TALENTS = {
 		},
 	},
 	[64] = { -- Frost
-		
+		{ -- Ice Block
+			["n"] = 62122,
+			["e"] = 80181,
+		},
+		{ -- Ice Lance
+			["n"] = 62176,
+			["e"] = 80241,
+		},
+		{ -- Overflowing Energy
+			["n"] = 62120,
+			["e"] = 80179,
+		},
+		{ -- Frozen Orb
+			["n"] = 62177,
+			["e"] = 80242,
+		},
+		{ -- Invisibility
+			["n"] = 62118,
+			["e"] = 80177,
+		},
+		{ -- Blizzard
+			["n"] = 62175,
+			["e"] = 80240,
+		},
+		{ -- Spellsteal
+			["n"] = 62084,
+			["e"] = 80140,
+		},
+		{ -- Fingers of Frost
+			["n"] = 62164,
+			["e"] = 80227,
+		},
+		{ -- Incantation of Swiftness
+			["n"] = 62112,
+			["e"] = 80170,
+		},
+		{ -- Flurry
+			["n"] = 62178,
+			["e"] = 80243,
+		},
+		{ -- Incantation of Swiftness
+			["n"] = 62112,
+			["e"] = 80170,
+		},
+		{ -- Shatter
+			["n"] = 62165,
+			["e"] = 80228,
+		},
+		{ -- Mirror Image
+			["n"] = 62124,
+			["e"] = 80183,
+		},
+		{ -- Brain Freeze
+			["n"] = 62179,
+			["e"] = 80244,
+		},
+		{ -- Rune of Power
+			["n"] = 62113,
+			["e"] = 80171,
+		},
+		{ -- Everlasting Frost
+			["n"] = 81468,
+			["e"] = 102429,
+		},
+		{ -- Alter Time
+			["n"] = 62115,
+			["e"] = 80174,
+		},
+		{ -- Cold Snap
+			["n"] = 62174,
+			["e"] = 80239,
+		},
+		{ -- Quick Witted
+			["n"] = 62104,
+			["e"] = 80161,
+		},
+		{ -- Piercing Cold
+			["n"] = 62166,
+			["e"] = 80229,
+		},
+		{ -- Master of Time
+			["n"] = 62102,
+			["e"] = 80159,
+		},
+		{ -- Perpetual Winter
+			["n"] = 62181,
+			["e"] = 80247,
+		},
+		{ -- Ring of Frost
+			["n"] = 62088,
+			["e"] = 80144,
+		},
+		{ -- Lonely Winter
+			["n"] = 62173,
+			["e"] = 80238,
+		},
+		{ -- Ice Nova
+			["n"] = 62126,
+			["e"] = 80186,
+		},
+		{ -- Ice Caller
+			["n"] = 62169,
+			["e"] = 80233,
+		},
+		{ -- Shimmer
+			["n"] = 62105,
+			["e"] = 80163,
+		},
+		{ -- Bone Chilling
+			["n"] = 62167,
+			["e"] = 80230,
+		},
+		{ -- Blast Wave
+			["n"] = 62103,
+			["e"] = 80160,
+		},
+		{ -- Wintertide
+			["n"] = 62172,
+			["e"] = 80236,
+		},
+		{ -- Rigid Ice
+			["n"] = 62110,
+			["e"] = 80168,
+		},
+		{ -- Wintertide
+			["n"] = 62172,
+			["e"] = 80236,
+		},
+		{ -- Tome of Rhonin
+			["n"] = 62127,
+			["e"] = 80187,
+		},
+		{ -- Flash Freeze
+			["n"] = 62168,
+			["e"] = 80231,
+		},
+		{ -- Tome of Antonidas
+			["n"] = 62098,
+			["e"] = 80155,
+		},
+		{ -- Icy Veins
+			["n"] = 62171,
+			["e"] = 80235,
+		},
+		{ -- Volatile Detonation
+			["n"] = 62089,
+			["e"] = 80145,
+		},
+		{ -- Splintering Cold
+			["n"] = 62162,
+			["e"] = 80225,
+		},
+		{ -- Energized Barriers
+			["n"] = 62100,
+			["e"] = 80157,
+		},
+		{ -- Splintering Cold
+			["n"] = 62162,
+			["e"] = 80225,
+		},
+		{ -- Frigid Winds
+			["n"] = 62128,
+			["e"] = 80188,
+		},
+		{ -- Freezing Rain
+			["n"] = 62150,
+			["e"] = 80212,
+		},
+		{ -- Frigid Winds
+			["n"] = 62128,
+			["e"] = 80188,
+		},
+		{ -- Icy Propulsion
+			["n"] = 62154,
+			["e"] = 80217,
+		},
+		{ -- Flow of Time
+			["n"] = 62096,
+			["e"] = 80153,
+		},
+		{ -- Splitting Ice
+			["n"] = 62161,
+			["e"] = 80224,
+		},
+		{ -- Flow of Time
+			["n"] = 62096,
+			["e"] = 80153,
+		},
+		{ -- Snap Freeze
+			["n"] = 62152,
+			["e"] = 80215,
+		},
+		{ -- Temporal Velocity
+			["n"] = 62099,
+			["e"] = 80156,
+		},
+		{ -- Slick Ice
+			["n"] = 62153,
+			["e"] = 80216,
+		},
+		{ -- Ice Ward
+			["n"] = 62086,
+			["e"] = 80142,
+		},
+		{ -- Chain Reaction
+			["n"] = 62155,
+			["e"] = 80218,
+		},
+		{ -- Time Manipulation
+			["n"] = 62129,
+			["e"] = 80189,
+		},
+		{ -- Hailstones
+			["n"] = 62158,
+			["e"] = 80221,
+		},
+		{ -- Time Manipulation
+			["n"] = 62129,
+			["e"] = 80189,
+		},
+		{ -- Hailstones
+			["n"] = 62158,
+			["e"] = 80221,
+		},
+		{ -- Greater Invisibility
+			["n"] = 62095,
+			["e"] = 80152,
+		},
+		{ -- Freezing Winds
+			["n"] = 62151,
+			["e"] = 80214,
+		},
+		{ -- Shifting Power
+			["n"] = 62085,
+			["e"] = 80141,
+		},
+		{ -- Thermal Void
+			["n"] = 62156,
+			["e"] = 80219,
+		},
+		{ -- Temporal Warp
+			["n"] = 62094,
+			["e"] = 80150,
+		},
 	},
 }
 
