@@ -495,6 +495,250 @@ local MONK_TALENTS = {
 		},
 	},
 	[269] = { -- Windwalker
+		{ -- Soothing Mist
+			["n"] = 80691,
+			["e"] = 101509,
+		},
+		{ -- Fists of Fury
+			["n"] = 80613,
+			["e"] = 101423,
+		},
+		{ -- Tiger's Lust
+			["n"] = 80689,
+			["e"] = 101507,
+		},
+		{ -- Touch of Karma
+			["n"] = 80610,
+			["e"] = 101420,
+		},
+		{ -- Improved Roll
+			["n"] = 80712,
+			["e"] = 101531,
+		},
+		{ -- Ascension
+			["n"] = 80612,
+			["e"] = 101422,
+		},
+		{ -- Calming Presence
+			["n"] = 80693,
+			["e"] = 101511,
+		},
+		{ -- Power Strikes
+			["n"] = 80614,
+			["e"] = 101424,
+		},
+		{ -- Tiger Tail Sweep
+			["n"] = 80604,
+			["e"] = 101414,
+		},
+		{ -- Widening Whirl
+			["n"] = 80609,
+			["e"] = 101419,
+		},
+		{ -- Vigorous Expulsion
+			["n"] = 80711,
+			["e"] = 101530,
+		},
+		{ -- Flashing Fists
+			["n"] = 80615,
+			["e"] = 101425,
+		},
+		{ -- Paralysis
+			["n"] = 80688,
+			["e"] = 101506,
+		},
+		{ -- Flashing Fists
+			["n"] = 80615,
+			["e"] = 101425,
+		},
+		{ -- Vivacious Vivification
+			["n"] = 80695,
+			["e"] = 101513,
+		},
+		{ -- Open Palm Strikes
+			["n"] = 80678,
+			["e"] = 101494,
+		},
+		{ -- Ferocity of Xuen
+			["n"] = 80706,
+			["e"] = 101524,
+		},
+		{ -- Mark of the Crane
+			["n"] = 80623,
+			["e"] = 101434,
+		},
+		{ -- Ferocity of Xuen
+			["n"] = 80706,
+			["e"] = 101524,
+		},
+		{ -- Flying Serpent Kick
+			["n"] = 80621,
+			["e"] = 101432,
+		},
+		{ -- Improved Paralysis
+			["n"] = 80687,
+			["e"] = 101505,
+		},
+		{ -- Glory of the Dawn
+			["n"] = 80677,
+			["e"] = 101493,
+		},
+		{ -- Transcendence
+			["n"] = 80694,
+			["e"] = 101512,
+		},
+		{ -- Shadowboxing Treads
+			["n"] = 80624,
+			["e"] = 101435,
+		},
+		{ -- Spear Hand Strike
+			["n"] = 80686,
+			["e"] = 101504,
+		},
+		{ -- Serenity
+			["n"] = 80618,
+			["e"] = 101428,
+		},
+		{ -- Fortifying Brew
+			["n"] = 80680,
+			["e"] = 101496,
+		},
+		{ -- Meridian Strikes
+			["n"] = 80620,
+			["e"] = 101431,
+		},
+		{ -- Chi Burst
+			["n"] = 80709,
+			["e"] = 101527,
+		},
+		{ -- Strike of the Windlord
+			["n"] = 80675,
+			["e"] = 101491,
+		},
+		{ -- Ring of Peace
+			["n"] = 80698,
+			["e"] = 101516,
+		},
+		{ -- Dance of Chi-Ji
+			["n"] = 80626,
+			["e"] = 101437,
+		},
+		{ -- Fast Feet
+			["n"] = 80705,
+			["e"] = 101523,
+		},
+		{ -- Spiritual Focus
+			["n"] = 80617,
+			["e"] = 101427,
+		},
+		{ -- Fast Feet
+			["n"] = 80705,
+			["e"] = 101523,
+		},
+		{ -- Forbidden Technique
+			["n"] = 80608,
+			["e"] = 101418,
+		},
+		{ -- Chi Torpedo
+			["n"] = 80685,
+			["e"] = 101502,
+		},
+		{ -- Invoke Xuen, the White Tiger
+			["n"] = 80657,
+			["e"] = 101473,
+		},
+		{ -- Expeditious Fortification
+			["n"] = 80681,
+			["e"] = 101497,
+		},
+		{ -- Teachings of the Monastery
+			["n"] = 80616,
+			["e"] = 101426,
+		},
+		{ -- Profound Rebuttal
+			["n"] = 80708,
+			["e"] = 101526,
+		},
+		{ -- Thunderfist
+			["n"] = 80674,
+			["e"] = 101490,
+		},
+		{ -- Diffuse Magic
+			["n"] = 80697,
+			["e"] = 101515,
+		},
+		{ -- Crane Vortex
+			["n"] = 80667,
+			["e"] = 101483,
+		},
+		{ -- Eye of the Tiger
+			["n"] = 80700,
+			["e"] = 101518,
+		},
+		{ -- Crane Vortex
+			["n"] = 80667,
+			["e"] = 101483,
+		},
+		{ -- Dampen Harm
+			["n"] = 80704,
+			["e"] = 101522,
+		},
+		{ -- Empowered Tiger Lightning
+			["n"] = 80659,
+			["e"] = 101475,
+		},
+		{ -- Improved Touch of Death
+			["n"] = 80684,
+			["e"] = 101501,
+		},
+		{ -- Fatal Flying Guillotine
+			["n"] = 80666,
+			["e"] = 101482,
+		},
+		{ -- Strength of Spirit
+			["n"] = 80682,
+			["e"] = 101499,
+		},
+		{ -- Xuen's Battlegear
+			["n"] = 80662,
+			["e"] = 101478,
+		},
+		{ -- Fatal Touch
+			["n"] = 80703,
+			["e"] = 101521,
+		},
+		{ -- Transfer the Power
+			["n"] = 80660,
+			["e"] = 101476,
+		},
+		{ -- Fatal Touch
+			["n"] = 80703,
+			["e"] = 101521,
+		},
+		{ -- Whirling Dragon Punch
+			["n"] = 80658,
+			["e"] = 101474,
+		},
+		{ -- Resonant Fists
+			["n"] = 80702,
+			["e"] = 101520,
+		},
+		{ -- Skyreach
+			["n"] = 80663,
+			["e"] = 101479,
+		},
+		{ -- Resonant Fists
+			["n"] = 80702,
+			["e"] = 101520,
+		},
+		{ -- Invoker's Delight
+			["n"] = 80661,
+			["e"] = 101477,
+		},
+		{ -- Summon White Tiger Statue
+			["n"] = 80701,
+			["e"] = 101519,
+		},
 	},
 }
 
