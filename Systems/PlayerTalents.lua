@@ -101,12 +101,15 @@ e:SetScript("OnEvent", function(self, event, addon)
 				elseif classID == 4 then -- Rogue
 					PurchaseTalents(configID, addonTable.ROGUE_TALENTS, specID)
 				elseif classID == 5 then -- Priest
+					PurchaseTalents(configID, addonTable.PRIEST_TALENTS, specID)
 				elseif classID == 6 then -- Death Knight
 					PurchaseTalents(configID, addonTable.DEATH_KNIGHT_TALENTS, specID)
 				elseif classID == 7 then -- Shaman
+					PurchaseTalents(configID, addonTable.SHAMAN_TALENTS, specID)
 				elseif classID == 8 then -- Mage
 					PurchaseTalents(configID, addonTable.MAGE_TALENTS, specID)
 				elseif classID == 9 then -- Warlock
+					PurchaseTalents(configID, addonTable.WARLOCK_TALENTS, specID)
 				elseif classID == 10 then -- Monk
 					PurchaseTalents(configID, addonTable.MONK_TALENTS, specID)
 				elseif classID == 11 then

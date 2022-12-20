@@ -54,7 +54,10 @@ Data\PlayerTalents\HunterDB.lua
 Data\PlayerTalents\MageDB.lua
 Data\PlayerTalents\MonkDB.lua
 Data\PlayerTalents\PaladinDB.lua
+Data\PlayerTalents\PriestDB.lua
 Data\PlayerTalents\RogueDB.lua
+Data\PlayerTalents\ShamanDB.lua
+Data\PlayerTalents\WarlockDB.lua
 Data\PlayerTalents\WarriorDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
