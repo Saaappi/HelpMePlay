@@ -495,6 +495,250 @@ local ROGUE_TALENTS = {
 		},
 	},
 	[261] = { -- Subtlety
+		{ -- Shiv
+			["n"] = 90740,
+			["e"] = 112630,
+		},
+		{ -- Improved Backstab
+			["n"] = 90739,
+			["e"] = 112629,
+		},
+		{ -- Blind
+			["n"] = 90684,
+			["e"] = 112572,
+		},
+		{ -- Shadowstep
+			["n"] = 90695,
+			["e"] = 112583,
+		},
+		{ -- Evasion
+			["n"] = 90764,
+			["e"] = 112657,
+		},
+		{ -- Improved Shuriken Storm
+			["n"] = 90710,
+			["e"] = 112598,
+		},
+		{ -- Feint
+			["n"] = 90742,
+			["e"] = 112632,
+		},
+		{ -- Weaponmaster
+			["n"] = 90647,
+			["e"] = 112533,
+		},
+		{ -- Cloak of Shadows
+			["n"] = 90697,
+			["e"] = 112585,
+		},
+		{ -- Shadow Focus
+			["n"] = 90727,
+			["e"] = 112615,
+		},
+		{ -- Nimble Fingers
+			["n"] = 90745,
+			["e"] = 112635,
+		},
+		{ -- Relentless Strikes
+			["n"] = 90709,
+			["e"] = 112597,
+		},
+		{ -- Gouge
+			["n"] = 90741,
+			["e"] = 112631,
+		},
+		{ -- Black Powder
+			["n"] = 90712,
+			["e"] = 112600,
+		},
+		{ -- Shadowrunner
+			["n"] = 90687,
+			["e"] = 112575,
+		},
+		{ -- Premeditation
+			["n"] = 90737,
+			["e"] = 112627,
+		},
+		{ -- Fleet Footed
+			["n"] = 90762,
+			["e"] = 112654,
+		},
+		{ -- Silent Storm
+			["n"] = 90714,
+			["e"] = 112602,
+		},
+		{ -- Improved Sprint
+			["n"] = 90746,
+			["e"] = 112636,
+		},
+		{ -- Gloomblade
+			["n"] = 90699,
+			["e"] = 112587,
+		},
+		{ -- Shadowstep
+			["n"] = 90695,
+			["e"] = 112583,
+		},
+		{ -- Veiltouched
+			["n"] = 90713,
+			["e"] = 112601,
+		},
+		{ -- Virulent Poisons
+			["n"] = 90761,
+			["e"] = 112653,
+		},
+		{ -- Secret Technique
+			["n"] = 90715,
+			["e"] = 112603,
+		},
+		{ -- Cheat Death
+			["n"] = 90747,
+			["e"] = 112637,
+		},
+		{ -- Swift Death
+			["n"] = 90701,
+			["e"] = 112589,
+		},
+		{ -- Tight Spender
+			["n"] = 90694,
+			["e"] = 112582,
+		},
+		{ -- Deepening Shadows
+			["n"] = 90724,
+			["e"] = 112612,
+		},
+		{ -- Deadly Precision
+			["n"] = 90760,
+			["e"] = 112652,
+		},
+		{ -- Improved Shadow Dance
+			["n"] = 90734,
+			["e"] = 112623,
+		},
+		{ -- Deadly Precision
+			["n"] = 90760,
+			["e"] = 112652,
+		},
+		{ -- Improved Shadow Dance
+			["n"] = 90734,
+			["e"] = 112623,
+		},
+		{ -- Thief's Versatility
+			["n"] = 90753,
+			["e"] = 112645,
+		},
+		{ -- Shadowed Finishers
+			["n"] = 90723,
+			["e"] = 112611,
+		},
+		{ -- Thief's Versatility
+			["n"] = 90753,
+			["e"] = 112645,
+		},
+		{ -- Shadowed Finishers
+			["n"] = 90723,
+			["e"] = 112611,
+		},
+		{ -- Nightstalker
+			["n"] = 90693,
+			["e"] = 112581,
+		},
+		{ -- Without a Trace
+			["n"] = 90702,
+			["e"] = 112590,
+		},
+		{ -- Nightstalker
+			["n"] = 90693,
+			["e"] = 112581,
+		},
+		{ -- Secret Stratagem
+			["n"] = 90722,
+			["e"] = 112610,
+		},
+		{ -- Vigor
+			["n"] = 90759,
+			["e"] = 112651,
+		},
+		{ -- Dark Shadow
+			["n"] = 90732,
+			["e"] = 112620,
+		},
+		{ -- Acrobatic Strikes
+			["n"] = 90752,
+			["e"] = 112644,
+		},
+		{ -- Dark Shadow
+			["n"] = 90732,
+			["e"] = 112620,
+		},
+		{ -- Improved Ambush
+			["n"] = 90692,
+			["e"] = 112580,
+		},
+		{ -- Deeper Daggers
+			["n"] = 90721,
+			["e"] = 112609,
+		},
+		{ -- Leeching Poison
+			["n"] = 90758,
+			["e"] = 112650,
+		},
+		{ -- Deeper Daggers
+			["n"] = 90721,
+			["e"] = 112609,
+		},
+		{ -- Lethality
+			["n"] = 90749,
+			["e"] = 112640,
+		},
+		{ -- Lingering Shadow
+			["n"] = 90731,
+			["e"] = 112619,
+		},
+		{ -- Lethality
+			["n"] = 90749,
+			["e"] = 112640,
+		},
+		{ -- Lingering Shadow
+			["n"] = 90731,
+			["e"] = 112619,
+		},
+		{ -- Alacrity
+			["n"] = 90751,
+			["e"] = 112643,
+		},
+		{ -- Finality
+			["n"] = 90720,
+			["e"] = 112608,
+		},
+		{ -- Alacrity
+			["n"] = 90751,
+			["e"] = 112643,
+		},
+		{ -- Finality
+			["n"] = 90720,
+			["e"] = 112608,
+		},
+		{ -- Seal Fate
+			["n"] = 90757,
+			["e"] = 112649,
+		},
+		{ -- Danse Macabre
+			["n"] = 90730,
+			["e"] = 112618,
+		},
+		{ -- Seal Fate
+			["n"] = 90757,
+			["e"] = 112649,
+		},
+		{ -- Dark Brew
+			["n"] = 90719,
+			["e"] = 112607,
+		},
+		{ -- Deeper Stratagem
+			["n"] = 90750,
+			["e"] = 112642,
+		},
 	},
 }
 
