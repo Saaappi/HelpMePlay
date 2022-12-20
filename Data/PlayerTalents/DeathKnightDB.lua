@@ -515,9 +515,9 @@ local DEATH_KNIGHT_TALENTS = {
 			["n"] = 76082,
 			["e"] = 96211,
 		},
-		{ -- Raise Dead - CHECK
-			["n"] = 76072,
-			["e"] = 96201,
+		{ -- Raise Dead
+			["n"] = 76188,
+			["e"] = 96325,
 		},
 		{ -- Cleaving Strikes
 			["n"] = 76073,

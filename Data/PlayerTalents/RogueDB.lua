@@ -31,9 +31,9 @@ local ROGUE_TALENTS = {
 			["n"] = 90742,
 			["e"] = 112632,
 		},
-		{ -- Shadowstep - CHECK
-			["n"] = 90695,
-			["e"] = 112583,
+		{ -- Shadowstep
+			["n"] = 90782,
+			["e"] = 112675,
 		},
 		{ -- Cloak of Shadows
 			["n"] = 90697,
@@ -99,9 +99,9 @@ local ROGUE_TALENTS = {
 			["n"] = 90780,
 			["e"] = 112673,
 		},
-		{ -- Shadowstep - CHECK
-			["n"] = 90782,
-			["e"] = 112675,
+		{ -- Shadowstep
+			["n"] = 90695,
+			["e"] = 112583,
 		},
 		{ -- Crimson Tempest
 			["n"] = 90632,
