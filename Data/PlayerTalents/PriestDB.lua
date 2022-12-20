@@ -249,6 +249,250 @@ local PRIEST_TALENTS = {
 		},
 	},
 	[257] = { -- Holy
+		{ -- Dispel Magic
+			["n"] = 82715,
+			["e"] = 103867,
+		},
+		{ -- Holy Word: Serenity
+			["n"] = 82638,
+			["e"] = 103775,
+		},
+		{ -- Shadowfiend
+			["n"] = 82713,
+			["e"] = 103865,
+		},
+		{ -- Prayer of Healing
+			["n"] = 82631,
+			["e"] = 103766,
+		},
+		{ -- Improved Flash Heal
+			["n"] = 82714,
+			["e"] = 103866,
+		},
+		{ -- Guardian Spirit
+			["n"] = 82637,
+			["e"] = 103774,
+		},
+		{ -- Psychic Voice
+			["n"] = 82695,
+			["e"] = 103845,
+		},
+		{ -- Holy Word: Chastise
+			["n"] = 82639,
+			["e"] = 103776,
+		},
+		{ -- Shadow Word: Death
+			["n"] = 82712,
+			["e"] = 103864,
+		},
+		{ -- Holy Word: Sanctify
+			["n"] = 82632,
+			["e"] = 103767,
+		},
+		{ -- Holy Nova
+			["n"] = 82701,
+			["e"] = 103851,
+		},
+		{ -- Guardian Angel
+			["n"] = 82636,
+			["e"] = 103773,
+		},
+		{ -- Protective Light
+			["n"] = 82707,
+			["e"] = 103858,
+		},
+		{ -- Censure
+			["n"] = 82619,
+			["e"] = 103753,
+		},
+		{ -- Angelic Feather
+			["n"] = 82703,
+			["e"] = 103853,
+		},
+		{ -- Burning Vehemence
+			["n"] = 82640,
+			["e"] = 103777,
+		},
+		{ -- Phantasm
+			["n"] = 82556,
+			["e"] = 103834,
+		},
+		{ -- Cosmic Ripple
+			["n"] = 82630,
+			["e"] = 103765,
+		},
+		{ -- Death and Madness
+			["n"] = 82711,
+			["e"] = 103863,
+		},
+		{ -- Renewed Faith
+			["n"] = 82620,
+			["e"] = 103754,
+		},
+		{ -- Blessed Recovery
+			["n"] = 82720,
+			["e"] = 103677,
+		},
+		{ -- Empyreal Blaze
+			["n"] = 82607,
+			["e"] = 103739,
+		},
+		{ -- Rhapsody
+			["n"] = 82700,
+			["e"] = 103850,
+		},
+		{ -- Trail of Light
+			["n"] = 82634,
+			["e"] = 103770,
+		},
+		{ -- Void Tendrils
+			["n"] = 82708,
+			["e"] = 103859,
+		},
+		{ -- Trail of Light
+			["n"] = 82634,
+			["e"] = 103770,
+		},
+		{ -- Words of the Pious
+			["n"] = 82721,
+			["e"] = 103873,
+		},
+		{ -- Enlightenment
+			["n"] = 82618,
+			["e"] = 103752,
+		},
+		{ -- Power Infusion
+			["n"] = 82694,
+			["e"] = 103844,
+		},
+		{ -- Everlasting Light
+			["n"] = 82622,
+			["e"] = 103756,
+		},
+		{ -- Tithe Evasion
+			["n"] = 82688,
+			["e"] = 103838,
+		},
+		{ -- Symbol of Hope
+			["n"] = 82617,
+			["e"] = 103751,
+		},
+		{ -- Inspiration
+			["n"] = 82696,
+			["e"] = 103846,
+		},
+		{ -- Crisis Management
+			["n"] = 82627,
+			["e"] = 103762,
+		},
+		{ -- Void Shield
+			["n"] = 82692,
+			["e"] = 103842,
+		},
+		{ -- Crisis Management
+			["n"] = 82627,
+			["e"] = 103762,
+		},
+		{ -- Unwavering Will
+			["n"] = 82697,
+			["e"] = 103847,
+		},
+		{ -- Prismatic Echoes
+			["n"] = 82614,
+			["e"] = 103748,
+		},
+		{ -- Unwavering Will
+			["n"] = 82697,
+			["e"] = 103847,
+		},
+		{ -- Prismatic Echoes
+			["n"] = 82614,
+			["e"] = 103748,
+		},
+		{ -- Twist of Fate
+			["n"] = 82684,
+			["e"] = 103833,
+		},
+		{ -- Apotheosis
+			["n"] = 82610,
+			["e"] = 103743,
+		},
+		{ -- Twist of Fate
+			["n"] = 82684,
+			["e"] = 103833,
+		},
+		{ -- Empowered Renew
+			["n"] = 82612,
+			["e"] = 103746,
+		},
+		{ -- Throes of Pain
+			["n"] = 82709,
+			["e"] = 103861,
+		},
+		{ -- Light of the Naaru
+			["n"] = 82629,
+			["e"] = 103764,
+		},
+		{ -- Throes of Pain
+			["n"] = 82709,
+			["e"] = 103861,
+		},
+		{ -- Light of the Naaru
+			["n"] = 82629,
+			["e"] = 103764,
+		},
+		{ -- Divine Star
+			["n"] = 82682,
+			["e"] = 103831,
+		},
+		{ -- Harmonious Apparatus
+			["n"] = 82611,
+			["e"] = 103744,
+		},
+		{ -- Translucent Image
+			["n"] = 82685,
+			["e"] = 103835,
+		},
+		{ -- Harmonious Apparatus
+			["n"] = 82611,
+			["e"] = 103744,
+		},
+		{ -- Mindgames
+			["n"] = 82687,
+			["e"] = 103837,
+		},
+		{ -- Searing Light
+			["n"] = 82606,
+			["e"] = 103738,
+		},
+		{ -- Crystalline Reflection
+			["n"] = 82681,
+			["e"] = 103829,
+		},
+		{ -- Searing Light
+			["n"] = 82606,
+			["e"] = 103738,
+		},
+		{ -- Crystalline Reflection
+			["n"] = 82681,
+			["e"] = 103829,
+		},
+		{ -- Divine Word
+			["n"] = 82554,
+			["e"] = 103675,
+		},
+		{ -- Improved Fade
+			["n"] = 82686,
+			["e"] = 103836,
+		},
+		{ -- Miracle Worker
+			["n"] = 82605,
+			["e"] = 103737,
+		},
+		{ -- Improved Fade
+			["n"] = 82686,
+			["e"] = 103836,
+		},
 	},
 	[258] = { -- Shadow
 	},
