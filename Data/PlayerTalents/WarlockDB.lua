@@ -249,6 +249,250 @@ local WARLOCK_TALENTS = {
 		},
 	},
 	[266] = { -- Demonology
+		{ -- Fel Domination
+			["n"] = 71931,
+			["e"] = 91439,
+		},
+		{ -- Call Dreadstalkers
+			["n"] = 72023,
+			["e"] = 91543,
+		},
+		{ -- Burning Rush
+			["n"] = 71949,
+			["e"] = 91460,
+		},
+		{ -- Demonbolt
+			["n"] = 72024,
+			["e"] = 91544,
+		},
+		{ -- Demon Skin
+			["n"] = 71952,
+			["e"] = 91463,
+		},
+		{ -- Dreadlash
+			["n"] = 72020,
+			["e"] = 91539,
+		},
+		{ -- Demon Skin
+			["n"] = 71952,
+			["e"] = 91463,
+		},
+		{ -- Annihilan Training
+			["n"] = 72022,
+			["e"] = 91542,
+		},
+		{ -- Fel Armor
+			["n"] = 71950,
+			["e"] = 91461,
+		},
+		{ -- Demonic Knowledge
+			["n"] = 72026,
+			["e"] = 91546,
+		},
+		{ -- Fel Armor
+			["n"] = 71950,
+			["e"] = 91461,
+		},
+		{ -- Soul Strike
+			["n"] = 72019,
+			["e"] = 91537,
+		},
+		{ -- Fiendish Stride
+			["n"] = 71948,
+			["e"] = 91459,
+		},
+		{ -- Demonic Strength
+			["n"] = 72021,
+			["e"] = 91540,
+		},
+		{ -- Fiendish Stride
+			["n"] = 71948,
+			["e"] = 91459,
+		},
+		{ -- From the Shadows
+			["n"] = 72015,
+			["e"] = 91533,
+		},
+		{ -- Curses of Enfeeblement
+			["n"] = 71951,
+			["e"] = 91462,
+		},
+		{ -- Implosion
+			["n"] = 72002,
+			["e"] = 91520,
+		},
+		{ -- Mortal Coil
+			["n"] = 71947,
+			["e"] = 91457,
+		},
+		{ -- Shadow's Bite
+			["n"] = 72025,
+			["e"] = 91545,
+		},
+		{ -- Demonic Embrace
+			["n"] = 71930,
+			["e"] = 91438,
+		},
+		{ -- Carnivorous Stalkers
+			["n"] = 72018,
+			["e"] = 91536,
+		},
+		{ -- Demonic Inspiration
+			["n"] = 71928,
+			["e"] = 91436,
+		},
+		{ -- Fel and Steel
+			["n"] = 72016,
+			["e"] = 91534,
+		},
+		{ -- Wrathful Minion
+			["n"] = 71946,
+			["e"] = 91456,
+		},
+		{ -- Fel Might
+			["n"] = 72014,
+			["e"] = 91532,
+		},
+		{ -- Demonic Fortitude
+			["n"] = 71922,
+			["e"] = 91430,
+		},
+		{ -- Grimoire: Felguard
+			["n"] = 72013,
+			["e"] = 91531,
+		},
+		{ -- Desperate Pact
+			["n"] = 71929,
+			["e"] = 91437,
+		},
+		{ -- Dread Calling
+			["n"] = 71999,
+			["e"] = 91517,
+		},
+		{ -- Desperate Pact
+			["n"] = 71929,
+			["e"] = 91437,
+		},
+		{ -- Demonic Meteor
+			["n"] = 72012,
+			["e"] = 91530,
+		},
+		{ -- Sweet Souls
+			["n"] = 71927,
+			["e"] = 91435,
+		},
+		{ -- Fel Sunder
+			["n"] = 72010,
+			["e"] = 91528,
+		},
+		{ -- Demonic Gateway
+			["n"] = 71955,
+			["e"] = 91466,
+		},
+		{ -- Imp Gang Boss
+			["n"] = 71998,
+			["e"] = 91516,
+		},
+		{ -- Dark Pact
+			["n"] = 71936,
+			["e"] = 91444,
+		},
+		{ -- Imp Gang Boss
+			["n"] = 71998,
+			["e"] = 91516,
+		},
+		{ -- Dark Accord
+			["n"] = 71956,
+			["e"] = 91467,
+		},
+		{ -- Ripped through the Portal
+			["n"] = 72009,
+			["e"] = 91527,
+		},
+		{ -- Shadowfury
+			["n"] = 71942,
+			["e"] = 91452,
+		},
+		{ -- Ripped through the Portal
+			["n"] = 72009,
+			["e"] = 91527,
+		},
+		{ -- Frequent Donor
+			["n"] = 71937,
+			["e"] = 91445,
+		},
+		{ -- Summon Demonic Tyrant
+			["n"] = 72030,
+			["e"] = 91550,
+		},
+		{ -- Accrued Vitality
+			["n"] = 71953,
+			["e"] = 91464,
+		},
+		{ -- Antoran Armaments
+			["n"] = 72008,
+			["e"] = 91526,
+		},
+		{ -- Accrued Vitality
+			["n"] = 71953,
+			["e"] = 91464,
+		},
+		{ -- Soulbound Tyrant
+			["n"] = 71992,
+			["e"] = 91510,
+		},
+		{ -- Fel Synergy
+			["n"] = 71918,
+			["e"] = 91425,
+		},
+		{ -- Soulbound Tyrant
+			["n"] = 71992,
+			["e"] = 91510,
+		},
+		{ -- Soul Link
+			["n"] = 71925,
+			["e"] = 91433,
+		},
+		{ -- The Expendables
+			["n"] = 71994,
+			["e"] = 91512,
+		},
+		{ -- Grimoire of Synergy
+			["n"] = 71924,
+			["e"] = 91432,
+		},
+		{ -- Infernal Command
+			["n"] = 72006,
+			["e"] = 91524,
+		},
+		{ -- Grimoire of Synergy
+			["n"] = 71924,
+			["e"] = 91432,
+		},
+		{ -- Infernal Command
+			["n"] = 72006,
+			["e"] = 91524,
+		},
+		{ -- Soul Conduit
+			["n"] = 71923,
+			["e"] = 91431,
+		},
+		{ -- Grand Warlock's Design
+			["n"] = 71991,
+			["e"] = 91508,
+		},
+		{ -- Soul Conduit
+			["n"] = 71923,
+			["e"] = 91431,
+		},
+		{ -- Guillotine
+			["n"] = 72005,
+			["e"] = 91523,
+		},
+		{ -- Soulburn
+			["n"] = 71957,
+			["e"] = 91469,
+		},
 	},
 	[267] = { -- Destruction
 	},
