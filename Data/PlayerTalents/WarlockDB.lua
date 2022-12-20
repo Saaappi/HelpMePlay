@@ -495,6 +495,250 @@ local WARLOCK_TALENTS = {
 		},
 	},
 	[267] = { -- Destruction
+		{ -- Fel Domination
+			["n"] = 71931,
+			["e"] = 91439,
+		},
+		{ -- Chaos Bolt
+			["n"] = 72068,
+			["e"] = 91591,
+		},
+		{ -- Burning Rush
+			["n"] = 71949,
+			["e"] = 91460,
+		},
+		{ -- Conflagrate
+			["n"] = 72067,
+			["e"] = 91590,
+		},
+		{ -- Demon Skin
+			["n"] = 71952,
+			["e"] = 91463,
+		},
+		{ -- Reverse Entropy
+			["n"] = 71980,
+			["e"] = 91496,
+		},
+		{ -- Demon Skin
+			["n"] = 71952,
+			["e"] = 91463,
+		},
+		{ -- Rain of Fire
+			["n"] = 72069,
+			["e"] = 91592,
+		},
+		{ -- Fel Armor
+			["n"] = 71950,
+			["e"] = 91461,
+		},
+		{ -- Backdraft
+			["n"] = 72066,
+			["e"] = 91589,
+		},
+		{ -- Fel Armor
+			["n"] = 71950,
+			["e"] = 91461,
+		},
+		{ -- Havoc
+			["n"] = 71979,
+			["e"] = 91493,
+		},
+		{ -- Fiendish Stride
+			["n"] = 71948,
+			["e"] = 91459,
+		},
+		{ -- Pyrogenics
+			["n"] = 71975,
+			["e"] = 91489,
+		},
+		{ -- Fiendish Stride
+			["n"] = 71948,
+			["e"] = 91459,
+		},
+		{ -- Roaring Blaze
+			["n"] = 72065,
+			["e"] = 91588,
+		},
+		{ -- Curses of Enfeeblement
+			["n"] = 71951,
+			["e"] = 91462,
+		},
+		{ -- Explosive Potential
+			["n"] = 72059,
+			["e"] = 91581,
+		},
+		{ -- Mortal Coil
+			["n"] = 71947,
+			["e"] = 91457,
+		},
+		{ -- Channel Demonfire
+			["n"] = 72064,
+			["e"] = 91586,
+		},
+		{ -- Demonic Embrace
+			["n"] = 71930,
+			["e"] = 91438,
+		},
+		{ -- Cry Havoc
+			["n"] = 71981,
+			["e"] = 91497,
+		},
+		{ -- Demonic Inspiration
+			["n"] = 71928,
+			["e"] = 91436,
+		},
+		{ -- Cataclysm
+			["n"] = 71974,
+			["e"] = 91487,
+		},
+		{ -- Wrathful Minion
+			["n"] = 71946,
+			["e"] = 91456,
+		},
+		{ -- Shadowburn
+			["n"] = 72060,
+			["e"] = 91582,
+		},
+		{ -- Demonic Fortitude
+			["n"] = 71922,
+			["e"] = 91430,
+		},
+		{ -- Raging Demonfire
+			["n"] = 72063,
+			["e"] = 91585,
+		},
+		{ -- Sweet Souls
+			["n"] = 71927,
+			["e"] = 91435,
+		},
+		{ -- Raging Demonfire
+			["n"] = 72063,
+			["e"] = 91585,
+		},
+		{ -- Demonic Gateway
+			["n"] = 71955,
+			["e"] = 91466,
+		},
+		{ -- Flashpoint
+			["n"] = 71972,
+			["e"] = 91485,
+		},
+		{ -- Dark Pact
+			["n"] = 71936,
+			["e"] = 91444,
+		},
+		{ -- Flashpoint
+			["n"] = 71972,
+			["e"] = 91485,
+		},
+		{ -- Dark Accord
+			["n"] = 71956,
+			["e"] = 91467,
+		},
+		{ -- Eradication
+			["n"] = 71984,
+			["e"] = 91501,
+		},
+		{ -- Shadowfury
+			["n"] = 71942,
+			["e"] = 91452,
+		},
+		{ -- Eradication
+			["n"] = 71984,
+			["e"] = 91501,
+		},
+		{ -- Frequent Donor
+			["n"] = 71937,
+			["e"] = 91445,
+		},
+		{ -- Ashen Remains
+			["n"] = 71969,
+			["e"] = 91482,
+		},
+		{ -- Lifeblood
+			["n"] = 71940,
+			["e"] = 91449,
+		},
+		{ -- Ashen Remains
+			["n"] = 71969,
+			["e"] = 91482,
+		},
+		{ -- Lifeblood
+			["n"] = 71940,
+			["e"] = 91449,
+		},
+		{ -- Summon Infernal
+			["n"] = 71985,
+			["e"] = 91502,
+		},
+		{ -- Fel Synergy
+			["n"] = 71918,
+			["e"] = 91425,
+		},
+		{ -- Ritual of Ruin
+			["n"] = 71970,
+			["e"] = 91483,
+		},
+		{ -- Soul Link
+			["n"] = 71925,
+			["e"] = 91433,
+		},
+		{ -- Madness of the Azj'Aqir
+			["n"] = 71967,
+			["e"] = 91480,
+		},
+		{ -- Teachings of the Black Harvest
+			["n"] = 71938,
+			["e"] = 91447,
+		},
+		{ -- Madness of the Azj'Aqir
+			["n"] = 71967,
+			["e"] = 91480,
+		},
+		{ -- Grimoire of Synergy
+			["n"] = 71924,
+			["e"] = 91432,
+		},
+		{ -- Master Ritualist
+			["n"] = 71962,
+			["e"] = 91475,
+		},
+		{ -- Grimoire of Synergy
+			["n"] = 71924,
+			["e"] = 91432,
+		},
+		{ -- Master Ritualist
+			["n"] = 71962,
+			["e"] = 91475,
+		},
+		{ -- Soul Conduit
+			["n"] = 71923,
+			["e"] = 91431,
+		},
+		{ -- Burn to Ashes
+			["n"] = 71964,
+			["e"] = 91477,
+		},
+		{ -- Soul Conduit
+			["n"] = 71923,
+			["e"] = 91431,
+		},
+		{ -- Chaos Incarnate
+			["n"] = 71966,
+			["e"] = 91479,
+		},
+		{ -- Inquisitor's Gaze
+			["n"] = 71939,
+			["e"] = 91427,
+		},
+		{ -- Avatar of Destruction
+			["n"] = 71963,
+			["e"] = 91476,
+		},
+		{ -- Soulburn
+			["n"] = 71957,
+			["e"] = 91469,
+		},
 	},
 }
 
