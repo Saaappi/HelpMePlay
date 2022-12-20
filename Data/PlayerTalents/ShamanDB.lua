@@ -495,6 +495,250 @@ local SHAMAN_TALENTS = {
 		},
 	},
 	[264] = { -- Restoration
+		{ -- Astral Shift
+			["n"] = 81057,
+			["e"] = 101945,
+		},
+		{ -- Riptide
+			["n"] = 81027,
+			["e"] = 101905,
+		},
+		{ -- Chain Lightning
+			["n"] = 81061,
+			["e"] = 101949,
+		},
+		{ -- Deluge
+			["n"] = 81028,
+			["e"] = 101906,
+		},
+		{ -- Earth Elemental
+			["n"] = 81064,
+			["e"] = 101952,
+		},
+		{ -- Deluge
+			["n"] = 81028,
+			["e"] = 101906,
+		},
+		{ -- Wind Shear
+			["n"] = 81068,
+			["e"] = 101957,
+		},
+		{ -- Healing Wave
+			["n"] = 81026,
+			["e"] = 101904,
+		},
+		{ -- Planes Traveler
+			["n"] = 81056,
+			["e"] = 101944,
+		},
+		{ -- Healing Stream Totem
+			["n"] = 81022,
+			["e"] = 101900,
+		},
+		{ -- Spirit Wolf
+			["n"] = 81072,
+			["e"] = 101963,
+		},
+		{ -- Healing Rain
+			["n"] = 81040,
+			["e"] = 101923,
+		},
+		{ -- Frost Shock
+			["n"] = 81074,
+			["e"] = 101965,
+		},
+		{ -- Stormkeeper
+			["n"] = 81029,
+			["e"] = 101907,
+		},
+		{ -- Earth Shield
+			["n"] = 81106,
+			["e"] = 102004,
+		},
+		{ -- Call of Thunder
+			["n"] = 81023,
+			["e"] = 101901,
+		},
+		{ -- Fire and Ice
+			["n"] = 81067,
+			["e"] = 101956,
+		},
+		{ -- Tidal Waves
+			["n"] = 81021,
+			["e"] = 101899,
+		},
+		{ -- Capacitor Totem
+			["n"] = 81071,
+			["e"] = 101961,
+		},
+		{ -- Acid Rain
+			["n"] = 81039,
+			["e"] = 101921,
+		},
+		{ -- Focused Insight
+			["n"] = 81058,
+			["e"] = 101946,
+		},
+		{ -- Ancestral Vigor
+			["n"] = 81030,
+			["e"] = 101909,
+		},
+		{ -- Focused Insight
+			["n"] = 81058,
+			["e"] = 101946,
+		},
+		{ -- Ancestral Vigor
+			["n"] = 81030,
+			["e"] = 101909,
+		},
+		{ -- Elemental Orbit
+			["n"] = 81105,
+			["e"] = 102003,
+		},
+		{ -- Water Totem Mastery
+			["n"] = 81018,
+			["e"] = 101895,
+		},
+		{ -- Spiritwalker's Grace
+			["n"] = 81066,
+			["e"] = 101955,
+		},
+		{ -- Spirit Link Totem
+			["n"] = 81033,
+			["e"] = 101913,
+		},
+		{ -- Ancestral Defense
+			["n"] = 81083,
+			["e"] = 101977,
+		},
+		{ -- Master of the Elements
+			["n"] = 81019,
+			["e"] = 101896,
+		},
+		{ -- Tremor Totem
+			["n"] = 81069,
+			["e"] = 101958,
+		},
+		{ -- Living Stream
+			["n"] = 81048,
+			["e"] = 101934,
+		},
+		{ -- Guardian's Cudgel
+			["n"] = 81070,
+			["e"] = 101959,
+		},
+		{ -- Healing Tide Totem
+			["n"] = 81032,
+			["e"] = 101912,
+		},
+		{ -- Graceful Spirit
+			["n"] = 81065,
+			["e"] = 101954,
+		},
+		{ -- Lava Surge
+			["n"] = 81017,
+			["e"] = 101894,
+		},
+		{ -- Earthgrab Totem
+			["n"] = 81082,
+			["e"] = 101975,
+		},
+		{ -- Mana Tide Totem
+			["n"] = 81045,
+			["e"] = 101929,
+		},
+		{ -- Nature's Fury
+			["n"] = 81086,
+			["e"] = 101980,
+		},
+		{ -- Torrent
+			["n"] = 81047,
+			["e"] = 101932,
+		},
+		{ -- Nature's Fury
+			["n"] = 81086,
+			["e"] = 101980,
+		},
+		{ -- Torrent
+			["n"] = 81047,
+			["e"] = 101932,
+		},
+		{ -- Nature's Guardian
+			["n"] = 81081,
+			["e"] = 101974,
+		},
+		{ -- Echo of the Elements
+			["n"] = 81044,
+			["e"] = 101928,
+		},
+		{ -- Nature's Guardian
+			["n"] = 81081,
+			["e"] = 101974,
+		},
+		{ -- Earthen Wall Totem
+			["n"] = 81046,
+			["e"] = 101931,
+		},
+		{ -- Improved Lightning Bolt
+			["n"] = 81098,
+			["e"] = 101996,
+		},
+		{ -- Earthliving Weapon
+			["n"] = 81049,
+			["e"] = 101935,
+		},
+		{ -- Improved Lightning Bolt
+			["n"] = 81098,
+			["e"] = 101996,
+		},
+		{ -- Earthen Harmony
+			["n"] = 81054,
+			["e"] = 101941,
+		},
+		{ -- Totemic Projection
+			["n"] = 81080,
+			["e"] = 101973,
+		},
+		{ -- Earthen Harmony
+			["n"] = 81054,
+			["e"] = 101941,
+		},
+		{ -- Nature's Swiftness
+			["n"] = 81099,
+			["e"] = 101997,
+		},
+		{ -- Improved Earthliving Weapon
+			["n"] = 81050,
+			["e"] = 101936,
+		},
+		{ -- Thunderstorm
+			["n"] = 81097,
+			["e"] = 101995,
+		},
+		{ -- Improved Earthliving Weapon
+			["n"] = 81050,
+			["e"] = 101936,
+		},
+		{ -- Surging Shields
+			["n"] = 81092,
+			["e"] = 101988,
+		},
+		{ -- Ascendance
+			["n"] = 81055,
+			["e"] = 101942,
+		},
+		{ -- Surging Shields
+			["n"] = 81092,
+			["e"] = 101988,
+		},
+		{ -- Deeply Rooted Elements
+			["n"] = 81051,
+			["e"] = 101938,
+		},
+		{ -- Lightning Lasso
+			["n"] = 81096,
+			["e"] = 101993,
+		},
 	},
 }
 
