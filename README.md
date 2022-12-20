@@ -48,6 +48,8 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 
 ### Buttons
 - **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
+- **Talent** - Add a button to the Player Talent UI to quickly learn the next talent in a predefined build supplied by the addon. (The builds used are those recommended by the Wowhead team for leveling.)
+- **Dragonriding** - Tired of clicking a Dragonriding trait, then selecting the "Yes" button? Enable the button for the Dragonriding UI and rapidly learn all of your Dragonriding traits with a single click of a button! (The automation is limited to the number of glyphs you've collected from the open world.)
 
 ## Quest Features
 
