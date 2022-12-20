@@ -133,8 +133,14 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 	elseif cmd == L_GLOBALSTRINGS["Command.Traits"] then
 		if HelpMePlayDB.DevModeEnabled then
+			-- Create a couple variables to hold the scroll
+			-- frame and edit box.
 			local scrollFrame
 			local editBox
+			
+			-- If the scroll frame exists, then set the
+			-- aforementioned variables to the existing
+			-- frames and show them.
 			if HMPTalentScrollFrame then
 				scrollFrame = HMPTalentScrollFrame
 				editBox = HMPTalentEditBox
@@ -142,6 +148,9 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				HMPTalentEditBox:Show()
 				HMPTalentCloseButton:Show()
 			else
+				-- If the scroll frame and its children
+				-- don't exist, then create them and setup
+				-- their attributes.
 				local button = CreateFrame("Button", "HMPTalentCloseButton", HMPTalentScrollFrame, "UIPanelButtonTemplate")
 				local scrollFrame = CreateFrame("ScrollFrame", "HMPTalentScrollFrame", UIParent, "UIPanelScrollFrameTemplate")
 				scrollFrame:SetSize(300,200)
@@ -152,7 +161,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				editBox:SetFontObject(ChatFontNormal)
 				editBox:SetWidth(300)
 				scrollFrame:SetScrollChild(editBox)
-				button:SetSize(40, 22)
+				button:SetSize(20, 12)
 				button:SetText("X")
 				button:SetPoint("BOTTOMLEFT", HMPTalentScrollFrame, "TOPRIGHT")
 				button:SetScript("OnClick", function()
@@ -162,6 +171,11 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end)
 			end
 			
+			-- Iterate through the current specialization's
+			-- talent nodes and insert them into the traits
+			-- table.
+			-- By default, these will be entered in numerical
+			-- order by the node ID.
 			local configID = C_ClassTalents.GetActiveConfigID()
 			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
 			local text = ""
