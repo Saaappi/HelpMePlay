@@ -133,15 +133,34 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 	elseif cmd == L_GLOBALSTRINGS["Command.Traits"] then
 		if HelpMePlayDB.DevModeEnabled then
-			local scrollFrame = CreateFrame("ScrollFrame", "HMPTalentScrollFrame", UIParent, "UIPanelScrollFrameTemplate")
-			scrollFrame:SetSize(300,200)
-			scrollFrame:SetPoint("CENTER")
-			local editBox = CreateFrame("EditBox", "HMPTalentEditBox", s)
-			editBox:SetMultiLine(true)
-			editBox:SetAutoFocus(false)
-			editBox:SetFontObject(ChatFontNormal)
-			editBox:SetWidth(300)
-			scrollFrame:SetScrollChild(editBox)
+			local scrollFrame
+			local editBox
+			if HMPTalentScrollFrame then
+				scrollFrame = HMPTalentScrollFrame
+				editBox = HMPTalentEditBox
+				HMPTalentScrollFrame:Show()
+				HMPTalentEditBox:Show()
+				HMPTalentCloseButton:Show()
+			else
+				local button = CreateFrame("Button", "HMPTalentCloseButton", HMPTalentScrollFrame, "UIPanelButtonTemplate")
+				local scrollFrame = CreateFrame("ScrollFrame", "HMPTalentScrollFrame", UIParent, "UIPanelScrollFrameTemplate")
+				scrollFrame:SetSize(300,200)
+				scrollFrame:SetPoint("CENTER")
+				editBox = CreateFrame("EditBox", "HMPTalentEditBox", scrollFrame)
+				editBox:SetMultiLine(true)
+				editBox:SetAutoFocus(false)
+				editBox:SetFontObject(ChatFontNormal)
+				editBox:SetWidth(300)
+				scrollFrame:SetScrollChild(editBox)
+				button:SetSize(40, 22)
+				button:SetText("X")
+				button:SetPoint("BOTTOMLEFT", HMPTalentScrollFrame, "TOPRIGHT")
+				button:SetScript("OnClick", function()
+					HMPTalentScrollFrame:Hide()
+					HMPTalentEditBox:Hide()
+					HMPTalentCloseButton:Hide()
+				end)
+			end
 			
 			local configID = C_ClassTalents.GetActiveConfigID()
 			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
@@ -170,12 +189,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			-- Add the concatenated traits variable to the edit box
 			-- and show it.
 			editBox:SetText(text)
-			
-			-- Hide the frames after a short time.
-			C_Timer.After(5, function()
-				HMPTalentEditBox:Hide()
-				HMPTalentScrollFrame:Hide()
-			end)
 		else
 			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
 		end
