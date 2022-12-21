@@ -11,9 +11,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local randomNum = math.random(0, 1)
 		if randomNum == 1 then
 			local GUID = UnitGUID("target")
-			local type = string.split("-", GUID)
-			if type == "Player" then
-				DoEmote("wave", nil)
+			if GUID then
+				local type = string.split("-", GUID)
+				if type == "Player" then
+					DoEmote("wave", nil)
+				end
 			end
 		end
 	end
