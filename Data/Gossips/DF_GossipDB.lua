@@ -1096,7 +1096,9 @@ local DIALOG_DF = {
 		["g"] = {
 			{
 				["o"] 	= 54965,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.notComplete", "quest.obj.notComplete" },
+				["q"] 	= { 66503 }, -- For The Love of Others
+				["objs"] = { { ["q"] = 66503, ["o"] = 1 } }, -- Talk to Noriko
 			},
 		},
 	},
