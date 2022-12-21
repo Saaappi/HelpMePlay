@@ -518,7 +518,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	
 		local _, questItemLink = ...
 		C_Timer.After(0.5, function()
-			if UnitLevel("player") < 60 then
+			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 				if not UnitAffectingCombat("player") then
 					if questItemLink then
 						local questItemItemLevel = GetDetailedItemLevelInfo(questItemLink)
