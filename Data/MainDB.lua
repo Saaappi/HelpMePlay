@@ -123,6 +123,16 @@ local QUESTREWARDS = {
 }
 addonTable.QUESTREWARDS = QUESTREWARDS
 
+-- Quest Merchants
+local QUESTMERCHANTS = {
+	-- DF
+		-- The Azure Span
+	[193637] = { -- Jinkutuk
+		{ ["questID"] = 66223, ["itemID"] = 192153, ["itemCount"] = 7 }, -- Can We Keep It? (Frigidfish)
+	},
+}
+addonTable.QUESTMERCHANTS = QUESTMERCHANTS
+
 -- Speech
 local SPEECH = {
 	[L_GLOBALSTRINGS["Speech.PlayfulTrickster.Praise"]]				= { type="emote", emote="praise" },
