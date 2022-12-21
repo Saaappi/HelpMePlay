@@ -125,6 +125,11 @@ addonTable.QUESTREWARDS = QUESTREWARDS
 
 -- Quest Merchants
 local QUESTMERCHANTS = {
+	-- Legion
+		-- Highmountain
+	[100437] = { -- Lanna Skyspark
+		{ ["questID"] = 40520, ["itemID"] = 132247, ["itemCount"] = 1 }, -- To See the Past (Bottle of Airspark)
+	},
 	-- DF
 		-- The Azure Span
 	[193637] = { -- Jinkutuk
