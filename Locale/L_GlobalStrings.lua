@@ -144,6 +144,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHeadDesc"] 									= "Toggle to hide the talking head popup."
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"] 									= "Holiday Queues"
 	L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"] 								= "Add a button next to your character micro menu to quickly join the fight against the current holiday boss.\n\n|cffFFD100NOTE|r: You will need to reload to see the button."
+	L_GLOBALSTRINGS["Features.Toggle.Extras.WaveAtPlayers"] 									= "Wave at Players"
+	L_GLOBALSTRINGS["Features.Toggle.Extras.WaveAtPlayersDesc"] 								= "Toggle to have a chance to wave at players when you target them.\n\nI don't know. I think it's a fun social feature."
 	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminder"] 							= "Water Reminder"
 	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminderDesc"] 						= "Toggle this if you would like the addon to remind you to take sips of water."
 	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMinDelay"] 							= "Minimum Delay"
