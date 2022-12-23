@@ -52,82 +52,70 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 				-- We only ever want to consider rewards
 				-- that match what the player has equipped.
 				local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-				local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-				if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
-					-- The player doesn't have an Heirloom equipped
-					-- in the current slot.
-					if questRewardItemLevel > equippedItemItemLevel then
-						-- The quest reward has a higher item level
-						-- than what's equipped.
-						-- This is the new BEST item.
-						bestItemIndex = rewardIndex
-						invEquipSlotId = inventorySlots[equipLoc]
-					end
+				if questRewardItemLevel > equippedItemItemLevel then
+					print("Quest Reward iLvl: " .. questRewardItemLevel)
+					print("Equipped Item iLvl: " .. equippedItemItemLevel)
+					-- The quest reward has a higher item level
+					-- than what's equipped.
+					-- This is the new BEST item.
+					bestItemIndex = rewardIndex
+					invEquipSlotId = inventorySlots[equipLoc]
 				end
 			end
 		elseif equipLoc == "INVTYPE_FINGER" then
 			for invSlotId = INVSLOT_FINGER1, INVSLOT_FINGER2 do
-				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)); print(itemExists)
 				if not itemExists then
 					bestItemIndex = rewardIndex
 					invEquipSlotId = invSlotId
 				else
 					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
-						-- The player doesn't have an Heirloom equipped
-						-- in the current slot.
-						if questRewardItemLevel > equippedItemItemLevel then
-							-- The quest reward has a higher item level
-							-- than what's equipped.
-							-- This is the new BEST item.
-							bestItemIndex = rewardIndex
-							invEquipSlotId = invSlotId
-						end
+					if questRewardItemLevel > equippedItemItemLevel then
+						print("Quest Reward iLvl: " .. questRewardItemLevel)
+						print("Equipped Item iLvl: " .. equippedItemItemLevel)
+						-- The quest reward has a higher item level
+						-- than what's equipped.
+						-- This is the new BEST item.
+						bestItemIndex = rewardIndex
+						invEquipSlotId = invSlotId
 					end
 				end
 			end
 		elseif equipLoc == "INVTYPE_TRINKET" then
 			for invSlotId = INVSLOT_TRINKET1, INVSLOT_TRINKET2 do
-				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)); print(itemExists)
 				if not itemExists then
 					bestItemIndex = rewardIndex
 					invEquipSlotId = invSlotId
 				else
 					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
-						-- The player doesn't have an Heirloom equipped
-						-- in the current slot.
-						if questRewardItemLevel > equippedItemItemLevel then
-							-- The quest reward has a higher item level
-							-- than what's equipped.
-							-- This is the new BEST item.
-							bestItemIndex = rewardIndex
-							invEquipSlotId = invSlotId
-						end
+					if questRewardItemLevel > equippedItemItemLevel then
+						print("Quest Reward iLvl: " .. questRewardItemLevel)
+						print("Equipped Item iLvl: " .. equippedItemItemLevel)
+						-- The quest reward has a higher item level
+						-- than what's equipped.
+						-- This is the new BEST item.
+						bestItemIndex = rewardIndex
+						invEquipSlotId = invSlotId
 					end
 				end
 			end
 		elseif equipLoc == "INVTYPE_WEAPON" then
 			for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
-				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId))
+				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)); print(itemExists)
 				if not itemExists then
 					bestItemIndex = rewardIndex
 					invEquipSlotId = invSlotId
 				else
 					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
-						-- The player doesn't have an Heirloom equipped
-						-- in the current slot.
-						if questRewardItemLevel > equippedItemItemLevel then
-							-- The quest reward has a higher item level
-							-- than what's equipped.
-							-- This is the new BEST item.
-							bestItemIndex = rewardIndex
-							invEquipSlotId = invSlotId
-						end
+					if questRewardItemLevel > equippedItemItemLevel then
+						print("Quest Reward iLvl: " .. questRewardItemLevel)
+						print("Equipped Item iLvl: " .. equippedItemItemLevel)
+						-- The quest reward has a higher item level
+						-- than what's equipped.
+						-- This is the new BEST item.
+						bestItemIndex = rewardIndex
+						invEquipSlotId = invSlotId
 					end
 				end
 			end

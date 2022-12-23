@@ -274,23 +274,28 @@ local DIALOG_DF = {
 		["g"] = {
 			{
 				["o"] 	= 55294,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69897 }, -- Behavior Analysis "Homework"
 			},
 			{
 				["o"] 	= 106986,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69897 }, -- Behavior Analysis "Homework"
 			},
 			{
 				["o"] 	= 106987,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69897 }, -- Behavior Analysis "Homework"
 			},
 			{
 				["o"] 	= 106988,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69897 }, -- Behavior Analysis "Homework"
 			},
 			{
 				["o"] 	= 106990,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69897 }, -- Behavior Analysis "Homework"
 			},
 			{
 				["o"] 	= 106994,
@@ -302,23 +307,27 @@ local DIALOG_DF = {
 			},
 			{
 				["o"] 	= 106996,
-				["c"] 	= { "none" },
-			},
-			{
-				["o"] 	= 107622,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69897 }, -- Behavior Analysis "Homework"
 			},
 			{
 				["o"] 	= 107707,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69897 }, -- Behavior Analysis "Homework"
 			},
 			{
 				["o"] 	= 107710,
 				["c"] 	= { "none" },
 			},
 			{
+				["o"] 	= 107291,
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69899 }, -- Secret Research
+			},
+			{
 				["o"] 	= 107292,
-				["c"] 	= { "none" },
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 69899 }, -- Secret Research
 			},
 		},
 	},
