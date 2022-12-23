@@ -12,15 +12,11 @@ local function PurchaseTalents(configID, tbl, specID)
 			if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
 				local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
 				local entryInfo = C_Traits.GetEntryInfo(configID, traits.e)
-				local spellID = C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID
+				--local spellID = C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID
 				if #nodeInfo.entryIDs > 1 then
 					C_Traits.SetSelection(configID, traits.n, traits.e)
 				else
 					C_Traits.PurchaseRank(configID, traits.n)
-				end
-				
-				if spellID then
-					print(string.format("%s: %s %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Learned"], (GetSpellLink(spellID))))
 				end
 			end
 		end
