@@ -341,7 +341,6 @@ if (isLocaleSupported) then
 	-- End:		Text Output
 	--
 	-- Start: 	Single Words
-	L_GLOBALSTRINGS["Learned"]																	= "Learned"
 	-- End: 	Single Words
 	--
 	-- Start: 	Player Talents
