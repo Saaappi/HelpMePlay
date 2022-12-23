@@ -70,50 +70,6 @@ local generalOptions = {
 			get = function(_) return HelpMePlayDB.DevModeEnabled end,
 			set = function(_, val) HelpMePlayDB.DevModeEnabled = val end,
 		},
-		buttonHeader = {
-			name = L_GLOBALSTRINGS["Header.Buttons"],
-			order = 10,
-			type = "header",
-		},
-		transmogButton = {
-			name = L_GLOBALSTRINGS["General.Toggle.TransmogButton"],
-			order = 11,
-			desc = L_GLOBALSTRINGS["General.Toggle.TransmogButtonDesc"],
-			type = "toggle",
-			get = function(_)
-				if not HelpMePlayDB.TransmogButtonEnabled then
-					HelpMePlayDB.TransmogButtonEnabled = false
-				end
-				return HelpMePlayDB.TransmogButtonEnabled
-			end,
-			set = function(_, val) HelpMePlayDB.TransmogButtonEnabled = val end,
-		},
-		talentButton = {
-			name = L_GLOBALSTRINGS["General.Toggle.TalentButton"],
-			order = 12,
-			desc = L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"],
-			type = "toggle",
-			get = function(_)
-				if not HelpMePlayDB.TalentButtonEnabled then
-					HelpMePlayDB.TalentButtonEnabled = false
-				end
-				return HelpMePlayDB.TalentButtonEnabled
-			end,
-			set = function(_, val) HelpMePlayDB.TalentButtonEnabled = val end,
-		},
-		dragonridingButton = {
-			name = L_GLOBALSTRINGS["General.Toggle.DragonridingButton"],
-			order = 13,
-			desc = L_GLOBALSTRINGS["General.Toggle.DragonridingButtonDesc"],
-			type = "toggle",
-			get = function(_)
-				if not HelpMePlayDB.DragonridingButtonEnabled then
-					HelpMePlayDB.DragonridingButtonEnabled = false
-				end
-				return HelpMePlayDB.DragonridingButtonEnabled
-			end,
-			set = function(_, val) HelpMePlayDB.DragonridingButtonEnabled = val end,
-		},
 	},
 }
 addonTable.generalOptions = generalOptions

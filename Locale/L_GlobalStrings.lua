@@ -55,16 +55,17 @@ if (isLocaleSupported) then
 	-- End:		Keybinds
 	--
 	-- Start: 	Tabs
-	L_GLOBALSTRINGS["Tabs.General"] 															= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/general:16|t" .. " " .. "General"
-	L_GLOBALSTRINGS["Tabs.Features"] 															= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/features:16|t" .. " " .. "Features"
-	L_GLOBALSTRINGS["Tabs.Quests"] 																= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/quest:16|t" .. " " .. "Quests"
-	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/expansion:16|t" .. " " .. "Expansion Features"
-	L_GLOBALSTRINGS["Tabs.Junker"] 																= "|TInterface/AddOns/HelpMePlay/Assets/OptionIcons/junker:16|t" .. " " .. "Junker"
+	L_GLOBALSTRINGS["Tabs.General"] 															= "General"
+	L_GLOBALSTRINGS["Tabs.Features"] 															= "Features"
+	L_GLOBALSTRINGS["Tabs.Quests"] 																= "Quests"
+	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "Expansion Features"
+	L_GLOBALSTRINGS["Tabs.Systems"] 															= "Systems"
+	L_GLOBALSTRINGS["Tabs.ZoneSelection"] 														= "Zone Selection"
+	L_GLOBALSTRINGS["Tabs.Extras"] 																= "Extras"
 	-- End: 	Tabs
 	--
 	-- Start: 	Headers
 	L_GLOBALSTRINGS["Header.Toggles"] 															= "Toggles"
-	L_GLOBALSTRINGS["Header.Buttons"] 															= "Buttons"
 	L_GLOBALSTRINGS["Header.DropDowns"] 														= "DropDowns"
 	L_GLOBALSTRINGS["Header.About"] 															= "About"
 	L_GLOBALSTRINGS["Header.Acknowledgments"] 													= "Acknowledgments"
@@ -75,9 +76,12 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.Torghast"] 															= "Torghast"
 	L_GLOBALSTRINGS["Header.PartyPlay"] 														= "Party Play"
 	L_GLOBALSTRINGS["Header.ExpansionIntros"] 													= "Expansion Intros"
-	L_GLOBALSTRINGS["Header.Extras"] 															= "Extras"
 	L_GLOBALSTRINGS["Header.PersonalHealth"] 													= "Personal Health"
 	L_GLOBALSTRINGS["Header.QuestMobs"] 														= "Quest Mobs"
+	L_GLOBALSTRINGS["Header.Junker"] 															= "Junker"
+	L_GLOBALSTRINGS["Header.Transmog"] 															= "Transmogrification"
+	L_GLOBALSTRINGS["Header.Talents"] 															= "Talents"
+	L_GLOBALSTRINGS["Header.Dragonriding"] 														= "Dragonriding"
 	-- End: 	Headers
 	--
 	-- Start: 	General DropDowns
@@ -103,11 +107,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["General.Toggle.MinimapIconDesc"] 											= "Enables and disables the minimap icon.\n\nChecked: |cff218721Shown|r\nUnchecked: |cffFF0000Hidden|r"
 	L_GLOBALSTRINGS["General.Toggle.DevMode"] 													= "Developer Mode"
 	L_GLOBALSTRINGS["General.Toggle.DevModeDesc"] 												= "Toggle and the addon will output \"random\" information at \"spontaneous\" moments.\n\nThis really should be for the author's eyes only but... have fun!"
-	L_GLOBALSTRINGS["General.Toggle.TransmogButton"] 											= "Transmog Button"
+	L_GLOBALSTRINGS["General.Toggle.TransmogButton"] 											= "Transmogrification"
 	L_GLOBALSTRINGS["General.Toggle.TransmogButtonDesc"] 										= "Toggle the Transmog button near the inventory on or off."
-	L_GLOBALSTRINGS["General.Toggle.TalentButton"] 												= "Talent Button"
+	L_GLOBALSTRINGS["General.Toggle.TalentButton"] 												= "Player Talents"
 	L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"] 											= "Toggle the Talent button in the Class Talents interface on or off.\n\nToggling requires a reload to take effect."
-	L_GLOBALSTRINGS["General.Toggle.DragonridingButton"] 										= "Dragonriding Button"
+	L_GLOBALSTRINGS["General.Toggle.DragonridingButton"] 										= "Dragonriding"
 	L_GLOBALSTRINGS["General.Toggle.DragonridingButtonDesc"] 									= "Toggle the Dragonriding button in the Dragonriding trait interface on or off.\n\nToggling requires a reload to take effect."
 	-- End: 	General Options (Options_General.lua)
 	--
@@ -186,11 +190,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"]										= "Legion"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"]											= "Battle for Azeroth"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"]											= "Shadowlands"
-	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"]									= "BFA Zone Selection"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"]									= "Battle for Azeroth"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"]									= "Automates the first zone to select in |cffFFD100Battle for Azeroth|r."
-	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"]									= "SL Zone Selection"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"]									= "Shadowlands"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Desc"]									= "Automates the first zone to select in |cffFFD100Shadowlands|r."
-	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.DF.Title"]									= "DF Zone Selection"
+	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.DF.Title"]									= "Dragonflight"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.DF.Desc"]									= "Automates the first zone to select in |cffFFD100Dragonflight|r."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"]										= "Quest Rewards"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected. |cffFFD100Note|r: This automation is ignored for max-level players.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."

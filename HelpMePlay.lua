@@ -23,8 +23,17 @@ function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_ExpansionFeatures", addonTable.expansionFeatures)
 	self.expansionFeatures = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ExpansionFeatures", L_GLOBALSTRINGS["Tabs.ExpansionFeatures"], addonName); addonTable.expansionFeatures = self.expansionFeatures
 	
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Junker", addonTable.junkerOptions)
-	self.junkerOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Junker", L_GLOBALSTRINGS["Tabs.Junker"], addonName); addonTable.junkerOptions = self.junkerOptions
+	-- Systems
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Systems", addonTable.systemsOptions)
+	self.systemsOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Systems", L_GLOBALSTRINGS["Tabs.Systems"], addonName); addonTable.systemsOptions = self.systemsOptions
+	
+	-- Zone Selection
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_ZoneSelection", addonTable.zoneSelectionOptions)
+	self.zoneSelectionOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ZoneSelection", L_GLOBALSTRINGS["Tabs.ZoneSelection"], addonName); addonTable.zoneSelectionOptions = self.zoneSelectionOptions
+	
+	-- Extras
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Extras", addonTable.extrasOptions)
+	self.extrasOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Extras", L_GLOBALSTRINGS["Tabs.Extras"], addonName); addonTable.extrasOptions = self.extrasOptions
 	
 	-- Default Options
 	if HelpMePlayDB == nil then
