@@ -128,6 +128,13 @@ local questOptions = {
 			order = 17,
 			desc = L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCountDesc"],
 			type = "toggle",
+			disabled = function()
+				local isAddOnLoaded = false
+				if IsAddOnLoaded("!KalielsTracker") then
+					isAddOnLoaded = true
+				end
+				return isAddOnLoaded
+			end,
 			get = function() return HelpMePlayDB.ShowQuestCountEnabled end,
 			set = function(_, val) HelpMePlayDB.ShowQuestCountEnabled = val end,
 		},
