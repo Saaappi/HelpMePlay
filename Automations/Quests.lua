@@ -53,7 +53,7 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 				-- that match what the player has equipped.
 				local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
 				local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-				if equippedItemQuality ~= 7 then
+				if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
 					-- The player doesn't have an Heirloom equipped
 					-- in the current slot.
 					if questRewardItemLevel > equippedItemItemLevel then
@@ -74,7 +74,7 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 				else
 					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 					local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if equippedItemQuality ~= 7 then
+					if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
 						-- The player doesn't have an Heirloom equipped
 						-- in the current slot.
 						if questRewardItemLevel > equippedItemItemLevel then
@@ -96,7 +96,7 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 				else
 					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 					local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if equippedItemQuality ~= 7 then
+					if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
 						-- The player doesn't have an Heirloom equipped
 						-- in the current slot.
 						if questRewardItemLevel > equippedItemItemLevel then
@@ -118,7 +118,7 @@ local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
 				else
 					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
 					local equippedItemQuality = C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if equippedItemQuality ~= 7 then
+					if equippedItemQuality ~= 7 or UnitLevel("player") > addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then
 						-- The player doesn't have an Heirloom equipped
 						-- in the current slot.
 						if questRewardItemLevel > equippedItemItemLevel then
@@ -232,12 +232,12 @@ local function CompleteQuest()
 				elseif bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
-					GetQuestReward(random(1, numQuestChoices))
+					--GetQuestReward(random(1, numQuestChoices))
 				else
 					-- Get the quest reward at the specified best index. If the quest
 					-- reward automation is told to pick the reward by sell price, then
 					-- automatically add the item to the GLOBAL Junker table.
-					GetQuestReward(bestItemIndex)
+					--GetQuestReward(bestItemIndex)
 					if HelpMePlayDB.QuestRewardId == 2 then
 						HelpMePlayJunkerGlobalDB[itemId] = true
 					end
