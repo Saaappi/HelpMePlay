@@ -508,8 +508,8 @@ local ROGUE_TALENTS = {
 			["e"] = 112572,
 		},
 		{ -- Shadowstep
-			["n"] = 90695,
-			["e"] = 112583,
+			["n"] = 90729,
+			["e"] = 112617,
 		},
 		{ -- Evasion
 			["n"] = 90764,
@@ -524,8 +524,8 @@ local ROGUE_TALENTS = {
 			["e"] = 112632,
 		},
 		{ -- Weaponmaster
-			["n"] = 90647,
-			["e"] = 112533,
+			["n"] = 90738,
+			["e"] = 112628,
 		},
 		{ -- Cloak of Shadows
 			["n"] = 90697,
