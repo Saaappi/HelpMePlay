@@ -201,7 +201,19 @@ local function CompleteQuest()
 						end
 
 						if HelpMePlayDB.QuestRewardId == 1 then
-							IsItemAnUpgrade(itemId, questRewardItemLink, i)
+							local currentlyEquippedItems = {}
+							for invSlotID=1, 19 do
+								local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
+								if item:IsValid() then
+									currentlyEquippedItems[invSlotID] = { ["itemType"] = C_Item.GetItemInventoryType(item), ["itemLevel"] = C_Item.GetCurrentItemLevel(item) }
+								end
+							end
+							
+							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
+							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
+							if (rewardItemLevel > currentlyEquippedItems[rewardItemType].itemLevel) then
+								bestItemIndex = i
+							end
 						elseif HelpMePlayDB.QuestRewardId == 2 then
 							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(questRewardItemLink)
 							if sellPrice > 0 then
@@ -220,7 +232,7 @@ local function CompleteQuest()
 				elseif bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
-					--GetQuestReward(random(1, numQuestChoices))
+					GetQuestReward(random(1, numQuestChoices))
 				else
 					-- Get the quest reward at the specified best index. If the quest
 					-- reward automation is told to pick the reward by sell price, then
