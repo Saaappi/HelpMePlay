@@ -6,19 +6,6 @@ local main = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
-		versionOutdatedText = {
-			name = L_GLOBALSTRINGS["MainOptions.UnsupportedText"],
-			order = 1,
-			type = "description",
-			hidden = function(_, _)
-				local latestVersion = HelpMePlay:SendCommMessage(addonName, GetAddOnMetadata(addonName, "Version"))
-				local currentVersion = GetAddOnMetadata(addonName, "Version")
-				if currentVersion >= addonTable.CONSTANTS["LAST_SUPPORTED_VERSION"] then
-					return true
-				end
-				return false
-			end,
-		},
 		aboutHeader = {
 			name = L_GLOBALSTRINGS["Header.About"],
 			order = 2,
