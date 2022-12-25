@@ -23,6 +23,15 @@ local function StringToTable(str, delimiter)
 	return tbl
 end
 
+local function OnCommReceived(name, response)
+	if name == addonName then
+		if response >= "2.0.33" then
+			Print(L_GLOBALSTRINGS["MainOptions.UnsupportedText"])
+		end
+	end
+end
+
 -- Add the functions to the addon table.
 addonTable.Print 			= Print
 addonTable.StringToTable 	= StringToTable
+addonTable.OnCommReceived 	= OnCommReceived

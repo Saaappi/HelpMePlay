@@ -11,6 +11,7 @@ local main = {
 			order = 1,
 			type = "description",
 			hidden = function(_, _)
+				local latestVersion = HelpMePlay:SendCommMessage(addonName, GetAddOnMetadata(addonName, "Version"))
 				local currentVersion = GetAddOnMetadata(addonName, "Version")
 				if currentVersion >= addonTable.CONSTANTS["LAST_SUPPORTED_VERSION"] then
 					return true

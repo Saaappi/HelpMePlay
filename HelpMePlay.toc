@@ -8,13 +8,13 @@
 ## Version: 2.0.8
 ## OptionalDeps: Ace3
 
-# Functions
-Functions.lua
-
 # Locale
 Locale\L_GlobalStrings.lua
 Locale\L_Notes.lua
 Locale\L_Waypoints.lua
+
+# Functions
+Functions.lua
 
 # Libraries
 Lib\LibStub\LibStub.lua

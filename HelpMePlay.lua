@@ -4,7 +4,7 @@ local L_DIALOG = addonTable.L_DIALOG
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0", "AceHook-3.0")
+HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0", "AceHook-3.0", "AceComm-3.0")
 
 function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Main", addonTable.main)
@@ -113,6 +113,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 					end
 				end
 			end
+			
+			-- Register addon communication.
+			HelpMePlay:RegisterComm(addonName, addonTable.OnCommReceived)
 		end
 	end
 end)
