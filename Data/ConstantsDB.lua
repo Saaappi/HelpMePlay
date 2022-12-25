@@ -33,6 +33,6 @@ local CONSTANTS = {
 	-- Dragonriding
 	["DRAGONRIDING_TREE_ID"] 	= 672,
 	-- Miscellaneous
-	["LAST_SUPPORTED_VERSION"] 	= "2.0.7",
+	["LAST_SUPPORTED_VERSION"] 	= "2.0.8",
 }
 addonTable.CONSTANTS = CONSTANTS
