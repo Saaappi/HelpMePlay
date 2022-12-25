@@ -1,6 +1,4 @@
 local addonName, addonTable = ...
-local L_DIALOG = addonTable.L_DIALOG
-local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local main = {
@@ -8,6 +6,18 @@ local main = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		versionOutdatedText = {
+			name = L_GLOBALSTRINGS["MainOptions.OutdatedVersion"],
+			order = 1,
+			type = "description",
+			hidden = function(_, _)
+				local currentVersion = GetAddOnMetadata(addonName, "Version")
+				if currentVersion < addonTable.CONSTANTS["LATEST_ADDON_VERSION"] then
+					return true
+				end
+				return false
+			end,
+		},
 		aboutHeader = {
 			name = L_GLOBALSTRINGS["Header.About"],
 			order = 2,
