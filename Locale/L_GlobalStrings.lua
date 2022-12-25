@@ -89,7 +89,7 @@ if (isLocaleSupported) then
 	-- End: 	General DropDowns
 	--
 	-- Start: 	Main Options (Options.lua)
-	L_GLOBALSTRINGS["MainOptions.OutdatedVersion"] 												= "|cffFF0000This version of HelpMePlay is outdated.|r"
+	L_GLOBALSTRINGS["MainOptions.UnsupportedText"] 												= "|cffFF0000This version of HelpMePlay is unsupported.|r"
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
 	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"

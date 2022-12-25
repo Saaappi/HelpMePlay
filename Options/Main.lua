@@ -7,12 +7,12 @@ local main = {
 	type = "group",
 	args = {
 		versionOutdatedText = {
-			name = L_GLOBALSTRINGS["MainOptions.OutdatedVersion"],
+			name = L_GLOBALSTRINGS["MainOptions.UnsupportedText"],
 			order = 1,
 			type = "description",
 			hidden = function(_, _)
 				local currentVersion = GetAddOnMetadata(addonName, "Version")
-				if currentVersion < addonTable.CONSTANTS["LATEST_ADDON_VERSION"] then
+				if currentVersion >= addonTable.CONSTANTS["LAST_SUPPORTED_VERSION"] then
 					return true
 				end
 				return false
