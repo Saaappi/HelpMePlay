@@ -3,7 +3,6 @@ local e = CreateFrame("Frame")
 local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local queueInfo = ""
 local HMPQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPQueueButton",
@@ -21,17 +20,6 @@ LFGDungeonReadyDialogEnterDungeonButton:SetScript("OnShow", function()
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.QueuesEnabled then
 		LFGDungeonReadyDialogEnterDungeonButton:Click()
-	end
-end)
-
-PVPReadyDialogEnterBattleButton:SetScript("OnShow", function()
-	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-	if HelpMePlayDB.QueuesEnabled then
-		if HelpMePlayDB.DevModeEnabled then
-			-- I was told to keep this here as an
-			-- Easter egg.
-			print("accept pvp queue pls.")
-		end
 	end
 end)
 
