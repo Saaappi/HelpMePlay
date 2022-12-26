@@ -608,8 +608,6 @@ WorldMapFrame:HookScript("OnShow", function(self)
 			WorldMapFrame.BorderFrame.HMPQuestCountText:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
 			WorldMapFrame.BorderFrame.HMPQuestCountText:SetText("|cffFFE680" .. "(" .. numQuests .. "/35)" .. "|r")
 		end
-	else
-		WorldMapFrame.BorderFrame.HMPQuestCountText:SetText("")
 	end
 end)
 WorldMapFrame:HookScript("OnHide", function(self)

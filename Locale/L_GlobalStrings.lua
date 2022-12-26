@@ -170,7 +170,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in for Threads of Fate automation."
 	L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCount"] 											= "Show Quest Count"
-	L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCountDesc"] 										= "Toggle to display the number of quests in your log out of 25."
+	L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCountDesc"] 										= "Toggle to display the number of quests in your log."
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMaps"] 												= "Adventure Maps"
 	L_GLOBALSTRINGS["Quests.Toggle.AdventureMapsDesc"] 											= "Toggles whether or not the addon should interact with Call Boards in the major cities, zone boards in Boralus and Dazar'alor, and the board in Oribos."
 	L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFA"] 										= "Battle for Azeroth"
