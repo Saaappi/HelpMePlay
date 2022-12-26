@@ -88,13 +88,13 @@ local extrasOptions = {
 				elseif iconId == 1 then
 					StaticPopupDialogs["HELPMEPLAY_QUESTMOBSICON_CUSTOM"] = {
 						text = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Custom.Text"],
-						button1 = "OK",
+						button1 = L_GLOBALSTRINGS["OK"],
 						OnShow = function(self, data)
 							self.editBox:SetText("")
 							self.editBox:HighlightText()
 						end,
 						OnAccept = function(self)
-							if StartsWith(self.editBox:GetText(), "#") then
+							if addonTable.StartsWith(self.editBox:GetText(), "#") then
 								icon = string.sub(self.editBox:GetText(), 2)
 								for i = 1, #namePlates do
 									if namePlates[i][addonName.."Icon"] then
@@ -113,7 +113,6 @@ local extrasOptions = {
 						showAlert = true,
 						whileDead = false,
 						hideOnEscape = true,
-						enterClicksFirstButton = true,
 						hasEditBox = true,
 						preferredIndex = 3,
 					}

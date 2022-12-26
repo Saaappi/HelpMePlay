@@ -341,6 +341,7 @@ if (isLocaleSupported) then
 	-- End:		Text Output
 	--
 	-- Start: 	Single Words
+	L_GLOBALSTRINGS["OK"] 																		= "OK"
 	-- End: 	Single Words
 	--
 	-- Start: 	Player Talents

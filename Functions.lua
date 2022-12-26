@@ -23,6 +23,11 @@ local function StringToTable(str, delimiter)
 	return tbl
 end
 
+local function StartsWith(text, prefix)
+	return text:find(prefix, 1, true) == 1
+end
+
 -- Add the functions to the addon table.
 addonTable.Print 			= Print
 addonTable.StringToTable 	= StringToTable
+addonTable.StartsWith 		= StartsWith

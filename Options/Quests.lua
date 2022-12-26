@@ -1,10 +1,6 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function StartsWith(text, prefix)
-	return text:find(prefix, 1, true) == 1
-end
-
 local questOptions = {
 	name = L_GLOBALSTRINGS["Tabs.Quests"],
 	handler = HelpMePlay,
