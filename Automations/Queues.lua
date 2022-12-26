@@ -24,6 +24,17 @@ LFGDungeonReadyDialogEnterDungeonButton:SetScript("OnShow", function()
 	end
 end)
 
+PVPReadyDialogEnterBattleButton:SetScript("OnShow", function()
+	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+	if HelpMePlayDB.QueuesEnabled then
+		if HelpMePlayDB.DevModeEnabled then
+			-- I was told to keep this here as an
+			-- Easter egg.
+			print("accept pvp queue pls.")
+		end
+	end
+end)
+
 e:RegisterEvent("PLAYER_ENTERING_WORLD")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
