@@ -78,7 +78,10 @@ local function EquipItem(itemLink)
 											ClearCursor()
 											C_Container.PickupContainerItem(bagID, slotID)
 											EquipCursorItem(rewardItemType)
-											HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+											if HelpMePlayDB.JunkerEnabled then
+												HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+											end
+											break
 										end
 									end
 								end
