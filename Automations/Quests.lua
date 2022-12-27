@@ -29,12 +29,68 @@ local inventorySlots = {
 }
 local bestItemIndex = 0
 local invEquipSlotId = 0
+local slots = {
+	[1] 	= { 1 }, 		-- Head
+	[2] 	= { 2 }, 		-- Neck
+	[3] 	= { 3 }, 		-- Shoulder
+	[4] 	= { 4 }, 		-- Shirt
+	[5] 	= { 5 }, 		-- Chest
+	[6] 	= { 6 }, 		-- Waist
+	[7] 	= { 7 }, 		-- Legs
+	[8] 	= { 8 }, 		-- Feet
+	[9] 	= { 9 }, 		-- Wrist
+	[10] 	= { 10 }, 		-- Hands
+	[11] 	= { 11, 12 },	-- Finger
+	[12] 	= { 13, 14 },	-- Trinket
+	[13] 	= { 16, 17 }, 	-- One-Handed Weapon
+	[14] 	= { 17 }, 		-- Off-Hand (Shield)
+	[15] 	= { 16 }, 		-- Ranged (Bow, Crossbow, Gun, etc.)
+	[16] 	= { 15 }, 		-- Back
+	[17] 	= { 16 }, 		-- Two-Handed Weapon
+	[20] 	= { 5 }, 		-- Robe (Chest)
+	[21] 	= { 16 }, 		-- Main-Hand Weapon
+	[22] 	= { 17 }, 		-- Off-Hand Weapon
+	[23] 	= { 17 }, 		-- Holdable
+	[26] 	= { 17 }, 		-- Ranged Right Weapon (Wand)
+}
 
-local function EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-	print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
-	ClearCursor()
-	C_Container.PickupContainerItem(bagId, slotId)
-	EquipCursorItem(invEquipSlotId)
+local function EquipItem(itemLink)
+	if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
+		if not UnitAffectingCombat("player") then
+			if itemLink then
+				local rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
+				local rewardItemType = C_Item.GetItemInventoryTypeByID(itemLink)
+				
+				local equippedItem = ItemLocation:CreateFromEquipmentSlot(rewardItemType)
+				if equippedItem:IsValid() then
+					local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+					if rewardItemLevel > equippedItemLevel then
+						C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+							for bagID = 0, 4 do
+								for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
+									local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
+									if containerItemInfo then
+										local containerItemID = C_Item.GetItemID(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+										if containerItemInfo.itemID == containerItemID then
+											local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+											print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+											ClearCursor()
+											C_Container.PickupContainerItem(bagID, slotID)
+											EquipCursorItem(rewardItemType)
+											HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+										end
+									end
+								end
+							end
+						end)
+					end
+				end
+			end
+		else
+			EquipItem(itemLink)
+		end
+	end
 end
 
 local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
@@ -185,35 +241,40 @@ local function CompleteQuest()
 				sellPrices = {}
 			end
 			
-			local itemId = 0
+			local itemID = 0
 			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 				for i=1, numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local questRewardItemLink = GetQuestItemLink("choice", i)
 					if questRewardItemLink then
-						_, itemId = string.split(":", questRewardItemLink); itemId = tonumber(itemId)
+						_, itemID = string.split(":", questRewardItemLink); itemID = tonumber(itemID)
 						-- Before we continue, let's make sure we aren't supposed to take
 						-- a specific reward from the current quest. For example, we always
 						-- want to take the Champion's Purse from Argent Tournament dailies.
-						if addonTable.QUESTREWARDS[itemId] then
+						if addonTable.QUESTREWARDS[itemID] then
 							bestItemIndex = i
 							break
 						end
 
 						if HelpMePlayDB.QuestRewardId == 1 then
 							local currentlyEquippedItems = {}
-							for invSlotID=1, 19 do
-								local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
-								if item:IsValid() then
-									currentlyEquippedItems[invSlotID] = { ["itemType"] = C_Item.GetItemInventoryType(item), ["itemLevel"] = C_Item.GetCurrentItemLevel(item) }
+							for _, invSlot in pairs(slots) do
+								for _, id in ipairs(invSlot) do
+									local item = ItemLocation:CreateFromEquipmentSlot(id)
+									if item:IsValid() then
+										print(C_Item.GetItemLink(item)
+										--currentlyEquippedItems[invSlotID] = { ["itemLink"] = C_Item.GetItemLink(item), ["itemType"] = C_Item.GetItemInventoryType(item), ["itemLevel"] = C_Item.GetCurrentItemLevel(item) }
+									end
 								end
 							end
 							
-							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
+							--[[local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
-							if (rewardItemLevel > currentlyEquippedItems[rewardItemType].itemLevel) then
-								bestItemIndex = i
-							end
+							if currentlyEquippedItems[rewardItemType] then
+								if (rewardItemLevel > currentlyEquippedItems[rewardItemType].itemLevel) then
+									bestItemIndex = i
+								end
+							end]]
 						elseif HelpMePlayDB.QuestRewardId == 2 then
 							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(questRewardItemLink)
 							if sellPrice > 0 then
@@ -232,7 +293,7 @@ local function CompleteQuest()
 				elseif bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
-					GetQuestReward(random(1, numQuestChoices))
+					--GetQuestReward(random(1, numQuestChoices))
 				else
 					-- Get the quest reward at the specified best index. If the quest
 					-- reward automation is told to pick the reward by sell price, then
@@ -324,72 +385,6 @@ local function QUEST_DETAIL(isAutoAccept)
 	end
 end
 
---[[
-	Description:
-		Some NPCs are ignored. We don't want to run any
-		code if the NPC is ignored.
-		
-		QUEST_ACCEPTED
-			Sometimes an accepted quest isn't automatically
-			added to the objective tracker. Let's make sure
-			it is by explicitly calling the AddQuestWatch
-			function and passing the quest ID.
-			
-			If TomTom is installed, Waypoints is enabled,
-			and the quest is listed in the Waypoints table, 
-			then add waypoints to the world and mini map.
-			
-			Quest popups are those frames that appear in the
-			objective tracker. We see these when we loot an
-			item that starts a quest. Since these are auto
-			accepted, let's handle the popup too!
-			
-			Immersion's quest window gets stuck after accepting 
-			a quest. Let's wait a MINUTE amount of time, then 
-			hide the window.
-			
-		QUEST_AUTOCOMPLETE
-			Autocomplete quests are those that can be completed
-			while out in the open world (don't need a quest ender
-			NPC).
-			
-			Get the quest ID from the payload, then call the
-			ShowQuestComplete function. This functions shows the
-			completion window for an autocomplete quest.
-		
-		QUEST_COMPLETE
-			This fires when a player continues to the Complete
-			window of the quest window. This is the window
-			that has the "Complete Quest" button.
-			
-		QUEST_DETAIL
-			This fires whenever a quest's details
-			are being shown to the player.
-			
-			If the quest is an auto accept quest, then
-			let the QUEST_DETAIL function know so we can
-			close the frame after the quest is completed.
-			If not, then complete the quest and let Blizzard
-			close the window.
-			
-		QUEST_GREETING
-			Greetings are lists of multiple quests a giver
-			has for the player. These can be active, available,
-			or both.
-			
-			Active quests are handled before available quests.
-			
-		QUEST_PROGRESS
-			This fires when a quest immediately opens to the
-			completion window, skipping the QUEST_COMPLETE
-			event.
-			
-			These quests rarely, if ever, offer rewards apart
-			from money and experience.
-			
-			Check if the quest is completable, then complete
-			the quest.
-]]--
 e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_AUTOCOMPLETE")
@@ -516,71 +511,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.AutoEquipQuestRewardsEnabled == false or HelpMePlayDB.AutoEquipQuestRewardsEnabled == nil then return end
 		if HelpMePlayDB.QuestRewardId ~= 1 then return end
 	
-		local _, questItemLink = ...
-		C_Timer.After(0.5, function()
-			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
-				if not UnitAffectingCombat("player") then
-					if questItemLink then
-						local questItemItemLevel = GetDetailedItemLevelInfo(questItemLink)
-						local _, _, _, equipLoc = GetItemInfoInstant(questItemLink)
-						local _, questItemId = string.split(":", questItemLink); questItemId = tonumber(questItemId)
-						for bagId = 0, 4 do
-							for slotId = 1, C_Container.GetContainerNumSlots(bagId) do
-								local containerItemInfo = C_Container.GetContainerItemInfo(bagId, slotId)
-								if containerItemInfo then
-									local containerItemId = C_Item.GetItemID(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
-									local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
-									local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagId, slotId))
-									if containerItemId == questItemId then
-										if equipLoc == "INVTYPE_FINGER" then
-											for i = 11, 12 do
-												if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(i)) then
-													if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
-														EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-													end
-												else
-													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-												end
-											end
-										elseif equipLoc == "INVTYPE_TRINKET" then
-											for i = 13, 14 do
-												if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(i)) then
-													if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
-														EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-													end
-												else
-													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-												end
-											end
-										elseif equipLoc == "INVTYPE_WEAPON" then
-											for i = 16, 17 do
-												if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(i)) then
-													if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(i)) ~= 7 then
-														EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-													end
-												else
-													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-												end
-											end
-										else
-											if equipLoc ~= "" then
-												if C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) then
-													if C_Item.GetItemQuality(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc])) ~= 7 then
-														EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-													end
-												else
-													EquipItemUpgrade(bagId, slotId, containerItemIcon, containerItemLink)
-												end
-											end
-										end
-									end
-								end
-							end
-						end
-					end
-				end
-			end
-		end)
+		local _, itemLink = ...
+		EquipItem(itemLink)
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
