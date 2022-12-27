@@ -303,7 +303,9 @@ local function CompleteQuest()
 					-- automatically add the item to the GLOBAL Junker table.
 					--GetQuestReward(bestItemIndex)
 					if HelpMePlayDB.QuestRewardId == 2 then
-						HelpMePlayJunkerGlobalDB[itemId] = true
+						if HelpMePlayDB.JunkerEnabled then
+							HelpMePlayJunkerGlobalDB[itemID] = true
+						end
 					end
 				end
 			end
