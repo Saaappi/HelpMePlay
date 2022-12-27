@@ -46,7 +46,7 @@ local slots = {
 	[14] 	= { 17 }, 		-- Off-Hand (Shield)
 	[15] 	= { 16 }, 		-- Ranged (Bow, Crossbow, Gun, etc.)
 	[16] 	= { 15 }, 		-- Back
-	[17] 	= { 16 }, 		-- Two-Handed Weapon
+	[17] 	= { 16, 17 }, 	-- Two-Handed Weapon
 	[20] 	= { 5 }, 		-- Robe (Chest)
 	[21] 	= { 16 }, 		-- Main-Hand Weapon
 	[22] 	= { 17 }, 		-- Off-Hand Weapon
@@ -273,11 +273,17 @@ local function CompleteQuest()
 							end
 							
 							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
-							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i)); print(rewardItemType)
-							local equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(rewardItemType)); print(equippedItemType)
+							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
+							local equippedItemType = 0
+							if #slots[rewardItemType] > 1 then
+							else
+								equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(slots[rewardItemType][1]))
+							end
+							
 							if equippedItemType == rewardItemType then
-								if (rewardItemLevel > currentlyEquippedItems[rewardItemType].itemLevel) then
+								if (rewardItemLevel > currentlyEquippedItems[slots[equippedItemType][1]].itemLevel) then
 									bestItemIndex = i
+									print(bestItemIndex)
 								end
 							end
 						elseif HelpMePlayDB.QuestRewardId == 2 then
