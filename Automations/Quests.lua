@@ -265,19 +265,21 @@ local function CompleteQuest()
 								for _, id in ipairs(invSlot) do
 									local item = ItemLocation:CreateFromEquipmentSlot(id)
 									if item:IsValid() then
-										print(C_Item.GetItemLink(item))
-										--currentlyEquippedItems[invSlotID] = { ["itemLink"] = C_Item.GetItemLink(item), ["itemType"] = C_Item.GetItemInventoryType(item), ["itemLevel"] = C_Item.GetCurrentItemLevel(item) }
+										if not currentlyEquippedItems[id] then
+											currentlyEquippedItems[id] = { ["itemType"] = C_Item.GetItemInventoryType(item), ["itemLevel"] = C_Item.GetCurrentItemLevel(item) }
+										end
 									end
 								end
 							end
 							
-							--[[local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
-							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
-							if currentlyEquippedItems[rewardItemType] then
+							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
+							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i)); print(rewardItemType)
+							local equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(rewardItemType)); print(equippedItemType)
+							if equippedItemType == rewardItemType then
 								if (rewardItemLevel > currentlyEquippedItems[rewardItemType].itemLevel) then
 									bestItemIndex = i
 								end
-							end]]
+							end
 						elseif HelpMePlayDB.QuestRewardId == 2 then
 							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(questRewardItemLink)
 							if sellPrice > 0 then
@@ -311,9 +313,9 @@ local function CompleteQuest()
 			end
 		end
 	elseif numQuestChoices == 1 then
-		GetQuestReward(1)
+		--GetQuestReward(1)
 	else
-		QuestFrameCompleteQuestButton:Click()
+		--QuestFrameCompleteQuestButton:Click()
 	end
 end
 
