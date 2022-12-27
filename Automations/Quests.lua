@@ -276,14 +276,20 @@ local function CompleteQuest()
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
 							local equippedItemType = 0
 							if #slots[rewardItemType] > 1 then
+								for _, invSlotID in ipairs(slots[rewardItemType]) do
+									equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
+									if equippedItemType == rewardItemType then
+										if (rewardItemLevel > currentlyEquippedItems[invSlotID].itemLevel) then
+											bestItemIndex = i
+										end
+									end
+								end
 							else
 								equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(slots[rewardItemType][1]))
-							end
-							
-							if equippedItemType == rewardItemType then
-								if (rewardItemLevel > currentlyEquippedItems[slots[equippedItemType][1]].itemLevel) then
-									bestItemIndex = i
-									print(bestItemIndex)
+								if equippedItemType == rewardItemType then
+									if (rewardItemLevel > currentlyEquippedItems[slots[equippedItemType][1]].itemLevel) then
+										bestItemIndex = i
+									end
 								end
 							end
 						elseif HelpMePlayDB.QuestRewardId == 2 then
@@ -304,12 +310,12 @@ local function CompleteQuest()
 				elseif bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
-					--GetQuestReward(random(1, numQuestChoices))
+					GetQuestReward(random(1, numQuestChoices))
 				else
 					-- Get the quest reward at the specified best index. If the quest
 					-- reward automation is told to pick the reward by sell price, then
 					-- automatically add the item to the GLOBAL Junker table.
-					--GetQuestReward(bestItemIndex)
+					GetQuestReward(bestItemIndex)
 					if HelpMePlayDB.QuestRewardId == 2 then
 						if HelpMePlayDB.JunkerEnabled then
 							HelpMePlayJunkerGlobalDB[itemID] = true
@@ -319,9 +325,9 @@ local function CompleteQuest()
 			end
 		end
 	elseif numQuestChoices == 1 then
-		--GetQuestReward(1)
+		GetQuestReward(1)
 	else
-		--QuestFrameCompleteQuestButton:Click()
+		QuestFrameCompleteQuestButton:Click()
 	end
 end
 
