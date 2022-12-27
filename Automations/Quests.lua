@@ -58,6 +58,7 @@ local function EquipItem(itemLink)
 	if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 		if not UnitAffectingCombat("player") then
 			if itemLink then
+				local _, rewardItemID = string.split(":", itemLink); rewardItemID = tonumber(rewardItemID)
 				local rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
 				local rewardItemType = C_Item.GetItemInventoryTypeByID(itemLink)
 				
@@ -70,9 +71,8 @@ local function EquipItem(itemLink)
 								for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
 									local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
 									if containerItemInfo then
-										local containerItemID = C_Item.GetItemID(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-										if containerItemInfo.itemID == containerItemID then
+										if containerItemInfo.itemID == rewardItemID then
 											local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 											print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 											ClearCursor()
