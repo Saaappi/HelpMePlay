@@ -96,101 +96,6 @@ local function EquipItem(itemLink)
 	end
 end
 
-local function IsItemAnUpgrade(itemId, itemLink, rewardIndex)
-	local questRewardItemLevel = GetDetailedItemLevelInfo(itemLink)
-	local _, _, quality, _, _, _, _, _, equipLoc, _, sellPrice = GetItemInfo(itemLink)
-	
-	if equipLoc ~= "" then
-		local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-		if itemExists and (equipLoc ~= "INVTYPE_FINGER" or equipLoc ~= "INVTYPE_TRINKET" or equipLoc ~= "INVTYPE_WEAPON") then
-			-- The player has an item equipped in the
-			-- currently examined slot.
-			local currentItemEquipLoc = select(4, GetItemInfoInstant(C_Item.GetItemLink(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))))
-			if equipLoc == currentItemEquipLoc then
-				-- The item equip locations are a match.
-				-- We only ever want to consider rewards
-				-- that match what the player has equipped.
-				local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(inventorySlots[equipLoc]))
-				if questRewardItemLevel > equippedItemItemLevel then
-					print("Quest Reward iLvl: " .. questRewardItemLevel)
-					print("Equipped Item iLvl: " .. equippedItemItemLevel)
-					-- The quest reward has a higher item level
-					-- than what's equipped.
-					-- This is the new BEST item.
-					bestItemIndex = rewardIndex
-					invEquipSlotId = inventorySlots[equipLoc]
-				end
-			end
-		elseif equipLoc == "INVTYPE_FINGER" then
-			for invSlotId = INVSLOT_FINGER1, INVSLOT_FINGER2 do
-				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)); print(itemExists)
-				if not itemExists then
-					bestItemIndex = rewardIndex
-					invEquipSlotId = invSlotId
-				else
-					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if questRewardItemLevel > equippedItemItemLevel then
-						print("Quest Reward iLvl: " .. questRewardItemLevel)
-						print("Equipped Item iLvl: " .. equippedItemItemLevel)
-						-- The quest reward has a higher item level
-						-- than what's equipped.
-						-- This is the new BEST item.
-						bestItemIndex = rewardIndex
-						invEquipSlotId = invSlotId
-					end
-				end
-			end
-		elseif equipLoc == "INVTYPE_TRINKET" then
-			for invSlotId = INVSLOT_TRINKET1, INVSLOT_TRINKET2 do
-				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)); print(itemExists)
-				if not itemExists then
-					bestItemIndex = rewardIndex
-					invEquipSlotId = invSlotId
-				else
-					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if questRewardItemLevel > equippedItemItemLevel then
-						print("Quest Reward iLvl: " .. questRewardItemLevel)
-						print("Equipped Item iLvl: " .. equippedItemItemLevel)
-						-- The quest reward has a higher item level
-						-- than what's equipped.
-						-- This is the new BEST item.
-						bestItemIndex = rewardIndex
-						invEquipSlotId = invSlotId
-					end
-				end
-			end
-		elseif equipLoc == "INVTYPE_WEAPON" then
-			for invSlotId = INVSLOT_MAINHAND, INVSLOT_OFFHAND do
-				local itemExists = C_Item.DoesItemExist(ItemLocation:CreateFromEquipmentSlot(invSlotId)); print(itemExists)
-				if not itemExists then
-					bestItemIndex = rewardIndex
-					invEquipSlotId = invSlotId
-				else
-					local equippedItemItemLevel = C_Item.GetCurrentItemLevel(ItemLocation:CreateFromEquipmentSlot(invSlotId))
-					if questRewardItemLevel > equippedItemItemLevel then
-						print("Quest Reward iLvl: " .. questRewardItemLevel)
-						print("Equipped Item iLvl: " .. equippedItemItemLevel)
-						-- The quest reward has a higher item level
-						-- than what's equipped.
-						-- This is the new BEST item.
-						bestItemIndex = rewardIndex
-						invEquipSlotId = invSlotId
-					end
-				end
-			end
-		else
-			-- The player doesn't have anything in the currently
-			-- examined slot. Since there's nothing for comparison,
-			-- we can't continue.
-			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"])
-			if HelpMePlayDB.DevModeEnabled then
-				print(itemLink .. " | EnumID: " .. C_Item.GetItemInventoryTypeByID(itemId))
-			end
-			bestItemIndex = -1
-		end
-	end
-end
-
 hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
 	if IsControlKeyDown() or IsAltKeyDown() then
 		C_QuestLog.SetSelectedQuest(self.questID)
@@ -305,9 +210,7 @@ local function CompleteQuest()
 					end
 				end
 				
-				if bestItemIndex == -1 then
-					return
-				elseif bestItemIndex == 0 then
+				if bestItemIndex == 0 then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
 					GetQuestReward(random(1, numQuestChoices))
