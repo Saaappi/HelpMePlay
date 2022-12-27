@@ -262,7 +262,7 @@ local function CompleteQuest()
 								for _, id in ipairs(invSlot) do
 									local item = ItemLocation:CreateFromEquipmentSlot(id)
 									if item:IsValid() then
-										print(C_Item.GetItemLink(item)
+										print(C_Item.GetItemLink(item))
 										--currentlyEquippedItems[invSlotID] = { ["itemLink"] = C_Item.GetItemLink(item), ["itemType"] = C_Item.GetItemInventoryType(item), ["itemLevel"] = C_Item.GetCurrentItemLevel(item) }
 									end
 								end
