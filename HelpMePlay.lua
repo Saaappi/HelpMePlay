@@ -81,7 +81,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if HelpMePlayJunkerDB == nil then
 				HelpMePlayJunkerDB = {}
-				HelpMePlayOptionsDB["Junker"] = {}
+				HelpMePlayDB["Junker"] = {}
 			end
 			if HelpMePlayJunkerBlacklistDB == nil then
 				HelpMePlayJunkerBlacklistDB = {}
