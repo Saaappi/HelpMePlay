@@ -42,7 +42,11 @@ local function EquipItem(itemLink)
 					equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 					if equippedItem:IsValid() then
 						local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+						local equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 						if rewardItemLevel > equippedItemLevel then
+							-- If the item would replace an heirloom, and the player's level
+							-- is lower than 60, then don't equip it.
+							if equippedItemQuality == 7 and UnitLevel("player") <= addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then return end
 							C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 								for bagID = 0, 4 do
 									for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
