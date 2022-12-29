@@ -145,12 +145,11 @@ local function CompleteQuest()
 						if HelpMePlayDB.QuestRewardId == 1 then
 							local currentlyEquippedItems = {}
 							for _, invSlot in pairs(slots) do
-								for _, id in ipairs(invSlot) do
-									local item = ItemLocation:CreateFromEquipmentSlot(id)
+								for _, invSlotID in ipairs(invSlot) do
+									local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 									if item:IsValid() then
-										if not currentlyEquippedItems[id] then
-											currentlyEquippedItems[id] = { ["itemType"] = C_Item.GetItemInventoryType(item), ["itemLevel"] = C_Item.GetCurrentItemLevel(item) }
-										end
+										currentlyEquippedItems[invSlotID] = C_Item.GetCurrentItemLevel(item)
+										break
 									end
 								end
 							end
@@ -158,19 +157,10 @@ local function CompleteQuest()
 							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
 							local equippedItemType = 0
-							if #slots[rewardItemType] > 1 then
-								for _, invSlotID in ipairs(slots[rewardItemType]) do
-									equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
-									if equippedItemType == rewardItemType then
-										if (rewardItemLevel > currentlyEquippedItems[invSlotID].itemLevel) then
-											bestItemIndex = i
-										end
-									end
-								end
-							else
-								equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(slots[rewardItemType][1]))
+							for _, invSlotID in ipairs(slots[rewardItemType]) do
+								equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
 								if equippedItemType == rewardItemType then
-									if (rewardItemLevel > currentlyEquippedItems[slots[equippedItemType][1]].itemLevel) then
+									if rewardItemLevel > currentlyEquippedItems[invSlotID] then
 										bestItemIndex = i
 									end
 								end
