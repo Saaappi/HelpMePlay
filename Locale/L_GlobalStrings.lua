@@ -197,7 +197,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.DF.Title"]									= "Dragonflight"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.DF.Desc"]									= "Automates the first zone to select in |cffFFD100Dragonflight|r."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"]										= "Quest Rewards"
-	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected. |cffFFD100Note|r: This automation is ignored for max-level players.\n\n|cffFFD100Item Level|r: Selects the item of the highest item level that would replace a non-heirloom item.\n\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
+	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"]										= "Automates how quest rewards are selected. |cffFFD100Note|r: This automation is ignored for max-level players.\n\n|cffFFD100Item Level|r: Selects the item with the highest item level upgrade value.\n\n|cffFFD100Sell Price|r: Selects the reward with the highest sell price and automatically adds it to Junker."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"]									= "Item Level"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"]									= "Sell Price"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Name"]											= "Icon"
