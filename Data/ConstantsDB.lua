@@ -9,6 +9,7 @@ local CONSTANTS = {
 	-- Levels
 	["MAX_PLAYER_LEVEL"] 		= 70,
 	["WAR_MODE_MAX_LEVEL"]		= 60,
+	["MAX_HEIRLOOM_LEVEL"]		= 59,
 	-- Dragonriding
 	["DRAGONRIDING_TREE_ID"] 	= 672,
 }
