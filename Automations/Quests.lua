@@ -26,7 +26,7 @@ local slots = {
 	[21] 	= { 16 }, 		-- Main-Hand Weapon
 	[22] 	= { 17 }, 		-- Off-Hand Weapon
 	[23] 	= { 17 }, 		-- Holdable
-	[26] 	= { 17 }, 		-- Ranged Right Weapon (Wand)
+	[26] 	= { 16 }, 		-- Ranged Right Weapon
 }
 
 local function EquipItem(itemLink)
@@ -168,10 +168,13 @@ local function CompleteQuest()
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
 							local equippedItemType = 0
 							for _, invSlotID in ipairs(slots[rewardItemType]) do
-								equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
-								if equippedItemType == rewardItemType then
-									if rewardItemLevel > currentlyEquippedItems[invSlotID] then
-										bestItemIndex = i
+								local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
+								if item:IsValid() then
+									equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
+									if equippedItemType == rewardItemType then
+										if rewardItemLevel > currentlyEquippedItems[invSlotID] then
+											bestItemIndex = i
+										end
 									end
 								end
 							end
