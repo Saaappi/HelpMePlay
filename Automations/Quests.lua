@@ -33,43 +33,49 @@ local function EquipItem(itemLink)
 	if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 		if not UnitAffectingCombat("player") then
 			if itemLink then
+				local equipSlot = 0
 				local _, rewardItemID = string.split(":", itemLink); rewardItemID = tonumber(rewardItemID)
 				local rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
 				local rewardItemType = C_Item.GetItemInventoryTypeByID(itemLink)
 				
 				local equippedItem = 0
+				local equippedItemQuality = 0
 				for _, invSlotID in ipairs(slots[rewardItemType]) do
 					equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 					if equippedItem:IsValid() then
 						local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-						local equippedItemQuality = C_Item.GetItemQuality(equippedItem)
+						equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 						if rewardItemLevel > equippedItemLevel then
-							-- If the item would replace an heirloom, and the player's level
-							-- is lower than 60, then don't equip it.
-							if equippedItemQuality == 7 and UnitLevel("player") <= addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then return end
-							C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-								for bagID = 0, 4 do
-									for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
-										local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
-										if containerItemInfo then
-											local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-											if containerItemInfo.itemID == rewardItemID then
-												local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-												print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
-												ClearCursor()
-												C_Container.PickupContainerItem(bagID, slotID)
-												EquipCursorItem(rewardItemType)
-												if HelpMePlayDB.JunkerEnabled then
-													HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
-												end
-												break
-											end
-										end
-									end
-								end
-							end)
+							equipSlot = rewardItemLevel
 						end
 					end
+				end
+				
+				if equipSlot > 0 then
+					-- If the item would replace an heirloom, and the player's level
+					-- is lower than 60, then don't equip it.
+					if equippedItemQuality == 7 and UnitLevel("player") <= addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then return end
+					C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+						for bagID = 0, 4 do
+							for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
+								local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
+								if containerItemInfo then
+									local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+									if containerItemInfo.itemID == rewardItemID then
+										local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+										print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+										ClearCursor()
+										C_Container.PickupContainerItem(bagID, slotID)
+										EquipCursorItem(rewardItemType)
+										if HelpMePlayDB.JunkerEnabled then
+											HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+										end
+										break
+									end
+								end
+							end
+						end
+					end)
 				end
 			end
 		else
