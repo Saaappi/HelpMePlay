@@ -181,7 +181,6 @@ local function SelectGossipOption(options, npcId, parentMapID)
 					end
 				end
 				if numConditionsMatched == numConditions then
-					print(gossip.o)
 					C_GossipInfo.SelectOption(gossip.o)
 					return
 				end
