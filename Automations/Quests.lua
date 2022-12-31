@@ -66,7 +66,7 @@ local function EquipItem(itemLink)
 											print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
 											ClearCursor()
 											C_Container.PickupContainerItem(bagID, slotID)
-											EquipCursorItem(rewardItemType)
+											EquipCursorItem(equipSlot)
 											if HelpMePlayDB.JunkerEnabled then
 												HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
 											end
