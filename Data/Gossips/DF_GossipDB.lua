@@ -385,6 +385,19 @@ local DIALOG_DF = {
 				["o"] 	= 56408,
 				["c"] 	= { "none" },
 			},
+			{
+				["o"] 	= 106935,
+				["c"] 	= { "none" },
+			},
+		},
+	},
+	[193364] = { -- Lithragosa
+		["g"] = {
+			{
+				["o"] 	= 55584,
+				["c"] 	= { "quests.active" },
+				["q"] 	= { 68798 }, -- Dragon Glyphs and You
+			},
 		},
 	},
 	[192795] = { -- Scalecommander Emberthal
