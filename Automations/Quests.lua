@@ -46,7 +46,10 @@ local function EquipItem(itemLink)
 							local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 							equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 							if rewardItemLevel > equippedItemLevel then
+								print("Reward Item Level: " .. rewardItemLevel)
+								print("Equipped Item Level: " .. equippedItemLevel)
 								equipSlot = invSlotID
+								print(equipSlot)
 							end
 						end
 					end
