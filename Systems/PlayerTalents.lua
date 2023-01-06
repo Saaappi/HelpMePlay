@@ -12,7 +12,6 @@ local function PurchaseTalents(configID, tbl, specID)
 			if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
 				local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
 				local entryInfo = C_Traits.GetEntryInfo(configID, traits.e)
-				--local spellID = C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID
 				if #nodeInfo.entryIDs > 1 then
 					C_Traits.SetSelection(configID, traits.n, traits.e)
 				else
@@ -21,7 +20,6 @@ local function PurchaseTalents(configID, tbl, specID)
 			end
 		end
 		C_Traits.CommitConfig(configID)
-		ClassTalentFrame.TalentsTab.ApplyButton:Click("LeftButton")
 	end)
 end
 
@@ -38,8 +36,6 @@ e:SetScript("OnEvent", function(self, event, addon)
 				ClassTalentFrame.TalentsTab.ApplyButton,
 				"UIPanelButtonTemplate"
 			)
-			
-			ClassTalentFrame.TalentsTab.ApplyButton:SetPoint("BOTTOM", 0, 15)
 		
 			HMPTalentButton:SetSize(50, 20)
 			HMPTalentButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
@@ -90,9 +86,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 					local specID = PlayerUtil.GetCurrentSpecID()
 					local _, _, classID = UnitClass("player")
 					
-					if classID == 1 then
+					if classID == 1 then -- Warrior
 						PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
-					elseif classID == 2 then
+					elseif classID == 2 then -- Paladin
 						PurchaseTalents(configID, addonTable.PALADIN_TALENTS, specID)
 					elseif classID == 3 then -- Hunter
 						PurchaseTalents(configID, addonTable.HUNTER_TALENTS, specID)
@@ -110,9 +106,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 						PurchaseTalents(configID, addonTable.WARLOCK_TALENTS, specID)
 					elseif classID == 10 then -- Monk
 						PurchaseTalents(configID, addonTable.MONK_TALENTS, specID)
-					elseif classID == 11 then
+					elseif classID == 11 then -- Druid
 						PurchaseTalents(configID, addonTable.DRUID_TALENTS, specID)
-					elseif classID == 12 then
+					elseif classID == 12 then -- Demon Hunter
 						PurchaseTalents(configID, addonTable.DEMON_HUNTER_TALENTS, specID)
 					elseif classID == 13 then -- Evoker
 						PurchaseTalents(configID, addonTable.EVOKER_TALENTS, specID)
@@ -133,7 +129,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			end)
 			
 			if HelpMePlayDB.TalentButtonEnabled then
-				HMPTalentButton:SetPoint("CENTER", ClassTalentFrame.TalentsTab.ApplyButton, "CENTER", 0, 30)
+				HMPTalentButton:SetPoint("CENTER", ClassTalentFrame.TalentsTab.ApplyButton, "CENTER", 0, -20)
 				HMPTalentButton:Show()
 			end
 		end)

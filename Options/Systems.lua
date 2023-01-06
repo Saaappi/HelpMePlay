@@ -196,7 +196,23 @@ local systemsOptions = {
 				end
 				return HelpMePlayDB.TalentButtonEnabled
 			end,
-			set = function(_, val) HelpMePlayDB.TalentButtonEnabled = val end,
+			set = function(_, val)
+				HelpMePlayDB.TalentButtonEnabled = val
+				StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
+					text = "Toggling this option requires a UI reload. Would you like to reload now?", -- TODO: Localize me!
+					button1 = YES,
+					button2 = CANCEL,
+					OnAccept = function(self, data)
+						ReloadUI()
+					end,
+					showAlert = true,
+					whileDead = false,
+					hideOnEscape = true,
+					enterClicksFirstButton = false,
+					preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
+			end,
 		},
 		transmogHeader = {
 			name = L_GLOBALSTRINGS["Header.Transmog"],
@@ -214,7 +230,23 @@ local systemsOptions = {
 				end
 				return HelpMePlayDB.TransmogButtonEnabled
 			end,
-			set = function(_, val) HelpMePlayDB.TransmogButtonEnabled = val end,
+			set = function(_, val)
+				HelpMePlayDB.TransmogButtonEnabled = val
+				StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
+					text = "Toggling this option requires a UI reload. Would you like to reload now?", -- TODO: Localize me!
+					button1 = YES,
+					button2 = CANCEL,
+					OnAccept = function(self, data)
+						ReloadUI()
+					end,
+					showAlert = true,
+					whileDead = false,
+					hideOnEscape = true,
+					enterClicksFirstButton = false,
+					preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
+			end,
 		},
 		dragonridingHeader = {
 			name = L_GLOBALSTRINGS["Header.Dragonriding"],
@@ -232,7 +264,23 @@ local systemsOptions = {
 				end
 				return HelpMePlayDB.DragonridingButtonEnabled
 			end,
-			set = function(_, val) HelpMePlayDB.DragonridingButtonEnabled = val end,
+			set = function(_, val)
+				HelpMePlayDB.DragonridingButtonEnabled = val
+				StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
+					text = "Toggling this option requires a UI reload. Would you like to reload now?", -- TODO: Localize me!
+					button1 = YES,
+					button2 = CANCEL,
+					OnAccept = function(self, data)
+						ReloadUI()
+					end,
+					showAlert = true,
+					whileDead = false,
+					hideOnEscape = true,
+					enterClicksFirstButton = false,
+					preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
+			end,
 		},
 		partyPlayHeader = {
 			name = L_GLOBALSTRINGS["Header.PartyPlay"],
