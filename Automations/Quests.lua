@@ -172,14 +172,16 @@ local function CompleteQuest()
 							
 							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
-							local equippedItemType = 0
-							for _, invSlotID in ipairs(slots[rewardItemType]) do
-								local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
-								if item:IsValid() then
-									equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
-									if equippedItemType == rewardItemType then
-										if rewardItemLevel > currentlyEquippedItems[invSlotID] then
-											bestItemIndex = i
+							if rewardItemType ~= 0 then
+								local equippedItemType = 0
+								for _, invSlotID in ipairs(slots[rewardItemType]) do
+									local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
+									if item:IsValid() then
+										equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
+										if equippedItemType == rewardItemType then
+											if rewardItemLevel > currentlyEquippedItems[invSlotID] then
+												bestItemIndex = i
+											end
 										end
 									end
 								end
