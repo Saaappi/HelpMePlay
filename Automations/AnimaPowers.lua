@@ -24,6 +24,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local responseId = 0
 				local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 				local bestPower = ""
+				local bestPowerID = 0
 				local unrankedPowers = {}
 				if choiceInfo then
 					local numOptions = #choiceInfo.options
@@ -58,6 +59,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 										highestPriority = priority
 										responseId = powerInfo[i].buttons[1].id
 										bestPower = powerInfo
+										bestPowerID = i
 										
 										for j = 1, maxBuffs do
 											local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
@@ -74,6 +76,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 													stackCount = count
 													responseId = powerInfo[i].buttons[1].id
 													bestPower = powerInfo
+													bestPowerID = i
 													break
 												end
 											end
@@ -88,18 +91,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 						if bestPower == "" then
 							local randomNum = math.random(1, #unrankedPowers)
 							bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+							bestPowerID = randomNum
 							responseId = bestPower.options[randomNum].buttons[1].id
 						end
 					end
 
 					if responseId ~= 0 then
 						if HelpMePlayDB.TorghastPowersId == 1 then
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower[1].spellID))
+							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower[bestPowerID].choiceArtID .. ":0|t" .. GetSpellLink(bestPower[bestPowerID].spellID))
 							highestPriority = 9
 						else
 							C_PlayerChoice.SendPlayerChoiceResponse(responseId)
 							HideUIPanel(PlayerChoiceFrame)
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower[1].spellID))
+							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower[bestPowerID].choiceArtID .. ":0|t" .. GetSpellLink(bestPower[bestPowerID].spellID))
 							highestPriority = 9
 						end
 					end
