@@ -5,28 +5,28 @@ local itemLevels = {}
 local sellPrices = {}
 local bestItemIndex = 0
 local slots = {
-	[1] 	= { 1 }, 		-- Head
-	[2] 	= { 2 }, 		-- Neck
-	[3] 	= { 3 }, 		-- Shoulder
-	[4] 	= { 4 }, 		-- Shirt
-	[5] 	= { 5 }, 		-- Chest
-	[6] 	= { 6 }, 		-- Waist
-	[7] 	= { 7 }, 		-- Legs
-	[8] 	= { 8 }, 		-- Feet
-	[9] 	= { 9 }, 		-- Wrist
-	[10] 	= { 10 }, 		-- Hands
+	[1] 	= 1, 		-- Head
+	[2] 	= 2, 		-- Neck
+	[3] 	= 3, 		-- Shoulder
+	[4] 	= 4, 		-- Shirt
+	[5] 	= 5, 		-- Chest
+	[6] 	= 6, 		-- Waist
+	[7] 	= 7, 		-- Legs
+	[8] 	= 8, 		-- Feet
+	[9] 	= 9, 		-- Wrist
+	[10] 	= 10, 		-- Hands
 	[11] 	= { 11, 12 },	-- Finger
 	[12] 	= { 13, 14 },	-- Trinket
 	[13] 	= { 16, 17 }, 	-- One-Handed Weapon
-	[14] 	= { 17 }, 		-- Off-Hand (Shield)
-	[15] 	= { 16 }, 		-- Ranged (Bow, Crossbow, Gun, etc.)
-	[16] 	= { 15 }, 		-- Back
+	[14] 	= 17, 		-- Off-Hand (Shield)
+	[15] 	= 16, 		-- Ranged (Bow, Crossbow, Gun, etc.)
+	[16] 	= 15, 		-- Back
 	[17] 	= { 16, 17 }, 	-- Two-Handed Weapon
-	[20] 	= { 5 }, 		-- Robe (Chest)
-	[21] 	= { 16 }, 		-- Main-Hand Weapon
-	[22] 	= { 17 }, 		-- Off-Hand Weapon
-	[23] 	= { 17 }, 		-- Holdable
-	[26] 	= { 16 }, 		-- Ranged Right Weapon
+	[20] 	= 5, 		-- Robe (Chest)
+	[21] 	= 16, 		-- Main-Hand Weapon
+	[22] 	= 17, 		-- Off-Hand Weapon
+	[23] 	= 17, 		-- Holdable
+	[26] 	= 16, 		-- Ranged Right Weapon
 }
 
 local function EquipItem(itemLink)
@@ -41,16 +41,24 @@ local function EquipItem(itemLink)
 					local equippedItem = 0
 					local equippedItemQuality = 0
 					if rewardItemType ~= 0 then
-						for _, invSlotID in ipairs(slots[rewardItemType]) do
-							equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
+						if type(slots[rewardItemType]) == "table" then
+							for _, invSlotID in ipairs(slots[rewardItemType]) do
+								equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
+								if equippedItem:IsValid() then
+									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
+									if rewardItemLevel > equippedItemLevel then
+										equipSlot = invSlotID
+									end
+								end
+							end
+						else
+							equippedItem = ItemLocation:CreateFromEquipmentSlot(slots[rewardItemType])
 							if equippedItem:IsValid() then
 								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 								if rewardItemLevel > equippedItemLevel then
-									print("Reward Item Level: " .. rewardItemLevel)
-									print("Equipped Item Level: " .. equippedItemLevel)
-									equipSlot = invSlotID
-									print(equipSlot)
+									equipSlot = slots[rewardItemType]
 								end
 							end
 						end
@@ -159,32 +167,34 @@ local function CompleteQuest()
 						end
 
 						if HelpMePlayDB.QuestRewardId == 1 then
-							local currentlyEquippedItems = {}
-							for _, invSlot in pairs(slots) do
-								for _, invSlotID in ipairs(invSlot) do
-									local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
-									if item:IsValid() then
-										currentlyEquippedItems[invSlotID] = C_Item.GetCurrentItemLevel(item)
-										break
-									end
-								end
-							end
-							
 							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
 							if rewardItemType ~= 0 then
 								local equippedItemType = 0
-								for _, invSlotID in ipairs(slots[rewardItemType]) do
-									local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
+								if type(slots[rewardItemType]) == "table" then
+									for _, invSlotID in ipairs(slots[rewardItemType]) do
+										local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
+										if item:IsValid() then
+											equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(item.equipmentSlotIndex))
+											if equippedItemType == rewardItemType then
+												if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+													bestItemIndex = i
+												end
+											end
+										end
+									end
+								else
+									local item = ItemLocation:CreateFromEquipmentSlot(slots[rewardItemType])
 									if item:IsValid() then
-										equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(invSlotID))
+										equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(item.equipmentSlotIndex))
 										if equippedItemType == rewardItemType then
-											if rewardItemLevel > currentlyEquippedItems[invSlotID] then
+											if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
 												bestItemIndex = i
 											end
 										end
 									end
 								end
+								
 							end
 						elseif HelpMePlayDB.QuestRewardId == 2 then
 							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(questRewardItemLink)

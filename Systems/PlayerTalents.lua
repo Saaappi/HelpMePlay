@@ -2,10 +2,6 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function GetConfigs()
-	return C_ClassTalents.GetConfigIDsBySpecID(PlayerUtil.GetCurrentSpecID())
-end
-
 local function PurchaseTalents(configID, tbl, specID)
 	C_Timer.After(0.25, function()
 		for _, traits in ipairs(tbl[specID]) do
@@ -17,6 +13,7 @@ local function PurchaseTalents(configID, tbl, specID)
 				else
 					C_Traits.PurchaseRank(configID, traits.n)
 				end
+				print("Learned " .. GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID))
 			end
 		end
 		C_Traits.CommitConfig(configID)
