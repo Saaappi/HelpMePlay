@@ -2,19 +2,26 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+local function TalentPurchased(entryInfo)
+	print("Learned " .. GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID))
+end
+
 local function PurchaseTalents(configID, tbl, specID)
 	C_Timer.After(0.25, function()
 		for _, traits in ipairs(tbl[specID]) do
 			if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
 				local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
 				local entryInfo = C_Traits.GetEntryInfo(configID, traits.e)
-				if entryInfo.isAvailable then
-					if #nodeInfo.entryIDs > 1 then
-						C_Traits.SetSelection(configID, traits.n, traits.e)
-					else
-						C_Traits.PurchaseRank(configID, traits.n)
+				if #nodeInfo.entryIDs > 1 then
+					local success = C_Traits.SetSelection(configID, traits.n, traits.e)
+					if success then
+						TalentPurchased(entryInfo)
 					end
-					print("Learned " .. GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID))
+				else
+					local success = C_Traits.PurchaseRank(configID, traits.n)
+					if success then
+						TalentPurchased(entryInfo)
+					end
 				end
 			end
 		end
