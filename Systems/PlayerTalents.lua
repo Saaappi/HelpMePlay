@@ -8,12 +8,14 @@ local function PurchaseTalents(configID, tbl, specID)
 			if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
 				local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
 				local entryInfo = C_Traits.GetEntryInfo(configID, traits.e)
-				if #nodeInfo.entryIDs > 1 then
-					C_Traits.SetSelection(configID, traits.n, traits.e)
-				else
-					C_Traits.PurchaseRank(configID, traits.n)
+				if entryInfo.isAvailable then
+					if #nodeInfo.entryIDs > 1 then
+						C_Traits.SetSelection(configID, traits.n, traits.e)
+					else
+						C_Traits.PurchaseRank(configID, traits.n)
+					end
+					print("Learned " .. GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID))
 				end
-				print("Learned " .. GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID))
 			end
 		end
 		C_Traits.CommitConfig(configID)
