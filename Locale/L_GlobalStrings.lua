@@ -301,6 +301,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"]												= "|cffA335EEEpic|r"
 	-- End: 	Junker Options (Options_Junker.lua)
 	--
+	-- Start: 	System Options
+	L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"] 											= "Toggling this option requires a UI reload. Would you like to reload now?"
+	--
+	--
 	-- Start: 	UI
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Text"] 								= "<->"
 	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Desc"] 								= "Expands or collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
