@@ -338,6 +338,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"] 											= "Equipping an item upgrade."
 	L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"] 											= "No match found. Do you have anything equipped?"
 	L_GLOBALSTRINGS["Text.Output.DevModeDisabled"] 												= "Developer Mode must be enabled to use this command."
+	L_GLOBALSTRINGS["Text.Output.TalentLearned"] 												= "Learned a talent."
 	-- End:		Text Output
 	--
 	-- Start: 	Single Words
