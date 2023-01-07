@@ -5,7 +5,7 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local function TalentPurchased(entryInfo)
 	local _, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 	local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
-	print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.TalentLearned"] .. " %s %s", icon, spellLink)
+	print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.TalentLearned"] .. " %s %s", icon, spellLink))
 end
 
 local function PurchaseTalents(configID, tbl, specID)

@@ -2,24 +2,6 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
---[[
-	Description:
-		Player choices are in-game decisions the player makes to determine
-		how they want to play the game, progress their character, etc.
-		
-		I add support for player choices as they appear. For example, selecting
-		a covenant is a player choice.
-		
-		If the player choice frame is visible, then get the ID of whatever is
-		offering the player choice. Player choices can be offered through NPCs,
-		game objects, or other sources.
-		
-		Currently supported:
-		- Shadowlands: Story Mode or Threads of Fate
-		- Shadowlands: Covenant Selection
-		- Warlords: Gorgrond Outpost Selection
-		- Classic: Command Boards (Tanaan Jungle)
-]]--
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
