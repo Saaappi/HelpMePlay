@@ -45,15 +45,18 @@ local function EquipItem(itemLink, inventoryType)
 									if containerItemInfo then
 										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 										if containerItemInfo.itemID == rewardItemID then
-											local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-											print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
-											ClearCursor()
-											C_Container.PickupContainerItem(bagID, slotID)
-											EquipCursorItem(equipSlot)
-											if HelpMePlayDB.JunkerEnabled then
-												HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+											local isBound = C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+											if isBound then
+												local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+												print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+												ClearCursor()
+												C_Container.PickupContainerItem(bagID, slotID)
+												EquipCursorItem(equipSlot)
+												if HelpMePlayDB.JunkerEnabled then
+													HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+												end
+												break
 											end
-											break
 										end
 									end
 								end
