@@ -73,13 +73,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
-				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID); id = tonumber(id)
-				if id then
-					if id == 74594 or id == 81119 then
-						-- 74594: Durotan
-						-- 81119: Drafting Table
-						C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
-						HideUIPanel(PlayerChoiceFrame)
+				if choiceInfo.objectGUID then
+					local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID)
+					if tonumber(id) then id = tonumber(id) end
+				
+					if id then
+						if id == 74594 or id == 81119 then
+							-- 74594: Durotan
+							-- 81119: Drafting Table
+							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
+							HideUIPanel(PlayerChoiceFrame)
+						end
 					end
 				end
 			end

@@ -10,9 +10,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
-				local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID)
-				if tonumber(id) then
-					id = tonumber(id)
+				if choiceInfo.objectGUID then
+					local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID)
+					if tonumber(id) then id = tonumber(id) end
 				else
 					id = choiceInfo.choiceID
 				end
