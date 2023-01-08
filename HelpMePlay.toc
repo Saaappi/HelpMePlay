@@ -91,6 +91,7 @@ Automations\Repairs.lua
 Automations\Cinematics.lua
 Automations\Quests.lua
 Automations\FlightPaths.lua
+Automations\Loot.lua
 Automations\Misc.lua
 
 # Systems
