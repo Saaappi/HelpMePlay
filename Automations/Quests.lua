@@ -17,8 +17,8 @@ local function EquipItem(itemLink)
 					local equippedItem = 0
 					local equippedItemQuality = 0
 					if rewardItemType ~= 0 then
-						if type(addonTable.SLOTS[rewardItemType]) == "table" then
-							for _, invSlotID in ipairs(addonTable.SLOTS[rewardItemType]) do
+						if type(addonTable.CONSTANTS["SLOTS"][rewardItemType]) == "table" then
+							for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][rewardItemType]) do
 								equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 								if equippedItem:IsValid() then
 									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
@@ -29,12 +29,12 @@ local function EquipItem(itemLink)
 								end
 							end
 						else
-							equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.SLOTS[rewardItemType])
+							equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][rewardItemType])
 							if equippedItem:IsValid() then
 								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 								if rewardItemLevel > equippedItemLevel then
-									equipSlot = addonTable.SLOTS[rewardItemType]
+									equipSlot = addonTable.CONSTANTS["SLOTS"][rewardItemType]
 								end
 							end
 						end
@@ -147,8 +147,8 @@ local function CompleteQuest()
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
 							if rewardItemType ~= 0 then
 								local equippedItemType = 0
-								if type(addonTable.SLOTS[rewardItemType]) == "table" then
-									for _, invSlotID in ipairs(addonTable.SLOTS[rewardItemType]) do
+								if type(addonTable.CONSTANTS["SLOTS"][rewardItemType]) == "table" then
+									for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][rewardItemType]) do
 										local item = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 										if item:IsValid() then
 											equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(item.equipmentSlotIndex))
@@ -160,7 +160,7 @@ local function CompleteQuest()
 										end
 									end
 								else
-									local item = ItemLocation:CreateFromEquipmentSlot(addonTable.SLOTS[rewardItemType])
+									local item = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][rewardItemType])
 									if item:IsValid() then
 										equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(item.equipmentSlotIndex))
 										if equippedItemType == rewardItemType then

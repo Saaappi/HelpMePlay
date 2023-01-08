@@ -150,6 +150,13 @@ local featuresOptions = {
 			type = "toggle",
 			get = function(_) return HelpMePlayDB.EquipLootIgnoreBindEnabled end,
 			set = function(_, val) HelpMePlayDB.EquipLootIgnoreBindEnabled = val end,
+			hidden = function()
+				if HelpMePlayDB.EquipLootEnabled then
+					return false
+				end
+				HelpMePlayDB.EquipLootIgnoreBindEnabled = false
+				return true
+			end,
 		},
 	},
 }

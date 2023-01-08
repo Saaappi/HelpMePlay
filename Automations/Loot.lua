@@ -6,14 +6,15 @@ local function EquipItem(itemLink, inventoryType)
 	if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 		if not UnitAffectingCombat("player") then
 			if itemLink then
+				print(inventoryType)
 				local equipSlot = 0
 				local _, rewardItemID = string.split(":", itemLink); rewardItemID = tonumber(rewardItemID)
 				local lootItemLevel = GetDetailedItemLevelInfo(itemLink)
 				C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 					local equippedItem = 0
 					local equippedItemQuality = 0
-					if type(addonTable.SLOTS[inventoryType]) == "table" then
-						for _, invSlotID in ipairs(addonTable.SLOTS[inventoryType]) do
+					if type(addonTable.CONSTANTS["SLOTS"][inventoryType]) == "table" then
+						for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 							if equippedItem:IsValid() then
 								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
@@ -24,12 +25,12 @@ local function EquipItem(itemLink, inventoryType)
 							end
 						end
 					else
-						equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.SLOTS[inventoryType])
+						equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][inventoryType])
 						if equippedItem:IsValid() then
 							local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 							equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 							if lootItemLevel > equippedItemLevel then
-								equipSlot = addonTable.SLOTS[inventoryType]
+								equipSlot = addonTable.CONSTANTS["SLOTS"][inventoryType]
 							end
 						end
 					end
@@ -48,7 +49,7 @@ local function EquipItem(itemLink, inventoryType)
 											local isBound = C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 											if isBound or HelpMePlayDB.EquipLootIgnoreBindEnabled then
 												local canTransmog = 0
-												if addonTable.TRANSMOG_SLOTS[inventoryType] then
+												if addonTable.CONSTANTS["TRANSMOG_SLOTS"][inventoryType] then
 													canTransmog = C_Item.CanItemTransmogAppearance(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 												end
 												if canTransmog or canTransmog == 0 then
