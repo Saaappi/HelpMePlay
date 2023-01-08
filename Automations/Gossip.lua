@@ -175,8 +175,15 @@ local function SelectGossipOption(options, npcId, parentMapID)
 							numConditionsMatched = numConditionsMatched + 1
 						end
 					elseif condition == "addon.setting" then
-						if HelpMePlayDB[gossip.s] == gossip.r then
-							numConditionsMatched = numConditionsMatched + 1
+						if gossip.s == "BFAIntroEnabled" then
+							local faction = UnitFactionGroup("player")
+							if HelpMePlayDB[gossip.s][faction] == gossip.r then
+								numConditionsMatched = numConditionsMatched + 1
+							end
+						else
+							if HelpMePlayDB[gossip.s] == gossip.r then
+								numConditionsMatched = numConditionsMatched + 1
+							end
 						end
 					end
 				end
