@@ -47,15 +47,21 @@ local function EquipItem(itemLink, inventoryType)
 										if containerItemInfo.itemID == rewardItemID then
 											local isBound = C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 											if isBound then
-												local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-												print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
-												ClearCursor()
-												C_Container.PickupContainerItem(bagID, slotID)
-												EquipCursorItem(equipSlot)
-												if HelpMePlayDB.JunkerEnabled then
-													HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+												local canTransmog = 0
+												if addonTable.TRANSMOG_SLOTS[inventoryType] then
+													canTransmog = C_Item.CanItemTransmogAppearance(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 												end
-												break
+												if canTransmog or canTransmog == 0 then
+													local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+													print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+													ClearCursor()
+													C_Container.PickupContainerItem(bagID, slotID)
+													EquipCursorItem(equipSlot)
+													if HelpMePlayDB.JunkerEnabled then
+														HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+													end
+													break
+												end
 											end
 										end
 									end

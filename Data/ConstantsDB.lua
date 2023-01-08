@@ -36,5 +36,26 @@ local CONSTANTS = {
 		[23] 	= 17, 			-- Holdable
 		[26] 	= 16, 			-- Ranged Right Weapon
 	},
+	["TRANSMOG_SLOTS"] 			= {
+		[1] 	= true,
+		[3] 	= true,
+		[4] 	= true,
+		[5] 	= true,
+		[6] 	= true,
+		[7] 	= true,
+		[8] 	= true,
+		[9] 	= true,
+		[10] 	= true,
+		[13] 	= true,
+		[14] 	= true,
+		[15] 	= true,
+		[16] 	= true,
+		[17] 	= true,
+		[20] 	= true,
+		[21] 	= true,
+		[22] 	= true,
+		[23] 	= true,
+		[26] 	= true,
+	},
 }
 addonTable.CONSTANTS = CONSTANTS
