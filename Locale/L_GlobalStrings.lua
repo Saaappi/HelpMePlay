@@ -82,6 +82,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.Transmog"] 															= "Transmogrification"
 	L_GLOBALSTRINGS["Header.Talents"] 															= "Talents"
 	L_GLOBALSTRINGS["Header.Dragonriding"] 														= "Dragonriding"
+	L_GLOBALSTRINGS["Header.EquipLootAdvanced"] 												= "Equip Loot (Advanced)"
 	-- End: 	Headers
 	--
 	-- Start: 	General DropDowns
@@ -124,6 +125,10 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.GossipDesc"] 												= "Automates the selection of gossip options when speaking with NPCs.\n\nThis does |cffFF0000NOT|r apply to all gossips!"
 	L_GLOBALSTRINGS["Features.Toggle.Emotes"] 													= "Emotes"
 	L_GLOBALSTRINGS["Features.Toggle.EmotesDesc"] 												= "Automates emotes for specific NPCs.\n\nExamples:\n- |cffFFD100Lake Frog|r: A Blade Fit For A Champion (Argent Tournament)\n- |cffFFD100Runestones|r: Repeat After Me (Maldraxxus)"
+	L_GLOBALSTRINGS["Features.Toggle.EquipLoot"] 												= "Equip Loot"
+	L_GLOBALSTRINGS["Features.Toggle.EquipLootDesc"] 											= "Toggle to automatically equip soulbound loot from enemies that is higher item level and your character can use."
+	L_GLOBALSTRINGS["Features.Toggle.EquipLoot.Advanced.IgnoreBind"] 							= "Ignore Bind"
+	L_GLOBALSTRINGS["Features.Toggle.EquipLoot.Advanced.IgnoreBindDesc"] 						= "Toggle to ignore the soulbound check when determining whether to equip loot or not."
 	L_GLOBALSTRINGS["Features.Toggle.FlightPaths"] 												= "Flight Paths"
 	L_GLOBALSTRINGS["Features.Toggle.FlightPathsDesc"] 											= "Toggle to automatically take flight paths when you meet specific conditions."
 	L_GLOBALSTRINGS["Features.Toggle.Notes"] 													= "Notes"
@@ -166,7 +171,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"] 										= "Purchase Quest Items"
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
 	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewards"] 										= "Equip Quest Rewards"
-	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"] 									= "Toggle to have the addon automatically equip quest rewards.\n\n|cffFFD100NOTE|r: This only applies to players with the Item Level option chosen for quest rewards.\n\nThis setting will also auto equip SOULBOUND loot from enemies."
+	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"] 									= "Toggle to have the addon automatically equip quest rewards.\n\n|cffFFD100NOTE|r: This only applies to players with the Item Level option chosen for quest rewards."
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in for Threads of Fate automation."
 	L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCount"] 											= "Show Quest Count"

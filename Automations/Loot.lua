@@ -46,7 +46,7 @@ local function EquipItem(itemLink, inventoryType)
 										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 										if containerItemInfo.itemID == rewardItemID then
 											local isBound = C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-											if isBound then
+											if isBound or HelpMePlayDB.EquipLootIgnoreBindEnabled then
 												local canTransmog = 0
 												if addonTable.TRANSMOG_SLOTS[inventoryType] then
 													canTransmog = C_Item.CanItemTransmogAppearance(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
@@ -81,7 +81,7 @@ e:RegisterEvent("CHAT_MSG_LOOT")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CHAT_MSG_LOOT" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.AutoEquipQuestRewardsEnabled == false or HelpMePlayDB.AutoEquipQuestRewardsEnabled == nil then return false end
+		if HelpMePlayDB.EquipLootEnabled == false or HelpMePlayDB.EquipLootEnabled == nil then return false end
 		
 		local text, _, _, _, _, _, _, _, _, _, _, GUID = ...
 		if GUID == UnitGUID("player") then
