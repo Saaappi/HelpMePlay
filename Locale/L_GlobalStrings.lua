@@ -166,7 +166,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"] 										= "Purchase Quest Items"
 	L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"] 									= "Automatically purchase quest items from merchants."
 	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewards"] 										= "Equip Quest Rewards"
-	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"] 									= "Toggle to have the addon automatically equip quest rewards.\n\n|cffFFD100NOTE|r: This only applies to players with the Item Level option chosen for quest rewards."
+	L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"] 									= "Toggle to have the addon automatically equip quest rewards.\n\n|cffFFD100NOTE|r: This only applies to players with the Item Level option chosen for quest rewards.\n\nThis setting will also auto equip SOULBOUND loot from enemies."
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"] 												= "Threads of Fate"
 	L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"] 											= "Opt in for Threads of Fate automation."
 	L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCount"] 											= "Show Quest Count"
