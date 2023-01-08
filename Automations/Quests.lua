@@ -51,7 +51,9 @@ local function EquipItem(itemLink)
 											local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 											if containerItemInfo.itemID == rewardItemID then
 												local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-												print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+												if HelpMePlayDB.DevModeEnabled then
+													print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+												end
 												ClearCursor()
 												C_Container.PickupContainerItem(bagID, slotID)
 												EquipCursorItem(equipSlot)
