@@ -70,7 +70,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GarrisonOutpostsEnabled == false or HelpMePlayDB.GarrisonOutpostsEnabled == nil then return false end
 		if PlayerChoiceFrame:IsVisible() then
-			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
 				if choiceInfo.objectGUID then

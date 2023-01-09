@@ -79,7 +79,9 @@ local function EquipItem(itemLink, inventoryType)
 					end
 				end
 			else
-				EquipItem(itemLink)
+				C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+					EquipItem(itemLink)
+				end)
 			end
 		end
 	end)

@@ -438,7 +438,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.QuestRewardId ~= 1 then return end
 	
 		local _, itemLink = ...
-		EquipItem(itemLink)
+		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+			EquipItem(itemLink)
+		end)
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end

@@ -7,10 +7,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if PlayerChoiceFrame:IsVisible() then
-			local mapId = C_Map.GetBestMapForUnit("player")
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
-				if choiceInfo.objectGUID then
+				local GUID = choiceInfo.objectGUID
+				local type = string.split("-", GUID)
+				if type ~= "Player" then
 					local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID)
 					if tonumber(id) then id = tonumber(id) end
 				else
