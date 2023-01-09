@@ -3,83 +3,43 @@ local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local TITANICRESEARCH = {
 	-- Corrupted Mementos: 1719
-	{ -- Orb Operation Manual (Rank 1)
+	{ -- Orb Operation Manual
 		["perkID"]	= 791,
 		["print"]	= "spell",
 	},
-	{ -- Expansive Mind (Rank 1)
+	{ -- Expansive Mind
 		["perkID"]	= 798,
 		["print"]	= "spell",
 	},
-	{ -- Expansive Mind (Rank 2)
-		["perkID"]	= 798,
-		["print"]	= "spell",
-	},
-	{ -- Expansive Mind (Rank 3)
-		["perkID"]	= 798,
-		["print"]	= "spell",
-	},
-	{ -- Clear Sight (Rank 1)
+	{ -- Clear Sight
 		["perkID"]	= 802,
 		["print"]	= "spell",
 	},
-	{ -- Clear Sight (Rank 2)
-		["perkID"]	= 802,
-		["print"]	= "spell",
-	},
-	{ -- Clear Sight (Rank 3)
-		["perkID"]	= 802,
-		["print"]	= "spell",
-	},
-	{ -- Elite Extermination (Rank 1)
+	{ -- Elite Extermination
 		["perkID"]	= 805,
 		["print"]	= "spell",
 	},
-	{ -- Vision Hunter (Rank 1)
+	{ -- Vision Hunter
 		["perkID"]	= 806,
 		["print"]	= "spell",
 	},
-	{ -- Vision Hunter (Rank 2)
-		["perkID"]	= 806,
-		["print"]	= "spell",
-	},
-	{ -- Vision Hunter (Rank 3)
-		["perkID"]	= 806,
-		["print"]	= "spell",
-	},
-	{ -- Gift of the Titans (Rank 1)
+	{ -- Gift of the Titans
 		["perkID"]	= 792,
 		["print"]	= "spell",
 	},
-	{ -- Singular Sanitation Expertise (Rank 1)
+	{ -- Singular Sanitation Expertise
 		["perkID"]	= 794,
 		["print"]	= "spell",
 	},
-	{ -- Singular Sanitation Expertise (Rank 2)
-		["perkID"]	= 794,
-		["print"]	= "spell",
-	},
-	{ -- Singular Sanitation Expertise (Rank 3)
-		["perkID"]	= 794,
-		["print"]	= "spell",
-	},
-	{ -- Emergency Cranial Defibrillation (Rank 1)
+	{ -- Emergency Cranial Defibrillation
 		["perkID"]	= 795,
 		["print"]	= "spell",
 	},
-	{ -- Experimental Destabilization (Rank 1)
+	{ -- Experimental Destabilization
 		["perkID"]	= 804,
 		["print"]	= "spell",
 	},
-	{ -- Experimental Destabilization (Rank 2)
-		["perkID"]	= 804,
-		["print"]	= "spell",
-	},
-	{ -- Experimental Destabilization (Rank 3)
-		["perkID"]	= 804,
-		["print"]	= "spell",
-	},
-	{ -- Synchronized Mind Stabilizer (Rank 1)
+	{ -- Synchronized Mind Stabilizer
 		["perkID"]	= 800,
 		["print"]	= "spell",
 	},

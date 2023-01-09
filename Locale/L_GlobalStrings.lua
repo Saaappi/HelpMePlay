@@ -340,7 +340,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"]												= "|cff00FFFF"..addonName.."|r"
 	L_GLOBALSTRINGS["Text.Output.DialogRemoved"]												= "Removed \"%s\" from database."
 	L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"]											= "You need more currency! Amount Needed"
-	L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"]							= "There is a prerequisite talent being researched. Please come back later or research something else."
 	L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"]											= "Purchase the following talent: "
 	L_GLOBALSTRINGS["Text.Output.FlyingTo"]														= "Flying to:"
 	L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"] 									= "You leveled to 20! You should return to Stormwind City, so I can enable War Mode."

@@ -16,28 +16,10 @@ local function CheckTalents(talentTree, currencyID)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			currency = C_CurrencyInfo.GetCurrencyInfo(currencyID)
 			if currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
-				if talentInfo.prerequisiteTalentID ~= nil then
-					local prerequisiteTalentID = C_Garrison.GetTalentInfo(talentInfo.prerequisiteTalentID)
-					if prerequisiteTalentID.researched == true then
-						if talent.print == "spell" and talentInfo.perkSpellID ~= 0 then
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
-						else
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
-						end
-					end
-				else
-					if talentInfo.talentAvailability == 0 then
-						if talent.print == "spell" and talentInfo.perkSpellID ~= 0 then
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
-						else
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
-						end
-					else
-						addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"])
-					end
+				for rank=1, talentInfo.talentMaxRank do
+					print(talent.perkID .. " " .. rank)
+					C_Garrison.ResearchTalent(talent.perkID, rank)
 				end
-				
-				return
 			else
 				addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"] .. ": " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
 				return
