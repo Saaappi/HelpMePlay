@@ -3,14 +3,13 @@ local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function EquipItem(itemLink, inventoryType)
-	if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
-		if not UnitAffectingCombat("player") then
-			if itemLink then
-				print(inventoryType)
-				local equipSlot = 0
-				local _, rewardItemID = string.split(":", itemLink); rewardItemID = tonumber(rewardItemID)
-				local lootItemLevel = GetDetailedItemLevelInfo(itemLink)
-				C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+	C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+		if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
+			if not UnitAffectingCombat("player") then
+				if itemLink then
+					local equipSlot = 0
+					local _, rewardItemID = string.split(":", itemLink); rewardItemID = tonumber(rewardItemID)
+					local lootItemLevel = GetDetailedItemLevelInfo(itemLink)
 					local equippedItem = 0
 					local equippedItemQuality = 0
 					if type(addonTable.CONSTANTS["SLOTS"][inventoryType]) == "table" then
@@ -44,7 +43,7 @@ local function EquipItem(itemLink, inventoryType)
 								for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
 									local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
 									if containerItemInfo then
-										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID)); print(containerItemLink)
 										if containerItemInfo.itemID == rewardItemID then
 											local isBound = C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 											if isBound or HelpMePlayDB.EquipLootIgnoreBindEnabled then
@@ -72,12 +71,12 @@ local function EquipItem(itemLink, inventoryType)
 							end
 						end)
 					end
-				end)
+				end
+			else
+				EquipItem(itemLink)
 			end
-		else
-			EquipItem(itemLink)
 		end
-	end
+	end)
 end
 
 e:RegisterEvent("CHAT_MSG_LOOT")
