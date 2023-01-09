@@ -45,7 +45,7 @@ local function EquipItem(itemLink)
 							if equippedItemQuality == 7 then
 								local equippedItemID = C_Item.GetItemID(equippedItem)
 								local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
-								if UnitLevel("player") <= effectiveHeirloomLevel then
+								if UnitLevel("player") < effectiveHeirloomLevel then
 									return
 								end
 							end
