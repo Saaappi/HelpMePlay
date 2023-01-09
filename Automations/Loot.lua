@@ -49,10 +49,12 @@ local function EquipItem(itemLink, inventoryType)
 								for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
 									local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
 									if containerItemInfo then
-										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID)); print(containerItemLink)
+										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 										if containerItemInfo.itemID == rewardItemID then
+											print("A")
 											local isBound = C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 											if isBound or HelpMePlayDB.EquipLootIgnoreBindEnabled then
+												print("B")
 												local canTransmog = 0
 												if addonTable.CONSTANTS["TRANSMOG_SLOTS"][inventoryType] then
 													canTransmog = C_Item.CanItemTransmogAppearance(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
