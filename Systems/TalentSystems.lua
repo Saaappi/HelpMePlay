@@ -16,8 +16,7 @@ local function CheckTalents(talentTree, currencyID)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			currency = C_CurrencyInfo.GetCurrencyInfo(currencyID)
 			if currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
-				for rank=1, talentInfo.talentMaxRank do
-					print(talent.perkID .. " " .. rank)
+				for rank = (talentInfo.talentRank + 1), talentInfo.talentMaxRank do
 					C_Garrison.ResearchTalent(talent.perkID, rank)
 				end
 			else
