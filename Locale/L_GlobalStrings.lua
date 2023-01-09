@@ -327,6 +327,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["UI.Button.Learn"] 															= "Learn"
 	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "Automatically learns and applies the next talent in\nthe loadout.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
+	L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"] 												= "Automatically learns all possible talents in the given system.\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"] 										= "Are you sure you want HelpMePlay to learn your talents for this system?\n\nAll options can eventually be learned with enough currency.\n\nSelect YES if you don't want to think about the order, or CANCEL if you want to control the purchase order."
 	L_GLOBALSTRINGS["UI.Button.Dragonriding.Desc"] 												= "Automatically learns all possible dragonriding traits.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.Dragonriding.Popup.Desc"] 										= "Are you sure you want HelpMePlay to learn your Dragonriding traits?\n\nFor the choice nodes, |cffFFD100Dragonrider's Compassion|r and |cffFFD100Dragonrider's Hunt|r will be selected.\n\n|cffFFD100NOTE|r: The choice nodes can be changed on the fly at no cost to you."
 	--

@@ -1,6 +1,12 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local talentSystemButton = _G.CreateFrame(
+	"Button",
+	"HMPTalentSystemButton",
+	nil,
+	"UIPanelButtonTemplate"
+)
 
 local function CheckTalents(talentTree, currencyId)
 	local currency = 0
@@ -10,47 +16,19 @@ local function CheckTalents(talentTree, currencyId)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			if v.f then
 				if v.f == UnitFactionGroup("player") or v.f == "" then
-					-- The player doesn't have the talent
-					-- researched, so let's move forward.
 					currency = C_CurrencyInfo.GetCurrencyInfo(currencyId)
-					-- The player has enough currency to
-					-- research the talent.
 					if currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
-						-- Let's check to see if the talent
-						-- has a prerequisite talent. If so,
-						-- let's also check if that prerequisite
-						-- has been researched.
 						if talentInfo.prerequisiteTalentID ~= nil then
 							local prerequisiteTalentId = C_Garrison.GetTalentInfo(talentInfo.prerequisiteTalentID)
-							-- The player has researched the prerequisite
-							-- talent, so let's move forward.
 							if prerequisiteTalentId.researched == true then
-								-- The perk has a spell ID, so let's
-								-- send a spell link to the chat frame.
-								-- If not, then use the perk name.
 								if v.print == "spell" and talentInfo.perkSpellID ~= 0 then
 									addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 								else
 									addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 								end
-							else
-								-- Let's do some quick math to determine
-								-- the hours, minutes, and seconds left
-								-- on the research without requiring the
-								-- player to hover over the talent.
-								local hours, minutes, seconds
-								hours, minutes = string.split(".", tostring(prerequisiteTalentId.timeRemaining / 3600))
-								minutes, seconds = string.split(".", tonumber(("0."..minutes) * 60))
-								seconds = string.split(".", tonumber(("0."..seconds) * 60))
-								addonTable.Print(L_GLOBALSTRINGS["Text.Output.PrerequisiteTalentBeingResearched"] .. " |T" .. prerequisiteTalentId.icon .. ":0|t |cffEFC503" .. prerequisiteTalentId.name .. "|r: " .. hours .. ":" .. minutes .. ":" .. seconds)
 							end
 						else
 							if talentInfo.talentAvailability == 0 then
-								-- The talent doesn't have a prerequisite.
-								--
-								-- The perk has a spell ID, so let's
-								-- send a spell link to the chat frame.
-								-- If not, then use the perk name.
 								if v.print == "spell" and talentInfo.perkSpellID ~= 0 then
 									addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 								else
@@ -63,10 +41,6 @@ local function CheckTalents(talentTree, currencyId)
 						
 						return
 					else
-						-- Print to the chat frame how much
-						-- currency the player
-						-- will need for the next talent,
-						-- then break from the loop.
 						addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"] .. ": " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
 						return
 					end
@@ -77,15 +51,90 @@ local function CheckTalents(talentTree, currencyId)
 end
 
 local function GetTalentTreeInfo(talentTreeId)
-	if talentTreeId == 271 then
-		-- Titanic Research Archive
-		if HelpMePlayDB.TitanicResearchEnabled then CheckTalents(addonTable.TITANICRESEARCH, 1719) end
-	elseif talentTreeId == 461 then
-		-- The Box of Many Things
-		if HelpMePlayDB.BoxOfManyThingsEnabled then CheckTalents(addonTable.BOXOFMANYTHINGS, 1904) end
+	if talentTreeId == 271 then -- Titanic Research Archive
+		if HelpMePlayDB.TitanicResearchEnabled then
+			HMPTalentSystemButton:SetSize(50, 10)
+			HMPTalentSystemButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+			
+			HMPTalentSystemButton:HookScript("OnClick", function(self)
+			StaticPopupDialogs["HELPMEPLAY_TALENTSYSTEM"] = {
+				text = L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"],
+				button1 = YES,
+				button2 = CANCEL,
+				OnAccept = function(self, data)
+					CheckTalents(addonTable.TITANICRESEARCH, 1719)
+				end,
+				timeout = 30,
+				showAlert = true,
+				whileDead = false,
+				hideOnEscape = true,
+				enterClicksFirstButton = false,
+				preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_TALENTSYSTEM")
+			end)
+
+			HMPTalentSystemButton:HookScript("OnEnter", function(self)
+				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+				GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"])
+				GameTooltip:Show()
+			end)
+
+			HMPTalentSystemButton:HookScript("OnLeave", function(self)
+				if GameTooltip:GetOwner() == self then
+					GameTooltip:Hide()
+				end
+			end)
+			
+			HMPTalentSystemButton:SetPoint("LEFT", OrderHallTalentFrame.Currency.Icon, "RIGHT", 20, 0)
+			HMPTalentSystemButton:Show()
+		else
+			return
+		end
+	elseif talentTreeId == 461 then -- The Box of Many Things
+		if HelpMePlayDB.BoxOfManyThingsEnabled then
+			HMPTalentSystemButton:SetSize(50, 20)
+			HMPTalentSystemButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+			
+			HMPTalentSystemButton:HookScript("OnClick", function(self)
+			StaticPopupDialogs["HELPMEPLAY_TALENTSYSTEM"] = {
+				text = L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"],
+				button1 = YES,
+				button2 = CANCEL,
+				OnAccept = function(self, data)
+					CheckTalents(addonTable.BOXOFMANYTHINGS, 1904)
+				end,
+				timeout = 30,
+				showAlert = true,
+				whileDead = false,
+				hideOnEscape = true,
+				enterClicksFirstButton = false,
+				preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_TALENTSYSTEM")
+			end)
+
+			HMPTalentSystemButton:HookScript("OnEnter", function(self)
+				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+				GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"])
+				GameTooltip:Show()
+			end)
+
+			HMPTalentSystemButton:HookScript("OnLeave", function(self)
+				if GameTooltip:GetOwner() == self then
+					GameTooltip:Hide()
+				end
+			end)
+			
+			HMPTalentSystemButton:SetPoint("LEFT", OrderHallTalentFrame.Currency.Icon, "RIGHT", 20, 0)
+			HMPTalentSystemButton:Show()
+		else
+			return
+		end
 	end
 end
 
+e:RegisterEvent("GARRISON_TALENT_NPC_CLOSED")
 e:RegisterEvent("GARRISON_TALENT_NPC_OPENED")
 e:RegisterEvent("GARRISON_TALENT_RESEARCH_STARTED")
 e:SetScript("OnEvent", function(self, event, ...)
@@ -99,5 +148,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		local _, talentTreeId = ...
 		GetTalentTreeInfo(talentTreeId)
+	end
+	
+	if event == "GARRISON_TALENT_NPC_CLOSED" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HMPTalentSystemButton:IsVisible() then
+			HMPTalentSystemButton:Hide()
+		end
 	end
 end)
