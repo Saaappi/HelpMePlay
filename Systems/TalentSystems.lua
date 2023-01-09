@@ -144,8 +144,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 	
 	if event == "GARRISON_TALENT_RESEARCH_STARTED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		local _, talentTreeId = ...
-		GetTalentTreeInfo(talentTreeId)
+		local _, talentTreeID = ...
+		GetTalentTreeInfo(talentTreeID)
 	end
 	
 	if event == "GARRISON_TALENT_NPC_CLOSED" then
