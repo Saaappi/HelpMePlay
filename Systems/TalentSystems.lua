@@ -20,11 +20,7 @@ local function CheckTalents(talentTree, currencyID)
 					local prerequisiteTalentID = C_Garrison.GetTalentInfo(talentInfo.prerequisiteTalentID)
 					if prerequisiteTalentID.researched == true then
 						if talent.print == "spell" and talentInfo.perkSpellID ~= 0 then
-							--addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
-							hooksecurefunc(OrderHallTalentFrame, "OnShow", function(self)
-								print("A")
-							end)
-							OrderHallTalentFrame:HookScript
+							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
 						else
 							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 						end
