@@ -36,8 +36,14 @@ local function EquipItem(itemLink, inventoryType)
 					
 					if equipSlot > 0 then
 						-- If the item would replace an heirloom, and the player's level
-						-- is lower than 60, then don't equip it.
-						if equippedItemQuality == 7 and UnitLevel("player") <= addonTable.CONSTANTS["MAX_HEIRLOOM_LEVEL"] then return end
+						-- is lower than the heirloom's effective level, then don't equip it.
+						if equippedItemQuality == 7 then
+							local equippedItemID = C_Item.GetItemID(equippedItem)
+							local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
+							if UnitLevel("player") < effectiveHeirloomLevel then
+								return
+							end
+						end
 						C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 							for bagID = 0, 4 do
 								for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
