@@ -4,83 +4,83 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local TITANICRESEARCH = {
 	-- Corrupted Mementos: 1719
 	{ -- Orb Operation Manual (Rank 1)
-		["perkId"]	= 791,
+		["perkID"]	= 791,
 		["print"]	= "spell",
 	},
 	{ -- Expansive Mind (Rank 1)
-		["perkId"]	= 798,
+		["perkID"]	= 798,
 		["print"]	= "spell",
 	},
 	{ -- Expansive Mind (Rank 2)
-		["perkId"]	= 798,
+		["perkID"]	= 798,
 		["print"]	= "spell",
 	},
 	{ -- Expansive Mind (Rank 3)
-		["perkId"]	= 798,
+		["perkID"]	= 798,
 		["print"]	= "spell",
 	},
 	{ -- Clear Sight (Rank 1)
-		["perkId"]	= 802,
+		["perkID"]	= 802,
 		["print"]	= "spell",
 	},
 	{ -- Clear Sight (Rank 2)
-		["perkId"]	= 802,
+		["perkID"]	= 802,
 		["print"]	= "spell",
 	},
 	{ -- Clear Sight (Rank 3)
-		["perkId"]	= 802,
+		["perkID"]	= 802,
 		["print"]	= "spell",
 	},
 	{ -- Elite Extermination (Rank 1)
-		["perkId"]	= 805,
+		["perkID"]	= 805,
 		["print"]	= "spell",
 	},
 	{ -- Vision Hunter (Rank 1)
-		["perkId"]	= 806,
+		["perkID"]	= 806,
 		["print"]	= "spell",
 	},
 	{ -- Vision Hunter (Rank 2)
-		["perkId"]	= 806,
+		["perkID"]	= 806,
 		["print"]	= "spell",
 	},
 	{ -- Vision Hunter (Rank 3)
-		["perkId"]	= 806,
+		["perkID"]	= 806,
 		["print"]	= "spell",
 	},
 	{ -- Gift of the Titans (Rank 1)
-		["perkId"]	= 792,
+		["perkID"]	= 792,
 		["print"]	= "spell",
 	},
 	{ -- Singular Sanitation Expertise (Rank 1)
-		["perkId"]	= 794,
+		["perkID"]	= 794,
 		["print"]	= "spell",
 	},
 	{ -- Singular Sanitation Expertise (Rank 2)
-		["perkId"]	= 794,
+		["perkID"]	= 794,
 		["print"]	= "spell",
 	},
 	{ -- Singular Sanitation Expertise (Rank 3)
-		["perkId"]	= 794,
+		["perkID"]	= 794,
 		["print"]	= "spell",
 	},
 	{ -- Emergency Cranial Defibrillation (Rank 1)
-		["perkId"]	= 795,
+		["perkID"]	= 795,
 		["print"]	= "spell",
 	},
 	{ -- Experimental Destabilization (Rank 1)
-		["perkId"]	= 804,
+		["perkID"]	= 804,
 		["print"]	= "spell",
 	},
 	{ -- Experimental Destabilization (Rank 2)
-		["perkId"]	= 804,
+		["perkID"]	= 804,
 		["print"]	= "spell",
 	},
 	{ -- Experimental Destabilization (Rank 3)
-		["perkId"]	= 804,
+		["perkID"]	= 804,
 		["print"]	= "spell",
 	},
 	{ -- Synchronized Mind Stabilizer (Rank 1)
-		["perkId"]	= 800,
+		["perkID"]	= 800,
 		["print"]	= "spell",
 	},
 }

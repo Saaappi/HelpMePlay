@@ -12,7 +12,7 @@ local function CheckTalents(talentTree, currencyId)
 	local currency = 0
 	local talentInfo = ""
 	for _, talent in ipairs(talentTree) do
-		talentInfo = C_Garrison.GetTalentInfo(talent.perkId)
+		talentInfo = C_Garrison.GetTalentInfo(talent.perkID)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
 			currency = C_CurrencyInfo.GetCurrencyInfo(currencyId)
 			if currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
@@ -51,6 +51,8 @@ local function GetTalentTreeInfo(talentTreeId)
 		if HelpMePlayDB.TitanicResearchEnabled then
 			HMPTalentSystemButton:SetSize(50, 10)
 			HMPTalentSystemButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+			
+			print("A")
 			
 			HMPTalentSystemButton:HookScript("OnClick", function(self)
 			StaticPopupDialogs["HELPMEPLAY_TALENTSYSTEM"] = {
@@ -136,8 +138,8 @@ e:RegisterEvent("GARRISON_TALENT_RESEARCH_STARTED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GARRISON_TALENT_NPC_OPENED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		local _, talentTreeId = ...
-		GetTalentTreeInfo(talentTreeId)
+		local _, talentTreeID = ...
+		GetTalentTreeInfo(talentTreeID)
 	end
 	
 	if event == "GARRISON_TALENT_RESEARCH_STARTED" then
