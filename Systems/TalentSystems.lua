@@ -8,19 +8,23 @@ local talentSystemButton = _G.CreateFrame(
 	"UIPanelButtonTemplate"
 )
 
-local function CheckTalents(talentTree, currencyId)
+local function CheckTalents(talentTree, currencyID)
 	local currency = 0
 	local talentInfo = ""
 	for _, talent in ipairs(talentTree) do
 		talentInfo = C_Garrison.GetTalentInfo(talent.perkID)
 		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
-			currency = C_CurrencyInfo.GetCurrencyInfo(currencyId)
+			currency = C_CurrencyInfo.GetCurrencyInfo(currencyID)
 			if currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
 				if talentInfo.prerequisiteTalentID ~= nil then
-					local prerequisiteTalentId = C_Garrison.GetTalentInfo(talentInfo.prerequisiteTalentID)
-					if prerequisiteTalentId.researched == true then
+					local prerequisiteTalentID = C_Garrison.GetTalentInfo(talentInfo.prerequisiteTalentID)
+					if prerequisiteTalentID.researched == true then
 						if talent.print == "spell" and talentInfo.perkSpellID ~= 0 then
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
+							--addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t " .. GetSpellLink(talentInfo.perkSpellID))
+							hooksecurefunc(OrderHallTalentFrame, "OnShow", function(self)
+								print("A")
+							end)
+							OrderHallTalentFrame:HookScript
 						else
 							addonTable.Print(L_GLOBALSTRINGS["Text.Output.PurchaseTalentText"] .. "|T" .. talentInfo.icon .. ":0|t |cffEFC503" .. talentInfo.name .. "|r")
 						end
@@ -46,13 +50,11 @@ local function CheckTalents(talentTree, currencyId)
 	end
 end
 
-local function GetTalentTreeInfo(talentTreeId)
-	if talentTreeId == 271 then -- Titanic Research Archive
-		if HelpMePlayDB.TitanicResearchEnabled then
-			HMPTalentSystemButton:SetSize(50, 10)
+local function GetTalentTreeInfo(talentTreeID)
+	if talentTreeID == 271 then -- Titanic Research Archive
+		if HelpMePlayDB.TitanResearchEnabled then
+			HMPTalentSystemButton:SetSize(50, 20)
 			HMPTalentSystemButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
-			
-			print("A")
 			
 			HMPTalentSystemButton:HookScript("OnClick", function(self)
 			StaticPopupDialogs["HELPMEPLAY_TALENTSYSTEM"] = {
@@ -89,7 +91,7 @@ local function GetTalentTreeInfo(talentTreeId)
 		else
 			return
 		end
-	elseif talentTreeId == 461 then -- The Box of Many Things
+	elseif talentTreeID == 461 then -- The Box of Many Things
 		if HelpMePlayDB.BoxOfManyThingsEnabled then
 			HMPTalentSystemButton:SetSize(50, 20)
 			HMPTalentSystemButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
