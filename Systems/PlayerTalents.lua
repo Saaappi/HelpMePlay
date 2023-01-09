@@ -27,6 +27,7 @@ local function PurchaseTalents(configID, tbl, specID)
 				end
 			end
 		end
+		C_Traits.StageConfig(configID)
 		C_Traits.CommitConfig(configID)
 	end)
 end
