@@ -161,8 +161,19 @@ local function CompleteQuest()
 										if item:IsValid() then
 											equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(item.equipmentSlotIndex))
 											if equippedItemType == rewardItemType then
-												if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
-													bestItemIndex = i
+												local equippedItemQuality = C_Item.GetItemQuality(item)
+												if equippedItemQuality == 7 then
+													local equippedItemID = C_Item.GetItemID(item)
+													local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
+													if UnitLevel("player") >= effectiveHeirloomLevel then
+														if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+															bestItemIndex = i
+														end
+													end
+												else
+													if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+														bestItemIndex = i
+													end
 												end
 											end
 										end
