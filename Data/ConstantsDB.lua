@@ -29,6 +29,7 @@ local CONSTANTS = {
 		[15] 	= 16, 			-- Ranged (Bow, Crossbow, Gun, etc.)
 		[16] 	= 15, 			-- Back
 		[17] 	= { 16, 17 }, 	-- Two-Handed Weapon
+		[19] 	= 19, 			-- Tabard
 		[20] 	= 5, 			-- Robe (Chest)
 		[21] 	= 16, 			-- Main-Hand Weapon
 		[22] 	= 17, 			-- Off-Hand Weapon

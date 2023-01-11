@@ -31,10 +31,12 @@ local function EquipItem(itemLink)
 						else
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][rewardItemType])
 							if equippedItem:IsValid() then
-								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
-								if rewardItemLevel > equippedItemLevel then
-									equipSlot = addonTable.CONSTANTS["SLOTS"][rewardItemType]
+								if rewardItemType ~= 4 and rewardItemType ~= 19 then
+									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
+									if rewardItemLevel > equippedItemLevel then
+										equipSlot = addonTable.CONSTANTS["SLOTS"][rewardItemType]
+									end
 								end
 							end
 						end
@@ -181,20 +183,22 @@ local function CompleteQuest()
 								else
 									local item = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][rewardItemType])
 									if item:IsValid() then
-										equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(item.equipmentSlotIndex))
-										if equippedItemType == rewardItemType then
-											local equippedItemQuality = C_Item.GetItemQuality(item)
-											if equippedItemQuality == 7 then
-												local equippedItemID = C_Item.GetItemID(item)
-												local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
-												if UnitLevel("player") >= effectiveHeirloomLevel then
+										if rewardItemType ~= 4 and rewardItemType ~= 19 then
+											equippedItemType = C_Item.GetItemInventoryType(ItemLocation:CreateFromEquipmentSlot(item.equipmentSlotIndex))
+											if equippedItemType == rewardItemType then
+												local equippedItemQuality = C_Item.GetItemQuality(item)
+												if equippedItemQuality == 7 then
+													local equippedItemID = C_Item.GetItemID(item)
+													local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
+													if UnitLevel("player") >= effectiveHeirloomLevel then
+														if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+															bestItemIndex = i
+														end
+													end
+												else
 													if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
 														bestItemIndex = i
 													end
-												end
-											else
-												if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
-													bestItemIndex = i
 												end
 											end
 										end
