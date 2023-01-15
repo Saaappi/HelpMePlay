@@ -51,92 +51,40 @@ e:SetScript("OnEvent", function(self, event, ...)
 					ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[1].choiceArtID, GetSpellLink(choices[1].spellID))
 				else
 					local _, _, classID = UnitClass("player")
-					local specIndex, specID = GetSpecialization(), GetSpecializationInfo(specIndex)
-					print(specID)
-				end
-				------- END
-				--[[if choices then
-					local numOptions = #choiceInfo.options
-					if numOptions == 1 then
-						bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
-						responseId = bestPower.options[1].buttons[1].id
-						C_PlayerChoice.SendPlayerChoiceResponse(responseId)
-						HideUIPanel(PlayerChoiceFrame)
-						addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower[1].choiceArtID .. ":0|t" .. GetSpellLink(bestPower[1].spellID))
-					else
-						local _, _, classId = UnitClass("player")
-						local specIndex = GetSpecialization()
-						local specId = GetSpecializationInfo(specIndex)
-						local stackCount = 0
-						local highestPriority = 9
-						local priority = 0
-						local maxBuffs = 44
-						
-						for i = 1, numOptions do
-							powerInfo = choiceInfo
-							if powerInfo then
-								if addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID] then
-									local priority = addonTable.ANIMAPOWERS[classId][specId][powerInfo.options[i].spellID]
-									
-									if HelpMePlayDB.TorghastPowersId == 2 then
-										if powerInfo.options[i].rarity == 3 then
-											priority = 10
-										end
-									end
-									
-									if priority < highestPriority then
-										highestPriority = priority
-										responseId = powerInfo.options[i].buttons[1].id
-										bestPower = powerInfo
-										bestPowerID = i
-										
-										for j = 1, maxBuffs do
-											local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
-											if spellId == powerInfo.options[i].spellID then
-												stackCount = count
-												break
-											end
-										end
-									elseif priority == highestPriority then
-										for j = 1, maxBuffs do
-											local _, _, count, _, _, _, _, _, _, spellId = UnitAura("player", j, "MAW")
-											if spellId == powerInfo.options[i].spellID then
-												if count < stackCount then
-													stackCount = count
-													responseId = powerInfo.options[i].buttons[1].id
-													bestPower = powerInfo
-													bestPowerID = i
-													break
-												end
-											end
-										end
-									end
-								else
-									table.insert(unrankedPowers, i)
-								end
+					local specIndex = GetSpecialization()
+					local specID = GetSpecializationInfo(specIndex)
+					
+					local bestPower = {}
+					local highestPriority = 9
+					local priority = 9 -- 1 = HIGHEST, 9 = LOWEST
+					for i = 1, numChoices do
+						if addonTable.ANIMAPOWERS[classID][specID][choices[i].spellID] then
+							priority = addonTable.ANIMAPOWERS[classID][specID][choices[i].spellID]
+							if priority < highestPriority then
+								highestPriority = priority
+								bestPower = choices[i]
+							else
+								table.insert(unrankedPowers, i)
 							end
 						end
-						
-						if bestPower == "" then
-							local randomNum = math.random(1, #unrankedPowers)
-							bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
-							bestPowerID = randomNum
-							responseId = bestPower.options[randomNum].buttons[1].id
-						end
 					end
-
-					if responseId ~= 0 then
-						if HelpMePlayDB.TorghastPowersId == 1 then
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower.options[bestPowerID].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[bestPowerID].spellID))
-							highestPriority = 9
-						else
-							addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |T" .. bestPower.options[bestPowerID].choiceArtID .. ":0|t" .. GetSpellLink(bestPower.options[bestPowerID].spellID))
-							C_PlayerChoice.SendPlayerChoiceResponse(responseId)
-							HideUIPanel(PlayerChoiceFrame)
-							highestPriority = 9
-						end
+					
+					if bestPower == {} then
+						local randomNum = math.random(1, #unrankedPowers)
+						bestPower = choices[math.random(1, #unrankedPowers)]
 					end
-				end]]
+					
+					if HelpMePlayDB.TorghastPowersId == 1 then -- NOTIFY
+						ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], bestPower.choiceArtID, GetSpellLink(bestPower.spellID)) 
+						highestPriority = 9
+					else
+						ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], bestPower.choiceArtID, GetSpellLink(bestPower.spellID)) 
+						C_PlayerChoice.SendPlayerChoiceResponse(bestPower.buttons[1].id)
+						HideUIPanel(PlayerChoiceFrame)
+						highestPriority = 9
+					end
+				end
+				------- END
 			end
 		end
 	end
