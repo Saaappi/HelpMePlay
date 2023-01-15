@@ -1,7 +1,6 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local maps = { [1804] = "The Soulforges", [1980] = "The Fracture Chambers" }
 
 local function ShowPower(text, artID, spellLink)
 	local ret = string.format("%s: %s %s", text, artID, spellLink)
@@ -10,13 +9,13 @@ local function ShowPower(text, artID, spellLink)
 end
 
 local function GetChoices()
-	C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-		if UnitAffectingCombat("player") then
+	if UnitAffectingCombat("player") then
+		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 			GetChoices()
-		end
-		local choices = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options
-		return choices
-	end)
+		end)
+	end
+	local choices = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options
+	return choices
 end
 
 local function AnimaPowerExistsForClass(classId, specId, desiredSpellId)
@@ -36,7 +35,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local mapID = C_Map.GetBestMapForUnit("player")
 		if mapID then
-			if maps[mapID] then
+			if (C_Map.GetMapInfo(mapID).name) == "Torghast" then
 				local powerInfo = ""
 				local responseId = 0
 				local bestPower = ""
@@ -50,6 +49,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 					C_PlayerChoice.SendPlayerChoiceResponse(choices[1].buttons[1].id)
 					HideUIPanel(PlayerChoiceFrame)
 					ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[1].choiceArtID, GetSpellLink(choices[1].spellID))
+				else
+					local _, _, classID = UnitClass("player")
+					local specIndex, specID = GetSpecialization(), GetSpecializationInfo(specIndex)
+					print(specID)
 				end
 				------- END
 				--[[if choices then
