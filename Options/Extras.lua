@@ -259,7 +259,7 @@ local extrasOptions = {
 			order = 31,
 			type = "input",
 			multiline = true,
-			desc = "Set a list of players to invite when using the |cffFFD100inv|r command.\n\nThis is best used by players to quickly form premade parties for dungeons or other content.",
+			desc = "Set a list of players to invite when using the |cffFFD100inv|r command.\n\nThis is best used by players to quickly form premade parties for dungeons or other content.\n\n|cffFFD100Format:|r\nPlayerName-RealmName\n\nEach entry should be on a separate line.",
 			get = function(_)
 				local members = ""
 				for _, member in ipairs(HelpMePlayDB.PartyMembers) do
