@@ -10,7 +10,6 @@ end
 
 local function GetChoices()
 	if UnitAffectingCombat("player") then
-		print("Player in combat...")
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
 			GetChoices()
 		end)
