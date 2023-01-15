@@ -36,13 +36,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local mapID = C_Map.GetBestMapForUnit("player")
 		if mapID then
 			if (C_Map.GetMapInfo(mapID).name) == "Torghast" then
-				local powerInfo = ""
-				local responseId = 0
-				local bestPower = ""
-				local bestPowerID = 0
 				local unrankedPowers = {}
 				
-				------- REWRITTEN CODE
 				local choices = GetChoices()
 				local numChoices = #choices
 				if numChoices == 1 then
@@ -54,7 +49,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					local specIndex = GetSpecialization()
 					local specID = GetSpecializationInfo(specIndex)
 					
-					local bestPower = {}
+					local bestPowerIndex = 0
 					local highestPriority = 9
 					local priority = 9 -- 1 = HIGHEST, 9 = LOWEST
 					for i = 1, numChoices do
@@ -62,29 +57,28 @@ e:SetScript("OnEvent", function(self, event, ...)
 							priority = addonTable.ANIMAPOWERS[classID][specID][choices[i].spellID]
 							if priority < highestPriority then
 								highestPriority = priority
-								bestPower = choices[i]
-							else
-								table.insert(unrankedPowers, i)
+								bestPowerIndex = i
 							end
+						else
+							table.insert(unrankedPowers, i)
 						end
 					end
 					
-					if bestPower == {} then
-						local randomNum = math.random(1, #unrankedPowers)
-						bestPower = choices[math.random(1, #unrankedPowers)]
+					if bestPowerIndex == 0 then
+						bestPowerIndex = math.random(1, #unrankedPowers)
 					end
 					
 					if HelpMePlayDB.TorghastPowersId == 1 then -- NOTIFY
-						ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], bestPower.choiceArtID, GetSpellLink(bestPower.spellID)) 
+						ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID)) 
 						highestPriority = 9
 					else
-						ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], bestPower.choiceArtID, GetSpellLink(bestPower.spellID)) 
-						C_PlayerChoice.SendPlayerChoiceResponse(bestPower.buttons[1].id)
+					
+						ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID)) 
+						C_PlayerChoice.SendPlayerChoiceResponse(choices[bestPowerIndex].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 						highestPriority = 9
 					end
 				end
-				------- END
 			end
 		end
 	end
