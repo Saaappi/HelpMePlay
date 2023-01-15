@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local maps = { [1804] = "The Soulforges", [1980] = "The Fracture Chambers" }
 
 local function ShowPower(text, artID, spellLink)
 	local ret = string.format("%s: %s %s", text, artID, spellLink)
@@ -32,10 +33,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.TorghastPowersId == 0 or HelpMePlayDB.TorghastPowersId == false or HelpMePlayDB.TorghastPowersId == nil then return end
-		local mapId = C_Map.GetBestMapForUnit("player")
-		if mapId then
-			local mapName = C_Map.GetMapInfo(mapId).name
-			if mapName == L_GLOBALSTRINGS["Torghast"] then
+		
+		local mapID = C_Map.GetBestMapForUnit("player")
+		if mapID then
+			if maps[mapID] then
 				local powerInfo = ""
 				local responseId = 0
 				local bestPower = ""
@@ -51,7 +52,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[1].choiceArtID, GetSpellLink(choices[1].spellID))
 				end
 				------- END
-				if choices then
+				--[[if choices then
 					local numOptions = #choiceInfo.options
 					if numOptions == 1 then
 						bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
@@ -132,7 +133,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							highestPriority = 9
 						end
 					end
-				end
+				end]]
 			end
 		end
 	end
