@@ -105,14 +105,12 @@ local expansionFeatures = {
 			values = {
 				[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
 				[1] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"],
-				[2] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.NoEpics"],
-				[3] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"],
+				[2] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"],
 			},
 			sorting = {
 				[1] = 0, 	-- Disabled
 				[2] = 1, 	-- Notify
-				[3] = 2, 	-- No Epics
-				[4] = 3, 	-- Automatic
+				[3] = 2, 	-- Automatic
 			},
 			get = function()
 				if not HelpMePlayDB.TorghastPowersId then

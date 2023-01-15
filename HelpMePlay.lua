@@ -52,6 +52,12 @@ function HelpMePlay:OnInitialize()
 		HelpMePlayDB.BFAIntroEnabled = nil
 	end
 	
+	-- Set the Torghast Powers ID to 2 if it's
+	-- higher than this due to changes.
+	if HelpMePlayDB.TorghastPowersId > 2 then
+		HelpMePlayDB.TorghastPowersId = 2
+	end
+	
 	-- Reset the quest mobs icon to 0 since backend changes
 	-- were made.
 	if HelpMePlayDB.QuestMobIcon == 0 or HelpMePlayDB.QuestMobIcon == 1 then
