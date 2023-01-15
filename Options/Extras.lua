@@ -249,6 +249,31 @@ local extrasOptions = {
 			end,
 			set = function(_, val) HelpMePlayDB.WaterReminderMaxDelay = val end,
 		},
+		partyInvitationsHeader = {
+			name = "Party Invitations",
+			order = 30,
+			type = "header",
+		},
+		partyMembers = {
+			name = "Party Members",
+			order = 31,
+			type = "input",
+			multiline = true,
+			desc = "Set a list of players to invite when using the |cffFFD100inv|r command.\n\nThis is best used by players to quickly form premade parties for dungeons or other content.",
+			get = function(_)
+				local members = ""
+				for _, member in ipairs(HelpMePlayDB.PartyMembers) do
+					members = members .. member .. "\n"
+				end
+				return members
+			end,
+			set = function(_, val)
+				HelpMePlayDB.PartyMembers = {}
+				for member in val:gmatch("([^\n]*)\n?") do
+					table.insert(HelpMePlayDB.PartyMembers, member)
+				end
+			end,
+		},
 	},
 }
 addonTable.extrasOptions = extrasOptions

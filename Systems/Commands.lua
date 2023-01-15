@@ -206,6 +206,12 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		else
 			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
 		end
+	elseif cmd == "inv" then
+		if HelpMePlayDB.PartyMembers == nil or HelpMePlayDB.PartyMembers == {} then return end
+
+		for _, member in ipairs(HelpMePlayDB.PartyMembers) do
+			C_PartyInfo.InviteUnit(member)
+		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
