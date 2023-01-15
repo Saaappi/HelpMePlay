@@ -3,7 +3,7 @@ local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function ShowPower(text, artID, spellLink)
-	local ret = string.format("%s: %s %s", text, artID, spellLink)
+	local ret = string.format("%s: |T%s:0|t %s", text, artID, spellLink)
 	print(ret)
 	return
 end
