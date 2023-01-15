@@ -2,13 +2,10 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
-local function AnimaPowerExistsForClass(classId, specId, desiredSpellId)
-	for spellId, spellTier in pairs(addonTable.ANIMAPOWERS[classId][specId]) do
-		if spellId == desiredSpellId then
-			return true
-		end
-	end
-	return false
+local function ShowPower(text, artID, spellLink)
+	local ret = string.format("%s: %s %s", text, artID, spellLink)
+	print(ret)
+	return
 end
 
 local function GetChoices()
@@ -16,9 +13,18 @@ local function GetChoices()
 		if UnitAffectingCombat("player") then
 			GetChoices()
 		end
-		local choices = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+		local choices = C_PlayerChoice.GetCurrentPlayerChoiceInfo().options
 		return choices
 	end)
+end
+
+local function AnimaPowerExistsForClass(classId, specId, desiredSpellId)
+	for spellId, spellTier in pairs(addonTable.ANIMAPOWERS[classId][specId]) do
+		if spellId == desiredSpellId then
+			return true
+		end
+	end
+	return false
 end
 
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
@@ -35,8 +41,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local bestPower = ""
 				local bestPowerID = 0
 				local unrankedPowers = {}
+				
+				------- REWRITTEN CODE
 				local choices = GetChoices()
-				if choiceInfo then
+				local numChoices = #choices
+				if numChoices == 1 then
+					C_PlayerChoice.SendPlayerChoiceResponse(choices[1].buttons[1].id)
+					HideUIPanel(PlayerChoiceFrame)
+					ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[1].choiceArtID, GetSpellLink(choices[1].spellID))
+				end
+				------- END
+				if choices then
 					local numOptions = #choiceInfo.options
 					if numOptions == 1 then
 						bestPower = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
