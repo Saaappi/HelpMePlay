@@ -11,6 +11,16 @@ local function AnimaPowerExistsForClass(classId, specId, desiredSpellId)
 	return false
 end
 
+local function GetChoices()
+	C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+		if UnitAffectingCombat("player") then
+			GetChoices()
+		end
+		local choices = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+		return choices
+	end)
+end
+
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_CHOICE_UPDATE" then
@@ -22,10 +32,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if mapName == L_GLOBALSTRINGS["Torghast"] then
 				local powerInfo = ""
 				local responseId = 0
-				local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 				local bestPower = ""
 				local bestPowerID = 0
 				local unrankedPowers = {}
+				local choices = GetChoices()
 				if choiceInfo then
 					local numOptions = #choiceInfo.options
 					if numOptions == 1 then
