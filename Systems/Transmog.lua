@@ -13,19 +13,15 @@ local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
 
 local function RequipOriginalItems(equippedItems)
-	local currentlyEquippedItemLink
-	
-	-- Open the character frame, then close it
-	-- 1 second later and run the remaining code.
+	local currentlyEquippedItemLink = ""
 	if not UnitAffectingCombat("player") then
-		ToggleCharacter("PaperDollFrame")
+		ToggleCharacter("PaperDollFrame"); CharacterFrameCloseButton:Click()
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
-			CharacterFrameCloseButton:Click()
 			-- We need to rescan the equipped items
 			-- so we can run comparisons to the original items.
 			for _, item in ipairs(equippedItems) do
 				currentlyEquippedItemLink = GetInventoryItemLink("player", item.id)
-				if currentlyEquippedItemLink ~= item.link then -- The original item isn't equipped.
+				if currentlyEquippedItemLink ~= item.link then
 					EquipItemByName(item.link)
 				end
 			end
@@ -34,29 +30,26 @@ local function RequipOriginalItems(equippedItems)
 end
 
 local function LearnAllUnknownTransmog(equippedItems)
-	-- Open the player bags, then close them
-	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
-		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
-			for i=0, NUM_BAG_SLOTS do -- We iterate through the inventory, bags 0 to 4.
-				for j=1, C_Container.GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
-					local itemLink = C_Container.GetContainerItemLink(i, j)
-					if itemLink then -- If we return a valid item link, then continue.
-						local _, sourceId = C_TransmogCollection.GetItemInfo(itemLink)
-						if sourceId then -- If we return a valid source ID, then continue.
-							local sourceInfo = C_TransmogCollection.GetSourceInfo(sourceId)
-							if sourceInfo.isCollected == false then
-								local _, canCollectSource = C_TransmogCollection.PlayerCanCollectSource(sourceId)
-								if canCollectSource then -- The player can learn the source on the current character.
+		for i=0, NUM_BAG_SLOTS do -- We iterate through the inventory, bags 0 to 4.
+			for j=1, C_Container.GetContainerNumSlots(i) do -- We iterate through the bag slots for each bag.
+				local itemLocation = ItemLocation:CreateFromBagAndSlot(i, j)
+				if itemLocation:IsValid() then
+					-- There's an item in the bag and slot.
+					local itemLink = C_Item.GetItemLink(itemLocation)
+					if itemLink then
+						local sourceID = C_Item.GetBaseItemTransmogInfo(itemLocation).appearanceID
+						if sourceID then
+							-- The item has an appearance.
+							local _, _, _, _, isCollected = C_TransmogCollection.GetAppearanceSourceInfo(sourceID)
+							if isCollected == false then
+								-- The item isn't collected.
+								local _, canCollectSource = C_TransmogCollection.PlayerCanCollectSource(sourceID)
+								if canCollectSource then
+									-- The player can collect the appearance.
 									EquipItemByName(itemLink)
-									if StaticPopup1:IsVisible() then -- The "soulbind" popup is visible. Click the okay button.
+									if StaticPopup1:IsVisible() then
 										StaticPopup1Button1:Click("LeftButton")
-									else
-										-- This might be a Cosmetic item?
-										C_Container.UseContainerItem(i, j)
-										if StaticPopup1:IsVisible() then
-											StaticPopup1Button1:Click("LeftButton")
-										end
 									end
 								end
 							end
@@ -64,8 +57,8 @@ local function LearnAllUnknownTransmog(equippedItems)
 					end
 				end
 			end
-			RequipOriginalItems(equippedItems)
-		end)
+		end
+		RequipOriginalItems(equippedItems)
 	end
 end
 
@@ -73,27 +66,34 @@ local function GetEquippedItems()
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	
 	local equippedItems = {}
-	local itemLink
+	local itemLink = ""
 	
-	-- Open the character frame, then close it
-	-- 1 second later and run the remaining code.
 	if not UnitAffectingCombat("player") then
-		ToggleCharacter("PaperDollFrame")
+		ToggleCharacter("PaperDollFrame"); CharacterFrameCloseButton:Click()
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
-			CharacterFrameCloseButton:Click()
 			-- Get the players currently equipped items
 			-- in transmog-capable slots and store them
 			-- in a separate table.
 			--
 			-- We'll use this separate table to re-equip
 			-- items once we're done.
-			for _, v in ipairs(slots) do
-				itemLink = GetInventoryItemLink("player", v)
-				if itemLink then
-					table.insert(equippedItems, { id = v, link = itemLink})
+			for _, inventoryType in ipairs(slots) do
+				if type(inventoryType) == "table" then
+					for _, i in ipairs(inventoryType) do
+						local item = ItemLocation:CreateFromEquipmentSlot(i)
+						if item:IsValid() then
+							itemLink = C_Item.GetItemLink(item)
+							table.insert(equippedItems, { id = i, link = itemLink })
+						end
+					end
+				else
+					local item = ItemLocation:CreateFromEquipmentSlot(inventoryType)
+					if item:IsValid() then
+						itemLink = C_Item.GetItemLink(item)
+						table.insert(equippedItems, { id = inventoryType, link = itemLink })
+					end
 				end
 			end
-			
 			LearnAllUnknownTransmog(equippedItems)
 		end)
 	end
