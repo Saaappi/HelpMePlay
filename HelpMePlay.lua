@@ -54,8 +54,8 @@ function HelpMePlay:OnInitialize()
 	
 	-- Set the Torghast Powers ID to 2 if it's
 	-- higher than this due to changes.
-	if HelpMePlayDB.TorghastPowersId > 2 then
-		HelpMePlayDB.TorghastPowersId = 2
+	if HelpMePlayDB.TorghastPowersId == nil then
+		HelpMePlayDB.TorghastPowersId = 0
 	end
 	
 	-- Reset the quest mobs icon to 0 since backend changes
