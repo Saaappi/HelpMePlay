@@ -130,6 +130,14 @@ local QUESTMERCHANTS = {
 	[100437] = { -- Lanna Skyspark
 		{ ["questID"] = 40520, ["itemID"] = 132247, ["itemCount"] = 1 }, -- To See the Past (Bottle of Airspark)
 	},
+	-- Shadowlands
+		-- Exile's Reach
+	[156800] = { -- Quartermaster Richter (Alliance)
+		{ ["questID"] = 55194, ["itemID"] = 117, ["itemCount"] = 1 }, -- Stocking Up on Supplies (Tough Jerky)
+	},
+	[167213] = { -- Provisioner Jin'hake (Horde)
+		{ ["questID"] = 59950, ["itemID"] = 117, ["itemCount"] = 1 }, -- Stocking Up on Supplies (Tough Jerky)
+	},
 	-- DF
 		-- The Azure Span
 	[193637] = { -- Jinkutuk

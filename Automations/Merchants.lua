@@ -24,6 +24,22 @@ e:SetScript("OnEvent", function(self, event, ...)
 								BuyMerchantItem(j, merchantData[i].itemCount)
 							end
 						end
+						
+						-- Stocking Up on Supplies (Alliance/Horde) (Exile's Reach)
+						C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+							for bagID = 0, 4 do
+								for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
+									local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
+									if containerItemInfo then
+										local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
+										if containerItemInfo.itemID == merchantData[i].itemID then
+											C_Container.UseContainerItem(bagID, slotID)
+											break
+										end
+									end
+								end
+							end
+						end)
 					end
 				end
 			end
