@@ -79,7 +79,9 @@ local function EquipItem(itemLink)
 				end)
 			end
 		else
-			EquipItem(itemLink)
+			C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
+				EquipItem(itemLink)
+			end)
 		end
 	end
 end
