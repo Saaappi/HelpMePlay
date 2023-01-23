@@ -12,14 +12,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local type = ...
 		if type == 45 then
 			if IsShiftKeyDown() == false then
-				C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-					local playerLevel = UnitLevel("player")
-					if playerLevel < ctMaxLevel then
-						if UnitChromieTimeID("player") ~= HelpMePlayDB.ChromieTimeId then
-							C_ChromieTime.SelectChromieTimeOption(HelpMePlayDB.ChromieTimeId)
-						end
+				local playerLevel = UnitLevel("player")
+				if playerLevel < ctMaxLevel then
+					if UnitChromieTimeID("player") ~= HelpMePlayDB.ChromieTimeId then
+						C_ChromieTime.SelectChromieTimeOption(HelpMePlayDB.ChromieTimeId)
 					end
-				end)
+				end
 			end
 		end
 	end
