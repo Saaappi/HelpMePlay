@@ -325,6 +325,7 @@ e:RegisterEvent("QUEST_DETAIL")
 e:RegisterEvent("QUEST_GREETING")
 e:RegisterEvent("QUEST_LOOT_RECEIVED")
 e:RegisterEvent("QUEST_PROGRESS")
+e:RegisterEvent("SPELL_CONFIRMATION_PROMPT")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
@@ -461,6 +462,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if IsQuestCompletable() then
 			QuestFrameCompleteButton:Click()
 			CompleteQuest()
+		end
+	end
+	if event == "SPELL_CONFIRMATION_PROMPT" then
+		-- Try to skip the Exile's Reach tutorial in Stormwind and Orgrimmar if the player presses any key when the confirmation is visible.
+		local spellID = ...
+		local mapID = C_Map.GetBestMapForUnit("player")
+		if mapID == 84 or mapID == 85 then
+			local key = CreateFrame("Frame")
+			key:SetScript("OnKeyDown", function()
+				AcceptSpellConfirmation(spellID)
+			end)
 		end
 	end
 end)
