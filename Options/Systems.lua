@@ -239,20 +239,19 @@ local systemsOptions = {
 			end,
 			hidden = function()
 				local specID = PlayerUtil.GetCurrentSpecID()
-				local _, _, classID = UnitClass("player")
 				
 				local isUnsupported = false
-				if classID == 2 and specID == 65 then
+				if specID == 65 then -- Holy Paladin
 					isUnsupported = true
-				elseif classID == 5 and (specID == 256 or specID == 257) then -- Priest
+				elseif specID == 256 or specID == 257 then -- Discipline Priest / Holy Priest
 					isUnsupported = true
-				elseif classID == 7 and specID == 264 then -- Shaman
+				elseif specID == 264 then -- Restoration Shaman
 					isUnsupported = true
-				elseif classID == 10 and specID == 270 then -- Monk
+				elseif specID == 270 then -- Mistweaver Monk
 					isUnsupported = true
-				elseif classID == 11 and specID == 105 then -- Druid
+				elseif specID == 105 then -- Restoration Druid
 					isUnsupported = true
-				elseif classID == 13 and specID == 1468 then -- Evoker
+				elseif specID == 1468 then -- Preservation Evoker
 					isUnsupported = true
 				end
 				

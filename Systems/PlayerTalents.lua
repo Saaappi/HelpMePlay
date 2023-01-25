@@ -10,22 +10,26 @@ end
 
 local function PurchaseTalents(configID, tbl, specID)
 	C_Timer.After(0.25, function()
-		for _, traits in ipairs(tbl[specID]) do
-			if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
-				local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
-				local entryInfo = C_Traits.GetEntryInfo(configID, traits.e)
-				if #nodeInfo.entryIDs > 1 then
-					local success = C_Traits.SetSelection(configID, traits.n, traits.e)
-					if success then
-						TalentPurchased(entryInfo)
-					end
-				else
-					local success = C_Traits.PurchaseRank(configID, traits.n)
-					if success then
-						TalentPurchased(entryInfo)
+		if tbl[specID] then
+			for _, traits in ipairs(tbl[specID]) do
+				if C_Traits.CanPurchaseRank(configID, traits.n, traits.e) then
+					local nodeInfo = C_Traits.GetNodeInfo(configID, traits.n)
+					local entryInfo = C_Traits.GetEntryInfo(configID, traits.e)
+					if #nodeInfo.entryIDs > 1 then
+						local success = C_Traits.SetSelection(configID, traits.n, traits.e)
+						if success then
+							TalentPurchased(entryInfo)
+						end
+					else
+						local success = C_Traits.PurchaseRank(configID, traits.n)
+						if success then
+							TalentPurchased(entryInfo)
+						end
 					end
 				end
 			end
+		else
+			return
 		end
 		C_Traits.StageConfig(configID)
 		C_Traits.CommitConfig(configID)
@@ -53,8 +57,8 @@ e:SetScript("OnEvent", function(self, event, addon)
 			
 			HMPTalentButton:HookScript("OnClick", function(self)
 				local configID = C_ClassTalents.GetActiveConfigID()
-				local specID = PlayerUtil.GetCurrentSpecID()
 				local _, _, classID = UnitClass("player")
+				local specID = PlayerUtil.GetCurrentSpecID()
 				
 				if classID == 1 then -- Warrior
 					PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
@@ -99,31 +103,8 @@ e:SetScript("OnEvent", function(self, event, addon)
 			
 			if HelpMePlayDB.TalentButtonEnabled then
 				HMPTalentButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -20, 0)
-				
-				local isUnsupported = false
-				if classID == 2 and specID == 65 then
-					isUnsupported = true
-				elseif classID == 5 and (specID == 256 or specID == 257) then -- Priest
-					isUnsupported = true
-				elseif classID == 7 and specID == 264 then -- Shaman
-					isUnsupported = true
-				elseif classID == 10 and specID == 270 then -- Monk
-					isUnsupported = true
-				elseif classID == 11 and specID == 105 then -- Druid
-					isUnsupported = true
-				elseif classID == 13 and specID == 1468 then -- Evoker
-					isUnsupported = true
-				end
-				
-				if isUnsupported then
-					return true
-				end
 				HMPTalentButton:Show()
 			end
-		end)
-		
-		ClassTalentFrame:HookScript("OnHide", function()
-			HMPTalentButton:Show()
 		end)
 	end
 end)
