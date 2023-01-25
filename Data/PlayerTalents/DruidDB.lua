@@ -11,189 +11,157 @@ local DRUID_TALENTS = {
 			["n"] = 88223,
 			["e"] = 109858,
 		},
-		{ -- Improved Barkskin
-			["n"] = 82219,
-			["e"] = 103297,
+		{ -- Rejuvenation
+			["n"] = 82217,
+			["e"] = 103295,
 		},
 		{ -- Shooting Stars
 			["n"] = 88225,
 			["e"] = 109861,
 		},
-		{ -- Thrash
-			["n"] = 82223,
-			["e"] = 103301,
-		},
-		{ -- Nature's Balance
-			["n"] = 88226,
-			["e"] = 109862,
-		},
-		{ -- Swipe
-			["n"] = 82226,
-			["e"] = 103304,
-		},
-		{ -- Starfall
-			["n"] = 88201,
-			["e"] = 109833,
-		},
-		{ -- Moonkin Form
-			["n"] = 82212,
-			["e"] = 103290,
-		},
-		{ -- Lunar Shrapnel
-			["n"] = 88232,
-			["e"] = 109868,
-		},
-		{ -- Ironfur
-			["n"] = 82227,
-			["e"] = 103305,
-		},
-		{ -- Aetherial Kindling
-			["n"] = 88209,
-			["e"] = 109843,
-		},
-		{ -- Nurturing Instinct
-			["n"] = 82214,
-			["e"] = 103292,
-		},
-		{ -- Umbral Embrace
-			["n"] = 88216,
-			["e"] = 109850,
-		},
-		{ -- Nurturing Instinct
-			["n"] = 82214,
-			["e"] = 103292,
-		},
-		{ -- Umbral Embrace
-			["n"] = 88216,
-			["e"] = 109850,
-		},
-		{ -- Nurturing Instinct
-			["n"] = 82214,
-			["e"] = 103292,
-		},
-		{ -- Solstice
-			["n"] = 88203,
-			["e"] = 109835,
-		},
-		{ -- Thick Hide
-			["n"] = 82228,
-			["e"] = 103306,
-		},
-		{ -- Solstice
-			["n"] = 88203,
-			["e"] = 109835,
-		},
-		{ -- Thick Hide
-			["n"] = 82228,
-			["e"] = 103306,
-		},
-		{ -- Force of Nature
-			["n"] = 88210,
-			["e"] = 109844,
-		},
-		{ -- Wild Charge
-			["n"] = 82198,
-			["e"] = 103276,
+		{ -- Improved Barkskin
+			["n"] = 82219,
+			["e"] = 103297,
 		},
 		{ -- Solar Beam
 			["n"] = 88231,
 			["e"] = 109867,
 		},
-		{ -- Astral Influence
-			["n"] = 82210,
-			["e"] = 103288,
+		{ -- Sunfire
+			["n"] = 82208,
+			["e"] = 103286,
 		},
-		{ -- Stellar Flare
-			["n"] = 91048,
-			["e"] = 109841,
+		{ -- Starfall
+			["n"] = 88201,
+			["e"] = 109833,
 		},
-		{ -- Astral Influence
-			["n"] = 82210,
-			["e"] = 103288,
+		{ -- Swiftmend
+			["n"] = 82216,
+			["e"] = 103294,
+		},
+		{ -- Solstice
+			["n"] = 88203,
+			["e"] = 109835,
+		},
+		{ -- Moonkin Form
+			["n"] = 82212,
+			["e"] = 103290,
+		},
+		{ -- Force of Nature
+			["n"] = 88210,
+			["e"] = 109844,
+		},
+		{ -- Verdant Heart
+			["n"] = 82218,
+			["e"] = 103296,
 		},
 		{ -- Twin Moons
 			["n"] = 88208,
 			["e"] = 109842,
 		},
-		{ -- Sunfire
-			["n"] = 82208,
-			["e"] = 103286,
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
 		},
-		{ -- Orbit Breaker
-			["n"] = 88199,
-			["e"] = 109831,
+		{ -- Stellar Flare
+			["n"] = 91048,
+			["e"] = 109841,
 		},
-		{ -- Typhoon
-			["n"] = 82209,
-			["e"] = 103287,
-		},
-		{ -- Rattle the Stars
-			["n"] = 88236,
-			["e"] = 109872,
-		},
-		{ -- Soothe
-			["n"] = 82229,
-			["e"] = 103307,
-		},
-		{ -- Waning Twilight
-			["n"] = 88202,
-			["e"] = 109834,
-		},
-		{ -- Improved Sunfire
-			["n"] = 82207,
-			["e"] = 103285,
-		},
-		{ -- Waning Twilight
-			["n"] = 88202,
-			["e"] = 109834,
-		},
-		{ -- Matted Fur
-			["n"] = 82236,
-			["e"] = 103314,
+		{ -- Nurturing Instinct
+			["n"] = 82214,
+			["e"] = 103292,
 		},
 		{ -- Celestial Alignment
 			["n"] = 88215,
 			["e"] = 109849,
 		},
-		{ -- Stampeding Roar
-			["n"] = 82234,
-			["e"] = 103312,
+		{ -- Ironfur
+			["n"] = 82227,
+			["e"] = 103305,
 		},
-		{ -- Starlord
-			["n"] = 88200,
-			["e"] = 109832,
+		{ -- Waning Twilight
+			["n"] = 88202,
+			["e"] = 109834,
 		},
-		{ -- Incapacitating Roar
-			["n"] = 82237,
-			["e"] = 103316,
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
 		},
-		{ -- Starlord
-			["n"] = 88200,
-			["e"] = 109832,
+		{ -- Waning Twilight
+			["n"] = 88202,
+			["e"] = 109834,
 		},
-		{ -- Lycara's Teachings
-			["n"] = 82233,
-			["e"] = 103311,
+		{ -- Thick Hide
+			["n"] = 82228,
+			["e"] = 103306,
 		},
-		{ -- Nature's Grace
-			["n"] = 88222,
-			["e"] = 109857,
+		{ -- Soul of the Forest
+			["n"] = 88212,
+			["e"] = 109846,
 		},
-		{ -- Lycara's Teachings
-			["n"] = 82233,
-			["e"] = 103311,
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
 		},
 		{ -- Orbital Strike
 			["n"] = 88221,
 			["e"] = 109856,
 		},
-		{ -- Lycara's Teachings
-			["n"] = 82233,
-			["e"] = 103311,
+		{ -- Astral Influence
+			["n"] = 82210,
+			["e"] = 103288,
 		},
-		{ -- Soul of the Forest
-			["n"] = 88212,
-			["e"] = 109846,
+		{ -- Nature's Grace
+			["n"] = 88222,
+			["e"] = 109857,
+		},
+		{ -- Wild Charge
+			["n"] = 82198,
+			["e"] = 103276,
+		},
+		{ -- Umbral Embrace
+			["n"] = 88216,
+			["e"] = 109850,
+		},
+		{ -- Improved Sunfire
+			["n"] = 82207,
+			["e"] = 103285,
+		},
+		{ -- Umbral Embrace
+			["n"] = 88216,
+			["e"] = 109850,
+		},
+		{ -- Typhoon
+			["n"] = 82209,
+			["e"] = 103287,
+		},
+		{ -- Cosmic Rapidity
+			["n"] = 88227,
+			["e"] = 109863,
+		},
+		{ -- Soothe
+			["n"] = 82229,
+			["e"] = 103307,
+		},
+		{ -- Cosmic Rapidity
+			["n"] = 88227,
+			["e"] = 109863,
+		},
+		{ -- Matted Fur
+			["n"] = 82236,
+			["e"] = 103314,
+		},
+		{ -- Power of Goldrinn
+			["n"] = 88207,
+			["e"] = 109840,
+		},
+		{ -- Stampeding Roar
+			["n"] = 82234,
+			["e"] = 103312,
+		},
+		{ -- Power of Goldrinn
+			["n"] = 88207,
+			["e"] = 109840,
 		},
 		{ -- Ursol's Vortex
 			["n"] = 82242,
@@ -203,49 +171,81 @@ local DRUID_TALENTS = {
 			["n"] = 88220,
 			["e"] = 109854,
 		},
+		{ -- Incapacitating Roar
+			["n"] = 82237,
+			["e"] = 103316,
+		},
+		{ -- Orbit Breaker
+			["n"] = 88199,
+			["e"] = 109831,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Starlord
+			["n"] = 88200,
+			["e"] = 109832,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Starlord
+			["n"] = 88200,
+			["e"] = 109832,
+		},
+		{ -- Lycara's Teachings
+			["n"] = 82233,
+			["e"] = 103311,
+		},
+		{ -- Balance of All Things
+			["n"] = 88214,
+			["e"] = 109848,
+		},
 		{ -- Well-Honed Instincts
 			["n"] = 82246,
 			["e"] = 103326,
 		},
-		{ -- Circle of Life and Death
-			["n"] = 88227,
-			["e"] = 109863,
+		{ -- Sundered Firmament
+			["n"] = 88217,
+			["e"] = 109851,
 		},
 		{ -- Well-Honed Instincts
 			["n"] = 82246,
 			["e"] = 103326,
 		},
-		{ -- Convoke the Spirits
-			["n"] = 88206,
-			["e"] = 109838,
-		},
-		{ -- Improved Stampeding Roar
-			["n"] = 82230,
-			["e"] = 103308,
-		},
-		{ -- Fungal Growth
-			["n"] = 88205,
-			["e"] = 109837,
+		{ -- Starweaver
+			["n"] = 88236,
+			["e"] = 109873,
 		},
 		{ -- Renewal
 			["n"] = 82232,
 			["e"] = 103310,
 		},
-		{ -- Elune's Guidance
-			["n"] = 88228,
-			["e"] = 109864,
+		{ -- Fury of Elune
+			["n"] = 88224,
+			["e"] = 109859,
 		},
 		{ -- Innervate
 			["n"] = 82243,
 			["e"] = 103323,
 		},
-		{ -- Fury of Elune
-			["n"] = 88224,
-			["e"] = 109859,
+		{ -- Fungal Growth
+			["n"] = 88205,
+			["e"] = 109837,
 		},
 		{ -- Nature's Vigil
 			["n"] = 82244,
 			["e"] = 103324,
+		},
+		{ -- Incarnation: Chosen of Elune
+			["n"] = 88206,
+			["e"] = 109839,
+		},
+		{ -- Improved Stampeding Roar
+			["n"] = 82230,
+			["e"] = 103308,
 		},
 	},
 	[103] = { -- Feral
