@@ -98,7 +98,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			end)
 			
 			if HelpMePlayDB.TalentButtonEnabled then
-				HMPTalentButton:SetPoint("CENTER", ClassTalentFrame.TalentsTab.ApplyButton, "CENTER", 0, -25)
+				HMPTalentButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -20, 0)
 				HMPTalentButton:Show()
 			end
 		end)
