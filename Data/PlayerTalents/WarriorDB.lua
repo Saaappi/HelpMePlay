@@ -503,89 +503,89 @@ local WARRIOR_TALENTS = {
 			["n"] = 90295,
 			["e"] = 112149,
 		},
-		{ -- Leeching Strikes
-			["n"] = 90344,
-			["e"] = 112206,
+		{ -- Impending Victory
+			["n"] = 90326,
+			["e"] = 112183,
 		},
 		{ -- Revenge
 			["n"] = 90298,
 			["e"] = 112152,
 		},
-		{ -- Impending Victory
-			["n"] = 90326,
-			["e"] = 112183,
+		{ -- Rallying Cry
+			["n"] = 90331,
+			["e"] = 112188,
 		},
 		{ -- Demoralizing Shout
 			["n"] = 90305,
 			["e"] = 112159,
 		},
-		{ -- Fast Footwork
-			["n"] = 90371,
-			["e"] = 112238,
-		},
-		{ -- Best Served Cold
-			["n"] = 90304,
-			["e"] = 112158,
-		},
-		{ -- Frothing Berserker
-			["n"] = 90370,
-			["e"] = 112237,
+		{ -- Second Wind
+			["n"] = 90332,
+			["e"] = 112189,
 		},
 		{ -- Devastator
 			["n"] = 90299,
 			["e"] = 112153,
 		},
-		{ -- Heroic Leap
-			["n"] = 90346,
-			["e"] = 112208,
-		},
-		{ -- Strategist
-			["n"] = 90303,
-			["e"] = 112157,
-		},
-		{ -- Thunder Clap
-			["n"] = 90343,
-			["e"] = 112205,
+		{ -- Leeching Strikes
+			["n"] = 90344,
+			["e"] = 112206,
 		},
 		{ -- Last Stand
 			["n"] = 90297,
 			["e"] = 112151,
 		},
-		{ -- Furious Blows
-			["n"] = 90336,
-			["e"] = 112197,
+		{ -- Spell Reflection
+			["n"] = 90385,
+			["e"] = 112253,
+		},
+		{ -- Best Served Cold
+			["n"] = 90304,
+			["e"] = 112158,
+		},
+		{ -- Fast Footwork
+			["n"] = 90371,
+			["e"] = 112238,
+		},
+		{ -- Strategist
+			["n"] = 90303,
+			["e"] = 112157,
+		},
+		{ -- Frothing Berserker
+			["n"] = 90370,
+			["e"] = 112237,
 		},
 		{ -- Brace For Impact
 			["n"] = 90296,
 			["e"] = 112150,
 		},
-		{ -- Spell Reflection
-			["n"] = 90385,
-			["e"] = 112253,
-		},
-		{ -- Rend
-			["n"] = 90302,
-			["e"] = 112156,
-		},
-		{ -- Rallying Cry
-			["n"] = 90331,
-			["e"] = 112188,
+		{ -- Thunder Clap
+			["n"] = 90343,
+			["e"] = 112205,
 		},
 		{ -- Brutal Vitality
 			["n"] = 90451,
 			["e"] = 112325,
 		},
-		{ -- Pain and Gain
-			["n"] = 90353,
-			["e"] = 112217,
+		{ -- Heroic Leap
+			["n"] = 90346,
+			["e"] = 112208,
+		},
+		{ -- Rend
+			["n"] = 90302,
+			["e"] = 112156,
+		},
+		{ -- Furious Blows
+			["n"] = 90336,
+			["e"] = 112197,
 		},
 		{ -- Bloodsurge
 			["n"] = 90300,
 			["e"] = 112154,
 		},
-		{ -- Storm Bolt
-			["n"] = 90337,
-			["e"] = 112198,
+		{ -- Crushing Force
+			["n"] = 90369,
+			["e"] = 112236,
 		},
 		{ -- Challenging Shout
 			["n"] = 90309,
@@ -599,17 +599,25 @@ local WARRIOR_TALENTS = {
 			["n"] = 90320,
 			["e"] = 112177,
 		},
-		{ -- Crushing Force
-			["n"] = 90369,
-			["e"] = 112236,
+		{ -- Pain and Gain
+			["n"] = 90353,
+			["e"] = 112217,
 		},
 		{ -- Thunderlord
 			["n"] = 90308,
 			["e"] = 112162,
 		},
-		{ -- Blood and Thunder
-			["n"] = 90342,
-			["e"] = 112204,
+		{ -- Storm Bolt
+			["n"] = 90337,
+			["e"] = 112198,
+		},
+		{ -- Shield Wall
+			["n"] = 90312,
+			["e"] = 112167,
+		},
+		{ -- Sidearm
+			["n"] = 90334,
+			["e"] = 112194,
 		},
 		{ -- Tough as Nails
 			["n"] = 90450,
@@ -619,93 +627,97 @@ local WARRIOR_TALENTS = {
 			["n"] = 90368,
 			["e"] = 112235,
 		},
-		{ -- Shield Wall
-			["n"] = 90312,
-			["e"] = 112167,
-		},
-		{ -- Bounding Stride
-			["n"] = 90355,
-			["e"] = 112219,
-		},
-		{ -- Into the Fray
-			["n"] = 90319,
-			["e"] = 112175,
-		},
-		{ -- Double Time
-			["n"] = 90382,
-			["e"] = 112249,
-		},
 		{ -- Enduring Defenses
 			["n"] = 90313,
 			["e"] = 112169,
 		},
-		{ -- Seismic Reverberation
-			["n"] = 90340,
-			["e"] = 112201,
+		{ -- Blood and Thunder
+			["n"] = 90342,
+			["e"] = 112204,
 		},
 		{ -- Anger Management
 			["n"] = 90311,
 			["e"] = 112166,
 		},
-		{ -- Bitter Immunity
-			["n"] = 90356,
-			["e"] = 112220,
+		{ -- Bounding Stride
+			["n"] = 90355,
+			["e"] = 112219,
 		},
 		{ -- Punish
 			["n"] = 90449,
 			["e"] = 112323,
 		},
-		{ -- One-Handed Weapon Specialization
-			["n"] = 90324,
-			["e"] = 112181,
+		{ -- Double Time
+			["n"] = 90382,
+			["e"] = 112249,
+		},
+		{ -- Heavy Repercussions
+			["n"] = 90319,
+			["e"] = 112176,
+		},
+		{ -- Seismic Reverberation
+			["n"] = 90340,
+			["e"] = 112201,
+		},
+		{ -- Impenetrable Wall
+			["n"] = 90310,
+			["e"] = 112164,
+		},
+		{ -- Honed Reflexes
+			["n"] = 90361,
+			["e"] = 112225,
+		},
+		{ -- Shield Specialization
+			["n"] = 90315,
+			["e"] = 112171,
+		},
+		{ -- Armored to the Teeth
+			["n"] = 90259,
+			["e"] = 112109,
+		},
+		{ -- Shield Specialization
+			["n"] = 90315,
+			["e"] = 112171,
+		},
+		{ -- Armored to the Teeth
+			["n"] = 90259,
+			["e"] = 112109,
 		},
 		{ -- Focused Vigor
 			["n"] = 90318,
 			["e"] = 112174,
 		},
-		{ -- Armored to the Teeth
-			["n"] = 90259,
-			["e"] = 112109,
-		},
-		{ -- Enduring Alacrity
-			["n"] = 90433,
-			["e"] = 112305,
-		},
-		{ -- Armored to the Teeth
-			["n"] = 90259,
-			["e"] = 112109,
-		},
-		{ -- Endurance Training
-			["n"] = 90339,
-			["e"] = 112200,
-		},
-		{ -- Shield Specialization
-			["n"] = 90315,
-			["e"] = 112171,
-		},
-		{ -- Wild Strikes
-			["n"] = 90360,
-			["e"] = 112224,
-		},
-		{ -- Shield Specialization
-			["n"] = 90315,
-			["e"] = 112171,
-		},
-		{ -- Wild Strikes
-			["n"] = 90360,
-			["e"] = 112224,
+		{ -- One-Handed Weapon Specialization
+			["n"] = 90324,
+			["e"] = 112181,
 		},
 		{ -- Ravager
 			["n"] = 90432,
 			["e"] = 112304,
 		},
-		{ -- Avatar
-			["n"] = 90365,
-			["e"] = 112232,
+		{ -- Wild Strikes
+			["n"] = 90360,
+			["e"] = 112224,
+		},
+		{ -- Shield Charge
+			["n"] = 90317,
+			["e"] = 112173,
+		},
+		{ -- Wild Strikes
+			["n"] = 90360,
+			["e"] = 112224,
 		},
 		{ -- Indomitable
 			["n"] = 90434,
 			["e"] = 112306,
+		},
+		{ -- Avatar
+			["n"] = 90365,
+			["e"] = 112232,
+		},
+		{ -- Violent Outburst
+			["n"] = 90265,
+			["e"] = 112116,
 		},
 		{ -- Thunderous Roar
 			["n"] = 90359,
@@ -719,25 +731,13 @@ local WARRIOR_TALENTS = {
 			["n"] = 90364,
 			["e"] = 112230,
 		},
-		{ -- Shield Charge
-			["n"] = 90317,
-			["e"] = 112173,
-		},
-		{ -- Uproar
-			["n"] = 90357,
-			["e"] = 112221,
-		},
-		{ -- Violent Outburst
-			["n"] = 90265,
-			["e"] = 112116,
+		{ -- Champion's Bulwark
+			["n"] = 90316,
+			["e"] = 112172,
 		},
 		{ -- Thunderous Words
 			["n"] = 90358,
 			["e"] = 112222,
-		},
-		{ -- Champion's Bulwark
-			["n"] = 90316,
-			["e"] = 112172,
 		},
 	},
 }
