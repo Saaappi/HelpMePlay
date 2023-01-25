@@ -99,8 +99,31 @@ e:SetScript("OnEvent", function(self, event, addon)
 			
 			if HelpMePlayDB.TalentButtonEnabled then
 				HMPTalentButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -20, 0)
+				
+				local isUnsupported = false
+				if classID == 2 and specID == 65 then
+					isUnsupported = true
+				elseif classID == 5 and (specID == 256 or specID == 257) then -- Priest
+					isUnsupported = true
+				elseif classID == 7 and specID == 264 then -- Shaman
+					isUnsupported = true
+				elseif classID == 10 and specID == 270 then -- Monk
+					isUnsupported = true
+				elseif classID == 11 and specID == 105 then -- Druid
+					isUnsupported = true
+				elseif classID == 13 and specID == 1468 then -- Evoker
+					isUnsupported = true
+				end
+				
+				if isUnsupported then
+					return true
+				end
 				HMPTalentButton:Show()
 			end
+		end)
+		
+		ClassTalentFrame:HookScript("OnHide", function()
+			HMPTalentButton:Show()
 		end)
 	end
 end)
