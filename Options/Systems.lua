@@ -213,6 +213,30 @@ local systemsOptions = {
 				}
 				StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
 			end,
+			hidden = function()
+				local specID = PlayerUtil.GetCurrentSpecID()
+				local _, _, classID = UnitClass("player")
+				
+				local isUnsupported = false
+				if classID == 2 and specID == 65 then
+					isUnsupported = true
+				elseif classID == 5 and (specID == 256 or specID == 257) then -- Priest
+					isUnsupported = true
+				elseif classID == 7 and specID == 264 then -- Shaman
+					isUnsupported = true
+				elseif classID == 10 and specID == 270 then -- Monk
+					isUnsupported = true
+				elseif classID == 11 and specID == 105 then -- Druid
+					isUnsupported = true
+				elseif classID == 13 and specID == 1468 then -- Evoker
+					isUnsupported = true
+				end
+				
+				if isUnsupported then
+					return true
+				end
+				return false
+			end,
 		},
 		transmogHeader = {
 			name = L_GLOBALSTRINGS["Header.Transmog"],
