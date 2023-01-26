@@ -91,9 +91,9 @@ local PRIEST_TALENTS = {
 			["n"] = 82669,
 			["e"] = 103813,
 		},
-		{ -- Vampiric Embrace
+		{ -- Sanguine Teachings
 			["n"] = 82691,
-			["e"] = 103841,
+			["e"] = 114735,
 		},
 		{ -- Harnessed Shadows
 			["n"] = 82647,
@@ -103,13 +103,17 @@ local PRIEST_TALENTS = {
 			["n"] = 82688,
 			["e"] = 103838,
 		},
+		{ -- Shadowy Insight
+			["n"] = 82662,
+			["e"] = 103805,
+		},
 		{ -- Improved Mass Dispel
 			["n"] = 82698,
 			["e"] = 103848,
 		},
-		{ -- Shadowy Insight
-			["n"] = 82662,
-			["e"] = 103805,
+		{ -- Ancient Madness
+			["n"] = 82656,
+			["e"] = 103798,
 		},
 		{ -- Twins of the Sun Priestess
 			["n"] = 82683,
@@ -123,14 +127,6 @@ local PRIEST_TALENTS = {
 			["n"] = 82690,
 			["e"] = 103840,
 		},
-		{ -- Ancient Madness
-			["n"] = 82656,
-			["e"] = 103798,
-		},
-		{ -- Twist of Fate
-			["n"] = 82684,
-			["e"] = 103833,
-		},
 		{ -- Shadow Crash
 			["n"] = 82557,
 			["e"] = 103803,
@@ -143,9 +139,9 @@ local PRIEST_TALENTS = {
 			["n"] = 82559,
 			["e"] = 103682,
 		},
-		{ -- Throes of Pain
-			["n"] = 82709,
-			["e"] = 103861,
+		{ -- Twist of Fate
+			["n"] = 82684,
+			["e"] = 103833,
 		},
 		{ -- Dark Evangelism
 			["n"] = 82660,
@@ -159,33 +155,33 @@ local PRIEST_TALENTS = {
 			["n"] = 82660,
 			["e"] = 103802,
 		},
-		{ -- Halo
-			["n"] = 82680,
-			["e"] = 103827,
+		{ -- Throes of Pain
+			["n"] = 82709,
+			["e"] = 103861,
 		},
 		{ -- Auspicious Spirits
 			["n"] = 82667,
 			["e"] = 103811,
 		},
-		{ -- Translucent Image
-			["n"] = 82685,
-			["e"] = 103835,
+		{ -- Halo
+			["n"] = 82680,
+			["e"] = 103827,
 		},
 		{ -- Mindbender
 			["n"] = 82648,
 			["e"] = 103788,
 		},
-		{ -- Mindgames
-			["n"] = 82687,
-			["e"] = 103837,
+		{ -- Translucent Image
+			["n"] = 82685,
+			["e"] = 103835,
 		},
 		{ -- Mind Flay: Insanity
 			["n"] = 82558,
 			["e"] = 103681,
 		},
-		{ -- Crystalline Reflection
-			["n"] = 82681,
-			["e"] = 103829,
+		{ -- Mindgames
+			["n"] = 82687,
+			["e"] = 103837,
 		},
 		{ -- Encroaching Shadows
 			["n"] = 82562,
@@ -199,9 +195,9 @@ local PRIEST_TALENTS = {
 			["n"] = 82654,
 			["e"] = 103679,
 		},
-		{ -- Improved Fade
-			["n"] = 82686,
-			["e"] = 103836,
+		{ -- Crystalline Reflection
+			["n"] = 82681,
+			["e"] = 103829,
 		},
 		{ -- Inescapable Torment
 			["n"] = 82644,
@@ -215,9 +211,9 @@ local PRIEST_TALENTS = {
 			["n"] = 82644,
 			["e"] = 103783,
 		},
-		{ -- Manipulation
-			["n"] = 82672,
-			["e"] = 103818,
+		{ -- Improved Fade
+			["n"] = 82686,
+			["e"] = 103836,
 		},
 		{ -- Mind Devourer
 			["n"] = 82561,
@@ -231,21 +227,25 @@ local PRIEST_TALENTS = {
 			["n"] = 82561,
 			["e"] = 103684,
 		},
-		{ -- Angelic Bulwark
-			["n"] = 82675,
-			["e"] = 103821,
+		{ -- Manipulation
+			["n"] = 82672,
+			["e"] = 103818,
 		},
 		{ -- Idol of Y'Shaarj
 			["n"] = 82553,
 			["e"] = 103787,
 		},
-		{ -- Shattered Perceptions
-			["n"] = 82673,
-			["e"] = 103819,
+		{ -- Angelic Bulwark
+			["n"] = 82675,
+			["e"] = 103821,
 		},
 		{ -- Idol of Yogg-Saron
 			["n"] = 82555,
 			["e"] = 103817,
+		},
+		{ -- Shattered Perceptions
+			["n"] = 82673,
+			["e"] = 103819,
 		},
 	},
 }
