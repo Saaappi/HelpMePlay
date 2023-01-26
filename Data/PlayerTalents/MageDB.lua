@@ -55,14 +55,6 @@ local MAGE_TALENTS = {
 			["n"] = 62112,
 			["e"] = 80170,
 		},
-		{ -- Arcane Surge
-			["n"] = 62230,
-			["e"] = 80299,
-		},
-		{ -- Mirror Image
-			["n"] = 62124,
-			["e"] = 80183,
-		},
 		{ -- Crackling Energy
 			["n"] = 62228,
 			["e"] = 80297,
@@ -74,6 +66,14 @@ local MAGE_TALENTS = {
 		{ -- Crackling Energy
 			["n"] = 62228,
 			["e"] = 80297,
+		},
+		{ -- Mirror Image
+			["n"] = 62124,
+			["e"] = 80183,
+		},
+		{ -- Arcane Surge
+			["n"] = 62230,
+			["e"] = 80299,
 		},
 		{ -- Alter Time
 			["n"] = 62115,
