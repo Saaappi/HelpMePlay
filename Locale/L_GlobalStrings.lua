@@ -310,21 +310,14 @@ if (isLocaleSupported) then
 	--
 	--
 	-- Start: 	UI
-	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Text"] 								= "<->"
-	L_GLOBALSTRINGS["TradeSkill.UI.Button.ExpandCollapse.Desc"] 								= "Expands or collapses the headers below.\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.PopupText"] 								= "Copy the string below to an external tool like Excel, Notepad, or Discord!\n\nNo, the addon can't add line breaks for you. Sorry. :("
-	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Text"] 										= "Calculate"
-	L_GLOBALSTRINGS["TradeSkill.UI.Button.Calculate.Desc"] 										= "Calculates the amount of reagents required to craft all KNOWN\nrecipes for appearances you've yet to collect.\n\nDoes |cffFFFFFFNOT|r apply outside production professions.\n\n|cffADD8E6Added by HelpMePlay|r"
-	--
-	L_GLOBALSTRINGS["TradeSkill.UI.Output.Text.CalculationInProgressText"] 						= "Reagent calculation in progress..."
-	--
 	L_GLOBALSTRINGS["UI.Button.Inventory.Desc"] 												= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"] 												= "Enter %s\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.Learn"] 															= "Learn"
-	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "Automatically learns and applies the next talent in\nthe loadout.\n\n|cffADD8E6Added by HelpMePlay|r"
+	--L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "|cffFF0000This feature is disabled while talents are being updated for\nthe latest patch. I apologize for the inconvenience.|r\n\n|cff9D9D9DAutomatically learns and applies the next talent in\nthe loadout.|r\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "|cffFF0000This feature is disabled while talents are being updated for\nthe latest patch. I apologize for the inconvenience.|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"] 												= "Automatically learns all possible talents in the given system.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"] 										= "Are you sure you want HelpMePlay to learn your talents for this system?\n\nAll options can eventually be learned with enough currency.\n\nSelect YES if you don't want to think about the order, or CANCEL if you want to control the purchase order."
