@@ -519,9 +519,9 @@ local ROGUE_TALENTS = {
 			["n"] = 90710,
 			["e"] = 112598,
 		},
-		{ -- Feint
-			["n"] = 90742,
-			["e"] = 112632,
+		{ -- Cheat Death
+			["n"] = 90747,
+			["e"] = 112637,
 		},
 		{ -- Weaponmaster
 			["n"] = 90738,
@@ -535,81 +535,81 @@ local ROGUE_TALENTS = {
 			["n"] = 90727,
 			["e"] = 112615,
 		},
-		{ -- Nimble Fingers
-			["n"] = 90745,
-			["e"] = 112635,
+		{ -- Numbing Poison
+			["n"] = 90763,
+			["e"] = 112656,
 		},
 		{ -- Relentless Strikes
 			["n"] = 90709,
 			["e"] = 112597,
 		},
-		{ -- Gouge
-			["n"] = 90741,
-			["e"] = 112631,
+		{ -- Nimble Fingers
+			["n"] = 90745,
+			["e"] = 112635,
 		},
 		{ -- Black Powder
 			["n"] = 90712,
 			["e"] = 112600,
 		},
-		{ -- Shadowrunner
-			["n"] = 90687,
-			["e"] = 112575,
+		{ -- Gouge
+			["n"] = 90741,
+			["e"] = 112631,
 		},
 		{ -- Premeditation
 			["n"] = 90737,
 			["e"] = 112627,
 		},
-		{ -- Fleet Footed
-			["n"] = 90762,
-			["e"] = 112654,
+		{ -- Shadowrunner
+			["n"] = 90687,
+			["e"] = 112575,
 		},
 		{ -- Silent Storm
 			["n"] = 90714,
 			["e"] = 112602,
 		},
-		{ -- Improved Sprint
-			["n"] = 90746,
-			["e"] = 112636,
+		{ -- Fleet Footed
+			["n"] = 90762,
+			["e"] = 112654,
 		},
 		{ -- Gloomblade
 			["n"] = 90699,
 			["e"] = 112587,
 		},
-		{ -- Shadowstep
-			["n"] = 90695,
-			["e"] = 112583,
+		{ -- Iron Stomach
+			["n"] = 90744,
+			["e"] = 112634,
 		},
 		{ -- Veiltouched
 			["n"] = 90713,
 			["e"] = 112601,
 		},
-		{ -- Virulent Poisons
-			["n"] = 90761,
-			["e"] = 112653,
+		{ -- Improved Sprint
+			["n"] = 90746,
+			["e"] = 112636,
 		},
 		{ -- Secret Technique
 			["n"] = 90715,
 			["e"] = 112603,
 		},
-		{ -- Cheat Death
-			["n"] = 90747,
-			["e"] = 112637,
+		{ -- Shadowstep
+			["n"] = 90695,
+			["e"] = 112583,
 		},
 		{ -- Swift Death
 			["n"] = 90701,
 			["e"] = 112589,
 		},
-		{ -- Tight Spender
-			["n"] = 90694,
-			["e"] = 112582,
+		{ -- Deadened Nerves
+			["n"] = 90743,
+			["e"] = 112633,
 		},
 		{ -- Deepening Shadows
 			["n"] = 90724,
 			["e"] = 112612,
 		},
-		{ -- Deadly Precision
-			["n"] = 90760,
-			["e"] = 112652,
+		{ -- Tight Spender
+			["n"] = 90694,
+			["e"] = 112582,
 		},
 		{ -- Improved Shadow Dance
 			["n"] = 90734,
@@ -623,9 +623,9 @@ local ROGUE_TALENTS = {
 			["n"] = 90734,
 			["e"] = 112623,
 		},
-		{ -- Thief's Versatility
-			["n"] = 90753,
-			["e"] = 112645,
+		{ -- Deadly Precision
+			["n"] = 90760,
+			["e"] = 112652,
 		},
 		{ -- Shadowed Finishers
 			["n"] = 90723,
@@ -638,6 +638,14 @@ local ROGUE_TALENTS = {
 		{ -- Shadowed Finishers
 			["n"] = 90723,
 			["e"] = 112611,
+		},
+		{ -- Thief's Versatility
+			["n"] = 90753,
+			["e"] = 112645,
+		},
+		{ -- Secret Stratagem
+			["n"] = 90722,
+			["e"] = 112610,
 		},
 		{ -- Nightstalker
 			["n"] = 90693,
@@ -651,9 +659,9 @@ local ROGUE_TALENTS = {
 			["n"] = 90693,
 			["e"] = 112581,
 		},
-		{ -- Secret Stratagem
-			["n"] = 90722,
-			["e"] = 112610,
+		{ -- Dark Shadow
+			["n"] = 90732,
+			["e"] = 112620,
 		},
 		{ -- Vigor
 			["n"] = 90759,
@@ -667,9 +675,9 @@ local ROGUE_TALENTS = {
 			["n"] = 90752,
 			["e"] = 112644,
 		},
-		{ -- Dark Shadow
-			["n"] = 90732,
-			["e"] = 112620,
+		{ -- Deeper Daggers
+			["n"] = 90721,
+			["e"] = 112609,
 		},
 		{ -- Improved Ambush
 			["n"] = 90692,
@@ -682,14 +690,6 @@ local ROGUE_TALENTS = {
 		{ -- Leeching Poison
 			["n"] = 90758,
 			["e"] = 112650,
-		},
-		{ -- Deeper Daggers
-			["n"] = 90721,
-			["e"] = 112609,
-		},
-		{ -- Lethality
-			["n"] = 90749,
-			["e"] = 112640,
 		},
 		{ -- Lingering Shadow
 			["n"] = 90731,
@@ -731,13 +731,13 @@ local ROGUE_TALENTS = {
 			["n"] = 90757,
 			["e"] = 112649,
 		},
-		{ -- Dark Brew
-			["n"] = 90719,
-			["e"] = 112607,
-		},
 		{ -- Deeper Stratagem
 			["n"] = 90750,
 			["e"] = 112642,
+		},
+		{ -- Dark Brew
+			["n"] = 90719,
+			["e"] = 112607,
 		},
 	},
 }
