@@ -261,17 +261,17 @@ local MONK_TALENTS = {
 			["n"] = 80689,
 			["e"] = 101507,
 		},
-		{ -- Touch of Karma
-			["n"] = 80610,
-			["e"] = 101420,
+		{ -- Ascension
+			["n"] = 80612,
+			["e"] = 101422,
 		},
 		{ -- Improved Roll
 			["n"] = 80712,
 			["e"] = 101531,
 		},
-		{ -- Ascension
-			["n"] = 80612,
-			["e"] = 101422,
+		{ -- Touch of Karma
+			["n"] = 80610,
+			["e"] = 101420,
 		},
 		{ -- Calming Presence
 			["n"] = 80693,
@@ -281,17 +281,17 @@ local MONK_TALENTS = {
 			["n"] = 80614,
 			["e"] = 101424,
 		},
-		{ -- Tiger Tail Sweep
-			["n"] = 80604,
-			["e"] = 101414,
+		{ -- Vigorous Expulsion
+			["n"] = 80711,
+			["e"] = 101530,
 		},
 		{ -- Widening Whirl
 			["n"] = 80609,
 			["e"] = 101419,
 		},
-		{ -- Vigorous Expulsion
-			["n"] = 80711,
-			["e"] = 101530,
+		{ -- Tiger Tail Sweep
+			["n"] = 80604,
+			["e"] = 101414,
 		},
 		{ -- Flashing Fists
 			["n"] = 80615,
