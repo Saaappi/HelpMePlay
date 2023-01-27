@@ -50,6 +50,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					else
 						DoEmote(t.emote, nil)
 					end
+					break
 				end
 			end
 		end
