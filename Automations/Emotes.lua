@@ -45,7 +45,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local _, _, _, _, _, npcId = strsplit("-", guid); npcId = tonumber(npcId)
 			for id, t in pairs(addonTable.EMOTES) do
 				if id == npcId then
-					DoEmote(t.emote, nil)
+					if t.emote == "dismount" then
+						Dismount()
+					else
+						DoEmote(t.emote, nil)
+					end
 				end
 			end
 		end

@@ -71,13 +71,13 @@ addonTable.DUNGEON_QUEUES_BY_QUEST = DUNGEON_QUEUES_BY_QUEST
 	-- shouldn't be handled for a specific NPC.
 local EMOTES = {
 	[33224]		= { gossip=false, emote="kiss" }, 		-- Lake Frog
-	[41539]		= { gossip=false, emote="whistle" }, 	-- Stolen Ram
-	[153580]	= { gossip=false, emote="wave" }, 		-- Gor'groth
+	[153580]	= { gossip=false, emote="wave" }, 		-- Gor'groth (Exile's Reach)
 	[162553] 	= { gossip=true, emote="flex" }, 		-- Runestone of Constructs
 	[162559] 	= { gossip=true, emote="kneel" }, 		-- Runestone of Rituals
 	[162562] 	= { gossip=true, emote="bleed" }, 		-- Runestone of Plague
 	[162584] 	= { gossip=true, emote="sneak" }, 		-- Runestone of Eyes
 	[162592] 	= { gossip=true, emote="salute" }, 		-- Runestone of Chosen
+	[164835] 	= { gossip=false, emote="dismount" }, 	-- Kee-La (Exile's Reach)
 }
 addonTable.EMOTES = EMOTES
 
