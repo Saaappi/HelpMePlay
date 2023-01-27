@@ -56,7 +56,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 			
 			HMPTalentButton:HookScript("OnClick", function(self)
-				--[[local configID = C_ClassTalents.GetActiveConfigID()
+				local configID = C_ClassTalents.GetActiveConfigID()
 				local _, _, classID = UnitClass("player")
 				local specID = PlayerUtil.GetCurrentSpecID()
 				
@@ -86,7 +86,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 					PurchaseTalents(configID, addonTable.DEMON_HUNTER_TALENTS, specID)
 				elseif classID == 13 then -- Evoker
 					PurchaseTalents(configID, addonTable.EVOKER_TALENTS, specID)
-				end]]
+				end
 			end)
 			
 			HMPTalentButton:HookScript("OnEnter", function(self)

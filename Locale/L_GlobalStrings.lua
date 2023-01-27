@@ -316,8 +316,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"] 												= "Enter %s\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.Learn"] 															= "Learn"
-	--L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "|cffFF0000This feature is disabled while talents are being updated for\nthe latest patch. I apologize for the inconvenience.|r\n\n|cff9D9D9DAutomatically learns and applies the next talent in\nthe loadout.|r\n\n|cffADD8E6Added by HelpMePlay|r"
-	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "|cffFF0000This feature is disabled while talents are being updated for\nthe latest patch. I apologize for the inconvenience.|r"
+	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "|cff9D9D9DAutomatically learns and applies the next talent in\nthe loadout.|r\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"] 												= "Automatically learns all possible talents in the given system.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"] 										= "Are you sure you want HelpMePlay to learn your talents for this system?\n\nAll options can eventually be learned with enough currency.\n\nSelect YES if you don't want to think about the order, or CANCEL if you want to control the purchase order."
