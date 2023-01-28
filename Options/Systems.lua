@@ -78,12 +78,20 @@ local systemsOptions = {
 			type = "select",
 			style = "dropdown",
 			values = {
+				[5] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.PreserveTransmog"],
 				[0] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"],
 				[1] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Common"],
 				[2] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"],
 				[3] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Rare"],
 				[4] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"],
-				[5] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.PreserveTransmog"],
+			},
+			sorting = {
+				[1] = 5, 	-- Preserve Transmog
+				[2] = 0, 	-- Poor
+				[3] = 1, 	-- Common
+				[4] = 2, 	-- Uncommon
+				[5] = 3, 	-- Rare
+				[6] = 4, 	-- Epic
 			},
 			get = function()
 				if not HelpMePlayDB.RarityId then
