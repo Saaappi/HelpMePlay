@@ -102,8 +102,15 @@ local function HelpMePlaySellItems()
 							end
 							
 							if itemQuality <= HelpMePlayDB.RarityId then
-								C_Container.UseContainerItem(bagId, slotId)
-								soldItemCount = soldItemCount + 1
+								if HelpMePlayDB.RarityId == -1 then
+									if C_Item.IsDressableItemByID(itemLink) == false then
+										C_Container.UseContainerItem(bagId, slotId)
+										soldItemCount = soldItemCount + 1
+									end
+								else
+									C_Container.UseContainerItem(bagId, slotId)
+									soldItemCount = soldItemCount + 1
+								end
 							end
 							
 							if HelpMePlayDB[itemType] then

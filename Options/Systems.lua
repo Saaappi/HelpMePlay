@@ -73,6 +73,7 @@ local systemsOptions = {
 			type = "select",
 			style = "dropdown",
 			values = {
+				[-1] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.PreserveTransmog"],
 				[0] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"],
 				[1] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Common"],
 				[2] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"],
