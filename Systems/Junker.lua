@@ -96,22 +96,24 @@ local function HelpMePlaySellItems()
 					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
 					if sellPrice then
 						if sellPrice > 0 then
+							local shouldItemBeSold = false
+							
 							if HelpMePlayJunkerGlobalDB[itemId] or HelpMePlayJunkerDB[itemId] then
-								C_Container.UseContainerItem(bagId, slotId)
-								soldItemCount = soldItemCount + 1
+								shouldItemBeSold = true
 							end
 							
-							-- Preserve Transmog option is selected.
-							if C_Item.IsDressableItemByID(itemLink) and HelpMePlayDB.RarityId == 5 then
-								-- DO NOTHING
-							elseif itemQuality <= HelpMePlayDB.RarityId and HelpMePlayDB.RarityId ~= 5 then
-								C_Container.UseContainerItem(bagId, slotId)
-								soldItemCount = soldItemCount + 1
+							if itemQuality <= HelpMePlayDB.RarityId then
+								if HelpMePlayDB.RarityId == 5 then
+									if itemQuality == 0 then
+										shouldItemBeSold = true
+									end
+								else
+									shouldItemBeSold = true
+								end
 							end
 							
 							if HelpMePlayDB[itemType] then
-								C_Container.UseContainerItem(bagId, slotId)
-								soldItemCount = soldItemCount + 1
+								shouldItemBeSold = true
 							end
 							
 							if HelpMePlayDB.JunkerSoulboundModeEnabled then
@@ -128,11 +130,19 @@ local function HelpMePlaySellItems()
 									local itemLevel = GetDetailedItemLevelInfo(itemLink)
 									if (itemLevel+30) <= avgItemLevel then
 										if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
-											C_Container.UseContainerItem(bagId, slotId)
-											soldItemCount = soldItemCount + 1
+											shouldItemBeSold = true
 										end
 									end
 								end
+							end
+							
+							if C_Item.IsDressableItemByID(itemLink) and HelpMePlayDB.RarityId == 5 then
+								shouldItemBeSold = false
+							end
+							
+							if shouldItemBeSold then
+								C_Container.UseContainerItem(bagId, slotId)
+								soldItemCount = soldItemCount + 1
 							end
 						end
 					end

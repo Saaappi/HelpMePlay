@@ -269,7 +269,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Toggle.SafeMode"] 													= "Safe Mode"
 	L_GLOBALSTRINGS["Junker.Toggle.SafeModeDesc"] 												= "When |cffFFD100Safe Mode|r is enabled, Junker will sell items in batches of 12. This ensures the player can use the buy back tab to repurchase items."
 	L_GLOBALSTRINGS["Junker.Toggle.SoulboundMode"] 												= "Soulbound Mode"
-	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"] 											= "When enabled, Junker will automatically sell soulbound items that are at least 30 item levels below your current item level.\n\nThis is used to save the player time from adding legacy items to their sell list unnecessarily.\n\n|cffFFD100NOTE|r: This setting is disabled automatically if |cffFFD100Preserve Transmog|r is selected in the Rarity menu."
+	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"] 											= "When enabled, Junker will automatically sell soulbound items that are at least 30 item levels below your current item level.\n\nThis is used to save the player time from adding legacy items to their sell list unnecessarily.\n\n|cffFFD100NOTE|r: This setting is disabled automatically if |cffFFD100Preserve Transmog|r is selected in the Rarity menu. If enabled, then the Rarity filter is set to |cff9D9D9DPoor|r."
 	L_GLOBALSTRINGS["Junker.Toggle.AutoSell"] 													= "Auto Sell"
 	L_GLOBALSTRINGS["Junker.Toggle.AutoSellDesc"] 												= "Toggle whether Junker should automatically sell to a vendor for you.\n\n|cffFFD100NOTE|r: This feature respects Safe Mode. If enabled, Auto Sell will only sell once."
 	L_GLOBALSTRINGS["Junker.Toggle.JunkerArmor"] 												= "Armor"
@@ -297,7 +297,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabledText"] 									= "No auto sell addon enabled."
 	--
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"]											= "Rarity"
-	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"]												= "Select the maximum item rarity threshold for Junker to sell.\n\nSetting this rarity to Uncommon, for example, would tell rarity to sell all Poor, Common, and Uncommon items without player input."
+	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"]												= "Select the maximum item rarity threshold for Junker to sell.\n\nSetting this rarity to Uncommon, for example, would tell rarity to sell all Poor, Common, and Uncommon items without player input.\n\n|cffFFD100Preserve Transmog|r will only flag |cff9D9D9DPoor|r quality items for sale."
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.PreserveTransmog"]									= "|cffFFD100Preserve Transmog|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"]												= "|cff9D9D9DPoor|r"
 	L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Common"]											= "|cffFFFFFFCommon|r"
