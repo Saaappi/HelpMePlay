@@ -40,7 +40,12 @@ local systemsOptions = {
 			desc = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"],
 			type = "toggle",
 			get = function(info) return HelpMePlayDB.JunkerSoulboundModeEnabled end,
-			set = function(_, val) HelpMePlayDB.JunkerSoulboundModeEnabled = val end,
+			set = function(_, val)
+				HelpMePlayDB.JunkerSoulboundModeEnabled = val
+				if val then
+					HelpMePlayDB.RarityId = 0
+				end
+			end,
 		},
 		autoSell = {
 			name = L_GLOBALSTRINGS["Junker.Toggle.AutoSell"],
