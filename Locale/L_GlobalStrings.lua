@@ -269,7 +269,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Toggle.SafeMode"] 													= "Safe Mode"
 	L_GLOBALSTRINGS["Junker.Toggle.SafeModeDesc"] 												= "When |cffFFD100Safe Mode|r is enabled, Junker will sell items in batches of 12. This ensures the player can use the buy back tab to repurchase items."
 	L_GLOBALSTRINGS["Junker.Toggle.SoulboundMode"] 												= "Soulbound Mode"
-	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"] 											= "When enabled, Junker will automatically sell soulbound items that are at least 30 item levels below your current item level.\n\nThis is used to save the player time from adding legacy items to their sell list unnecessarily."
+	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"] 											= "When enabled, Junker will automatically sell soulbound items that are at least 30 item levels below your current item level.\n\nThis is used to save the player time from adding legacy items to their sell list unnecessarily.\n\n|cffFFD100NOTE|r: This setting will be disabled automatically if |cffFFD100Preserve Transmog|r is selected in the Rarity menu."
 	L_GLOBALSTRINGS["Junker.Toggle.AutoSell"] 													= "Auto Sell"
 	L_GLOBALSTRINGS["Junker.Toggle.AutoSellDesc"] 												= "Toggle whether Junker should automatically sell to a vendor for you.\n\n|cffFFD100NOTE|r: This feature respects Safe Mode. If enabled, Auto Sell will only sell once."
 	L_GLOBALSTRINGS["Junker.Toggle.JunkerArmor"] 												= "Armor"

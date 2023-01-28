@@ -86,7 +86,14 @@ local systemsOptions = {
 				end
 				return HelpMePlayDB.RarityId
 			end,
-			set = function(_, rarityId) HelpMePlayDB.RarityId = rarityId end,
+			set = function(_, rarityId)
+				HelpMePlayDB.RarityId = rarityId
+				if rarityId == 5 then
+					if HelpMePlayDB.JunkerSoulboundModeEnabled then
+						HelpMePlayDB.JunkerSoulboundModeEnabled = false
+					end
+				end
+			end,
 		},
 		importBtn = {
 			name = L_GLOBALSTRINGS["Junker.Button.Import"],

@@ -102,11 +102,9 @@ local function HelpMePlaySellItems()
 							end
 							
 							-- Preserve Transmog option is selected.
-							if HelpMePlayDB.RarityId == 5 then
-								if C_Item.IsDressableItemByID(itemLink) == false then
-									C_Container.UseContainerItem(bagId, slotId)
-									soldItemCount = soldItemCount + 1
-								end
+							if C_Item.IsDressableItemByID(itemLink) == false and HelpMePlayDB.RarityId == 5 then
+								C_Container.UseContainerItem(bagId, slotId)
+								soldItemCount = soldItemCount + 1
 							elseif itemQuality <= HelpMePlayDB.RarityId then
 								C_Container.UseContainerItem(bagId, slotId)
 								soldItemCount = soldItemCount + 1
