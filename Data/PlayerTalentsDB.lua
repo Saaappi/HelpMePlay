@@ -2,164 +2,164 @@ local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local PLAYER_TALENTS = {
 	-- Death Knight
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[250] = { -- Blood
+		["importString"] 	= "BoPAAAAAAAAAAAAAAAAAAAAAAACJBkkISJSkQSiECSSSkAAAAAAkIJBRSTiIBAAISSSCAAAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[251] = { -- Frost
+		["importString"] 	= "BsPAAAAAAAAAAAAAAAAAAAAAAkkEgAJJkUiEQSSSIkISSkISAkkERSSSSKBAAAAAAAAAAAAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[252] = { -- Unholy
+		["importString"] 	= "BwPAAAAAAAAAAAAAAAAAAAAAAAAEkkQSJSIkkEhQSiEBAAAAAAAAAAkkAJpBAikiUCJJJSSA",
 		["build"] 			= "47871",
 	},
 	-- Demon Hunter
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[577] = { -- Havoc
+		["importString"] 	= "BEkAAAAAAAAAAAAAAAAAAAAAAQCIhUik0SSkkIQAAAAAAA0SSgWKkkUQCpFpIJRSSC",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[581] = { -- Vengeance
+		["importString"] 	= "BUkAAAAAAAAAAAAAAAAAAAAAAAAQLCtkEJRARiAJlEQ0SkIkESSLJiEHIhSkEAAAAA",
 		["build"] 			= "47871",
 	},
 	-- Druid
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[102] = { -- Balance
+		["importString"] 	= "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAkkIikkAkkIJSBaJSSSkSii4AJhUSKRIoAQAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[103] = { -- Feral
+		["importString"] 	= "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAISapJhkkIpkyBQJJJRSAAAAAAoAgkAAkkkESiUSol4AAAAAAAQCoBA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[104] = { -- Guardian
+		["importString"] 	= "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSSSSJRJJJJCEkUoAQigAJIJJJJJSBaJAAAAAAICIAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[105] = { -- Restoration
+		["importString"] 	= "BkGAAAAAAAAAAAAAAAAAAAAAAQkkUKtkEJFplEEC0SJJAAAAAAAAAAAAgSASigAIBEkQJJplkAAAAAAEBAAA",
 		["build"] 			= "47871",
 	},
 	-- Evoker
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[1467] = { -- Devastation
+		["importString"] 	= "BsbBAAAAAAAAAAAAAAAAAAAAAIFCAAAAAAoolikISCJkEJtkk0CSLCSIJAJJJRIJJ",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[1468] = { -- Preservation
+		["importString"] 	= "BwbBAAAAAAAAAAAAAAAAAAAAAABtIgIJNJJJJCJJJhAAAAAAQiEJSIJQSSChIJB",
 		["build"] 			= "47871",
 	},
 	-- Hunter
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[253] = { -- Beast Mastery
+		["importString"] 	= "B0PAAAAAAAAAAAAAAAAAAAAAA4AgWCAQAAAAAAAAAAAoBIhWikIJkkDEpJkSikQkERasgEB",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[254] = { -- Marksmanship
+		["importString"] 	= "B4PAAAAAAAAAAAAAAAAAAAAAAUOQEaBgEIIAAAAAkERSSSCCRSDpRCUkSaCJSQiEpBAAAAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[255] = { -- Survival
+		["importString"] 	= "B8PAAAAAAAAAAAAAAAAAAAAAA4ABahkEIBBJHIRaJECRSKRIAAAAAQQUkiGkIhkIhGAAAAA",
 		["build"] 			= "47871",
 	},
 	-- Mage
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[62] = { -- Arcane
+		["importString"] 	= "B4DAAAAAAAAAAAAAAAAAAAAAAAkkkSikIJlAJNhIiIhkEcAJRIJAAAAAAAAAAAAkkkESSSSC",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[63] = { -- Fire
+		["importString"] 	= "B8DAAAAAAAAAAAAAAAAAAAAAAIJRgSSyBQSRESTiIiIJAAAAAAAAAkQSiEkGJJSkkkIFAAAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[64] = { -- Frost
+		["importString"] 	= "BAEAAAAAAAAAAAAAAAAAAAAAAIJSgWicgIJFISTIiISSAAAkkkEhEJJJSKJJJCAAAAAAAAAgA",
 		["build"] 			= "47871",
 	},
 	-- Monk
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[268] = { -- Brewmaster
+		["importString"] 	= "BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAloUSSiQSSrRAAAASL0SiEJJJkkkkUkAaRi0SrEC",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[270] = { -- Mistweaver
+		["importString"] 	= "B4QAAAAAAAAAAAAAAAAAAAAAAIRUkkkQRLJSkDQSDiUEAAAAAAAAAAAAAIlgIRCkkkkUSCSAAE",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[269] = { -- Windwalker
+		["importString"] 	= "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAJRSSSTiEBAAAAkkkESASkItItkERSkIJJJSTCAAA",
 		["build"] 			= "47871",
 	},
 	-- Paladin
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[65] = { -- Holy
+		["importString"] 	= "BEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQSAAAAAAA0SCQJSiSTkiEJlEolIRTEJpIRSSUSRSQBRA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[66] = { -- Protection
+		["importString"] 	= "BIEAAAAAAAAAAAAAAAAAAAAAA0iWikikiIJJKNJJEkQAAAAAAAAAAAAAAQTSSSkASUSJIJloEA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[70] = { -- Retribution
+		["importString"] 	= "BYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIBgolSSCJBJkSKJJpVCAAAAAAg0QSSkEiElUSSQJKB",
 		["build"] 			= "47871",
 	},
 	-- Priest
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[256] = { -- Discipline
+		["importString"] 	= "BAQAAAAAAAAAAAAAAAAAAAAAAAAkUIJQSQSSUSJJJJAAAAAAAAAAAASEKkiEJISRIRItSkIgWE",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[257] = { -- Holy
+		["importString"] 	= "BEQAAAAAAAAAAAAAAAAAAAAAAQTAAAAAAAAlEKpIkkIQkkIKJJAAAAAAQKSSCiUSIRQpFJJBaB",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[258] = { -- Shadow
+		["importString"] 	= "BIQAAAAAAAAAAAAAAAAAAAAAAISSLSAAAAAAAAAAAAAISiSkmUISSSJhEBaRSSiUIFSQQpFhkAA",
 		["build"] 			= "47871",
 	},
 	-- Rogue
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[259] = { -- Assassination
+		["importString"] 	= "BMQAAAAAAAAAAAAAAAAAAAAAAQLJSikIRLBAAAAAAQiAIJAAAAAAASJJCtkgkkEhkkAJRSiFE",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[260] = { -- Outlaw
+		["importString"] 	= "BQQAAAAAAAAAAAAAAAAAAAAAAAAAgEREAJJkIJJIJRSSiIkkkIAAAAAAARJSIlkASSKBAAAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[261] = { -- Subtlety
+		["importString"] 	= "BUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAJJiIBIRSCSSSISSESSSLJhDUSCSSkSAAAA",
 		["build"] 			= "47871",
 	},
 	-- Shaman
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[262] = { -- Elemental
+		["importString"] 	= "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgUSpUSSJJ0i0SSDBNIBAAAAAAIApkEl0EFINSSTJBlkASA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[263] = { -- Enhancement
+		["importString"] 	= "BcQAAAAAAAAAAAAAAAAAAAAAAIRSaASSSikkQiEJAAAAAAAAAAAAAICRIRLFBIlEJFEQkESA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[264] = { -- Restoration
+		["importString"] 	= "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpJJkkWkAaBJlUSKkUSIkSSSLFBk0CBE0SCIB",
 		["build"] 			= "47871",
 	},
 	-- Warlock
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[265] = { -- Affliction
+		["importString"] 	= "BkQAAAAAAAAAAAAAAAAAAAAAAgQSSSiEINFCSLJJRaBAAAAapBAAAAAAIJakISSSS0SIAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[266] = { -- Demonology
+		["importString"] 	= "BoQAAAAAAAAAAAAAAAAAAAAAAggkEJSg0SJCSLJJkWAAAAAQLCSIkIJSSiItkIhAAAAAAA",
 		["build"] 			= "47871",
 	},
-	[72] = { -- Fury
-		["importString"] 	= "",
+	[267] = { -- Destruction
+		["importString"] 	= "BsQAAAAAAAAAAAAAAAAAAAAAAggkEJSg0SLCSLJJkWgkDoEJiWQr0IBAAAAAAAAAAAQCJlkE",
 		["build"] 			= "47871",
 	},
 	-- Warrior
 	[71] = { -- Arms 
-		["importString"] 	= "",
+		["importString"] 	= "BcEAAAAAAAAAAAAAAAAAAAAAAAIFJSSkQkkWpEJBAAAABRgCBUEBkIkEKSESAhECAAAAAAAAJKJIgQ0CB",
 		["build"] 			= "47871",
 	},
 	[72] = { -- Fury
-		["importString"] 	= "",
+		["importString"] 	= "BgEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQggSAEBhIIRDSIJQkESSaJJSkggEJRapFgkkEAAAEQQA",
 		["build"] 			= "47871",
 	},
 	[73] = { -- Protection
