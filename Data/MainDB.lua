@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local e = CreateFrame("Frame")
 local L_NOTES = addonTable.L_NOTES
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 

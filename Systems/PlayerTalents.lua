@@ -36,6 +36,67 @@ local function PurchaseTalents(configID, tbl, specID)
 	end)
 end
 
+local function ConvertToImportLoadoutEntryInfo(treeID, loadoutContent)
+    local results = {}
+    local treeNodes = C_Traits.GetTreeNodes(treeID)
+    local configID = C_ClassTalents.GetActiveConfigID()
+    local count = 1
+    for i, treeNodeID in ipairs(treeNodes) do
+        local indexInfo = loadoutContent[i]
+        if (indexInfo.isNodeSelected) then
+            local treeNode = C_Traits.GetNodeInfo(configID, treeNodeID)
+            local result = {}
+            result.nodeID = treeNode.ID
+            result.ranksPurchased = indexInfo.isPartiallyRanked and indexInfo.partialRanksPurchased or treeNode.maxRanks
+            -- minor change from default UI, only add in case of choice nodes
+            result.selectionEntryID = indexInfo.isChoiceNode and treeNode.entryIDs[indexInfo.choiceNodeSelection] or nil
+            results[count] = result
+            count = count + 1
+        end
+    end
+
+    return results
+end
+
+local function PurchaseLoadoutEntryInfo(configID, loadoutEntryInfo)
+    local removed = 0
+    for i, nodeEntry in pairs(loadoutEntryInfo) do
+        local success = false
+        if nodeEntry.selectionEntryID then
+            success = C_Traits.SetSelection(configID, nodeEntry.nodeID, nodeEntry.selectionEntryID);
+        elseif nodeEntry.ranksPurchased then
+            for rank = 1, nodeEntry.ranksPurchased do
+                success = C_Traits.PurchaseRank(configID, nodeEntry.nodeID);
+            end
+        end
+        if success then
+            removed = removed + 1
+            loadoutEntryInfo[i] = nil
+        end
+    end
+
+    return removed
+end
+
+local function Import(loadoutEntryInfo, treeID)
+	local configID = C_ClassTalents.GetActiveConfigID()
+    if not configID then
+        return false
+    end
+	
+    C_Traits.ResetTree(configID, treeID)
+    while (true) do
+        local removed = PurchaseLoadoutEntryInfo(configID, loadoutEntryInfo)
+        if (removed == 0) then
+            break
+        end
+    end
+	
+	C_Traits.StageConfig(configID)
+	C_Traits.CommitConfig(configID)
+    return true
+end
+
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
 	if event == "ADDON_LOADED" and addon == "Blizzard_ClassTalentUI" then
@@ -56,11 +117,10 @@ e:SetScript("OnEvent", function(self, event, addon)
 			HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 			
 			HMPTalentButton:HookScript("OnClick", function(self)
-				local configID = C_ClassTalents.GetActiveConfigID()
-				local _, _, classID = UnitClass("player")
+				--local _, _, classID = UnitClass("player")
 				local specID = PlayerUtil.GetCurrentSpecID()
 				
-				if classID == 1 then -- Warrior
+				--[[if classID == 1 then -- Warrior
 					PurchaseTalents(configID, addonTable.WARRIOR_TALENTS, specID)
 				elseif classID == 2 then -- Paladin
 					PurchaseTalents(configID, addonTable.PALADIN_TALENTS, specID)
@@ -86,7 +146,34 @@ e:SetScript("OnEvent", function(self, event, addon)
 					PurchaseTalents(configID, addonTable.DEMON_HUNTER_TALENTS, specID)
 				elseif classID == 13 then -- Evoker
 					PurchaseTalents(configID, addonTable.EVOKER_TALENTS, specID)
+				end]]
+				
+				local importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
+				local headerValid, serializationVersion, specID, treeHash = ClassTalentImportExportMixin:ReadLoadoutHeader(importStream)
+				
+				if (not headerValid) then
+					ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_BAD_STRING)
+					return false
 				end
+				
+				local _, build = GetBuildInfo()
+				if (build ~= addonTable.PLAYER_TALENTS[specID].build) then
+					ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
+					return false
+				end
+				
+				if (specID ~= PlayerUtil.GetCurrentSpecID()) then
+					ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
+					return false
+				end
+				
+				local configID = C_ClassTalents.GetActiveConfigID()
+				local treeInfo = C_Traits.GetTreeInfo(configID, C_Traits.GetConfigInfo(configID).treeIDs[1])
+
+				local loadoutContent = ClassTalentImportExportMixin:ReadLoadoutContent(importStream, treeInfo.ID)
+				local loadoutEntryInfo = ConvertToImportLoadoutEntryInfo(treeInfo.ID, loadoutContent)
+				
+				Import(loadoutEntryInfo, treeInfo.ID)
 			end)
 			
 			HMPTalentButton:HookScript("OnEnter", function(self)
