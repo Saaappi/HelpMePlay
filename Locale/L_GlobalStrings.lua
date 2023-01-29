@@ -317,7 +317,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"] 												= "Enter %s\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.Learn"] 															= "Learn"
-	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "|cff9D9D9DAutomatically learns and applies the next talent in\nthe loadout.|r\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["UI.Button.Talents.Desc"] 													= "Automatically learns and applies the next talent in\nthe loadout.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"] 												= "Automatically learns all possible talents in the given system.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"] 										= "Are you sure you want HelpMePlay to learn your talents for this system?\n\nAll options can eventually be learned with enough currency.\n\nSelect YES if you don't want to think about the order, or CANCEL if you want to control the purchase order."
@@ -340,7 +340,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"] 											= "Equipping an item upgrade."
 	L_GLOBALSTRINGS["Text.Output.NoItemUpgradeFound"] 											= "No match found. Do you have anything equipped?"
 	L_GLOBALSTRINGS["Text.Output.DevModeDisabled"] 												= "Developer Mode must be enabled to use this command."
-	L_GLOBALSTRINGS["Text.Output.TalentLearned"] 												= "Learned a talent."
 	-- End:		Text Output
 	--
 	-- Start: 	Single Words
