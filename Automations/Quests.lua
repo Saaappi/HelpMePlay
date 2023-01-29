@@ -155,6 +155,11 @@ local function CompleteQuest()
 						end
 
 						if HelpMePlayDB.QuestRewardId == 1 then
+							-- First check to see if the reward is a weapon. If it's a weapon,
+							-- we want to leave the choice to the player.
+							local _, _, _, _, _, itemType = GetItemInfo(questRewardItemLink)
+							if itemType == "Weapon" then return end
+							
 							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
 							local rewardItemType = C_Item.GetItemInventoryTypeByID(GetQuestItemLink("choice", i))
 							if rewardItemType ~= 0 then
