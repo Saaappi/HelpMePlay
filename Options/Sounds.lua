@@ -29,6 +29,7 @@ local soundsOptions = {
 				val = tonumber(val)
 				if HelpMePlayDB.Sounds[val] then
 					HelpMePlayDB.Sounds[val] = nil
+					UnmuteSoundFile(val)
 				else
 					HelpMePlayDB.Sounds[val] = true
 				end
