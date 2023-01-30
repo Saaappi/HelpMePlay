@@ -40,6 +40,7 @@ Options\Quests.lua
 Options\ExpansionFeatures.lua
 Options\Systems.lua
 Options\ZoneSelection.lua
+Options\Sounds.lua
 Options\Extras.lua
 
 # Data
@@ -93,6 +94,7 @@ Systems\PartyPlay.lua
 Systems\Junker.lua
 Systems\QuestMobs.lua
 Systems\TalkingHead.lua
+Systems\Sounds.lua
 Systems\PersonalHealth.lua
 
 # General Stuff

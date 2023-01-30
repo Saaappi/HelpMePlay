@@ -31,6 +31,10 @@ function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_ZoneSelection", addonTable.zoneSelectionOptions)
 	self.zoneSelectionOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ZoneSelection", L_GLOBALSTRINGS["Tabs.ZoneSelection"], addonName); addonTable.zoneSelectionOptions = self.zoneSelectionOptions
 	
+	-- Sounds
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Sounds", addonTable.soundsOptions)
+	self.soundsOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Sounds", L_GLOBALSTRINGS["Tabs.Sounds"], addonName); addonTable.soundsOptions = self.soundsOptions
+	
 	-- Extras
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Extras", addonTable.extrasOptions)
 	self.extrasOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Extras", L_GLOBALSTRINGS["Tabs.Extras"], addonName); addonTable.extrasOptions = self.extrasOptions
@@ -103,6 +107,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if HelpMePlayDB.TheMawEnabled == nil then
 				HelpMePlayDB.TheMawEnabled = false
+			end
+			if HelpMePlayDB.Sounds == nil then
+				HelpMePlayDB.Sounds = {}
 			end
 			
 			-- Clear the player-submitted dialogs.
