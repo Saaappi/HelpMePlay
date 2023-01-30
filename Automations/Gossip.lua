@@ -233,6 +233,23 @@ local function ConfirmConfirmationMessage(message, npcId, parentMapID)
 	end
 end
 
+local function GOSSIP_SHOW()
+	if IsShiftKeyDown() then
+		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+			GOSSIP_SHOW()
+		end)
+	else
+		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		if unitGUID then
+			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+		end
+		
+		local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
+		ProcessDialogTree(parentMapID)
+	end
+end
+
 e:RegisterEvent("GOSSIP_CONFIRM")
 e:RegisterEvent("GOSSIP_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
@@ -255,13 +272,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
-		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
-		if unitGUID then
-			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
-			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
-		end
-		
-		local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-		ProcessDialogTree(parentMapID)
+		GOSSIP_SHOW()
 	end
 end)
