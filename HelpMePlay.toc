@@ -95,6 +95,7 @@ Systems\Junker.lua
 Systems\QuestMobs.lua
 Systems\TalkingHead.lua
 Systems\Sounds.lua
+Systems\Barbershop.lua
 Systems\PersonalHealth.lua
 
 # General Stuff
