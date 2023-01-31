@@ -97,7 +97,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if GUID == UnitGUID("player") then
 			local itemLink = string.match(text,"|%x+|Hitem:.-|h.-|h|r")
 			local inventoryType = C_Item.GetItemInventoryTypeByID(itemLink)
-			if inventoryType > 0 then
+			if addonTable.CONSTANTS["SLOTS"][inventoryType] then
 				EquipItem(itemLink, inventoryType)
 			end
 		end
