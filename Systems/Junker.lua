@@ -80,7 +80,7 @@ local function HelpMePlaySellItems()
 	-- enabled filters.
 	local soldItemCount = 0
 	local _, avgItemLevel = GetAverageItemLevel()
-	for bagId = 0, 4 do
+	for bagId = 0, 5 do
 		for slotId = 0, C_Container.GetContainerNumSlots(bagId) do
 			local itemId = C_Container.GetContainerItemID(bagId, slotId)
 			if itemId then
