@@ -26,6 +26,8 @@ local function EquipItem(itemLink)
 									if rewardItemLevel > equippedItemLevel then
 										equipSlot = invSlotID
 									end
+								else
+									equipSlot = invSlotID
 								end
 							end
 						else
@@ -38,6 +40,8 @@ local function EquipItem(itemLink)
 										equipSlot = addonTable.CONSTANTS["SLOTS"][rewardItemType]
 									end
 								end
+							else
+								equipSlot = addonTable.CONSTANTS["SLOTS"][rewardItemType]
 							end
 						end
 						
