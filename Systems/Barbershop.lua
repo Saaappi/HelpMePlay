@@ -22,21 +22,29 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			HMPBarberShopSaveButton:HookScript("OnClick", function(self)
 				local _, _, classID = UnitClass("player")
 				local characterData = C_BarberShop.GetCurrentCharacterData()
+				local customizations = C_BarberShop.GetAvailableCustomizations()
 				local sexID = tostring(characterData.sex)
+				local choices = {}
+				
+				if not customizations or not characterData then
+					return
+				end
 				
 				-- Create the table structure, if needed.
-				if HelpMePlayDB.BarberShop[classID] == nil then
-					HelpMePlayDB.BarberShop[classID] = {}
-					HelpMePlayDB.BarberShop[classID]["0"] = {} -- Male
-					HelpMePlayDB.BarberShop[classID]["1"] = {} -- Female
+				if HelpMePlayDB.BarberShop[characterData.name] == nil then
+					HelpMePlayDB.BarberShop[characterData.name] = {}
+					HelpMePlayDB.BarberShop[characterData.name][classID] = {
+						["0"] = {}, -- Male
+						["1"] = {}, -- Female
+					}
 				end
 				
-				local customizations = C_BarberShop.GetAvailableCustomizations()
-				for _, categories in ipairs(customizations) do
-					for _, option in pairs(categories.options) do
-						HelpMePlayDB.BarberShop[classID][sexID][option.id] = option.currentChoiceIndex
+				for customizationID, customization in ipairs(customizations) do
+					for optionID, option in ipairs(customization.options) do
+						choices[option.id] = option.choices[option.currentChoiceIndex].id
 					end
 				end
+				HelpMePlayDB.BarberShop[characterData.name][classID][sexID] = choices
 			end)
 			
 			-- Load Button
@@ -49,6 +57,21 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			HMPBarberShopLoadButton:SetText("Load")
 			HMPBarberShopLoadButton:SetPoint("TOP", 0, 50)
 			HMPBarberShopLoadButton:Show()
+			
+			HMPBarberShopLoadButton:HookScript("OnClick", function(self)
+				local _, _, classID = UnitClass("player")
+				local characterData = C_BarberShop.GetCurrentCharacterData()
+				local sexID = tostring(characterData.sex)
+				
+				if HelpMePlayDB.BarberShop[classID] ~= nil then
+					if next(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) then
+						for optionID, choiceID in pairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
+							C_BarberShop.SetCustomizationChoice(optionID, choiceID)
+						end
+						C_BarberShop.ApplyCustomizationChoices()
+					end
+				end
+			end)
 		end
 	end
 end)
