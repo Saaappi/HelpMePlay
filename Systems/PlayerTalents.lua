@@ -2,6 +2,20 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+local function TalentPurchased(configID, entry)
+	local entryInfo = ""
+	local nodeInfo = C_Traits.GetNodeInfo(configID, entry.nodeID)
+	if entry.selectionEntryID then
+		entryInfo = C_Traits.GetEntryInfo(configID, entry.selectionEntryID)
+	else
+		entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[1])
+	end
+	
+	local _, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
+	local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
+	print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s", icon, spellLink))
+end
+
 local function ConvertToImportLoadoutEntryInfo(treeID, loadoutContent)
     local results = {}
     local treeNodes = C_Traits.GetTreeNodes(treeID)
@@ -25,18 +39,19 @@ end
 
 local function PurchaseLoadoutEntryInfo(configID, loadoutEntryInfo)
     local removed = 0
-    for i, nodeEntry in pairs(loadoutEntryInfo) do
+    for i, entry in pairs(loadoutEntryInfo) do
         local success = false
-        if nodeEntry.selectionEntryID then
-            success = C_Traits.SetSelection(configID, nodeEntry.nodeID, nodeEntry.selectionEntryID)
-        elseif nodeEntry.ranksPurchased then
-            for rank = 1, nodeEntry.ranksPurchased do
-                success = C_Traits.PurchaseRank(configID, nodeEntry.nodeID)
+        if entry.selectionEntryID then
+            success = C_Traits.SetSelection(configID, entry.nodeID, entry.selectionEntryID)
+        elseif entry.ranksPurchased then
+            for rank = 1, entry.ranksPurchased do
+                success = C_Traits.PurchaseRank(configID, entry.nodeID)
             end
         end
         if success then
             removed = removed + 1
             loadoutEntryInfo[i] = nil
+			TalentPurchased(configID, entry)
         end
     end
 
