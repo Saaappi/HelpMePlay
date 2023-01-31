@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local talentsPrintedThisSession = {}
 
 local function TalentPurchased(configID, entry)
 	local entryInfo = ""
@@ -11,9 +12,14 @@ local function TalentPurchased(configID, entry)
 		entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[1])
 	end
 	
-	local _, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
-	local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
-	print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s", icon, spellLink))
+	if talentsPrintedThisSession[entry.nodeID] == nil then
+		talentsPrintedThisSession[entry.nodeID] = true
+		local _, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
+		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
+		print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s", icon, spellLink))
+	end
+	
+	
 end
 
 local function ConvertToImportLoadoutEntryInfo(treeID, loadoutContent)
@@ -51,7 +57,9 @@ local function PurchaseLoadoutEntryInfo(configID, loadoutEntryInfo)
         if success then
             removed = removed + 1
             loadoutEntryInfo[i] = nil
-			TalentPurchased(configID, entry)
+			C_Timer.After(0.2, function()
+				TalentPurchased(configID, entry)
+			end)
         end
     end
 
