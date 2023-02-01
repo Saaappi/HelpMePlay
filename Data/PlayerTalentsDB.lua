@@ -4,167 +4,167 @@ local PLAYER_TALENTS = {
 	-- Death Knight
 	[250] = { -- Blood
 		["importString"] 	= "BoPAAAAAAAAAAAAAAAAAAAAAAACJBkkISJSkQSiECSSSkAAAAAAkIJBRSTiIBAAISSSCAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[251] = { -- Frost
 		["importString"] 	= "BsPAAAAAAAAAAAAAAAAAAAAAAkkEgAJJkUiEQSSSIkISSkISAkkERSSSSKBAAAAAAAAAAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[252] = { -- Unholy
 		["importString"] 	= "BwPAAAAAAAAAAAAAAAAAAAAAAAAEkkQSJSIkkEhQSiEBAAAAAAAAAAkkAJpBAikiUCJJJSSA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Demon Hunter
 	[577] = { -- Havoc
 		["importString"] 	= "BEkAAAAAAAAAAAAAAAAAAAAAAQCIhUik0SSkkIQAAAAAAA0SSgWKkkUQCpFpIJRSSC",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[581] = { -- Vengeance
 		["importString"] 	= "BUkAAAAAAAAAAAAAAAAAAAAAAAAQLCtkEJRARiAJlEQ0SkIkESSLJiEHIhSkEAAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Druid
 	[102] = { -- Balance
 		["importString"] 	= "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAkkIikkAkkIJSBaJSSSkSii4AJhUSKRIoAQAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[103] = { -- Feral
 		["importString"] 	= "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAISapJhkkIpkyBQJJJRSAAAAAAoAgkAAkkkESiUSol4AAAAAAAQCoBA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[104] = { -- Guardian
 		["importString"] 	= "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSSSSJRJJJJCEkUoAQigAJIJJJJJSBaJAAAAAAICIAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[105] = { -- Restoration
 		["importString"] 	= "BkGAAAAAAAAAAAAAAAAAAAAAAQkkUKtkEJFplEEC0SJJAAAAAAAAAAAAgSASigAIBEkQJJplkAAAAAAEBAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Evoker
 	[1467] = { -- Devastation
 		["importString"] 	= "BsbBAAAAAAAAAAAAAAAAAAAAAIFCAAAAAAoolikISCJkEJtkk0CSLCSIJAJJJRIJJ",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[1468] = { -- Preservation
 		["importString"] 	= "BwbBAAAAAAAAAAAAAAAAAAAAAABtIgIJNJJJJCJJJhAAAAAAQiEJSIJQSSChIJB",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Hunter
 	[253] = { -- Beast Mastery
 		["importString"] 	= "B0PAAAAAAAAAAAAAAAAAAAAAA4AgWCAQAAAAAAAAAAAoBIhWikIJkkDEpJkSikQkERasgEB",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[254] = { -- Marksmanship
 		["importString"] 	= "B4PAAAAAAAAAAAAAAAAAAAAAAUOQEaBgEIIAAAAAkERSSSCCRSDpRCUkSaCJSQiEpBAAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[255] = { -- Survival
 		["importString"] 	= "B8PAAAAAAAAAAAAAAAAAAAAAA4ABahkEIBBJHIRaJECRSKRIAAAAAQQUkiGkIhkIhGAAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Mage
 	[62] = { -- Arcane
 		["importString"] 	= "B4DAAAAAAAAAAAAAAAAAAAAAAAkkkSikIJlAJNhIiIhkEcAJRIJAAAAAAAAAAAAkkkESSSSC",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[63] = { -- Fire
 		["importString"] 	= "B8DAAAAAAAAAAAAAAAAAAAAAAIJRgSSyBQSRESTiIiIJAAAAAAAAAkQSiEkGJJSkkkIFAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[64] = { -- Frost
 		["importString"] 	= "BAEAAAAAAAAAAAAAAAAAAAAAAIJSgWicgIJFISTIiISSAAAkkkEhEJJJSKJJJCAAAAAAAAAgA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Monk
 	[268] = { -- Brewmaster
 		["importString"] 	= "BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAloUSSiQSSrRAAAASL0SiEJJJkkkkUkAaRi0SrEC",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[270] = { -- Mistweaver
 		["importString"] 	= "B4QAAAAAAAAAAAAAAAAAAAAAAIRUkkkQRLJSkDQSDiUEAAAAAAAAAAAAAIlgIRCkkkkUSCSAAE",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[269] = { -- Windwalker
 		["importString"] 	= "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAJRSSSTiEBAAAAkkkESASkItItkERSkIJJJSTCAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Paladin
 	[65] = { -- Holy
 		["importString"] 	= "BEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQSAAAAAAA0SCQJSiSTkiEJlEolIRTEJpIRSSUSRSQBRA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[66] = { -- Protection
 		["importString"] 	= "BIEAAAAAAAAAAAAAAAAAAAAAA0iWikikiIJJKNJJEkQAAAAAAAAAAAAAAQTSSSkASUSJIJloEA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[70] = { -- Retribution
 		["importString"] 	= "BYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIBgolSSCJBJkSKJJpVCAAAAAAg0QSSkEiElUSSQJKB",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Priest
 	[256] = { -- Discipline
 		["importString"] 	= "BAQAAAAAAAAAAAAAAAAAAAAAAAAkUIJQSQSSUSJJJJAAAAAAAAAAAASEKkiEJISRIRItSkIgWE",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[257] = { -- Holy
 		["importString"] 	= "BEQAAAAAAAAAAAAAAAAAAAAAAQTAAAAAAAAlEKpIkkIQkkIKJJAAAAAAQKSSCiUSIRQpFJJBaB",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[258] = { -- Shadow
 		["importString"] 	= "BIQAAAAAAAAAAAAAAAAAAAAAAISSLSAAAAAAAAAAAAAISiSkmUISSSJhEBaRSSiUIFSQQpFhkAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Rogue
 	[259] = { -- Assassination
 		["importString"] 	= "BMQAAAAAAAAAAAAAAAAAAAAAAQLJSikIRLBAAAAAAQiAIJAAAAAAASJJCtkgkkEhkkAJRSiFE",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[260] = { -- Outlaw
 		["importString"] 	= "BQQAAAAAAAAAAAAAAAAAAAAAAAAAgEREAJJkIJJIJRSSiIkkkIAAAAAAARJSIlkASSKBAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[261] = { -- Subtlety
 		["importString"] 	= "BUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAJJiIBIRSCSSSISSESSSLJhDUSCSSkSAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Shaman
 	[262] = { -- Elemental
 		["importString"] 	= "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgUSpUSSJJ0i0SSDBNIBAAAAAAIApkEl0EFINSSTJBlkASA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[263] = { -- Enhancement
 		["importString"] 	= "BcQAAAAAAAAAAAAAAAAAAAAAAIRSaASSSikkQiEJAAAAAAAAAAAAAICRIRLFBIlEJFEQkESA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[264] = { -- Restoration
 		["importString"] 	= "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpJJkkWkAaBJlUSKkUSIkSSSLFBk0CBE0SCIB",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Warlock
 	[265] = { -- Affliction
 		["importString"] 	= "BkQAAAAAAAAAAAAAAAAAAAAAAgQSSSiEINFCSLJJRaBAAAAapBAAAAAAIJakISSSS0SIAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[266] = { -- Demonology
 		["importString"] 	= "BoQAAAAAAAAAAAAAAAAAAAAAAggkEJSg0SJCSLJJkWAAAAAQLCSIkIJSSiItkIhAAAAAAA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[267] = { -- Destruction
 		["importString"] 	= "BsQAAAAAAAAAAAAAAAAAAAAAAggkEJSg0SLCSLJJkWgkDoEJiWQr0IBAAAAAAAAAAAQCJlkE",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	-- Warrior
 	[71] = { -- Arms 
 		["importString"] 	= "BcEAAAAAAAAAAAAAAAAAAAAAAAIFJSSkQkkWpEJBAAAABRgCBUEBkIkEKSESAhECAAAAAAAAJKJIgQ0CB",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[72] = { -- Fury
 		["importString"] 	= "BgEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQggSAEBhIIRDSIJQkESSaJJSkggEJRapFgkkEAAAEQQA",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 	[73] = { -- Protection
 		["importString"] 	= "BkEAAAAAAAAAAAAAAAAAAAAAAIQAAAAgkkEJJk0SKJJpUQEINFJElkEgIkkQDJJAQIAAAAAAAQEAgSpBAC",
-		["build"] 			= "47884",
+		["patch"] 			= "10.0.5",
 	},
 }
 addonTable.PLAYER_TALENTS = PLAYER_TALENTS
