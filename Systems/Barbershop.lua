@@ -49,6 +49,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 					info.func = function(item)
 						UIDropDownMenu_SetSelectedValue(HMPBarberShopLoadoutDropdown, item.value, item.value)
 						UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, item.value)
+						item.checked = true
 					end
 					info.arg1 = i
 
