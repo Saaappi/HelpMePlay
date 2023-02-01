@@ -17,19 +17,6 @@ local function GetLoadouts(race, class, sex)
     return loadouts
 end
 
-local function SetValue(frame, val)
-	--print(frame:GetParent():GetName())
-	UIDropDownMenu_SetText(frame:GetParent(), "test")
-
-    --[[if Core:IsCurrentProfileNew() then
-        DeleteButtonFrame.frame:Disable()
-        LoadButtonFrame.frame:Disable()
-    else
-        DeleteButtonFrame.frame:Enable()
-        LoadButtonFrame.frame:Enable()
-    end]]
-end
-
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
