@@ -114,8 +114,8 @@ e:SetScript("OnEvent", function(self, event, addon)
 					return false
 				end
 				
-				local _, build = GetBuildInfo()
-				if (build ~= addonTable.PLAYER_TALENTS[specID].build) then
+				local patch = GetBuildInfo()
+				if (patch ~= addonTable.PLAYER_TALENTS[specID].patch) then
 					ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
 					return false
 				end
