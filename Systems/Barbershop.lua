@@ -106,9 +106,15 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 					end
 				end
 				
-				--HelpMePlayDB.BarberShop[characterData.name][classID][sexID] = { choices }
+				-- Only insert the new loadout IF the player has less than 3 customizations
+				-- for the current race/class/sex.
 				if (#HelpMePlayDB.BarberShop[characterData.name][classID][sexID] <= 2) then
 					table.insert(HelpMePlayDB.BarberShop[characterData.name][classID][sexID], choices)
+				else
+					UIErrorsFrame:SetTimeVisible(5)
+					UIErrorsFrame:AddMessage("\n\n" .. "You can't have more than 3 loadouts!", 1, 0, 0, nil)
+					PlaySound(1883, "Master", true, true) -- VO_HumanMale_Error_SpellCooling
+					return false
 				end
 			end)
 			
