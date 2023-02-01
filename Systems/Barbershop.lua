@@ -64,10 +64,13 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 						for index, barberData in ipairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
 							if index == item.value then
 								for optionID, choiceID in pairs(barberData) do
-									C_BarberShop.PreviewCustomizationChoice(optionID, choiceID)
+									C_BarberShop.SetCustomizationChoice(optionID, choiceID)
+									--C_BarberShop.PreviewCustomizationChoice(optionID, choiceID)
 								end
+								break
 							end
 						end
+						C_BarberShop.ApplyCustomizationChoices()
 					end
 					info.arg1 = i
 
