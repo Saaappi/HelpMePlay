@@ -17,12 +17,11 @@ local function GetLoadouts(race, class, sex)
     return loadouts
 end
 
-local function SetValue(val)
-    --[[Core:SetCurrentProfileTo(val)
+local function SetValue(frame, val)
+	--print(frame:GetParent():GetName())
+	UIDropDownMenu_SetText(frame:GetParent(), "test")
 
-    UIDropDownMenu_SetText(ProfilePickerFrame.frame, Core:GetCurrentProfileName())
-
-    if Core:IsCurrentProfileNew() then
+    --[[if Core:IsCurrentProfileNew() then
         DeleteButtonFrame.frame:Disable()
         LoadButtonFrame.frame:Disable()
     else
@@ -52,15 +51,18 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			UIDropDownMenu_Initialize(HMPBarberShopLoadoutDropdown, function(self)
 				local characterData = C_BarberShop.GetCurrentCharacterData()
 				local _, _, classID = UnitClass("player")
-				--local currentId = Core:GetCurrentProfileId()
+				local currentID = self.selected
+				
 				for i, loadout in ipairs(GetLoadouts(characterData.name, classID, tostring(characterData.sex))) do
 					local info = UIDropDownMenu_CreateInfo()
 
-					--info.checked = loadout.id == currentId
-					info.checked = i
+					info.checked = i == currentID
 					info.text = i
 					info.value = i
-					info.func = SetValue
+					info.func = function(item)
+						UIDropDownMenu_SetSelectedValue(HMPBarberShopLoadoutDropdown, item.value, item.value)
+						UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, item.value)
+					end
 					info.arg1 = i
 
 					UIDropDownMenu_AddButton(info)
