@@ -2,12 +2,73 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+local function GetLoadouts(race, class, sex)
+    local loadouts = {}
+
+	if HelpMePlayDB.BarberShop[race] ~= nil then
+		for id in pairs(HelpMePlayDB.BarberShop[race][class][sex]) do
+			table.insert(loadouts, {
+				id = id,
+				name = id,
+			})
+		end
+	end
+
+    return loadouts
+end
+
+local function SetValue(val)
+    --[[Core:SetCurrentProfileTo(val)
+
+    UIDropDownMenu_SetText(ProfilePickerFrame.frame, Core:GetCurrentProfileName())
+
+    if Core:IsCurrentProfileNew() then
+        DeleteButtonFrame.frame:Disable()
+        LoadButtonFrame.frame:Disable()
+    else
+        DeleteButtonFrame.frame:Enable()
+        LoadButtonFrame.frame:Enable()
+    end]]
+end
+
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		
 		if addonLoaded == "Blizzard_BarbershopUI" then
+			-- Loadout Dropdown Menu
+			local HMPBarberShopLoadoutDropdown = _G.CreateFrame(
+				"Frame",
+				"HMPBarberShopLoadoutDropdown",
+				_G.CharCustomizeFrame.SmallButtons.ResetCameraButton,
+				"UIDropDownMenuTemplate"
+			)
+			
+			-- Set the dropdown menu's width and point in the barber shop UI.
+			UIDropDownMenu_SetWidth(HMPBarberShopLoadoutDropdown, 200)
+			HMPBarberShopLoadoutDropdown:SetPoint("TOPLEFT", _G.CharCustomizeFrame.SmallButtons.ResetCameraButton, "BOTTOMLEFT", -5, -20)
+			
+			UIDropDownMenu_Initialize(HMPBarberShopLoadoutDropdown, function(self)
+				local characterData = C_BarberShop.GetCurrentCharacterData()
+				local _, _, classID = UnitClass("player")
+				--local currentId = Core:GetCurrentProfileId()
+				for i, loadout in ipairs(GetLoadouts(characterData.name, classID, tostring(characterData.sex))) do
+					local info = UIDropDownMenu_CreateInfo()
+
+					--info.checked = loadout.id == currentId
+					info.checked = i
+					info.text = i
+					info.value = i
+					info.func = SetValue
+					info.arg1 = i
+
+					UIDropDownMenu_AddButton(info)
+				end
+			end)
+			
+			HMPBarberShopLoadoutDropdown:Show()
+			
 			-- Save Button
 			local HMPBarberShopSaveButton = _G.CreateFrame(
 				"Button",
@@ -44,11 +105,15 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 						choices[option.id] = option.choices[option.currentChoiceIndex].id
 					end
 				end
-				HelpMePlayDB.BarberShop[characterData.name][classID][sexID] = choices
+				
+				--HelpMePlayDB.BarberShop[characterData.name][classID][sexID] = { choices }
+				if (#HelpMePlayDB.BarberShop[characterData.name][classID][sexID] <= 2) then
+					table.insert(HelpMePlayDB.BarberShop[characterData.name][classID][sexID], choices)
+				end
 			end)
 			
 			-- Load Button
-			local HMPBarberShopLoadButton = _G.CreateFrame(
+			--[[local HMPBarberShopLoadButton = _G.CreateFrame(
 				"Button",
 				"HMPBarberShopLoadButton",
 				HMPBarberShopSaveButton,
@@ -71,7 +136,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 						C_BarberShop.ApplyCustomizationChoices()
 					end
 				end
-			end)
+			end)]]
 		end
 	end
 end)
