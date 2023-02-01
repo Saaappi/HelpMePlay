@@ -56,6 +56,18 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 						UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, item.value)
 						item.checked = true
 						HelpMePlayDB.BarberShop["currentLoadoutID"] = item.value
+						
+						local _, _, classID = UnitClass("player")
+						local characterData = C_BarberShop.GetCurrentCharacterData()
+						local sexID = tostring(characterData.sex)
+						
+						for index, barberData in ipairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
+							if index == item.value then
+								for optionID, choiceID in pairs(barberData) do
+									C_BarberShop.PreviewCustomizationChoice(optionID, choiceID)
+								end
+							end
+						end
 					end
 					info.arg1 = i
 
@@ -104,41 +116,41 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 				
 				-- Only insert the new loadout IF the player has less than 3 customizations
 				-- for the current race/class/sex.
-				if (#HelpMePlayDB.BarberShop[characterData.name][classID][sexID] <= 2) then
-					table.insert(HelpMePlayDB.BarberShop[characterData.name][classID][sexID], choices)
+				table.insert(HelpMePlayDB.BarberShop[characterData.name][classID][sexID], choices)
+				--[[if (pos <= 2) then
+					HelpMePlayDB.BarberShop[characterData.name][classID][sexID][pos] = choices
 				else
 					UIErrorsFrame:SetTimeVisible(5)
 					UIErrorsFrame:AddMessage("\n\n" .. "You can't have more than 3 loadouts!", 1, 0, 0, nil)
 					PlaySound(1883, "Master", true, true) -- VO_HumanMale_Error_SpellCooling
 					return false
-				end
+				end]]
 			end)
 			
-			-- Load Button
-			--[[local HMPBarberShopLoadButton = _G.CreateFrame(
+			-- Delete Button
+			local HMPBarberShopDeleteButton = _G.CreateFrame(
 				"Button",
-				"HMPBarberShopLoadButton",
+				"HMPBarberShopDeleteButton",
 				HMPBarberShopSaveButton,
 				"BarberShopButtonTemplate"
 			)
-			HMPBarberShopLoadButton:SetText("Load")
-			HMPBarberShopLoadButton:SetPoint("TOP", 0, 50)
-			HMPBarberShopLoadButton:Show()
+			HMPBarberShopDeleteButton:SetText("Delete")
+			HMPBarberShopDeleteButton:SetPoint("BOTTOM", 0, -50)
+			HMPBarberShopDeleteButton:Show()
 			
-			HMPBarberShopLoadButton:HookScript("OnClick", function(self)
+			HMPBarberShopDeleteButton:HookScript("OnClick", function(self)
 				local _, _, classID = UnitClass("player")
 				local characterData = C_BarberShop.GetCurrentCharacterData()
 				local sexID = tostring(characterData.sex)
 				
-				if HelpMePlayDB.BarberShop[classID] ~= nil then
-					if next(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) then
-						for optionID, choiceID in pairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
-							C_BarberShop.SetCustomizationChoice(optionID, choiceID)
-						end
-						C_BarberShop.ApplyCustomizationChoices()
+				for index, barberData in ipairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
+					if index == HelpMePlayDB.BarberShop["currentLoadoutID"] then
+						table.remove(HelpMePlayDB.BarberShop[characterData.name][classID][sexID], index)
+						UIDropDownMenu_SetSelectedValue("")
+						UIDropDownMenu_SetText("")
 					end
 				end
-			end)]]
+			end)
 		end
 	end
 end)
