@@ -18,8 +18,6 @@ local function TalentPurchased(configID, entry)
 		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s", icon, spellLink))
 	end
-	
-	
 end
 
 local function ConvertToImportLoadoutEntryInfo(treeID, loadoutContent)
@@ -52,14 +50,19 @@ local function PurchaseLoadoutEntryInfo(configID, loadoutEntryInfo)
         elseif entry.ranksPurchased then
             for rank = 1, entry.ranksPurchased do
                 success = C_Traits.PurchaseRank(configID, entry.nodeID)
+				if success then
+					-- We need to break for the loop when it's successful.
+					-- The player may not have enough talent points to learn
+					-- a second or third rank of a talent - later attempts will
+					-- fail and the talent won't be written to chat.
+					break
+				end
             end
         end
         if success then
             removed = removed + 1
             loadoutEntryInfo[i] = nil
-			C_Timer.After(0.2, function()
-				TalentPurchased(configID, entry)
-			end)
+			TalentPurchased(configID, entry)
         end
     end
 
