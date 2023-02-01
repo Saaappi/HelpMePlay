@@ -73,11 +73,11 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			local HMPBarberShopSaveButton = _G.CreateFrame(
 				"Button",
 				"HMPBarberShopSaveButton",
-				_G.BarberShopFrame.ResetButton,
+				HMPBarberShopLoadoutDropdown,
 				"BarberShopButtonTemplate"
 			)
 			HMPBarberShopSaveButton:SetText("Save")
-			HMPBarberShopSaveButton:SetPoint("TOP", 0, 100)
+			HMPBarberShopSaveButton:SetPoint("TOP", 0, -25)
 			HMPBarberShopSaveButton:Show()
 			
 			HMPBarberShopSaveButton:HookScript("OnClick", function(self)
