@@ -38,10 +38,15 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			UIDropDownMenu_Initialize(HMPBarberShopLoadoutDropdown, function(self)
 				local characterData = C_BarberShop.GetCurrentCharacterData()
 				local _, _, classID = UnitClass("player")
-				local currentID = self.selected
+				local currentID = self.selected or HelpMePlayDB.BarberShop["currentLoadoutID"]
 				
 				for i, loadout in ipairs(GetLoadouts(characterData.name, classID, tostring(characterData.sex))) do
 					local info = UIDropDownMenu_CreateInfo()
+					
+					if HelpMePlayDB.BarberShop["currentLoadoutID"] then
+						UIDropDownMenu_SetSelectedValue(HMPBarberShopLoadoutDropdown, HelpMePlayDB.BarberShop["currentLoadoutID"], HelpMePlayDB.BarberShop["currentLoadoutID"])
+						UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, HelpMePlayDB.BarberShop["currentLoadoutID"])
+					end
 
 					info.checked = i == currentID
 					info.text = i
@@ -50,6 +55,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 						UIDropDownMenu_SetSelectedValue(HMPBarberShopLoadoutDropdown, item.value, item.value)
 						UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, item.value)
 						item.checked = true
+						HelpMePlayDB.BarberShop["currentLoadoutID"] = item.value
 					end
 					info.arg1 = i
 
