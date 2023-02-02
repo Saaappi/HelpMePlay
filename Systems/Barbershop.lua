@@ -184,7 +184,6 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 						if size > 0 then
 							UIDropDownMenu_SetSelectedValue(HMPBarberShopLoadoutDropdown, 1, 1)
 							UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, 1)
-							item.checked = true
 							HelpMePlayDB.BarberShop["currentLoadoutID"] = 1
 							
 							local _, _, classID = UnitClass("player")
@@ -192,14 +191,17 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 							local sexID = tostring(characterData.sex)
 							
 							for index, barberData in ipairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
-								if index == item.value then
+								if index == 1 then
 									for optionID, choiceID in pairs(barberData) do
 										C_BarberShop.SetCustomizationChoice(optionID, choiceID)
 									end
 									break
 								end
-								next(HelpMePlayDB.BarberShop[characterData.name][classID][sexID])
 							end
+						else
+							UIDropDownMenu_SetSelectedValue(HMPBarberShopLoadoutDropdown, "", "")
+							UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, "")
+							HelpMePlayDB.BarberShop["currentLoadoutID"] = 0
 						end
 					end
 				end
