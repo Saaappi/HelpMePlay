@@ -24,6 +24,24 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		
 		if addonLoaded == "Blizzard_BarbershopUI" then
+			BarberShopFrame:HookScript("OnShow", function(self)
+				-- Set the customization to the last selected loadout
+				-- when the Barber Shop UI is loaded.
+				local _, _, classID = UnitClass("player")
+				local characterData = C_BarberShop.GetCurrentCharacterData()
+				local sexID = tostring(characterData.sex)
+				if HelpMePlayDB.BarberShop["currentLoadoutID"] ~= nil then
+					for index, barberData in ipairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
+						if index == HelpMePlayDB.BarberShop["currentLoadoutID"] then
+							for optionID, choiceID in pairs(barberData) do
+								C_BarberShop.SetCustomizationChoice(optionID, choiceID)
+							end
+							break
+						end
+					end
+				end
+			end)
+		
 			-- Loadout Dropdown Menu
 			local HMPBarberShopLoadoutDropdown = _G.CreateFrame(
 				"Frame",
