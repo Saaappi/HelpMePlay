@@ -386,6 +386,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Speech.TalonedFlayedwing.Scared"]											= "the flayedwing is scared, soothe it with gentle pats!"
 	L_GLOBALSTRINGS["Speech.TalonedFlayedwing.Shake"]											= "the flayedwing is trying to shake you off, hold on tight!"
 	-- End:		Speech Text Checks
+	
+	-- Barber Shop
+	L_GLOBALSTRINGS["BarberShop.ApplyButton.Text"]												= "Apply"
+	L_GLOBALSTRINGS["BarberShop.DeleteButton.Text"]												= "Delete"
+	L_GLOBALSTRINGS["BarberShop.SaveButton.Text"]												= "Save"
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS

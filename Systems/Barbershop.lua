@@ -105,7 +105,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 				"UIPanelButtonTemplate"
 			)
 			HMPBarberShopApplyButton:SetSize(80, 25)
-			HMPBarberShopApplyButton:SetText("Apply")
+			HMPBarberShopApplyButton:SetText(L_GLOBALSTRINGS["BarberShop.ApplyButton.Text"])
 			HMPBarberShopApplyButton:SetPoint("LEFT", HMPBarberShopLoadoutDropdown, "RIGHT", 10, 3)
 			
 			HMPBarberShopApplyButton:SetScript("OnClick", function(self)
@@ -119,7 +119,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 				HMPBarberShopLoadoutDropdown,
 				"BarberShopButtonTemplate"
 			)
-			HMPBarberShopSaveButton:SetText("Save")
+			HMPBarberShopSaveButton:SetText(L_GLOBALSTRINGS["BarberShop.SaveButton.Text"])
 			HMPBarberShopSaveButton:SetPoint("TOP", 0, -25)
 			HMPBarberShopSaveButton:Show()
 			
@@ -169,7 +169,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 				"UIPanelButtonTemplate"
 			)
 			HMPBarberShopDeleteButton:SetSize(80, 25)
-			HMPBarberShopDeleteButton:SetText("Delete")
+			HMPBarberShopDeleteButton:SetText(L_GLOBALSTRINGS["BarberShop.DeleteButton.Text"])
 			HMPBarberShopDeleteButton:SetPoint("LEFT", HMPBarberShopApplyButton, "RIGHT", 10, 0)
 			
 			HMPBarberShopDeleteButton:SetScript("OnClick", function(self)
