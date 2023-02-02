@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local AceGUI = LibStub("AceGUI-3.0")
 
 local function GetLoadouts(race, class, sex)
     local loadouts = {}
@@ -65,12 +66,10 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 							if index == item.value then
 								for optionID, choiceID in pairs(barberData) do
 									C_BarberShop.SetCustomizationChoice(optionID, choiceID)
-									--C_BarberShop.PreviewCustomizationChoice(optionID, choiceID)
 								end
 								break
 							end
 						end
-						C_BarberShop.ApplyCustomizationChoices()
 					end
 					info.arg1 = i
 
@@ -79,6 +78,21 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end)
 			
 			HMPBarberShopLoadoutDropdown:Show()
+			
+			-- Apply Button
+			local HMPBarberShopApplyButton = _G.CreateFrame(
+				"Button",
+				"HMPBarberShopApplyButton",
+				HMPBarberShopLoadoutDropdown,
+				"UIPanelButtonTemplate"
+			)
+			HMPBarberShopApplyButton:SetSize(80, 25)
+			HMPBarberShopApplyButton:SetText("Apply")
+			HMPBarberShopApplyButton:SetPoint("LEFT", HMPBarberShopLoadoutDropdown, "RIGHT", 10, 3)
+			
+			HMPBarberShopApplyButton:SetScript("OnClick", function(self)
+				C_BarberShop.ApplyCustomizationChoices()
+			end)
 			
 			-- Save Button
 			local HMPBarberShopSaveButton = _G.CreateFrame(
@@ -91,7 +105,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			HMPBarberShopSaveButton:SetPoint("TOP", 0, -25)
 			HMPBarberShopSaveButton:Show()
 			
-			HMPBarberShopSaveButton:HookScript("OnClick", function(self)
+			HMPBarberShopSaveButton:SetScript("OnClick", function(self)
 				local _, _, classID = UnitClass("player")
 				local characterData = C_BarberShop.GetCurrentCharacterData()
 				local customizations = C_BarberShop.GetAvailableCustomizations()
@@ -133,14 +147,14 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			local HMPBarberShopDeleteButton = _G.CreateFrame(
 				"Button",
 				"HMPBarberShopDeleteButton",
-				HMPBarberShopSaveButton,
-				"BarberShopButtonTemplate"
+				HMPBarberShopLoadoutDropdown,
+				"UIPanelButtonTemplate"
 			)
+			HMPBarberShopDeleteButton:SetSize(80, 25)
 			HMPBarberShopDeleteButton:SetText("Delete")
-			HMPBarberShopDeleteButton:SetPoint("BOTTOM", 0, -50)
-			HMPBarberShopDeleteButton:Show()
+			HMPBarberShopDeleteButton:SetPoint("LEFT", HMPBarberShopApplyButton, "RIGHT", 10, 0)
 			
-			HMPBarberShopDeleteButton:HookScript("OnClick", function(self)
+			HMPBarberShopDeleteButton:SetScript("OnClick", function(self)
 				local _, _, classID = UnitClass("player")
 				local characterData = C_BarberShop.GetCurrentCharacterData()
 				local sexID = tostring(characterData.sex)
@@ -148,8 +162,27 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 				for index, barberData in ipairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
 					if index == HelpMePlayDB.BarberShop["currentLoadoutID"] then
 						table.remove(HelpMePlayDB.BarberShop[characterData.name][classID][sexID], index)
-						UIDropDownMenu_SetSelectedValue("")
-						UIDropDownMenu_SetText("")
+						local size = #HelpMePlayDB.BarberShop[characterData.name][classID][sexID]
+						if size > 0 then
+							UIDropDownMenu_SetSelectedValue(HMPBarberShopLoadoutDropdown, 1, 1)
+							UIDropDownMenu_SetText(HMPBarberShopLoadoutDropdown, 1)
+							item.checked = true
+							HelpMePlayDB.BarberShop["currentLoadoutID"] = 1
+							
+							local _, _, classID = UnitClass("player")
+							local characterData = C_BarberShop.GetCurrentCharacterData()
+							local sexID = tostring(characterData.sex)
+							
+							for index, barberData in ipairs(HelpMePlayDB.BarberShop[characterData.name][classID][sexID]) do
+								if index == item.value then
+									for optionID, choiceID in pairs(barberData) do
+										C_BarberShop.SetCustomizationChoice(optionID, choiceID)
+									end
+									break
+								end
+								next(HelpMePlayDB.BarberShop[characterData.name][classID][sexID])
+							end
+						end
 					end
 				end
 			end)
