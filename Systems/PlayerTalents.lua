@@ -42,15 +42,17 @@ local function ConvertToImportLoadoutEntryInfo(treeID, loadoutContent)
 end
 
 local function PurchaseLoadoutEntryInfo(configID, loadoutEntryInfo)
+	local success
     local removed = 0
     for i, entry in pairs(loadoutEntryInfo) do
-        local success = false
         if entry.selectionEntryID then
             success = C_Traits.SetSelection(configID, entry.nodeID, entry.selectionEntryID)
         elseif entry.ranksPurchased then
             for rank = 1, entry.ranksPurchased do
                 success = C_Traits.PurchaseRank(configID, entry.nodeID)
-				if not success then break end
+				if success then
+					TalentPurchased(configID, entry)
+				end
             end
         end
         if success then
