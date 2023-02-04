@@ -50,13 +50,7 @@ local function PurchaseLoadoutEntryInfo(configID, loadoutEntryInfo)
         elseif entry.ranksPurchased then
             for rank = 1, entry.ranksPurchased do
                 success = C_Traits.PurchaseRank(configID, entry.nodeID)
-				if success then
-					-- We need to break for the loop when it's successful.
-					-- The player may not have enough talent points to learn
-					-- a second or third rank of a talent - later attempts will
-					-- fail and the talent won't be written to chat.
-					break
-				end
+				if not success then break end
             end
         end
         if success then

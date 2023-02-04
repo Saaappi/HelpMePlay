@@ -64,7 +64,7 @@ local PLAYER_TALENTS = {
 	},
 	-- Mage
 	[62] = { -- Arcane
-		["importString"] 	= "B4DAAAAAAAAAAAAAAAAAAAAAAAkkkSikIJlAJNhIiIhkEcAJRIJAAAAAAAAAAAAkkkESSSSC",
+		["importString"] 	= "B4DAAAAAAAAAAAAAAAAAAAAAAQCRokkkkEFQSTIiIkIBolEJtkAAAAAAAAAAAAIJJJhkkkIA",
 		["patch"] 			= "10.0.5",
 	},
 	[63] = { -- Fire
