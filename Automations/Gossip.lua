@@ -250,9 +250,25 @@ local function GOSSIP_SHOW()
 	end
 end
 
+e:RegisterEvent("CONFIRM_BINDER")
 e:RegisterEvent("GOSSIP_CONFIRM")
 e:RegisterEvent("GOSSIP_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
+	if event == "CONFIRM_BINDER" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
+		
+		local _, message = ...
+		local index = 1
+		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
+		if unitGUID then
+			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+			
+			local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
+			ConfirmConfirmationMessage(message, npcID, parentMapID)
+		end
+	end
 	if event == "GOSSIP_CONFIRM" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
