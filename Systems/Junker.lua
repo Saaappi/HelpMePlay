@@ -128,7 +128,7 @@ local function HelpMePlaySellItems()
 											This should only apply to SOULBOUND items.
 									]]--
 									local itemLevel = GetDetailedItemLevelInfo(itemLink)
-									if (itemLevel+30) <= avgItemLevel then
+									if (itemLevel + HelpMePlayDB.SoulboundModeMinItemLevel) <= avgItemLevel then
 										if C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagId, slotId)) then
 											shouldItemBeSold = true
 										end

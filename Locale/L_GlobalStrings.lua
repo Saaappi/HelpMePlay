@@ -280,10 +280,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"] 											= "When enabled, Junker will automatically sell soulbound items that are at least 30 item levels below your current item level.\n\nThis is used to save the player time from adding legacy items to their sell list unnecessarily.\n\n|cffFFD100NOTE|r: This setting is disabled automatically if |cffFFD100Preserve Transmog|r is selected in the Rarity menu. If enabled, then the Rarity filter is set to |cff9D9D9DPoor|r."
 	L_GLOBALSTRINGS["Junker.Toggle.AutoSell"] 													= "Auto Sell"
 	L_GLOBALSTRINGS["Junker.Toggle.AutoSellDesc"] 												= "Toggle whether Junker should automatically sell to a vendor for you.\n\n|cffFFD100NOTE|r: This feature respects Safe Mode. If enabled, Auto Sell will only sell once."
-	L_GLOBALSTRINGS["Junker.Toggle.JunkerArmor"] 												= "Armor"
-	L_GLOBALSTRINGS["Junker.Toggle.JunkerArmorDesc"] 											= "Automatically sell appropriate items of type |cffFFD100Armor|r."
-	L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumable"] 											= "Consumables"
-	L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumableDesc"] 										= "Automatically sell appropriate items of type |cffFFD100Consumable|r."
+	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevel"] 									= "Soulbound Mode Item Level"
+	L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevelDesc"] 								= "Select the minimum item level an item must be below your current item level to be sold to a merchant.\n\nThis setting only applies when Soulbound Mode is enabled."
 	--
 	L_GLOBALSTRINGS["Junker.Button.Import"] 													= "Import"
 	L_GLOBALSTRINGS["Junker.Button.Import.InitialText"] 										= "|T132281:36|t\n\n" .. "Would you like to import a list of item IDs or import from another addon?\n\nSupported AddOns:\n\nAutoVendor\nDejunk\n\n|cffFFD100NOTE|r: Only account-wide lists will be imported from these addons."
