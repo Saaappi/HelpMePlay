@@ -55,25 +55,9 @@ local systemsOptions = {
 			get = function(info) return HelpMePlayDB.JunkerAutoSellEnabled end,
 			set = function(_, val) HelpMePlayDB.JunkerAutoSellEnabled = val end,
 		},
-		itemType_armor = {
-			name = L_GLOBALSTRINGS["Junker.Toggle.JunkerArmor"],
-			order = 5,
-			desc = L_GLOBALSTRINGS["Junker.Toggle.JunkerArmorDesc"],
-			type = "toggle",
-			get = function(info) return HelpMePlayDB.Armor end,
-			set = function(_, val) HelpMePlayDB.Armor = val end,
-		},
-		itemType_consumable = {
-			name = L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumable"],
-			order = 6,
-			desc = L_GLOBALSTRINGS["Junker.Toggle.JunkerConsumableDesc"],
-			type = "toggle",
-			get = function(info) return HelpMePlayDB.Consumable end,
-			set = function(_, val) HelpMePlayDB.Consumable = val end,
-		},
 		rarity = {
 			name = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"],
-			order = 7,
+			order = 5,
 			desc = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -110,7 +94,7 @@ local systemsOptions = {
 		},
 		importBtn = {
 			name = L_GLOBALSTRINGS["Junker.Button.Import"],
-			order = 8,
+			order = 6,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {

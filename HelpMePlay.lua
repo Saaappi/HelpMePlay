@@ -62,6 +62,15 @@ function HelpMePlay:OnInitialize()
 		HelpMePlayDB.TorghastPowersId = 0
 	end
 	
+	-- Set the Junker Armor and Consumable settings to nil since
+	-- they're being deprecated.
+	if HelpMePlayDB.Armor ~= nil then
+		HelpMePlayDB.Armor = nil
+	end
+	if HelpMePlayDB.Consumable ~= nil then
+		HelpMePlayDB.Consumable = nil
+	end
+	
 	-- Reset the quest mobs icon to 0 since backend changes
 	-- were made.
 	if HelpMePlayDB.QuestMobIcon == 0 or HelpMePlayDB.QuestMobIcon == 1 then
