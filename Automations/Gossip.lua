@@ -33,11 +33,11 @@ local function GetGossipTable(parentMapID)
 	return gossipTable
 end
 
-local function SelectGossipOption(options, npcId, parentMapID)
+local function SelectGossipOption(options, npcID, parentMapID)
 	for index, gossipSubTable in ipairs(options) do
-		if HelpMePlayPlayerDialogDB[npcId] then
-			if HelpMePlayPlayerDialogDB[npcId]["g"] then
-				for _, index in ipairs(HelpMePlayPlayerDialogDB[npcId]["g"]) do
+		if HelpMePlayPlayerDialogDB[npcID] then
+			if HelpMePlayPlayerDialogDB[npcID]["g"] then
+				for _, index in ipairs(HelpMePlayPlayerDialogDB[npcID]["g"]) do
 					C_GossipInfo.SelectOption(index)
 				end
 			end
@@ -45,9 +45,9 @@ local function SelectGossipOption(options, npcId, parentMapID)
 	end
 	
 	local gossipTable = GetGossipTable(parentMapID)
-	if gossipTable[npcId] then
+	if gossipTable[npcID] then
 		for index, gossipSubTable in ipairs(options) do
-			for _, gossip in pairs(gossipTable[npcId]["g"]) do
+			for _, gossip in pairs(gossipTable[npcID]["g"]) do
 				local numConditions = #gossip.c
 				local numConditionsMatched = 0
 				for _, condition in ipairs(gossip.c) do
@@ -201,32 +201,32 @@ local function ProcessDialogTree(parentMapID)
 	local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 	local gossipOptions = C_GossipInfo.GetOptions()
 	if unitGUID then
-		local _, _, _, _, _, npcId = strsplit("-", unitGUID); npcId = tonumber(npcId)
-		if HelpMePlayIgnoredCreaturesDB[npcId] then return end
+		local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+		if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 		
 		if HelpMePlayDB.DevModeEnabled then
 			for k, v in ipairs(gossipOptions) do
-				print(npcId .. " | " .. UnitName("target") .. " | " .. v.name .. " | " .. v.gossipOptionID)
+				print(npcID .. " | " .. UnitName("target") .. " | " .. v.name .. " | " .. v.gossipOptionID)
 			end
 		end
 		
-		SelectGossipOption(gossipOptions, npcId, parentMapID)
+		SelectGossipOption(gossipOptions, npcID, parentMapID)
 	else
 		SelectGossipOption(gossipOptions, 0, parentMapID)
 	end
 end
 
-local function ConfirmConfirmationMessage(message, npcId, parentMapID)
-	if HelpMePlayPlayerDialogDB[npcId] then
-		if HelpMePlayPlayerDialogDB[npcId]["c"] then
+local function ConfirmConfirmationMessage(message, npcID, parentMapID)
+	if HelpMePlayPlayerDialogDB[npcID] then
+		if HelpMePlayPlayerDialogDB[npcID]["c"] then
 			StaticPopup1Button1:Click("LeftButton")
 			return
 		end
 	end
 	
 	local gossipTable = GetGossipTable(parentMapID)
-	if gossipTable[npcId] then
-		if gossipTable[npcId]["c"] then
+	if gossipTable[npcID] then
+		if gossipTable[npcID]["c"] then
 			StaticPopup1Button1:Click("LeftButton")
 			return
 		end
