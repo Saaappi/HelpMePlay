@@ -92,25 +92,9 @@ local systemsOptions = {
 				end
 			end,
 		},
-		soulboundModeMinItemLevelSlider = {
-			name = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevel"],
-			order = 6,
-			type = "range",
-			min = 25,
-			max = 50,
-			step = 1,
-			desc = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevelDesc"],
-			get = function()
-				if not HelpMePlayDB.SoulboundModeMinItemLevel then
-					HelpMePlayDB.SoulboundModeMinItemLevel = 30
-				end
-				return HelpMePlayDB.SoulboundModeMinItemLevel
-			end,
-			set = function(_, val) HelpMePlayDB.SoulboundModeMinItemLevel = val end,
-		},
 		importBtn = {
 			name = L_GLOBALSTRINGS["Junker.Button.Import"],
-			order = 7,
+			order = 6,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {
@@ -200,6 +184,22 @@ local systemsOptions = {
 				}
 				StaticPopup_Show("HELPMEPLAY_JUNKER_IMPORT")
 			end,
+		},
+		soulboundModeMinItemLevelSlider = {
+			name = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevel"],
+			order = 7,
+			type = "range",
+			min = 25,
+			max = 50,
+			step = 1,
+			desc = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevelDesc"],
+			get = function()
+				if not HelpMePlayDB.SoulboundModeMinItemLevel then
+					HelpMePlayDB.SoulboundModeMinItemLevel = 30
+				end
+				return HelpMePlayDB.SoulboundModeMinItemLevel
+			end,
+			set = function(_, val) HelpMePlayDB.SoulboundModeMinItemLevel = val end,
 		},
 		talentsHeader = {
 			name = L_GLOBALSTRINGS["Header.Talents"],

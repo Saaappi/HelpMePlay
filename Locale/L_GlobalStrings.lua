@@ -27,6 +27,8 @@ for i=1,#supportedLocales do
 	end
 end
 
+addonTable.DB = HelpMePlayDB
+
 if (isLocaleSupported) then
 	-- Start: 	Commands
 	L_GLOBALSTRINGS["Command.Slash1"]															= "hmp"

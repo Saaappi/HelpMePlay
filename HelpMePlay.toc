@@ -32,7 +32,7 @@ Lib\LibDBIcon-1.0\LibDBIcon-1.0.lua
 
 HelpMePlay.lua
 
-# Frame Stuff
+# Options
 Options\Main.lua
 Options\General.lua
 Options\Features.lua
