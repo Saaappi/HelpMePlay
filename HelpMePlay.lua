@@ -50,12 +50,6 @@ function HelpMePlay:OnInitialize()
 		HelpMePlay:MinimapIcon(HelpMePlayDB.MinimapIconEnabled)
 	end
 	
-	-- Reset the BFAIntroEnabled variable under
-	-- the addon's saved variable table.
-	if type(HelpMePlayDB.BFAIntroEnabled) ~= "table" then
-		HelpMePlayDB.BFAIntroEnabled = nil
-	end
-	
 	-- Set the Torghast Powers ID to 2 if it's
 	-- higher than this due to changes.
 	if HelpMePlayDB.TorghastPowersId == nil then
