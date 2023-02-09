@@ -32,6 +32,7 @@ local questOptions = {
 			end,
 			order = 0,
 			type = "description",
+			fontSize = "medium",
 			hidden = function()
 				local playerLevel = UnitLevel("player")
 				if playerLevel < addonTable.CONSTANTS["CHROMIE_TIME_MAX_LEVEL"] then

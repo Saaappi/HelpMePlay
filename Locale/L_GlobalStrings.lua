@@ -239,7 +239,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset.Desc"]									= "The distance up or down on the nameplate to shift the icon."
 	
 	-- Quests Description Fields
-	L_GLOBALSTRINGS["Quests.Descriptions.ChromieTimeIndicator"] 								= "|T4622478:0|t "
+	L_GLOBALSTRINGS["Quests.Descriptions.ChromieTimeIndicator"] 								= "|T237538:14|t "
 	
 	-- Party Play Output
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.EnabledWarningText"] 								= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
