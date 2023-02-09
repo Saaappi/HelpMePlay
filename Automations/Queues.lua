@@ -6,13 +6,13 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local HMPQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPQueueButton",
-	_G.LFDMicroButton,
+	_G.CharacterMicroButton,
 	"UIPanelButtonTemplate"
 )
 local HMPDungeonQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPDungeonQueueButton",
-	_G.LFDMicroButton,
+	_G.CharacterMicroButton,
 	"UIPanelButtonTemplate"
 )
 
@@ -30,76 +30,100 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_ENTERING_WORLD" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.HolidayQueuesEnabled then
-			local isInitialLogin, isReload = ...
-			if isInitialLogin or isReload then
-				local hideButton = false
-				local isDailyRewardCollected = false
-				local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
-				local timeStamp = calendarDate.month .. "/" .. calendarDate.monthDay .. " " .. calendarDate.hour .. ":" .. calendarDate.minute
-				GameTimeFrame:Click(); CalendarCloseButton:Click()
-				
-				for i = 1, C_Calendar.GetNumDayEvents(0, calendarDate.monthDay) do
-					local event = C_Calendar.GetDayEvent(0, calendarDate.monthDay, i)
-					if event then
-						local startTime = event.startTime.month .. "/" .. event.startTime.monthDay .. " " .. event.startTime.hour .. ":00"
-						local endTime = event.endTime.month .. "/" .. event.endTime.monthDay .. " " .. event.endTime.hour .. ":00"
-						if event.eventID == 324 then -- Hallow's End
-							if timeStamp >= startTime and timeStamp <= endTime then
-								isDailyRewardCollected = GetLFGDungeonRewards(285)
-								if not isDailyRewardCollected then
-									if not select(11, C_MountJournal.GetMountInfoByID(219)) then
-										normalTexture:SetTexture("Interface\\ICONS\\inv_belt_12")
-										normalTexture:SetSize(28, 26)
-									end
+			-- Put the holiday data (stored in MainDB) into a table local to this file.
+			local HOLIDAYS = addonTable.HOLIDAYS
+			
+			-- Create a couple boolean variables. The first will determine if the holiday
+			-- button should be visible or hidden.
+			-- The second will determine whether or not the current character has collected
+			-- the daily reward or not.
+			local hideButton = false
+			local isRewardCollected = false
+			
+			-- Get the current calendar date information such as day, month, year, and time.
+			local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
+			
+			-- Create a new variable that will the time since the epoch based on the current
+			-- date information shown below.
+			local timestamp = time({
+				year 	= calendarDate.year,
+				month 	= calendarDate.month,
+				day 	= calendarDate.monthDay,
+				hour 	= calendarDate.hour,
+				minute 	= calendarDate.minute,
+			})
+			
+			-- From the first event in the day to the last event of the day, let's check for any
+			-- holidays we're interested in showing a button for.
+			for i = 1, C_Calendar.GetNumDayEvents(0, calendarDate.monthDay) do
+				-- Get the information about the event, such as its start and end datetime information
+				-- and store it in the variable.
+				local event = C_Calendar.GetDayEvent(0, calendarDate.monthDay, i)
+				if event then
+					-- Assuming the event is storing an event and isn't nil, let's ensure it's
+					-- an event we're interested in by checking the keys in our HOLIDAY table.
+					if HOLIDAYS[event.eventID] then
+						-- Now that we know it's an event we're interested in, let's build
+						-- a couple variables to hold the epoch values for the start and
+						-- end times of the event.
+						local eventStart = time({
+							year 	= event.startTime.year,
+							month 	= event.startTime.month,
+							day 	= event.startTime.monthDay,
+							hour 	= event.startTime.hour,
+							minute 	= event.startTime.minute,
+						})
+						local eventEnd = time({
+							year 	= event.endTime.year,
+							month 	= event.endTime.month,
+							day 	= event.endTime.monthDay,
+							hour 	= event.endTime.hour,
+							minute 	= event.endTime.minute,
+						})
+						
+						-- Using the 'timestamp' variable created earlier, let's compare it to
+						-- the datetime epoch variables we just created to see if the event is
+						-- active.
+						if (timestamp >= eventStart) and (timestamp <= eventEnd) then
+							-- Check if the player has collected the event's mount.
+							local mount = C_MountJournal.GetMountInfoByID(HOLIDAYS[event.eventID].mountID)
+							local hasMount = mount[11]
+							if not hasMount then
+								-- Determine if the daily reward has been collected.
+								isRewardCollected = GetLFGDungeonRewards(HOLIDAYS[event.eventID].rewardID)
+								if not isRewardCollected then
+									normalTexture:SetTexture(HOLIDAYS[event.eventID].icon)
+									normalTexture:SetSize(HOLIDAYS[event.eventID].width, HOLIDAYS[event.eventID].height)
 								end
-							else
-								hideButton = true
-							end
-						elseif event.eventID == 372 then -- Brewfest
-							if timeStamp >= startTime and timeStamp <= endTime then
-								isDailyRewardCollected = GetLFGDungeonRewards(287)
-								if not isDailyRewardCollected then
-									if not select(11, C_MountJournal.GetMountInfoByID(202)) or not select(11, C_MountJournal.GetMountInfoByID(226)) then
-										normalTexture:SetTexture("Interface\\ICONS\\ability_mount_kotobrewfest")
-										normalTexture:SetSize(28, 26)
-									end
-								end
-							else
-								hideButton = true
-							end
-						elseif event.eventID == 423 then -- Love is in the Air
-							if timeStamp >= startTime and timeStamp <= endTime then
-								isDailyRewardCollected = GetLFGDungeonRewards(288)
-								if not isDailyRewardCollected then
-									if not select(11, C_MountJournal.GetMountInfoByID(352)) then
-										normalTexture:SetTexture("Interface\\ICONS\\inv_rocketmountpink")
-										normalTexture:SetSize(28, 26)
-									end
-								end
-							else
-								hideButton = true
 							end
 						else
 							hideButton = true
 						end
 					end
 				end
-				highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-				highlightTexture:SetSize(24, 23)
-				
-				HMPQueueButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-				
-				HMPQueueButton:SetNormalTexture(normalTexture)
-				HMPQueueButton:SetHighlightTexture(highlightTexture, "ADD")
-				
-				HMPQueueButton:SetSize(28, 26)
-				HMPQueueButton:SetPoint("BOTTOM", 0, 40)
-
-				if not isDailyRewardCollected and UnitLevel("player") >= 50 and hideButton == false then
-					HMPQueueButton:Show()
-				else
-					HMPQueueButton:Hide()
-				end
+			end
+			
+			-- Set the highlight texture for the button.
+			highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+			highlightTexture:SetSize(24, 23)
+			
+			-- Register the button for left and right clicks.
+			HMPQueueButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+			
+			-- Apply the textures to the button.
+			HMPQueueButton:SetNormalTexture(normalTexture)
+			HMPQueueButton:SetHighlightTexture(highlightTexture, "ADD")
+			
+			-- Set the size and position of the button.
+			HMPQueueButton:SetSize(28, 26)
+			HMPQueueButton:SetPoint("RIGHT", -20, 0)
+			
+			-- If the daily reward is uncollected, the player's level is at or above the minimum level,
+			-- and the button should be visible, then show the button, else hide it.
+			if (not isRewardCollected) and (UnitLevel("player") >= addonTable.CONSTANTS["MIN_DUNGEON_RWD_LEVEL"]) and (hideButton == false) then
+				HMPQueueButton:Show()
+			else
+				HMPQueueButton:Hide()
 			end
 		end
 	end
@@ -129,18 +153,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.HolidayQueuesEnabled then
 			local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
 			if calendarDate.month == 10 and calendarDate.monthDay > 6 then -- Hallow's End
-				local isDailyRewardCollected = GetLFGDungeonRewards(285)
-				if isDailyRewardCollected then
+				local isRewardCollected = GetLFGDungeonRewards(285)
+				if isRewardCollected then
 					HMPQueueButton:Hide()
 				end
 			elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Brewfest
-				local isDailyRewardCollected = GetLFGDungeonRewards(287)
-				if isDailyRewardCollected then
+				local isRewardCollected = GetLFGDungeonRewards(287)
+				if isRewardCollected then
 					HMPQueueButton:Hide()
 				end
 			elseif calendarDate.month == 2 then -- Love is in the Air
-				local isDailyRewardCollected = GetLFGDungeonRewards(288)
-				if isDailyRewardCollected then
+				local isRewardCollected = GetLFGDungeonRewards(288)
+				if isRewardCollected then
 					HMPQueueButton:Hide()
 				end
 			end
@@ -164,17 +188,26 @@ HMPQueueButton:HookScript("OnClick", function(self)
 		
 		if calendarDate.month == 10 and calendarDate.monthDay > 6 then -- Hallow's End
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 285, LFDDungeonList, LFDHiddenByCollapseList)
-		elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Love is in the Air
-			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 288, LFDDungeonList, LFDHiddenByCollapseList)
-		elseif calendarDate.month == 2 then -- Brewfest
+		elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Brewfest
 			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 287, LFDDungeonList, LFDHiddenByCollapseList)
+		elseif calendarDate.month == 2 then -- Love is in the Air
+			LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, 288, LFDDungeonList, LFDHiddenByCollapseList)
 		end
 	end
 end)
 
 HMPQueueButton:HookScript("OnEnter", function(self)
+	local calendarDate = C_DateAndTime.GetCurrentCalendarTime()
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"])
+	
+	if calendarDate.month == 10 and calendarDate.monthDay > 6 then -- Hallow's End
+		GameTooltip:SetText(L_GLOBALSTRINGS["Holiday.HallowsEnd"])
+	elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Brewfest
+		GameTooltip:SetText(L_GLOBALSTRINGS["Holiday.Brewfest"])
+	elseif calendarDate.month == 2 then -- Love is in the Air
+		GameTooltip:SetText(L_GLOBALSTRINGS["Holiday.LoveIsInTheAir"])
+	end
+
 	GameTooltip:Show()
 end)
 

@@ -176,3 +176,29 @@ local VEHICLES = {
 	89619,	-- Murky (Highmountain)
 }
 addonTable.VEHICLES = VEHICLES
+
+-- Holidays
+local HOLIDAYS = {
+	[324] = { -- Hallow's End
+		["rewardID"] 	= 285,
+		["mountID"] 	= 219,
+		["icon"] 		= "Interface\\ICONS\\inv_belt_12",
+		["width"] 		= 28,
+		["height"] 		= 26,
+	},
+	[327] = { -- Brewfest
+		["rewardID"] 	= 287,
+		["mountID"] 	= 202,
+		["icon"] 		= "Interface\\ICONS\\ability_mount_kotobrewfest",
+		["width"] 		= 28,
+		["height"] 		= 26,
+	},
+	[423] = { -- Love is in the Air
+		["rewardID"] 	= 288,
+		["mountID"] 	= 352,
+		["icon"] 		= "Interface\\ICONS\\inv_rocketmountpink",
+		["width"] 		= 28,
+		["height"] 		= 26,
+	},
+}
+addonTable.HOLIDAYS = HOLIDAYS

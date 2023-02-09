@@ -321,7 +321,6 @@ if (isLocaleSupported) then
 	-- Start: 	UI
 	L_GLOBALSTRINGS["UI.Button.Inventory.Desc"] 												= "|cffFFFFFFLearn All Transmog|r\nClick this button to learn all USABLE and UNKNOWN\ntransmog in your bags.\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
-	L_GLOBALSTRINGS["UI.Button.HolidayQueue.Desc"] 												= "Automatically queue for the current holiday boss.\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"] 												= "Enter %s\n\n|cffADD8E6Added by HelpMePlay|r"
 	--
 	L_GLOBALSTRINGS["UI.Button.Learn"] 															= "Learn"
@@ -386,6 +385,11 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Speech.TalonedFlayedwing.Scared"]											= "the flayedwing is scared, soothe it with gentle pats!"
 	L_GLOBALSTRINGS["Speech.TalonedFlayedwing.Shake"]											= "the flayedwing is trying to shake you off, hold on tight!"
 	-- End:		Speech Text Checks
+	
+	-- Holiday Descriptions
+	L_GLOBALSTRINGS["Holiday.Brewfest"] 														= "Enter |cffFFFFFFBlackrock Depths|r and fight |cffFFFFFFCoren Direbrew|r\nfor a chance at the |cffFFFFFFGreat Brewfest Kodo|r and the |cffFFFFFFSwift Brewfest Ram|r!\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["Holiday.LoveIsInTheAir"] 													= "Enter |cffFFFFFFShadowfang Keep|r and fight |cffFFFFFFApothecary Hummel|r\nfor a chance at the |cffFFFFFFX-45 Heartbreaker|r!\n\n|cffADD8E6Added by HelpMePlay|r"
+	L_GLOBALSTRINGS["Holiday.HallowsEnd"] 														= "Enter |cffFFFFFFScarlet Monastery|r and fight |cffFFFFFFThe Headless Horseman|r\nfor a chance at |cffFFFFFFThe Horseman's Reins|r!\n\n|cffADD8E6Added by HelpMePlay|r"
 	
 	-- Barber Shop
 	L_GLOBALSTRINGS["BarberShop.ApplyButton.Text"]												= "Apply"
