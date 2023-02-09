@@ -69,7 +69,7 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Headers
 	L_GLOBALSTRINGS["Header.Toggles"] 															= "Toggles"
-	L_GLOBALSTRINGS["Header.DropDowns"] 														= "DropDowns"
+	L_GLOBALSTRINGS["Header.DropDowns"] 														= "Dropdowns"
 	L_GLOBALSTRINGS["Header.About"] 															= "About"
 	L_GLOBALSTRINGS["Header.Acknowledgments"] 													= "Acknowledgments"
 	L_GLOBALSTRINGS["Header.Resources"] 														= "Resources"
@@ -167,7 +167,8 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMaxDelayDesc"] 						= "Select the maximum delay before the addon will show the water reminder message.\n\n|cffFFD100NOTE|r: If you do not set this value, then the maximum delay defaults to 20 minutes."
 	-- End: 	Features Options (Options_Features.lua)
 	--
-	-- Start: 	Quests Options (Options_Quests.lua)
+	
+	-- Quests Toggles
 	L_GLOBALSTRINGS["Quests.Toggle.AcceptQuests"] 												= "Accept Quests"
 	L_GLOBALSTRINGS["Quests.Toggle.AcceptQuestsDesc"] 											= "Automatically accept all quests."
 	L_GLOBALSTRINGS["Quests.Toggle.CompleteQuests"] 											= "Complete Quests"
@@ -188,7 +189,13 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMawDesc"] 								= "Toggle on or off to either choose The Maw or skip it.\n\n|cffFFD100Checked|r: Do it\n|cffFFD100Unchecked|r: Skip "
 	L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobs"] 										= "Quest Mobs"
 	L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobsDesc"] 									= "Toggle to show an icon on the nameplate of NPCs required for quests."
-	--
+	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
+	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"
+	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"]										= "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
+	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"]											= "Auto Share"
+	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"]										= "Automatically share quests with party members as you accept them. For best results, your party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
+	
+	-- Quests Dropdowns
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"]										= "Chromie Time"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"]										= "Automates the expansion to select when speaking with Chromie.\n\n|cffFFD100Default|r: Battle for Azeroth (Current Timeline)"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"]											= "The Burning Crusade"
@@ -199,6 +206,7 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"]										= "Legion"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"]											= "Battle for Azeroth"
 	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"]											= "Shadowlands"
+	L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Present"]										= "Present"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Title"]									= "Battle for Azeroth"
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.BFA.Desc"]									= "Automates the first zone to select in |cffFFD100Battle for Azeroth|r."
 	L_GLOBALSTRINGS["Quests.DropDowns.ZoneSelection.SL.Title"]									= "Shadowlands"
@@ -229,18 +237,16 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset.Desc"]									= "The distance to the left or right on the nameplate to shift the icon."
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset"]										= "Y Offset"
 	L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset.Desc"]									= "The distance up or down on the nameplate to shift the icon."
-	--
-	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"] 												= "|cffFFD100NOTE|r: This feature has no affect outside groups.\n\nWoW is better with friends. If you play the game with friends, and want to keep them in the loop on your quest activity, then enable |cffFFD100Party Play|r!\n\nWhat it does:\n- Reports when quests are accepted\n- Reports when quests are completed\n- Reports quest activity (eg. X/Y harpies slain)\n- Auto shares quests"
-	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"]											= "Announce"
-	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"]										= "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
-	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"]											= "Auto Share"
-	L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"]										= "Automatically share quests with party members as you accept them. For best results, your party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.\n\n|cffFFD100Checked|r: Enabled\n|cffFFD100Unchecked|r: Disabled"
+	
+	-- Quests Description Fields
+	L_GLOBALSTRINGS["Quests.Descriptions.ChromieTimeIndicator"] 								= "|T4622478:0|t "
+	
+	-- Party Play Output
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.EnabledWarningText"] 								= "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled."
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestTurnedInText"] 									= "Turned in"
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestAcceptedText"] 									= "Accepted"
 	L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestRemovedText"] 									= "Removed"
 	L_GLOBALSTRINGS["PartyPlay.Input.Text.AlreadyOnQuestText"] 									= "already on that quest."
-	-- End: 	Quests Options (Options_Quests.lua)
 	--
 	-- Start: 	Expansion Features (Options_ExpansionFeatures.lua)
 	L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"] 									= "Architect Table"

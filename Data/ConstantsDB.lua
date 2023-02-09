@@ -8,6 +8,7 @@ local CONSTANTS = {
 	-- Levels
 	["MAX_PLAYER_LEVEL"] 		= 70,
 	["WAR_MODE_MAX_LEVEL"]		= 60,
+	["CHROMIE_TIME_MAX_LEVEL"]	= 60,
 	["MIN_DUNGEON_RWD_LEVEL"]	= 60,
 	-- Dragonriding
 	["DRAGONRIDING_TREE_ID"] 	= 672,

@@ -6,9 +6,48 @@ local questOptions = {
 	handler = HelpMePlay,
 	type = "group",
 	args = {
+		chromieTimeIndicatorText = {
+			name = function()
+				local chromieTimeID = UnitChromieTimeID("player")
+				local chromieTimeString = ""
+				if chromieTimeID == 0 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Present"]
+				elseif chromieTimeID == 5 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"]
+				elseif chromieTimeID == 6 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"]
+				elseif chromieTimeID == 7 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"]
+				elseif chromieTimeID == 8 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.MOP"]
+				elseif chromieTimeID == 9 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"]
+				elseif chromieTimeID == 10 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"]
+				elseif chromieTimeID == 14 then
+					chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"]
+				end
+				
+				return L_GLOBALSTRINGS["Quests.Descriptions.ChromieTimeIndicator"] .. chromieTimeString
+			end,
+			order = 0,
+			type = "description",
+			hidden = function()
+				local playerLevel = UnitLevel("player")
+				if playerLevel < addonTable.CONSTANTS["CHROMIE_TIME_MAX_LEVEL"] then
+					return false
+				end
+				return true
+			end,
+		},
+		dropdownHeader = {
+			name = L_GLOBALSTRINGS["Header.DropDowns"],
+			order = 1,
+			type = "header",
+		},
 		chromieTime = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Title"],
-			order = 0,
+			order = 2,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Desc"],
 			type = "select",
 			style = "dropdown",
@@ -44,7 +83,7 @@ local questOptions = {
 		},
 		questRewards = {
 			name = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Title"],
-			order = 1,
+			order = 3,
 			desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.Desc"],
 			type = "select",
 			style = "dropdown",
