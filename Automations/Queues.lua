@@ -92,8 +92,22 @@ e:SetScript("OnEvent", function(self, event, ...)
 								-- Determine if the daily reward has been collected.
 								isRewardCollected = GetLFGDungeonRewards(HOLIDAYS[event.eventID].rewardID)
 								if not isRewardCollected then
+									-- Set the button's texture (holiday mount icon).
 									normalTexture:SetTexture(HOLIDAYS[event.eventID].icon)
 									normalTexture:SetSize(HOLIDAYS[event.eventID].width, HOLIDAYS[event.eventID].height)
+									
+									-- Set the highlight texture for the button.
+									highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+									highlightTexture:SetSize(24, 23)
+									
+									-- Register the button for left and right clicks.
+									HMPQueueButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+									
+									-- Apply the textures to the button.
+									HMPQueueButton:SetNormalTexture(normalTexture)
+									HMPQueueButton:SetHighlightTexture(highlightTexture, "ADD")
+								else
+									hideButton = true
 								end
 							end
 						else
@@ -103,28 +117,19 @@ e:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 			
-			-- Set the highlight texture for the button.
-			highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-			highlightTexture:SetSize(24, 23)
-			
-			-- Register the button for left and right clicks.
-			HMPQueueButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-			
-			-- Apply the textures to the button.
-			HMPQueueButton:SetNormalTexture(normalTexture)
-			HMPQueueButton:SetHighlightTexture(highlightTexture, "ADD")
-			
 			-- Set the size and position of the button.
 			HMPQueueButton:SetSize(28, 26)
 			HMPQueueButton:SetPoint("RIGHT", -20, 0)
 			
 			-- If the daily reward is uncollected, the player's level is at or above the minimum level,
 			-- and the button should be visible, then show the button, else hide it.
-			if (not isRewardCollected) and (UnitLevel("player") >= addonTable.CONSTANTS["MIN_DUNGEON_RWD_LEVEL"]) and (hideButton == false) then
-				HMPQueueButton:Show()
-			else
-				HMPQueueButton:Hide()
-			end
+			C_Timer.After(5, function()
+				if (not isRewardCollected) and (UnitLevel("player") >= addonTable.CONSTANTS["MIN_DUNGEON_RWD_LEVEL"]) and (hideButton == false) then
+					HMPQueueButton:Show()
+				else
+					HMPQueueButton:Hide()
+				end
+			end)
 		end
 	end
 	
