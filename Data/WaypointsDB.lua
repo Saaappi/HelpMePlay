@@ -108,6 +108,188 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
+	[70845] = { -- In Tyr's Footsteps
+		-- Ohn'ahran Plains
+		{
+			2023,																-- Ohn'ahran Plains
+			23.0, 																-- X
+			66.6, 																-- Y
+			"Territorial Coastling",											-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2023,																-- Ohn'ahran Plains
+			26.2, 																-- X
+			65.2, 																-- Y
+			"Ripsaw the Stalker",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2023,																-- Ohn'ahran Plains
+			26.0, 																-- X
+			65.2, 																-- Y
+			"Ty'foon the Ascended",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2023,																-- Ohn'ahran Plains
+			62.95, 																-- X
+			48.39, 																-- Y
+			"Sunscale Behemoth",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2023,																-- Ohn'ahran Plains
+			45.2, 																-- X
+			48.4, 																-- Y
+			"Skaara",															-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2023,																-- Ohn'ahran Plains
+			59.8, 																-- X
+			66.8, 																-- Y
+			"Prozela Galeshot",													-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		-- Thaldraszus
+		{
+			2025,																-- Thaldraszus
+			36.6, 																-- X
+			72.8, 																-- Y
+			"Liskron the Dazzling",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2025,																-- Thaldraszus
+			36.8, 																-- X
+			85.6, 																-- Y
+			"Lookout Mordren",													-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2025,																-- Thaldraszus
+			37.6, 																-- X
+			85.0, 																-- Y
+			"Private Shikzar",													-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2025,																-- Thaldraszus
+			56.1, 																-- X
+			77.8, 																-- Y
+			"Henlare",															-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2025,																-- Thaldraszus
+			40.8, 																-- X
+			74.56, 																-- Y
+			"Acrosoth",															-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		-- The Waking Shores
+		{
+			2022,																-- The Waking Shores
+			77.6, 																-- X
+			22.4, 																-- Y
+			"Ancient Hornswog",													-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			81.4, 																-- X
+			37.4, 																-- Y
+			"Primal Scythid Queen",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			64.2, 																-- X
+			33.0, 																-- Y
+			"Dragonhunter Igordan",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			54.8, 																-- X
+			21.6, 																-- Y
+			"Firava the Rekindler",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			60.6, 																-- X
+			83.0, 																-- Y
+			"Terillod the Devout",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			54.8, 																-- X
+			82.2, 																-- Y
+			"Klozicc the Ascended",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		-- The Azure Span
+		{
+			2024,																-- The Azure Span
+			70.0, 																-- X
+			33.6, 																-- Y
+			"Summoned Destroyer",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			38.2, 																-- X
+			59.0, 																-- Y
+			"Forgotten Creation",												-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			36.8, 																-- X
+			32.6, 																-- Y
+			"Sharpfang",														-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			23.6, 																-- X
+			33.6, 																-- Y
+			"Cascade",															-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			17.2, 																-- X
+			41.8, 																-- Y
+			"Vakril",															-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
 }
 
 addonTable.WAYPOINTS = WAYPOINTS
