@@ -25,6 +25,7 @@ end)
 
 e:RegisterEvent("PLAYER_ENTERING_WORLD")
 e:RegisterEvent("QUEST_ACCEPTED")
+e:RegisterEvent("LFG_ROLE_CHECK_SHOW")
 e:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_ENTERING_WORLD" then
@@ -150,6 +151,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 			HMPDungeonQueueButton:SetSize(28, 26)
 			HMPDungeonQueueButton:SetPoint("BOTTOM", 0, 40)
 			HMPDungeonQueueButton:Show()
+		end
+	end
+	
+	if event == "LFG_ROLE_CHECK_SHOW" then
+		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+		if HelpMePlayDB.HolidayQueuesEnabled then
+			LFDRoleCheckPopupAcceptButton:Click()
 		end
 	end
 	
