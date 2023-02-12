@@ -156,7 +156,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	
 	if event == "LFG_ROLE_CHECK_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HelpMePlayDB.HolidayQueuesEnabled then
+		if HelpMePlayDB.QueuesEnabled then
 			LFDRoleCheckPopupAcceptButton:Click()
 		end
 	end
