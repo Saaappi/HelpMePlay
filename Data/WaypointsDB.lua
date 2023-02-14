@@ -129,7 +129,7 @@ local WAYPOINTS = {
 		{
 			2023,																-- Ohn'ahran Plains
 			26.0, 																-- X
-			65.2, 																-- Y
+			34.2, 																-- Y
 			"Ty'foon the Ascended",												-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
