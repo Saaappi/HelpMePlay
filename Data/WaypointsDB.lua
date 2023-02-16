@@ -251,14 +251,6 @@ local WAYPOINTS = {
 		-- The Azure Span
 		{
 			2024,																-- The Azure Span
-			70.0, 																-- X
-			33.6, 																-- Y
-			"Summoned Destroyer",												-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2024,																-- The Azure Span
 			38.2, 																-- X
 			59.0, 																-- Y
 			"Forgotten Creation",												-- Title
@@ -287,6 +279,80 @@ local WAYPOINTS = {
 			41.8, 																-- Y
 			"Vakril",															-- Title
 			nil,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65686] = { -- To the Azure Span
+		{
+			2024,																-- The Azure Span
+			41.4, 																-- X
+			35.6, 																-- Y
+			"Step 1 - The Azure Span",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			45.66, 																-- X
+			39.05, 																-- Y
+			"Step 2 - Camp Antonidas",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			65.45, 																-- X
+			16.04, 																-- Y
+			"Step 3 - Hollow Up",												-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			63.72, 																-- X
+			28.95, 																-- Y
+			"Step 4 - Prowling Predators",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			70.0, 																-- X
+			33.6, 																-- Y
+			"Step 5 - Summoned Destroyer (Rare)",								-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			59.27, 																-- X
+			39.75, 																-- Y
+			"Step 6 - Field Medic 101",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			58.81, 																-- X
+			34.91, 																-- Y
+			"Step 7 - Old Grimtusk",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			67.24, 																-- X
+			44.42, 																-- Y
+			"Step 8 - The Ailing Apprentice",									-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			63.25, 																-- X
+			58.39, 																-- Y
+			"Step 9 - Camp Nowhere",											-- Title
+			236668,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
