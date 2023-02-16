@@ -42,6 +42,7 @@ Options\Systems.lua
 Options\ZoneSelection.lua
 Options\Sounds.lua
 Options\Extras.lua
+Options\Changes.lua
 
 # Data
 Data\MainDB.lua
