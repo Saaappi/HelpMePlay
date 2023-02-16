@@ -355,6 +355,14 @@ local WAYPOINTS = {
 			236668,																-- Icon
 			nil,																-- DisplayID
 		},
+		{
+			2024,																-- The Azure Span
+			44.79, 																-- X
+			50.66, 																-- Y
+			"Step 10 - Mammoths Matter",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
 	},
 }
 

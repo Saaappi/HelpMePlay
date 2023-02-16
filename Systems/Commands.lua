@@ -212,6 +212,30 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		for _, member in ipairs(HelpMePlayDB.PartyMembers) do
 			C_PartyInfo.InviteUnit(member)
 		end
+	elseif (cmd == "waypoint" or cmd == "wp") and arg1 ~= nil then
+		local questID = tonumber(arg1)
+		if select(2, IsAddOnLoaded("TomTom")) and HelpMePlayDB.WaypointsEnabled then
+			for quest, questData in pairs(addonTable.WAYPOINTS) do
+				if quest == questID then
+					for _, coords in ipairs(questData) do
+						local opts = {
+							title = coords[4],
+							persistent = nil,
+							minimap = true,
+							world = true,
+							from = addonName,
+							minimap_icon = coords[5],
+							worldmap_icon = coords[5],
+							minimap_displayID = coords[6],
+							worldmap_displayID = coords[6],
+						}
+						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts)
+						TomTom:SetClosestWaypoint()
+					end
+					break
+				end
+			end
+		end
 	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
 		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
