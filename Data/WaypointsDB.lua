@@ -545,6 +545,26 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
+	[66114] = { -- For the Benefit of the Queen
+		{
+			2022,																-- The Waking Shores
+			62.26, 																-- X
+			72.88, 																-- Y
+			"Step 11 - For the Benefit of the Queen\n\n" ..						-- Title
+			"Keep following the main story quests.\n\n" ..
+			"The only side quest we accept is the one from Veritistrasz (step 12).",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			57.84, 																-- X
+			66.85, 																-- Y
+			"Step 12 - Stay a While",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
 }
 
 addonTable.WAYPOINTS = WAYPOINTS
