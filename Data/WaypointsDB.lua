@@ -199,23 +199,6 @@ local WAYPOINTS = {
 			nil,																-- Icon
 			nil,																-- DisplayID
 		},
-		-- The Waking Shores
-		{
-			2022,																-- The Waking Shores
-			60.6, 																-- X
-			83.0, 																-- Y
-			"Terillod the Devout",												-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2022,																-- The Waking Shores
-			54.8, 																-- X
-			82.2, 																-- Y
-			"Klozicc the Ascended",												-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
 	},
 	[65686] = { -- To the Azure Span
 		{
@@ -562,6 +545,54 @@ local WAYPOINTS = {
 			66.85, 																-- Y
 			"Step 12 - Stay a While",											-- Title
 			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[68799] = { -- Return to the Ruby Lifeshrine
+		{
+			2022,																-- The Waking Shores
+			66.01, 																-- X
+			58.15, 																-- Y
+			"Step 13 - Site Salvage\n\n" ..										-- Title
+			"Complete all the quests in the area.",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			70.48, 																-- X
+			56.81, 																-- Y
+			"Step 14 - Drainage Solutions",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[66447] = { -- Beyond the Barrier
+		{
+			2022,																-- The Waking Shores
+			62.26, 																-- X
+			72.88, 																-- Y
+			"Step 15 - Ruby Lifeshrine\n\n" ..									-- Title
+			"There aren't any side quests left in the route, so focus on main story quests!",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[66118] = { -- Basalt Assault
+		{
+			2022,																-- The Waking Shores
+			60.6, 																-- X
+			83.0, 																-- Y
+			"Step 16 - Terillod the Devout (Rare)",								-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			54.8, 																-- X
+			82.2, 																-- Y
+			"Step 17 - Klozicc the Ascended (Rare)",							-- Title
+			133731,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
