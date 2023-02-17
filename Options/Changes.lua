@@ -23,27 +23,12 @@ local changesOptions = {
 			order = 10,
 			type = "header",
 		},
-		added1Text = {
-			name = "- Added a text indicator to the Quests section of the options to display which expansion of Chromie Time the player is in.",
+		addedText = {
+			name = "- Added a text indicator to the Quests section of the options to display which expansion of Chromie Time the player is in.\n" ..
+			"- Accepting In Tyr's Footsteps will now plot all rare waypoints from Kraken Latte's 60-70 leveling guide.\n" ..
+			"- Accepting To the Azure Span will now plot all quest and rare waypoints for the Azure Span leveling route.\n" ..
+			"- Added a new waypoint (wp) command that can be used with a quest ID to re-plot all related coordinates. For example, |cffFFD100/hmp waypoint 65686|r will plot all waypoints related to the To the Azure Span quest.",
 			order = 11,
-			type = "description",
-			fontSize = "small",
-		},
-		added2Text = {
-			name = "- Accepting In Tyr's Footsteps will now plot all rare waypoints from Kraken Latte's 60-70 leveling guide.",
-			order = 12,
-			type = "description",
-			fontSize = "small",
-		},
-		added3Text = {
-			name = "- Accepting To the Azure Span will now plot all quest and rare waypoints for the Azure Span leveling route.",
-			order = 13,
-			type = "description",
-			fontSize = "small",
-		},
-		added4Text = {
-			name = "- Added a new waypoint (wp) command that can be used with a quest ID to re-plot all related coordinates. For example, |cffFFD100/hmp waypoint 65686|r will plot all waypoints related to the To the Azure Span quest.",
-			order = 14,
 			type = "description",
 			fontSize = "small",
 		},
@@ -52,9 +37,21 @@ local changesOptions = {
 			order = 20,
 			type = "header",
 		},
-		updated1Text = {
-			name = "- If Queues is enabled, you should now automatically accept the queue popup when the party leader initiates a queue.",
+		updatedText = {
+			name = "- If Queues is enabled, you should now automatically accept the queue popup when the party leader initiates a queue.\n" ..
+			"- Migrated the changes list from Github to a new tab in the options menu.",
 			order = 21,
+			type = "description",
+			fontSize = "small",
+		},
+		removedHeader = {
+			name = "Removed",
+			order = 30,
+			type = "header",
+		},
+		removedText = {
+			name = "|cffFF0000Nothing was removed in this release.|r",
+			order = 31,
 			type = "description",
 			fontSize = "small",
 		},
