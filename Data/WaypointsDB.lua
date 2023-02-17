@@ -587,12 +587,24 @@ local WAYPOINTS = {
 			133731,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66122] = { -- Proto-Fight
 		{
 			2022,																-- The Waking Shores
 			54.8, 																-- X
 			82.2, 																-- Y
 			"Step 17 - Klozicc the Ascended (Rare)",							-- Title
 			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[66124] = { -- Exeunt, Triumphant
+		{
+			2022,																-- The Waking Shores
+			46.19, 																-- X
+			78.32, 																-- Y
+			"Step 18 - Exeunt, Triumphant",										-- Title
+			236668,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
