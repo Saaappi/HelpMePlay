@@ -44,14 +44,25 @@ local changesOptions = {
 			type = "description",
 			fontSize = "small",
 		},
+		fixedHeader = {
+			name = "Fixed",
+			order = 30,
+			type = "header",
+		},
+		fixedText = {
+			name = "- Fixed an issue regarding gossip for Noriko the All-Remembering in The Azure Span during the For The Love of Others quest.",
+			order = 31,
+			type = "description",
+			fontSize = "small",
+		},
 		removedHeader = {
 			name = "Removed",
-			order = 30,
+			order = 40,
 			type = "header",
 		},
 		removedText = {
 			name = "|cffFF0000Nothing was removed in this release.|r",
-			order = 31,
+			order = 41,
 			type = "description",
 			fontSize = "small",
 		},

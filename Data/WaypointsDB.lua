@@ -251,14 +251,6 @@ local WAYPOINTS = {
 		-- The Azure Span
 		{
 			2024,																-- The Azure Span
-			38.2, 																-- X
-			59.0, 																-- Y
-			"Forgotten Creation",												-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2024,																-- The Azure Span
 			36.8, 																-- X
 			32.6, 																-- Y
 			"Sharpfang",														-- Title
@@ -360,6 +352,32 @@ local WAYPOINTS = {
 			44.79, 																-- X
 			50.66, 																-- Y
 			"Step 10 - Mammoths Matter",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			40.96, 																-- X
+			55.02, 																-- Y
+			"Step 11 - Meeting Kalecgos",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			38.48, 																-- X
+			59.62, 																-- Y
+			"Step 12 - Forgotten Creation (Rare)",								-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65855] = { -- Aiding Azure Span
+		{
+			2024,																-- The Azure Span
+			45.66, 																-- X
+			39.05, 																-- Y
+			"Step 13 - Camp Antonidas",											-- Title
 			236668,																-- Icon
 			nil,																-- DisplayID
 		},

@@ -1116,7 +1116,7 @@ local DIALOG_DF = {
 				["o"] 	= 54965,
 				["c"] 	= { "quests.notComplete", "quest.obj.notComplete" },
 				["q"] 	= { 66503 }, -- For The Love of Others
-				["objs"] = { { ["q"] = 66503, ["o"] = 3 } }, -- Echo of Loss Slain
+				["objs"] = { { ["q"] = 66503, ["o"] = 1 } }, -- Talk to Noriko
 			},
 		},
 	},
