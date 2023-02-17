@@ -248,31 +248,6 @@ local WAYPOINTS = {
 			nil,																-- Icon
 			nil,																-- DisplayID
 		},
-		-- The Azure Span
-		{
-			2024,																-- The Azure Span
-			36.8, 																-- X
-			32.6, 																-- Y
-			"Sharpfang",														-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2024,																-- The Azure Span
-			23.6, 																-- X
-			33.6, 																-- Y
-			"Cascade",															-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2024,																-- The Azure Span
-			17.2, 																-- X
-			41.8, 																-- Y
-			"Vakril",															-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
 	},
 	[65686] = { -- To the Azure Span
 		{
@@ -378,6 +353,95 @@ local WAYPOINTS = {
 			45.66, 																-- X
 			39.05, 																-- Y
 			"Step 13 - Camp Antonidas",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			35.32, 																-- X
+			37.05, 																-- Y
+			"Step 14 - Catch the Caravan",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			36.8, 																-- X
+			32.6, 																-- Y
+			"Step 15 - Sharpfang (Rare)",										-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[66239] = { -- Spreading Decay
+		{
+			2024,																-- The Azure Span
+			23.6, 																-- X
+			33.6, 																-- Y
+			"Step 16 - Cascade (Rare)",											-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			21.08, 																-- X
+			35.14, 																-- Y
+			"Step 17 - All Brawn, No Brains",									-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			17.2, 																-- X
+			41.8, 																-- Y
+			"Step 18 - Vakril (Rare)",											-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65849] = { -- To Iskaara
+		{
+			2024,																-- The Azure Span
+			13.74, 																-- X
+			47.46, 																-- Y
+			"Step 19 - Iskaara\n" ..											-- Title
+			"|cffFFFFFFSkip:|r\n" ..
+			"|cffFFFFFF- Brackenhide Hollow|r\n" ..
+			"|cffFFFFFF- WANTED|r\n" ..
+			"|cffFFFFFF- Fishing Seamoth|r\n" ..
+			"|cffFFFFFF- Nook News|r",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			1.25, 																-- X
+			39.15, 																-- Y
+			"Step 20 - A Far Furbolg Friend",									-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			39.71, 																-- X
+			62.75, 																-- Y
+			"Step 21 - Azure Archives",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			58.79, 																-- X
+			34.83, 																-- Y
+			"Step 22 - Old Grimtusk",											-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2024,																-- The Azure Span
+			58.79, 																-- X
+			34.83, 																-- Y
+			"Step 23 - Rhonin's Shield",										-- Title
 			236668,																-- Icon
 			nil,																-- DisplayID
 		},
