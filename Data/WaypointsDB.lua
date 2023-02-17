@@ -430,7 +430,43 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[65452] = { -- Explorers in Peril
+	[70122] = { -- Explorers in Peril (Alliance)
+		{
+			2022,																-- The Waking Shores
+			81.68, 																-- X
+			33.25, 																-- Y
+			"Step 1 - Explorers in Peril",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			81.4, 																-- X
+			37.4, 																-- Y
+			"Step 2 - Primal Scythid Queen (Rare)",								-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			77.6, 																-- X
+			22.4, 																-- Y
+			"Step 3 - Ancient Hornswog (Rare)",									-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			76.57, 																-- X
+			33.72, 																-- Y
+			"Step 4 - Where's Wrathion?\n\n" ..									-- Title
+			"Skip:\n" ..
+			"- Artisan's Supply",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65452] = { -- Explorers in Peril (Horde)
 		{
 			2022,																-- The Waking Shores
 			39.71, 																-- X
