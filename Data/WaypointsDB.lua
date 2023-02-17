@@ -202,22 +202,6 @@ local WAYPOINTS = {
 		-- The Waking Shores
 		{
 			2022,																-- The Waking Shores
-			77.6, 																-- X
-			22.4, 																-- Y
-			"Ancient Hornswog",													-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2022,																-- The Waking Shores
-			81.4, 																-- X
-			37.4, 																-- Y
-			"Primal Scythid Queen",												-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2022,																-- The Waking Shores
 			64.2, 																-- X
 			33.0, 																-- Y
 			"Dragonhunter Igordan",												-- Title
@@ -404,7 +388,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			13.74, 																-- X
 			47.46, 																-- Y
-			"Step 19 - Iskaara\n" ..											-- Title
+			"Step 19 - Iskaara\n\n" ..											-- Title
 			"|cffFFFFFFSkip:|r\n" ..
 			"|cffFFFFFF- Brackenhide Hollow|r\n" ..
 			"|cffFFFFFF- WANTED|r\n" ..
@@ -442,6 +426,42 @@ local WAYPOINTS = {
 			58.79, 																-- X
 			34.83, 																-- Y
 			"Step 23 - Rhonin's Shield",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65452] = { -- Explorers in Peril
+		{
+			2022,																-- The Waking Shores
+			39.71, 																-- X
+			62.75, 																-- Y
+			"Step 1 - Explorers in Peril",										-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			81.4, 																-- X
+			37.4, 																-- Y
+			"Step 2 - Primal Scythid Queen (Rare)",								-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			77.6, 																-- X
+			22.4, 																-- Y
+			"Step 3 - Ancient Hornswog (Rare)",									-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			77.6, 																-- X
+			22.4, 																-- Y
+			"Step 4 - Where's Wrathion?\n\n" ..									-- Title
+			"Skip:\n" ..
+			"- Artisan's Supply",
 			236668,																-- Icon
 			nil,																-- DisplayID
 		},
