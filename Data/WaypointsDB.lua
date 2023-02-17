@@ -202,22 +202,6 @@ local WAYPOINTS = {
 		-- The Waking Shores
 		{
 			2022,																-- The Waking Shores
-			64.2, 																-- X
-			33.0, 																-- Y
-			"Dragonhunter Igordan",												-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2022,																-- The Waking Shores
-			54.8, 																-- X
-			21.6, 																-- Y
-			"Firava the Rekindler",												-- Title
-			nil,																-- Icon
-			nil,																-- DisplayID
-		},
-		{
-			2022,																-- The Waking Shores
 			60.6, 																-- X
 			83.0, 																-- Y
 			"Terillod the Devout",												-- Title
@@ -499,6 +483,65 @@ local WAYPOINTS = {
 			"Skip:\n" ..
 			"- Artisan's Supply",
 			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[72293] = { -- Adventuring in the Dragon Isles
+		{
+			2022,																-- The Waking Shores
+			77.6, 																-- X
+			22.4, 																-- Y
+			"Step 5 - Adventuring in the Dragon Isles",							-- Title
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65760] = { -- Reporting for Duty
+		{
+			2022,																-- The Waking Shores
+			71.19, 																-- X
+			40.78, 																-- Y
+			"Step 6 - Reporting for Duty\n\n" ..								-- Title
+			"Stick to main story quests at this hub.",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65991] = { -- Time for a Reckoning
+		{
+			2022,																-- The Waking Shores
+			66.35, 																-- X
+			34.92, 																-- Y
+			"Step 7 - Time for a Reckoning\n\n" ..								-- Title
+			"Complete the bonus objective and all of Wrathion's quests.",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			64.2, 																-- X
+			33.0, 																-- Y
+			"Step 8 - Dragonhunter Igordan (Rare)",								-- Title
+			133731,																-- Icon
+			nil,																-- DisplayID
+		},
+		{
+			2022,																-- The Waking Shores
+			55.01, 																-- X
+			30.88, 																-- Y
+			"Step 9 - Chasing Sendrax\n\n" ..									-- Title
+			"Keep following the main story quests. Don't accept any side quests!",
+			236668,																-- Icon
+			nil,																-- DisplayID
+		},
+	},
+	[65999] = { -- Red in Tooth and Claw
+		{
+			2022,																-- The Waking Shores
+			54.8, 																-- X
+			21.6, 																-- Y
+			"Step 10 - Firava the Rekindler (Rare)",							-- Title
+			133731,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
