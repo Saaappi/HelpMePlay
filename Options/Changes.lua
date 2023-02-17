@@ -26,7 +26,8 @@ local changesOptions = {
 		addedText = {
 			name = "- Added a text indicator to the Quests section of the options to display which expansion of Chromie Time the player is in.\n" ..
 			"- Accepting In Tyr's Footsteps will now plot all rare waypoints from Kraken Latte's 60-70 leveling guide.\n" ..
-			"- Accepting To the Azure Span will now plot all quest and rare waypoints for the Azure Span leveling route.\n" ..
+			"- Accepting specific quests within The Azure Span route, will now plot related quest and rare waypoints for The Azure Span leveling route.\n" ..
+			"- Accepting specific quests within The Waking Shores route, will now plot related quest and rare waypoints for The Waking Shores leveling route.\n" ..
 			"- Added a new waypoint (wp) command that can be used with a quest ID to re-plot all related coordinates. For example, |cffFFD100/hmp waypoint 65686|r will plot all waypoints related to the To the Azure Span quest.",
 			order = 11,
 			type = "description",
@@ -65,6 +66,35 @@ local changesOptions = {
 			order = 41,
 			type = "description",
 			fontSize = "small",
+		},
+		recommendedHeader = {
+			name = "Recommended",
+			order = 50,
+			type = "header",
+		},
+		levelingGuideBtn = {
+			name = "60-70 Guide",
+			order = 51,
+			type = "execute",
+			--desc = "",
+			func = function(_, _)
+				StaticPopupDialogs["HELPMEPLAY_ACK_LEVELGUIDE"] = {
+					text = "Be sure to check out Kraken Latte's short play video of her 60-70 leveling route!",
+					button1 = "OK",
+					OnShow = function(self, data)
+						self.editBox:SetText("https://www.youtube.com/watch?v=fpGbVepwKiI")
+						self.editBox:HighlightText()
+					end,
+					timeout = 20,
+					showAlert = true,
+					whileDead = false,
+					hideOnEscape = true,
+					enterClicksFirstButton = true,
+					hasEditBox = true,
+					preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_ACK_LEVELGUIDE")
+			end,
 		},
 	},
 }
