@@ -17,7 +17,7 @@ local main = {
 			type = "description",
 		},
 		authorText = {
-			name = "Lightsky",
+			name = "|cffFFD100Author|r: " .. "Lightsky",
 			order = 4,
 			type = "description",
 		},
