@@ -19,17 +19,9 @@ local extrasOptions = {
 			get = function(_) return HelpMePlayDB.TalkingHeadEnabled end,
 			set = function(_, val) HelpMePlayDB.TalkingHeadEnabled = val end,
 		},
-		holidayQueues = {
-			name = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"],
-			order = 2,
-			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"],
-			type = "toggle",
-			get = function(_) return HelpMePlayDB.HolidayQueuesEnabled end,
-			set = function(_, val) HelpMePlayDB.HolidayQueuesEnabled = val end,
-		},
 		waveAtPlayers = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Extras.WaveAtPlayers"],
-			order = 3,
+			order = 2,
 			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.WaveAtPlayersDesc"],
 			type = "toggle",
 			get = function(_) return HelpMePlayDB.WaveAtPlayersEnabled end,

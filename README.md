@@ -12,32 +12,65 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 
 ## Table of Contents
 
-- [General Features](#General-Features)
-- [Quest Features](#Quest-Features)
+- [General Features](#General)
+- [Features](#Features)
 - [Expansion Features](#Expansion-Features)
 - [Junker Features](#Junker-Features)
 - [Commands](#commands)
 - [Resources](#resources)
 
-## General Features
-*Gossips and Flight Paths are based on Kraken Latte's leveling path!*
+## General
 
 ### Toggles
-- **Cinematics** - Gracefully cancel *most* in-game cinematics and movies.
-- **Emotes** - Don't remember which emote to use on the stones in Maldraxxus? HelpMePlay is capable of using the appropriate emote simply by targeting these stones.
-- **Flight Paths** - Let HelpMePlay sweep you off your feet, carrying you to the destinations you need to go!
-- **Groups** - Allow HelpMePlay to automatically accept group invitations for you!
-- **Gossip** - Automates selecting appropriate gossip from NPCs. Players can even add their own!
-- **Notes** - HelpMePlay can add helpful tips to NPC tooltips. Can't remember which Gatamatos to click during [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation)? Me neither! HelpMePlay will let you know which to click if you hover over them.
-- **Queues** - Tired of missing your queue pops while you're AFK? HelpMePlay will accept the queue at lightning speed, granting you precious time to take care of the important things in life (like grabbing a drink for your dungeon ventures.)
-   - **Holiday Queues** - Use a special queue button to immediately queue for the active holiday boss.
-- **Ready Checks** - Toggle this handy feature on to always be ready when your raid leader sends out a ready check!
-- **Repairs** - Automatically repair your items in town before you head out to slay more gnolls!
-- **Speech** - HelpMePlay can interact with the in-game world through NPC and system speech. For example, the trickster during "[The Games We Play](https://www.wowhead.com/quest=57870/the-games-we-play)" in Ardenweald, simply target the trickster, and HelpMePlay will automatically react to the trickster's speech. Enjoy some much deserved rest and relaxation!
-- **Trainers** - Don't want to select "Learn" for individual spells from trainers? HelpMePlay can learn everything for you without breaking the bank!
-- **Vehicles** - Allows HelpMePlay to automatically exit vehicles on your behalf. *This is currently only used in Highmountain on Murky's egg.*
-- **War Mode** - The free 10%, or higher, experience gain is undeniably a boon to the leveling experience. When enabled, HelpMePlay will automatically opt the player into War Mode upon their next visit to Orgrimmar or Stormwind.
-- **Waypoints** - HelpMePlay, if configured, will automatically plot waypoints when specific quests are accepted.
+- **Enable** - Toggles addon functionality without reloading the UI!
+- **Minimap Icon** - Toggle a minimap icon to open or close the addon's options. *This is the same as using /hmp or opening the options through the in-game Options menu.*
+- **Developer Mode** - Toggle a debug version of the addon. When enabled, HelpMePlay will output additional information about gossips and equipping gear. This mode also enables several new (and less useful) slash commands! *This is really for me... But you're welcome?*
+
+
+*Gossips and Flight Paths are based on Kraken Latte's leveling path!*
+
+## Features
+
+### Toggles
+- **Cinematics** - Toggle the cancellation of in-game cinematics and movies. *Some in-game cinematics and movies are ignored for technical reasons.*
+- **Emotes** - Toggle the use of emotes. This will allow HelpMePlay to emote on specific NPCs on your behalf. *Best example are the Runestones in Maldraxxus.*
+- **Equip Loot** - Toggle the consideration of equipping Bind-on-Pickup loot from rares. This seems to be the most common on the Dragon Isles.
+   - **Ignore Bind** - Toggle to disregard the soulbound check when considering equipping loot. *This is only available when Equip Loot is checked!*
+- **Flight Paths** - Toggle allowing HelpMePlay to sweep you off your feet and to your next destination! *Flight path automation is pre-programmed and is based entirely off Kraken Latte's leveling route.*
+- **Groups** - Toggle accepting group invitations automatically.
+- **Gossip** - Toggle automatically selecting gossip from NPCs. *Players can even add their own! Pre-programmed gossips are based on Kraken Latte's leveling route!*
+- **Notes** - Toggle the addition of helpful notes to NPC tooltips. *Prime examples are which Gatamatos to click during for [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation) and the Lever-Locked Chests in Torghast.
+- **Queues** - Toggle automatically accepting queue popups so you can grab some ale, take a much-needed trip to the lavoratory, or cook yourself some Golden Carp Consomme.
+   - **Holiday Queues** - Toggle the addition of a special holiday boss queue button! You can use this button to immediately queue for the active holiday boss!
+- **Ready Checks** - Toggle the ability for HelpMePlay to tell your party or raid leader that you're always ready!
+- **Repairs** - Toggle automatically repairing your items when speaking with a repair merchant.
+- **Speech** - Toggle interacting with the in-game world through NPC and system speech. *Best example is the trickster during "[The Games We Play](https://www.wowhead.com/quest=57870/the-games-we-play)" in Ardenweald, simply target the trickster, and HelpMePlay will automatically react to the trickster's speech.!
+- **Trainers** - Toggle automatically learning spells from any and all trainers. *HelpMePlay can learn it all and not break the bank!*
+   - **Trainers Minimum Amount** - Input the absolute minimum amount of gold your character must possess before HelpMePlay will purchase the training. *The default is 50 gold.*
+- **Vehicles** - Toggle automatically exiting specific vehicles on your behalf. *This is currently only used in Highmountain on Murky's egg.*
+- **War Mode** - Toggle automatically entering War Mode when entering Orgrimmar or Stormwind City at level 20 or higher.
+- **Waypoints** - Toggle the plotting of waypoints. *Waypoints are plotted based on pre-programmed quests.*
+
+## Quests
+
+### Dropdowns
+- **Chromie Time** - Select which expansion to automatically enter when speaking with Chromie in Orgrimmar or Stormwind City.
+- **Quest Rewards** - Select how HelpMePlay should determine which quest reward to take at completion.
+   - **Sell Price** - This is self-explanatory.
+   - **Item Level** - The quest reward is chosen based on whether or not its an item level increase over what your character has equipped.
+
+### Toggles
+- **Accept Quests** - Toggle accepting quests.
+- **Adventure Maps** - Toggle accepting quests from adventure maps like those found in Oribos or Wingrest Embassy.
+- **Complete Quests** - Toggle completing quests.
+- **Purchase Quest Items** - Toggle purchasing quest items from merchants.
+- **Equip Quest Rewards** - Toggle equipping quest rewards. *This only applies when Item Level is the selected option for Quest Rewards (detailed above).*
+- **Threads of Fate** - Toggle entering Threads of Fate or Story for leveling in *Shadowlands*. *This toggle is still present, but is obsolete for most players.*
+- **Show Quest Count** - Toggle whether or not to show the number of active quests of 35 above the quest log.
+
+### Expansion Intros
+- **Battle for Azeroth** - Toggle whether to enter or skip the Tol Dagor introduction.
+- **The Maw** - Toggle whether to enter or skip The Maw introduction.
 
 ### Extras
 - **Talking Head** - Silence the talking head popup. We can only handle so much Khadgar!
@@ -50,18 +83,6 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
 - **Talent** - Add a button to the Player Talent UI to quickly learn the next talent in a predefined build supplied by the addon. (The builds used are those recommended by the Wowhead team for leveling.)
 - **Dragonriding** - Tired of clicking a Dragonriding trait, then selecting the "Yes" button? Enable the button for the Dragonriding UI and rapidly learn all of your Dragonriding traits with a single click of a button! (The automation is limited to the number of glyphs you've collected from the open world.)
-
-## Quest Features
-
-### Toggles
-- **Accept Quests** - Automatically accept any quest.
-- **Adventure Maps** - Automates accepting quests from "adventure maps". These are found in Oribos, Boralus Harbor, Dazar'alor, and more!
-- **Complete Quests** - Automatically complete any quest.
-- **Purchase Quest Items** - Automatically purchase quest items from vendors.
-- **Equip Quest Rewards** - When you choose Item Level as your quest reward option, the addon can automatically equip these rewards once selected.
-
-### Expansion Intros
-- **The Maw** - Toggle to opt in or out of playing through The Maw.
 
 ### Dropdowns
 - **BFA Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Battle for Azeroth*. (The remaining zones will be selected by HelpMePlay once the first is completed.)

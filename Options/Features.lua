@@ -158,6 +158,68 @@ local featuresOptions = {
 				return true
 			end,
 		},
+		queueAdvancedHeader = {
+			name = "Queues (Advanced)",
+			order = 30,
+			type = "header",
+			hidden = function()
+				if HelpMePlayDB.QueuesEnabled then
+					return false
+				end
+				return true
+			end,
+		},
+		holidayQueues = {
+			name = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueues"],
+			order = 31,
+			desc = L_GLOBALSTRINGS["Features.Toggle.Extras.HolidayQueuesDesc"],
+			type = "toggle",
+			get = function(_) return HelpMePlayDB.HolidayQueuesEnabled end,
+			set = function(_, val) HelpMePlayDB.HolidayQueuesEnabled = val end,
+			hidden = function()
+				if HelpMePlayDB.QueuesEnabled then
+					return false
+				end
+				HelpMePlayDB.HolidayQueuesEnabled = false
+				return true
+			end,
+		},
+		trainersAdvancedHeader = {
+			name = "Trainers (Advanced)",
+			order = 40,
+			type = "header",
+			hidden = function()
+				if HelpMePlayDB.TrainersEnabled then
+					return false
+				end
+				return true
+			end,
+		},
+		trainersGoldAmount = {
+			name = "Trainers Minimum Amount",
+			order = 41,
+			usage = "|cffFFFFFF" .. "Enter an amount of gold to add to the cost of a spell to train. Your character must have the cost plus this number (default is 50 gold) before HelpMePlay will buy it.",
+			type = "input",
+			get = function()
+				if not HelpMePlayDB.TrainersMinAmount then
+					HelpMePlayDB.TrainersMinAmount = 500000 -- 50 gold
+				end
+				return GetCoinTextureString(HelpMePlayDB.TrainersMinAmount)
+			end,
+			set = function(_, val) HelpMePlayDB.TrainersMinAmount = tonumber(val*10000) end,
+			validate = function(self, val)
+				if tonumber(val) then
+					return true
+				end
+				return "Please enter a numeric value from 1 to 9,999,999 (commas should not be used)."
+			end,
+			hidden = function()
+				if HelpMePlayDB.TrainersEnabled then
+					return false
+				end
+				return true
+			end,
+		},
 	},
 }
 addonTable.featuresOptions = featuresOptions

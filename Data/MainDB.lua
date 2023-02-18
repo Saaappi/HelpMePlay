@@ -69,7 +69,6 @@ addonTable.DUNGEON_QUEUES_BY_QUEST = DUNGEON_QUEUES_BY_QUEST
 	-- Set 'gossip' to false if the GOSSIP_SHOW event
 	-- shouldn't be handled for a specific NPC.
 local EMOTES = {
-	[33224]		= { gossip=false, emote="kiss" }, 		-- Lake Frog
 	[153580]	= { gossip=false, emote="wave" }, 		-- Gor'groth (Exile's Reach)
 	[162553] 	= { gossip=true, emote="flex" }, 		-- Runestone of Constructs
 	[162559] 	= { gossip=true, emote="kneel" }, 		-- Runestone of Rituals
