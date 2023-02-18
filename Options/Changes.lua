@@ -15,7 +15,7 @@ local changesOptions = {
 			fontSize = "large",
 		},
 		codenameText = {
-			name = "Chromie",
+			name = "Chromie (|cffFFD100" .. "Dragonflight" .. "|r)",
 			order = 1,
 			type = "description",
 			fontSize = "medium",
