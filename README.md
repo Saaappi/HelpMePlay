@@ -141,15 +141,18 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Announce** - Toggle whether to share quest progress to party chat. *This output is verbose!*
 - **Auto Share** - Toggle sharing quests with party members. *For the best results, all party members should have HelpMePlay.*
 
+## Zone Selection
+
+### Dropdowns
+- **Battle for Azeroth** - Select the first zone HelpMePlay should select from the maps in Boralus and Dazar'alor. *This setting is smart and will individually save your selection for both factions.*
+- **Shadowlands** - Select the first zone HelpMePlay should select from the map in Oribos.
+- **Dragonflight** - Select the first zone HelpMePlay should select from the map in Wingrest Embassy, The Waking Shores.
+
 ## Extras
 - **Talking Head** - Silence the talking head popup. We can only handle so much Khadgar!
 
 ### Personal Health
 - **Water Reminder** - Feel like you don't drink enough water while you play? Check this button and adjust the minimum and maximum delays to be notified to sip on water.
-
-### Dropdowns
-- **BFA Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Battle for Azeroth*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
-- **SL Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Shadowlands*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
 
 ### Quest Mobs
 - **Quest Mobs** - Add an icon over the nameplate of enemies required for your quests.
