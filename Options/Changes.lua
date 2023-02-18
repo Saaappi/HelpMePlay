@@ -68,7 +68,7 @@ local changesOptions = {
 		},
 		removedText = {
 			--name = "|cffFF0000Nothing was removed in this release.|r",
-			name = coloredDash .. "Removed Lake Frog from the Emote table. Therefore, HMP will no longer /kiss the Lake Frogs in Grizzly Hills.",
+			name = coloredDash .. "Removed Lake Frog from the Emote table. Therefore, HelpMePlay will no longer /kiss the Lake Frogs in Grizzly Hills.",
 			order = 41,
 			type = "description",
 			fontSize = "small",
