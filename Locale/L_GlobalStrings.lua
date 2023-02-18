@@ -95,7 +95,6 @@ if (isLocaleSupported) then
 	--
 	-- Start: 	Main Options (Options.lua)
 	L_GLOBALSTRINGS["MainOptions.Version"] 														= "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version")
-	L_GLOBALSTRINGS["MainOptions.Author"] 														= "|cffFFD100Author|r: Newtreants (AeriePeak-US) (aka Lightsky)"
 	L_GLOBALSTRINGS["MainOptions.Contact"] 														= "|cffFFD100Contact|r: Lightsky#0658 (Discord)"
 	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue"] 											= "Open Issue"
 	L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Tooltip"] 									= "Click the button to get a link to the GitHub page to open a bug report, feature suggestion, or to request a change."
