@@ -266,6 +266,19 @@ local extrasOptions = {
 				end
 			end,
 		},
+		inviteKeyword = {
+			name = "Invite Keyword",
+			order = 32,
+			usage = "|cffFFFFFF" .. "Enter a keyword people can whisper you to automatically receive a party invite.\n\nThe default keyword is |cffFFD100invite|r.|r",
+			type = "input",
+			get = function()
+				if not HelpMePlayDB.InviteKeyword then
+					HelpMePlayDB.InviteKeyword = "invite"
+				end
+				return HelpMePlayDB.InviteKeyword
+			end,
+			set = function(_, val) HelpMePlayDB.InviteKeyword = string.lower(val) end,
+		},
 	},
 }
 addonTable.extrasOptions = extrasOptions
