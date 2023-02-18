@@ -19,15 +19,23 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - [Commands](#commands)
 - [Resources](#resources)
 
+## About
+This is a small section of the addon that includes the current version, the author name, and his contact detail(s).
+
+## Acknowledgments
+This is a small section of the addon where people who contribute to the addon, either through feedback, pull requests, or financial support are given some notoriety for their contributions.
+
+## Resources
+- **Open Issue** - You can open an issue (bug report, feature suggestion, etc) by [clicking here](https://github.com/Saaappi/HelpMePlay/issues/new).
+
+----
+
 ## General
 
 ### Toggles
 - **Enable** - Toggles addon functionality without reloading the UI!
 - **Minimap Icon** - Toggle a minimap icon to open or close the addon's options. *This is the same as using /hmp or opening the options through the in-game Options menu.*
 - **Developer Mode** - Toggle a debug version of the addon. When enabled, HelpMePlay will output additional information about gossips and equipping gear. This mode also enables several new (and less useful) slash commands! *This is really for me... But you're welcome?*
-
-
-*Gossips and Flight Paths are based on Kraken Latte's leveling path!*
 
 ## Features
 
@@ -148,37 +156,55 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Shadowlands** - Select the first zone HelpMePlay should select from the map in Oribos.
 - **Dragonflight** - Select the first zone HelpMePlay should select from the map in Wingrest Embassy, The Waking Shores.
 
-## Extras
-- **Talking Head** - Silence the talking head popup. We can only handle so much Khadgar!
+## Sounds
 
-### Personal Health
-- **Water Reminder** - Feel like you don't drink enough water while you play? Check this button and adjust the minimum and maximum delays to be notified to sip on water.
+### Toggles
+- **Enable** - Toggle whether HelpMePlay can mute sounds.
+
+### Inputs
+- **Sound ID** - Enter the sound ID you wish to mute or unmute. *Note that you will need to reload after entering an ID.*
+   - *To find the appropriate sound ID, go to Wowhead and find the sound you wish to mute. For example, ID 8960 is the Ready Check sound.*
+   - *Once you know the ID of the sound you wish to mute, you need the file ID of the sound now. For that, go here: https://wow.tools/dbc/?dbc=soundkitentry and enter the ID in the search box in the upper right.*
+   - *Check for the SoundKitID column for the ID you entered in the search field. Use the value under the FileDataID column for the sound ID to mute.*
+
+## Extras
+
+### Toggles
+- **Talking Head** - Toggle silencing the talking head popup.
+- **Wave at Players** - Toggle a useless social experiment. When enabled, there's a (very) small chance your character will wave at the targeted player.
 
 ### Quest Mobs
-- **Quest Mobs** - Add an icon over the nameplate of enemies required for your quests.
-- **Quest Mobs Icon** - Either keep the default icon or change it to something you want!
-- **Quest Mobs Icon Position** - Place the icon practically anywhere on the nameplate.
-- **Quest Mobs Icon Offsets** - Shift the icon on the X and Y offsets.
 
-#### Custom Icons
-A custom icon can either be those used for spells, items, achievements, etc, or they can be atlases too! Here's how to do both.
+#### Toggles
+- **Quest Mobs** - Toggle whether or not to show a quest indicator on the nameplate of NPCs involved in an active quest.
 
-##### Atlas
-An atlas in _World of Warcraft_ is a texture containing subtextures. [see example](https://static.wikia.nocookie.net/wowpedia/images/d/d1/AtlasID_ClassTrialThanksFrame.png/revision/latest?cb=20190528205129)
+#### Dropdowns
+- **Icon** - Choose an icon to use as the indicator.
+   - *This icon can be from Wowhead, look up a spell, achievement, item, etc, then either click its icon or select the Icon link under the Quick Facts section.*
+   - *You can also use an atlas as your icon. Atlases are texture that contain sub-textures. You can go here: https://www.townlong-yak.com/framexml/live/Helix/AtlasInfo.lua to get a full list of atlases. Get the name of the atlas you want (it won't be a number), then in the popup put # in front of the atlas name.*
+- **Position** - Select where on the nameplate the icon should be placed.
 
-1. Go to [this](https://www.townlong-yak.com/framexml/10.0.2/Helix/AtlasInfo.lua) page and find the name of the atlas you want.
-2. Use the value of the key name prefixed with a **#**.
+#### Sliders
+- **X Offset** - Determine how far the icon should be shifted on the X-axis.
+- **Y Offset** - Determine how far the icon should be shifted on the Y-axis.
 
-<img src="https://i.ibb.co/yP472nJ/Untitled.png" width="50%">
+### Personal Health
 
-In the above example, **ShipMission_DangerousSkull**, is the atlas name. Thus, to use the atlas in game, we would put **#ShipMission_DangerousSkull** as our value.
+#### Toggles
+- **Water Reminder** - Toggle if you want HelpMePlay to remind you to drink water.
 
-##### Icons
-1. Go to Wowhead and search for something that uses the icon you want.
-2. Select the icon on the page.
-3. Use the value in the name field.
+#### Sliders
+- **Minimum Delay** - The minimum number of minutes to wait before sending a reminder.
+- **Maximum Delay** - The maximum number of minutes to wait before sending a reminder.
 
-<img src="https://i.ibb.co/k9J4JY2/icons.png" width="50%">
+### Party Invitations
+
+#### Inputs
+- **Party Members** - Enter a list of player names and their realms to invite when issuing the /hmp inv command.
+   - *Entries should be in the playername-realmname format.*
+
+## Changes
+This is where the author will document all the latest additions, changes, removals, etc. in the current release.
 
 ## Commands
 - **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
@@ -188,6 +214,3 @@ In the above example, **ShipMission_DangerousSkull**, is the atlas name. Thus, t
    - *<kbd>/hmp ignore npc id</kbd> can be used to add an NPC to the addon's table. An ID can be omitted if you're targeting the NPC you wish to ignore. HelpMePlay can get the NPC ID from your current target.*
    - *<kbd>/hmp ignore quest id</kbd> can be used to ignore a quest. 'id' should be replaced with the quest's ID. This will ONLY work for quests in a list.*
 - **<kbd>/hmp quest id</kbd>** - If you're uncertain if you've completed a quest, HelpMePlay can let you know. You can alias the command using <kbd>/hmp q id</kbd>, as well.
-
-## Resources
-- **Issues** - You can open an issue (bug report, feature suggestion, etc) by [clicking here](https://github.com/Saaappi/HelpMePlay/issues/new).

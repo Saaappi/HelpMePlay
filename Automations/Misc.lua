@@ -9,8 +9,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.WaveAtPlayersEnabled == false or HelpMePlayDB.WaveAtPlayersEnabled == nil then return false end
 		
-		local randomNum = math.random(0, 1)
-		if randomNum == 1 then
+		local randomNum = math.random(1, 3333)
+		if randomNum <= 5 then
 			local GUID = UnitGUID("target")
 			if GUID and (GUID ~= UnitGUID("player")) then
 				local type = string.split("-", GUID)
