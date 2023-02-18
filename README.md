@@ -219,9 +219,13 @@ There aren't any options for the Barber Shop system, but HelpMePlay can save up 
 
 ### Party Invitations
 
+#### Toggles
+- **Auto Invite** - Toggle whether HelpMePlay should scan whispers for the invite keyword.
+
 #### Inputs
 - **Party Members** - Enter a list of player names and their realms to invite when issuing the /hmp inv command.
    - *Entries should be in the playername-realmname format.*
+- **Invite Keyword** - Enter a keyword, or keep the default, that players can whisper you to receive a party invitation.
 
 ----
 
