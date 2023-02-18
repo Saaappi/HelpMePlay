@@ -26,13 +26,7 @@ local changesOptions = {
 			type = "header",
 		},
 		addedText = {
-			name = coloredDash .. "Added a text indicator to the Quests section of the options to display which expansion of Chromie Time the player is in.\n" ..
-			coloredDash .. "Accepting In Tyr's Footsteps will now plot all rare waypoints from Kraken Latte's 60-70 leveling guide.\n" ..
-			coloredDash .. "Accepting specific quests within The Azure Span route, will now plot related quest and rare waypoints for The Azure Span leveling route.\n" ..
-			coloredDash .. "Accepting specific quests within The Waking Shores route, will now plot related quest and rare waypoints for The Waking Shores leveling route.\n" ..
-			coloredDash .. "Added a new waypoint (wp) command that can be used with a quest ID to re-plot all related coordinates. For example, |cffFFD100/hmp waypoint 65686|r will plot all waypoints related to the To the Azure Span quest.\n" ..
-			coloredDash .. "Added an input box so the player can dictate how much gold HelpMePlay can spend to for training.\n" ..
-			coloredDash .. "Added a new feature under Extras that allows HelpMePlay to automatically invite players when they whisper you the specified keyword. (This works for both character and Battle.net whispers.)",
+			name = coloredDash .. "|cffFF0000Nothing was added in this release.",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
@@ -43,10 +37,7 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "If Queues is enabled, you should now automatically accept the queue popup when the party leader initiates a queue.\n" ..
-			coloredDash .. "Migrated the changes list from Github to a new tab in the options menu.\n" ..
-			coloredDash .. "Updated the README to account for all the latest changes.\n" ..
-			coloredDash .. "Significantly reduced the chance HelpMePlay will wave at players. (Reduced from 50% to sub 1%.)",
+			name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
@@ -57,8 +48,7 @@ local changesOptions = {
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed an issue regarding gossip for Noriko the All-Remembering in The Azure Span during the For The Love of Others quest.\n" ..
-			coloredDash .. "Attempted to fix an issue where HelpMePlay would equip any looted item your character could use. (The intended functionality is that HelpMePlay equips looted items that match what you currently have equipped.)",
+			name = coloredDash .. "Fixed an issue that I caused in 2.0.13 that prevented most looted items from being equipped.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
@@ -69,8 +59,7 @@ local changesOptions = {
 			type = "header",
 		},
 		removedText = {
-			--name = "|cffFF0000Nothing was removed in this release.|r",
-			name = coloredDash .. "Removed Lake Frog from the Emote table. Therefore, HelpMePlay will no longer /kiss the Lake Frogs in Grizzly Hills.",
+			name = "|cffFF0000Nothing was removed in this release.|r",
 			order = 41,
 			type = "description",
 			fontSize = "medium",

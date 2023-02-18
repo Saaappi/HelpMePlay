@@ -12,28 +12,31 @@ local function EquipItem(itemLink, inventoryType)
 					local lootItemLevel = GetDetailedItemLevelInfo(itemLink)
 					local equippedItem = 0
 					local equippedItemQuality = 0
+					local _, _, _, _, _, itemType = GetItemInfo(itemLink)
 					if type(addonTable.CONSTANTS["SLOTS"][inventoryType]) == "table" then
 						for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 							if equippedItem:IsValid() then
-								if equippedItem:GetEquipmentSlot() == inventoryType then
-									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
-									if lootItemLevel > equippedItemLevel then
-										equipSlot = invSlotID
-									end
+								if itemType == "Weapon" then
+									if equippedItem:GetEquipmentSlot() ~= inventoryType then return end
+								end
+								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
+								if lootItemLevel > equippedItemLevel then
+									equipSlot = invSlotID
 								end
 							end
 						end
 					else
 						equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][inventoryType])
 						if equippedItem:IsValid() then
-							if equippedItem:GetEquipmentSlot() == inventoryType then
-								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
-								if lootItemLevel > equippedItemLevel then
-									equipSlot = addonTable.CONSTANTS["SLOTS"][inventoryType]
-								end
+							if itemType == "Weapon" then
+								if equippedItem:GetEquipmentSlot() ~= inventoryType then return end
+							end
+							local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+							equippedItemQuality = C_Item.GetItemQuality(equippedItem)
+							if lootItemLevel > equippedItemLevel then
+								equipSlot = addonTable.CONSTANTS["SLOTS"][inventoryType]
 							end
 						end
 					end
