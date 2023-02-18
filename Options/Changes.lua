@@ -77,8 +77,7 @@ local changesOptions = {
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_ACK_LEVELGUIDE"] = {
 					text = "|T1129713:32|t " .. CreateAtlasMarkup(speechBubble, 32, 32) .. "\n\n" ..
-					"Be sure to check out Kraken Latte's short play video of her 60-70 leveling route!\n\n" ..
-					"This button won't be available in the next release, so be sure to use it now!\n\n",
+					"Be sure to check out Kraken Latte's short play video of her 60-70 leveling route!",
 					button1 = "OK",
 					OnShow = function(self, data)
 						self.editBox:SetText("https://www.youtube.com/watch?v=fpGbVepwKiI")
