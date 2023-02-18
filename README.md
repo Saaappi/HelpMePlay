@@ -72,9 +72,29 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Battle for Azeroth** - Toggle whether to enter or skip the Tol Dagor introduction.
 - **The Maw** - Toggle whether to enter or skip The Maw introduction.
 
-### Extras
+## Expansion Features
+
+### Garrisons
+- **Architect Table** - Toggle allowing HelpMePlay to plot and construct your Garrison barracks. *This only applies to level 1 Garrisons!*
+- **Garrison Outposts** - Toggle allowing HelpMePlay to select the Garrison outpost in Gorgrond.
+- **Mission Table** - Toggle allowing HelpMePlay to automatically start your first Garrison mission. *This only applies to level 1 Garrisons!*
+
+### Visions of N'Zoth
+- **Titanic Research** - Toggle a button on or off that will automatically learn traits for Horrific Visions.
+
+### Covenants
+- **Covenant Choice** - Select how HelpMePlay should select your covenant. Do you want all your characters in one covenant or would you prefer HelpMePlay select the best covenant based on your class and specialization?
+
+### Torghast
+- **The Box of Many Things** - Toggle a button on or off that will automatically learn traits for Torghast.
+- **Anima Powers** - Toggle different options for how HelpMePlay should handle Anima Powers. HelpMePlay can recommend powers or take them automatically!
+
+
+
+
+
+## Extras
 - **Talking Head** - Silence the talking head popup. We can only handle so much Khadgar!
-- **Holiday Queues** - Add a button above the LFD icon to queue for the current holiday boss. *This button will only appear if you're level 50+, your character isn't saved, and you don't have the mount(s) associated to the event.*
 
 ### Personal Health
 - **Water Reminder** - Feel like you don't drink enough water while you play? Check this button and adjust the minimum and maximum delays to be notified to sip on water.
@@ -86,8 +106,6 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 
 ### Dropdowns
 - **BFA Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Battle for Azeroth*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
-- **Chromie Time** - Automates entering Chromie Time. HelpMePlay will enter the expansion the player selects in the options!
-- **Quest Rewards** - Pick how you wish HelpMePlay to select quest rewards. Options are by item level upgrade (heirlooms are ignored) and sell price.
 - **SL Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Shadowlands*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
 
 ### Quest Mobs
@@ -121,29 +139,6 @@ Play with friends? Tired of asking them if they completed the quest objective? G
 
 - **Announce** - Share your quest progress in Party chat. *This output is verbose.*
 - **Auto Share** - Share quests with your party as you accept them. *For the best results, all party members should have HelpMePlay.*
-
-## Expansion Features
-
-### Garrisons
-- **Architect Table** - Allows HelpMePlay to plot and construct your Garrison barracks. *This only applies to level 1 Garrisons!*
-- **Garrison Outposts** - HelpMePlay will automatically select the proper Garrison outpost in other Draenor zones. *Currently only Gorgrond is supported.*
-- **Mission Table** - Allows HelpMePlay to automatically start your first Garrison mission.
-
-### Visions of N'Zoth
-- **Titanic Research** - HelpMePlay will provide you with the best path through Titanic Research for easier Visions!
-
-### Covenants
-
-#### Dropdowns
-- **Covenant Choice** - If you want all your characters in one covenant, make the choice here. If you want HelpMePlay to choose your covenant for you, you can make that choice here!
-
-### Torghast
-
-#### Toggles
-- **The Box of Many Things** - HelpMePlay will provide you with the best path through The Box of Many Things for easier Torghast completion!
-
-#### Dropdowns
-- **Anima Powers** - Players can instruct HelpMePlay to take powers on their behalf, suggest powers to them, or be silent and do nothing.
 
 ## Junker Features
 
