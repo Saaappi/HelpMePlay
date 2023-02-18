@@ -75,34 +75,77 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 ## Expansion Features
 
 ### Garrisons
+
+#### Toggles
 - **Architect Table** - Toggle allowing HelpMePlay to plot and construct your Garrison barracks. *This only applies to level 1 Garrisons!*
 - **Garrison Outposts** - Toggle allowing HelpMePlay to select the Garrison outpost in Gorgrond.
 - **Mission Table** - Toggle allowing HelpMePlay to automatically start your first Garrison mission. *This only applies to level 1 Garrisons!*
 
 ### Visions of N'Zoth
+
+#### Toggles
 - **Titanic Research** - Toggle a button on or off that will automatically learn traits for Horrific Visions.
 
 ### Covenants
+
+#### Dropdowns
 - **Covenant Choice** - Select how HelpMePlay should select your covenant. Do you want all your characters in one covenant or would you prefer HelpMePlay select the best covenant based on your class and specialization?
 
 ### Torghast
+
+#### Toggles
 - **The Box of Many Things** - Toggle a button on or off that will automatically learn traits for Torghast.
+
+#### Dropdowns
 - **Anima Powers** - Toggle different options for how HelpMePlay should handle Anima Powers. HelpMePlay can recommend powers or take them automatically!
 
+## Systems
 
+### Junker
 
+#### Toggles
+- **Safe Mode** - Toggle whether Junker should sell items in batches of 12.
+- **Soulbound Mode** - Toggle whether Junker should automatically sell soulbound items that are well below your current item level. *The minimum item level value is configurable from -25 to -50.*
+- **Auto Sell** - Toggle automatically selling items when a merchant window is opened.
 
+#### Dropdowns
+- **Rarity** - Select the minimum rarity that Junker should consider items for sale. *Setting the rarity to Epic, for example, would mean any item at or below Epic quality should be eligible for sale.*
+   - **Preserve Transmog** is a special "rarity" that behaves like **Poor**, but won't sell item eligible for transmogrification. *This option does NOT distinguish between known and unknown transmogrification items!*
+
+#### Buttons
+- **Import** - If you want to move from another auto sell addon like Dejunk or want to import a list of item IDs, this button offers solutions to both!
+   - *If you're interested in using Junker over other auto sell addons, but HelpMePlay doesn't support an import from your addon, feel free to open an issue!*
+
+#### Sliders
+- **Soulbound Mode Item Level** - The minimum item level value to subtract from your current item level when determining whether to sell a soulbound item. *For example, if you're item level is 300 and the slider is at 30, then any item with an item level of less than 270 will be sold to a merchant.*
+
+### Talents
+
+#### Toggles
+- **Player Talents** - Toggle the "Learn" button in the talent interface. Using this button will automatically learn a talent from a popular leveling build. *All classes and specializations are supported!*
+
+### Transmogrification
+
+#### Toggles
+- **Transmogrification** - Toggle a button to the inventory frame. Using this button will automatically learn all unknown and usable transmogrification items in your inventory. *Cosmetic items (those that need to be right-clicked to learn) are NOT supported!*
+
+### Dragonriding
+
+#### Toggles
+- **Dragonriding** - Toggle a button to the Dragonriding interface. Using this button will automatically learn all Dragonriding traits. *Note that choice nodes can be changed at any time free of charge.*
+
+### Party Play
+
+#### Toggles
+- **Enable** - Toggle Party Play functionality.
+- **Announce** - Toggle whether to share quest progress to party chat. *This output is verbose!*
+- **Auto Share** - Toggle sharing quests with party members. *For the best results, all party members should have HelpMePlay.*
 
 ## Extras
 - **Talking Head** - Silence the talking head popup. We can only handle so much Khadgar!
 
 ### Personal Health
 - **Water Reminder** - Feel like you don't drink enough water while you play? Check this button and adjust the minimum and maximum delays to be notified to sip on water.
-
-### Buttons
-- **Transmog** - Do you dread learning transmog individually? Do you fear you may sell the upgrade you looted from raid last night? HelpMePlay solves both these problems. Open your inventory, find the purple mace icon and click it. HelpMePlay will keep track of your currently-equipped items, learn all **UNKNOWN AND USABLE** appearances, and then re-equip your original items. Cool, huh?
-- **Talent** - Add a button to the Player Talent UI to quickly learn the next talent in a predefined build supplied by the addon. (The builds used are those recommended by the Wowhead team for leveling.)
-- **Dragonriding** - Tired of clicking a Dragonriding trait, then selecting the "Yes" button? Enable the button for the Dragonriding UI and rapidly learn all of your Dragonriding traits with a single click of a button! (The automation is limited to the number of glyphs you've collected from the open world.)
 
 ### Dropdowns
 - **BFA Zone Selection** - Pick the zone you want HelpMePlay to pick **FIRST** for *Battle for Azeroth*. (The remaining zones will be selected by HelpMePlay once the first is completed.)
@@ -133,24 +176,6 @@ In the above example, **ShipMission_DangerousSkull**, is the atlas name. Thus, t
 3. Use the value in the name field.
 
 <img src="https://i.ibb.co/k9J4JY2/icons.png" width="50%">
-
-### Party Play
-Play with friends? Tired of asking them if they completed the quest objective? Group up, both players enable Party Play, and let HelpMePlay keep track of who has completed what!
-
-- **Announce** - Share your quest progress in Party chat. *This output is verbose.*
-- **Auto Share** - Share quests with your party as you accept them. *For the best results, all party members should have HelpMePlay.*
-
-## Junker Features
-
-### Toggles
-- **Safe Mode** - Tell the Junker subsystem to sell items in batches of 12, allowing you to use the buyback tab in case something is sold by mistake.
-- **Soulbound Mode** - If enabled, the Junker subsystem will sell any soulbound and equipable item that is 30 or more item levels below your current item level.
-- **Auto Sell** - If enabled, Junker will auto sell items from your inventory when the merchant window is opened.
-- **Armor** - If enabled, the Junker subsystem will sell any item of type "Armor".
-- **Consumables** - If enabled, the Junker subsystem will sell any item of type "Consumable".
-
-### Dropdowns
-- **Rarity** - Select a rarity for Junker to filter items. Any item with a rarity at or below the chosen threshold will be sold to a merchant. *It's recommended to keep this on the default option.*
 
 ## Commands
 - **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
