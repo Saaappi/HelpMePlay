@@ -32,7 +32,7 @@ local changesOptions = {
 			coloredDash .. "Accepting specific quests within The Waking Shores route, will now plot related quest and rare waypoints for The Waking Shores leveling route.\n" ..
 			coloredDash .. "Added a new waypoint (wp) command that can be used with a quest ID to re-plot all related coordinates. For example, |cffFFD100/hmp waypoint 65686|r will plot all waypoints related to the To the Azure Span quest.\n" ..
 			coloredDash .. "Added an input box so the player can dictate how much gold HelpMePlay can spend to for training.\n" ..
-			coloredDash .. "Added a new feature under Extras that allows HelpMePlay to automatically invite players when they whisper you the specified keyword. (Players can always message you the default |cffFFD100invite|r and |cffFFD100inv|r keywords even if you specify a custom one.)",
+			coloredDash .. "Added a new feature under Extras that allows HelpMePlay to automatically invite players when they whisper you the specified keyword. (This works for both character and Battle.net whispers.)",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
