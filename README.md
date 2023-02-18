@@ -12,12 +12,16 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 
 ## Table of Contents
 
-- [General Features](#General)
+- [General](#General)
 - [Features](#Features)
+- [Quests](#Quests)
 - [Expansion Features](#Expansion-Features)
-- [Junker Features](#Junker-Features)
-- [Commands](#commands)
-- [Resources](#resources)
+- [Systems](#Systems)
+- [Zone Selection](#Zone-Selection)
+- [Sounds](#Sounds)
+- [Extras](#Extras)
+- [Changes](#Changes)
+- [Commands](#Commands)
 
 ## About
 This is a small section of the addon that includes the current version, the author name, and his contact detail(s).
