@@ -41,6 +41,8 @@ This is a small section of the addon where people who contribute to the addon, e
 - **Minimap Icon** - Toggle a minimap icon to open or close the addon's options. *This is the same as using /hmp or opening the options through the in-game Options menu.*
 - **Developer Mode** - Toggle a debug version of the addon. When enabled, HelpMePlay will output additional information about gossips and equipping gear. This mode also enables several new (and less useful) slash commands! *This is really for me... But you're welcome?*
 
+----
+
 ## Features
 
 ### Toggles
@@ -63,6 +65,8 @@ This is a small section of the addon where people who contribute to the addon, e
 - **War Mode** - Toggle automatically entering War Mode when entering Orgrimmar or Stormwind City at level 20 or higher.
 - **Waypoints** - Toggle the plotting of waypoints. *Waypoints are plotted based on pre-programmed quests.*
 
+----
+
 ## Quests
 
 ### Dropdowns
@@ -83,6 +87,8 @@ This is a small section of the addon where people who contribute to the addon, e
 ### Expansion Intros
 - **Battle for Azeroth** - Toggle whether to enter or skip the Tol Dagor introduction.
 - **The Maw** - Toggle whether to enter or skip The Maw introduction.
+
+----
 
 ## Expansion Features
 
@@ -110,6 +116,8 @@ This is a small section of the addon where people who contribute to the addon, e
 
 #### Dropdowns
 - **Anima Powers** - Toggle different options for how HelpMePlay should handle Anima Powers. HelpMePlay can recommend powers or take them automatically!
+
+----
 
 ## Systems
 
@@ -153,12 +161,19 @@ This is a small section of the addon where people who contribute to the addon, e
 - **Announce** - Toggle whether to share quest progress to party chat. *This output is verbose!*
 - **Auto Share** - Toggle sharing quests with party members. *For the best results, all party members should have HelpMePlay.*
 
+### Barber Shop
+There aren't any options for the Barber Shop system, but HelpMePlay can save up to 3 loadouts for each race, body type, and class combination to load on other characters of those same combinations!
+
+----
+
 ## Zone Selection
 
 ### Dropdowns
 - **Battle for Azeroth** - Select the first zone HelpMePlay should select from the maps in Boralus and Dazar'alor. *This setting is smart and will individually save your selection for both factions.*
 - **Shadowlands** - Select the first zone HelpMePlay should select from the map in Oribos.
 - **Dragonflight** - Select the first zone HelpMePlay should select from the map in Wingrest Embassy, The Waking Shores.
+
+----
 
 ## Sounds
 
@@ -170,6 +185,8 @@ This is a small section of the addon where people who contribute to the addon, e
    - *To find the appropriate sound ID, go to Wowhead and find the sound you wish to mute. For example, ID 8960 is the Ready Check sound.*
    - *Once you know the ID of the sound you wish to mute, you need the file ID of the sound now. For that, go here: https://wow.tools/dbc/?dbc=soundkitentry and enter the ID in the search box in the upper right.*
    - *Check for the SoundKitID column for the ID you entered in the search field. Use the value under the FileDataID column for the sound ID to mute.*
+
+----
 
 ## Extras
 
@@ -207,8 +224,12 @@ This is a small section of the addon where people who contribute to the addon, e
 - **Party Members** - Enter a list of player names and their realms to invite when issuing the /hmp inv command.
    - *Entries should be in the playername-realmname format.*
 
+----
+
 ## Changes
 This is where the author will document all the latest additions, changes, removals, etc. in the current release.
+
+----
 
 ## Commands
 - **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
