@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local coloredDash = "|cffFFD100-|r "
+local speechBubble = "charactercreate-icon-customize-speechbubble-selected"
 
 local changesOptions = {
 	name = "Changes",
@@ -83,7 +84,9 @@ local changesOptions = {
 			--desc = "",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_ACK_LEVELGUIDE"] = {
-					text = "Be sure to check out Kraken Latte's short play video of her 60-70 leveling route!\n\nThis button won't be available in the next release, so be sure to use it now! Don't miss out!",
+					text = "|T1129713:32|t " .. CreateAtlasMarkup(speechBubble, 32, 32) .. "\n\n" ..
+					"Be sure to check out Kraken Latte's short play video of her 60-70 leveling route!\n\n" ..
+					"This button won't be available in the next release, so be sure to use it now!\n\n",
 					button1 = "OK",
 					OnShow = function(self, data)
 						self.editBox:SetText("https://www.youtube.com/watch?v=fpGbVepwKiI")
