@@ -32,10 +32,10 @@ local changesOptions = {
 			coloredDash .. "Accepting specific quests within The Waking Shores route, will now plot related quest and rare waypoints for The Waking Shores leveling route.\n" ..
 			coloredDash .. "Added a new waypoint (wp) command that can be used with a quest ID to re-plot all related coordinates. For example, |cffFFD100/hmp waypoint 65686|r will plot all waypoints related to the To the Azure Span quest.\n" ..
 			coloredDash .. "Added an input box so the player can dictate how much gold HelpMePlay can spend to for training.\n" ..
-			coloredDash .. "Added a new feature under Extras that allows HelpMePlay to automatically invite players when they whisper you the specified keyword.",
+			coloredDash .. "Added a new feature under Extras that allows HelpMePlay to automatically invite players when they whisper you the specified keyword. (Players can always message you the default |cffFFD100invite|r and |cffFFD100inv|r keywords even if you specify a custom one.)",
 			order = 11,
 			type = "description",
-			fontSize = "small",
+			fontSize = "medium",
 		},
 		updatedHeader = {
 			name = "Changed / Updated",
@@ -49,7 +49,7 @@ local changesOptions = {
 			coloredDash .. "Significantly reduced the chance HelpMePlay will wave at players. (Reduced from 50% to sub 1%.)",
 			order = 21,
 			type = "description",
-			fontSize = "small",
+			fontSize = "medium",
 		},
 		fixedHeader = {
 			name = "Fixed",
@@ -61,7 +61,7 @@ local changesOptions = {
 			coloredDash .. "Attempted to fix an issue where HelpMePlay would equip any looted item your character could use. (The intended functionality is that HelpMePlay equips looted items that match what you currently have equipped.)",
 			order = 31,
 			type = "description",
-			fontSize = "small",
+			fontSize = "medium",
 		},
 		removedHeader = {
 			name = "Removed",
@@ -73,7 +73,7 @@ local changesOptions = {
 			name = coloredDash .. "Removed Lake Frog from the Emote table. Therefore, HelpMePlay will no longer /kiss the Lake Frogs in Grizzly Hills.",
 			order = 41,
 			type = "description",
-			fontSize = "small",
+			fontSize = "medium",
 		},
 		recommendedHeader = {
 			name = "Recommended",
