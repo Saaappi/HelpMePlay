@@ -21,7 +21,6 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - [Sounds](#Sounds)
 - [Extras](#Extras)
 - [Changes](#Changes)
-- [Commands](#Commands)
 
 ## About
 This is a small section of the addon that includes the current version, the author name, and his contact detail(s).
@@ -228,14 +227,3 @@ There aren't any options for the Barber Shop system, but HelpMePlay can save up 
 
 ## Changes
 This is where the author will document all the latest additions, changes, removals, etc. in the current release.
-
-----
-
-## Commands
-- **<kbd>/hmp confirm</kbd>** - Adds a confirmation message to the addon's table. This will allow HelpMePlay to automatically accept the confirmation on the player's behalf. If you're not sure what a confirmation is, then please [check this out](https://wow.zamimg.com/uploads/screenshots/normal/962262.png).
-- **<kbd>/hmp gossip</kbd>** - Adds a gossip to the addon's table. This will allow HelpMePlay to automatically select a gossip on the player's behalf. If you're not sure what gossips are, then please [check this out](https://static.icy-veins.com/images/wow/shadowlands/covenants/changing-covenant-rejoin.jpg).
-   - *A cool trick is you can use <kbd>/hmp gossip X</kbd>, where X represents the placement on a list. For example, if an NPC has 6 dialogs, entering <kbd>/hmp gossip 2</kbd> will automatically enter the second gossip into the addon's table.*
-- **<kbd>/hmp ignore</kbd>** - If you don't want HelpMePlay to interact with an NPC or accept a specific quest, you can use this command.
-   - *<kbd>/hmp ignore npc id</kbd> can be used to add an NPC to the addon's table. An ID can be omitted if you're targeting the NPC you wish to ignore. HelpMePlay can get the NPC ID from your current target.*
-   - *<kbd>/hmp ignore quest id</kbd> can be used to ignore a quest. 'id' should be replaced with the quest's ID. This will ONLY work for quests in a list.*
-- **<kbd>/hmp quest id</kbd>** - If you're uncertain if you've completed a quest, HelpMePlay can let you know. You can alias the command using <kbd>/hmp q id</kbd>, as well.
