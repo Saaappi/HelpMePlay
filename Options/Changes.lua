@@ -59,7 +59,7 @@ local changesOptions = {
 			type = "header",
 		},
 		removedText = {
-			name = "|cffFF0000Nothing was removed in this release.|r",
+			name = coloredDash .. "|cffFF0000Nothing was removed in this release.|r",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
