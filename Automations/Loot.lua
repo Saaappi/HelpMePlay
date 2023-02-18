@@ -2,6 +2,14 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+local function InvertTable(tbl)
+	local temp = {}
+	for k,v in pairs(tbl) do
+		temp[v] = k
+	end
+	return temp
+end
+
 local function EquipItem(itemLink, inventoryType)
 	C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
 		if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
@@ -18,7 +26,7 @@ local function EquipItem(itemLink, inventoryType)
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 							if equippedItem:IsValid() then
 								if itemType == "Weapon" then
-									if equippedItem:GetEquipmentSlot() ~= inventoryType then return end
+									if equippedItem.equipmentSlotIndex ~= invSlotID then return end
 								end
 								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
@@ -31,7 +39,9 @@ local function EquipItem(itemLink, inventoryType)
 						equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][inventoryType])
 						if equippedItem:IsValid() then
 							if itemType == "Weapon" then
-								if equippedItem:GetEquipmentSlot() ~= inventoryType then return end
+								for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
+									if equippedItem:GetEquipmentSlot() ~= invSlotID then return end
+								end
 							end
 							local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 							equippedItemQuality = C_Item.GetItemQuality(equippedItem)
