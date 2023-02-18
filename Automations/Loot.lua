@@ -16,20 +16,24 @@ local function EquipItem(itemLink, inventoryType)
 						for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 							if equippedItem:IsValid() then
-								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
-								if lootItemLevel > equippedItemLevel then
-									equipSlot = invSlotID
+								if equippedItem:GetEquipmentSlot() == inventoryType then
+									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
+									if lootItemLevel > equippedItemLevel then
+										equipSlot = invSlotID
+									end
 								end
 							end
 						end
 					else
 						equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][inventoryType])
 						if equippedItem:IsValid() then
-							local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-							equippedItemQuality = C_Item.GetItemQuality(equippedItem)
-							if lootItemLevel > equippedItemLevel then
-								equipSlot = addonTable.CONSTANTS["SLOTS"][inventoryType]
+							if equippedItem:GetEquipmentSlot() == inventoryType then
+								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
+								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
+								if lootItemLevel > equippedItemLevel then
+									equipSlot = addonTable.CONSTANTS["SLOTS"][inventoryType]
+								end
 							end
 						end
 					end

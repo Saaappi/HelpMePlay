@@ -45,7 +45,8 @@ local changesOptions = {
 		updatedText = {
 			name = coloredDash .. "If Queues is enabled, you should now automatically accept the queue popup when the party leader initiates a queue.\n" ..
 			coloredDash .. "Migrated the changes list from Github to a new tab in the options menu.\n" ..
-			coloredDash .. "Updated the README to account for all the latest changes.",
+			coloredDash .. "Updated the README to account for all the latest changes.\n" ..
+			coloredDash .. "Significantly reduced the chance HelpMePlay will wave at players. (Reduced from 50% to sub 1%.)",
 			order = 21,
 			type = "description",
 			fontSize = "small",
@@ -56,7 +57,8 @@ local changesOptions = {
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed an issue regarding gossip for Noriko the All-Remembering in The Azure Span during the For The Love of Others quest.",
+			name = coloredDash .. "Fixed an issue regarding gossip for Noriko the All-Remembering in The Azure Span during the For The Love of Others quest.\n" ..
+			coloredDash .. "Attempted to fix an issue where HelpMePlay would equip any looted item your character could use. (The intended functionality is that HelpMePlay equips looted items that match what you currently have equipped.)",
 			order = 31,
 			type = "description",
 			fontSize = "small",
