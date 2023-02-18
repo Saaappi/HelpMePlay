@@ -17,7 +17,7 @@ local main = {
 			type = "description",
 		},
 		authorText = {
-			name = L_GLOBALSTRINGS["MainOptions.Author"],
+			name = "Lightsky",
 			order = 4,
 			type = "description",
 		},
