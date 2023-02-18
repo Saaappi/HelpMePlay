@@ -246,12 +246,22 @@ local extrasOptions = {
 			order = 30,
 			type = "header",
 		},
+		autoInvite = {
+			name = "Auto Invite",
+			order = 31,
+			desc = "Toggle whether or not HelpMePlay should process whispers for inviting players.",
+			type = "toggle",
+			get = function(_) return HelpMePlayDB.AutoInviteEnabled end,
+			set = function(_, val) HelpMePlayDB.AutoInviteEnabled = val end,
+		},
 		partyMembers = {
 			name = "Party Members",
-			order = 31,
+			order = 32,
 			type = "input",
 			multiline = true,
-			desc = "Set a list of players to invite when using the |cffFFD100inv|r command.\n\nThis is best used by players to quickly form premade parties for dungeons or other content.\n\n|cffFFD100Format:|r\nPlayerName-RealmName\n\nEach entry should be on a separate line.",
+			desc = "Set a list of players to invite when using the |cffFFD100inv|r command.\n\n" ..
+			"This is best used by players to quickly form premade parties for dungeons or other content.\n\n" ..
+			"|cffFFD100Format:|r\nPlayerName-RealmName\n\nEach entry should be on a separate line.",
 			get = function(_)
 				local members = ""
 				for _, member in ipairs(HelpMePlayDB.PartyMembers) do
@@ -268,8 +278,10 @@ local extrasOptions = {
 		},
 		inviteKeyword = {
 			name = "Invite Keyword",
-			order = 32,
-			usage = "|cffFFFFFF" .. "Enter a keyword people can whisper you to automatically receive a party invite.\n\nThe default keyword is |cffFFD100invite|r.|r",
+			order = 33,
+			usage = "|cffFFFFFF" .. "Enter a keyword people can whisper you to automatically receive a party invite.\n\n" ..
+			"The default keywords are |cffFFD100invite|r and |cffFFD100inv|r.\n\n" ..
+			"Players can always message you the default keywords even if you specify a custom entry.|r",
 			type = "input",
 			get = function()
 				if not HelpMePlayDB.InviteKeyword then
