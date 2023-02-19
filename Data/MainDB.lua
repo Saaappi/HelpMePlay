@@ -119,7 +119,11 @@ addonTable.IGNORED_QUESTS = IGNORED_QUESTS
 local QUESTREWARDS = {
 	[45724] = "Champion's Purse",
 }
+local IGNORED_QUESTREWARDS = {
+	[200880] = true, -- Wind-Sealed Mana Capsule
+}
 addonTable.QUESTREWARDS = QUESTREWARDS
+addonTable.IGNORED_QUESTREWARDS = IGNORED_QUESTREWARDS
 
 -- Quest Merchants
 local QUESTMERCHANTS = {

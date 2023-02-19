@@ -21,6 +21,7 @@ local function EquipItem(itemLink)
 							for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][rewardItemType]) do
 								equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 								if equippedItem:IsValid() then
+									print("A")
 									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 									if rewardItemLevel > equippedItemLevel then
@@ -33,6 +34,7 @@ local function EquipItem(itemLink)
 						else
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][rewardItemType])
 							if equippedItem:IsValid() then
+								print("B")
 								if rewardItemType ~= 4 and rewardItemType ~= 19 then
 									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
@@ -453,9 +455,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.QuestRewardId ~= 1 then return end
 	
 		local _, itemLink = ...
-		C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-			EquipItem(itemLink)
-		end)
+		if itemLink then
+			local _, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
+			if addonTable.IGNORED_QUESTREWARDS[itemID] then return end
+			C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+				EquipItem(itemLink)
+			end)
+		end
 	end
 	if event == "QUEST_PROGRESS" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
