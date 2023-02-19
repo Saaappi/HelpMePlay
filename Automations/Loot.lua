@@ -20,13 +20,15 @@ local function EquipItem(itemLink, inventoryType)
 					local lootItemLevel = GetDetailedItemLevelInfo(itemLink)
 					local equippedItem = 0
 					local equippedItemQuality = 0
-					local _, _, _, _, _, itemType = GetItemInfo(itemLink)
+					local _, _, _, _, _, itemType, _, _, _, _, _, _, subClassID = GetItemInfo(itemLink)
 					if type(addonTable.CONSTANTS["SLOTS"][inventoryType]) == "table" then
 						for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 							if equippedItem:IsValid() then
 								if itemType == "Weapon" then
-									if equippedItem.equipmentSlotIndex ~= invSlotID then return end
+									local equippedItemItemLink = C_Item.GetItemLink(equippedItem)
+									local equippedItemSubClassID = select(13, GetItemInfo(equippedItemItemLink))
+									if equippedItemSubClassID ~= subClassID then return end
 								end
 								local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 								equippedItemQuality = C_Item.GetItemQuality(equippedItem)
@@ -40,7 +42,11 @@ local function EquipItem(itemLink, inventoryType)
 						if equippedItem:IsValid() then
 							if itemType == "Weapon" then
 								for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
-									if equippedItem:GetEquipmentSlot() ~= invSlotID then return end
+									if itemType == "Weapon" then
+										local equippedItemItemLink = C_Item.GetItemLink(equippedItem)
+										local equippedItemSubClassID = select(13, GetItemInfo(equippedItemItemLink))
+										if equippedItemSubClassID ~= subClassID then return end
+									end
 								end
 							end
 							local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
