@@ -27,7 +27,8 @@ local changesOptions = {
 		},
 		addedText = {
 			--name = coloredDash .. "|cffFF0000Nothing was added in this release.",
-			name = coloredDash .. "Added the ability for HelpMePlay to ignore specific quest rewards from being equipped. The |cffFFD100Wind-Sealed Mana Capsule|r is the only item on the list...for now.",
+			name = coloredDash .. "Added the ability for HelpMePlay to ignore specific quest rewards from being equipped. The |cffFFD100Wind-Sealed Mana Capsule|r is the only item on the list...for now.\n" ..
+			coloredDash .. "Automated the gossips for the Maidens of Inspiration during the Tyr quests.",
 			order = 11,
 			type = "description",
 			fontSize = "medium",

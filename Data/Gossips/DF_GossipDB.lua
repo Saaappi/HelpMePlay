@@ -1056,6 +1056,14 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[195088] = { -- Maiden of Inspiration
+		["g"] = {
+			{
+				["o"] 	= 56368,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of Ohn'ahran Plains
 	-- The Azure Span
 	[192751] = { -- Julk
