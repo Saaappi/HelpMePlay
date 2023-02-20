@@ -558,6 +558,14 @@ local DIALOG_DF = {
 			},
 		},
 	},
+	[195558] = { -- Maiden of Inspiration
+		["g"] = {
+			{
+				["o"] 	= 63890,
+				["c"] 	= { "none" },
+			},
+		},
+	},
 	-- End of The Waking Shores
 	-- Ohn'ahran Plains
 	[181217] = { -- Sansok Khan
