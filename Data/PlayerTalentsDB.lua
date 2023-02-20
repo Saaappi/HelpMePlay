@@ -55,7 +55,7 @@ local PLAYER_TALENTS = {
 		["patch"] 			= "10.0.5",
 	},
 	[254] = { -- Marksmanship
-		["importString"] 	= "B4PAAAAAAAAAAAAAAAAAAAAAAUOQEaBgEIIAAAAAkERSSSCCRSDpRCUkSaCJSQiEpBAAAAA",
+		["importString"] 	= "B4PAAAAAAAAAAAAAAAAAAAAAA4ARoFASCCCAAAAQERkkkkgIRSLkGRQRKaCJJhESoBAAAAA",
 		["patch"] 			= "10.0.5",
 	},
 	[255] = { -- Survival

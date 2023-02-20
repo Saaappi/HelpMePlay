@@ -39,7 +39,8 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
+			--name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
+			name = coloredDash .. "Updated the Marksmanship Hunter talent build.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
