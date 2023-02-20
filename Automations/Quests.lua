@@ -21,7 +21,6 @@ local function EquipItem(itemLink)
 							for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][rewardItemType]) do
 								equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 								if equippedItem:IsValid() then
-									print("A")
 									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 									if rewardItemLevel > equippedItemLevel then
@@ -34,7 +33,6 @@ local function EquipItem(itemLink)
 						else
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][rewardItemType])
 							if equippedItem:IsValid() then
-								print("B")
 								if rewardItemType ~= 4 and rewardItemType ~= 19 then
 									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
