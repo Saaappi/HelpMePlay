@@ -206,33 +206,41 @@ local WAYPOINTS = {
 			41.4, 																-- X
 			35.6, 																-- Y
 			"Step 1 - The Azure Span",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66228] = { -- Camp Antonidas
 		{
 			2024,																-- The Azure Span
 			45.66, 																-- X
 			39.05, 																-- Y
 			"Step 2 - Camp Antonidas",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66493] = { -- Send It!
 		{
 			2024,																-- The Azure Span
 			65.45, 																-- X
 			16.04, 																-- Y
 			"Step 3 - Hollow Up",												-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66557] = { -- Academic Aquaintances
 		{
 			2024,																-- The Azure Span
 			63.72, 																-- X
 			28.95, 																-- Y
-			"Step 4 - Prowling Predators",										-- Title
-			236668,																-- Icon
+			"Step 4 - Prowling Polar Predators",								-- Title
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[68639] = { -- Prowling Polar Predators
 		{
 			2024,																-- The Azure Span
 			70.0, 																-- X
@@ -241,54 +249,68 @@ local WAYPOINTS = {
 			133731,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[69895] = { -- Summoned Destroyer
 		{
 			2024,																-- The Azure Span
 			59.27, 																-- X
 			39.75, 																-- Y
 			"Step 6 - Field Medic 101",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66730] = { -- True Survivors
 		{
 			2024,																-- The Azure Span
 			58.81, 																-- X
 			34.91, 																-- Y
 			"Step 7 - Old Grimtusk",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[71013] = { -- No Vengeance on an Empty Stomach
 		{
 			2024,																-- The Azure Span
 			67.24, 																-- X
 			44.42, 																-- Y
 			"Step 8 - The Ailing Apprentice",									-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[70970] = { -- Good Intentions
 		{
 			2024,																-- The Azure Span
 			63.25, 																-- X
 			58.39, 																-- Y
 			"Step 9 - Camp Nowhere",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66429] = { -- I Will Remember
 		{
 			2024,																-- The Azure Span
 			44.79, 																-- X
 			50.66, 																-- Y
 			"Step 10 - Mammoths Matter",										-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66155] = { -- Ruriq's River Rapids Ride
 		{
 			2024,																-- The Azure Span
 			40.96, 																-- X
 			55.02, 																-- Y
 			"Step 11 - Meeting Kalecgos",										-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[65855] = { -- Aiding Azure Span
 		{
 			2024,																-- The Azure Span
 			38.48, 																-- X
@@ -298,23 +320,27 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[65855] = { -- Aiding Azure Span
+	[69864] = { -- Forgotten Creation
 		{
 			2024,																-- The Azure Span
 			45.66, 																-- X
 			39.05, 																-- Y
 			"Step 13 - Camp Antonidas",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66503] = { -- For The Love of Others
 		{
 			2024,																-- The Azure Span
 			35.32, 																-- X
 			37.05, 																-- Y
 			"Step 14 - Catch the Caravan",										-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[66239] = { -- Spreading Decay
 		{
 			2024,																-- The Azure Span
 			36.8, 																-- X
@@ -324,7 +350,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 		},
 	},
-	[66239] = { -- Spreading Decay
+	[67173] = { -- Thieving Gnolls
 		{
 			2024,																-- The Azure Span
 			23.6, 																-- X
@@ -333,14 +359,18 @@ local WAYPOINTS = {
 			133731,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[72358] = { -- Cascade
 		{
 			2024,																-- The Azure Span
 			21.08, 																-- X
 			35.14, 																-- Y
 			"Step 17 - All Brawn, No Brains",									-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[65849] = { -- To Iskaara
 		{
 			2024,																-- The Azure Span
 			17.2, 																-- X
@@ -349,8 +379,6 @@ local WAYPOINTS = {
 			133731,																-- Icon
 			nil,																-- DisplayID
 		},
-	},
-	[65849] = { -- To Iskaara
 		{
 			2024,																-- The Azure Span
 			13.74, 																-- X
@@ -361,23 +389,27 @@ local WAYPOINTS = {
 			"|cffFFFFFF- WANTED|r\n" ..
 			"|cffFFFFFF- Fishing Seamoth|r\n" ..
 			"|cffFFFFFF- Nook News|r",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[65911] = { -- Azure Alignment
 		{
 			2024,																-- The Azure Span
 			1.25, 																-- X
 			39.15, 																-- Y
 			"Step 20 - A Far Furbolg Friend",									-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[71000] = { -- Barst Recruited
 		{
 			2024,																-- The Azure Span
 			39.71, 																-- X
 			62.75, 																-- Y
 			"Step 21 - Azure Archives",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 		{
@@ -385,15 +417,18 @@ local WAYPOINTS = {
 			58.79, 																-- X
 			34.83, 																-- Y
 			"Step 22 - Old Grimtusk",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
+	},
+	[71135] = { -- Loose Ends
 		{
 			2024,																-- The Azure Span
 			58.79, 																-- X
 			34.83, 																-- Y
-			"Step 23 - Rhonin's Shield",										-- Title
-			236668,																-- Icon
+			"Step 23 - Rhonin's Shield\n\n" ..									-- Title
+			"Only do |cffFFFFFFDrakes be Gone|r!",
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -403,7 +438,7 @@ local WAYPOINTS = {
 			81.68, 																-- X
 			33.25, 																-- Y
 			"Step 1 - Explorers in Peril",										-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 		{
@@ -429,7 +464,7 @@ local WAYPOINTS = {
 			"Step 4 - Where's Wrathion?\n\n" ..									-- Title
 			"Skip:\n" ..
 			"- Artisan's Supply",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -439,7 +474,7 @@ local WAYPOINTS = {
 			39.71, 																-- X
 			62.75, 																-- Y
 			"Step 1 - Explorers in Peril",										-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 		{
@@ -465,7 +500,7 @@ local WAYPOINTS = {
 			"Step 4 - Where's Wrathion?\n\n" ..									-- Title
 			"Skip:\n" ..
 			"- Artisan's Supply",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -475,7 +510,7 @@ local WAYPOINTS = {
 			77.6, 																-- X
 			22.4, 																-- Y
 			"Step 5 - Adventuring in the Dragon Isles",							-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -486,7 +521,7 @@ local WAYPOINTS = {
 			40.78, 																-- Y
 			"Step 6 - Reporting for Duty\n\n" ..								-- Title
 			"Stick to main story quests at this hub.",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -497,7 +532,7 @@ local WAYPOINTS = {
 			34.92, 																-- Y
 			"Step 7 - Time for a Reckoning\n\n" ..								-- Title
 			"Complete the bonus objective and all of Wrathion's quests.",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 		{
@@ -514,7 +549,7 @@ local WAYPOINTS = {
 			30.88, 																-- Y
 			"Step 9 - Chasing Sendrax\n\n" ..									-- Title
 			"Keep following the main story quests. Don't accept any side quests!",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -536,7 +571,7 @@ local WAYPOINTS = {
 			"Step 11 - For the Benefit of the Queen\n\n" ..						-- Title
 			"Keep following the main story quests.\n\n" ..
 			"The only side quest we accept is the one from Veritistrasz (step 12).",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 		{
@@ -544,7 +579,7 @@ local WAYPOINTS = {
 			57.84, 																-- X
 			66.85, 																-- Y
 			"Step 12 - Stay a While",											-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -555,7 +590,7 @@ local WAYPOINTS = {
 			58.15, 																-- Y
 			"Step 13 - Site Salvage\n\n" ..										-- Title
 			"Complete all the quests in the area.",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 		{
@@ -563,7 +598,7 @@ local WAYPOINTS = {
 			70.48, 																-- X
 			56.81, 																-- Y
 			"Step 14 - Drainage Solutions",										-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -574,7 +609,7 @@ local WAYPOINTS = {
 			72.88, 																-- Y
 			"Step 15 - Ruby Lifeshrine\n\n" ..									-- Title
 			"There aren't any side quests left in the route, so focus on main story quests!",
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},
@@ -604,7 +639,7 @@ local WAYPOINTS = {
 			46.19, 																-- X
 			78.32, 																-- Y
 			"Step 18 - Exeunt, Triumphant",										-- Title
-			236668,																-- Icon
+			236671,																-- Icon
 			nil,																-- DisplayID
 		},
 	},

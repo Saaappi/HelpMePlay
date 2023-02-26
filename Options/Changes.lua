@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local coloredDash = "|cffFFD100-|r "
+local authorNote = "|cff009AE4"
 local speechBubble = "charactercreate-icon-customize-speechbubble-selected"
 
 local changesOptions = {
@@ -26,9 +27,9 @@ local changesOptions = {
 			type = "header",
 		},
 		addedText = {
-			--name = coloredDash .. "|cffFF0000Nothing was added in this release.",
-			name = coloredDash .. "Added the ability for HelpMePlay to ignore specific quest rewards from being equipped. The |cffFFD100Wind-Sealed Mana Capsule|r is the only item on the list...for now.\n" ..
-			coloredDash .. "Automated the gossips for the Maidens of Inspiration during the Tyr quests.",
+			name = coloredDash .. "|cffFF0000Nothing was added in this release.",
+			--name = coloredDash .. "Added the ability for HelpMePlay to ignore specific quest rewards from being equipped. The |cffFFD100Wind-Sealed Mana Capsule|r is the only item on the list...for now.\n" ..
+			--coloredDash .. "Automated the gossips for the Maidens of Inspiration during the Tyr quests.",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
@@ -40,7 +41,9 @@ local changesOptions = {
 		},
 		updatedText = {
 			--name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
-			name = coloredDash .. "Updated the Marksmanship Hunter talent build.",
+			name = coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n" ..
+			coloredDash .. "Updated the flow of Waypoints in The Azure Span. Each documented quest should add one or two waypoints at the most.\n" ..
+			"   " .. authorNote .. "Author Note: This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
@@ -51,7 +54,8 @@ local changesOptions = {
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed an issue that I caused in 2.0.13 that prevented most looted items from being equipped.",
+			name = coloredDash .. "|cffFF0000Nothing was fixed in this release.|r",
+			--name = coloredDash .. "Fixed an issue that I caused in 2.0.13 that prevented most looted items from being equipped.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
@@ -67,36 +71,11 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		recommendedHeader = {
+		--[[recommendedHeader = {
 			name = "Recommended",
 			order = 50,
 			type = "header",
-		},
-		levelingGuideBtn = {
-			name = "60-70 Guide",
-			order = 51,
-			type = "execute",
-			--desc = "",
-			func = function(_, _)
-				StaticPopupDialogs["HELPMEPLAY_ACK_LEVELGUIDE"] = {
-					text = "|T1129713:32|t " .. CreateAtlasMarkup(speechBubble, 32, 32) .. "\n\n" ..
-					"Be sure to check out Kraken Latte's short play video of her 60-70 leveling route!",
-					button1 = "OK",
-					OnShow = function(self, data)
-						self.editBox:SetText("https://www.youtube.com/watch?v=fpGbVepwKiI")
-						self.editBox:HighlightText()
-					end,
-					timeout = 20,
-					showAlert = true,
-					whileDead = false,
-					hideOnEscape = true,
-					enterClicksFirstButton = true,
-					hasEditBox = true,
-					preferredIndex = 3,
-				}
-				StaticPopup_Show("HELPMEPLAY_ACK_LEVELGUIDE")
-			end,
-		},
+		},]]
 	},
 }
 addonTable.changesOptions = changesOptions

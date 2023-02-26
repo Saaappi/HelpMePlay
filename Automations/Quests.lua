@@ -371,12 +371,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 						local opts = {
 							title = coords[4],
 							persistent = nil,
-							minimap = true,
+							minimap = false, -- (deprecated in 2.0.15)
 							world = true,
 							from = addonName,
-							minimap_icon = coords[5],
+							--minimap_icon = coords[5], (deprecated in 2.0.15)
 							worldmap_icon = coords[5],
-							minimap_displayID = coords[6],
+							--minimap_displayID = coords[6], (deprecated in 2.0.15)
 							worldmap_displayID = coords[6],
 						}
 						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts)
