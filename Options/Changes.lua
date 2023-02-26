@@ -25,21 +25,18 @@ local changesOptions = {
 			order = 10,
 			type = "header",
 		},
-		addedText = {
-			name = coloredDash .. "|cffFF0000Nothing was added in this release.",
-			--name = coloredDash .. "Added the ability for HelpMePlay to ignore specific quest rewards from being equipped. The |cffFFD100Wind-Sealed Mana Capsule|r is the only item on the list...for now.\n" ..
-			--coloredDash .. "Automated the gossips for the Maidens of Inspiration during the Tyr quests.",
+		--[[addedText = {
+			name = "",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
-		},
+		},]]
 		updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,
 			type = "header",
 		},
 		updatedText = {
-			--name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
 			name = coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n\n" ..
 			"     |cffFFD100Old|r: |T236668:0|t\n" ..
 			"     |cffFFD100New|r: |T236671:0|t\n\n" ..
@@ -54,29 +51,28 @@ local changesOptions = {
 			type = "description",
 			fontSize = "small",
 		},
-		fixedHeader = {
+		--[[fixedHeader = {
 			name = "Fixed",
 			order = 30,
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "|cffFF0000Nothing was fixed in this release.|r",
-			--name = coloredDash .. "Fixed an issue that I caused in 2.0.13 that prevented most looted items from being equipped.",
+			--name = "",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
-		},
-		removedHeader = {
+		},]]
+		--[[removedHeader = {
 			name = "Removed",
 			order = 40,
 			type = "header",
 		},
 		removedText = {
-			name = coloredDash .. "|cffFF0000Nothing was removed in this release.|r",
+			name = "",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
-		},
+		},]]
 		--[[recommendedHeader = {
 			name = "Recommended",
 			order = 50,
