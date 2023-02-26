@@ -20,12 +20,12 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		addedHeader = {
+		--[[addedHeader = {
 			name = "Added",
 			order = 10,
 			type = "header",
 		},
-		--[[addedText = {
+		addedText = {
 			name = "",
 			order = 11,
 			type = "description",
