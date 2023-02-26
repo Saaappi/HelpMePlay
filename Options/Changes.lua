@@ -40,9 +40,9 @@ local changesOptions = {
 		},
 		updatedText = {
 			--name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
-			name = coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n" ..
+			name = coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n\n" ..
 			"     |cffFFD100Old|r: |T236668:0|t\n" ..
-			"     |cffFFD100New|r: |T236671:0|t\n" ..
+			"     |cffFFD100New|r: |T236671:0|t\n\n" ..
 			coloredDash .. "Updated the flow of Waypoints in The Azure Span. Each documented quest should add one or two waypoints at the most.",
 			order = 21,
 			type = "description",
