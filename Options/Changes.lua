@@ -41,13 +41,15 @@ local changesOptions = {
 		updatedText = {
 			--name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
 			name = coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n" ..
+			"     |cffFFD100Old|r: |T236668:0|t\n" ..
+			"     |cffFFD100New|r: |T236671:0|t\n" ..
 			coloredDash .. "Updated the flow of Waypoints in The Azure Span. Each documented quest should add one or two waypoints at the most.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
 		},
 		updatedAuthorNoteText = {
-			name = "     Author Note: |cff009AE4This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once.|r",
+			name = "     |cff009AE4This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once.|r",
 			order = 22,
 			type = "description",
 			fontSize = "small",
