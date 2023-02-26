@@ -1,8 +1,7 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local coloredDash = "|cffFFD100-|r "
-local authorNote = "|cff009AE4"
-local speechBubble = "charactercreate-icon-customize-speechbubble-selected"
+--local authorNote = "|cff009AE4"
 
 local changesOptions = {
 	name = "Changes",
@@ -42,11 +41,16 @@ local changesOptions = {
 		updatedText = {
 			--name = coloredDash .. "|cffFF0000Nothing was updated in this release.",
 			name = coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n" ..
-			coloredDash .. "Updated the flow of Waypoints in The Azure Span. Each documented quest should add one or two waypoints at the most.\n" ..
-			"   " .. authorNote .. "Author Note: This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once.",
+			coloredDash .. "Updated the flow of Waypoints in The Azure Span. Each documented quest should add one or two waypoints at the most.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
+		},
+		updatedAuthorNoteText = {
+			name = "     Author Note: |cff009AE4This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once.|r",
+			order = 22,
+			type = "description",
+			fontSize = "small",
 		},
 		fixedHeader = {
 			name = "Fixed",
