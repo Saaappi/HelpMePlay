@@ -49,7 +49,7 @@ local changesOptions = {
 			fontSize = "medium",
 		},
 		updatedAuthorNoteText = {
-			name = "     |cff009AE4This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once.|r",
+			name = "     |cff009AE4This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once. The Waking Shores will be reworked in the next release.|r",
 			order = 22,
 			type = "description",
 			fontSize = "small",
