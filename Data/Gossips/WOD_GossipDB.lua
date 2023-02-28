@@ -30,7 +30,8 @@ local DIALOG_WOD = {
 		["g"] = {
 			{
 				["o"] 	= 42839,
-				["c"] 	= { "level.higher" },
+				["c"] 	= { "quests.active", "level.higher" },
+				["q"] 	= { 36624 }, -- Ashran Appearance
 				["l"] 	= 30,
 			},
 		},

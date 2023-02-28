@@ -37,7 +37,8 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n\n" ..
+			name = coloredDash .. "Updated the flight to Ashran for the Alliance to require the player to be on the |cffFFD100Ashran Appearance|r quest.\n" ..
+			coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n\n" ..
 			"     |cffFFD100Old|r: |T236668:0|t\n" ..
 			"     |cffFFD100New|r: |T236671:0|t\n\n" ..
 			coloredDash .. "Updated the flow of Waypoints in The Azure Span. Each documented quest should add one or two waypoints at the most.",
