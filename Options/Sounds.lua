@@ -2,43 +2,48 @@ local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local soundsOptions = {
-	name = L_GLOBALSTRINGS["Tabs.Sounds"],
+	name = "Sounds",
 	handler = HelpMePlay,
 	type = "group",
 	args = {
 		enable = {
-			name = L_GLOBALSTRINGS["General.Toggle.Enable"],
+			name = "Enable",
 			order = 1,
-			desc = L_GLOBALSTRINGS["Sounds.Toggle.Desc"],
+			desc = "Toggle to enable the ability for the addon to mute sounds.",
 			type = "toggle",
 			get = function(_) return HelpMePlayDB.SoundsEnabled end,
 			set = function(_, val) HelpMePlayDB.SoundsEnabled = val end,
 		},
 		soundsHeader = {
-			name = L_GLOBALSTRINGS["Header.Sounds"],
+			name = "Sounds",
 			order = 2,
 			type = "header",
 		},
 		soundInput = {
-			name = L_GLOBALSTRINGS["Sounds.Input.Title"],
+			name = "Sounds",
 			order = 3,
-			desc = L_GLOBALSTRINGS["Sounds.Input.Desc"],
+			desc = "Input a list of sound IDs for the addon to mute. Each sound ID should be on its own line.\n\n|cffFFD100NOTE|r: You must reload after adding the sound IDs.",
 			type = "input",
+			multiline = true,
 			get = function(_) return HelpMePlayDB.Sounds end,
 			set = function(_, val)
-				val = tonumber(val)
-				if HelpMePlayDB.Sounds[val] then
-					HelpMePlayDB.Sounds[val] = nil
-					UnmuteSoundFile(val)
-				else
-					HelpMePlayDB.Sounds[val] = true
+				local sounds = {}
+				for soundID in val:gmatch("[^\r\n]+") do
+					table.insert(sounds, soundID)
 				end
-			end,
-			validate = function(self, val)
-				if tonumber(val) then
-					return true
+				for _, soundID in ipairs(sounds) do
+					if tonumber(soundID) then
+						soundID = tonumber(soundID)
+						if HelpMePlayDB.Sounds[soundID] then
+							HelpMePlayDB.Sounds[soundID] = nil
+							UnmuteSoundFile(soundID)
+						else
+							HelpMePlayDB.Sounds[soundID] = true
+						end
+					else
+						print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |cffFFD100" .. soundID .. "|r isn't a valid sound ID.")
+					end
 				end
-				return L_GLOBALSTRINGS["Text.Output.NumericValue"]
 			end,
 		},
 	},

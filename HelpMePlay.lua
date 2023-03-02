@@ -31,7 +31,7 @@ function HelpMePlay:OnInitialize()
 	
 	-- Sounds
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Sounds", addonTable.soundsOptions)
-	self.soundsOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Sounds", L_GLOBALSTRINGS["Tabs.Sounds"], addonName); addonTable.soundsOptions = self.soundsOptions
+	self.soundsOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Sounds", "Sounds", addonName); addonTable.soundsOptions = self.soundsOptions
 	
 	-- Extras
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Extras", addonTable.extrasOptions)

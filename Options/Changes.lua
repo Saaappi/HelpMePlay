@@ -37,21 +37,17 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "Updated the flight to Ashran for the Alliance to require the player to be on the |cffFFD100Ashran Appearance|r quest.\n" ..
-			coloredDash .. "Updated the quest hub icon under the Waypoints automation.\n\n" ..
-			"     |cffFFD100Old|r: |T236668:0|t\n" ..
-			"     |cffFFD100New|r: |T236671:0|t\n\n" ..
-			coloredDash .. "Updated the flow of Waypoints in The Azure Span. Each documented quest should add one or two waypoints at the most.",
+			name = coloredDash .. "Updated the sound input to accept multiple entries, allowing the player to mute multiple sounds at once.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
 		},
-		updatedAuthorNoteText = {
-			name = "     |cff009AE4This should make the flow of the route feel more fluid and natural, opposed to plotting a dozen waypoints at once. The Waking Shores will be reworked in the next release.|r",
+		--[[updatedAuthorNoteText = {
+			name = "",
 			order = 22,
 			type = "description",
 			fontSize = "small",
-		},
+		},]]
 		--[[fixedHeader = {
 			name = "Fixed",
 			order = 30,

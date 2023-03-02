@@ -63,7 +63,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Tabs.ExpansionFeatures"] 													= "Expansion Features"
 	L_GLOBALSTRINGS["Tabs.Systems"] 															= "Systems"
 	L_GLOBALSTRINGS["Tabs.ZoneSelection"] 														= "Zone Selection"
-	L_GLOBALSTRINGS["Tabs.Sounds"] 																= "Sounds"
 	L_GLOBALSTRINGS["Tabs.Extras"] 																= "Extras"
 	-- End: 	Tabs
 	--
@@ -86,7 +85,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Header.Talents"] 															= "Talents"
 	L_GLOBALSTRINGS["Header.Dragonriding"] 														= "Dragonriding"
 	L_GLOBALSTRINGS["Header.EquipLootAdvanced"] 												= "Equip Loot (Advanced)"
-	L_GLOBALSTRINGS["Header.Sounds"] 															= "Sounds"
 	-- End: 	Headers
 	--
 	-- Start: 	General DropDowns
@@ -272,12 +270,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"]										= "Automatic"
 	L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"]									= "Notify"
 	-- End: 	Expansion Features (Options_ExpansionFeatures.lua)
-	--
-	-- Start: 	Sounds Options
-	L_GLOBALSTRINGS["Sounds.Toggle.Desc"]														= "Toggle to enable the ability for the addon to mute sounds."
-	L_GLOBALSTRINGS["Sounds.Input.Title"]														= "Sound ID"
-	L_GLOBALSTRINGS["Sounds.Input.Desc"]														= "Input a sound ID for the addon to mute.\n\n|cffFFD100NOTE|r: You must reload after adding the sound IDs."
-	-- End: 	Sounds Options
 	--
 	-- Start: 	Junker Options (Options_Junker.lua)
 	L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"] 												= "Enables and disables the Junker subsystem.\n\nBy default, Junker will auto sell player-defined and poor quality items. Use the buttons below to filter in additional items.\n\nAlternatively, use the Import button to import items from another auto sell addon or a comma-delimited list of item IDs.\n\n|cffFFD100/hmp junker add id|r\n\n|cffFFD100/hmp junker blacklist id|r\n\nThe commands above can be used to add/blacklist items you don't have in your inventory."
