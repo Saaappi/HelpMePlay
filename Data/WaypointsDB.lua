@@ -655,7 +655,7 @@ local WAYPOINTS = {
 			2022,																-- The Waking Shores
 			71.19, 																-- X
 			40.78, 																-- Y
-			"Step 6 - Reporting for Duty\n\n" ..								-- Title
+			"Step 4 - Reporting for Duty\n\n" ..								-- Title
 			"|cffFFD100Stick to main story quests at this hub.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
@@ -663,37 +663,15 @@ local WAYPOINTS = {
 			"accept", 															-- Plot Condition
 		},
 	},
-	[65991] = { -- Time for a Reckoning
-		{
-			2022,																-- The Waking Shores
-			66.35, 																-- X
-			34.92, 																-- Y
-			"Step 7 - Time for a Reckoning\n\n" ..								-- Title
-			"|cffFFD100Complete the bonus objective and all of Wrathion's quests.|r",
-			236671,																-- Icon
-			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
-		},
+	[65994] = { -- Djaradin Justice (Bonus Objective)
 		{
 			2022,																-- The Waking Shores
 			64.2, 																-- X
 			33.0, 																-- Y
-			"Step 8 - Dragonhunter Igordan (Rare)",								-- Title
+			"Step 5 - Dragonhunter Igordan (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
-		},
-		{
-			2022,																-- The Waking Shores
-			55.01, 																-- X
-			30.88, 																-- Y
-			"Step 9 - Chasing Sendrax\n\n" ..									-- Title
-			"|cffFFD100Keep following the main story quests.|r |cffFF0000DO NOT ACCEPT ANY SIDE QUESTS!|r",
-			236671,																-- Icon
-			nil,																-- DisplayID
-			{}, 																-- Prerequisite  Quests
 			"accept", 															-- Plot Condition
 		},
 	},

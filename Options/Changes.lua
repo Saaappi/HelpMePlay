@@ -80,7 +80,9 @@ local changesOptions = {
 			name = coloredDash .. "Removed |cffFFD100Lake Frog|r, |cffFFD100Kael'thas Sunstrider|r (during Venthyr campaign), and the |cffFFD100Exposed Boggart|r from the Notes table.\n" ..
 			coloredDash .. "Removed the |cffFFD100Explorers in Peril|r waypoint.\n" ..
 			coloredDash .. "Removed the |cffFFD100Where's Wrathion?|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Adventuring in the Dragon Isles|r waypoint.",
+			coloredDash .. "Removed the |cffFFD100Adventuring in the Dragon Isles|r waypoint.\n" ..
+			coloredDash .. "Removed the |cffFFD100Time for a Reckoning|r waypoint.",
+			coloredDash .. "Removed the |cffFFD100Chasing Sendrax|r waypoint.",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
