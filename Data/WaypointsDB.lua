@@ -478,6 +478,17 @@ local WAYPOINTS = {
 			{}, 																-- Prerequisite Quests
 		},
 	},
+	[66223] = { -- Can We Keep It?
+		{
+			2024,																-- The Azure Span
+			13.84, 																-- X
+			49.44, 																-- Y
+			"Can We Keep It? - Frigidfish (Merchant)",							-- Title
+			nil,																-- Icon
+			nil,																-- DisplayID
+			{}, 																-- Prerequisite Quests
+		},
+	},
 	[71000] = { -- Barst Recruited
 		{
 			2024,																-- The Azure Span
