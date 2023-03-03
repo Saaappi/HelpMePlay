@@ -499,6 +499,8 @@ local WAYPOINTS = {
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
 		},
+	},
+	[66027] = { -- Calling the Blue Dragons
 		{
 			2024,																-- The Azure Span
 			58.79, 																-- X
