@@ -97,11 +97,11 @@ addonTable.CINEMATIC_BADMAPS = CINEMATIC_BADMAPS
 -- Notes
 local NOTES = {
 	[159915] = { -- Gatamatos
-		["note"] = "CLICK ME!",
+		["note"] = "|cff3CB043CLICK ME!|r",
 		["conditions"] = false,
 	}, 
 	[173806] = { -- Gatamatos
-		["note"] = "CLICK ME!",
+		["note"] = "|cff3CB043CLICK ME!|r",
 		["conditions"] = false,
 	}, 
 	[164675] = { -- Lever (Torghast Chest)
