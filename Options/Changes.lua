@@ -41,7 +41,7 @@ local changesOptions = {
 			coloredDash .. "Changed the waypoint trigger for Step 5 in The Azure Span.\n" ..
 			coloredDash .. "Changed the waypoint trigger for Step 8 in The Azure Span.\n" ..
 			coloredDash .. "Changed the waypoint trigger for Step 10 in The Azure Span.\n" ..
-			"     |cff009AE4Step 10 will no longer appear until both quest chains in Camp Nowhere have been completed.|r\n" ..
+			"     |cff009AE4Step 10 won't be plotted until both quest chains in Camp Nowhere have been completed.|r\n\n" ..
 			coloredDash .. "TEST!",
 			order = 21,
 			type = "description",
