@@ -28,7 +28,7 @@ local changesOptions = {
 		addedText = {
 			name = coloredDash .. "Added a waypoint to The Azure Span, marking a location for a Tuskarr Chest (rewards player experience).\n" ..
 			coloredDash .. "Added an additional waypoint between Varsek and the next main quest in The Azure Span.\n" ..
-			coloredDash .. "Added a note to |cffFFD100Lukoturukk's|r tooltip when the player is less than 70 to not accept any of his quests.",
+			coloredDash .. "Added a note to |cffFFD100Brena|r, |cffFFD100Lukoturukk|r and |cffFFD100Bukarakikk's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.",
 			order = 11,
 			type = "description",
 			fontSize = "medium",

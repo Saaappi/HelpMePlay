@@ -114,7 +114,21 @@ local NOTES = {
 			["level.lower"] = 70,
 			["quests.incomplete"] = { 66212 }, -- Fishing: Aileron Seamoth
 		},
-	}, 
+	},
+	[186568] = { -- Bukarakikk
+		["note"] = "|cffFF0000DO NOT ACCEPT QUESTS!|r",
+		["conditions"] = {
+			["level.lower"] = 70,
+			["quests.incomplete"] = { 66217 }, -- WANTED: Krojek the Shoreprowler
+		},
+	},
+	[186480] = { -- Brena
+		["note"] = "|cffFF0000DO NOT ACCEPT |cffFFFFFFBRACKENHIDE HOLLOW|r QUEST!|r",
+		["conditions"] = {
+			["level.lower"] = 70,
+			["quests.incomplete"] = { 66211 }, -- Brackenhide Hollow: To the Source
+		},
+	},
 }
 addonTable.NOTES = NOTES
 

@@ -463,10 +463,7 @@ local WAYPOINTS = {
 			47.46, 																-- Y
 			"Step 20 - Iskaara\n\n" ..											-- Title
 			"|cffFFFFFFSkip:|r\n" ..
-			"|cffFFFFFF- Brackenhide Hollow|r\n" ..
-			"|cffFFFFFF- WANTED|r\n" ..
-			"|cffFFFFFF- Fishing Seamoth|r\n" ..
-			"|cffFFFFFF- Nook News|r",
+			"|cffFFFFFF- Brackenhide Hollow|r\n",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
