@@ -141,6 +141,12 @@ local NOTES = {
 			["level.lower"] = 70,
 		},
 	},
+	[192498] = { -- Haephesta
+		["note"] = "|cffFF0000DO NOT ACCEPT QUESTS!|r",
+		["conditions"] = {
+			["level.lower"] = 70,
+		},
+	},
 }
 addonTable.NOTES = NOTES
 

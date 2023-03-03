@@ -29,7 +29,7 @@ local changesOptions = {
 			name = coloredDash .. "Added a waypoint to The Azure Span, marking a location for a Tuskarr Chest (rewards player experience).\n" ..
 			coloredDash .. "Added an additional waypoint between Varsek and the next main quest in The Azure Span.\n" ..
 			coloredDash .. "Added a note to |cffFFD100Brena|r, |cffFFD100Lukoturukk|r and |cffFFD100Bukarakikk's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.\n" ..
-			coloredDash .. "Added a note to |cffFFD100Caretaker Ventraz|r and |cffFFD100Apprentice Caretaker Zefren's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.\n" ..
+			coloredDash .. "Added a note to |cffFFD100Caretaker Ventraz|r, |cffFFD100Haephesta|r, and |cffFFD100Apprentice Caretaker Zefren's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.\n" ..
 			coloredDash .. "Added an additional waypoint in The Azure Span to mark the merchant that sells |T237302:0|t Frigidfish for the |cffFFD100Can We Keep It?|r quest.",
 			order = 11,
 			type = "description",

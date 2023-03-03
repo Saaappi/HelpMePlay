@@ -680,7 +680,7 @@ local WAYPOINTS = {
 			2022,																-- The Waking Shores
 			54.8, 																-- X
 			21.6, 																-- Y
-			"Step 10 - Firava the Rekindler (Rare)",							-- Title
+			"Step 6 - Firava the Rekindler (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -690,21 +690,11 @@ local WAYPOINTS = {
 	[66114] = { -- For the Benefit of the Queen
 		{
 			2022,																-- The Waking Shores
-			62.26, 																-- X
-			72.88, 																-- Y
-			"Step 11 - For the Benefit of the Queen\n\n" ..						-- Title
-			"|cffFFD100Keep following the main story quests.|r\n" ..
-			"|cffFFD100The only side quest we accept is the one from Veritistrasz (step 12).|r",
-			236671,																-- Icon
-			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
-		},
-		{
-			2022,																-- The Waking Shores
 			57.84, 																-- X
 			66.85, 																-- Y
-			"Step 12 - Stay a While",											-- Title
+			"Step 7 - Stay a While\n\n" ..										-- Title
+			"|cffFFD100Keep to the main story quests.|r\n" ..
+			"|cffFFD100Accept the side quest from Veritistrasz but ignore the rest.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
