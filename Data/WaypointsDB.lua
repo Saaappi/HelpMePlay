@@ -706,19 +706,21 @@ local WAYPOINTS = {
 			2022,																-- The Waking Shores
 			66.01, 																-- X
 			58.15, 																-- Y
-			"Step 13 - Site Salvage\n\n" ..										-- Title
+			"Step 8 - Site Salvage\n\n" ..										-- Title
 			"|cffFFD100Complete all the quests in the area.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
 			"accept", 															-- Plot Condition
 		},
+	},
+	[66436] = { -- Unearthed Troublemakers
 		{
 			2022,																-- The Waking Shores
-			70.48, 																-- X
-			56.81, 																-- Y
-			"Step 14 - Drainage Solutions",										-- Title
-			236671,																-- Icon
+			67.86, 																-- X
+			57.98, 																-- Y
+			"Chest (Experience)",												-- Title
+			4203076,															-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
 			"accept", 															-- Plot Condition

@@ -30,7 +30,8 @@ local changesOptions = {
 			coloredDash .. "Added an additional waypoint between Varsek and the next main quest in The Azure Span.\n" ..
 			coloredDash .. "Added a note to |cffFFD100Brena|r, |cffFFD100Lukoturukk|r and |cffFFD100Bukarakikk's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.\n" ..
 			coloredDash .. "Added a note to |cffFFD100Caretaker Ventraz|r, |cffFFD100Haephesta|r, and |cffFFD100Apprentice Caretaker Zefren's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.\n" ..
-			coloredDash .. "Added an additional waypoint in The Azure Span to mark the merchant that sells |T237302:0|t Frigidfish for the |cffFFD100Can We Keep It?|r quest.",
+			coloredDash .. "Added an additional waypoint in The Azure Span to mark the merchant that sells |T237302:0|t Frigidfish for the |cffFFD100Can We Keep It?|r quest.\n" ..
+			coloredDash .. "Added a waypoint to The Waking Shores, marking a location for a chest (rewards player experience).",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
@@ -84,6 +85,7 @@ local changesOptions = {
 			coloredDash .. "Removed the |cffFFD100Adventuring in the Dragon Isles|r waypoint.\n" ..
 			coloredDash .. "Removed the |cffFFD100Time for a Reckoning|r waypoint.",
 			coloredDash .. "Removed the |cffFFD100Chasing Sendrax|r waypoint.",
+			coloredDash .. "Removed the |cffFFD100Drainage Solutions|r waypoint.",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
