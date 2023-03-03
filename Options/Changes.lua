@@ -37,7 +37,12 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "Updated the sound input to accept multiple entries, allowing the player to mute multiple sounds at once.",
+			name = coloredDash .. "Updated the sound input to accept multiple entries, allowing the player to mute multiple sounds at once.\n" ..
+			coloredDash .. "Changed the waypoint trigger for Step 5 in The Azure Span.\n" ..
+			coloredDash .. "Changed the waypoint trigger for Step 8 in The Azure Span.\n" ..
+			coloredDash .. "Changed the waypoint trigger for Step 10 in The Azure Span.\n" ..
+			"     |cff009AE4Step 10 will no longer appear until both quest chains in Camp Nowhere have been completed.|r\n" ..
+			coloredDash .. "TEST!",
 			order = 21,
 			type = "description",
 			fontSize = "medium",

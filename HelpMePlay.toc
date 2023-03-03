@@ -83,6 +83,7 @@ Automations\Quests.lua
 Automations\FlightPaths.lua
 Automations\Loot.lua
 Automations\Misc.lua
+Automations\Waypoints.lua
 
 # Systems
 Systems\Transmog.lua

@@ -363,30 +363,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
 		
-		local questId = ...
-		if select(2, IsAddOnLoaded("TomTom")) and HelpMePlayDB.WaypointsEnabled then
-			for quest, questData in pairs(addonTable.WAYPOINTS) do
-				if quest == questId then
-					for _, coords in ipairs(questData) do
-						local opts = {
-							title = coords[4],
-							persistent = nil,
-							minimap = false, -- (deprecated in 2.0.15)
-							world = true,
-							from = addonName,
-							--minimap_icon = coords[5], (deprecated in 2.0.15)
-							worldmap_icon = coords[5],
-							--minimap_displayID = coords[6], (deprecated in 2.0.15)
-							worldmap_displayID = coords[6],
-						}
-						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts)
-						TomTom:SetClosestWaypoint()
-					end
-					break
-				end
-			end
-		end
-		
 		if UnitLevel("player") == addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 			C_QuestLog.AddQuestWatch(questId)
 		end
