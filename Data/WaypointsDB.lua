@@ -763,18 +763,6 @@ local WAYPOINTS = {
 			"accept", 															-- Plot Condition
 		},
 	},
-	[66124] = { -- Exeunt, Triumphant
-		{
-			2022,																-- The Waking Shores
-			46.19, 																-- X
-			78.32, 																-- Y
-			"Step 18 - Exeunt, Triumphant",										-- Title
-			236671,																-- Icon
-			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
-		},
-	},
 }
 
 addonTable.WAYPOINTS = WAYPOINTS
