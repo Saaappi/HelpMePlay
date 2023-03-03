@@ -575,58 +575,41 @@ local WAYPOINTS = {
 	[70122] = { -- Explorers in Peril (Alliance)
 		{
 			2022,																-- The Waking Shores
-			81.68, 																-- X
-			33.25, 																-- Y
-			"Step 1 - Explorers in Peril",										-- Title
-			236671,																-- Icon
-			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
-		},
-		{
-			2022,																-- The Waking Shores
 			81.4, 																-- X
 			37.4, 																-- Y
-			"Step 2 - Primal Scythid Queen (Rare)",								-- Title
+			"Step 1 - Primal Scythid Queen (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
 			"accept", 															-- Plot Condition
 		},
+	},
+	[66074] = { -- Primal Scythid Queen
 		{
 			2022,																-- The Waking Shores
 			77.6, 																-- X
 			22.4, 																-- Y
-			"Step 3 - Ancient Hornswog (Rare)",									-- Title
+			"Step 2 - Ancient Hornswog (Rare)",									-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
-		},
-		{
-			2022,																-- The Waking Shores
-			76.57, 																-- X
-			33.72, 																-- Y
-			"Step 4 - Where's Wrathion?\n\n" ..									-- Title
-			"Skip:\n" ..
-			"- Artisan's Supply",
-			236671,																-- Icon
-			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
+			"complete", 														-- Plot Condition
+			"Alliance",															-- Faction
 		},
 	},
 	[65452] = { -- Explorers in Peril (Horde)
 		{
 			2022,																-- The Waking Shores
-			39.71, 																-- X
-			62.75, 																-- Y
-			"Step 1 - Explorers in Peril",										-- Title
-			236671,																-- Icon
+			77.6, 																-- X
+			22.4, 																-- Y
+			"Step 1 - Ancient Hornswog (Rare)",									-- Title
+			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
 			"accept", 															-- Plot Condition
 		},
+	},
+	[66076] = { -- Ancient Hornswog
 		{
 			2022,																-- The Waking Shores
 			81.4, 																-- X
@@ -635,37 +618,32 @@ local WAYPOINTS = {
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
+			"complete", 														-- Plot Condition
+			"Horde", 															-- Faction
 		},
+	},
+	[70125] = { -- Where is Wrathion? (Alliance)
 		{
 			2022,																-- The Waking Shores
-			77.6, 																-- X
-			22.4, 																-- Y
-			"Step 3 - Ancient Hornswog (Rare)",									-- Title
-			133731,																-- Icon
-			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
-		},
-		{
-			2022,																-- The Waking Shores
-			77.6, 																-- X
-			22.4, 																-- Y
-			"Step 4 - Where's Wrathion?\n\n" ..									-- Title
-			"Skip:\n" ..
-			"- Artisan's Supply",
+			76.36, 																-- X
+			34.13, 																-- Y
+			"Step 3 - Wingrest Embassy\n\n" ..									-- Title
+			"|cffFFD100Complete all quests in this hub.\n\n" ..
+			"|cffFF0000DO NOT ACCEPT THE ARTISAN'S SUPPLY QUESTS!|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
 			"accept", 															-- Plot Condition
 		},
 	},
-	[72293] = { -- Adventuring in the Dragon Isles
+	[69910] = { -- Where is Wrathion? (Horde)
 		{
 			2022,																-- The Waking Shores
-			77.6, 																-- X
-			22.4, 																-- Y
-			"Step 5 - Adventuring in the Dragon Isles",							-- Title
+			76.36, 																-- X
+			34.13, 																-- Y
+			"Step 3 - Wingrest Embassy\n\n" ..									-- Title
+			"|cffFFD100Complete all quests in this hub.\n\n" ..
+			"|cffFF0000DO NOT ACCEPT THE ARTISAN'S SUPPLY QUESTS!|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -678,7 +656,7 @@ local WAYPOINTS = {
 			71.19, 																-- X
 			40.78, 																-- Y
 			"Step 6 - Reporting for Duty\n\n" ..								-- Title
-			"Stick to main story quests at this hub.",
+			"|cffFFD100Stick to main story quests at this hub.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -691,7 +669,7 @@ local WAYPOINTS = {
 			66.35, 																-- X
 			34.92, 																-- Y
 			"Step 7 - Time for a Reckoning\n\n" ..								-- Title
-			"Complete the bonus objective and all of Wrathion's quests.",
+			"|cffFFD100Complete the bonus objective and all of Wrathion's quests.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -712,7 +690,7 @@ local WAYPOINTS = {
 			55.01, 																-- X
 			30.88, 																-- Y
 			"Step 9 - Chasing Sendrax\n\n" ..									-- Title
-			"Keep following the main story Prerequisite Quests. Don't accept any side quests.",
+			"|cffFFD100Keep following the main story quests.|r |cffFF0000DO NOT ACCEPT ANY SIDE QUESTS!|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite  Quests
@@ -737,8 +715,8 @@ local WAYPOINTS = {
 			62.26, 																-- X
 			72.88, 																-- Y
 			"Step 11 - For the Benefit of the Queen\n\n" ..						-- Title
-			"Keep following the main story quests.\n" ..
-			"The only side quest we accept is the one from Veritistrasz (step 12).",
+			"|cffFFD100Keep following the main story quests.|r\n" ..
+			"|cffFFD100The only side quest we accept is the one from Veritistrasz (step 12).|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -761,7 +739,7 @@ local WAYPOINTS = {
 			66.01, 																-- X
 			58.15, 																-- Y
 			"Step 13 - Site Salvage\n\n" ..										-- Title
-			"Complete all the quests in the area.",
+			"|cffFFD100Complete all the quests in the area.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -784,7 +762,7 @@ local WAYPOINTS = {
 			62.26, 																-- X
 			72.88, 																-- Y
 			"Step 15 - Ruby Lifeshrine\n\n" ..									-- Title
-			"There aren't any side quests left in the route, so focus on main story quests.",
+			"|cffFFD100There aren't any side quests left in the route, so focus on main story quests.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests

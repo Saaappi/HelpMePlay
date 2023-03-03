@@ -27,7 +27,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			for id, waypoint in pairs(addonTable.WAYPOINTS) do
 				if id == questID then
 					for _, data in ipairs(waypoint) do
-						local mapID, x, y, title, icon, displayID, quests, plotCondition = data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]
+						local mapID, x, y, title, icon, displayID, quests, plotCondition, faction = data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]
+						
+						if faction then
+							if UnitFactionGroup("player") ~= faction then return end
+						end
 						
 						if plotCondition == "accept" then
 							local numQuests = #quests
@@ -58,7 +62,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			for id, waypoint in pairs(addonTable.WAYPOINTS) do
 				if id == questID then
 					for _, data in ipairs(waypoint) do
-						local mapID, x, y, title, icon, displayID, quests, plotCondition = data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]
+						local mapID, x, y, title, icon, displayID, quests, plotCondition, faction = data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]
+						
+						if faction then
+							if UnitFactionGroup("player") ~= faction then return end
+						end
 						
 						if plotCondition == "complete" then
 							local numQuests = #quests

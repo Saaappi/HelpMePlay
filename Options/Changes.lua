@@ -47,7 +47,9 @@ local changesOptions = {
 			"   |cff009AE4Step 10 won't be plotted until both quest chains in Camp Nowhere have been completed.|r\n" ..
 			coloredDash .. "Changed the waypoint trigger for Step 15 in The Azure Span.\n" ..
 			coloredDash .. "Changed the waypoint trigger for Step 16 in The Azure Span.\n" ..
-			coloredDash .. "Changed the waypoint trigger for Step 23 in The Azure Span.",
+			coloredDash .. "Changed the waypoint trigger for Step 23 in The Azure Span.\n" ..
+			coloredDash .. "Changed the waypoint triggers for Steps 1-2 in The Waking Shores.\n" ..
+			"   |cff009AE4What's plotted first will depend on the player's faction. Alliance get the |cffFFD100Primal Scythid Queen|r while the Horde get the |cffFFD100Ancient Hornswog|r. Upon killing the respective rare, the other will be plotted automatically.|r",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
@@ -75,7 +77,10 @@ local changesOptions = {
 			type = "header",
 		},
 		removedText = {
-			name = coloredDash .. "Removed |cffFFD100Lake Frog|r, |cffFFD100Kael'thas Sunstrider|r (during Venthyr campaign), and the |cffFFD100Exposed Boggart|r from the Notes table.",
+			name = coloredDash .. "Removed |cffFFD100Lake Frog|r, |cffFFD100Kael'thas Sunstrider|r (during Venthyr campaign), and the |cffFFD100Exposed Boggart|r from the Notes table.\n" ..
+			coloredDash .. "Removed the |cffFFD100Explorers in Peril|r waypoint.\n" ..
+			coloredDash .. "Removed the |cffFFD100Where's Wrathion?|r waypoint.\n" ..
+			coloredDash .. "Removed the |cffFFD100Adventuring in the Dragon Isles|r waypoint.",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
