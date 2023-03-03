@@ -566,7 +566,7 @@ local WAYPOINTS = {
 			65.80, 																-- X
 			25.39, 																-- Y
 			"Step 24 - Rhonin's Shield\n\n" ..									-- Title
-			"Only do |cffFFFFFFDrakes be Gone|r!",
+			"Only do |cffFFD100Drakes be Gone|r!",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
