@@ -26,7 +26,8 @@ local changesOptions = {
 			type = "header",
 		},
 		addedText = {
-			name = coloredDash .. "Added a waypoint to The Azure Span, marking a location for a Tuskarr Chest (rewards player experience).",
+			name = coloredDash .. "Added a waypoint to The Azure Span, marking a location for a Tuskarr Chest (rewards player experience).\n" ..
+			coloredDash .. "Added an addition waypoint between Varsek and the next main quest in The Azure Span.",
 			order = 11,
 			type = "description",
 			fontSize = "medium",

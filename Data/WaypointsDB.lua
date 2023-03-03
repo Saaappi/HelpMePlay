@@ -436,12 +436,23 @@ local WAYPOINTS = {
 			{}, 																-- Prerequisite Quests
 		},
 	},
+	[71012] = { -- Varsek Recruited
+		{
+			2024,																-- The Azure Span
+			20.61, 																-- X
+			35.67, 																-- Y
+			"Step 18 -  Urgent Action Required",								-- Title
+			236671,																-- Icon
+			nil,																-- DisplayID
+			{}, 																-- Prerequisite Quests
+		},
+	},
 	[65849] = { -- To Iskaara
 		{
 			2024,																-- The Azure Span
 			17.2, 																-- X
 			41.8, 																-- Y
-			"Step 18 - Vakril (Rare)",											-- Title
+			"Step 19 - Vakril (Rare)",											-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -450,7 +461,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			13.74, 																-- X
 			47.46, 																-- Y
-			"Step 19 - Iskaara\n\n" ..											-- Title
+			"Step 20 - Iskaara\n\n" ..											-- Title
 			"|cffFFFFFFSkip:|r\n" ..
 			"|cffFFFFFF- Brackenhide Hollow|r\n" ..
 			"|cffFFFFFF- WANTED|r\n" ..
@@ -466,7 +477,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			1.25, 																-- X
 			39.15, 																-- Y
-			"Step 20 - A Far Furbolg Friend",									-- Title
+			"Step 21 - A Far Furbolg Friend",									-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -477,7 +488,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			39.71, 																-- X
 			62.75, 																-- Y
-			"Step 21 - Azure Archives",											-- Title
+			"Step 22 - Azure Archives",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -486,7 +497,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			58.79, 																-- X
 			34.83, 																-- Y
-			"Step 22 - Old Grimtusk",											-- Title
+			"Step 23 - Old Grimtusk",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -497,7 +508,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			58.79, 																-- X
 			34.83, 																-- Y
-			"Step 23 - Rhonin's Shield\n\n" ..									-- Title
+			"Step 24 - Rhonin's Shield\n\n" ..									-- Title
 			"Only do |cffFFFFFFDrakes be Gone|r!",
 			236671,																-- Icon
 			nil,																-- DisplayID
