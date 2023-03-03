@@ -731,12 +731,12 @@ local WAYPOINTS = {
 			2022,																-- The Waking Shores
 			62.26, 																-- X
 			72.88, 																-- Y
-			"Step 15 - Ruby Lifeshrine\n\n" ..									-- Title
+			"Step 9 - Ruby Lifeshrine\n\n" ..									-- Title
 			"|cffFFD100There aren't any side quests left in the route, so focus on main story quests.|r",
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
-			"accept", 															-- Plot Condition
+			"complete", 														-- Plot Condition
 		},
 	},
 	[66118] = { -- Basalt Assault
@@ -744,7 +744,7 @@ local WAYPOINTS = {
 			2022,																-- The Waking Shores
 			60.6, 																-- X
 			83.0, 																-- Y
-			"Step 16 - Terillod the Devout (Rare)",								-- Title
+			"Step 10 - Terillod the Devout (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
@@ -756,7 +756,7 @@ local WAYPOINTS = {
 			2022,																-- The Waking Shores
 			54.8, 																-- X
 			82.2, 																-- Y
-			"Step 17 - Klozicc the Ascended (Rare)",							-- Title
+			"Step 11 - Klozicc the Ascended (Rare)",							-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
