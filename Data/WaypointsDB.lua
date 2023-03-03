@@ -332,7 +332,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID																
 			{ 																	-- Prerequisite Quests
 				66152, -- Nowhere to Go
-			}, 																
+			},
 		},
 	},
 	[66152] = { -- Nowhere to Go
@@ -345,7 +345,7 @@ local WAYPOINTS = {
 			nil,																-- DisplayID																
 			{ 																	-- Prerequisite Quests
 				66429, -- I Will Remember
-			}, 																
+			},
 		},
 	},
 	[65928] = { -- Wayward Winds
@@ -403,7 +403,7 @@ local WAYPOINTS = {
 			{}, 																-- Prerequisite Quests
 		},
 	},
-	[66239] = { -- Spreading Decay
+	[65867] = { -- Howling in the Big Tree Hills
 		{
 			2024,																-- The Azure Span
 			36.8, 																-- X
@@ -414,7 +414,7 @@ local WAYPOINTS = {
 			{}, 																-- Prerequisite Quests
 		},
 	},
-	[67173] = { -- Thieving Gnolls
+	[66026] = { -- Urgent Action Required
 		{
 			2024,																-- The Azure Span
 			23.6, 																-- X
