@@ -565,8 +565,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			65.80, 																-- X
 			25.39, 																-- Y
-			"Step 24 - Rhonin's Shield\n\n" ..									-- Title
-			"Only do |cffFFD100Drakes be Gone|r!",
+			"Step 24 - Drakes be Gone",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
