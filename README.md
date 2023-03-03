@@ -160,9 +160,6 @@ This is a small section of the addon where people who contribute to the addon, e
 - **Announce** - Toggle whether to share quest progress to party chat. *This output is verbose!*
 - **Auto Share** - Toggle sharing quests with party members. *For the best results, all party members should have HelpMePlay.*
 
-### Barber Shop
-There aren't any options for the Barber Shop system, but HelpMePlay can save up to 3 loadouts for each race, body type, and class combination to load on other characters of those same combinations!
-
 ----
 
 ## Zone Selection

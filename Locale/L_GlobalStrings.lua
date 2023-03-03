@@ -385,11 +385,6 @@ if (isLocaleSupported) then
 	L_GLOBALSTRINGS["Holiday.Brewfest"] 														= "Enter |cffFFFFFFBlackrock Depths|r and fight |cffFFFFFFCoren Direbrew|r\nfor a chance at the |cffFFFFFFGreat Brewfest Kodo|r and the |cffFFFFFFSwift Brewfest Ram|r!\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Holiday.LoveIsInTheAir"] 													= "Enter |cffFFFFFFShadowfang Keep|r and fight |cffFFFFFFApothecary Hummel|r\nfor a chance at the |cffFFFFFFX-45 Heartbreaker|r!\n\n|cffADD8E6Added by HelpMePlay|r"
 	L_GLOBALSTRINGS["Holiday.HallowsEnd"] 														= "Enter |cffFFFFFFScarlet Monastery|r and fight |cffFFFFFFThe Headless Horseman|r\nfor a chance at |cffFFFFFFThe Horseman's Reins|r!\n\n|cffADD8E6Added by HelpMePlay|r"
-	
-	-- Barber Shop
-	L_GLOBALSTRINGS["BarberShop.ApplyButton.Text"]												= "Apply"
-	L_GLOBALSTRINGS["BarberShop.DeleteButton.Text"]												= "Delete"
-	L_GLOBALSTRINGS["BarberShop.SaveButton.Text"]												= "Save"
 end
 
 addonTable.L_GLOBALSTRINGS = L_GLOBALSTRINGS

@@ -56,12 +56,6 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		--[[updatedAuthorNoteText = {
-			name = "",
-			order = 22,
-			type = "description",
-			fontSize = "small",
-		},]]
 		fixedHeader = {
 			name = "Fixed",
 			order = 30,
@@ -86,16 +80,12 @@ local changesOptions = {
 			coloredDash .. "Removed the |cffFFD100Time for a Reckoning|r waypoint.\n" ..
 			coloredDash .. "Removed the |cffFFD100Chasing Sendrax|r waypoint.\n" ..
 			coloredDash .. "Removed the |cffFFD100Drainage Solutions|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Exeunt, Triumphant|r waypoint.",
+			coloredDash .. "Removed the |cffFFD100Exeunt, Triumphant|r waypoint.\n" ..
+			coloredDash .. "Removed the Barbershop system.",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
 		},
-		--[[recommendedHeader = {
-			name = "Recommended",
-			order = 50,
-			type = "header",
-		},]]
 	},
 }
 addonTable.changesOptions = changesOptions
