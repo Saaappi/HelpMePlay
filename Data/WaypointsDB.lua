@@ -461,9 +461,7 @@ local WAYPOINTS = {
 			2024,																-- The Azure Span
 			13.74, 																-- X
 			47.46, 																-- Y
-			"Step 20 - Iskaara\n\n" ..											-- Title
-			"|cffFFFFFFSkip:|r\n" ..
-			"|cffFFFFFF- Brackenhide Hollow|r\n",
+			"Step 20 - Iskaara",												-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
 			{}, 																-- Prerequisite Quests
