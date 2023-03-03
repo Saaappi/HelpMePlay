@@ -20,17 +20,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		--[[addedHeader = {
+		addedHeader = {
 			name = "Added",
 			order = 10,
 			type = "header",
 		},
 		addedText = {
-			name = "",
+			name = coloredDash .. "Added a waypoint to The Azure Span, marking a location for a Tuskarr Chest (rewards player experience).",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,

@@ -325,8 +325,8 @@ local WAYPOINTS = {
 	[66429] = { -- I Will Remember
 		{
 			2024,																-- The Azure Span
-			44.79, 																-- X
-			50.66, 																-- Y
+			44.78, 																-- X
+			50.64, 																-- Y
 			"Step 10 - Mammoths Matter",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID																
@@ -338,14 +338,25 @@ local WAYPOINTS = {
 	[66152] = { -- Nowhere to Go
 		{
 			2024,																-- The Azure Span
-			44.79, 																-- X
-			50.66, 																-- Y
+			44.78, 																-- X
+			50.64, 																-- Y
 			"Step 10 - Mammoths Matter",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID																
 			{ 																	-- Prerequisite Quests
 				66429, -- I Will Remember
 			}, 																
+		},
+	},
+	[65928] = { -- Wayward Winds
+		{
+			2024,																-- The Azure Span
+			45.82, 																-- X
+			56.15, 																-- Y
+			"Tuskarr Chest (Experience)",										-- Title
+			4203076,															-- Icon
+			nil,																-- DisplayID
+			{}, 																-- Prerequisite Quests
 		},
 	},
 	[66155] = { -- Ruriq's River Rapids Ride
