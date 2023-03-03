@@ -96,14 +96,25 @@ addonTable.CINEMATIC_BADMAPS = CINEMATIC_BADMAPS
 
 -- Notes
 local NOTES = {
-	[33224]  = L_NOTES["Note: CLICK ME!"],		-- Lake Frog
-	[170080] = L_NOTES["Note: CLICK ME!"],		-- Exposed Boggart
-	[159915] = L_NOTES["Note: CLICK ME!"],		-- Gatamatos
-	[173806] = L_NOTES["Note: CLICK ME!"],		-- Gatamatos
-	[161726] = L_NOTES["Note: CLICK ME!"],		-- Kael'thas Sunstrider (Sin #1)
-	[161734] = L_NOTES["Note: CLICK ME!"],		-- Kael'thas Sunstrider (Sin #2)
-	[161737] = L_NOTES["Note: CLICK ME!"],		-- Kael'thas Sunstrider (Sin #3)
-	[164675] = L_NOTES["Note: Torghast Lever"],	-- Lever (Torghast Chest)
+	[159915] = { -- Gatamatos
+		["note"] = "CLICK ME!",
+		["conditions"] = false,
+	}, 
+	[173806] = { -- Gatamatos
+		["note"] = "CLICK ME!",
+		["conditions"] = false,
+	}, 
+	[164675] = { -- Lever (Torghast Chest)
+		["note"] = "Order:\n|cffFFFFFF1, 2, 1, 3, 1, 2, 1, 4, 1, 2, 1, 3, 1, 2, 1|r",
+		["conditions"] = false,
+	}, 
+	[193877] = { -- Lukoturukk
+		["note"] = "|cffFF0000DO NOT ACCEPT QUESTS!|r",
+		["conditions"] = {
+			["level.lower"] = 70,
+			["quests.incomplete"] = { 66212 }, -- Fishing: Aileron Seamoth
+		},
+	}, 
 }
 addonTable.NOTES = NOTES
 

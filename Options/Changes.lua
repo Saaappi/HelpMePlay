@@ -66,17 +66,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},]]
-		--[[removedHeader = {
+		removedHeader = {
 			name = "Removed",
 			order = 40,
 			type = "header",
 		},
 		removedText = {
-			name = "",
+			name = coloredDash .. "Removed |cffFFD100Lake Frog|r, |cffFFD100Kael'thas Sunstrider|r (during Venthyr campaign), and the |cffFFD100Exposed Boggart|r from the Notes table.",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		--[[recommendedHeader = {
 			name = "Recommended",
 			order = 50,
