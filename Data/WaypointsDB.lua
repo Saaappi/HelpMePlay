@@ -10,7 +10,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Explorer Doc"],								-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			48,																	-- Loch Modan
@@ -19,7 +20,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Explorer Doc"],								-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			48,																	-- Loch Modan
@@ -28,7 +30,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Explorer Doc"],								-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			48,																	-- Loch Modan
@@ -37,7 +40,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Explorer Doc"],								-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			48,																	-- Loch Modan
@@ -46,7 +50,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Explorer Doc"],								-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			48,																	-- Loch Modan
@@ -55,7 +60,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Explorer Doc"],								-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[62721] = { -- Deconstructing The Problem (Bonus Objective)
@@ -66,7 +72,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[62741] = { -- Choice of Action (Bonus Objective)
@@ -77,7 +84,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[62743] = { -- Decaying Situation (Bonus Objective)
@@ -88,7 +96,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			1536,																-- Maldraxxus
@@ -97,7 +106,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			1536,																-- Maldraxxus
@@ -106,7 +116,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[60900] = { -- Archival Protection
@@ -117,7 +128,8 @@ local WAYPOINTS = {
 			L_WAYPOINTS["Waypoint: Treasure"],									-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[70845] = { -- In Tyr's Footsteps
@@ -129,7 +141,8 @@ local WAYPOINTS = {
 			"Territorial Coastling",											-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2023,																-- Ohn'ahran Plains
@@ -138,7 +151,8 @@ local WAYPOINTS = {
 			"Ripsaw the Stalker",												-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2023,																-- Ohn'ahran Plains
@@ -147,7 +161,8 @@ local WAYPOINTS = {
 			"Ty'foon the Ascended",												-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2023,																-- Ohn'ahran Plains
@@ -156,7 +171,8 @@ local WAYPOINTS = {
 			"Sunscale Behemoth",												-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2023,																-- Ohn'ahran Plains
@@ -165,7 +181,8 @@ local WAYPOINTS = {
 			"Skaara",															-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2023,																-- Ohn'ahran Plains
@@ -174,7 +191,8 @@ local WAYPOINTS = {
 			"Prozela Galeshot",													-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		-- Thaldraszus
 		{
@@ -184,7 +202,8 @@ local WAYPOINTS = {
 			"Liskron the Dazzling",												-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2025,																-- Thaldraszus
@@ -193,7 +212,8 @@ local WAYPOINTS = {
 			"Lookout Mordren",													-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2025,																-- Thaldraszus
@@ -202,7 +222,8 @@ local WAYPOINTS = {
 			"Private Shikzar",													-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2025,																-- Thaldraszus
@@ -211,7 +232,8 @@ local WAYPOINTS = {
 			"Henlare",															-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2025,																-- Thaldraszus
@@ -220,7 +242,8 @@ local WAYPOINTS = {
 			"Acrosoth",															-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65686] = { -- To the Azure Span
@@ -231,7 +254,8 @@ local WAYPOINTS = {
 			"Step 1 - The Azure Span",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66228] = { -- Camp Antonidas
@@ -242,7 +266,8 @@ local WAYPOINTS = {
 			"Step 2 - Camp Antonidas",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66493] = { -- Send It!
@@ -253,7 +278,8 @@ local WAYPOINTS = {
 			"Step 3 - Hollow Up",												-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66557] = { -- Academic Aquaintances
@@ -264,7 +290,8 @@ local WAYPOINTS = {
 			"Step 4 - Prowling Polar Predators",								-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[70338] = { -- They Took the Kits
@@ -275,7 +302,8 @@ local WAYPOINTS = {
 			"Step 5 - Summoned Destroyer (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[69895] = { -- Summoned Destroyer
@@ -286,7 +314,8 @@ local WAYPOINTS = {
 			"Step 6 - Field Medic 101",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66730] = { -- True Survivors
@@ -297,7 +326,8 @@ local WAYPOINTS = {
 			"Step 7 - Old Grimtusk",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[71014] = { -- A Far Furbolg Friend
@@ -308,7 +338,8 @@ local WAYPOINTS = {
 			"Step 8 - The Ailing Apprentice",									-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[70970] = { -- Good Intentions
@@ -319,7 +350,8 @@ local WAYPOINTS = {
 			"Step 9 - Camp Nowhere",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66429] = { -- I Will Remember
@@ -330,9 +362,10 @@ local WAYPOINTS = {
 			"Step 10 - Mammoths Matter",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID																
-			{ 																	-- Prerequisite Quests
+			{ 																	-- Prerequisite Prerequisite Quests
 				66152, -- Nowhere to Go
 			},
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66152] = { -- Nowhere to Go
@@ -343,9 +376,10 @@ local WAYPOINTS = {
 			"Step 10 - Mammoths Matter",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID																
-			{ 																	-- Prerequisite Quests
+			{ 																	-- Prerequisite Prerequisite Quests
 				66429, -- I Will Remember
 			},
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65928] = { -- Wayward Winds
@@ -356,7 +390,8 @@ local WAYPOINTS = {
 			"Tuskarr Chest (Experience)",										-- Title
 			4203076,															-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66155] = { -- Ruriq's River Rapids Ride
@@ -367,7 +402,8 @@ local WAYPOINTS = {
 			"Step 11 - Meeting Kalecgos",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65855] = { -- Aiding Azure Span
@@ -378,7 +414,8 @@ local WAYPOINTS = {
 			"Step 12 - Forgotten Creation (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[69864] = { -- Forgotten Creation
@@ -389,7 +426,8 @@ local WAYPOINTS = {
 			"Step 13 - Camp Antonidas",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66503] = { -- For The Love of Others
@@ -400,7 +438,8 @@ local WAYPOINTS = {
 			"Step 14 - Catch the Caravan",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65867] = { -- Howling in the Big Tree Hills
@@ -411,7 +450,8 @@ local WAYPOINTS = {
 			"Step 15 - Sharpfang (Rare)",										-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66026] = { -- Urgent Action Required
@@ -422,7 +462,8 @@ local WAYPOINTS = {
 			"Step 16 - Cascade (Rare)",											-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[72358] = { -- Cascade
@@ -433,7 +474,8 @@ local WAYPOINTS = {
 			"Step 17 - All Brawn, No Brains",									-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[71012] = { -- Varsek Recruited
@@ -444,7 +486,8 @@ local WAYPOINTS = {
 			"Step 18 -  Urgent Action Required",								-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65849] = { -- To Iskaara
@@ -455,7 +498,8 @@ local WAYPOINTS = {
 			"Step 19 - Vakril (Rare)",											-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2024,																-- The Azure Span
@@ -464,7 +508,8 @@ local WAYPOINTS = {
 			"Step 20 - Iskaara",												-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65911] = { -- Azure Alignment
@@ -475,7 +520,8 @@ local WAYPOINTS = {
 			"Step 21 - A Far Furbolg Friend",									-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66223] = { -- Can We Keep It?
@@ -486,7 +532,8 @@ local WAYPOINTS = {
 			"Can We Keep It? - Frigidfish (Merchant)",							-- Title
 			nil,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[71000] = { -- Barst Recruited
@@ -497,7 +544,8 @@ local WAYPOINTS = {
 			"Step 22 - Azure Archives",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66027] = { -- Calling the Blue Dragons
@@ -508,7 +556,8 @@ local WAYPOINTS = {
 			"Step 23 - Old Grimtusk",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[71135] = { -- Loose Ends
@@ -520,7 +569,8 @@ local WAYPOINTS = {
 			"Only do |cffFFFFFFDrakes be Gone|r!",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"complete" 															-- Plot Condition
 		},
 	},
 	[70122] = { -- Explorers in Peril (Alliance)
@@ -531,7 +581,8 @@ local WAYPOINTS = {
 			"Step 1 - Explorers in Peril",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -540,7 +591,8 @@ local WAYPOINTS = {
 			"Step 2 - Primal Scythid Queen (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -549,7 +601,8 @@ local WAYPOINTS = {
 			"Step 3 - Ancient Hornswog (Rare)",									-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -560,7 +613,8 @@ local WAYPOINTS = {
 			"- Artisan's Supply",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65452] = { -- Explorers in Peril (Horde)
@@ -571,7 +625,8 @@ local WAYPOINTS = {
 			"Step 1 - Explorers in Peril",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -580,7 +635,8 @@ local WAYPOINTS = {
 			"Step 2 - Primal Scythid Queen (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -589,7 +645,8 @@ local WAYPOINTS = {
 			"Step 3 - Ancient Hornswog (Rare)",									-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -600,7 +657,8 @@ local WAYPOINTS = {
 			"- Artisan's Supply",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[72293] = { -- Adventuring in the Dragon Isles
@@ -611,7 +669,8 @@ local WAYPOINTS = {
 			"Step 5 - Adventuring in the Dragon Isles",							-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65760] = { -- Reporting for Duty
@@ -620,10 +679,12 @@ local WAYPOINTS = {
 			71.19, 																-- X
 			40.78, 																-- Y
 			"Step 6 - Reporting for Duty\n\n" ..								-- Title
-			"Stick to main story quests at this hub.",
+			"Stick to main story Prerequisite Quests
+			"accept" 															-- Plot Condition at this hub.",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65991] = { -- Time for a Reckoning
@@ -632,10 +693,12 @@ local WAYPOINTS = {
 			66.35, 																-- X
 			34.92, 																-- Y
 			"Step 7 - Time for a Reckoning\n\n" ..								-- Title
-			"Complete the bonus objective and all of Wrathion's quests.",
+			"Complete the bonus objective and all of Wrathion's Prerequisite Quests
+			"accept" 															-- Plot Condition.",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -644,17 +707,21 @@ local WAYPOINTS = {
 			"Step 8 - Dragonhunter Igordan (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
 			55.01, 																-- X
 			30.88, 																-- Y
 			"Step 9 - Chasing Sendrax\n\n" ..									-- Title
-			"Keep following the main story quests. Don't accept any side quests!",
+			"Keep following the main story Prerequisite Quests
+			"accept" 															-- Plot Condition. Don't accept any side Prerequisite Quests
+			"accept" 															-- Plot Condition!",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[65999] = { -- Red in Tooth and Claw
@@ -665,7 +732,8 @@ local WAYPOINTS = {
 			"Step 10 - Firava the Rekindler (Rare)",							-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66114] = { -- For the Benefit of the Queen
@@ -674,11 +742,13 @@ local WAYPOINTS = {
 			62.26, 																-- X
 			72.88, 																-- Y
 			"Step 11 - For the Benefit of the Queen\n\n" ..						-- Title
-			"Keep following the main story quests.\n\n" ..
+			"Keep following the main story Prerequisite Quests
+			"accept" 															-- Plot Condition.\n\n" ..
 			"The only side quest we accept is the one from Veritistrasz (step 12).",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -687,7 +757,8 @@ local WAYPOINTS = {
 			"Step 12 - Stay a While",											-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[68799] = { -- Return to the Ruby Lifeshrine
@@ -696,10 +767,12 @@ local WAYPOINTS = {
 			66.01, 																-- X
 			58.15, 																-- Y
 			"Step 13 - Site Salvage\n\n" ..										-- Title
-			"Complete all the quests in the area.",
+			"Complete all the Prerequisite Quests
+			"accept" 															-- Plot Condition in the area.",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 		{
 			2022,																-- The Waking Shores
@@ -708,7 +781,8 @@ local WAYPOINTS = {
 			"Step 14 - Drainage Solutions",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66447] = { -- Beyond the Barrier
@@ -717,10 +791,13 @@ local WAYPOINTS = {
 			62.26, 																-- X
 			72.88, 																-- Y
 			"Step 15 - Ruby Lifeshrine\n\n" ..									-- Title
-			"There aren't any side quests left in the route, so focus on main story quests!",
+			"There aren't any side Prerequisite Quests
+			"accept" 															-- Plot Condition left in the route, so focus on main story Prerequisite Quests
+			"accept" 															-- Plot Condition!",
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66118] = { -- Basalt Assault
@@ -731,7 +808,8 @@ local WAYPOINTS = {
 			"Step 16 - Terillod the Devout (Rare)",								-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66122] = { -- Proto-Fight
@@ -742,7 +820,8 @@ local WAYPOINTS = {
 			"Step 17 - Klozicc the Ascended (Rare)",							-- Title
 			133731,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 	[66124] = { -- Exeunt, Triumphant
@@ -753,7 +832,8 @@ local WAYPOINTS = {
 			"Step 18 - Exeunt, Triumphant",										-- Title
 			236671,																-- Icon
 			nil,																-- DisplayID
-			{}, 																-- Prerequisite Quests
+			{}, 																-- Prerequisite Prerequisite Quests
+			"accept" 															-- Plot Condition
 		},
 	},
 }
