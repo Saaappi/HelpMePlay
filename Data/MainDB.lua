@@ -129,6 +129,18 @@ local NOTES = {
 			["quests.incomplete"] = { 66211 }, -- Brackenhide Hollow: To the Source
 		},
 	},
+	[188297] = { -- Caretaker Ventraz
+		["note"] = "|cffFF0000DO NOT ACCEPT QUESTS!|r",
+		["conditions"] = {
+			["level.lower"] = 70,
+		},
+	},
+	[194525] = { -- Apprentice Caretaker Zefren
+		["note"] = "|cffFF0000DO NOT ACCEPT QUESTS!|r",
+		["conditions"] = {
+			["level.lower"] = 70,
+		},
+	},
 }
 addonTable.NOTES = NOTES
 
