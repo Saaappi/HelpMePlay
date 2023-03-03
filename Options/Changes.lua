@@ -58,17 +58,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "small",
 		},]]
-		--[[fixedHeader = {
+		fixedHeader = {
 			name = "Fixed",
 			order = 30,
 			type = "header",
 		},
 		fixedText = {
-			--name = "",
+			name = coloredDash .. "Fixed the coordinates for Step 24 in The Azure Span.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		removedHeader = {
 			name = "Removed",
 			order = 40,

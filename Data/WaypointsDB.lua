@@ -563,8 +563,8 @@ local WAYPOINTS = {
 	[71135] = { -- Loose Ends
 		{
 			2024,																-- The Azure Span
-			58.79, 																-- X
-			34.83, 																-- Y
+			65.80, 																-- X
+			25.39, 																-- Y
 			"Step 24 - Rhonin's Shield\n\n" ..									-- Title
 			"Only do |cffFFFFFFDrakes be Gone|r!",
 			236671,																-- Icon
