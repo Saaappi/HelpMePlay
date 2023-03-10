@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local category = addonName .. " |T236688:16|t"
 
 BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
 BINDING_NAME_HELPMEPLAY_OPEN_SETTINGS = L_GLOBALSTRINGS["Keybind.OpenSettings"]
@@ -11,7 +12,7 @@ BINDING_NAME_HELPMEPLAY_ADD_TO_JUNKER_GLOBAL_BLACKLIST = L_GLOBALSTRINGS["Keybin
 
 function HelpMePlayKeyPressHandler(key)
 	if key == GetBindingKey("HELPMEPLAY_OPEN_SETTINGS") then
-		Settings.OpenToCategory(addonName)
+		Settings.OpenToCategory(category)
 	elseif key == GetBindingKey("HELPMEPLAY_ADD_TO_JUNKER") then
 		if GameTooltip:IsVisible() then
 			local _, itemLink = GameTooltip:GetItem()
