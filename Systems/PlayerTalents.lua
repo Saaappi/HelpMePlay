@@ -104,8 +104,22 @@ e:SetScript("OnEvent", function(self, event, addon)
 			HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 			
 			HMPTalentButton:HookScript("OnClick", function(self)
+				local _, _, classID = UnitClass("player")
 				local specID = PlayerUtil.GetCurrentSpecID()
-				local importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
+				
+				-- importStream has to be set in a few different ways. It can either
+				-- be set from a player's custom talent loadout. Alternatively, it can
+				-- be provided by the addon.
+				local importStream = ""
+				if HelpMePlayDB.PlayerTalents[classID] ~= nil then
+					if HelpMePlayDB.PlayerTalents[classID][specID] ~= "" then
+						importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB.PlayerTalents[classID][specID])
+					else
+						importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
+					end
+				else
+					importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
+				end
 				
 				local headerValid, serializationVersion, specID, treeHash = ClassTalentImportExportMixin:ReadLoadoutHeader(importStream)
 				if (not headerValid) then

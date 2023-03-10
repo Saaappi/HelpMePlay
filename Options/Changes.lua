@@ -26,12 +26,8 @@ local changesOptions = {
 			type = "header",
 		},
 		addedText = {
-			name = coloredDash .. "Added a waypoint to The Azure Span, marking a location for a Tuskarr Chest (rewards player experience).\n" ..
-			coloredDash .. "Added an additional waypoint between Varsek and the next main quest in The Azure Span.\n" ..
-			coloredDash .. "Added a note to |cffFFD100Brena|r, |cffFFD100Lukoturukk|r and |cffFFD100Bukarakikk's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.\n" ..
-			coloredDash .. "Added a note to |cffFFD100Caretaker Ventraz|r, |cffFFD100Haephesta|r, and |cffFFD100Apprentice Caretaker Zefren's|r tooltips when the player is less than 70 to not accept any (or some) of their quests.\n" ..
-			coloredDash .. "Added an additional waypoint in The Azure Span to mark the merchant that sells |T237302:0|t Frigidfish for the |cffFFD100Can We Keep It?|r quest.\n" ..
-			coloredDash .. "Added a waypoint to The Waking Shores, marking a location for a chest (rewards player experience).",
+			name = coloredDash .. "Added the ability for the player to import their own talent loadouts for individual classes and specializations.\n\n" ..
+			"   |cff009AE4Talent loadouts must be imported under the class and specialization for which it's intended. Only one custom loadout is supported for each class and specialization.|r",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
@@ -42,50 +38,33 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "Updated the sound input to accept multiple entries, allowing the player to mute multiple sounds at once.\n" ..
-			coloredDash .. "Changed the waypoint trigger for Step 5 in The Azure Span.\n" ..
-			coloredDash .. "Changed the waypoint trigger for Step 8 in The Azure Span.\n" ..
-			coloredDash .. "Changed the waypoint trigger for Step 10 in The Azure Span.\n" ..
-			"   |cff009AE4Step 10 won't be plotted until both quest chains in Camp Nowhere have been completed.|r\n" ..
-			coloredDash .. "Changed the waypoint trigger for Step 15 in The Azure Span.\n" ..
-			coloredDash .. "Changed the waypoint trigger for Step 16 in The Azure Span.\n" ..
-			coloredDash .. "Changed the waypoint trigger for Step 23 in The Azure Span.\n" ..
-			coloredDash .. "Changed the waypoint triggers for Steps 1-2 in The Waking Shores.\n" ..
-			"   |cff009AE4What's plotted first will depend on the player's faction. Alliance get the |cffFFD100Primal Scythid Queen|r while the Horde get the |cffFFD100Ancient Hornswog|r. Upon killing the respective rare, the other will be plotted automatically.|r",
+			name = coloredDash .. "Updated the TOC to support Patch 10.0.7.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
 		},
-		fixedHeader = {
+		--[[fixedHeader = {
 			name = "Fixed",
 			order = 30,
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed the coordinates for Step 24 in The Azure Span.",
+			name = "",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
-		},
-		removedHeader = {
+		},]]
+		--[[removedHeader = {
 			name = "Removed",
 			order = 40,
 			type = "header",
 		},
 		removedText = {
-			name = coloredDash .. "Removed |cffFFD100Lake Frog|r, |cffFFD100Kael'thas Sunstrider|r (during Venthyr campaign), and the |cffFFD100Exposed Boggart|r from the Notes table.\n" ..
-			coloredDash .. "Removed the |cffFFD100Explorers in Peril|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Where's Wrathion?|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Adventuring in the Dragon Isles|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Time for a Reckoning|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Chasing Sendrax|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Drainage Solutions|r waypoint.\n" ..
-			coloredDash .. "Removed the |cffFFD100Exeunt, Triumphant|r waypoint.\n" ..
-			coloredDash .. "Removed the Barbershop system.",
+			name = "",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
-		},
+		},]]
 	},
 }
 addonTable.changesOptions = changesOptions

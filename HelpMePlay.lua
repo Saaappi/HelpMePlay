@@ -119,6 +119,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.BarberShop == nil then
 				HelpMePlayDB.BarberShop = {}
 			end
+			if HelpMePlayDB.PlayerTalents == nil then
+				HelpMePlayDB.PlayerTalents = {}
+			end
 			
 			-- Clear the player-submitted dialogs.
 			--
