@@ -238,11 +238,19 @@ local systemsOptions = {
 		talentImportButton = {
 			name = "Import Talents",
 			order = 12,
+			desc = function()
+				local className = UnitClass("player")
+				local classColor = "|c" .. select(4, GetClassColor(string.upper(className)))
+				local _, specName = GetSpecializationInfoForSpecID(PlayerUtil.GetCurrentSpecID())
+				return "If you want to use a custom talent loadout for " .. classColor .. specName .. " " .. className .. "|r, then click here.\n\n" ..
+				"Paste your import string from an online talent calculator or the in-game talent interface.\n\n" ..
+				"|cffFFD100NOTE|r: Importing a custom loadout will override the loadout provided by HelpMePlay. To revert this behavior, click the button and select |cffFFD100Delete|r."
+			end,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_TALENT_IMPORT"] = {
 					text = "|T132222:24|t\n\n" ..
-					"Paste the talent share code into the field below and select OK.\n\n" ..
+					"Paste the talent share code into the field below and select |cffFFD100OK|r.\n\n" ..
 					"If you would like to use the talent loadout provided by HelpMePlay, then select the Delete button.",
 					button1 = "OK",
 					button2 = "Delete",
