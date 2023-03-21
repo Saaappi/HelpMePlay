@@ -53,7 +53,7 @@ This is a small section of the addon where people who contribute to the addon, e
 - **Groups** - Toggle accepting group invitations automatically.
 - **Gossip** - Toggle automatically selecting gossip from NPCs. *Players can even add their own! Pre-programmed gossips are based on Kraken Latte's leveling route!*
 - **Notes** - Toggle the addition of helpful notes to NPC tooltips. *Prime examples are which Gatamatos to click during for [Tactical Formation](https://www.wowhead.com/quest=57937/tactical-formation) and the Lever-Locked Chests in Torghast.
-- **Queues** - Toggle automatically accepting queue popups so you can grab some ale, take a much-needed trip to the lavoratory, or cook yourself some Golden Carp Consomme.
+- **Queues** - *This toggle can no longer accept LFD queues on the player's behalf as of 10.0.7*.
    - **Holiday Queues** - Toggle the addition of a special holiday boss queue button! You can use this button to immediately queue for the active holiday boss!
 - **Ready Checks** - Toggle the ability for HelpMePlay to tell your party or raid leader that you're always ready!
 - **Repairs** - Toggle automatically repairing your items when speaking with a repair merchant.

@@ -16,12 +16,13 @@ local HMPDungeonQueueButton = _G.CreateFrame(
 	"UIPanelButtonTemplate"
 )
 
+--[[ Commenting out because Blizzard protected the AcceptProposal() function in 10.0.7. :(
 LFGDungeonReadyDialogEnterDungeonButton:SetScript("OnShow", function()
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.QueuesEnabled then
 		LFGDungeonReadyDialogEnterDungeonButton:Click()
 	end
-end)
+end)]]
 
 e:RegisterEvent("PLAYER_ENTERING_WORLD")
 e:RegisterEvent("QUEST_ACCEPTED")

@@ -20,7 +20,7 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		addedHeader = {
+		--[[addedHeader = {
 			name = "Added",
 			order = 10,
 			type = "header",
@@ -32,8 +32,8 @@ local changesOptions = {
 			order = 11,
 			type = "description",
 			fontSize = "medium",
-		},
-		updatedHeader = {
+		},]]
+		--[[updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,
 			type = "header",
@@ -44,7 +44,7 @@ local changesOptions = {
 			order = 21,
 			type = "description",
 			fontSize = "medium",
-		},
+		},]]
 		--[[fixedHeader = {
 			name = "Fixed",
 			order = 30,
@@ -56,17 +56,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},]]
-		--[[removedHeader = {
+		removedHeader = {
 			name = "Removed",
 			order = 40,
 			type = "header",
 		},
 		removedText = {
-			name = "",
+			name = coloredDash .. "Removed the code that allowed HelpMePlay to accept LFD queues on behalf of the player. (|cff009AE4This was patched in 10.0.7 and is no longer possible.|r)",
 			order = 41,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 	},
 }
 addonTable.changesOptions = changesOptions
