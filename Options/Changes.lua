@@ -39,7 +39,8 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "Updated the TOC to support Patch 10.0.7.",
+			name = coloredDash .. "Updated the TOC to support Patch 10.0.7.\n" ..
+			coloredDash .. "Updated all talent builds to support Patch 10.0.7. Some talent builds were also updated due to changes in the new patch.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",

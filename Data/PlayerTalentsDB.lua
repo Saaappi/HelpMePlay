@@ -3,168 +3,168 @@ local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local PLAYER_TALENTS = {
 	-- Death Knight
 	[250] = { -- Blood
-		["importString"] 	= "BoPAAAAAAAAAAAAAAAAAAAAAAACJBkkISJSkQSiECSSSkAAAAAAkIJBRSTiIBAAISSSCAAAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BoPAAAAAAAAAAAAAAAAAAAAAAACJJCJJi0iEBJiECSSSkAAAAAAJSSOQEJNhIBAAESSSAAAAA",
+		["patch"] 			= "10.0.7",
 	},
 	[251] = { -- Frost
-		["importString"] 	= "BsPAAAAAAAAAAAAAAAAAAAAAAkkEgAJJkUiEQSSSIkISSkISAkkERSSSSKBAAAAAAAAAAAAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BsPAAAAAAAAAAAAAAAAAAAAAAkkEgAJJkUiEQSSSIkISSEkggkERSSSSKJAAAAAAAAAAAAA",
+		["patch"] 			= "10.0.7",
 	},
 	[252] = { -- Unholy
-		["importString"] 	= "BwPAAAAAAAAAAAAAAAAAAAAAAAAEkkQSJSIkkEhQSiEBAAAAAAAAAAkkAJpBAikiUCJJJSSA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BwPAAAAAAAAAAAAAAAAAAAAAAAAEkkQSJSIkkEhQSiEBAAAAAAAAAAJJQSaAgIJSJkkkIJB",
+		["patch"] 			= "10.0.7",
 	},
 	-- Demon Hunter
 	[577] = { -- Havoc
-		["importString"] 	= "BEkAAAAAAAAAAAAAAAAAAAAAAQCIhUik0SSkkIQAAAAAAA0SSgWKkkUQCpFpIJRSSC",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BEkAAAAAAAAAAAAAAAAAAAAAAIBkQKRSaJJSSEIAAAAAAAaJJQLFSSKISLSRSSSSCB",
+		["patch"] 			= "10.0.7",
 	},
 	[581] = { -- Vengeance
-		["importString"] 	= "BUkAAAAAAAAAAAAAAAAAAAAAAAAQLCtkEJRARiAJlEQ0SkIkESSLJiEHIhSkEAAAAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BUkAAAAAAAAAAAAAAAAAAAAAAAAoFhWSikIgIRgkSCIaJSESCJplERiDkQJSCAAAAA",
+		["patch"] 			= "10.0.7",
 	},
 	-- Druid
 	[102] = { -- Balance
-		["importString"] 	= "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAkkIikkAkkIJSBaJSSSkSii4AJhUSKRIoAQAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFASSERSSASSkEpAtEJJJSJRRcgkQKJlIEUAIAA",
+		["patch"] 			= "10.0.7",
 	},
 	[103] = { -- Feral
-		["importString"] 	= "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAISapJhkkIpkyBQJJJRSAAAAAAoAgkAAkkkESiUSol4AAAAAAAQCoBA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BcGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkk0STCRSkUUCKJJJSCAAAAAAFAkEAISSSCJ5ApE0ScAAAAAAAIB0AA",
+		["patch"] 			= "10.0.7",
 	},
 	[104] = { -- Guardian
-		["importString"] 	= "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSSSSJRJJJJCEkUoAQigAJIJJJJJSBaJAAAAAAICIAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BgGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEJJJpkokkkEBCSKUAIRQgEkkkkkEpAtEAAAAAAEBEAA",
+		["patch"] 			= "10.0.7",
 	},
 	[105] = { -- Restoration
-		["importString"] 	= "BkGAAAAAAAAAAAAAAAAAAAAAAQkkUKtkEJFplEEC0SJJAAAAAAAAAAAAgSASigAIBEkQJJplkAAAAAAEBAAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BkGAAAAAAAAAAAAAAAAAAAAAAgkEtSSiki0SCENhWKJBAAAAAAAAAAAAUSAJRQAkACWQokk0SSAAAAAAiAAAA",
+		["patch"] 			= "10.0.7",
 	},
 	-- Evoker
 	[1467] = { -- Devastation
-		["importString"] 	= "BsbBAAAAAAAAAAAAAAAAAAAAAIFCAAAAAAoolikISCJkEJtkk0CSLCSIJAJJJRIJJ",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BsbBAAAAAAAAAAAAAAAAAAAAAQhAAAAAAAKapIJCJRCJRSLJJNIIiEJJESSSSCJJB",
+		["patch"] 			= "10.0.7",
 	},
 	[1468] = { -- Preservation
-		["importString"] 	= "BwbBAAAAAAAAAAAAAAAAAAAAAABtIgIJNJJJJCJJJhAAAAAAQiEJSIJQSSChIJB",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BwbBAAAAAAAAAAAAAAAAAAAAAABtIESiUkkEiolkkESAAAAAAkIkIRSgkkECRSSA",
+		["patch"] 			= "10.0.7",
 	},
 	-- Hunter
 	[253] = { -- Beast Mastery
 		["importString"] 	= "B0PAAAAAAAAAAAAAAAAAAAAAA4AgWCAQAAAAAAAAAAAoBIhWikIJkkDEpJkSikQkERasgEB",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[254] = { -- Marksmanship
-		["importString"] 	= "B4PAAAAAAAAAAAAAAAAAAAAAA4ARoFASCCCAAAAQERkkkkgIRSLkGRQRKaCJJhESoBAAAAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "B4PAAAAAAAAAAAAAAAAAAAAAAUOQEaBgACCAAAAAJRkkkkgIRSLkGJhSRaaCJyBIJSoBAAAAA",
+		["patch"] 			= "10.0.7",
 	},
 	[255] = { -- Survival
 		["importString"] 	= "B8PAAAAAAAAAAAAAAAAAAAAAA4ABahkEIBBJHIRaJECRSKRIAAAAAQQUkiGkIhkIhGAAAAA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	-- Mage
 	[62] = { -- Arcane
-		["importString"] 	= "B4DAAAAAAAAAAAAAAAAAAAAAAQCRokkkkEFQSTIiIkIBolEJtkAAAAAAAAAAAAIJJJhkkkIA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "B4DAAAAAAAAAAAAAAAAAAAAAAAkkkSikIJlAJNhIiIhkEcAJRIJAAAAAAAAAAAAkkkESSSSC",
+		["patch"] 			= "10.0.7",
 	},
 	[63] = { -- Fire
 		["importString"] 	= "B8DAAAAAAAAAAAAAAAAAAAAAAIJRgSSyBQSRESTiIiIJAAAAAAAAAkQSiEkGJJSkkkIFAAAA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[64] = { -- Frost
 		["importString"] 	= "BAEAAAAAAAAAAAAAAAAAAAAAAIJSgWicgIJFISTIiISSAAAkkkEhEJJJSKJJJCAAAAAAAAAgA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	-- Monk
 	[268] = { -- Brewmaster
 		["importString"] 	= "BwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAloUSSiQSSrRAAAASL0SiEJJJkkkkUkAaRi0SrEC",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[270] = { -- Mistweaver
-		["importString"] 	= "B4QAAAAAAAAAAAAAAAAAAAAAAIRUkkkQRLJSkDQSDiUEAAAAAAAAAAAAAIlgIRCkkkkUSCSAAE",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "B4QAAAAAAAAAAAAAAAAAAAAAAIRUkkkQRLJSkDQSDiUEAAAAAAAAAAAAAIlgIRCkkkkUSCSAAEA",
+		["patch"] 			= "10.0.7",
 	},
 	[269] = { -- Windwalker
-		["importString"] 	= "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAJRSSSTiEBAAAAkkkESASkItItkERSkIJJJSTCAAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "B0QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAJRSSSTiEBAAAAkkkUIBIRi0i0SSEJRikkkINJAAAA",
+		["patch"] 			= "10.0.7",
 	},
 	-- Paladin
 	[65] = { -- Holy
-		["importString"] 	= "BEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQSAAAAAAA0SCQJSiSTkiEJlEolIRTEJpIRSSUSRSQBRA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BEEAAAAAAAAAAAAAAAAAAAAAAAABAABAEBAAIAtkAUiko0EpIRSJBHolIaCSSRQSCRaBICAIQAFgA",
+		["patch"] 			= "10.0.7",
 	},
 	[66] = { -- Protection
-		["importString"] 	= "BIEAAAAAAAAAAAAAAAAAAAAAA0iWikikiIJJKNJJEkQAAAAAAAAAAAAAAQTSSSkASUSJIJloEA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BIEAAAAAAAAAAAAAAAAAAAAAA0SaJSKSKIJJKNJJESiEAAAAAAAAAAAkEJJEIJkkiERCAgAAIgA",
+		["patch"] 			= "10.0.7",
 	},
 	[70] = { -- Retribution
-		["importString"] 	= "BYEAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIBgolSSCJBJkSKJJpVCAAAAAAg0QSSkEiElUSSQJKB",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BYEAAAAAAAAAAAAAAAAAAAAAAAAAAQAgIUKtSSp0kokkkCJAAAAAAABkkQCEEpFhkQKploRCJIiSjGA",
+		["patch"] 			= "10.0.7",
 	},
 	-- Priest
 	[256] = { -- Discipline
 		["importString"] 	= "BAQAAAAAAAAAAAAAAAAAAAAAAAAkUIJQSQSSUSJJJJAAAAAAAAAAAASEKkiEJISRIRItSkIgWE",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[257] = { -- Holy
 		["importString"] 	= "BEQAAAAAAAAAAAAAAAAAAAAAAQTAAAAAAAAlEKpIkkIQkkIKJJAAAAAAQKSSCiUSIRQpFJJBaB",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[258] = { -- Shadow
 		["importString"] 	= "BIQAAAAAAAAAAAAAAAAAAAAAAISSLSAAAAAAAAAAAAAISiSkmUISSSJhEBaRSSiUIFSQQpFhkAA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	-- Rogue
 	[259] = { -- Assassination
 		["importString"] 	= "BMQAAAAAAAAAAAAAAAAAAAAAAQLJSikIRLBAAAAAAQiAIJAAAAAAASJJCtkgkkEhkkAJRSiFE",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[260] = { -- Outlaw
 		["importString"] 	= "BQQAAAAAAAAAAAAAAAAAAAAAAAAAgEREAJJkIJJIJRSSiIkkkIAAAAAAARJSIlkASSKBAAAA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[261] = { -- Subtlety
 		["importString"] 	= "BUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAJJiIBIRSCSSSISSESSSLJhDUSCSSkSAAAA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	-- Shaman
 	[262] = { -- Elemental
-		["importString"] 	= "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgUSpUSSJJ0i0SSDBNIBAAAAAAIApkEl0EFINSSTJBlkASA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BYQAAAAAAAAAAAAAAAAAAAAAAAAAAAAgUSpUSSJJ0i0SSDBNIBAAAAAgWIkIJKhkCISapkDARSQA",
+		["patch"] 			= "10.0.7",
 	},
 	[263] = { -- Enhancement
 		["importString"] 	= "BcQAAAAAAAAAAAAAAAAAAAAAAIRSaASSSikkQiEJAAAAAAAAAAAAAICRIRLFBIlEJFEQkESA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[264] = { -- Restoration
-		["importString"] 	= "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIpJJkkWkAaBJlUSKkUSIkSSSLFBk0CBE0SCIB",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAgkmkkkkWCKSSLBNIpEESJJEhCSTCIiSSSIBC",
+		["patch"] 			= "10.0.7",
 	},
 	-- Warlock
 	[265] = { -- Affliction
-		["importString"] 	= "BkQAAAAAAAAAAAAAAAAAAAAAAgQSSSiEINFCSLJJRaBAAAAapBAAAAAAIJakISSSS0SIAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BkQAAAAAAAAAAAAAAAAAAAAAAAikkkkAppRkWSSIFAAAAAAAAAAAAkk0IJRSSSiiEBAkA",
+		["patch"] 			= "10.0.7",
 	},
 	[266] = { -- Demonology
-		["importString"] 	= "BoQAAAAAAAAAAAAAAAAAAAAAAggkEJSg0SJCSLJJkWAAAAAQLCSIkIJSSiItkIhAAAAAAA",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BoQAAAAAAAAAAAAAAAAAAAAAAggkEJJQKKEpdgkESJAAAAAoEBJEaRSEJJpFJJBBAAAAAAJ",
+		["patch"] 			= "10.0.7",
 	},
 	[267] = { -- Destruction
-		["importString"] 	= "BsQAAAAAAAAAAAAAAAAAAAAAAggkEJSg0SLCSLJJkWgkDoEJiWQr0IBAAAAAAAAAAAQCJlkE",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BsQAAAAAAAAAAAAAAAAAAAAAAggkEJJQKKEpdgkESJQSUSSEtgWpJAAAAAAAAAAAAIhkWSSC",
+		["patch"] 			= "10.0.7",
 	},
 	-- Warrior
 	[71] = { -- Arms 
-		["importString"] 	= "BcEAAAAAAAAAAAAAAAAAAAAAAAIFJSSkQkkWpEJBAAAABRgCBUEBkIkEKSESAhECAAAAAAAAJKJIgQ0CB",
-		["patch"] 			= "10.0.5",
+		["importString"] 	= "BcEAAAAAAAAAAAAAAAAAAAAAAAIFJSSkQkkWpEJBAAAABRgCBRREQiQSoIRIBESIAAAAAAAAkokgACRDB",
+		["patch"] 			= "10.0.7",
 	},
 	[72] = { -- Fury
 		["importString"] 	= "BgEAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAQggSAEBhIIRDSIJQkESSaJJSkggEJRapFgkkEAAAEQQA",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 	[73] = { -- Protection
 		["importString"] 	= "BkEAAAAAAAAAAAAAAAAAAAAAAIQAAAAgkkEJJk0SKJJpUQEINFJElkEgIkkQDJJAQIAAAAAAAQEAgSpBAC",
-		["patch"] 			= "10.0.5",
+		["patch"] 			= "10.0.7",
 	},
 }
 addonTable.PLAYER_TALENTS = PLAYER_TALENTS
