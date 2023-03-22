@@ -49,7 +49,8 @@ local changesOptions = {
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed an issue where the payload quest ID was nil when accepting a quest.",
+			name = coloredDash .. "Fixed an issue where the payload quest ID was nil when accepting a quest.\n" ..
+			coloredDash .. "Fixed an issue in the Merchants automation when the GUID is nil.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
