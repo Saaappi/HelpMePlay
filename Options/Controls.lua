@@ -66,8 +66,8 @@ local controlOptions = {
 			values = function()
 				local specializations = {}
 				local numSpecs = GetNumSpecializationsForClassID(HelpMePlayDB.classID)
-				for i = 1, numSpecs do
-					local specID, specName, _, specIcon = GetSpecializationInfoForClassID(HelpMePlayDB.classID, i)
+				for specIndex = 1, numSpecs do
+					local specID, specName, _, specIcon = GetSpecializationInfoForClassID(HelpMePlayDB.classID, specIndex)
 					specializations[specID] = "|T" .. specIcon .. ":0|t" .. " " .. specName
 				end
 				return specializations
