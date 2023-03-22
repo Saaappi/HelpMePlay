@@ -43,17 +43,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},]]
-		--[[fixedHeader = {
+		fixedHeader = {
 			name = "Fixed",
 			order = 30,
 			type = "header",
 		},
 		fixedText = {
-			name = "",
+			name = coloredDash .. "Fixed an issue where the payload quest ID was nil when accepting a quest.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		removedHeader = {
 			name = "Removed",
 			order = 40,

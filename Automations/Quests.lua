@@ -363,8 +363,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.AcceptQuestsEnabled == false or HelpMePlayDB.AcceptQuestsEnabled == nil then return end
 		
+		local questID = ...
+		
 		if UnitLevel("player") == addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
-			C_QuestLog.AddQuestWatch(questId)
+			C_QuestLog.AddQuestWatch(questID)
 		end
 
 		if select(2, IsAddOnLoaded("Immersion")) then
@@ -379,7 +381,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- on the ignore list.
 		for i = 1, C_QuestLog.GetNumQuestLogEntries() do
 			local id = C_QuestLog.GetQuestIDForLogIndex(i)
-			if id == questId and (HelpMePlayIgnoredQuestsDB[questId] or addonTable.IGNORED_QUESTS[questId]) then
+			if id == questID and (HelpMePlayIgnoredQuestsDB[questID] or addonTable.IGNORED_QUESTS[questID]) then
 				C_QuestLog.SetSelectedQuest(id)
 				C_QuestLog.SetAbandonQuest()
 				C_QuestLog.AbandonQuest()
@@ -389,8 +391,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_AUTOCOMPLETE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
-		local questId = ...
-		ShowQuestComplete(questId)
+		local questID = ...
+		ShowQuestComplete(questID)
 	end
 	if event == "QUEST_COMPLETE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
