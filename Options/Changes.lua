@@ -20,19 +20,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		--[[addedHeader = {
+		addedHeader = {
 			name = "Added",
 			order = 10,
 			type = "header",
 		},
 		addedText = {
-			name = coloredDash .. "Added the ability for the player to import their own talent loadouts for individual classes and specializations.\n\n" ..
-			"   |cff009AE4Talent loadouts must be imported under the class and specialization for which it's intended. Only one custom loadout is supported for each class and specialization.|r\n\n" ..
-			coloredDash .. "Added an icon next to the addon name in the options menu to make it stand out *slightly* more.",
+			name = coloredDash .. "Added support for the new Dragonriding traits.",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		--[[updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,

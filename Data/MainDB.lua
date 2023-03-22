@@ -45,6 +45,8 @@ local DRAGONRIDING_TRAITS = {
 	{ ["nodeID"] = 64059, ["entryID"] = 82378 }, 	-- Beyond Infinity
 	{ ["nodeID"] = 64060, ["entryID"] = 82379 }, 	-- Yearning for the Sky
 	{ ["nodeID"] = 64058, ["entryID"] = 82377 }, 	-- At Home Aloft
+	{ ["nodeID"] = 92672, ["entryID"] = 114806 }, 	-- Aerial Halt
+	{ ["nodeID"] = 92671, ["entryID"] = 114805 }, 	-- Airborne Recovery
 }
 addonTable.DRAGONRIDING_TRAITS = DRAGONRIDING_TRAITS
 
