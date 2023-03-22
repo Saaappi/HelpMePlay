@@ -42,6 +42,10 @@ function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Extras", addonTable.extrasOptions)
 	self.extrasOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Extras", L_GLOBALSTRINGS["Tabs.Extras"], category); addonTable.extrasOptions = self.extrasOptions
 	
+	-- Controls
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Controls", addonTable.controlOptions)
+	self.controlOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Controls", "Controls", category); addonTable.controlOptions = self.controlOptions
+	
 	-- Changes
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Changes", addonTable.changesOptions)
 	self.changesOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Changes", "Changes", category); addonTable.changesOptions = self.changesOptions

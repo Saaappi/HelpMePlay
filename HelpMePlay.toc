@@ -41,6 +41,7 @@ Options\Systems.lua
 Options\ZoneSelection.lua
 Options\Sounds.lua
 Options\Extras.lua
+Options\Controls.lua
 Options\Changes.lua
 
 # Data
