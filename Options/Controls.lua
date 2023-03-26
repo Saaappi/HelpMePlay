@@ -80,6 +80,95 @@ local controlOptions = {
 			end,
 			set = function(_, specID) HelpMePlayDB.specID = specID end,
 		},
+		talentImportButton = {
+			name = "Import",
+			order = 4,
+			desc = function()
+				local className = select(1, GetClassInfo(HelpMePlayDB.classID))
+				local classColor = "|c" .. select(4, GetClassColor(string.upper(className)))
+				local _, specName = GetSpecializationInfoForSpecID(HelpMePlayDB.specID)
+				return "If you want to use a custom talent loadout for " .. classColor .. specName .. " " .. className .. "|r, then click here.\n\n" ..
+				"Paste your import string from an online talent calculator or the in-game talent interface.\n\n" ..
+				"|cffFFD100NOTE|r: Importing a custom loadout will override the loadout provided by HelpMePlay. To revert this behavior, click the button and select |cffFFD100Delete|r."
+			end,
+			type = "execute",
+			func = function(_, _)
+				StaticPopupDialogs["HELPMEPLAY_TALENT_IMPORT"] = {
+					text = "Paste the talent share code into the field below and select |cffFFD100OK|r.\n\n" ..
+					"If you would like to use the talent loadout provided by HelpMePlay, then select the Delete button.",
+					button1 = "OK",
+					button2 = "Delete",
+					button3 = CANCEL,
+					-- This is confusing, but I don't want Cancel
+					-- as the second button. Thus, OnAlt is used
+					-- for cancels and OnCancel is used for deleting
+					-- talent loadouts for the class/spec.
+					OnButton1 = function(self, data)
+						local _, _, classID = UnitClass("player")
+						local currentSpecID = PlayerUtil.GetCurrentSpecID()
+						local importString = self.editBox:GetText()
+						
+						if ClassTalentImportExportMixin then
+							local importStream = ExportUtil.MakeImportDataStream(importString)
+							local headerValid, serializationVersion, specID, treeHash = ClassTalentImportExportMixin:ReadLoadoutHeader(importStream)
+							
+							-- If the import string isn't valid, then return an error.
+							if (not headerValid) then
+								ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_BAD_STRING)
+								return false
+							end
+							
+							-- If the import string doesn't match the player's current class/spec, then
+							-- return an error.
+							--[[if (specID ~= currentSpecID) then
+								ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
+								return false
+							end]]
+							
+							-- If the import stream is a loadout from a previous patch, then return
+							-- an error.
+							if LOADOUT_SERIALIZATION_VERSION ~= nil and (serializationVersion ~= LOADOUT_SERIALIZATION_VERSION) then
+								ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
+								return false
+							end
+							
+							-- If the PlayerTalents table is nil, then populate it with some empty
+							-- data.
+							if HelpMePlayDB.PlayerTalents[classID] == nil then
+								HelpMePlayDB.PlayerTalents[classID] = {}
+							end
+							if HelpMePlayDB.PlayerTalents[classID][specID] == nil then
+								HelpMePlayDB.PlayerTalents[classID][specID] = ""
+							end
+							
+							-- The import string should be valid and all is right in the world, so put
+							-- the import string into the database.
+							HelpMePlayDB.PlayerTalents[classID][specID] = importString
+						else
+							print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": Please open the talent interface once before trying to import a custom loadout.")
+							return false
+						end
+					end,
+					OnCancel = function(self, data)
+						local _, _, classID = UnitClass("player")
+						local currentSpecID = PlayerUtil.GetCurrentSpecID()
+						
+						if HelpMePlayDB.PlayerTalents[classID] ~= nil then
+							if HelpMePlayDB.PlayerTalents[classID][currentSpecID] ~= "" then
+								HelpMePlayDB.PlayerTalents[classID][currentSpecID] = ""
+							end
+						end
+					end,
+					OnAlt = function() end, -- Cancel Button
+					showAlert = true,
+					hasEditBox = true,
+					whileDead = false,
+					hideOnEscape = true,
+					preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_TALENT_IMPORT")
+			end,
+		},
 	},
 }
 addonTable.controlOptions = controlOptions

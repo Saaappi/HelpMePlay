@@ -50,7 +50,8 @@ local changesOptions = {
 		},
 		fixedText = {
 			name = coloredDash .. "Fixed an issue where the payload quest ID was nil when accepting a quest.\n" ..
-			coloredDash .. "Fixed an issue in the Merchants automation when the GUID is nil.",
+			coloredDash .. "Fixed an issue in the Merchants automation when the GUID is nil.\n" ..
+			coloredDash .. "Fixed an issue that would cause successive gossips not to be selected when speaking with the same NPC.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
