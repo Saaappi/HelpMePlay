@@ -84,8 +84,8 @@ local controlOptions = {
 			name = "Import",
 			order = 4,
 			desc = function()
-				local className = select(1, GetClassInfo(HelpMePlayDB.classID))
-				local classColor = "|c" .. select(4, GetClassColor(string.upper(className)))
+				local className = select(1, GetClassInfo(HelpMePlayDB.classID)); local upperClassName = string.upper(className:gsub("%s+", ""))
+				local classColor = "|c" .. select(4, GetClassColor(upperClassName))
 				local _, specName = GetSpecializationInfoForSpecID(HelpMePlayDB.specID)
 				return "If you want to use a custom talent loadout for " .. classColor .. specName .. " " .. className .. "|r, then click here.\n\n" ..
 				"Paste your import string from an online talent calculator or the in-game talent interface.\n\n" ..
@@ -95,7 +95,8 @@ local controlOptions = {
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_TALENT_IMPORT"] = {
 					text = "Paste the talent share code into the field below and select |cffFFD100OK|r.\n\n" ..
-					"If you would like to use the talent loadout provided by HelpMePlay, then select the Delete button.",
+					"If you would like to use the talent loadout provided by HelpMePlay, then select |cffFFD100Delete|r.\n\n" ..
+					"If you don't want to continue, please select |cffFFD100Cancel|r.",
 					button1 = "OK",
 					button2 = "Delete",
 					button3 = CANCEL,
