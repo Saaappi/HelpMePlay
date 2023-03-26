@@ -184,7 +184,6 @@ local function SelectOption(options, npcID, parentMapID)
 				end
 				if numConditionsMatched == numConditions then
 					C_GossipInfo.SelectOption(gossip.o)
-					return
 				end
 			end
 		end
@@ -206,6 +205,10 @@ local function ConfirmConfirmationMessage(message, npcID, parentMapID)
 			return
 		end
 	end
+end
+
+local function GetOptions()
+	return C_GossipInfo.GetOptions()
 end
 
 local function GetParentMapID(mapID)
@@ -233,8 +236,20 @@ local function GetParentMapID(mapID)
 		end
 	end
 	
+	-- Get the gossip options from the current NPC.
+	local options = GetOptions()
+	
+	-- Before anything is done, if Developer Mode is enabled, print out the
+	-- gossip options.
+	--[[if HelpMePlayDB.DevModeEnabled then
+		local numOptions = #options
+		for index = 1, numOptions do
+			print(npcID .. " | " .. UnitName("target") .. " | " .. options[index].name .. " | " .. options[index].gossipOptionID)
+		end
+	end]]
+	
 	-- Call the SelectOption function.
-	SelectOption(C_GossipInfo.GetOptions(), npcID, parentMapID)
+	SelectOption(options, npcID, parentMapID)
 end
 
 local function GetNPCID()
