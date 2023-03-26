@@ -89,7 +89,7 @@ local controlOptions = {
 				local _, specName = GetSpecializationInfoForSpecID(HelpMePlayDB.specID)
 				return "If you want to use a custom talent loadout for " .. classColor .. specName .. " " .. className .. "|r, then click here.\n\n" ..
 				"Paste your import string from an online talent calculator or the in-game talent interface.\n\n" ..
-				"|cffFFD100NOTE|r: Importing a custom loadout will override the loadout provided by HelpMePlay. To revert this behavior, click the button and select |cffFFD100Delete|r."
+				"|cffFFD100NOTE|r: Importing a custom loadout will override the loadout provided by HelpMePlay."
 			end,
 			type = "execute",
 			func = function(_, _)
