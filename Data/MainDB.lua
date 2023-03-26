@@ -152,6 +152,11 @@ local NOTES = {
 }
 addonTable.NOTES = NOTES
 
+-- Ignored NPCs (Gossip)
+local IGNORED_GOSSIP_NPC = {
+}
+addonTable.IGNORED_GOSSIP_NPC = IGNORED_GOSSIP_NPC
+
 -- Quests
 local IGNORED_QUESTS = {
 	[53437] = true, -- The MOTHERLODE!!: Raw Deal
