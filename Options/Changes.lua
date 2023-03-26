@@ -28,7 +28,7 @@ local changesOptions = {
 		addedText = {
 			name = coloredDash .. "Added support for the new Dragonriding traits.\n" ..
 			coloredDash .. "Added a new Controls menu, where players will have the ability to further customize their HelpMePlay experience.\n\n" ..
-			"   |cff009AE4Currently, the only option here are for importing player talent loadouts for the Talent automation. This expansion allowed me to open importing loadouts for any class and specialization regardless of the player's current character.|r",
+			"   |cff009AE4Currently, the only option here are for importing player talent loadouts for the Talent automation. This expansion allowed me to open importing loadouts for any class and specialization regardless of the player's current character. Please note, you're still limited to 1 custom loadout for each class and specialization.|r",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
