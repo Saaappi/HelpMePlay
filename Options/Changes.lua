@@ -26,7 +26,9 @@ local changesOptions = {
 			type = "header",
 		},
 		addedText = {
-			name = coloredDash .. "Added support for the new Dragonriding traits.",
+			name = coloredDash .. "Added support for the new Dragonriding traits.\n" ..
+			coloredDash .. "Added a new Controls menu, where players will have the ability to further customize their HelpMePlay experience.\n\n" ..
+			"   |cff009AE4Currently, the only option here are for importing player talent loadouts for the Talent automation. This expansion allowed me to open importing loadouts for any class and specialization regardless of the player's current character.|r",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
@@ -37,8 +39,7 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "Updated the TOC to support Patch 10.0.7.\n" ..
-			coloredDash .. "Updated all talent builds to support Patch 10.0.7. Some talent builds were also updated due to changes in the new patch.",
+			name = "",
 			order = 21,
 			type = "description",
 			fontSize = "medium",

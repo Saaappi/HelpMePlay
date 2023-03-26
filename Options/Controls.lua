@@ -119,13 +119,6 @@ local controlOptions = {
 								return false
 							end
 							
-							-- If the import string doesn't match the player's current class/spec, then
-							-- return an error.
-							--[[if (specID ~= currentSpecID) then
-								ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
-								return false
-							end]]
-							
 							-- If the import stream is a loadout from a previous patch, then return
 							-- an error.
 							if LOADOUT_SERIALIZATION_VERSION ~= nil and (serializationVersion ~= LOADOUT_SERIALIZATION_VERSION) then
