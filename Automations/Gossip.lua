@@ -1,6 +1,7 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local npcID = 0
+local options = ""
 
 local function GetGossipTable(parentMapID)
 	-- Create an empty table.
@@ -207,10 +208,6 @@ local function ConfirmConfirmationMessage(message, npcID, parentMapID)
 	end
 end
 
-local function GetOptions()
-	return C_GossipInfo.GetOptions()
-end
-
 local function GetParentMapID(mapID)
 	-- Set the scope for the parentMapID variable to the entire function.
 	local parentMapID = 0
@@ -235,18 +232,6 @@ local function GetParentMapID(mapID)
 			parentMapID = mapInfo.mapID
 		end
 	end
-	
-	-- Get the gossip options from the current NPC.
-	local options = GetOptions()
-	
-	-- Before anything is done, if Developer Mode is enabled, print out the
-	-- gossip options.
-	--[[if HelpMePlayDB.DevModeEnabled then
-		local numOptions = #options
-		for index = 1, numOptions do
-			print(npcID .. " | " .. UnitName("target") .. " | " .. options[index].name .. " | " .. options[index].gossipOptionID)
-		end
-	end]]
 	
 	-- Call the SelectOption function.
 	SelectOption(options, npcID, parentMapID)
@@ -311,6 +296,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
+		
+		-- Before anything is done, if Developer Mode is enabled, print out the
+		-- gossip options.
+		options = C_GossipInfo.GetOptions()
+		if HelpMePlayDB.DevModeEnabled then
+			local numOptions = #options
+			for index = 1, numOptions do
+				print(npcID .. " | " .. UnitName("target") .. " | " .. options[index].name .. " | " .. options[index].gossipOptionID)
+			end
+		end
 		
 		GetNPCID()
 	end
