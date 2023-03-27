@@ -39,7 +39,8 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "Talents learned are now saved between sessions.",
+			name = coloredDash .. "Talents learned are now saved between sessions.\n" ..
+			coloredDash .. "Importing a talent loadout for an unselected specialization will now return an error.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
