@@ -105,8 +105,6 @@ local controlOptions = {
 					-- for cancels and OnCancel is used for deleting
 					-- talent loadouts for the class/spec.
 					OnButton1 = function(self, data)
-						local _, _, classID = UnitClass("player")
-						local currentSpecID = PlayerUtil.GetCurrentSpecID()
 						local importString = self.editBox:GetText()
 						
 						if ClassTalentImportExportMixin then
@@ -119,6 +117,13 @@ local controlOptions = {
 								return false
 							end
 							
+							-- If the import string specID doesn't match the specID chosen in the
+							-- dropdown, then return an error.
+							if specID ~= HelpMePlayDB.specID then
+								ClassTalentImportExportMixin:ShowImportError("|cffFF0000Loadout does not match the chosen specialization.|r")
+								return false
+							end
+							
 							-- If the import stream is a loadout from a previous patch, then return
 							-- an error.
 							if LOADOUT_SERIALIZATION_VERSION ~= nil and (serializationVersion ~= LOADOUT_SERIALIZATION_VERSION) then
@@ -128,28 +133,25 @@ local controlOptions = {
 							
 							-- If the PlayerTalents table is nil, then populate it with some empty
 							-- data.
-							if HelpMePlayDB.PlayerTalents[classID] == nil then
-								HelpMePlayDB.PlayerTalents[classID] = {}
+							if HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID] == nil then
+								HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID] = {}
 							end
-							if HelpMePlayDB.PlayerTalents[classID][specID] == nil then
-								HelpMePlayDB.PlayerTalents[classID][specID] = ""
+							if HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] == nil then
+								HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] = ""
 							end
 							
 							-- The import string should be valid and all is right in the world, so put
 							-- the import string into the database.
-							HelpMePlayDB.PlayerTalents[classID][specID] = importString
+							HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] = importString
 						else
 							print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": Please open the talent interface once before trying to import a custom loadout.")
 							return false
 						end
 					end,
 					OnCancel = function(self, data)
-						local _, _, classID = UnitClass("player")
-						local currentSpecID = PlayerUtil.GetCurrentSpecID()
-						
-						if HelpMePlayDB.PlayerTalents[classID] ~= nil then
-							if HelpMePlayDB.PlayerTalents[classID][currentSpecID] ~= "" then
-								HelpMePlayDB.PlayerTalents[classID][currentSpecID] = ""
+						if HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID] ~= nil then
+							if HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][HelpMePlayDB.specID] ~= "" then
+								HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][HelpMePlayDB.specID] = ""
 							end
 						end
 					end,

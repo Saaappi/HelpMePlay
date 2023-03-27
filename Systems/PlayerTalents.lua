@@ -116,8 +116,10 @@ e:SetScript("OnEvent", function(self, event, addon)
 				local importStream = ""
 				if HelpMePlayDB.PlayerTalents[classID] ~= nil then
 					if HelpMePlayDB.PlayerTalents[classID][specID] ~= "" then
+						print(HelpMePlayDB.PlayerTalents[classID].specID)
 						importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB.PlayerTalents[classID][specID])
 					else
+						print("B")
 						importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
 					end
 				else
