@@ -1,7 +1,6 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
-local talentsPrintedThisSession = {}
 
 local function TalentPurchased(configID, entry)
 	local entryInfo = ""
@@ -12,8 +11,12 @@ local function TalentPurchased(configID, entry)
 		entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[1])
 	end
 	
-	if talentsPrintedThisSession[entry.nodeID] == nil then
-		talentsPrintedThisSession[entry.nodeID] = true
+	if HelpMePlaySavesDB["Talents"] == nil then
+		HelpMePlaySavesDB["Talents"] = {}
+	end
+	
+	if HelpMePlaySavesDB["Talents"][entry.nodeID] == nil then
+		HelpMePlaySavesDB["Talents"][entry.nodeID] = true
 		local _, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s", icon, spellLink))

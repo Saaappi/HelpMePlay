@@ -33,17 +33,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		--[[updatedHeader = {
+		updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,
 			type = "header",
 		},
 		updatedText = {
-			name = "",
+			name = coloredDash .. "Talents learned are now saved between sessions.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		fixedHeader = {
 			name = "Fixed",
 			order = 30,
