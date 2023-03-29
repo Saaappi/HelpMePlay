@@ -4,26 +4,61 @@ local L = addonTable.L
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function Gossip(gossip)
+	-- First, let's check if the gossip parameter is a number.
 	if tonumber(gossip) then
+		-- Cast gossip as a number and reassign it to the variable.
 		gossip = tonumber(gossip)
-		local gossips = C_GossipInfo.GetOptions()
-		local npcID = 0
-		local GUID = UnitGUID("target")
-		if GUID then
-			_, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
+	elseif gossip == nil then
+		-- If a gossip index isn't provided, then set it to 0.
+		gossip = 0
+	else
+		return
+	end
+	
+	-- Get the GUID of the targeted NPC.
+	local GUID = UnitGUID("target")
+	local npcID = 0
+	if GUID then
+		-- If the GUID is valid, then split the GUID, get the NPC ID and cast it as a number.
+		_, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
+		
+		-- Check if the gossip ID is 0. If it is, then wipe that NPC's gossip table.
+		if gossip == 0 then
+			if HelpMePlayPlayerDialogDB[npcID] then
+				HelpMePlayPlayerDialogDB[npcID] = nil
+			end
+			return
 		end
+	end
+	
+	-- Get the available gossip options from the NPC.
+	--
+	-- Make sure gossips is valid before continuing.
+	local gossips = C_GossipInfo.GetOptions()
+	if (#gossips > 0) then
+		-- If the NPC isn't in the dialog table, then add an empty table for it.
 		if not HelpMePlayPlayerDialogDB[npcID] then
 			HelpMePlayPlayerDialogDB[npcID] = {}
 		end
+		
+		-- If the NPC table doesn't have the "g" table, or the gossip table, then create it.
 		if not HelpMePlayPlayerDialogDB[npcID]["g"] then
 			HelpMePlayPlayerDialogDB[npcID]["g"] = {}
-			table.insert(HelpMePlayPlayerDialogDB[npcID]["g"], gossips[gossip].gossipOptionID)
-		else
-			if gossip == 0 then
-				HelpMePlayPlayerDialogDB[npcID] = nil
-			else
-				table.insert(HelpMePlayPlayerDialogDB[npcID]["g"], gossips[gossip].gossipOptionID)
+		end
+		
+		-- First, count the number of gossips in the NPC's table. If 0, then it's a fresh table
+		-- and we don't need to loop. Otherwise, loop.
+		local numGossips = #HelpMePlayPlayerDialogDB[npcID]["g"]
+		if numGossips > 0 then
+			-- Check if the current gossip option is in the NPC's gossip table.
+			for index, optionID in ipairs(HelpMePlayPlayerDialogDB[npcID]["g"]) do
+				-- If it's in the table, then remove it. Otherwise, insert it into the table.
+				if optionID == gossips[gossip].gossipOptionID then
+					HelpMePlayPlayerDialogDB[npcID]["g"][index] = nil
+				end
 			end
+		else
+			table.insert(HelpMePlayPlayerDialogDB[npcID]["g"], gossips[gossip].gossipOptionID)
 		end
 	end
 end
@@ -49,7 +84,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 	local cmd, arg1, arg2 = string.split(" ", cmd)
 	if not cmd or cmd == "" then
 		Settings.OpenToCategory(addonName)
-	elseif cmd == L_GLOBALSTRINGS["Command.Gossip"] and arg1 ~= nil then
+	elseif cmd == L_GLOBALSTRINGS["Command.Gossip"] then
 		Gossip(arg1)
 	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] then
 		Confirm()
