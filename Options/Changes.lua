@@ -49,7 +49,7 @@ local changesOptions = {
 		},
 		fixedText = {
 			name = coloredDash .. "Fixed an issue that caused the Gossip automation to always load the Dragonflight gossip table regardless of the player's current map.\n\n" ..
-			"   |cff009AE4This was caused by half of a check for the map's type being compared against the map ID opposed to the map's type. This led to further recursion than was intended.|r",
+			"   |cff009AE4This was caused by half of a check for the map's type being compared against the map's ID opposed to the map's type. This led to further recursion than was intended.|r",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
