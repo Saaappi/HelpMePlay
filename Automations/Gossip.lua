@@ -293,8 +293,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 					StaticPopup1Button1:Click("LeftButton")
 				end
 			else
-				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
-				-- function.
+				-- If the targeted NPC is in the table and is flagged for confirmation, then click the
+				-- popup.
 				if gossips[npcID] then
 					if gossips[npcID]["c"] then
 						StaticPopup1Button1:Click("LeftButton")
@@ -321,8 +321,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 					StaticPopup1Button1:Click("LeftButton")
 				end
 			else
-				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
-				-- function.
+				-- If the targeted NPC is in the table and is flagged for confirmation, then click the
+				-- popup.
 				if gossips[npcID] then
 					if gossips[npcID]["c"] then
 						StaticPopup1Button1:Click("LeftButton")
