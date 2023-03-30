@@ -193,7 +193,7 @@ end
 
 local function GetParentMapIDForConfirm(mapID)
 	-- Set the scope for the parentMapID variable to the entire function.
-	local parentMapID = 0
+	local parentMapID
 	
 	-- Ensure the provided mapID variable is valid before using it downstream.
 	if mapID then
@@ -209,7 +209,7 @@ local function GetParentMapIDForConfirm(mapID)
 		--
 		-- If the map's type is NOT Cosmic (0) and it's not a Continent (2), then work up
 		-- in the map chain until we find a map with a type of 0 or 2.
-		if mapInfo.mapType ~= 0 and mapInfo.parentMapID ~= 2 then
+		if mapInfo.mapType ~= 0 and mapInfo.mapType ~= 2 then
 			GetParentMapID(mapInfo.parentMapID)
 		else
 			parentMapID = mapInfo.mapID
