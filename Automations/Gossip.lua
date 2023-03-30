@@ -191,21 +191,32 @@ local function SelectOption(options, npcID, parentMapID)
 	end
 end
 
-local function ConfirmConfirmationMessage(message, npcID, parentMapID)
-	if HelpMePlayPlayerDialogDB[npcID] then
-		if HelpMePlayPlayerDialogDB[npcID]["c"] then
-			StaticPopup1Button1:Click("LeftButton")
-			return
+local function GetParentMapIDForConfirm(mapID)
+	-- Set the scope for the parentMapID variable to the entire function.
+	local parentMapID = 0
+	
+	-- Ensure the provided mapID variable is valid before using it downstream.
+	if mapID then
+		-- Get information about the current map using the above ID.
+		local mapInfo = C_Map.GetMapInfo(mapID)
+		
+		-- We need to always check if we're dealing with the highest ZONE in a map chain.
+		--
+		-- Example: Random Cave > Random Den > Highmountain > Broken Isles
+		-- In the above example, the highest ZONE we would be dealing with is Highmountain
+		-- because Random Cave and Random Den would be MICRO ZONES to Highmountain and the
+		-- Broken Isles is a CONTINENT.
+		--
+		-- If the map's type is NOT Cosmic (0) and it's not a Continent (2), then work up
+		-- in the map chain until we find a map with a type of 0 or 2.
+		if mapInfo.mapType ~= 0 and mapInfo.parentMapID ~= 2 then
+			GetParentMapID(mapInfo.parentMapID)
+		else
+			parentMapID = mapInfo.mapID
 		end
 	end
 	
-	local gossipTable = GetGossipTable(parentMapID)
-	if gossipTable[npcID] then
-		if gossipTable[npcID]["c"] then
-			StaticPopup1Button1:Click("LeftButton")
-			return
-		end
-	end
+	return parentMapID
 end
 
 local function GetParentMapID(mapID)
@@ -275,23 +286,39 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local _, _, _, _, _, npcID = strsplit("-", GUID); npcID = tonumber(npcID)
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			
-			local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-			ConfirmConfirmationMessage(message, npcID, parentMapID)
+			local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
+			ConfirmConfirmationMessage(npcID, parentMapID)
 		end
 	end
 	if event == "GOSSIP_CONFIRM" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
 		
-		--[[local _, message = ...
-		local GUID = UnitGUID("target") or UnitGUID("mouseover")
+		-- Get the GUID of the targeted NPC.
+		local GUID = UnitGUID("target")
 		if GUID then
-			local _, _, _, _, _, npcID = strsplit("-", GUID); npcID = tonumber(npcID)
+			-- If the GUID is valid, then split the GUID, get the NPC ID and cast it as a number.
+			local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
+			
+			-- If the NPC should be ignored, then let's disregard the request to handle confirmation.
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			
-			local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
-			ConfirmConfirmationMessage(message, npcID, parentMapID)
-		end]]
+			if HelpMePlayPlayerDialogDB[npcID] then
+				if HelpMePlayPlayerDialogDB[npcID]["c"] then
+					StaticPopup1Button1:Click("LeftButton")
+				end
+			else
+				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
+				-- function.
+				local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
+				local gossipTable = GetGossipTable(parentMapID)
+				if gossipTable[npcID] then
+					if gossipTable[npcID]["c"] then
+						StaticPopup1Button1:Click("LeftButton")
+					end
+				end
+			end
+		end
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
