@@ -37,7 +37,8 @@ local changesOptions = {
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "While targeting an NPC, players can now use /hmp gossip to wipe all gossips for the NPC. (This is the same as writing /hmp gossip 0 while targeting the NPC.)",
+			name = coloredDash .. "While targeting an NPC, players can now use |cffFFD100/hmp gossip|r to wipe all gossips for the NPC. (This is the same as writing |cffFFD100/hmp gossip 0|r while targeting the NPC.)\n" ..
+			coloredDash .. "An NPC must have a gossip entry now before the player can use the |cffFFD100/hmp confirm|r command for them.",
 			order = 21,
 			type = "description",
 			fontSize = "medium",

@@ -36,7 +36,7 @@ local function Gossip(gossip)
 	-- Make sure gossips is valid before continuing.
 	local gossips = C_GossipInfo.GetOptions()
 	if (#gossips > 0) then
-		-- If the NPC isn't in the dialog table, then add an empty table for it.
+		-- If the NPC isn't in the dialog/confirm table, then add an empty table for it.
 		if not HelpMePlayPlayerDialogDB[npcID] then
 			HelpMePlayPlayerDialogDB[npcID] = {}
 		end
@@ -64,17 +64,31 @@ local function Gossip(gossip)
 end
 
 local function Confirm()
-	local guid = UnitGUID("target")
-	if guid then
-		local _, _, _, _, _, npcId = string.split("-", guid); npcId = tonumber(npcId)
-		if not HelpMePlayPlayerDialogDB[npcId] then
-			HelpMePlayPlayerDialogDB[npcId] = {}
+	-- Get the GUID of the targeted NPC.
+	local GUID = UnitGUID("target")
+	if GUID then
+		-- If the GUID is valid, then split the GUID, get the NPC ID and cast it as a number.
+		local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
+		
+		-- If the NPC isn't in the dialog/confirm table, then add an empty table for it.
+		if not HelpMePlayPlayerDialogDB[npcID] then
+			HelpMePlayPlayerDialogDB[npcID] = {}
 		end
-		if not HelpMePlayPlayerDialogDB[npcId]["c"] then
-			HelpMePlayPlayerDialogDB[npcId]["c"] = true
+		
+		-- If the NPC doesn't have a "g" table, then report that to the player.
+		if not HelpMePlayPlayerDialogDB[npcID]["g"] then
+			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
+			return
+		end
+		
+		-- If the NPC table doesn't have the "c" table, or the confirm table, then create it.
+		--
+		-- If they do have a "c" table, then remove it.
+		if not HelpMePlayPlayerDialogDB[npcID]["c"] then
+			HelpMePlayPlayerDialogDB[npcID]["c"] = true
 		else
-			if HelpMePlayPlayerDialogDB[npcId]["c"] then
-				HelpMePlayPlayerDialogDB[npcId]["c"] = nil
+			if HelpMePlayPlayerDialogDB[npcID]["c"] then
+				HelpMePlayPlayerDialogDB[npcID]["c"] = nil
 			end
 		end
 	end
