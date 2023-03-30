@@ -280,14 +280,31 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
 		
-		local _, message = ...
-		local GUID = UnitGUID("target") or UnitGUID("mouseover")
+		-- Get the GUID of the targeted NPC.
+		local GUID = UnitGUID("target")
 		if GUID then
+			-- If the GUID is valid, then split the GUID, get the NPC ID and cast it as a number.
 			local _, _, _, _, _, npcID = strsplit("-", GUID); npcID = tonumber(npcID)
+			
+			-- If the NPC should be ignored, then let's disregard the request to handle automatically
+			-- setting the hearthstone location.
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			
-			local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
-			ConfirmConfirmationMessage(npcID, parentMapID)
+			if HelpMePlayPlayerDialogDB[npcID] then
+				if HelpMePlayPlayerDialogDB[npcID]["c"] then
+					StaticPopup1Button1:Click("LeftButton")
+				end
+			else
+				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
+				-- function.
+				local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
+				local gossipTable = GetGossipTable(parentMapID)
+				if gossipTable[npcID] then
+					if gossipTable[npcID]["c"] then
+						StaticPopup1Button1:Click("LeftButton")
+					end
+				end
+			end
 		end
 	end
 	if event == "GOSSIP_CONFIRM" then
