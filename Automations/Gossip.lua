@@ -2,11 +2,9 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local npcID = 0
 local options = ""
+local gossips = ""
 
 local function GetGossips(parentMapID)
-	-- Create an empty variable.
-	local gossips
-	
 	-- Check the provided parentMapID variable. If there's a match, then assign the
 	-- appropriate gossip table from the addon.
 	if parentMapID == 12 or parentMapID == 13 or parentMapID == 948 then
@@ -41,7 +39,7 @@ local function SelectOption(options, npcID, parentMapID)
 	
 	-- Get the gossip table based on the current map.
 	local gossips = GetGossips(parentMapID)
-	if gossips ~= {} then
+	if gossips then
 		if gossips[npcID] then
 			for _, gossip in pairs(gossips[npcID]["g"]) do
 				local numConditions = #gossip.c
@@ -210,12 +208,12 @@ local function GetParentMapIDForConfirm(mapID)
 		-- If the map's type is NOT Cosmic (0) and it's not a Continent (2), then work up
 		-- in the map chain until we find a map with a type of 0 or 2.
 		if mapInfo.mapType ~= 0 and mapInfo.mapType ~= 2 then
-			GetParentMapID(mapInfo.parentMapID)
+			GetParentMapIDForConfirm(mapInfo.parentMapID)
 		else
 			parentMapID = mapInfo.mapID
 		end
 	end
-	
+
 	return parentMapID
 end
 
@@ -274,7 +272,7 @@ end
 
 e:RegisterEvent("CONFIRM_BINDER")
 e:RegisterEvent("GOSSIP_CONFIRM")
-e:RegisterEvent("GOSSIP_SHOW")
+e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CONFIRM_BINDER" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
@@ -297,8 +295,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			else
 				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
 				-- function.
-				local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
-				local gossips = GetGossips(parentMapID)
 				if gossips[npcID] then
 					if gossips[npcID]["c"] then
 						StaticPopup1Button1:Click("LeftButton")
@@ -327,8 +323,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			else
 				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
 				-- function.
-				local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
-				local gossips = GetGossips(parentMapID)
 				if gossips[npcID] then
 					if gossips[npcID]["c"] then
 						StaticPopup1Button1:Click("LeftButton")
@@ -337,22 +331,25 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
-	if event == "GOSSIP_SHOW" then
+	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
-		-- Before anything is done, if Developer Mode is enabled, print out the
-		-- gossip options.
-		local GUID = UnitGUID("target")
-		local npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
-		options = C_GossipInfo.GetOptions()
-		if HelpMePlayDB.DevModeEnabled then
-			local numOptions = #options
-			for index = 1, numOptions do
-				print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+		local type = ...
+		if type == 3 then
+			-- Before anything is done, if Developer Mode is enabled, print out the
+			-- gossip options.
+			local GUID = UnitGUID("target")
+			local npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
+			options = C_GossipInfo.GetOptions()
+			if HelpMePlayDB.DevModeEnabled then
+				local numOptions = #options
+				for index = 1, numOptions do
+					print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+				end
 			end
+			
+			GetNPCID()
 		end
-		
-		GetNPCID()
 	end
 end)
