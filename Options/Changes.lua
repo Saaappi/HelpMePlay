@@ -49,7 +49,8 @@ local changesOptions = {
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed an issue that would allow a player to add gossips for an NPC when their gossip options were unavailable.",
+			name = coloredDash .. "Fixed an issue that would allow a player to add gossips for an NPC when their gossip options were unavailable.\n" ..
+			coloredDash .. "Attempting to heal your pets with Beastmaster Tirren in Maruukai should no longer cause a buffer overflow, potentially crashing the game.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
