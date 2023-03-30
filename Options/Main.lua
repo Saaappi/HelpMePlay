@@ -1,6 +1,8 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
+--Icons for acknowledgment buttons need to be 32x32 and in TGA format.
+
 local main = {
 	name = addonName,
 	handler = HelpMePlay,
@@ -54,6 +56,34 @@ local main = {
 					preferredIndex = 3,
 				}
 				StaticPopup_Show("HELPMEPLAY_ACK_KRAKENLATTE")
+			end,
+		},
+		gildedCanaryBtn = {
+			name = "|cffF1E2B7Gilded Canary|r",
+			order = 12,
+			type = "execute",
+			desc = "Canary is a prominent member of Kraken's community. She plays the game in her free time and is a wonderful artist.\n\n" ..
+			"She's provided feedback over the past few months that has led to enhancements in features like Cinematics, Gossips, and Party Play.\n\n" ..
+			"If you're looking for an artist, click here to get the link to her Twitter and find out if her commissions are open!",
+			image = "Interface/AddOns/HelpMePlay/Assets/Acknowledgments/Icon_Ack_GildedCanary",
+			func = function(_, _)
+				StaticPopupDialogs["HELPMEPLAY_ACK_GILDEDCANARY"] = {
+					text = "Thank you for showing an interest in Gilded Canary's artistry!\n\n" ..
+					"Copy the Twitter link below. Enjoy!",
+					button1 = "OK",
+					OnShow = function(self, data)
+						self.editBox:SetText("https://twitter.com/theGildedCanary")
+						self.editBox:HighlightText()
+					end,
+					timeout = 20,
+					showAlert = true,
+					whileDead = false,
+					hideOnEscape = true,
+					enterClicksFirstButton = true,
+					hasEditBox = true,
+					preferredIndex = 3,
+				}
+				StaticPopup_Show("HELPMEPLAY_ACK_GILDEDCANARY")
 			end,
 		},
 		resourcesHeader = {
