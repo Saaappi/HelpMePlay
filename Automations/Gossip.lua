@@ -298,9 +298,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
 				-- function.
 				local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
-				local gossipTable = GetGossipTable(parentMapID)
-				if gossipTable[npcID] then
-					if gossipTable[npcID]["c"] then
+				local gossips = GetGossips(parentMapID)
+				if gossips[npcID] then
+					if gossips[npcID]["c"] then
 						StaticPopup1Button1:Click("LeftButton")
 					end
 				end
@@ -328,9 +328,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
 				-- function.
 				local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
-				local gossipTable = GetGossips(parentMapID)
-				if gossipTable[npcID] then
-					if gossipTable[npcID]["c"] then
+				local gossips = GetGossips(parentMapID)
+				if gossips[npcID] then
+					if gossips[npcID]["c"] then
 						StaticPopup1Button1:Click("LeftButton")
 					end
 				end
