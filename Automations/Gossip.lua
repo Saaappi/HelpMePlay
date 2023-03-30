@@ -244,14 +244,14 @@ local function GetNPCID()
 			GetNPCID()
 		end)
 	else
-		local guid = UnitGUID("target") or UnitGUID("mouseover")
-		if guid then
+		local GUID = UnitGUID("target") or UnitGUID("mouseover")
+		if GUID then
 			-- Get the GUID of the target or mouseover unit and convert it into an
 			-- NPC ID and cast it as a number value.
 			--
 			-- Check a couple tables for an entry matching the NPC ID. If one is found,
 			-- then we need to exit the function because we shouldn't process gossip for this NPC.
-			npcID = select(6, strsplit("-", guid)); npcID = tonumber(npcID)
+			npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			if addonTable.IGNORED_GOSSIP_NPC[npcID] then return end
 		end
@@ -270,9 +270,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
 		
 		local _, message = ...
-		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
-		if unitGUID then
-			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+		local GUID = UnitGUID("target") or UnitGUID("mouseover")
+		if GUID then
+			local _, _, _, _, _, npcID = strsplit("-", GUID); npcID = tonumber(npcID)
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			
 			local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
@@ -283,15 +283,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return false end
 		
-		local _, message = ...
-		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
-		if unitGUID then
-			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
+		--[[local _, message = ...
+		local GUID = UnitGUID("target") or UnitGUID("mouseover")
+		if GUID then
+			local _, _, _, _, _, npcID = strsplit("-", GUID); npcID = tonumber(npcID)
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
 			
 			local parentMapID = GetParentMapID(C_Map.GetBestMapForUnit("player"))
 			ConfirmConfirmationMessage(message, npcID, parentMapID)
-		end
+		end]]
 	end
 	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
@@ -299,11 +299,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		-- Before anything is done, if Developer Mode is enabled, print out the
 		-- gossip options.
+		local GUID = UnitGUID("target")
+		local npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
 		options = C_GossipInfo.GetOptions()
 		if HelpMePlayDB.DevModeEnabled then
 			local numOptions = #options
 			for index = 1, numOptions do
-				print(npcID .. " | " .. UnitName("target") .. " | " .. options[index].name .. " | " .. options[index].gossipOptionID)
+				print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
 			end
 		end
 		
