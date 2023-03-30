@@ -131,21 +131,6 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.PlayerTalents == nil then
 				HelpMePlayDB.PlayerTalents = {}
 			end
-			
-			-- Clear the player-submitted dialogs.
-			--
-			-- This should only ever occur once.
-			for _, tbl in pairs(HelpMePlayPlayerDialogDB) do
-				if type(tbl) == "table" then
-					for _, dialog in ipairs(tbl.g) do
-						if type(dialog) == "string" then
-							HelpMePlayPlayerDialogDB = {}
-							print("Table is in incorrect format.")
-							return
-						end
-					end
-				end
-			end
 		end
 	end
 end)
