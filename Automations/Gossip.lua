@@ -3,10 +3,6 @@ local e = CreateFrame("Frame")
 local npcID = 0
 local options = ""
 
-local function HasGossip(gossips, npcID)
-	return gossips[npcID] ~= nil
-end
-
 local function GetGossips(parentMapID)
 	-- Create an empty variable.
 	local gossips
@@ -46,7 +42,7 @@ local function SelectOption(options, npcID, parentMapID)
 	-- Get the gossip table based on the current map.
 	local gossips = GetGossips(parentMapID)
 	if gossips ~= {} then
-		if HasGossip(gossips, npcID) then
+		if gossips[npcID] then
 			for _, gossip in pairs(gossips[npcID]["g"]) do
 				local numConditions = #gossip.c
 				local numConditionsMatched = 0
@@ -332,7 +328,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				-- Get the parent map ID of the player's current map, then call the ConfirmConfirmationMessage
 				-- function.
 				local parentMapID = GetParentMapIDForConfirm(C_Map.GetBestMapForUnit("player"))
-				local gossipTable = GetGossipTable(parentMapID)
+				local gossipTable = GetGossips(parentMapID)
 				if gossipTable[npcID] then
 					if gossipTable[npcID]["c"] then
 						StaticPopup1Button1:Click("LeftButton")

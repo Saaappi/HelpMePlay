@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local DIALOG_CLASSIC = {
-	["name"] = "Classic",
 	-- Supported Maps: 12 (Kalimdor), 13 (Eastern Kingdoms)
 	-- Blasted Lands
 	[78423] = { -- Archmage Khadgar
