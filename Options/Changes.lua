@@ -26,31 +26,30 @@ local changesOptions = {
 			type = "header",
 		},
 		addedText = {
-			name = coloredDash .. "",
+			name = "",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
 		},]]
-		updatedHeader = {
+		--[[updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,
 			type = "header",
 		},
 		updatedText = {
-			name = coloredDash .. "While targeting an NPC, players can now use |cffFFD100/hmp gossip|r to wipe all gossips for the NPC. (This is the same as writing |cffFFD100/hmp gossip 0|r while targeting the NPC.)\n" ..
-			coloredDash .. "An NPC must have a gossip entry now before the player can use the |cffFFD100/hmp confirm|r command for them.",
+			name = "",
 			order = 21,
 			type = "description",
 			fontSize = "medium",
-		},
+		},]]
 		fixedHeader = {
 			name = "Fixed",
 			order = 30,
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed an issue that would allow a player to add gossips for an NPC when their gossip options were unavailable.\n" ..
-			coloredDash .. "Fixed an issue that caused the game to crash when the player interacted with an NPC that had logged gossip and unlogged confirmation. (|cff009AE4e.g. The game would crash when the player interacted with Stable Masters that were assigned to automatically mend their battle pets.|r)",
+			name = coloredDash .. "Fixed an issue that caused the Gossip automation to always load the Dragonflight gossip table regardless of the player's current map.\n\n" ..
+			"   |cff009AE4This was caused by a half of a check for the map's type being compared against the map ID opposed to the map's type. This led to further recursion than was intended.|r",
 			order = 31,
 			type = "description",
 			fontSize = "medium",

@@ -3,9 +3,13 @@ local e = CreateFrame("Frame")
 local npcID = 0
 local options = ""
 
-local function GetGossipTable(parentMapID)
-	-- Create an empty table.
-	local gossips = {}
+local function HasGossip(gossips, npcID)
+	return gossips[npcID] ~= nil
+end
+
+local function GetGossips(parentMapID)
+	-- Create an empty variable.
+	local gossips
 	
 	-- Check the provided parentMapID variable. If there's a match, then assign the
 	-- appropriate gossip table from the addon.
@@ -40,9 +44,9 @@ local function SelectOption(options, npcID, parentMapID)
 	end
 	
 	-- Get the gossip table based on the current map.
-	local gossips = GetGossipTable(parentMapID)
-	if gossips then
-		if gossips[npcID] then
+	local gossips = GetGossips(parentMapID)
+	if gossips ~= {} then
+		if HasGossip(gossips, npcID) then
 			for _, gossip in pairs(gossips[npcID]["g"]) do
 				local numConditions = #gossip.c
 				local numConditionsMatched = 0
@@ -221,7 +225,7 @@ end
 
 local function GetParentMapID(mapID)
 	-- Set the scope for the parentMapID variable to the entire function.
-	local parentMapID = 0
+	local parentMapID
 	
 	-- Ensure the provided mapID variable is valid before using it downstream.
 	if mapID then
@@ -237,13 +241,13 @@ local function GetParentMapID(mapID)
 		--
 		-- If the map's type is NOT Cosmic (0) and it's not a Continent (2), then work up
 		-- in the map chain until we find a map with a type of 0 or 2.
-		if mapInfo.mapType ~= 0 and mapInfo.parentMapID ~= 2 then
+		if mapInfo.mapType ~= 0 and mapInfo.mapType ~= 2 then
 			GetParentMapID(mapInfo.parentMapID)
 		else
 			parentMapID = mapInfo.mapID
 		end
 	end
-	
+
 	-- Call the SelectOption function.
 	SelectOption(options, npcID, parentMapID)
 end
