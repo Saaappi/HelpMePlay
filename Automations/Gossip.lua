@@ -25,7 +25,19 @@ local function GetGossips(parentMapID)
 	return gossips
 end
 
-local function SelectOption(options, npcID, parentMapID)
+local function SelectOption(npcID)
+	-- Get the list of gossip options from the targeted NPC.
+	local options = C_GossipInfo.GetOptions()
+	
+	-- Before we select an option, let's print out the options the NPC has
+	-- if the player has Developer Mode enabled.
+	if HelpMePlayDB.DevModeEnabled then
+		local numOptions = #options
+		for index = 1, numOptions do
+			print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+		end
+	end
+	
 	-- Player-submitted gossip options. I need to do some work here.
 	for index, gossipSubTable in ipairs(options) do
 		if HelpMePlayPlayerDialogDB[npcID] then
@@ -38,7 +50,7 @@ local function SelectOption(options, npcID, parentMapID)
 	end
 	
 	-- Get the gossip table based on the current map.
-	local gossips = GetGossips(parentMapID)
+	gossips = addonTable.GOSSIP
 	if gossips then
 		if gossips[npcID] then
 			for _, gossip in pairs(gossips[npcID]["g"]) do
@@ -266,13 +278,14 @@ local function GetNPCID()
 		end
 		
 		-- Get the player's current map ID, then call the GetParentMapID function.
-		GetParentMapID(C_Map.GetBestMapForUnit("player"))
+		--GetParentMapID(C_Map.GetBestMapForUnit("player"))
+		SelectOption(npcID)
 	end
 end
 
 e:RegisterEvent("CONFIRM_BINDER")
 e:RegisterEvent("GOSSIP_CONFIRM")
-e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
+e:RegisterEvent("GOSSIP_SHOW")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "CONFIRM_BINDER" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
@@ -331,27 +344,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
-	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
+	if event == "GOSSIP_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GossipEnabled == false or HelpMePlayDB.GossipEnabled == nil then return end
 		
-		local type = ...
-		if type == 3 then
-			-- Before anything is done, if Developer Mode is enabled, print out the
-			-- gossip options.
-			local GUID = UnitGUID("target")
-			if GUID then
-				local npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
-				options = C_GossipInfo.GetOptions()
-				if HelpMePlayDB.DevModeEnabled then
-					local numOptions = #options
-					for index = 1, numOptions do
-						print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
-					end
-				end
-			end
-			
-			GetNPCID()
-		end
+		-- Call the GetNPCID() function.
+		GetNPCID()
 	end
 end)
