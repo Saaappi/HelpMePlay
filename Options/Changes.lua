@@ -20,17 +20,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		--[[addedHeader = {
+		addedHeader = {
 			name = "Added",
 			order = 10,
 			type = "header",
 		},
 		addedText = {
-			name = "",
+			name = coloredDash .. "Added the spell description to the talent output.",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		--[[updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,
@@ -42,7 +42,7 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},]]
-		fixedHeader = {
+		--[[fixedHeader = {
 			name = "Fixed",
 			order = 30,
 			type = "header",
@@ -53,7 +53,7 @@ local changesOptions = {
 			order = 31,
 			type = "description",
 			fontSize = "medium",
-		},
+		},]]
 		--[[removedHeader = {
 			name = "Removed",
 			order = 40,
