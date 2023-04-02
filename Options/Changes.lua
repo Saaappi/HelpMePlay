@@ -42,18 +42,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},]]
-		--[[fixedHeader = {
+		fixedHeader = {
 			name = "Fixed",
 			order = 30,
 			type = "header",
 		},
 		fixedText = {
-			name = coloredDash .. "Fixed an issue that caused the Gossip automation to always load the Dragonflight gossip table regardless of the player's current map.\n\n" ..
-			"   |cff009AE4This was caused by half of a check for the map's type being compared against the map's ID opposed to the map's type. This led to further recursion than was intended.|r",
+			name = coloredDash .. "Fixed an issue that caused most, if not all, gossips to only trigger when speaking with the NPC a second time.",
 			order = 31,
 			type = "description",
 			fontSize = "medium",
-		},]]
+		},
 		--[[removedHeader = {
 			name = "Removed",
 			order = 40,
