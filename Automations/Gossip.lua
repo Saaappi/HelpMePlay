@@ -340,12 +340,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 			-- Before anything is done, if Developer Mode is enabled, print out the
 			-- gossip options.
 			local GUID = UnitGUID("target")
-			local npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
-			options = C_GossipInfo.GetOptions()
-			if HelpMePlayDB.DevModeEnabled then
-				local numOptions = #options
-				for index = 1, numOptions do
-					print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+			if GUID then
+				local npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
+				options = C_GossipInfo.GetOptions()
+				if HelpMePlayDB.DevModeEnabled then
+					local numOptions = #options
+					for index = 1, numOptions do
+						print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+					end
 				end
 			end
 			
