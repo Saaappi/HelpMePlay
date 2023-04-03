@@ -1,29 +1,6 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local npcID = 0
-local options = ""
-local gossips = ""
-
-local function GetGossips(parentMapID)
-	-- Check the provided parentMapID variable. If there's a match, then assign the
-	-- appropriate gossip table from the addon.
-	if parentMapID == 12 or parentMapID == 13 or parentMapID == 948 then
-		gossips = addonTable.DIALOG_CLASSIC
-	elseif parentMapID == 572 then
-		gossips = addonTable.DIALOG_WOD
-	elseif parentMapID == 619 or parentMapID == 630 or parentMapID == 905 then
-		gossips = addonTable.DIALOG_LEGION
-	elseif parentMapID == 875 or parentMapID == 876 then
-		gossips = addonTable.DIALOG_BFA
-	elseif parentMapID == 1409 or parentMapID == 1550 or parentMapID == 1610 then
-		gossips = addonTable.DIALOG_SL
-	elseif parentMapID == 946 or parentMapID == 1978 or parentMapID == 2089 then
-		gossips = addonTable.DIALOG_DF
-	end
-	
-	-- Return the gossip table to the calling function.
-	return gossips
-end
+local gossips = {}
 
 local function SelectOption(npcID)
 	-- Get the list of gossip options from the targeted NPC.
@@ -218,64 +195,8 @@ local function SelectOption(npcID)
 	end
 end
 
-local function GetParentMapIDForConfirm(mapID)
-	-- Set the scope for the parentMapID variable to the entire function.
-	local parentMapID
-	
-	-- Ensure the provided mapID variable is valid before using it downstream.
-	if mapID then
-		-- Get information about the current map using the above ID.
-		local mapInfo = C_Map.GetMapInfo(mapID)
-		
-		-- We need to always check if we're dealing with the highest ZONE in a map chain.
-		--
-		-- Example: Random Cave > Random Den > Highmountain > Broken Isles
-		-- In the above example, the highest ZONE we would be dealing with is Highmountain
-		-- because Random Cave and Random Den would be MICRO ZONES to Highmountain and the
-		-- Broken Isles is a CONTINENT.
-		--
-		-- If the map's type is NOT Cosmic (0) and it's not a Continent (2), then work up
-		-- in the map chain until we find a map with a type of 0 or 2.
-		if mapInfo.mapType ~= 0 and mapInfo.mapType ~= 2 then
-			GetParentMapIDForConfirm(mapInfo.parentMapID)
-		else
-			parentMapID = mapInfo.mapID
-		end
-	end
-
-	return parentMapID
-end
-
-local function GetParentMapID(mapID)
-	-- Set the scope for the parentMapID variable to the entire function.
-	local parentMapID
-	
-	-- Ensure the provided mapID variable is valid before using it downstream.
-	if mapID then
-		-- Get information about the current map using the above ID.
-		local mapInfo = C_Map.GetMapInfo(mapID)
-		
-		-- We need to always check if we're dealing with the highest ZONE in a map chain.
-		--
-		-- Example: Random Cave > Random Den > Highmountain > Broken Isles
-		-- In the above example, the highest ZONE we would be dealing with is Highmountain
-		-- because Random Cave and Random Den would be MICRO ZONES to Highmountain and the
-		-- Broken Isles is a CONTINENT.
-		--
-		-- If the map's type is NOT Cosmic (0) and it's not a Continent (2), then work up
-		-- in the map chain until we find a map with a type of 0 or 2.
-		if mapInfo.mapType ~= 0 and mapInfo.mapType ~= 2 then
-			GetParentMapID(mapInfo.parentMapID)
-		else
-			parentMapID = mapInfo.mapID
-		end
-	end
-
-	-- Call the SelectOption function.
-	SelectOption(options, npcID, parentMapID)
-end
-
 local function GetNPCID()
+	local npcID = 0
 	if IsShiftKeyDown() then
 		C_Timer.After(addonTable.CONSTANTS["GOSSIP_SHOW_CALLBACK_DELAY"], function()
 			-- If the SHIFT key is down, then delay using the callback delay timer.
