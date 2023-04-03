@@ -55,12 +55,6 @@ Data\PlayerTalentsDB.lua
 Data\TalentSystems\TitanicResearchDB.lua
 Data\TalentSystems\BoxOfManyThingsDB.lua
 Data\Gossips\GossipDB.lua
-#Data\Gossips\Classic_GossipDB.lua
-#Data\Gossips\WOD_GossipDB.lua
-#Data\Gossips\Legion_GossipDB.lua
-#Data\Gossips\BFA_GossipDB.lua
-#Data\Gossips\SL_GossipDB.lua
-#Data\Gossips\DF_GossipDB.lua
 
 # Automations
 Automations\ChromieTime.lua
