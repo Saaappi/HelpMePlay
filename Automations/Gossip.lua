@@ -33,8 +33,14 @@ local function SelectOption(npcID)
 	-- if the player has Developer Mode enabled.
 	if HelpMePlayDB.DevModeEnabled then
 		local numOptions = #options
-		for index = 1, numOptions do
-			print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+		if npcID > 0 then
+			for index = 1, numOptions do
+				print(npcID .. " | " .. UnitName("target") .. " | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+			end
+		else
+			for index = 1, numOptions do
+				print("0 | <GameObject> | " .. "(" .. index .. ") " .. options[index].name .. " | " .. options[index].gossipOptionID)
+			end
 		end
 	end
 	
@@ -194,6 +200,17 @@ local function SelectOption(npcID)
 					end
 				end
 				if numConditionsMatched == numConditions then
+					C_GossipInfo.SelectOption(gossip.o)
+				end
+			end
+		end
+	end
+	
+	if npcID == nil then
+		-- We may be dealing with an object that has gossip options.
+		for _, option in ipairs(options) do
+			for _, gossip in ipairs(gossips[0]["g"]) do
+				if gossip.o == option.gossipOptionID then
 					C_GossipInfo.SelectOption(gossip.o)
 				end
 			end
