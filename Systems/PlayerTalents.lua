@@ -18,9 +18,8 @@ local function TalentPurchased(configID, entry)
 	if HelpMePlaySavesDB["Talents"][entry.nodeID] == nil then
 		HelpMePlaySavesDB["Talents"][entry.nodeID] = true
 		local _, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
-		local desc = GetSpellDescription(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
-		print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s\n|cffFFD100%s|r", icon, spellLink, desc))
+		print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s", icon, spellLink))
 	end
 end
 
@@ -120,7 +119,6 @@ e:SetScript("OnEvent", function(self, event, addon)
 						print(HelpMePlayDB.PlayerTalents[classID].specID)
 						importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB.PlayerTalents[classID][specID])
 					else
-						print("B")
 						importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
 					end
 				else

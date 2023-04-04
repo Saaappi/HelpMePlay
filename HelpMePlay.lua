@@ -131,6 +131,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.PlayerTalents == nil then
 				HelpMePlayDB.PlayerTalents = {}
 			end
+			addonTable.currentClass = UnitClass("player")
 		end
 	end
 end)

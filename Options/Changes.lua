@@ -20,17 +20,17 @@ local changesOptions = {
 			type = "description",
 			fontSize = "medium",
 		},
-		addedHeader = {
+		--[[addedHeader = {
 			name = "Added",
 			order = 10,
 			type = "header",
 		},
 		addedText = {
-			name = coloredDash .. "Added the spell description to the talent output.",
+			name = "",
 			order = 11,
 			type = "description",
 			fontSize = "medium",
-		},
+		},]]
 		--[[updatedHeader = {
 			name = "Changed / Updated",
 			order = 20,
