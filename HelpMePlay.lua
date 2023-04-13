@@ -10,49 +10,6 @@ function HelpMePlay:OnInitialize()
 	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay", addonName); addonTable.settings = self.settings
 	self:RegisterChatCommand("hmp", "SlashCommandHandler")
 	self:RegisterChatCommand("helpmeplay", "SlashCommandHandler")
-	--[[LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Main", addonTable.main)
-	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Main", category); addonTable.mainOptions = self.mainOptions
-	self:RegisterChatCommand(L_GLOBALSTRINGS["Command.Slash1"], "SlashCommandHandler")]]
-	
-	--[[ General
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_GeneralOptions", addonTable.generalOptions)
-	self.generalOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_GeneralOptions", L_GLOBALSTRINGS["Tabs.General"], category); addonTable.generalOptions = self.generalOptions
-	
-	-- Features
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_FeaturesOptions", addonTable.featuresOptions)
-	self.featuresOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_FeaturesOptions", L_GLOBALSTRINGS["Tabs.Features"], category); addonTable.featuresOptions = self.featuresOptions
-	
-	-- Quests
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_QuestOptions", addonTable.questOptions)
-	self.questOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_QuestOptions", L_GLOBALSTRINGS["Tabs.Quests"], category); addonTable.questOptions = self.questOptions
-	
-	-- Expansion Features
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_ExpansionFeatures", addonTable.expansionFeatures)
-	self.expansionFeatures = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ExpansionFeatures", L_GLOBALSTRINGS["Tabs.ExpansionFeatures"], category); addonTable.expansionFeatures = self.expansionFeatures
-	
-	-- Systems
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Systems", addonTable.systemsOptions)
-	self.systemsOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Systems", L_GLOBALSTRINGS["Tabs.Systems"], category); addonTable.systemsOptions = self.systemsOptions
-	
-	-- Zone Selection
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_ZoneSelection", addonTable.zoneSelectionOptions)
-	self.zoneSelectionOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_ZoneSelection", L_GLOBALSTRINGS["Tabs.ZoneSelection"], category); addonTable.zoneSelectionOptions = self.zoneSelectionOptions
-	
-	-- Sounds
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Sounds", addonTable.soundsOptions)
-	self.soundsOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Sounds", "Sounds", category); addonTable.soundsOptions = self.soundsOptions
-	
-	-- Extras
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Extras", addonTable.extrasOptions)
-	self.extrasOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Extras", L_GLOBALSTRINGS["Tabs.Extras"], category); addonTable.extrasOptions = self.extrasOptions
-	
-	-- Controls
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Controls", addonTable.controlOptions)
-	self.controlOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Controls", "Controls", category); addonTable.controlOptions = self.controlOptions
-	
-	-- Changes
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Changes", addonTable.changesOptions)
-	self.changesOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Changes", "Changes", category); addonTable.changesOptions = self.changesOptions]]
 	
 	-- Default Options
 	if HelpMePlayDB == nil then
