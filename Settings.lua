@@ -1753,17 +1753,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				--[[removedHeader = {
+				removedHeader = {
 					name = "Removed",
 					order = 40,
 					type = "header",
 				},
 				removedText = {
-					name = "",
+					name = coloredDash .. "Removed the icon from next to the addon's name in the settings menu.",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
             },
 		},
 		About_Tab = {
