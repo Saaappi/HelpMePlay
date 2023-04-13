@@ -1737,7 +1737,7 @@ local settings = {
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Updated the layout of the Settings menu.",
+					name = coloredDash .. "Updated the layout and format of the settings menu.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
@@ -1786,6 +1786,64 @@ local settings = {
 					name = "|cffFFD100Contact|r: Lightsky#0658 (Discord)",
 					order = 3,
 					type = "description",
+				},
+				Acknowledgments_Header = {
+					name = "Acknowledgments",
+					order = 10,
+					type = "header",
+				},
+				krakenLatteBtn = {
+					name = L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Title"],
+					order = 11,
+					type = "execute",
+					desc = L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Desc"],
+					image = "Interface/AddOns/HelpMePlay/Assets/Acknowledgments/Icon_Ack_KrakenLatte",
+					func = function(_, _)
+						StaticPopupDialogs["HELPMEPLAY_ACK_KRAKENLATTE"] = {
+							text = L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Text"],
+							button1 = "OK",
+							OnShow = function(self, data)
+								self.editBox:SetText("https://www.youtube.com/c/KrakenLatte")
+								self.editBox:HighlightText()
+							end,
+							timeout = 20,
+							showAlert = true,
+							whileDead = false,
+							hideOnEscape = true,
+							enterClicksFirstButton = true,
+							hasEditBox = true,
+							preferredIndex = 3,
+						}
+						StaticPopup_Show("HELPMEPLAY_ACK_KRAKENLATTE")
+					end,
+				},
+				gildedCanaryBtn = {
+					name = "|cffF1E2B7Gilded Canary|r",
+					order = 12,
+					type = "execute",
+					desc = "Canary is a prominent member of Kraken's community. She plays the game in her free time and is a wonderful artist.\n\n" ..
+					"She's provided feedback over the past few months that has led to enhancements in features like Cinematics, Gossips, and Party Play.\n\n" ..
+					"If you're looking for an artist, click here to get the link to her Twitter and find out if her commissions are open!",
+					image = "Interface/AddOns/HelpMePlay/Assets/Acknowledgments/Icon_Ack_GildedCanary",
+					func = function(_, _)
+						StaticPopupDialogs["HELPMEPLAY_ACK_GILDEDCANARY"] = {
+							text = "Thank you for showing an interest in Gilded Canary's artistry!\n\n" ..
+							"Copy the Twitter link below. Enjoy!",
+							button1 = "OK",
+							OnShow = function(self, data)
+								self.editBox:SetText("https://twitter.com/theGildedCanary")
+								self.editBox:HighlightText()
+							end,
+							timeout = 20,
+							showAlert = true,
+							whileDead = false,
+							hideOnEscape = true,
+							enterClicksFirstButton = true,
+							hasEditBox = true,
+							preferredIndex = 3,
+						}
+						StaticPopup_Show("HELPMEPLAY_ACK_GILDEDCANARY")
+					end,
 				},
             },
         },
