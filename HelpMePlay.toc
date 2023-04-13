@@ -5,7 +5,7 @@
 ## SavedVariables: HelpMePlayDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayIgnoredQuestsDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB, HelpMePlayQuestMobsDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
-## Version: 2.0.21
+## Version: 2.0.22
 ## OptionalDeps: Ace3
 
 # Locale
@@ -32,17 +32,7 @@ Lib\LibDBIcon-1.0\LibDBIcon-1.0.lua
 HelpMePlay.lua
 
 # Options
-Options\Main.lua
-Options\General.lua
-Options\Features.lua
-Options\Quests.lua
-Options\ExpansionFeatures.lua
-Options\Systems.lua
-Options\ZoneSelection.lua
-Options\Sounds.lua
-Options\Extras.lua
-Options\Controls.lua
-Options\Changes.lua
+Settings.lua
 
 # Data
 Data\MainDB.lua

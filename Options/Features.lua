@@ -19,7 +19,6 @@ local featuresOptions = {
 			get = function(_) return HelpMePlayDB.CinematicsEnabled end,
 			set = function(_, val) HelpMePlayDB.CinematicsEnabled = val end,
 		},
-		
 		emotes = {
 			name = L_GLOBALSTRINGS["Features.Toggle.Emotes"],
 			order = 2,

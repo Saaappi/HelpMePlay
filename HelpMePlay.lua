@@ -6,11 +6,15 @@ local category = addonName .. " |T236688:16|t"
 HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0", "AceHook-3.0")
 
 function HelpMePlay:OnInitialize()
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Main", addonTable.main)
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay", addonTable.settings)
+	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay", addonName); addonTable.settings = self.settings
+	self:RegisterChatCommand("hmp", "SlashCommandHandler")
+	self:RegisterChatCommand("helpmeplay", "SlashCommandHandler")
+	--[[LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Main", addonTable.main)
 	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Main", category); addonTable.mainOptions = self.mainOptions
-	self:RegisterChatCommand(L_GLOBALSTRINGS["Command.Slash1"], "SlashCommandHandler")
+	self:RegisterChatCommand(L_GLOBALSTRINGS["Command.Slash1"], "SlashCommandHandler")]]
 	
-	-- General
+	--[[ General
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_GeneralOptions", addonTable.generalOptions)
 	self.generalOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_GeneralOptions", L_GLOBALSTRINGS["Tabs.General"], category); addonTable.generalOptions = self.generalOptions
 	
@@ -48,7 +52,7 @@ function HelpMePlay:OnInitialize()
 	
 	-- Changes
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay_Changes", addonTable.changesOptions)
-	self.changesOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Changes", "Changes", category); addonTable.changesOptions = self.changesOptions
+	self.changesOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay_Changes", "Changes", category); addonTable.changesOptions = self.changesOptions]]
 	
 	-- Default Options
 	if HelpMePlayDB == nil then
