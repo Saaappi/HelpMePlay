@@ -19,9 +19,9 @@ local function TalentPurchased(configID, entry)
 		local name, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		if spellLink then
-			print(string.format(addonTable.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, spellLink))
+			print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, spellLink))
 		else
-			print(string.format(addonTable.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, name))
+			print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, name))
 		end
 	end
 end

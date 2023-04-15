@@ -192,16 +192,16 @@ local function OnTooltipSetItem(tooltip, data)
 		local _, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
 		if HelpMePlayJunkerGlobalDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL (GLOBAL)|r")
+			tooltip:AddDoubleLine(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL (GLOBAL)|r")
 		elseif HelpMePlayJunkerGlobalBlacklistDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED (GLOBAL)|r")
+			tooltip:AddDoubleLine(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED (GLOBAL)|r")
 		elseif HelpMePlayJunkerDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL|r")
+			tooltip:AddDoubleLine(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL|r")
 		elseif HelpMePlayJunkerBlacklistDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED|r")
+			tooltip:AddDoubleLine(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED|r")
 		end
 	end
 end

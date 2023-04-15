@@ -18,7 +18,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.WarModeEnabled == false or HelpMePlayDB.WarModeEnabled == nil then return false end
 		local _, newLevel = ...
 		if newLevel == 20 then
-			print(addonTable.COLORED_ADDON_NAME .. ": You should return to Orgrimmar (Horde) or Stormwind City (Alliance) to enable War Mode for bonus experience!")
+			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": You should return to Orgrimmar (Horde) or Stormwind City (Alliance) to enable War Mode for bonus experience!")
 			
 			local mapID = C_Map.GetBestMapForUnit("player")
 			if (mapID == 84 or mapID == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then

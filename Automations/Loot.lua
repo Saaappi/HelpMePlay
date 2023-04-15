@@ -82,7 +82,7 @@ local function EquipItem(itemLink, inventoryType)
 												if canTransmog or canTransmog == 0 then
 													local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 													if HelpMePlayDB.DevModeEnabled then
-														print(string.format("%s: Equipping an item upgrade. |T%s:0|t %s", addonTable.COLORED_ADDON_NAME, containerItemIcon, containerItemLink))
+														print(string.format("%s: Equipping an item upgrade. |T%s:0|t %s", addonTable.CONSTANTS.COLORED_ADDON_NAME, containerItemIcon, containerItemLink))
 													end
 													ClearCursor()
 													C_Container.PickupContainerItem(bagID, slotID)

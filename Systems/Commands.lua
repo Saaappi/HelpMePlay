@@ -75,7 +75,7 @@ local function Confirm()
 		
 		-- If the NPC doesn't have a "g" table, then report that to the player.
 		if not HelpMePlayPlayerDialogDB[npcID]["g"] then
-			print(addonTable.COLORED_ADDON_NAME .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
+			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
 			return
 		end
 		
@@ -153,7 +153,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end
 			end
 		else
-			print(addonTable.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
+			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
 		end
 	elseif cmd == "talents" then
 		if HelpMePlayDB.DevModeEnabled then
@@ -228,7 +228,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			-- and show it.
 			editBox:SetText(text)
 		else
-			print(addonTable.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
+			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
 		end
 	end
 end

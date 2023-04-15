@@ -19,7 +19,7 @@ local function CheckTalents(talentTree, currencyID)
 					C_Garrison.ResearchTalent(talent.perkID, rank)
 				end
 			else
-				print(addonTable.COLORED_ADDON_NAME .. ": " .. "You need more currency! Amount Needed: " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
+				print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "You need more currency! Amount Needed: " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
 				return
 			end
 		end

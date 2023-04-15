@@ -16,7 +16,7 @@ function HelpMePlay:MinimapIcon(bool)
 				type = "launcher",
 				icon = "236688", -- 100 Exalted Reputations (Achievement)
 				OnTooltipShow = function(tooltip)
-					tooltip:SetText(addonTable.COLORED_ADDON_NAME .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:SetText(addonTable.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
 					tooltip:AddLine("Configure the addon's settings and tailor an experience that best fits your playstyle!")
 					tooltip:Show()
 				end,
@@ -673,7 +673,7 @@ local settings = {
 											HelpMePlay:ImportToJunker(id, "BLACKLIST")
 										end
 									end
-									addonTable.Print(string.format(addonTable.COLORED_ADDON_NAME .. ": " .. "Imported all items from %s to Junker!", "AutoVendor"))
+									addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from %s to Junker!", "AutoVendor"))
 								elseif IsAddOnLoaded("Dejunk") then
 									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
 										HelpMePlay:ImportToJunker(id, "ADD")
@@ -681,9 +681,9 @@ local settings = {
 									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
 										HelpMePlay:ImportToJunker(id, "BLACKLIST")
 									end
-									addonTable.Print(string.format(addonTable.COLORED_ADDON_NAME .. ": " .. "Imported all items from %s to Junker!", "Dejunk"))
+									addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from %s to Junker!", "Dejunk"))
 								else
-									addonTable.Print(addonTable.COLORED_ADDON_NAME .. ": " .. "No auto sell addon enabled.")
+									addonTable.Print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "No auto sell addon enabled.")
 								end
 							end,
 							OnCancel = function(self, data)
@@ -711,7 +711,7 @@ local settings = {
 												HelpMePlay:ImportToJunker(id, "ADD")
 											end
 										end
-										addonTable.Print(string.format(addonTable.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
+										addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
 									end,
 									OnCancel = function(self)
 										local count = 0
@@ -722,7 +722,7 @@ local settings = {
 												count = count + 1
 											end
 										end
-										addonTable.Print(string.format(addonTable.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
+										addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
 									end,
 									OnAlt = function() end,
 									showAlert = true,
@@ -1393,7 +1393,7 @@ local settings = {
 									HelpMePlayDB.Sounds[soundID] = true
 								end
 							else
-								print(addonTable.COLORED_ADDON_NAME .. ": |cffFFD100" .. soundID .. "|r isn't a valid sound ID.")
+								print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": |cffFFD100" .. soundID .. "|r isn't a valid sound ID.")
 							end
 						end
 					end,
@@ -1843,7 +1843,7 @@ local settings = {
 									-- the import string into the database.
 									HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] = importString
 								else
-									print(addonTable.COLORED_ADDON_NAME .. ": Please open the talent interface once before trying to import a custom loadout.")
+									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Please open the talent interface once before trying to import a custom loadout.")
 									return false
 								end
 							end,

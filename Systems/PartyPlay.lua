@@ -50,7 +50,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GROUP_JOINED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		print(addonTable.COLORED_ADDON_NAME .. ": " .. "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled.")
+		print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled.")
 	end
 	if event == "QUEST_ACCEPTED" then
 		-- Add the quest to the table.
