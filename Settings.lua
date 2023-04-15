@@ -555,35 +555,59 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.CompleteQuestsEnabled = val end,
 				},
-				purchaseQuestItems = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItems"],
+				Purchase_Quest_Items = {
+					name = "Purchase Quest Items",
 					order = 14,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.PurchaseQuestItemsDesc"],
+					desc = "Toggle to allow the addon to purchase quest items from merchants.",
 					type = "toggle",
-					get = function() return HelpMePlayDB.PurchaseQuestItemsEnabled end,
+					get = function()
+						if not HelpMePlayDB.PurchaseQuestItemsEnabled then
+							HelpMePlayDB.PurchaseQuestItemsEnabled = false
+						end
+						return HelpMePlayDB.PurchaseQuestItemsEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
 				},
-				equipQuestRewards = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewards"],
+				Equip_Quest_Rewards = {
+					name = "Equip Quest Rewards",
 					order = 15,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.AutoEquipQuestRewardsDesc"],
+					desc = "Toggle to allow the addon to equip quest rewards that are upgrades.\n\n" ..
+					"This will only apply if the |cffFFD100Quest Rewards|r dropdown is set to Item Level.",
 					type = "toggle",
-					get = function() return HelpMePlayDB.AutoEquipQuestRewardsEnabled end,
+					get = function()
+						if not HelpMePlayDB.AutoEquipQuestRewardsEnabled then
+							HelpMePlayDB.AutoEquipQuestRewardsEnabled = false
+						end
+						return HelpMePlayDB.AutoEquipQuestRewardsEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.AutoEquipQuestRewardsEnabled = val end,
 				},
-				threadsOfFate = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFate"],
+				Threads_of_Fate = {
+					name = "Threads of Fate",
 					order = 16,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.ThreadsOfFateDesc"],
+					desc = "Toggle to opt in for Threads of Fate automation.",
 					type = "toggle",
-					get = function() return HelpMePlayDB.ThreadsOfFateEnabled end,
+					get = function()
+						if not HelpMePlayDB.ThreadsOfFateEnabled then
+							HelpMePlayDB.ThreadsOfFateEnabled = false
+						end
+						return HelpMePlayDB.ThreadsOfFateEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.ThreadsOfFateEnabled = val end,
 				},
-				showQuestCount = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCount"],
+				Show_Quest_Count = {
+					name = "Show Quest Count",
 					order = 17,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.ShowQuestCountDesc"],
+					desc = "Toggle to display your active quest count above the quest journal.\n\n" ..
+					"This feature is unavailable if you have |cffFFD100Kaliel's Tracker|r enabled.",
 					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.ShowQuestCountEnabled then
+							HelpMePlayDB.ShowQuestCountEnabled = false
+						end
+						return HelpMePlayDB.ShowQuestCountEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.ShowQuestCountEnabled = val end,
 					disabled = function()
 						local isAddOnLoaded = false
 						if IsAddOnLoaded("!KalielsTracker") then
@@ -591,8 +615,6 @@ local settings = {
 						end
 						return isAddOnLoaded
 					end,
-					get = function() return HelpMePlayDB.ShowQuestCountEnabled end,
-					set = function(_, val) HelpMePlayDB.ShowQuestCountEnabled = val end,
 				},
 				expansionIntrosHeader = {
 					name = L_GLOBALSTRINGS["Header.ExpansionIntros"],
