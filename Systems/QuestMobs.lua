@@ -54,10 +54,10 @@ local function UpdateNamePlate(namePlate, unit)
 					elseif HelpMePlayDB.QuestMobIconPosition == 8 then
 						icon:SetPoint("CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					end
-					if HelpMePlayDB.QuestMobIconId == 0 then
+					if HelpMePlayDB.QuestMobIconID == 0 then
 						icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
 						icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
-					elseif HelpMePlayDB.QuestMobIconId == 1 then
+					elseif HelpMePlayDB.QuestMobIconID == 1 then
 						icon:SetTexture(HelpMePlayDB.QuestMobIcon)
 					end
 					

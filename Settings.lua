@@ -1,5 +1,6 @@
 local addonName, addonTable = ...
 local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
+local coloredAddOnName = "|cff00FFFF"..addonName.."|r"
 local coloredDash = "|cffFFD100-|r "
 local icon = ""
 --local authorNote = "|cff009AE4"
@@ -933,20 +934,25 @@ local settings = {
             type = "group",
             order = 6,
             args = {
-				enable = {
+				Enable = {
 					name = "Enable",
 					order = 1,
 					desc = "Toggle to enable the ability for the addon to mute sounds.",
 					type = "toggle",
-					get = function(_) return HelpMePlayDB.SoundsEnabled end,
+					get = function()
+						if not HelpMePlayDB.SoundsEnabled then
+							HelpMePlayDB.SoundsEnabled = false
+						end
+						return HelpMePlayDB.SoundsEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.SoundsEnabled = val end,
 				},
-				soundsHeader = {
+				Sounds_Header = {
 					name = "Sounds",
 					order = 2,
 					type = "header",
 				},
-				soundInput = {
+				Sound_Input = {
 					name = "Sounds",
 					order = 3,
 					desc = "Input a list of sound IDs for the addon to mute. Each sound ID should be on its own line.\n\n|cffFFD100NOTE|r: You must reload after adding the sound IDs.",
@@ -968,7 +974,7 @@ local settings = {
 									HelpMePlayDB.Sounds[soundID] = true
 								end
 							else
-								print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |cffFFD100" .. soundID .. "|r isn't a valid sound ID.")
+								print(coloredAddOnName .. ": |cffFFD100" .. soundID .. "|r isn't a valid sound ID.")
 							end
 						end
 					end,
@@ -1315,38 +1321,54 @@ local settings = {
             type = "group",
             order = 8,
             args = {
-				toggleHeader = {
-					name = L_GLOBALSTRINGS["Header.Toggles"],
+				Toggle_Header = {
+					name = "Toggles",
 					order = 0,
 					type = "header",
 				},
-				talkingHead = {
-					name = L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHead"],
+				Talking_Head = {
+					name = "Talking Head",
 					order = 1,
-					desc = L_GLOBALSTRINGS["Features.Toggle.Extras.TalkingHeadDesc"],
+					desc = "Toggle to silence talking heads once and for all!",
 					type = "toggle",
-					get = function(_) return HelpMePlayDB.TalkingHeadEnabled end,
+					get = function()
+						if not HelpMePlayDB.TalkingHeadEnabled then
+							HelpMePlayDB.TalkingHeadEnabled = false
+						end
+						return HelpMePlayDB.TalkingHeadEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.TalkingHeadEnabled = val end,
 				},
-				waveAtPlayers = {
-					name = L_GLOBALSTRINGS["Features.Toggle.Extras.WaveAtPlayers"],
+				Wave_at_Players = {
+					name = "Wave at Players",
 					order = 2,
-					desc = L_GLOBALSTRINGS["Features.Toggle.Extras.WaveAtPlayersDesc"],
+					desc = "Toggle to have a ridiculously small chance to wave at a player when you click on them.\n\n" ..
+					"The chance is approximately the same as the X-45 Heartbreaker dropping for you. Good luck!",
 					type = "toggle",
-					get = function(_) return HelpMePlayDB.WaveAtPlayersEnabled end,
+					get = function()
+						if not HelpMePlayDB.WaveAtPlayersEnabled then
+							HelpMePlayDB.WaveAtPlayersEnabled = false
+						end
+						return HelpMePlayDB.WaveAtPlayersEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.WaveAtPlayersEnabled = val end,
 				},
-				questMobsHeader = {
-					name = L_GLOBALSTRINGS["Header.QuestMobs"],
+				Quest_Mobs_Header = {
+					name = "Quest Mobs",
 					order = 10,
 					type = "header",
 				},
-				questMobs = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobs"],
+				Quest_Mobs = {
+					name = "Quest Mobs",
 					order = 11,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.QuestMobs.QuestMobsDesc"],
+					desc = "Toggle to add an icon above the nameplate of NPCs required for an active quest.",
 					type = "toggle",
-					get = function() return HelpMePlayDB.QuestMobsEnabled end,
+					get = function()
+						if not HelpMePlayDB.QuestMobsEnabled then
+							HelpMePlayDB.QuestMobsEnabled = false
+						end
+						return HelpMePlayDB.QuestMobsEnabled
+					end,
 					set = function(_, val)
 						if val == false then
 							local namePlates = C_NamePlate.GetNamePlates()
@@ -1359,15 +1381,15 @@ local settings = {
 						HelpMePlayDB.QuestMobsEnabled = val
 					end,
 				},
-				questMobsIcon = {
-					name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Name"],
+				Quest_Mobs_Icon = {
+					name = "Quest Mobs Icon",
 					order = 12,
-					desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Desc"],
+					desc = "Choose an icon, either the default or a custom one, to place above the nameplate.",
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Default"],
-						[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Custom"],
+						[0] = "Default",
+						[1] = "Custom",
 					},
 					sorting = {
 						[1] = 0,
@@ -1375,18 +1397,18 @@ local settings = {
 					},
 					get = function()
 						if not HelpMePlayDB.QuestMobIcon then
-							HelpMePlayDB.QuestMobIconId = 0
+							HelpMePlayDB.QuestMobIconID = 0
 							HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
 						end
-						return HelpMePlayDB.QuestMobIconId
+						return HelpMePlayDB.QuestMobIconID
 					end,
-					set = function(_, iconId)
+					set = function(_, iconID)
 						local namePlates = C_NamePlate.GetNamePlates()
 						local icon = ""
 						
-						if iconId == 0 then
+						if iconID == 0 then
 							icon = "Mobile-QuestIcon"
-						elseif iconId == 1 then
+						elseif iconID == 1 then
 							StaticPopupDialogs["HELPMEPLAY_QUESTMOBSICON_CUSTOM"] = {
 								text = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Custom.Text"],
 								button1 = L_GLOBALSTRINGS["OK"],
@@ -1422,15 +1444,15 @@ local settings = {
 						
 						for i = 1, #namePlates do
 							if namePlates[i][addonName.."Icon"] then
-								if iconId == 0 then
+								if iconID == 0 then
 									namePlates[i][addonName.."Icon"]:SetAtlas(icon)
 								end
 							end
 						end
 						
-						HelpMePlayDB.QuestMobIconId = iconId
+						HelpMePlayDB.QuestMobIconID = iconID
 						
-						if iconId == 0 then
+						if iconID == 0 then
 							HelpMePlayDB.QuestMobIcon = icon
 						end
 					end,
