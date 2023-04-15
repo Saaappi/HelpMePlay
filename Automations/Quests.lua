@@ -135,11 +135,11 @@ local function CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
 	if numQuestChoices > 1 then
 		if HelpMePlayDB.CompleteQuestsEnabled then
-			if HelpMePlayDB.QuestRewardId == 0 or HelpMePlayDB.QuestRewardId == false or HelpMePlayDB.QuestRewardId == nil then return false end
+			if HelpMePlayDB.QuestRewardID == 0 or HelpMePlayDB.QuestRewardID == false or HelpMePlayDB.QuestRewardID == nil then return false end
 			
-			if HelpMePlayDB.QuestRewardId == 1 then
+			if HelpMePlayDB.QuestRewardID == 1 then
 				itemLevels = {}
-			elseif HelpMePlayDB.QuestRewardId == 2 then
+			elseif HelpMePlayDB.QuestRewardID == 2 then
 				sellPrices = {}
 			end
 			
@@ -158,7 +158,7 @@ local function CompleteQuest()
 							break
 						end
 
-						if HelpMePlayDB.QuestRewardId == 1 then
+						if HelpMePlayDB.QuestRewardID == 1 then
 							-- First check to see if the reward is a weapon. If it's a weapon,
 							-- we want to leave the choice to the player.
 							local _, _, _, _, _, itemType = GetItemInfo(questRewardItemLink)
@@ -216,7 +216,7 @@ local function CompleteQuest()
 									end
 								end
 							end
-						elseif HelpMePlayDB.QuestRewardId == 2 then
+						elseif HelpMePlayDB.QuestRewardID == 2 then
 							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(questRewardItemLink)
 							if sellPrice > 0 then
 								local totalSellPrice = 0
@@ -238,7 +238,7 @@ local function CompleteQuest()
 					-- reward automation is told to pick the reward by sell price, then
 					-- automatically add the item to the GLOBAL Junker table.
 					GetQuestReward(bestItemIndex)
-					if HelpMePlayDB.QuestRewardId == 2 then
+					if HelpMePlayDB.QuestRewardID == 2 then
 						if HelpMePlayDB.JunkerEnabled then
 							HelpMePlayJunkerGlobalDB[itemID] = true
 						end
@@ -428,7 +428,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "QUEST_LOOT_RECEIVED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return end
 		if HelpMePlayDB.AutoEquipQuestRewardsEnabled == false or HelpMePlayDB.AutoEquipQuestRewardsEnabled == nil then return end
-		if HelpMePlayDB.QuestRewardId ~= 1 then return end
+		if HelpMePlayDB.QuestRewardID ~= 1 then return end
 	
 		local _, itemLink = ...
 		if itemLink then

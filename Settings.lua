@@ -415,24 +415,24 @@ local settings = {
 						local chromieTimeID = UnitChromieTimeID("player")
 						local chromieTimeString = ""
 						if chromieTimeID == 0 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.Present"]
+							chromieTimeString = "Battle for Azeroth (Current Timeline)"
 						elseif chromieTimeID == 5 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"]
+							chromieTimeString = "Cataclysm"
 						elseif chromieTimeID == 6 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"]
+							chromieTimeString = "Burning Crusade"
 						elseif chromieTimeID == 7 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"]
+							chromieTimeString = "Wrath of the Lich King"
 						elseif chromieTimeID == 8 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.MOP"]
+							chromieTimeString = "Mists of Pandaria"
 						elseif chromieTimeID == 9 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"]
+							chromieTimeString = "Warlords of Draenor"
 						elseif chromieTimeID == 10 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"]
+							chromieTimeString = "Legion"
 						elseif chromieTimeID == 14 then
-							chromieTimeString = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"]
+							chromieTimeString = "Shadowlands"
 						end
 						
-						return L_GLOBALSTRINGS["Quests.Descriptions.ChromieTimeIndicator"] .. chromieTimeString
+						return "|T237538:14|t " .. chromieTimeString
 					end,
 					order = 0,
 					type = "description",
@@ -457,34 +457,34 @@ local settings = {
 					type = "select",
 					style = "dropdown",
 					values = {
-						[99] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-						[6] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BC"],
-						[7] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOTLK"],
-						[5] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.CATA"],
-						[8] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.MOP"],
-						[9] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.WOD"],
-						[10] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.LEGION"],
-						[0] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.BFA"],
-						[14] = L_GLOBALSTRINGS["Quests.DropDowns.ChromieTime.SL"],
+						[99] = "Disabled",
+						[6] = "Burning Crusade",
+						[7] = "Wrath of the Lich King",
+						[5] = "Cataclysm",
+						[8] = "Mists of Pandaria",
+						[9] = "Warlords of Draenor",
+						[10] = "Legion",
+						[0] = "Battle for Azeroth",
+						[14] = "Shadowlands",
 					},
 					sorting = { -- Sort the options chronologically by expansion.
 						[1] = 99, 	-- Disabled
-						[2] = 6, 	-- BC
-						[3] = 7, 	-- WOTLK
-						[4] = 5, 	-- CATA (Classic)
-						[5] = 8, 	-- MOP
-						[6] = 9, 	-- WOD
+						[2] = 6, 	-- Burning Crusade
+						[3] = 7, 	-- Wrath of the Lich King
+						[4] = 5, 	-- Cataclysm
+						[5] = 8, 	-- Mists of Pandaria
+						[6] = 9, 	-- Warlords of Draenor
 						[7] = 10, 	-- Legion
-						[8] = 0, 	-- BFA
-						[9] = 14, 	-- SL
+						[8] = 0, 	-- Battle for Azeroth
+						[9] = 14, 	-- Shadowlands
 					},
 					get = function()
-						if not HelpMePlayDB.ChromieTimeId then
-							HelpMePlayDB.ChromieTimeId = 0
+						if not HelpMePlayDB.ChromieTimeID then
+							HelpMePlayDB.ChromieTimeID = 0 -- Battle for Azeroth (Current Timeline)
 						end
-						return HelpMePlayDB.ChromieTimeId
+						return HelpMePlayDB.ChromieTimeID
 					end,
-					set = function(_, chromieTimeId) HelpMePlayDB.ChromieTimeId = chromieTimeId end,
+					set = function(_, chromieTimeID) HelpMePlayDB.ChromieTimeID = chromieTimeID end,
 				},
 				Quest_Rewards_Dropdown = {
 					name = "Quest Rewards:",
@@ -493,9 +493,9 @@ local settings = {
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-						[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.ItemLevel"],
-						[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestRewards.SellPrice"],
+						[0] = "Disabled",
+						[1] = "Item Level",
+						[2] = "Sell Price"
 					},
 					sorting = { -- Sort the options chronologically by expansion.
 						[1] = 0, 	-- Disabled
@@ -503,12 +503,12 @@ local settings = {
 						[3] = 2, 	-- Sell Price
 					},
 					get = function()
-						if not HelpMePlayDB.QuestRewardId then
-							HelpMePlayDB.QuestRewardId = 0
+						if not HelpMePlayDB.QuestRewardID then
+							HelpMePlayDB.QuestRewardID = 0
 						end
-						return HelpMePlayDB.QuestRewardId
+						return HelpMePlayDB.QuestRewardID
 					end,
-					set = function(_, questRewardId) HelpMePlayDB.QuestRewardId = questRewardId end,
+					set = function(_, questRewardID) HelpMePlayDB.QuestRewardID = questRewardID end,
 				},
 				Toggles_Header = {
 					name = "Toggles",

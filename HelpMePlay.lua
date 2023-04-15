@@ -92,6 +92,13 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.PlayerTalents == nil then
 				HelpMePlayDB.PlayerTalents = {}
 			end
+			-- Deprecate these old settings.
+			if HelpMePlayDB.QuestRewardId then
+				HelpMePlayDB.QuestRewardId = nil
+			end
+			if HelpMePlayDB.ChromieTimeId then
+				HelpMePlayDB.ChromieTimeId = nil
+			end
 		end
 	end
 end)
