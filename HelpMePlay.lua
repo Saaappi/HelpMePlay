@@ -115,6 +115,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.PartyMembers then
 				HelpMePlayDB.PartyMembers = nil
 			end
+			if HelpMePlayDB.RarityId then
+				HelpMePlayDB.RarityId = nil
+			end
 		end
 	end
 end)

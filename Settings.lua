@@ -173,6 +173,26 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.GossipEnabled = val end,
 				},
+				Junker = {
+					name = "Junker",
+					order = 1,
+					desc = "Toggle to enable the Junker subsystem.",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.JunkerEnabled then
+							HelpMePlayDB.JunkerEnabled = false
+						end
+						return HelpMePlayDB.JunkerEnabled
+					end,
+					set = function(_, val)
+						HelpMePlayDB.JunkerEnabled = val
+						if val then
+							HelpMePlay:ShowJunkerButton()
+						else
+							HelpMePlay:HideJunkerButton()
+						end
+					end,
+				},
 				Notes = {
 					name = "Notes",
 					order = 7,
@@ -397,6 +417,255 @@ local settings = {
 					end,
 					hidden = function()
 						if HelpMePlayDB.TrainersEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Junker_Advanced_Header = {
+					name = "Junker (Advanced)",
+					order = 50,
+					type = "header",
+					hidden = function()
+						if HelpMePlayDB.JunkerEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Junker_Safe_Mode = {
+					name = "Safe Mode",
+					order = 51,
+					desc = "Toggle to only allow Junker to sell items in batches of 12. This will allow you to use the buyback tab in case it sells something it shouldn't.\n\n" ..
+					"It's recommended you enable this.",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.JunkerSafeModeEnabled then
+							HelpMePlayDB.JunkerSafeModeEnabled = false
+						end
+						return HelpMePlayDB.JunkerSafeModeEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.JunkerSafeModeEnabled = val end,
+					hidden = function()
+						if HelpMePlayDB.JunkerEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Junker_Soulbound_Mode = {
+					name = "Soulbound Mode",
+					order = 52,
+					desc = "Toggle to allow Junker to sell items that are soulbound and are under a certain item level threshold.\n\n" ..
+					"This feature is mutually exclusive with the |cffFFD100Preserve Transmog|r option under the Rarity dropdown.",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.JunkerSoulboundModeEnabled then
+							HelpMePlayDB.JunkerSoulboundModeEnabled = false
+						end
+						return HelpMePlayDB.JunkerSoulboundModeEnabled
+					end,
+					set = function(_, val)
+						HelpMePlayDB.JunkerSoulboundModeEnabled = val
+						if val then
+							-- Set the rarity to Poor since the player enabled Soulbound Mode.
+							HelpMePlayDB.RarityID = 0
+						end
+					end,
+					hidden = function()
+						if HelpMePlayDB.JunkerEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Junker_Auto_Sell = {
+					name = "Auto Sell",
+					order = 53,
+					desc = "Toggle to allow Junker to automatically sell when the merchant window is opened.",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.JunkerAutoSellEnabled then
+							HelpMePlayDB.JunkerAutoSellEnabled = false
+						end
+						return HelpMePlayDB.JunkerAutoSellEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.JunkerAutoSellEnabled = val end,
+					hidden = function()
+						if HelpMePlayDB.JunkerEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Junker_Rarity_Dropdown = {
+					name = "Rarity",
+					order = 54,
+					desc = "Select the minimum item rarity threshold Junker should consider when selling items.\n\n" ..
+					"Setting the threshold to Poor will make Junker consider all items, whereas setting it to Uncommon will tell Junker not to sell Poor or Common items.\n\n" ..
+					"Preserve Transmog uses Poor as its underlying threshold but it won't sell armor or weapons. This option is mutually exclusive with Soulbound Mode.",
+					type = "select",
+					style = "dropdown",
+					values = {
+						[5] = "Preserve Transmog",
+						[0] = "Poor",
+						[1] = "Common",
+						[2] = "Uncommon",
+						[3] = "Rare",
+						[4] = "Epic",
+					},
+					sorting = {
+						[1] = 5, 	-- Preserve Transmog
+						[2] = 0, 	-- Poor
+						[3] = 1, 	-- Common
+						[4] = 2, 	-- Uncommon
+						[5] = 3, 	-- Rare
+						[6] = 4, 	-- Epic
+					},
+					get = function()
+						if not HelpMePlayDB.RarityID then
+							HelpMePlayDB.RarityID = 0
+						end
+						return HelpMePlayDB.RarityID
+					end,
+					set = function(_, rarityID)
+						HelpMePlayDB.RarityID = rarityID
+						if rarityID == 5 then
+							if HelpMePlayDB.JunkerSoulboundModeEnabled then
+								-- Disable Soulbound Mode since the player chose the Preserve Transmog option.
+								HelpMePlayDB.JunkerSoulboundModeEnabled = false
+							end
+						end
+					end,
+					hidden = function()
+						if HelpMePlayDB.JunkerEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Junker_Import_Button = {
+					name = "Import",
+					order = 55,
+					type = "execute",
+					func = function(_, _)
+						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {
+							text = "|T132281:36|t\n\n" .. "Would you like to import a list of item IDs or import from another addon?\n\n" ..
+							"Supported AddOns:\n\n" ..
+							"AutoVendor\n" ..
+							"Dejunk\n\n" ..
+							"|cffFFD100NOTE|r: Only items shared between all characters in these addons will be imported.",
+							button1 = "Import from Addon",
+							button2 = "Import from List",
+							button3 = CANCEL,
+							-- This is confusing, but I don't want Cancel
+							-- as the second button. Thus, OnAlt is used
+							-- for cancels and OnCancel is used for loading
+							-- an item ID list.
+							OnButton1 = function(self, data)
+								if IsAddOnLoaded("AutoVendor") then
+									if AutoVendorDB["profiles"]["Default"] then
+										for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["junk"]) do
+											HelpMePlay:ImportToJunker(id, "ADD")
+										end
+										for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["not_junk"]) do
+											HelpMePlay:ImportToJunker(id, "BLACKLIST")
+										end
+									end
+									addonTable.Print(string.format(coloredAddOnName .. ": " .. "Imported all items from %s to Junker!", "AutoVendor"))
+								elseif IsAddOnLoaded("Dejunk") then
+									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
+										HelpMePlay:ImportToJunker(id, "ADD")
+									end
+									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
+										HelpMePlay:ImportToJunker(id, "BLACKLIST")
+									end
+									addonTable.Print(string.format(coloredAddOnName .. ": " .. "Imported all items from %s to Junker!", "Dejunk"))
+								else
+									addonTable.Print(coloredAddOnName .. ": " .. "No auto sell addon enabled.")
+								end
+							end,
+							OnCancel = function(self, data)
+								-- Create a count variable to track how many items
+								-- are inserted into the table.
+								--
+								-- Get the text from the editbox and store it in a
+								-- string variable.
+								--
+								-- Convert the string to a table.
+								--
+								-- Import each item id into the table.
+								StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT_ITEMLIST"] = {
+									text = "|T132281:36|t\n\n" ..
+									"Please paste your comma-delimited list of items in the editbox below.",
+									button1 = "Add",
+									button2 = "Blacklist",
+									button3 = CANCEL,
+									OnAccept = function(self)
+										local count = 0
+										local items = addonTable.StringToTable(self.editBox:GetText(), ",")
+										for _, id in ipairs(items) do
+											if tonumber(id) then
+												count = count + 1
+												HelpMePlay:ImportToJunker(id, "ADD")
+											end
+										end
+										addonTable.Print(string.format(coloredAddOnName .. ": " .. "Imported %s item(s) to Junker!", count))
+									end,
+									OnCancel = function(self)
+										local count = 0
+										local items = addonTable.StringToTable(self.editBox:GetText(), ",")
+										for _, id in ipairs(items) do
+											if tonumber(id) then
+												HelpMePlay:ImportToJunker(id, "BLACKLIST")
+												count = count + 1
+											end
+										end
+										addonTable.Print(string.format(coloredAddOnName .. ": " .. "Imported %s item(s) to Junker!", count))
+									end,
+									OnAlt = function() end,
+									showAlert = true,
+									whileDead = false,
+									hideOnEscape = true,
+									enterClicksFirstButton = true,
+									hasEditBox = true,
+									preferredIndex = 3,
+								}
+								StaticPopup_Show("HELPMEPLAY_JUNKER_IMPORT_ITEMLIST")
+							end,
+							OnAlt = function() end,
+							showAlert = true,
+							whileDead = false,
+							hideOnEscape = true,
+							preferredIndex = 3,
+						}
+						StaticPopup_Show("HELPMEPLAY_JUNKER_IMPORT")
+					end,
+					hidden = function()
+						if HelpMePlayDB.JunkerEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Soulbound_Mode_Item_Level = {
+					name = "Soulbound Mode Item Level",
+					order = 56,
+					type = "range",
+					min = 25,
+					max = 50,
+					step = 1,
+					desc = "Select the minimum item level an item must be below your current item level to be sold to a merchant.\n\n" ..
+					"This setting only applies when Soulbound Mode is enabled.",
+					get = function()
+						if not HelpMePlayDB.SoulboundModeMinItemLevel then
+							HelpMePlayDB.SoulboundModeMinItemLevel = 30
+						end
+						return HelpMePlayDB.SoulboundModeMinItemLevel
+					end,
+					set = function(_, val) HelpMePlayDB.SoulboundModeMinItemLevel = val end,
+					hidden = function()
+						if HelpMePlayDB.JunkerEnabled then
 							return false
 						end
 						return true
@@ -986,201 +1255,6 @@ local settings = {
             type = "group",
             order = 7,
             args = {
-				junkerHeader = {
-					name = L_GLOBALSTRINGS["Header.Junker"],
-					order = 0,
-					type = "header",
-				},
-				enable = {
-					name = L_GLOBALSTRINGS["General.Toggle.Enable"],
-					order = 1,
-					desc = L_GLOBALSTRINGS["Junker.Toggle.EnableDesc"],
-					type = "toggle",
-					get = function(info) return HelpMePlayDB.JunkerEnabled end,
-					set = function(_, val)
-						HelpMePlayDB.JunkerEnabled = val
-						if val then
-							HelpMePlay:ShowJunkerButton()
-						else
-							HelpMePlay:HideJunkerButton()
-						end
-					end,
-				},
-				safeMode = {
-					name = L_GLOBALSTRINGS["Junker.Toggle.SafeMode"],
-					order = 2,
-					desc = L_GLOBALSTRINGS["Junker.Toggle.SafeModeDesc"],
-					type = "toggle",
-					get = function(info) return HelpMePlayDB.JunkerSafeModeEnabled end,
-					set = function(_, val) HelpMePlayDB.JunkerSafeModeEnabled = val end,
-				},
-				soulboundMode = {
-					name = L_GLOBALSTRINGS["Junker.Toggle.SoulboundMode"],
-					order = 3,
-					desc = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeDesc"],
-					type = "toggle",
-					get = function(info) return HelpMePlayDB.JunkerSoulboundModeEnabled end,
-					set = function(_, val)
-						HelpMePlayDB.JunkerSoulboundModeEnabled = val
-						if val then
-							HelpMePlayDB.RarityId = 0
-						end
-					end,
-				},
-				autoSell = {
-					name = L_GLOBALSTRINGS["Junker.Toggle.AutoSell"],
-					order = 4,
-					desc = L_GLOBALSTRINGS["Junker.Toggle.AutoSellDesc"],
-					type = "toggle",
-					get = function(info) return HelpMePlayDB.JunkerAutoSellEnabled end,
-					set = function(_, val) HelpMePlayDB.JunkerAutoSellEnabled = val end,
-				},
-				rarity = {
-					name = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Title"],
-					order = 5,
-					desc = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Desc"],
-					type = "select",
-					style = "dropdown",
-					values = {
-						[5] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.PreserveTransmog"],
-						[0] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Poor"],
-						[1] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Common"],
-						[2] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Uncommon"],
-						[3] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Rare"],
-						[4] = L_GLOBALSTRINGS["DropDowns.Junker.Rarity.Epic"],
-					},
-					sorting = {
-						[1] = 5, 	-- Preserve Transmog
-						[2] = 0, 	-- Poor
-						[3] = 1, 	-- Common
-						[4] = 2, 	-- Uncommon
-						[5] = 3, 	-- Rare
-						[6] = 4, 	-- Epic
-					},
-					get = function()
-						if not HelpMePlayDB.RarityId then
-							HelpMePlayDB.RarityId = 0
-						end
-						return HelpMePlayDB.RarityId
-					end,
-					set = function(_, rarityId)
-						HelpMePlayDB.RarityId = rarityId
-						if rarityId == 5 then
-							if HelpMePlayDB.JunkerSoulboundModeEnabled then
-								HelpMePlayDB.JunkerSoulboundModeEnabled = false
-							end
-						end
-					end,
-				},
-				importBtn = {
-					name = L_GLOBALSTRINGS["Junker.Button.Import"],
-					order = 6,
-					type = "execute",
-					func = function(_, _)
-						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {
-							text = L_GLOBALSTRINGS["Junker.Button.Import.InitialText"],
-							button1 = L_GLOBALSTRINGS["Junker.Button.Import.FromAddOnText"],
-							button2 = L_GLOBALSTRINGS["Junker.Button.Import.FromListText"],
-							button3 = CANCEL,
-							-- This is confusing, but I don't want Cancel
-							-- as the second button. Thus, OnAlt is used
-							-- for cancels and OnCancel is used for loading
-							-- an item ID list.
-							OnButton1 = function(self, data)
-								if IsAddOnLoaded("AutoVendor") then
-									if AutoVendorDB["profiles"]["Default"] then
-										for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["junk"]) do
-											HelpMePlay:ImportToJunker(id, "ADD")
-										end
-										for id, _ in pairs(AutoVendorDB["profiles"]["Default"]["not_junk"]) do
-											HelpMePlay:ImportToJunker(id, "BLACKLIST")
-										end
-									end
-									addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromAddOnText"], "AutoVendor"))
-								elseif IsAddOnLoaded("Dejunk") then
-									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
-										HelpMePlay:ImportToJunker(id, "ADD")
-									end
-									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
-										HelpMePlay:ImportToJunker(id, "BLACKLIST")
-									end
-									addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromAddOnText"], "Dejunk"))
-								else
-									addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.NoAddOnEnabledText"])
-								end
-							end,
-							OnCancel = function(self, data)
-								-- Create a count variable to track how many items
-								-- are inserted into the table.
-								--
-								-- Get the text from the editbox and store it in a
-								-- string variable.
-								--
-								-- Convert the string to a table.
-								--
-								-- Import each item id into the table.
-								StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT_ITEMLIST"] = {
-									text = L_GLOBALSTRINGS["Junker.Button.Import.CancelText"],
-									button1 = L_GLOBALSTRINGS["Junker.Button.Import.AddText"],
-									button2 = L_GLOBALSTRINGS["Junker.Button.Import.BlacklistText"],
-									button3 = CANCEL,
-									OnAccept = function(self)
-										local count = 0
-										local items = addonTable.StringToTable(self.editBox:GetText(), ",")
-										for _, id in ipairs(items) do
-											if tonumber(id) then
-												count = count + 1
-												HelpMePlay:ImportToJunker(id, "ADD")
-											end
-										end
-										addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromListText"], count))
-									end,
-									OnCancel = function(self)
-										local count = 0
-										local items = addonTable.StringToTable(self.editBox:GetText(), ",")
-										for _, id in ipairs(items) do
-											if tonumber(id) then
-												HelpMePlay:ImportToJunker(id, "BLACKLIST")
-												count = count + 1
-											end
-										end
-										addonTable.Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Junker.Output.Text.ImportedFromListText"], count))
-									end,
-									OnAlt = function() end,
-									showAlert = true,
-									whileDead = false,
-									hideOnEscape = true,
-									enterClicksFirstButton = true,
-									hasEditBox = true,
-									preferredIndex = 3,
-								}
-								StaticPopup_Show("HELPMEPLAY_JUNKER_IMPORT_ITEMLIST")
-							end,
-							OnAlt = function() end,
-							showAlert = true,
-							whileDead = false,
-							hideOnEscape = true,
-							preferredIndex = 3,
-						}
-						StaticPopup_Show("HELPMEPLAY_JUNKER_IMPORT")
-					end,
-				},
-				soulboundModeMinItemLevelSlider = {
-					name = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevel"],
-					order = 7,
-					type = "range",
-					min = 25,
-					max = 50,
-					step = 1,
-					desc = L_GLOBALSTRINGS["Junker.Toggle.SoulboundModeItemLevelDesc"],
-					get = function()
-						if not HelpMePlayDB.SoulboundModeMinItemLevel then
-							HelpMePlayDB.SoulboundModeMinItemLevel = 30
-						end
-						return HelpMePlayDB.SoulboundModeMinItemLevel
-					end,
-					set = function(_, val) HelpMePlayDB.SoulboundModeMinItemLevel = val end,
-				},
 				talentsHeader = {
 					name = L_GLOBALSTRINGS["Header.Talents"],
 					order = 10,

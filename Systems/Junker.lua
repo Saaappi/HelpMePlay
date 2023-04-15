@@ -102,8 +102,8 @@ local function HelpMePlaySellItems()
 								shouldItemBeSold = true
 							end
 							
-							if itemQuality <= HelpMePlayDB.RarityId then
-								if HelpMePlayDB.RarityId == 5 then
+							if itemQuality <= HelpMePlayDB.RarityID then
+								if HelpMePlayDB.RarityID == 5 then
 									if itemQuality == 0 then
 										shouldItemBeSold = true
 									end
@@ -136,7 +136,7 @@ local function HelpMePlaySellItems()
 								end
 							end
 							
-							if C_Item.IsDressableItemByID(itemLink) and HelpMePlayDB.RarityId == 5 then
+							if C_Item.IsDressableItemByID(itemLink) and HelpMePlayDB.RarityID == 5 then
 								shouldItemBeSold = false
 							end
 							
