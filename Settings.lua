@@ -1620,12 +1620,12 @@ local settings = {
             type = "group",
             order = 9,
             args = {
-				playerTalentsHeader = {
+				Player_Talents_Header = {
 					name = "Player Talents",
 					order = 1,
 					type = "header",
 				},
-				playerClassDropdown = {
+				Player_Class_Dropdown = {
 					name = "Class",
 					order = 2,
 					desc = "",
@@ -1647,8 +1647,8 @@ local settings = {
 						[13] = CreateAtlasMarkup("classicon-evoker") .. " " .. "Evoker",
 					},
 					sorting = {
-						[1] = 6, 	-- DK
-						[2] = 12, 	-- DH
+						[1] = 6, 	-- Death Knight
+						[2] = 12, 	-- Demon Hunter
 						[3] = 11, 	-- Druid
 						[4] = 13, 	-- Evoker
 						[5] = 3, 	-- Hunter
@@ -1671,7 +1671,7 @@ local settings = {
 					end,
 					set = function(_, classID) HelpMePlayDB.classID = classID end,
 				},
-				classSpecializationDropdown = {
+				Class_Specialization_Dropdown = {
 					name = "Specialization",
 					order = 3,
 					desc = "",
@@ -1694,7 +1694,7 @@ local settings = {
 					end,
 					set = function(_, specID) HelpMePlayDB.specID = specID end,
 				},
-				talentImportButton = {
+				Talent_Import_Button = {
 					name = "Import",
 					order = 4,
 					desc = function()
@@ -1758,7 +1758,7 @@ local settings = {
 									-- the import string into the database.
 									HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] = importString
 								else
-									print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": Please open the talent interface once before trying to import a custom loadout.")
+									print(coloredAddOnName .. ": Please open the talent interface once before trying to import a custom loadout.")
 									return false
 								end
 							end,
@@ -1804,7 +1804,7 @@ local settings = {
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Updated the layout and format of the settings menu.",
+					name = coloredDash .. "Updated the description of some settings.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
@@ -1826,7 +1826,7 @@ local settings = {
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "Removed the icon from next to the addon's name in the settings menu.",
+					name = coloredDash .. "Removed the Party Members setting from the |cffFFD100Extras|r menu.",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
@@ -1860,14 +1860,18 @@ local settings = {
 					type = "header",
 				},
 				krakenLatteBtn = {
-					name = L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Title"],
+					name = "|cff7C38DFKraken Latte|r",
 					order = 11,
 					type = "execute",
-					desc = L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Desc"],
+					desc = "Kraken is an avid World of Warcraft player! She has extensive knowledge of game story and an insurmountable amount of leveling experience.\n\n" ..
+					"Her content has inspired me to spend countless hours pouring over the codebase of the addon, bringing all of you the best product I can.\n\n" ..
+					"If you're interested, she uploads frequently to her YouTube channel and began streaming live on Twitch.tv!\n\n" ..
+					"Click this button to get a link to her YouTube channel.",
 					image = "Interface/AddOns/HelpMePlay/Assets/Acknowledgments/Icon_Ack_KrakenLatte",
 					func = function(_, _)
 						StaticPopupDialogs["HELPMEPLAY_ACK_KRAKENLATTE"] = {
-							text = L_GLOBALSTRINGS["MainOptions.Button.Acknowledgments.KrakenLatte.Text"],
+							text = "Thanks for showing an interest in Kraken Latte's content! She'll be enthused to have you around.\n\n" ..
+							"Copy the YouTube link below. Enjoy!",
 							button1 = "OK",
 							OnShow = function(self, data)
 								self.editBox:SetText("https://www.youtube.com/c/KrakenLatte")
@@ -1915,13 +1919,14 @@ local settings = {
             },
         },
 		Issue_Button = {
-			name = L_GLOBALSTRINGS["MainOptions.Button.OpenIssue"],
-			desc = L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Tooltip"],
+			name = "Open Issue",
+			desc = "Click the button to get a link to the GitHub page to open a bug report, feature suggestion, or to request a change.",
 			order = 21,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_GITHUB_POPUP"] = {
-					text = L_GLOBALSTRINGS["MainOptions.Button.OpenIssue.Text"],
+					text = "|T236688:36|t\n\n" ..
+					"Copy the link below, and thank you for opening an issue!",
 					button1 = "OK",
 					OnShow = function(self, data)
 						self.editBox:SetText("https://github.com/Saaappi/HelpMePlay/issues/new")
