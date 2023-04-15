@@ -756,7 +756,8 @@ local settings = {
 					min = 25,
 					max = 50,
 					step = 1,
-					desc = "Select the minimum item level an item must be below your current item level to be sold to a merchant.\n\n" ..
+					desc = "Select the maximum item level an item can be below your item level before it's sold to a merchant.\n\n" ..
+					"For example, if you're item level 300 and you set the threshold to 50, then any item with an item level of 250 or below will be sold to a merchant.\n\n" ..
 					"This setting only applies when Soulbound Mode is enabled.",
 					get = function()
 						if not HelpMePlayDB.SoulboundModeMinItemLevel then
