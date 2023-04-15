@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local TITANICRESEARCH = {
 	-- Corrupted Mementos: 1719
 	{ -- Orb Operation Manual

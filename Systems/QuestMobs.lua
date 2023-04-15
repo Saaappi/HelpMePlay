@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local iconKey = addonName .. "Icon"
 local tooltip = _G.CreateFrame("GameTooltip", "HMPQuestTooltip", nil, "GameTooltipTemplate")
 

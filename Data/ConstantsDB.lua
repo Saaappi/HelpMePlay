@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local CONSTANTS = {
 	-- Timers
 	["HALF_SECOND"]					= 0.5,
@@ -59,5 +58,6 @@ local CONSTANTS = {
 		[23] 	= true,
 		[26] 	= true,
 	},
+	["COLORED_ADDON_NAME"] = "|cff00FFFF"..addonName.."|r"
 }
 addonTable.CONSTANTS = CONSTANTS

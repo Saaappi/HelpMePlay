@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addon)
@@ -15,13 +14,15 @@ e:SetScript("OnEvent", function(self, event, addon)
 		)
 		
 		HMPDragonridingTraitButton:SetSize(50, 20)
-		HMPDragonridingTraitButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+		HMPDragonridingTraitButton:SetText("Learn")
 
 		HMPDragonridingTraitButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
 		HMPDragonridingTraitButton:HookScript("OnClick", function(self)
 			StaticPopupDialogs["HELPMEPLAY_DRAGONRIDING"] = {
-				text = L_GLOBALSTRINGS["UI.Button.Dragonriding.Popup.Desc"],
+				text = "Are you sure you want HelpMePlay to learn your Dragonriding traits?\n\n" ..
+				"For the choice nodes, |cffFFD100Dragonrider's Compassion|r and |cffFFD100Dragonrider's Hunt|r will be selected.\n\n" ..
+				"|cffFFD100NOTE|r: The choice nodes can be changed on the fly at no cost to you.",
 				button1 = YES,
 				button2 = CANCEL,
 				OnAccept = function(self, data)
@@ -52,7 +53,8 @@ e:SetScript("OnEvent", function(self, event, addon)
 
 		HMPDragonridingTraitButton:HookScript("OnEnter", function(self)
 			GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-			GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.Dragonriding.Desc"])
+			GameTooltip:SetText("Automatically learns all possible dragonriding traits.\n\n" ..
+			"|cffADD8E6Added by HelpMePlay|r")
 			GameTooltip:Show()
 		end)
 

@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function TalentPurchased(configID, entry)
 	local entryInfo = ""
@@ -17,9 +16,13 @@ local function TalentPurchased(configID, entry)
 	
 	if HelpMePlaySavesDB["Talents"][entry.nodeID] == nil then
 		HelpMePlaySavesDB["Talents"][entry.nodeID] = true
-		local _, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
+		local name, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
-		print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.LearnedTalent"] .. " |T%s:0|t %s", icon, spellLink))
+		if spellLink then
+			print(string.format(addonTable.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, spellLink))
+		else
+			print(string.format(addonTable.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, name))
+		end
 	end
 end
 
@@ -102,7 +105,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 			)
 		
 			HMPTalentButton:SetSize(50, 20)
-			HMPTalentButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+			HMPTalentButton:SetText("Learn")
 
 			HMPTalentButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 			
@@ -153,7 +156,8 @@ e:SetScript("OnEvent", function(self, event, addon)
 			
 			HMPTalentButton:HookScript("OnEnter", function(self)
 				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-				GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.Talents.Desc"])
+				GameTooltip:SetText("Automatically learns and applies the next talent in the loadout.\n\n" ..
+				"|cffADD8E6Added by HelpMePlay|r")
 				GameTooltip:Show()
 			end)
 

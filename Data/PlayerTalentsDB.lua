@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local PLAYER_TALENTS = {
 	-- Death Knight
 	[250] = { -- Blood

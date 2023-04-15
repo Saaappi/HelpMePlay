@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local tooltip = CreateFrame("GameTooltip", "HelpMePlayScannerTooltip", UIParent, "GameTooltipTemplate")
 local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
 
@@ -10,12 +9,12 @@ local function Filter_ChatFrame(self, event, msg, author, ...)
 	-- I don't want the auto share feature to
 	-- report the "%s is already on that quest"
 	-- message to the chat frame.
-	if msg:find(L_GLOBALSTRINGS["PartyPlay.Input.Text.AlreadyOnQuestText"]) then
+	if msg:find("already on that quest.") then
 		return true
 	end
 end
 
-local Get_QuestTitleFromId = setmetatable({}, {__index = function(t, questId)
+local GetQuestTitleFromID = setmetatable({}, {__index = function(t, questId)
 	tooltip:SetOwner(UIParent, "ANCHOR_NONE")
 	tooltip:SetHyperlink("quest:" .. questId)
 	local title = HelpMePlayScannerTooltipTextLeft1:GetText()
@@ -51,7 +50,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GROUP_JOINED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		addonTable.Print(L_GLOBALSTRINGS["PartyPlay.Output.Text.EnabledWarningText"])
+		print(addonTable.COLORED_ADDON_NAME .. ": " .. "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled.")
 	end
 	if event == "QUEST_ACCEPTED" then
 		-- Add the quest to the table.
@@ -63,16 +62,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- party.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		local questId = ...
-		HelpMePlayCharacterQuestsDB[questId] = { title = Get_QuestTitleFromId[questId], progressPercent = 0 }
+		
+		local questID = ...
+		HelpMePlayCharacterQuestsDB[questID] = { title = GetQuestTitleFromID[questID], progressPercent = 0 }
+		
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestAcceptedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[HMP]: Accepted \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
 				end
 				if HelpMePlayDB.PartyPlayAutoShareEnabled then
-					if C_QuestLog.IsPushableQuest(questId) then
-						C_QuestLog.SetSelectedQuest(questId)
+					if C_QuestLog.IsPushableQuest(questID) then
+						C_QuestLog.SetSelectedQuest(questID)
 						QuestLogPushQuest()
 					end
 				end
@@ -91,15 +92,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- report the message to chat.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		local questId = ...
+		
+		local questID = ...
 		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
-			if HelpMePlayCharacterQuestsDB[questId] then
+			if HelpMePlayCharacterQuestsDB[questID] then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
 					-- The player abandoned the quest or
 					-- left the area (eg. world quests).
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestRemovedText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[HMP]: Removed \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
 				end
-				HelpMePlayCharacterQuestsDB[questId] = nil
+				HelpMePlayCharacterQuestsDB[questID] = nil
 			end
 		end)
 	end
@@ -110,12 +112,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- was turned in.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		local questId = ...
-		HelpMePlayCharacterQuestsDB[questId] = nil
+		
+		local questID = ...
+		HelpMePlayCharacterQuestsDB[questID] = nil
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. L_GLOBALSTRINGS["PartyPlay.Output.Text.QuestTurnedInText"] .. " \"" .. Get_QuestTitleFromId[questId] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(addonName, "[HMP]: Turned in \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
 				end
 			end
 		end
@@ -128,6 +131,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- 6/6 Bewitched Bear slain
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
+		
 		if UnitInParty("player") then
 			local supportedMsgTypes = { 290, 292, 293, 294, 295 }
 			local msgType, msg = ...
@@ -135,7 +139,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if supportedMsgType == msgType then
 					if isRegistered then
 						if HelpMePlayDB.PartyPlayAnnounceEnabled then
-							C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. msg)
+							C_ChatInfo.SendAddonMessage(addonName, "[HMP]: " .. msg)
 						end
 					end
 				end
@@ -151,17 +155,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local unit = ...
 			if unit == "player" then
 				local numObjectives, text, objectiveType
-				for questId, questData in pairs(HelpMePlayCharacterQuestsDB) do
-					if C_QuestLog.IsOnQuest(questId) then
-						numObjectives = C_QuestLog.GetNumQuestObjectives(questId)
+				for questID, questData in pairs(HelpMePlayCharacterQuestsDB) do
+					if C_QuestLog.IsOnQuest(questID) then
+						numObjectives = C_QuestLog.GetNumQuestObjectives(questID)
 						for index=1, numObjectives do
-							text, objectiveType = GetQuestObjectiveInfo(questId, index, false)
+							text, objectiveType = GetQuestObjectiveInfo(questID, index, false)
 							if objectiveType == "progressbar" then
-								local progressPercent = GetQuestProgressBarPercent(questId)
+								local progressPercent = GetQuestProgressBarPercent(questID)
 								if progressPercent ~= questData.progressPercent then
 									if isRegistered then
 										if HelpMePlayDB.PartyPlayAnnounceEnabled then
-											C_ChatInfo.SendAddonMessage(addonName, "[" .. L_GLOBALSTRINGS["Text.Output.Acronym"] .. "]: " .. text .. " (" .. questData.title .. ")", "PARTY")
+											C_ChatInfo.SendAddonMessage(addonName, "[HMP]: " .. text .. " (" .. questData.title .. ")", "PARTY")
 										end
 									end
 									questData.progressPercent = progressPercent
@@ -171,7 +175,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							end
 						end
 					else
-						HelpMePlayCharacterQuestsDB[questId] = nil
+						HelpMePlayCharacterQuestsDB[questID] = nil
 					end
 				end
 			end

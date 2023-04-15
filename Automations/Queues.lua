@@ -2,7 +2,6 @@ local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local normalTexture = e:CreateTexture()
 local highlightTexture = e:CreateTexture()
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local HMPQueueButton = _G.CreateFrame(
 	"Button",
 	"HMPQueueButton",
@@ -215,11 +214,17 @@ HMPQueueButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
 	
 	if calendarDate.month == 10 and calendarDate.monthDay > 6 then -- Hallow's End
-		GameTooltip:SetText(L_GLOBALSTRINGS["Holiday.HallowsEnd"])
+		GameTooltip:SetText("Enter |cffFFFFFFScarlet Monastery|r and fight |cffFFFFFFThe Headless Horseman|r\n" ..
+		"for a chance at |cffFFFFFFThe Horseman's Reins|r!\n\n" ..
+		"|cffADD8E6Added by HelpMePlay|r")
 	elseif calendarDate.month == 9 or calendarDate.month == 10 then -- Brewfest
-		GameTooltip:SetText(L_GLOBALSTRINGS["Holiday.Brewfest"])
+		GameTooltip:SetText("Enter |cffFFFFFFBlackrock Depths|r and fight |cffFFFFFFCoren Direbrew|r\n" ..
+		"for a chance at the |cffFFFFFFGreat Brewfest Kodo|r and the |cffFFFFFFSwift Brewfest Ram|r!\n\n" ..
+		"|cffADD8E6Added by HelpMePlay|r")
 	elseif calendarDate.month == 2 then -- Love is in the Air
-		GameTooltip:SetText(L_GLOBALSTRINGS["Holiday.LoveIsInTheAir"])
+		GameTooltip:SetText("Enter |cffFFFFFFShadowfang Keep|r and fight |cffFFFFFFApothecary Hummel|r\n" ..
+		"for a chance at the |cffFFFFFFX-45 Heartbreaker|r!\n\n" ..
+		"|cffADD8E6Added by HelpMePlay|r")
 	end
 
 	GameTooltip:Show()
@@ -241,7 +246,7 @@ end)
 
 HMPDungeonQueueButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(string.format(L_GLOBALSTRINGS["UI.Button.DungeonQueue.Desc"], "|cffFFD100" .. dungeonInfo.n .. "|r"))
+	GameTooltip:SetText(string.format("Enter %s\n\n|cffADD8E6Added by HelpMePlay|r", "|cffFFD100" .. dungeonInfo.n .. "|r"))
 	GameTooltip:Show()
 end)
 

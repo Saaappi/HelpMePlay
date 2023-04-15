@@ -1,7 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function Gossip(gossip)
 	-- First, let's check if the gossip parameter is a number.
@@ -77,7 +75,7 @@ local function Confirm()
 		
 		-- If the NPC doesn't have a "g" table, then report that to the player.
 		if not HelpMePlayPlayerDialogDB[npcID]["g"] then
-			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
+			print(addonTable.COLORED_ADDON_NAME .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
 			return
 		end
 		
@@ -98,11 +96,11 @@ function HelpMePlay:SlashCommandHandler(cmd)
 	local cmd, arg1, arg2 = string.split(" ", cmd)
 	if not cmd or cmd == "" then
 		Settings.OpenToCategory(addonName)
-	elseif cmd == L_GLOBALSTRINGS["Command.Gossip"] then
+	elseif cmd == "gossip" and arg1 ~= nil then
 		Gossip(arg1)
-	elseif cmd == L_GLOBALSTRINGS["Command.Confirm"] then
+	elseif cmd == "confirm" then
 		Confirm()
-	elseif cmd == L_GLOBALSTRINGS["Command.Quest"] and arg1 ~= nil then
+	elseif (cmd == "quest" or cmd == "q") and arg1 ~= nil then
 		-- A shorthand way to check if a given quest has
 		-- been completed by the current player.
 		--
@@ -111,8 +109,8 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		if tonumber(arg1) then
 			self:Print(tostring(C_QuestLog.IsQuestFlaggedCompleted(arg1)))
 		end
-	elseif cmd == L_GLOBALSTRINGS["Command.Ignore"] and arg1 ~= nil then
-		if arg1 == L_GLOBALSTRINGS["Command.Subcommand.Ignore.NPC"] then
+	elseif cmd == "ignore" and arg1 ~= nil then
+		if arg1 == "npc" then
 			local npcID = tonumber(arg2)
 			if npcID then
 				if HelpMePlayIgnoredCreaturesDB[npcID] == nil then
@@ -133,7 +131,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 					end
 				end
 			end
-		elseif arg1 == L_GLOBALSTRINGS["Command.Quest"] then
+		elseif arg1 == "quest" then
 			local questId = tonumber(arg2)
 			if questId then
 				if HelpMePlayIgnoredQuestsDB[questId] == nil then
@@ -143,30 +141,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end
 			end
 		end
-	elseif cmd == L_GLOBALSTRINGS["Command.Junker"] and arg1 ~= nil and arg2 ~= nil then
-		local count = 0
-		arg2 = addonTable.StringToTable(arg2, " ")
-		for _, item in ipairs(arg2) do
-			if arg1 == L_GLOBALSTRINGS["Command.Subcommand.Junker.Add"] then
-				if HelpMePlayJunkerDB[item] then
-					HelpMePlayJunkerDB[item] = nil
-				else
-					HelpMePlayJunkerBlacklistDB[item] = nil
-					HelpMePlayJunkerDB[item] = true
-					count = count + 1
-				end
-			elseif arg1 == L_GLOBALSTRINGS["Command.Subcommand.Junker.Blacklist"] then
-				if HelpMePlayJunkerBlacklistDB[item] then
-					HelpMePlayJunkerBlacklistDB[item] = nil
-				else
-					HelpMePlayJunkerDB[item] = nil
-					HelpMePlayJunkerBlacklistDB[item] = true
-					count = count + 1
-				end
-			end
-		end
-		self:Print(string.format(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Imported To Junker From List Text"], count))
-	elseif cmd == L_GLOBALSTRINGS["Command.Taxi"] and arg1 ~= nil then
+	elseif cmd == "taxi" and arg1 ~= nil then
 		if HelpMePlayDB.DevModeEnabled then
 			-- The flight map frame must be visible.
 			if not FlightMapFrame:IsVisible() then return end
@@ -178,9 +153,9 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end
 			end
 		else
-			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
+			print(addonTable.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
 		end
-	elseif cmd == L_GLOBALSTRINGS["Command.Traits"] then
+	elseif cmd == "talents" then
 		if HelpMePlayDB.DevModeEnabled then
 			-- Create a couple variables to hold the scroll
 			-- frame and edit box.
@@ -253,39 +228,7 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			-- and show it.
 			editBox:SetText(text)
 		else
-			print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.DevModeDisabled"])
+			print(addonTable.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
 		end
-	elseif cmd == "inv" then
-		if HelpMePlayDB.PartyMembers == nil or HelpMePlayDB.PartyMembers == {} then return end
-
-		for _, member in ipairs(HelpMePlayDB.PartyMembers) do
-			C_PartyInfo.InviteUnit(member)
-		end
-	elseif (cmd == "waypoint" or cmd == "wp") and arg1 ~= nil then
-		local questID = tonumber(arg1)
-		if select(2, IsAddOnLoaded("TomTom")) and HelpMePlayDB.WaypointsEnabled then
-			for quest, questData in pairs(addonTable.WAYPOINTS) do
-				if quest == questID then
-					for _, coords in ipairs(questData) do
-						local opts = {
-							title = coords[4],
-							persistent = nil,
-							minimap = true,
-							world = true,
-							from = addonName,
-							minimap_icon = coords[5],
-							worldmap_icon = coords[5],
-							minimap_displayID = coords[6],
-							worldmap_displayID = coords[6],
-						}
-						TomTom:AddWaypoint(coords[1], coords[2] / 100, coords[3] / 100, opts)
-						TomTom:SetClosestWaypoint()
-					end
-					break
-				end
-			end
-		end
-	elseif cmd == L_GLOBALSTRINGS["Help Command"] then
-		self:Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":" .. "\n" .. L_GLOBALSTRINGS["Confirm Command"] .. "\n" .. L_GLOBALSTRINGS["Dialog Command"] .. "\n" .. L_GLOBALSTRINGS["Help Command"] .. "\n" .. L_GLOBALSTRINGS["Ignore Command"] .. "\n" .. L_GLOBALSTRINGS["Quest Command"])
 	end
 end

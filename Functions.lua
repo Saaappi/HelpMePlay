@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 -- A basic print function with string interpolation.
 local function Print(text)

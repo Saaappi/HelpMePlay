@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function ShowPower(text, artID, spellLink, spellDescription)
 	local ret = string.format("%s: |T%s:0|t %s (|cffFFD100%s|r)", text, artID, spellLink, spellDescription)
@@ -20,7 +19,7 @@ local function GetChoices()
 		if numChoices == 1 then
 			C_PlayerChoice.SendPlayerChoiceResponse(choices[1].buttons[1].id)
 			HideUIPanel(PlayerChoiceFrame)
-			ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[1].choiceArtID, GetSpellLink(choices[1].spellID), GetSpellDescription(choices[1].spellID))
+			ShowPower(addonTable.COLORED_ADDON_NAME, choices[1].choiceArtID, GetSpellLink(choices[1].spellID), GetSpellDescription(choices[1].spellID))
 		else
 			local _, _, classID = UnitClass("player")
 			local specIndex = GetSpecialization()
@@ -46,10 +45,10 @@ local function GetChoices()
 			end
 			
 			if HelpMePlayDB.TorghastPowersId == 1 then -- NOTIFY
-				ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
+				ShowPower(addonTable.COLORED_ADDON_NAME, choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
 				highestPriority = 9
 			elseif HelpMePlayDB.TorghastPowersId == 2 then -- AUTOMATIC
-				ShowPower(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
+				ShowPower(addonTable.COLORED_ADDON_NAME, choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
 				C_PlayerChoice.SendPlayerChoiceResponse(choices[bestPowerIndex].buttons[1].id)
 				HideUIPanel(PlayerChoiceFrame)
 				highestPriority = 9

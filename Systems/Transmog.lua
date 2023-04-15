@@ -1,7 +1,6 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local L = addonTable.L
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
 local HMPTransmogButton = _G.CreateFrame(
 	"Button",
@@ -247,7 +246,10 @@ end)
 
 HMPTransmogButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.Inventory.Desc"])
+	GameTooltip:SetText("|cffFFFFFFLearn All Transmog|r\n" ..
+	"Click this button to learn all USABLE and UNKNOWN\n" ..
+	"transmog in your bags.\n\n" ..
+	"|cffADD8E6Added by HelpMePlay|r")
 	GameTooltip:Show()
 end)
 

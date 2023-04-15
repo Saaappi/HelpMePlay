@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 --[[
 	Description:
@@ -19,14 +18,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.WarModeEnabled == false or HelpMePlayDB.WarModeEnabled == nil then return false end
 		local _, newLevel = ...
 		if newLevel == 20 then
-			if UnitFactionGroup("player") == "Alliance" then
-				addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Notifications.WarModeReminder.Alliance"])
-			else
-				addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Notifications.WarModeReminder.Horde"])
-			end
+			print(addonTable.COLORED_ADDON_NAME .. ": You should return to Orgrimmar (Horde) or Stormwind City (Alliance) to enable War Mode for bonus experience!")
 			
-			local mapId = C_Map.GetBestMapForUnit("player")
-			if (mapId == 84 or mapId == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
+			local mapID = C_Map.GetBestMapForUnit("player")
+			if (mapID == 84 or mapID == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
 				if C_PvP.IsWarModeDesired() == false then
 					C_Timer.After(addonTable.CONSTANTS["FIVE_SECONDS"], function()
 						C_PvP.ToggleWarMode()
@@ -38,8 +33,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "ZONE_CHANGED_NEW_AREA" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.WarModeEnabled == false or HelpMePlayDB.WarModeEnabled == nil then return false end
-		local mapId = C_Map.GetBestMapForUnit("player")
-		if (mapId == 84 or mapId == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
+		local mapID = C_Map.GetBestMapForUnit("player")
+		if (mapID == 84 or mapID == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
 			if C_PvP.IsWarModeDesired() == false then
 				C_Timer.After(addonTable.CONSTANTS["FIVE_SECONDS"], function()
 					C_PvP.ToggleWarMode()

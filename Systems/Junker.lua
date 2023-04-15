@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 addonTable.HMPJunkerMerchantButton = _G.CreateFrame(
 	"Button",
 	"HMPJunkerMerchantButton",
@@ -190,19 +189,19 @@ local function OnTooltipSetItem(tooltip, data)
 	
 	local itemLink = select(2, TooltipUtil.GetDisplayedItem(tooltip))
 	if itemLink then
-		local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-		if HelpMePlayJunkerGlobalDB[itemId] then
+		local _, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
+		if HelpMePlayJunkerGlobalDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.SellGlobal"])
-		elseif HelpMePlayJunkerGlobalBlacklistDB[itemId] then
+			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL (GLOBAL)|r")
+		elseif HelpMePlayJunkerGlobalBlacklistDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.BlacklistedGlobal"])
-		elseif HelpMePlayJunkerDB[itemId] then
+			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED (GLOBAL)|r")
+		elseif HelpMePlayJunkerDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Sell"])
-		elseif HelpMePlayJunkerBlacklistDB[itemId] then
+			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL|r")
+		elseif HelpMePlayJunkerBlacklistDB[itemID] then
 			tooltip:AddLine(" ")
-			tooltip:AddDoubleLine(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ":", L_GLOBALSTRINGS["Junker.Tooltip.Text.Blacklisted"])
+			tooltip:AddDoubleLine(addonTable.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED|r")
 		end
 	end
 end
@@ -215,7 +214,8 @@ end)
 
 HMPJunkerMerchantButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(L_GLOBALSTRINGS["Junker.UI.Text.ButtonDesc"])
+	GameTooltip:SetText("This button can be used to trigger the selling process.\n\n" ..
+	"|cffADD8E6Added by HelpMePlay|r")
 	GameTooltip:Show()
 end)
 

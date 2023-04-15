@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local locale = GAME_LOCALE or GetLocale()
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local isLocaleSupported = false
 local supportedLocales = {
 	"enGB",

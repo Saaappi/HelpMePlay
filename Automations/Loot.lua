@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function InvertTable(tbl)
 	local temp = {}
@@ -83,7 +82,7 @@ local function EquipItem(itemLink, inventoryType)
 												if canTransmog or canTransmog == 0 then
 													local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 													if HelpMePlayDB.DevModeEnabled then
-														print(string.format("%s: %s |T%s:0|t %s", L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"], L_GLOBALSTRINGS["Text.Output.EquipItemUpgrade"], containerItemIcon, containerItemLink))
+														print(string.format("%s: Equipping an item upgrade. |T%s:0|t %s", addonTable.COLORED_ADDON_NAME, containerItemIcon, containerItemLink))
 													end
 													ClearCursor()
 													C_Container.PickupContainerItem(bagID, slotID)

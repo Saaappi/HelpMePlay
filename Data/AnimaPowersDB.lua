@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local ANIMAPOWERS = {
 	[1] = { -- Warrior
 		[71] = { -- Arms

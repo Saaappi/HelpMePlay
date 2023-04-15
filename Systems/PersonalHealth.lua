@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 local function WaterReminder()
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
@@ -9,7 +8,7 @@ local function WaterReminder()
 	local interval = (math.random(HelpMePlayDB.WaterReminderMinDelay, HelpMePlayDB.WaterReminderMaxDelay))*60
 	C_Timer.After(interval, function()
 		UIErrorsFrame:SetTimeVisible(5)
-		UIErrorsFrame:AddMessage("|cffFFD100" .. L_GLOBALSTRINGS["Text.Output.WaterReminder"] .. "|r", 1, 0, 0, nil)
+		UIErrorsFrame:AddMessage("|cffFFD100" .. "|T463570:0|t Hey, listen! You should take a sip of water! |T463570:0|t" .. "|r", 1, 0, 0, nil)
 		PlaySound(110896, "Master", true, true) -- SPELL_8.0_Stormsong_FoulTidewater_PickUp
 		WaterReminder()
 	end)

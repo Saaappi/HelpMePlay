@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local talentSystemButton = _G.CreateFrame(
 	"Button",
 	"HMPTalentSystemButton",
@@ -20,7 +19,7 @@ local function CheckTalents(talentTree, currencyID)
 					C_Garrison.ResearchTalent(talent.perkID, rank)
 				end
 			else
-				addonTable.Print(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. ": " .. L_GLOBALSTRINGS["Text.Output.NotEnoughCurrency"] .. ": " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
+				print(addonTable.COLORED_ADDON_NAME .. ": " .. "You need more currency! Amount Needed: " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
 				return
 			end
 		end
@@ -31,11 +30,13 @@ local function GetTalentTreeInfo(talentTreeID)
 	if talentTreeID == 271 then -- Titanic Research Archive
 		if HelpMePlayDB.TitanResearchEnabled then
 			HMPTalentSystemButton:SetSize(50, 20)
-			HMPTalentSystemButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+			HMPTalentSystemButton:SetText("Learn")
 			
 			HMPTalentSystemButton:HookScript("OnClick", function(self)
 			StaticPopupDialogs["HELPMEPLAY_TALENTSYSTEM"] = {
-				text = L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"],
+				text = "Are you sure you want HelpMePlay to learn your talents for this system?\n\n" ..
+				"All options can eventually be learned with enough currency.\n\n" ..
+				"Select YES if you don't want to think about the order, or CANCEL if you want to control the purchase order.",
 				button1 = YES,
 				button2 = CANCEL,
 				OnAccept = function(self, data)
@@ -53,7 +54,8 @@ local function GetTalentTreeInfo(talentTreeID)
 
 			HMPTalentSystemButton:HookScript("OnEnter", function(self)
 				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-				GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"])
+				GameTooltip:SetText("Automatically learns all possible talents in the given system.\n\n" ..
+				"|cffADD8E6Added by HelpMePlay|r")
 				GameTooltip:Show()
 			end)
 
@@ -71,11 +73,13 @@ local function GetTalentTreeInfo(talentTreeID)
 	elseif talentTreeID == 461 then -- The Box of Many Things
 		if HelpMePlayDB.BoxOfManyThingsEnabled then
 			HMPTalentSystemButton:SetSize(50, 20)
-			HMPTalentSystemButton:SetText(L_GLOBALSTRINGS["UI.Button.Learn"])
+			HMPTalentSystemButton:SetText("Learn")
 			
 			HMPTalentSystemButton:HookScript("OnClick", function(self)
 			StaticPopupDialogs["HELPMEPLAY_TALENTSYSTEM"] = {
-				text = L_GLOBALSTRINGS["UI.Button.TalentSystem.Popup.Desc"],
+				text = "Are you sure you want HelpMePlay to learn your talents for this system?\n\n" ..
+				"All options can eventually be learned with enough currency.\n\n" ..
+				"Select YES if you don't want to think about the order, or CANCEL if you want to control the purchase order.",
 				button1 = YES,
 				button2 = CANCEL,
 				OnAccept = function(self, data)
@@ -93,7 +97,8 @@ local function GetTalentTreeInfo(talentTreeID)
 
 			HMPTalentSystemButton:HookScript("OnEnter", function(self)
 				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-				GameTooltip:SetText(L_GLOBALSTRINGS["UI.Button.TalentSystem.Desc"])
+				GameTooltip:SetText("Automatically learns all possible talents in the given system.\n\n" ..
+				"|cffADD8E6Added by HelpMePlay|r")
 				GameTooltip:Show()
 			end)
 

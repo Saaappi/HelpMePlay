@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local BOXOFMANYTHINGS = {
 	-- Tower Knowledge: 1904
 	{ -- Blessing of the Ancients

@@ -1,6 +1,5 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 
 e:RegisterEvent("PARTY_INVITE_REQUEST")
 e:SetScript("OnEvent", function(self, event, ...)

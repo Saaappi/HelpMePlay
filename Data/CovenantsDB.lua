@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local COVENANTS_BY_SPEC = {
 	[1] = { -- Warrior
 		[71] = 1, 	-- Arms (Kyrian)

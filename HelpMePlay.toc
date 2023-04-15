@@ -8,9 +8,8 @@
 ## Version: 2.0.23
 ## OptionalDeps: Ace3
 
-# Locale
-Locale\L_GlobalStrings.lua
-Locale\L_Waypoints.lua
+# Data
+Data\ConstantsDB.lua
 
 # Functions
 Functions.lua
@@ -36,7 +35,6 @@ Settings.lua
 
 # Data
 Data\MainDB.lua
-Data\ConstantsDB.lua
 Data\AnimaPowersDB.lua
 Data\FlightPathDB.lua
 Data\WaypointsDB.lua
