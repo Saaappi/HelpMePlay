@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local L_GLOBALSTRINGS = addonTable.L_GLOBALSTRINGS
 local coloredAddOnName = "|cff00FFFF"..addonName.."|r"
 local coloredDash = "|cffFFD100-|r "
 local icon = ""
@@ -18,8 +17,8 @@ function HelpMePlay:MinimapIcon(bool)
 				type = "launcher",
 				icon = "236688", -- 100 Exalted Reputations (Achievement)
 				OnTooltipShow = function(tooltip)
-					tooltip:SetText(L_GLOBALSTRINGS["Text.Output.ColoredAddOnName"] .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
-					tooltip:AddLine(L_GLOBALSTRINGS["Minimap.UI.Button.SubText"])
+					tooltip:SetText(coloredAddOnName .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:AddLine("Configure the addon's settings and tailor an experience that best fits your playstyle!")
 					tooltip:Show()
 				end,
 				OnClick = function() HelpMePlay:SlashCommandHandler("") end,
