@@ -1873,12 +1873,6 @@ local settings = {
             type = "group",
             order = 9,
 			args = {
-				TEST = {
-					name = "TEST",
-					desc = "TEST",
-					type = "group",
-					order = 0,
-				},
 				text = {
 					name = "|cffFFD100" .. GetAddOnMetadata(addonName, "Version") .. "|r",
 					order = 1,
@@ -1928,6 +1922,17 @@ local settings = {
 					name = coloredDash .. "Removed the Party Members setting from the |cffFFD100Extras|r menu.\n\n" ..
 					coloredDash .. "Removed multiple commands.",
 					order = 41,
+					type = "description",
+					fontSize = "medium",
+				},
+				Author_Notes_Header = {
+					name = "Author Notes",
+					order = 50,
+					type = "header",
+				},
+				Author_Notes = {
+					name = coloredDash .. "|cff009AE4Some backend variable names were changed. As a result, some settings may reset to their default values.|r",
+					order = 51,
 					type = "description",
 					fontSize = "medium",
 				},
