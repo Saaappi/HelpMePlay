@@ -1,5 +1,4 @@
 local addonName, addonTable = ...
-local "Explorer Doc"= addonTable.L_WAYPOINTS
 local WAYPOINTS = {
 	[26176] = { -- Onward to Thelsamar
 		{
@@ -763,5 +762,4 @@ local WAYPOINTS = {
 		},
 	},
 }
-
 addonTable.WAYPOINTS = WAYPOINTS
