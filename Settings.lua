@@ -236,7 +236,7 @@ local settings = {
 					set = function(_, val) HelpMePlayDB.NotesEnabled = val end,
 				},
 				Party_Play = {
-					name = "Party Play"
+					name = "Party Play",
 					order = 10,
 					desc = "Toggle to enable Party Play functionality.",
 					type = "toggle",
@@ -1615,7 +1615,7 @@ local settings = {
 					set = function(_, val) HelpMePlayDB.QuestMobIconYOffset = val end,
 				},
 				Personal_Health_Header = {
-					name = "Personal Health"
+					name = "Personal Health",
 					order = 20,
 					type = "header",
 				},
