@@ -109,7 +109,7 @@ local settings = {
 				},
 				Dragonriding = {
 					name = "Dragonriding",
-					order = 31,
+					order = 2,
 					desc = "Toggle to add a button to the Dragonriding interface that, when clicked, will learn all the Dragonriding traits.",
 					type = "toggle",
 					get = function(_)
@@ -138,7 +138,7 @@ local settings = {
 				},
 				Emotes = {
 					name = "Emotes",
-					order = 2,
+					order = 3,
 					desc = "Toggle emoting at specific NPCs.\n\n" ..
 					"An example would be the |cffFFD100Repeat After Me|r quest in Maldraxxus.",
 					type = "toggle",
@@ -152,7 +152,7 @@ local settings = {
 				},
 				Equip_Loot = {
 					name = "Equip Loot",
-					order = 3,
+					order = 4,
 					desc = "Toggle equipping soulbound loot from slain enemies.",
 					type = "toggle",
 					get = function(_)
@@ -165,7 +165,7 @@ local settings = {
 				},
 				Flight_Paths = {
 					name = "Flight Paths",
-					order = 4,
+					order = 5,
 					desc = "Toggle automatically taking flight paths when your character meets certain conditions.",
 					type = "toggle",
 					get = function(_)
@@ -178,7 +178,7 @@ local settings = {
 				},
 				Group_Invites = {
 					name = "Group Invites",
-					order = 5,
+					order = 6,
 					desc = "Toggle automatically accepting group invitations.",
 					type = "toggle",
 					get = function(_)
@@ -191,7 +191,7 @@ local settings = {
 				},
 				Gossip = {
 					name = "Gossip",
-					order = 6,
+					order = 7,
 					desc = "Toggle the automatic selection of gossip options. This does |cffFFFF00NOT|r apply to all NPCs.",
 					type = "toggle",
 					get = function(_)
@@ -204,7 +204,7 @@ local settings = {
 				},
 				Junker = {
 					name = "Junker",
-					order = 1,
+					order = 8,
 					desc = "Toggle to enable the Junker subsystem.",
 					type = "toggle",
 					get = function(_)
@@ -224,7 +224,7 @@ local settings = {
 				},
 				Notes = {
 					name = "Notes",
-					order = 7,
+					order = 9,
 					desc = "Toggle the application of helpful tips to the tooltip of select NPCs in the world.\n\n" ..
 					"An example would be the |cffFFD100Lever-Locked Chests|r in Torghast.",
 					type = "toggle",
@@ -238,7 +238,7 @@ local settings = {
 				},
 				Party_Play = {
 					name = "Party Play"
-					order = 41,
+					order = 10,
 					desc = "Toggle to enable Party Play functionality.",
 					type = "toggle",
 					get = function(_)
@@ -281,7 +281,7 @@ local settings = {
 				},
 				Queues = {
 					name = "Queues",
-					order = 8,
+					order = 12,
 					desc = "Toggle to allow the addon to accept role checks.\n\n" ..
 					"As of 10.0.7, it's no longer possible for any addon to accept queues.",
 					type = "toggle",
@@ -295,7 +295,7 @@ local settings = {
 				},
 				Ready_Checks = {
 					name = "Ready Checks",
-					order = 9,
+					order = 13,
 					desc = "Toggle automatically accepting ready checks. You're always ready!",
 					type = "toggle",
 					get = function(_)
@@ -308,7 +308,7 @@ local settings = {
 				},
 				Repairs = {
 					name = "Repairs",
-					order = 10,
+					order = 14,
 					desc = "Toggle automatically repairing with repair merchants.",
 					type = "toggle",
 					get = function(_)
@@ -321,7 +321,7 @@ local settings = {
 				},
 				Speech = {
 					name = "Speech",
-					order = 11,
+					order = 15,
 					desc = "Toggle the ability for the addon to interact with NPC speech.\n\n" ..
 					"An example would be |cffFFD100The Games We Play|r quest in Ardenweald.",
 					type = "toggle",
@@ -335,7 +335,7 @@ local settings = {
 				},
 				Trainers = {
 					name = "Trainers",
-					order = 12,
+					order = 16,
 					desc = "Toggle automatically purchasing training from... well... trainers!",
 					type = "toggle",
 					get = function(_)
@@ -348,7 +348,7 @@ local settings = {
 				},
 				Transmog = {
 					name = "Transmog",
-					order = 21,
+					order = 17,
 					desc = "Toggle to add a button next to the inventory UI to help you learn unknown transmog appearances faster!\n\n" ..
 					"This will require a reload!",
 					type = "toggle",
@@ -378,7 +378,7 @@ local settings = {
 				},
 				Vehicles = {
 					name = "Vehicles",
-					order = 13,
+					order = 18,
 					desc = "Toggle the automatic exit from specific vehicles.\n\n" ..
 					"This is currently only used on |cffFFD100Murky's Egg|r in Highmountain.",
 					type = "toggle",
@@ -392,7 +392,7 @@ local settings = {
 				},
 				War_Mode = {
 					name = "War Mode",
-					order = 14,
+					order = 19,
 					desc = "Toggle automatically entering War Mode when entering Stormwind City or Orgrimmar at level 20 or higher.",
 					type = "toggle",
 					get = function(_)
@@ -405,7 +405,7 @@ local settings = {
 				},
 				Waypoints = {
 					name = "Waypoints",
-					order = 15,
+					order = 20,
 					desc = "Toggle the plotting of waypoints when accepting specific quests.",
 					type = "toggle",
 					get = function(_)
@@ -428,7 +428,7 @@ local settings = {
 				},
 				Equip_Loot_Advanced_Header = {
 					name = "Equip Loot (Advanced)",
-					order = 20,
+					order = 30,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.EquipLootEnabled then
@@ -439,7 +439,7 @@ local settings = {
 				},
 				Ignore_Bind = {
 					name = "Ignore Bind",
-					order = 21,
+					order = 31,
 					desc = "Toggle allowing the Equip Loot feature to equip BoE loot from slain enemies.",
 					type = "toggle",
 					get = function(_)
@@ -459,7 +459,7 @@ local settings = {
 				},
 				Queues_Advanced_Header = {
 					name = "Queues (Advanced)",
-					order = 30,
+					order = 40,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.QueuesEnabled then
@@ -470,7 +470,7 @@ local settings = {
 				},
 				Holiday_Queues = {
 					name = "Holiday Queues",
-					order = 31,
+					order = 41,
 					desc = "Toggle the presence of a button next to your character micro menu that automatically queues you for the active holiday boss.",
 					type = "toggle",
 					get = function(_)
@@ -490,7 +490,7 @@ local settings = {
 				},
 				Trainers_Advanced_Header = {
 					name = "Trainers (Advanced)",
-					order = 40,
+					order = 50,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.TrainersEnabled then
@@ -501,7 +501,7 @@ local settings = {
 				},
 				Trainers_Gold_Amount = {
 					name = "Trainers Minimum Amount",
-					order = 41,
+					order = 51,
 					usage = "|cffFFFFFF" .. "Enter an amount of gold to add to the cost of a spell to train. Your character must have the cost plus this number (default is 50 gold) before HelpMePlay will buy it.",
 					type = "input",
 					get = function()
@@ -526,7 +526,7 @@ local settings = {
 				},
 				Junker_Advanced_Header = {
 					name = "Junker (Advanced)",
-					order = 50,
+					order = 60,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.JunkerEnabled then
@@ -537,7 +537,7 @@ local settings = {
 				},
 				Junker_Safe_Mode = {
 					name = "Safe Mode",
-					order = 51,
+					order = 61,
 					desc = "Toggle to only allow Junker to sell items in batches of 12. This will allow you to use the buyback tab in case it sells something it shouldn't.\n\n" ..
 					"It's recommended you enable this.",
 					type = "toggle",
@@ -557,7 +557,7 @@ local settings = {
 				},
 				Junker_Soulbound_Mode = {
 					name = "Soulbound Mode",
-					order = 52,
+					order = 62,
 					desc = "Toggle to allow Junker to sell items that are soulbound and are under a certain item level threshold.\n\n" ..
 					"This feature is mutually exclusive with the |cffFFD100Preserve Transmog|r option under the Rarity dropdown.",
 					type = "toggle",
@@ -583,7 +583,7 @@ local settings = {
 				},
 				Junker_Auto_Sell = {
 					name = "Auto Sell",
-					order = 53,
+					order = 63,
 					desc = "Toggle to allow Junker to automatically sell when the merchant window is opened.",
 					type = "toggle",
 					get = function(_)
@@ -602,7 +602,7 @@ local settings = {
 				},
 				Junker_Rarity_Dropdown = {
 					name = "Rarity",
-					order = 54,
+					order = 64,
 					desc = "Select the minimum item rarity threshold Junker should consider when selling items.\n\n" ..
 					"Setting the threshold to Poor will make Junker consider all items, whereas setting it to Uncommon will tell Junker not to sell Poor or Common items.\n\n" ..
 					"Preserve Transmog uses Poor as its underlying threshold but it won't sell armor or weapons. This option is mutually exclusive with Soulbound Mode.",
@@ -648,7 +648,7 @@ local settings = {
 				},
 				Junker_Import_Button = {
 					name = "Import",
-					order = 55,
+					order = 65,
 					type = "execute",
 					func = function(_, _)
 						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {
@@ -752,7 +752,7 @@ local settings = {
 				},
 				Soulbound_Mode_Item_Level = {
 					name = "Soulbound Mode Item Level",
-					order = 56,
+					order = 66,
 					type = "range",
 					min = 25,
 					max = 50,
@@ -775,7 +775,7 @@ local settings = {
 				},
 				Party_Play_Advanced_Header = {
 					name = "Party Play (Advanced)",
-					order = 60,
+					order = 70,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.PartyPlayEnabled then
@@ -786,7 +786,7 @@ local settings = {
 				},
 				Party_Play_Announce = {
 					name = "Announce",
-					order = 61,
+					order = 71,
 					desc = "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.",
 					type = "toggle",
 					get = function()
@@ -805,7 +805,7 @@ local settings = {
 				},
 				Party_Play_Auto_Share = {
 					name = "Auto Share",
-					order = 62,
+					order = 72,
 					desc = "Automatically share quests with party members as you accept them.\n\n" ..
 					"For the best results, all party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.",
 					type = "toggle",
