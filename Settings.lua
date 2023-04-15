@@ -107,6 +107,35 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.CinematicsEnabled = val end,
 				},
+				Dragonriding = {
+					name = "Dragonriding",
+					order = 31,
+					desc = "Toggle to add a button to the Dragonriding interface that, when clicked, will learn all the Dragonriding traits.",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.DragonridingButtonEnabled then
+							HelpMePlayDB.DragonridingButtonEnabled = false
+						end
+						return HelpMePlayDB.DragonridingButtonEnabled
+					end,
+					set = function(_, val)
+						HelpMePlayDB.DragonridingButtonEnabled = val
+						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
+							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
+							button1 = YES,
+							button2 = CANCEL,
+							OnAccept = function(self, data)
+								ReloadUI()
+							end,
+							showAlert = true,
+							whileDead = false,
+							hideOnEscape = true,
+							enterClicksFirstButton = false,
+							preferredIndex = 3,
+						}
+						StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
+					end,
+				},
 				Emotes = {
 					name = "Emotes",
 					order = 2,
@@ -207,6 +236,49 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.NotesEnabled = val end,
 				},
+				Party_Play = {
+					name = "Party Play"
+					order = 41,
+					desc = "Toggle to enable Party Play functionality.",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.PartyPlayEnabled then
+							HelpMePlayDB.PartyPlayEnabled = false
+						end
+						return HelpMePlayDB.PartyPlayEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.PartyPlayEnabled = val end,
+				},
+				Player_Talents = {
+					name = "Player Talents",
+					order = 11,
+					desc = "Toggle to add a button to the talent interface to automatically learn talents for your specialization!\n\n" ..
+					"This will require a reload!",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.TalentButtonEnabled then
+							HelpMePlayDB.TalentButtonEnabled = false
+						end
+						return HelpMePlayDB.TalentButtonEnabled
+					end,
+					set = function(_, val)
+						HelpMePlayDB.TalentButtonEnabled = val
+						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
+							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
+							button1 = YES,
+							button2 = CANCEL,
+							OnAccept = function(self, data)
+								ReloadUI()
+							end,
+							showAlert = true,
+							whileDead = false,
+							hideOnEscape = true,
+							enterClicksFirstButton = false,
+							preferredIndex = 3,
+						}
+						StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
+					end,
+				},
 				Queues = {
 					name = "Queues",
 					order = 8,
@@ -273,6 +345,36 @@ local settings = {
 						return HelpMePlayDB.TrainersEnabled
 					end,
 					set = function(_, val) HelpMePlayDB.TrainersEnabled = val end,
+				},
+				Transmog = {
+					name = "Transmog",
+					order = 21,
+					desc = "Toggle to add a button next to the inventory UI to help you learn unknown transmog appearances faster!\n\n" ..
+					"This will require a reload!",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.TransmogButtonEnabled then
+							HelpMePlayDB.TransmogButtonEnabled = false
+						end
+						return HelpMePlayDB.TransmogButtonEnabled
+					end,
+					set = function(_, val)
+						HelpMePlayDB.TransmogButtonEnabled = val
+						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
+							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
+							button1 = YES,
+							button2 = CANCEL,
+							OnAccept = function(self, data)
+								ReloadUI()
+							end,
+							showAlert = true,
+							whileDead = false,
+							hideOnEscape = true,
+							enterClicksFirstButton = false,
+							preferredIndex = 3,
+						}
+						StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
+					end,
 				},
 				Vehicles = {
 					name = "Vehicles",
@@ -666,6 +768,56 @@ local settings = {
 					set = function(_, val) HelpMePlayDB.SoulboundModeMinItemLevel = val end,
 					hidden = function()
 						if HelpMePlayDB.JunkerEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Party_Play_Advanced_Header = {
+					name = "Party Play (Advanced)",
+					order = 60,
+					type = "header",
+					hidden = function()
+						if HelpMePlayDB.PartyPlayEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Party_Play_Announce = {
+					name = "Announce",
+					order = 61,
+					desc = "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.",
+					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.PartyPlayAnnounceEnabled then
+							HelpMePlayDB.PartyPlayAnnounceEnabled = false
+						end
+						return HelpMePlayDB.PartyPlayAnnounceEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.PartyPlayAnnounceEnabled = val end,
+					hidden = function()
+						if HelpMePlayDB.PartyPlayEnabled then
+							return false
+						end
+						return true
+					end,
+				},
+				Party_Play_Auto_Share = {
+					name = "Auto Share",
+					order = 62,
+					desc = "Automatically share quests with party members as you accept them.\n\n" ..
+					"For the best results, all party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.",
+					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.PartyPlayAutoShareEnabled then
+							HelpMePlayDB.PartyPlayAutoShareEnabled = false
+						end
+						return HelpMePlayDB.PartyPlayAutoShareEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.PartyPlayAutoShareEnabled = val end,
+					hidden = function()
+						if HelpMePlayDB.PartyPlayEnabled then
 							return false
 						end
 						return true
@@ -1249,150 +1401,11 @@ local settings = {
 				},
             },
         },
-		Systems_Tab = {
-            name = "Systems",
-			desc = "Toggle more in-depth features like Junker and define their settings.",
-            type = "group",
-            order = 7,
-            args = {
-				talentsHeader = {
-					name = L_GLOBALSTRINGS["Header.Talents"],
-					order = 10,
-					type = "header",
-				},
-				talentButton = {
-					name = L_GLOBALSTRINGS["General.Toggle.TalentButton"],
-					order = 11,
-					desc = L_GLOBALSTRINGS["General.Toggle.TalentButtonDesc"],
-					type = "toggle",
-					get = function(_)
-						if not HelpMePlayDB.TalentButtonEnabled then
-							HelpMePlayDB.TalentButtonEnabled = false
-						end
-						return HelpMePlayDB.TalentButtonEnabled
-					end,
-					set = function(_, val)
-						HelpMePlayDB.TalentButtonEnabled = val
-						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
-							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
-							button1 = YES,
-							button2 = CANCEL,
-							OnAccept = function(self, data)
-								ReloadUI()
-							end,
-							showAlert = true,
-							whileDead = false,
-							hideOnEscape = true,
-							enterClicksFirstButton = false,
-							preferredIndex = 3,
-						}
-						StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
-					end,
-				},
-				transmogHeader = {
-					name = L_GLOBALSTRINGS["Header.Transmog"],
-					order = 20,
-					type = "header",
-				},
-				transmogButton = {
-					name = L_GLOBALSTRINGS["General.Toggle.TransmogButton"],
-					order = 21,
-					desc = L_GLOBALSTRINGS["General.Toggle.TransmogButtonDesc"],
-					type = "toggle",
-					get = function(_)
-						if not HelpMePlayDB.TransmogButtonEnabled then
-							HelpMePlayDB.TransmogButtonEnabled = false
-						end
-						return HelpMePlayDB.TransmogButtonEnabled
-					end,
-					set = function(_, val)
-						HelpMePlayDB.TransmogButtonEnabled = val
-						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
-							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
-							button1 = YES,
-							button2 = CANCEL,
-							OnAccept = function(self, data)
-								ReloadUI()
-							end,
-							showAlert = true,
-							whileDead = false,
-							hideOnEscape = true,
-							enterClicksFirstButton = false,
-							preferredIndex = 3,
-						}
-						StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
-					end,
-				},
-				dragonridingHeader = {
-					name = L_GLOBALSTRINGS["Header.Dragonriding"],
-					order = 30,
-					type = "header",
-				},
-				dragonridingButton = {
-					name = L_GLOBALSTRINGS["General.Toggle.DragonridingButton"],
-					order = 31,
-					desc = L_GLOBALSTRINGS["General.Toggle.DragonridingButtonDesc"],
-					type = "toggle",
-					get = function(_)
-						if not HelpMePlayDB.DragonridingButtonEnabled then
-							HelpMePlayDB.DragonridingButtonEnabled = false
-						end
-						return HelpMePlayDB.DragonridingButtonEnabled
-					end,
-					set = function(_, val)
-						HelpMePlayDB.DragonridingButtonEnabled = val
-						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
-							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
-							button1 = YES,
-							button2 = CANCEL,
-							OnAccept = function(self, data)
-								ReloadUI()
-							end,
-							showAlert = true,
-							whileDead = false,
-							hideOnEscape = true,
-							enterClicksFirstButton = false,
-							preferredIndex = 3,
-						}
-						StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
-					end,
-				},
-				partyPlayHeader = {
-					name = L_GLOBALSTRINGS["Header.PartyPlay"],
-					order = 40,
-					type = "header",
-				},
-				partyPlayEnable = {
-					name = L_GLOBALSTRINGS["General.Toggle.Enable"],
-					order = 41,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayDesc"],
-					type = "toggle",
-					get = function() return HelpMePlayDB.PartyPlayEnabled end,
-					set = function(_, val) HelpMePlayDB.PartyPlayEnabled = val end,
-				},
-				partyPlayAnnounce = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounce"],
-					order = 42,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAnnounceDesc"],
-					type = "toggle",
-					get = function() return HelpMePlayDB.PartyPlayAnnounceEnabled end,
-					set = function(_, val) HelpMePlayDB.PartyPlayAnnounceEnabled = val end,
-				},
-				partyPlayAutoShare = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShare"],
-					order = 43,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.PartyPlayAutoShareDesc"],
-					type = "toggle",
-					get = function() return HelpMePlayDB.PartyPlayAutoShareEnabled end,
-					set = function(_, val) HelpMePlayDB.PartyPlayAutoShareEnabled = val end,
-				},
-            },
-        },
 		Extras_Tab = {
             name = "Extras",
 			desc = "Toggle the use of bonus settings.",
             type = "group",
-            order = 8,
+            order = 7,
             args = {
 				Toggle_Header = {
 					name = "Toggles",
@@ -1691,7 +1704,7 @@ local settings = {
             name = "Import",
 			desc = "Import custom data into the addon for features like player talents and more!",
             type = "group",
-            order = 9,
+            order = 8,
             args = {
 				Player_Talents_Header = {
 					name = "Player Talents",
@@ -1858,7 +1871,7 @@ local settings = {
             name = "Changelog",
 			desc = "Review the changelog for the currently installed release.",
             type = "group",
-            order = 10,
+            order = 9,
 			args = {
 				--[[addedHeader = {
 					name = "Added",
@@ -1910,7 +1923,7 @@ local settings = {
             name = "About",
 			desc = "Learn about the addon and its author.",
             type = "group",
-            order = 11,
+            order = 10,
             args = {
                 versionText = {
 					name = "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version"),
@@ -1994,7 +2007,7 @@ local settings = {
 		Issue_Button = {
 			name = "Open Issue",
 			desc = "Click the button to get a link to the GitHub page to open a bug report, feature suggestion, or to request a change.",
-			order = 21,
+			order = 11,
 			type = "execute",
 			func = function(_, _)
 				StaticPopupDialogs["HELPMEPLAY_GITHUB_POPUP"] = {
