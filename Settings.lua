@@ -616,15 +616,15 @@ local settings = {
 						return isAddOnLoaded
 					end,
 				},
-				expansionIntrosHeader = {
-					name = L_GLOBALSTRINGS["Header.ExpansionIntros"],
+				Expansion_Intros_Header = {
+					name = "Expansion Intros",
 					order = 20,
 					type = "header",
 				},
-				bfaIntro = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFA"],
+				BFA_Intro = {
+					name = "Battle for Azeroth",
 					order = 21,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.BFADesc"],
+					desc = "Toggle to opt in to the Battle for Azeroth intro experience.",
 					type = "toggle",
 					get = function()
 						local faction = UnitFactionGroup("player")
@@ -640,12 +640,17 @@ local settings = {
 						HelpMePlayDB.BFAIntroEnabled[faction] = val
 					end,
 				},
-				slIntro = {
-					name = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMaw"],
+				SL_Intro = {
+					name = "Shadowlands",
 					order = 22,
-					desc = L_GLOBALSTRINGS["Quests.Toggle.ExpansionIntros.TheMawDesc"],
+					desc = "Toggle to opt in to the Shadowlands intro experience.",
 					type = "toggle",
-					get = function() return HelpMePlayDB.TheMawEnabled end,
+					get = function()
+						if not HelpMePlayDB.TheMawEnabled then
+							HelpMePlayDB.TheMawEnabled = false
+						end
+						return HelpMePlayDB.TheMawEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.TheMawEnabled = val end,
 				},
             },
@@ -656,66 +661,88 @@ local settings = {
             type = "group",
             order = 4,
             args = {
-				garrisonHeader = {
-					name = L_GLOBALSTRINGS["Header.Garrisons"],
+				Garrisons_Header = {
+					name = "Garrisons",
 					order = 0,
 					type = "header",
 				},
-				architectTable = {
-					name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTable"],
+				Architect_Table = {
+					name = "Architect Table",
 					order = 1,
-					desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.ArchitectTableDesc"],
+					desc = "Toggle to allow the addon to plot your Barracks when opening your Garrison.",
 					type = "toggle",
-					get = function(info) return HelpMePlayDB.ArchitectTableEnabled end,
-					set = function(info, val) HelpMePlayDB.ArchitectTableEnabled = val end,
+					get = function()
+						if not HelpMePlayDB.ArchitectTableEnabled then
+							HelpMePlayDB.ArchitectTableEnabled = false
+						end
+						return HelpMePlayDB.ArchitectTableEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.ArchitectTableEnabled = val end,
 				},
-				garrisonOutposts = {
-					name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutposts"],
+				Garrison_Outposts = {
+					name = "Garrison Outposts",
 					order = 2,
-					desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.GarrisonOutpostsDesc"],
+					desc = "Toggle to allow the addon to select your Garrison outposts.\n\n" ..
+					"Currently, only Gorgrond outposts will be selected.",
 					type = "toggle",
-					get = function(info) return HelpMePlayDB.GarrisonOutpostsEnabled end,
-					set = function(info, val) HelpMePlayDB.GarrisonOutpostsEnabled = val end,
+					get = function()
+						if not HelpMePlayDB.GarrisonOutpostsEnabled then
+							HelpMePlayDB.GarrisonOutpostsEnabled = false
+						end
+						return HelpMePlayDB.GarrisonOutpostsEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.GarrisonOutpostsEnabled = val end,
 				},
-				missionTable = {
-					name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTable"],
+				Mission_Table = {
+					name = "Mission Table",
 					order = 3,
-					desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.MissionTableDesc"],
+					desc = "Toggle to allow the addon to start your first Garrison mission when opening your Garrison.",
 					type = "toggle",
-					get = function(info) return HelpMePlayDB.MissionTableEnabled end,
-					set = function(info, val) HelpMePlayDB.MissionTableEnabled = val end,
+					get = function()
+						if not HelpMePlayDB.MissionTableEnabled then
+							HelpMePlayDB.MissionTableEnabled = false
+						end
+						return HelpMePlayDB.MissionTableEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.MissionTableEnabled = val end,
 				},
-				visionsHeader = {
-					name = L_GLOBALSTRINGS["Header.VisionsOfNzoth"],
+				Visions_Header = {
+					name = "Visions of N'Zoth",
 					order = 10,
 					type = "header",
 				},
-				titanResearch = {
-					name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearch"],
+				Titanic_Research = {
+					name = "Titanic Research",
 					order = 11,
-					desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.TitanicResearchDesc"],
+					desc = "Toggle to add a button to the Titanic Research interface that will purchase the best traits for Visions.\n\n" ..
+					"All traits will be purchased, but the addon will select the best traits for a SOLO experience first.",
 					type = "toggle",
-					get = function(info) return HelpMePlayDB.TitanResearchEnabled end,
+					get = function()
+						if not HelpMePlayDB.TitanResearchEnabled then
+							HelpMePlayDB.TitanResearchEnabled = false
+						end
+						return HelpMePlayDB.TitanResearchEnabled
+					end,
 					set = function(info, val) HelpMePlayDB.TitanResearchEnabled = val end,
 				},
-				covenantsHeader = {
-					name = L_GLOBALSTRINGS["Header.Covenants"],
+				Covenants_Header = {
+					name = "Covenants",
 					order = 20,
 					type = "header",
 				},
-				covenants = {
-					name = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Title"],
+				Covenants_Dropdown = {
+					name = "Covenants",
 					order = 21,
-					desc = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Desc"],
+					desc = "Select the covenant you would like the addon to place all your characters in.",
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-						[1] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Kyrian"],
-						[2] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Venthyr"],
-						[3] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Necrolord"],
-						[4] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.NightFae"],
-						[5] = L_GLOBALSTRINGS["ExpansionFeatures.DropDowns.Covenant.Auto"],
+						[0] = "Disabled",
+						[1] = "Kyrian",
+						[2] = "Venthyr",
+						[3] = "Necrolord",
+						[4] = "Night Fae",
+						[5] = "Auto",
 					},
 					sorting = {
 						[1] = 0, 	-- Disabled
@@ -726,36 +753,42 @@ local settings = {
 						[6] = 2, 	-- Venthyr
 					},
 					get = function()
-						if not HelpMePlayDB.CovenantId then
-							HelpMePlayDB.CovenantId = 0
+						if not HelpMePlayDB.CovenantID then
+							HelpMePlayDB.CovenantID = 0
 						end
-						return HelpMePlayDB.CovenantId
+						return HelpMePlayDB.CovenantID
 					end,
-					set = function(_, covenantId) HelpMePlayDB.CovenantId = covenantId end,
+					set = function(_, covenantID) HelpMePlayDB.CovenantID = covenantID end,
 				},
-				torghastHeader = {
-					name = L_GLOBALSTRINGS["Header.Torghast"],
+				Torghast_Header = {
+					name = "Torghast",
 					order = 30,
 					type = "header",
 				},
-				boxOfManyThings = {
-					name = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThings"],
+				Box_of_Many_Things = {
+					name = "Box of Many Things",
 					order = 31,
-					desc = L_GLOBALSTRINGS["ExpansionFeatures.Toggle.BoxOfManyThingsDesc"],
+					desc = "Toggle to add a button to the Box of Many Things interface that will purchase the best traits for Torghast.\n\n" ..
+					"All traits will be purchased, but the addon will select the best traits for a SOLO experience first.",
 					type = "toggle",
-					get = function(info) return HelpMePlayDB.BoxOfManyThingsEnabled end,
-					set = function(info, val) HelpMePlayDB.BoxOfManyThingsEnabled = val end,
+					get = function()
+						if not HelpMePlayDB.BoxOfManyThingsEnabled then
+							HelpMePlayDB.BoxOfManyThingsEnabled = false
+						end
+						return HelpMePlayDB.BoxOfManyThingsEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.BoxOfManyThingsEnabled = val end,
 				},
-				animaPowers = {
-					name = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Title"],
+				Anima_Powers = {
+					name = "Anima Powers",
 					order = 32,
-					desc = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Desc"],
+					desc = "Toggle how the addon should handle Anima Powers.",
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = L_GLOBALSTRINGS["DropDowns.Disabled"],
-						[1] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Notify"],
-						[2] = L_GLOBALSTRINGS["DropDowns.Torghast.AnimaPowers.Auto"],
+						[0] = "Disabled",
+						[1] = "Notify",
+						[2] = "Auto",
 					},
 					sorting = {
 						[1] = 0, 	-- Disabled
@@ -763,12 +796,12 @@ local settings = {
 						[3] = 2, 	-- Automatic
 					},
 					get = function()
-						if not HelpMePlayDB.TorghastPowersId then
-							HelpMePlayDB.TorghastPowersId = 0
+						if not HelpMePlayDB.TorghastPowersID then
+							HelpMePlayDB.TorghastPowersID = 0
 						end
-						return HelpMePlayDB.TorghastPowersId
+						return HelpMePlayDB.TorghastPowersID
 					end,
-					set = function(_, torghastPowersId) HelpMePlayDB.TorghastPowersId = torghastPowersId end,
+					set = function(_, torghastPowersID) HelpMePlayDB.TorghastPowersID = torghastPowersID end,
 				},
             },
         },
