@@ -121,7 +121,7 @@ local settings = {
 					set = function(_, val)
 						HelpMePlayDB.DragonridingButtonEnabled = val
 						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
-							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
+							text = "Toggling this option requires a UI reload. Would you like to reload now?",
 							button1 = YES,
 							button2 = CANCEL,
 							OnAccept = function(self, data)
@@ -264,7 +264,7 @@ local settings = {
 					set = function(_, val)
 						HelpMePlayDB.TalentButtonEnabled = val
 						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
-							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
+							text = "Toggling this option requires a UI reload. Would you like to reload now?",
 							button1 = YES,
 							button2 = CANCEL,
 							OnAccept = function(self, data)
@@ -361,7 +361,7 @@ local settings = {
 					set = function(_, val)
 						HelpMePlayDB.TransmogButtonEnabled = val
 						StaticPopupDialogs["HELPMEPLAY_BUTTON_TOGGLE"] = {
-							text = L_GLOBALSTRINGS["Systems.Toggle.ReloadUI.Text"],
+							text = "Toggling this option requires a UI reload. Would you like to reload now?",
 							button1 = YES,
 							button2 = CANCEL,
 							OnAccept = function(self, data)
@@ -1499,7 +1499,7 @@ local settings = {
 								text = "Enter the icon name that you wish to have on quest NPC nameplates.\n\n" ..
 								"The icon name can be siphoned from Wowhead by clicking on the icon for a spell, achievement, etc.\n\n" ..
 								"You can refer to the addon's README if you need more assistance.",
-								button1 = L_GLOBALSTRINGS["OK"],
+								button1 = "OK",
 								OnShow = function(self, data)
 									self.editBox:SetText("")
 									self.editBox:HighlightText()
