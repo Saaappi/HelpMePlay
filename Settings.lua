@@ -1913,7 +1913,7 @@ local settings = {
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "Removed the Party Members setting from the |cffFFD100Extras|r menu." ..
+					name = coloredDash .. "Removed the Party Members setting from the |cffFFD100Extras|r menu.\n\n" ..
 					coloredDash .. "Removed multiple commands.",
 					order = 41,
 					type = "description",
