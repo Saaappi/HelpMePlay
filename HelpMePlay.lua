@@ -112,6 +112,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.QuestMobIconId then
 				HelpMePlayDB.QuestMobIconId = nil
 			end
+			if HelpMePlayDB.PartyMembers then
+				HelpMePlayDB.PartyMembers = nil
+			end
 		end
 	end
 end)

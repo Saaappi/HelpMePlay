@@ -1410,7 +1410,9 @@ local settings = {
 							icon = "Mobile-QuestIcon"
 						elseif iconID == 1 then
 							StaticPopupDialogs["HELPMEPLAY_QUESTMOBSICON_CUSTOM"] = {
-								text = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.Option.Custom.Text"],
+								text = "Enter the icon name that you wish to have on quest NPC nameplates.\n\n" ..
+								"The icon name can be siphoned from Wowhead by clicking on the icon for a spell, achievement, etc.\n\n" ..
+								"You can refer to the addon's README if you need more assistance.",
 								button1 = L_GLOBALSTRINGS["OK"],
 								OnShow = function(self, data)
 									self.editBox:SetText("")
@@ -1457,22 +1459,22 @@ local settings = {
 						end
 					end,
 				},
-				questMobsIconPosition = {
-					name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition"],
+				Quest_Mobs_Icon_Position = {
+					name = "Position",
 					order = 13,
-					desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Desc"],
+					desc = "Select where to place the icon on the nameplate.",
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Top"],
-						[1] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Bottom"],
-						[2] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Left"],
-						[3] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Right"],
-						[4] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.TopLeft"],
-						[5] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.TopRight"],
-						[6] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.BottomLeft"],
-						[7] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.BottomRight"],
-						[8] = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.IconPosition.Option.Center"],
+						[0] = "Top",
+						[1] = "Bottom",
+						[2] = "Left",
+						[3] = "Right",
+						[4] = "TopLeft",
+						[5] = "TopRight",
+						[6] = "BottomLeft",
+						[7] = "BottomRight",
+						[8] = "Center",
 					},
 					sorting = {
 						[1] = 0,
@@ -1491,18 +1493,18 @@ local settings = {
 						end
 						return HelpMePlayDB.QuestMobIconPosition
 					end,
-					set = function(_, iconPositionId)
-						HelpMePlayDB.QuestMobIconPosition = iconPositionId
+					set = function(_, iconPositionID)
+						HelpMePlayDB.QuestMobIconPosition = iconPositionID
 					end,
 				},
-				questMobsIconXOffset = {
-					name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset"],
+				Quest_Mobs_Icon_XOffset = {
+					name = "X Offset",
 					order = 14,
 					type = "range",
 					min = -50,
 					max = 50,
 					step = 2,
-					desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.XOffset.Desc"],
+					desc = "Choose how far on the x-axis the icon should be.",
 					get = function()
 						if not HelpMePlayDB.QuestMobIconXOffset then
 							HelpMePlayDB.QuestMobIconXOffset = 0
@@ -1511,14 +1513,14 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.QuestMobIconXOffset = val end,
 				},
-				questMobsIconYOffset = {
-					name = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset"],
+				Quest_Mobs_Icon_YOffset = {
+					name = "Y Offset",
 					order = 15,
 					type = "range",
 					min = -50,
 					max = 50,
 					step = 2,
-					desc = L_GLOBALSTRINGS["Quests.DropDowns.QuestMobs.YOffset.Desc"],
+					desc = "Choose how far on the y-axis the icon should be.",
 					get = function()
 						if not HelpMePlayDB.QuestMobIconYOffset then
 							HelpMePlayDB.QuestMobIconYOffset = 0
@@ -1527,27 +1529,32 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.QuestMobIconYOffset = val end,
 				},
-				personalHealthHeader = {
-					name = L_GLOBALSTRINGS["Header.PersonalHealth"],
+				Personal_Health_Header = {
+					name = "Personal Health"
 					order = 20,
 					type = "header",
 				},
-				waterReminder = {
-					name = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminder"],
+				Water_Reminder = {
+					name = "Water Reminder",
 					order = 21,
-					desc = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.WaterReminderDesc"],
+					desc = "Toggle to have the addon remind you that you need to drink water.",
 					type = "toggle",
-					get = function(_) return HelpMePlayDB.WaterReminderEnabled end,
+					get = function()
+						if not HelpMePlayDB.WaterReminderEnabled then
+							HelpMePlayDB.WaterReminderEnabled = false
+						end
+						return HelpMePlayDB.WaterReminderEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.WaterReminderEnabled = val end,
 				},
-				waterReminderMinDelay = {
-					name = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMinDelay"],
+				Water_Reminder_Min_Delay = {
+					name = "Minimum Reminder Delay",
 					order = 22,
 					type = "range",
 					min = 5,
 					max = 30,
 					step = 1,
-					desc = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMinDelayDesc"],
+					desc = "Select the minimum amount of time between reminders.",
 					get = function()
 						if not HelpMePlayDB.WaterReminderMinDelay then
 							HelpMePlayDB.WaterReminderMinDelay = 10
@@ -1556,14 +1563,14 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.WaterReminderMinDelay = val end,
 				},
-				waterReminderMaxDelay = {
-					name = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMaxDelay"],
+				Water_Reminder_Max_Delay = {
+					name = "Maximum Reminder Delay",
 					order = 23,
 					type = "range",
 					min = 5,
 					max = 30,
 					step = 1,
-					desc = L_GLOBALSTRINGS["Features.Toggle.PersonalHealth.ReminderMaxDelayDesc"],
+					desc = "Select the maximum amount of time between reminders.",
 					get = function()
 						if not HelpMePlayDB.WaterReminderMaxDelay then
 							HelpMePlayDB.WaterReminderMaxDelay = 20
@@ -1572,44 +1579,27 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.WaterReminderMaxDelay = val end,
 				},
-				partyInvitationsHeader = {
+				Party_Invitations_Header = {
 					name = "Party Invitations",
 					order = 30,
 					type = "header",
 				},
-				autoInvite = {
+				Auto_Invite = {
 					name = "Auto Invite",
 					order = 31,
-					desc = "Toggle whether or not HelpMePlay should process whispers for inviting players.",
+					desc = "Toggle to allow the addon to process whispers for inviting players.",
 					type = "toggle",
-					get = function(_) return HelpMePlayDB.AutoInviteEnabled end,
+					get = function()
+						if not HelpMePlayDB.AutoInviteEnabled then
+							HelpMePlayDB.AutoInviteEnabled = false
+						end
+						return HelpMePlayDB.AutoInviteEnabled
+					end,
 					set = function(_, val) HelpMePlayDB.AutoInviteEnabled = val end,
 				},
-				partyMembers = {
-					name = "Party Members",
-					order = 32,
-					type = "input",
-					multiline = true,
-					desc = "Set a list of players to invite when using the |cffFFD100inv|r command.\n\n" ..
-					"This is best used by players to quickly form premade parties for dungeons or other content.\n\n" ..
-					"|cffFFD100Format:|r\nPlayerName-RealmName\n\nEach entry should be on a separate line.",
-					get = function(_)
-						local members = ""
-						for _, member in ipairs(HelpMePlayDB.PartyMembers) do
-							members = members .. member .. "\n"
-						end
-						return members
-					end,
-					set = function(_, val)
-						HelpMePlayDB.PartyMembers = {}
-						for member in val:gmatch("([^\n]*)\n?") do
-							table.insert(HelpMePlayDB.PartyMembers, member)
-						end
-					end,
-				},
-				inviteKeyword = {
+				Invite_Keyword = {
 					name = "Invite Keyword",
-					order = 33,
+					order = 32,
 					usage = "|cffFFFFFF" .. "Enter a keyword people can whisper you to automatically receive a party invite.\n\n" ..
 					"The default keywords are |cffFFD100invite|r and |cffFFD100inv|r.\n\n" ..
 					"Players can always message you the default keywords even if you specify a custom entry.|r",
