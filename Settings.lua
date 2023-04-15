@@ -1931,7 +1931,7 @@ local settings = {
 					type = "header",
 				},
 				Author_Notes = {
-					name = coloredDash .. "|cff009AE4Some backend variable names were changed. As a result, some settings may reset to their default values.|r",
+					name = coloredDash .. "|cff009AE4Some backend variable names were changed. As a result, some settings have reset to their default values.|r",
 					order = 51,
 					type = "description",
 					fontSize = "medium",
