@@ -1873,17 +1873,23 @@ local settings = {
             type = "group",
             order = 9,
 			args = {
-				--[[addedHeader = {
+				text = {
+					name = "|cffFFD100" .. GetAddOnMetadata(addonName, "Version") .. "|r",
+					order = 1,
+					type = "description",
+					fontSize = "medium",
+				},
+				addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = "",
+					name = coloredDash .. "Added the version of the addon to the |cffFFD100Changelog|r tab.",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				changedHeader = {
 					name = "Changed",
 					order = 20,
