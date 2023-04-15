@@ -1873,11 +1873,17 @@ local settings = {
             type = "group",
             order = 9,
 			args = {
+				TEST = {
+					name = "TEST",
+					desc = "TEST",
+					type = "group",
+					order = 0,
+				},
 				text = {
 					name = "|cffFFD100" .. GetAddOnMetadata(addonName, "Version") .. "|r",
 					order = 1,
 					type = "description",
-					fontSize = "medium",
+					fontSize = "large",
 				},
 				addedHeader = {
 					name = "Added",
