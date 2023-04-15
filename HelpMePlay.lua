@@ -106,6 +106,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.TorghastPowersId then
 				HelpMePlayDB.TorghastPowersId = nil
 			end
+			if HelpMePlayDB.ZoneId_SL then
+				HelpMePlayDB.ZoneId_SL = nil
+			end
 		end
 	end
 end)
