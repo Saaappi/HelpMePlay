@@ -1908,7 +1908,7 @@ local settings = {
 				},
 				fixedText = {
 					name = coloredDash .. "Fixed an issue that prevented the Threads of Fate or Story mode from being selected at Fatescribe Roh-Tahl.\n\n" ..
-					coloredDash .. "Fixed an issue that prevented covenants from being automatically selected at the board.",
+					coloredDash .. "Fixed an issue that prevented the addon from choosing a covenant.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
