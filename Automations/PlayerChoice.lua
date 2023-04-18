@@ -8,10 +8,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if PlayerChoiceFrame:IsVisible() then
 			local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
 			if choiceInfo then
+				local id = 0
 				local GUID = choiceInfo.objectGUID
 				local type = string.split("-", GUID)
 				if type ~= "Player" then
-					local _, _, _, _, _, id = string.split("-", choiceInfo.objectGUID)
+					_, _, _, _, _, id = string.split("-", choiceInfo.objectGUID)
 					if tonumber(id) then id = tonumber(id) end
 				else
 					id = choiceInfo.choiceID
@@ -34,25 +35,25 @@ e:SetScript("OnEvent", function(self, event, ...)
 						C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 						HideUIPanel(PlayerChoiceFrame)
 					elseif id == 355352 or id == 357514 then
-						if HelpMePlayDB.CovenantId == 0 or HelpMePlayDB.CovenantId == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
-						if HelpMePlayDB.CovenantId == 1 then
+						if HelpMePlayDB.CovenantID == 0 or HelpMePlayDB.CovenantID == false or HelpMePlayDB.AdventureMapsEnabled == nil then return false end
+						if HelpMePlayDB.CovenantID == 1 then
 							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[1].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						elseif HelpMePlayDB.CovenantId == 2 then
+						elseif HelpMePlayDB.CovenantID == 2 then
 							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						elseif HelpMePlayDB.CovenantId == 3 then
+						elseif HelpMePlayDB.CovenantID == 3 then
 							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[3].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						elseif HelpMePlayDB.CovenantId == 4 then
+						elseif HelpMePlayDB.CovenantID == 4 then
 							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[4].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
-						elseif HelpMePlayDB.CovenantId == 5 then
-							local _, _, classId = UnitClass("player")
+						elseif HelpMePlayDB.CovenantID == 5 then
+							local _, _, classID = UnitClass("player")
 							local specIndex = GetSpecialization()
-							local specId = GetSpecializationInfo(specIndex)
+							local specID = GetSpecializationInfo(specIndex)
 							
-							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[addonTable.COVENANTS_BY_SPEC[classId][specId]].buttons[1].id)
+							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[addonTable.COVENANTS_BY_SPEC[classID][specID]].buttons[1].id)
 							HideUIPanel(PlayerChoiceFrame)
 						end
 					elseif id == 342 or id == 352 then

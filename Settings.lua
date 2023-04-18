@@ -1879,64 +1879,62 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				addedHeader = {
+				--[[addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "Added the version of the addon to the |cffFFD100Changelog|r tab.",
+					name = "",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},
-				changedHeader = {
+				},]]
+				--[[changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Updated the description of some settings.\n\n" ..
-					coloredDash .. "Migrated all of the \"System\" features to the |cffFFD100Features|r tab.",
+					name = "",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "When learning a talent, something should now always be reported to the chat frame.\n\n" ..
-					coloredDash .. "Fixed an issue that prevented the |cffFFD100Enable|r toggle under the General tab from being toggable.",
+					name = coloredDash .. "Fixed an issue that prevented the Threads of Fate or Story mode from being selected at Fatescribe Roh-Tahl.\n\n" ..
+					coloredDash .. "Fixed an issue that prevented covenants from being automatically selected at the board.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
 				},
-				removedHeader = {
+				--[[removedHeader = {
 					name = "Removed",
 					order = 40,
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "Removed the Party Members setting from the |cffFFD100Extras|r menu.\n\n" ..
-					coloredDash .. "Removed multiple commands.",
+					name = "",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
-				},
-				Author_Notes_Header = {
+				},]]
+				--[[Author_Notes_Header = {
 					name = "Author Notes",
 					order = 50,
 					type = "header",
 				},
 				Author_Notes = {
-					name = coloredDash .. "|cff009AE4Some backend variable names were changed. As a result, some settings have reset to their default values.|r",
+					name = "",
 					order = 51,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
             },
 		},
 		About_Tab = {
