@@ -53,7 +53,7 @@ local settings = {
 					type = "toggle",
 					get = function(_)
 						if not HelpMePlayDB.Enabled then
-							HelpMePlayDB.Enabled = true
+							HelpMePlayDB.Enabled = false
 						end
 						return HelpMePlayDB.Enabled
 					end,
@@ -1908,7 +1908,8 @@ local settings = {
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "When learning a talent, something should now always be reported to the chat frame.",
+					name = coloredDash .. "When learning a talent, something should now always be reported to the chat frame.\n\n" ..
+					coloredDash .. "Fixed an issue that prevented the |cffFFD100Enable|r toggle under the General tab from being toggable.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",

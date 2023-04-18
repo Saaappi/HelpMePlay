@@ -13,27 +13,11 @@ function HelpMePlay:OnInitialize()
 	-- Default Options
 	if HelpMePlayDB == nil then
 		HelpMePlayDB = {}
-		HelpMePlayDB.Enabled = true
 	else
 		-- The options aren't nil, so let's run
 		-- some code to ensure we get the state
 		-- of the options we expect.
 		HelpMePlay:MinimapIcon(HelpMePlayDB.MinimapIconEnabled)
-	end
-	
-	-- Set the Torghast Powers ID to 2 if it's
-	-- higher than this due to changes.
-	if HelpMePlayDB.TorghastPowersId == nil then
-		HelpMePlayDB.TorghastPowersId = 0
-	end
-	
-	-- Set the Junker Armor and Consumable settings to nil since
-	-- they're being deprecated.
-	if HelpMePlayDB.Armor ~= nil then
-		HelpMePlayDB.Armor = nil
-	end
-	if HelpMePlayDB.Consumable ~= nil then
-		HelpMePlayDB.Consumable = nil
 	end
 	
 	-- Reset the quest mobs icon to 0 since backend changes
