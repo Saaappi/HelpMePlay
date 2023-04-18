@@ -3,6 +3,27 @@ local coloredDash = "|cffFFD100-|r "
 local icon = ""
 --local authorNote = "|cff009AE4"
 
+local function StartsWith(text, prefix)
+	return text:find(prefix, 1, true) == 1
+end
+
+local function StringToTable(str, delimiter)
+	-- Create an empty table.
+	--
+	-- Split the string by the delimiter, then
+	-- insert each value into the table, then
+	-- return the table to the caller.
+	local tbl = {}
+	for match in (str .. delimiter):gmatch("(.-)" .. delimiter) do
+		if tonumber(match) == nil then
+			_, match = string.split(":", match)
+			match = tonumber(match)
+		end
+		table.insert(tbl, match)
+	end
+	return tbl
+end
+
 function HelpMePlay:MinimapIcon(bool)
 	HelpMePlayDB.MinimapIconEnabled = bool
 	if bool then
@@ -673,7 +694,7 @@ local settings = {
 											HelpMePlay:ImportToJunker(id, "BLACKLIST")
 										end
 									end
-									addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from %s to Junker!", "AutoVendor"))
+									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from AutoVendor to Junker!")
 								elseif IsAddOnLoaded("Dejunk") then
 									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
 										HelpMePlay:ImportToJunker(id, "ADD")
@@ -681,9 +702,9 @@ local settings = {
 									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
 										HelpMePlay:ImportToJunker(id, "BLACKLIST")
 									end
-									addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from %s to Junker!", "Dejunk"))
+									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from Dejunk to Junker!")
 								else
-									addonTable.Print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "No auto sell addon enabled.")
+									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "No auto sell addon enabled.")
 								end
 							end,
 							OnCancel = function(self, data)
@@ -704,25 +725,25 @@ local settings = {
 									button3 = CANCEL,
 									OnAccept = function(self)
 										local count = 0
-										local items = addonTable.StringToTable(self.editBox:GetText(), ",")
+										local items = StringToTable(self.editBox:GetText(), ",")
 										for _, id in ipairs(items) do
 											if tonumber(id) then
 												count = count + 1
 												HelpMePlay:ImportToJunker(id, "ADD")
 											end
 										end
-										addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
+										print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
 									end,
 									OnCancel = function(self)
 										local count = 0
-										local items = addonTable.StringToTable(self.editBox:GetText(), ",")
+										local items = StringToTable(self.editBox:GetText(), ",")
 										for _, id in ipairs(items) do
 											if tonumber(id) then
 												HelpMePlay:ImportToJunker(id, "BLACKLIST")
 												count = count + 1
 											end
 										end
-										addonTable.Print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
+										print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
 									end,
 									OnAlt = function() end,
 									showAlert = true,
@@ -1505,7 +1526,7 @@ local settings = {
 									self.editBox:HighlightText()
 								end,
 								OnAccept = function(self)
-									if addonTable.StartsWith(self.editBox:GetText(), "#") then
+									if StartsWith(self.editBox:GetText(), "#") then
 										icon = string.sub(self.editBox:GetText(), 2)
 										for i = 1, #namePlates do
 											if namePlates[i][addonName.."Icon"] then

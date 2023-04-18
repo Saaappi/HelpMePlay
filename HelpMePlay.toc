@@ -8,12 +8,6 @@
 ## Version: 2.0.24
 ## OptionalDeps: Ace3
 
-# Data
-Data\ConstantsDB.lua
-
-# Functions
-Functions.lua
-
 # Libraries
 Lib\LibStub\LibStub.lua
 Lib\LibDataBroker-1.1\LibDataBroker-1.1.lua
@@ -27,6 +21,9 @@ Lib\AceConfig-3.0\AceConfig-3.0.xml
 Lib\AceHook-3.0\AceHook-3.0.xml
 Lib\AceComm-3.0\AceComm-3.0.xml
 Lib\LibDBIcon-1.0\LibDBIcon-1.0.lua
+
+# Data
+Data\ConstantsDB.lua
 
 HelpMePlay.lua
 
