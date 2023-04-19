@@ -1894,7 +1894,7 @@ local settings = {
 				Merchant_Input = {
 					name = "",
 					order = 11,
-					usage = "Enter the merchant ID, item ID, purchase quantity, and quest ID (if needed).\n\n" ..
+					desc = "Enter the merchant ID, item ID, purchase quantity, and quest ID (if needed).\n\n" ..
 					"Example:\n" ..
 					"162804,180817,1,0 (Buy the Cypher of Relocation from Ve'nari)\n" ..
 					"1247,2894,1,384 (Buy the Rhapsody Malt for the Beer Basted Boar Ribs quest in Dun Morogh)",
