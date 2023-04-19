@@ -8,8 +8,8 @@ local function EquipItem(itemLink)
 	if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
 		if not UnitAffectingCombat("player") then
 			if itemLink then
-				local _, itemType = GetItemInfoInstant(itemLink)
-				if itemType == "Weapon" then return end
+				local _, _, _, _, _, itemType, itemSubType = GetItemInfo(itemLink)
+				if (itemType == "Weapon") or (itemType == "Armor" and itemSubType == "Miscellaneous") then return end
 
 				local equipSlot = 0
 				local _, rewardItemID = string.split(":", itemLink); rewardItemID = tonumber(rewardItemID)
