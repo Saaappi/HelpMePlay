@@ -1886,6 +1886,56 @@ local settings = {
 						StaticPopup_Show("HELPMEPLAY_TALENT_IMPORT")
 					end,
 				},
+				Merchants_Header = {
+					name = "Merchants",
+					order = 10,
+					type = "header",
+				},
+				Merchant_Input = {
+					name = "",
+					order = 11,
+					usage = "Enter the merchant ID, item ID, purchase quantity, and quest ID (if needed).\n\n" ..
+					"Example:\n" ..
+					"162804,180817,1,0 (Buy the Cypher of Relocation from Ve'nari)\n" ..
+					"1247,2894,1,384 (Buy the Rhapsody Malt for the Beer Basted Boar Ribs quest in Dun Morogh)",
+					type = "input",
+					multiline = true,
+					get = function(_) return HelpMePlayDB.PlayerDB.Merchants end,
+					set = function(_, val)
+						for line in string.gmatch(val, "[^\n]+") do
+							local count = 0
+							for substring in string.gmatch(line, "[^,]+") do
+								count = count + 1
+							end
+							
+							if count == 4 then
+								-- Build an empty table and insert all the entries
+								-- into the table.
+								local entries = {}
+								for substring in string.gmatch(line, "[^,]+") do
+									table.insert(entries, substring)
+								end
+								
+								-- Take all the split values and assign them to variables.
+								local merchantID = entries[1]; merchantID = tonumber(merchantID)
+								local itemID = entries[2]; itemID = tonumber(itemID)
+								local itemCount = entries[3]; itemCount = tonumber(itemCount)
+								local questID = entries[4]; questID = tonumber(questID)
+								
+								-- If a table doesn't already exist for this merchant, then
+								-- create an empty one.
+								if not HelpMePlayDB.PlayerDB.Merchants[merchantID] then
+									HelpMePlayDB.PlayerDB.Merchants[merchantID] = {}
+								end
+								
+								-- Insert the merchant "string" into the table.
+								table.insert(HelpMePlayDB.PlayerDB.Merchants[merchantID], { questID = questID, itemID = itemID, itemCount = itemCount })
+							else
+								print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": The following line contains too few or too many entries:\n" .. line)
+							end
+						end
+					end,
+				},
             },
         },
 		Changelog_Tab = {
@@ -1934,17 +1984,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},
-				--[[removedHeader = {
+				removedHeader = {
 					name = "Removed",
 					order = 40,
 					type = "header",
 				},
 				removedText = {
-					name = "",
+					name = coloredDash .. "Weapons will no longer be equipped by the addon.",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[Author_Notes_Header = {
 					name = "Author Notes",
 					order = 50,

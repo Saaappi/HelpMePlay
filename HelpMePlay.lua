@@ -75,6 +75,12 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.PlayerTalents == nil then
 				HelpMePlayDB.PlayerTalents = {}
 			end
+			if HelpMePlayDB.PlayerDB == nil then
+				HelpMePlayDB.PlayerDB = {}
+			end
+			if HelpMePlayDB.PlayerDB.Merchants == nil then
+				HelpMePlayDB.PlayerDB.Merchants = {}
+			end
 			
 			-- Deprecate these old settings.
 			if HelpMePlayDB.QuestRewardId then
