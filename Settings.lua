@@ -1968,17 +1968,17 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				--[[addedHeader = {
+				addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = "",
+					name = coloredDash .. "Added the ability for the player to add their own items to the Merchant automation.",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[changedHeader = {
 					name = "Changed",
 					order = 20,
