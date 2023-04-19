@@ -1897,7 +1897,7 @@ local settings = {
 					desc = "Enter the merchant ID, item ID, purchase quantity, and quest ID (if needed). Each value should be separated by a comma. Each new entry should be on a new line. Spaces between the commas won't matter.\n\n" ..
 					"Example:\n" ..
 					"|cffFFD100162804,180817,1,0|r (Will purchase the Cypher of Relocation from Ve'nari.)\n\n" ..
-					"|cffFFD1001247,2894,1,384|r (Will purchase the Rhapsody Malt for the Beer Basted Boar Ribs quest in Dun Morogh.)\n\n" ..
+					"|cffFFD1001247,2894,1,384|r (Will purchase the Rhapsody Malt for the Beer Basted Boar Ribs quest in Dun Morogh if the player is on the appropriate quest.)\n\n" ..
 					"If you want to remove an item from an NPC, you must re-enter the same line you used to add the item. Only 1 item can be removed from an NPC at a time.",
 					type = "input",
 					multiline = true,
