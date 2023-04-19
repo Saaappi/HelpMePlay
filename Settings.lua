@@ -1928,6 +1928,23 @@ local settings = {
 									HelpMePlayDB.PlayerDB.Merchants[merchantID] = {}
 								end
 								
+								-- Check if the player has already entered this item for the given
+								-- merchant ID.
+								if HelpMePlayDB.PlayerDB.Merchants[merchantID] then
+									local indexToRemove
+									for index, merchantData in pairs(HelpMePlayDB.PlayerDB.Merchants[merchantID]) do
+										if merchantData.itemID == itemID then
+											indexToRemove = index
+											break
+										end
+									end
+									
+									if indexToRemove then
+										table.remove(HelpMePlayDB.PlayerDB.Merchants[merchantID], indexToRemove)
+										return
+									end
+								end
+								
 								-- Insert the merchant "string" into the table.
 								table.insert(HelpMePlayDB.PlayerDB.Merchants[merchantID], { questID = questID, itemID = itemID, itemCount = itemCount })
 							else
