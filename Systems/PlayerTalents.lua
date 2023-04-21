@@ -119,7 +119,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 				local importStream = ""
 				if HelpMePlayDB.PlayerTalents[classID] ~= nil then
 					if HelpMePlayDB.PlayerTalents[classID][specID] ~= "" then
-						print(HelpMePlayDB.PlayerTalents[classID].specID)
+						print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Learning from a custom loadout...")
 						importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB.PlayerTalents[classID][specID])
 					else
 						importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
