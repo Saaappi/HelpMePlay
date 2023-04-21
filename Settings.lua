@@ -1997,7 +1997,8 @@ local settings = {
 				},
 				fixedText = {
 					name = coloredDash .. "Fixed an issue that prevented the Threads of Fate or Story mode from being selected at Fatescribe Roh-Tahl.\n\n" ..
-					coloredDash .. "Fixed an issue that prevented the addon from choosing a covenant.",
+					coloredDash .. "Fixed an issue that prevented the addon from choosing a covenant.\n\n" ..
+					coloredDash .. "Fixed an error when the player would try to choose an artifact in their Legion Class Hall.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
