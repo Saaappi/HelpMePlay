@@ -1181,6 +1181,182 @@ local settings = {
 					end,
 					set = function(_, zoneID) HelpMePlayDB.ZoneID_DF = zoneID end,
 				},
+				QuestMobsHeader = {
+					name = "Quest Mobs",
+					order = 40,
+					type = "header",
+				},
+				QuestMobs = {
+					name = "Quest Mobs",
+					order = 41,
+					desc = "Toggle to add an icon above the nameplate of NPCs required for an active quest.",
+					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.QuestMobsEnabled then
+							HelpMePlayDB.QuestMobsEnabled = false
+						end
+						return HelpMePlayDB.QuestMobsEnabled
+					end,
+					set = function(_, val)
+						if val == false then
+							local namePlates = C_NamePlate.GetNamePlates()
+							for i = 1, #namePlates do
+								if namePlates[i][addonName.."Icon"] then
+									namePlates[i][addonName.."Icon"]:Hide()
+								end
+							end
+						end
+						HelpMePlayDB.QuestMobsEnabled = val
+					end,
+				},
+				QuestMobsIcon = {
+					name = "Quest Mobs Icon",
+					order = 42,
+					desc = "Choose an icon, either the default or a custom one, to place above the nameplate.",
+					type = "select",
+					style = "dropdown",
+					values = {
+						[0] = "Default",
+						[1] = "Custom",
+					},
+					sorting = {
+						[1] = 0,
+						[2] = 1,
+					},
+					get = function()
+						if not HelpMePlayDB.QuestMobIcon then
+							HelpMePlayDB.QuestMobIconID = 0
+							HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
+						end
+						return HelpMePlayDB.QuestMobIconID
+					end,
+					set = function(_, iconID)
+						local namePlates = C_NamePlate.GetNamePlates()
+						local icon = ""
+						
+						if iconID == 0 then
+							icon = "Mobile-QuestIcon"
+						elseif iconID == 1 then
+							StaticPopupDialogs["HELPMEPLAY_QUESTMOBSICON_CUSTOM"] = {
+								text = "Enter the icon name that you wish to have on quest NPC nameplates.\n\n" ..
+								"The icon name can be siphoned from Wowhead by clicking on the icon for a spell, achievement, etc.\n\n" ..
+								"You can refer to the addon's README if you need more assistance.",
+								button1 = "OK",
+								OnShow = function(self, data)
+									self.editBox:SetText("")
+									self.editBox:HighlightText()
+								end,
+								OnAccept = function(self)
+									if StartsWith(self.editBox:GetText(), "#") then
+										icon = string.sub(self.editBox:GetText(), 2)
+										for i = 1, #namePlates do
+											if namePlates[i][addonName.."Icon"] then
+												namePlates[i][addonName.."Icon"]:SetAtlas(icon)
+											end
+										end
+									else
+										icon = "Interface\\ICONS\\" .. self.editBox:GetText(); HelpMePlayDB.QuestMobIcon = icon
+										for i = 1, #namePlates do
+											if namePlates[i][addonName.."Icon"] then
+												namePlates[i][addonName.."Icon"]:SetTexture(icon)
+											end
+										end
+									end
+								end,
+								showAlert = true,
+								whileDead = false,
+								hideOnEscape = true,
+								hasEditBox = true,
+								preferredIndex = 3,
+							}
+							StaticPopup_Show("HELPMEPLAY_QUESTMOBSICON_CUSTOM")
+						end
+						
+						for i = 1, #namePlates do
+							if namePlates[i][addonName.."Icon"] then
+								if iconID == 0 then
+									namePlates[i][addonName.."Icon"]:SetAtlas(icon)
+								end
+							end
+						end
+						
+						HelpMePlayDB.QuestMobIconID = iconID
+						
+						if iconID == 0 then
+							HelpMePlayDB.QuestMobIcon = icon
+						end
+					end,
+				},
+				QuestMobsIconPosition = {
+					name = "Position",
+					order = 43,
+					desc = "Select where to place the icon on the nameplate.",
+					type = "select",
+					style = "dropdown",
+					values = {
+						[0] = "Top",
+						[1] = "Bottom",
+						[2] = "Left",
+						[3] = "Right",
+						[4] = "TopLeft",
+						[5] = "TopRight",
+						[6] = "BottomLeft",
+						[7] = "BottomRight",
+						[8] = "Center",
+					},
+					sorting = {
+						[1] = 0,
+						[2] = 1,
+						[3] = 2,
+						[4] = 3,
+						[5] = 4,
+						[6] = 5,
+						[7] = 6,
+						[8] = 7,
+						[9] = 8,
+					},
+					get = function()
+						if not HelpMePlayDB.QuestMobIconPosition then
+							HelpMePlayDB.QuestMobIconPosition = 8
+						end
+						return HelpMePlayDB.QuestMobIconPosition
+					end,
+					set = function(_, iconPositionID)
+						HelpMePlayDB.QuestMobIconPosition = iconPositionID
+					end,
+				},
+				QuestMobsIconXOffset = {
+					name = "X Offset",
+					order = 44,
+					type = "range",
+					min = -50,
+					max = 50,
+					step = 2,
+					desc = "Choose how far on the x-axis the icon should be.",
+					get = function()
+						if not HelpMePlayDB.QuestMobIconXOffset then
+							HelpMePlayDB.QuestMobIconXOffset = 0
+						end
+						return HelpMePlayDB.QuestMobIconXOffset
+					end,
+					set = function(_, val) HelpMePlayDB.QuestMobIconXOffset = val end,
+				},
+				QuestMobsIconYOffset = {
+					name = "Y Offset",
+					order = 45,
+					type = "range",
+					min = -50,
+					max = 50,
+					step = 2,
+					desc = "Choose how far on the y-axis the icon should be.",
+					get = function()
+						if not HelpMePlayDB.QuestMobIconYOffset then
+							HelpMePlayDB.QuestMobIconYOffset = 0
+						end
+						return HelpMePlayDB.QuestMobIconYOffset
+					end,
+					set = function(_, val) HelpMePlayDB.QuestMobIconYOffset = val end,
+				},
             },
         },
 		Expansion_Features_Tab = {
@@ -1339,195 +1515,14 @@ local settings = {
             type = "group",
             order = 6,
             args = {
-				Toggle_Header = {
-					name = "Toggles",
-					order = 0,
-					type = "header",
-				},
-				Quest_Mobs_Header = {
-					name = "Quest Mobs",
-					order = 10,
-					type = "header",
-				},
-				Quest_Mobs = {
-					name = "Quest Mobs",
-					order = 11,
-					desc = "Toggle to add an icon above the nameplate of NPCs required for an active quest.",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.QuestMobsEnabled then
-							HelpMePlayDB.QuestMobsEnabled = false
-						end
-						return HelpMePlayDB.QuestMobsEnabled
-					end,
-					set = function(_, val)
-						if val == false then
-							local namePlates = C_NamePlate.GetNamePlates()
-							for i = 1, #namePlates do
-								if namePlates[i][addonName.."Icon"] then
-									namePlates[i][addonName.."Icon"]:Hide()
-								end
-							end
-						end
-						HelpMePlayDB.QuestMobsEnabled = val
-					end,
-				},
-				Quest_Mobs_Icon = {
-					name = "Quest Mobs Icon",
-					order = 12,
-					desc = "Choose an icon, either the default or a custom one, to place above the nameplate.",
-					type = "select",
-					style = "dropdown",
-					values = {
-						[0] = "Default",
-						[1] = "Custom",
-					},
-					sorting = {
-						[1] = 0,
-						[2] = 1,
-					},
-					get = function()
-						if not HelpMePlayDB.QuestMobIcon then
-							HelpMePlayDB.QuestMobIconID = 0
-							HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
-						end
-						return HelpMePlayDB.QuestMobIconID
-					end,
-					set = function(_, iconID)
-						local namePlates = C_NamePlate.GetNamePlates()
-						local icon = ""
-						
-						if iconID == 0 then
-							icon = "Mobile-QuestIcon"
-						elseif iconID == 1 then
-							StaticPopupDialogs["HELPMEPLAY_QUESTMOBSICON_CUSTOM"] = {
-								text = "Enter the icon name that you wish to have on quest NPC nameplates.\n\n" ..
-								"The icon name can be siphoned from Wowhead by clicking on the icon for a spell, achievement, etc.\n\n" ..
-								"You can refer to the addon's README if you need more assistance.",
-								button1 = "OK",
-								OnShow = function(self, data)
-									self.editBox:SetText("")
-									self.editBox:HighlightText()
-								end,
-								OnAccept = function(self)
-									if StartsWith(self.editBox:GetText(), "#") then
-										icon = string.sub(self.editBox:GetText(), 2)
-										for i = 1, #namePlates do
-											if namePlates[i][addonName.."Icon"] then
-												namePlates[i][addonName.."Icon"]:SetAtlas(icon)
-											end
-										end
-									else
-										icon = "Interface\\ICONS\\" .. self.editBox:GetText(); HelpMePlayDB.QuestMobIcon = icon
-										for i = 1, #namePlates do
-											if namePlates[i][addonName.."Icon"] then
-												namePlates[i][addonName.."Icon"]:SetTexture(icon)
-											end
-										end
-									end
-								end,
-								showAlert = true,
-								whileDead = false,
-								hideOnEscape = true,
-								hasEditBox = true,
-								preferredIndex = 3,
-							}
-							StaticPopup_Show("HELPMEPLAY_QUESTMOBSICON_CUSTOM")
-						end
-						
-						for i = 1, #namePlates do
-							if namePlates[i][addonName.."Icon"] then
-								if iconID == 0 then
-									namePlates[i][addonName.."Icon"]:SetAtlas(icon)
-								end
-							end
-						end
-						
-						HelpMePlayDB.QuestMobIconID = iconID
-						
-						if iconID == 0 then
-							HelpMePlayDB.QuestMobIcon = icon
-						end
-					end,
-				},
-				Quest_Mobs_Icon_Position = {
-					name = "Position",
-					order = 13,
-					desc = "Select where to place the icon on the nameplate.",
-					type = "select",
-					style = "dropdown",
-					values = {
-						[0] = "Top",
-						[1] = "Bottom",
-						[2] = "Left",
-						[3] = "Right",
-						[4] = "TopLeft",
-						[5] = "TopRight",
-						[6] = "BottomLeft",
-						[7] = "BottomRight",
-						[8] = "Center",
-					},
-					sorting = {
-						[1] = 0,
-						[2] = 1,
-						[3] = 2,
-						[4] = 3,
-						[5] = 4,
-						[6] = 5,
-						[7] = 6,
-						[8] = 7,
-						[9] = 8,
-					},
-					get = function()
-						if not HelpMePlayDB.QuestMobIconPosition then
-							HelpMePlayDB.QuestMobIconPosition = 8
-						end
-						return HelpMePlayDB.QuestMobIconPosition
-					end,
-					set = function(_, iconPositionID)
-						HelpMePlayDB.QuestMobIconPosition = iconPositionID
-					end,
-				},
-				Quest_Mobs_Icon_XOffset = {
-					name = "X Offset",
-					order = 14,
-					type = "range",
-					min = -50,
-					max = 50,
-					step = 2,
-					desc = "Choose how far on the x-axis the icon should be.",
-					get = function()
-						if not HelpMePlayDB.QuestMobIconXOffset then
-							HelpMePlayDB.QuestMobIconXOffset = 0
-						end
-						return HelpMePlayDB.QuestMobIconXOffset
-					end,
-					set = function(_, val) HelpMePlayDB.QuestMobIconXOffset = val end,
-				},
-				Quest_Mobs_Icon_YOffset = {
-					name = "Y Offset",
-					order = 15,
-					type = "range",
-					min = -50,
-					max = 50,
-					step = 2,
-					desc = "Choose how far on the y-axis the icon should be.",
-					get = function()
-						if not HelpMePlayDB.QuestMobIconYOffset then
-							HelpMePlayDB.QuestMobIconYOffset = 0
-						end
-						return HelpMePlayDB.QuestMobIconYOffset
-					end,
-					set = function(_, val) HelpMePlayDB.QuestMobIconYOffset = val end,
-				},
 				Personal_Health_Header = {
 					name = "Personal Health",
-					order = 20,
+					order = 10,
 					type = "header",
 				},
 				Water_Reminder = {
 					name = "Water Reminder",
-					order = 21,
+					order = 11,
 					desc = "Toggle to have the addon remind you that you need to drink water.",
 					type = "toggle",
 					get = function()
@@ -1540,7 +1535,7 @@ local settings = {
 				},
 				Water_Reminder_Min_Delay = {
 					name = "Minimum Reminder Delay",
-					order = 22,
+					order = 12,
 					type = "range",
 					min = 5,
 					max = 30,
@@ -1556,7 +1551,7 @@ local settings = {
 				},
 				Water_Reminder_Max_Delay = {
 					name = "Maximum Reminder Delay",
-					order = 23,
+					order = 13,
 					type = "range",
 					min = 5,
 					max = 30,
@@ -1572,12 +1567,12 @@ local settings = {
 				},
 				Party_Invitations_Header = {
 					name = "Party Invitations",
-					order = 30,
+					order = 20,
 					type = "header",
 				},
 				Auto_Invite = {
 					name = "Auto Invite",
-					order = 31,
+					order = 21,
 					desc = "Toggle to allow the addon to process whispers for inviting players.",
 					type = "toggle",
 					get = function()
@@ -1590,7 +1585,7 @@ local settings = {
 				},
 				Invite_Keyword = {
 					name = "Invite Keyword",
-					order = 32,
+					order = 22,
 					usage = "|cffFFFFFF" .. "Enter a keyword people can whisper you to automatically receive a party invite.\n\n" ..
 					"The default keywords are |cffFFD100invite|r and |cffFFD100inv|r.\n\n" ..
 					"Players can always message you the default keywords even if you specify a custom entry.|r",
@@ -1872,7 +1867,8 @@ local settings = {
 					name = coloredDash .. "There will now be output when learning talents from a custom loadout.\n\n" ..
 					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n" ..
 					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.\n\n" ..
-					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Quests|r tab and renamed it to \"Mute Talking Head\".",
+					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Quests|r tab and renamed it to \"Mute Talking Head\".\n\n" ..
+					coloredDash .. "Moved the |cffFFD100Quest Mobs|r settings to the |cffFFD100Quests|r tab.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
