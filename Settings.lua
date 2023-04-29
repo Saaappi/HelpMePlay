@@ -1964,9 +1964,9 @@ local settings = {
 				removedText = {
 					name = coloredDash .. "Weapons will no longer be equipped by the addon.\n\n" ..
 					coloredDash .. "Removed support for dungeon and holiday boss queues. Queue automation will now strictly accept role checks.\n\n" ..
-					coloredDash .. "Removed |cffFFD100Developer Mode|r for end users. (Output previously locked behind this toggle is now shown free of charge.)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature. (This feature felt out of place in the addon.)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Zone Selection|r tab. (There were only 3 dropdowns living here, so it felt better to move them to a more populated tab that still applied to their identity: |cffFFD100Quests|r.",
+					coloredDash .. "Removed |cffFFD100Developer Mode|r for end users. (|cff009AE4Output previously locked behind this toggle is now shown free of charge.|r)\n\n" ..
+					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature. (|cff009AE4This feature felt out of place in the addon.|r)\n\n" ..
+					coloredDash .. "Removed the |cffFFD100Zone Selection|r tab. (|cff009AE4There were only 3 dropdowns living here, so it felt better to move them to a more populated tab that still applied to their identity:|r |cffFFD100Quests|r|cff009AE4.|r)",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
