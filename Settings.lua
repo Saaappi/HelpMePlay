@@ -1012,27 +1012,6 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.ThreadsOfFateEnabled = val end,
 				},
-				Show_Quest_Count = {
-					name = "Show Quest Count",
-					order = 17,
-					desc = "Toggle to display your active quest count above the quest journal.\n\n" ..
-					"This feature is unavailable if you have |cffFFD100Kaliel's Tracker|r enabled.",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.ShowQuestCountEnabled then
-							HelpMePlayDB.ShowQuestCountEnabled = false
-						end
-						return HelpMePlayDB.ShowQuestCountEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.ShowQuestCountEnabled = val end,
-					disabled = function()
-						local isAddOnLoaded = false
-						if IsAddOnLoaded("!KalielsTracker") then
-							isAddOnLoaded = true
-						end
-						return isAddOnLoaded
-					end,
-				},
 				Expansion_Intros_Header = {
 					name = "Expansion Intros",
 					order = 20,
@@ -1987,7 +1966,8 @@ local settings = {
 				removedText = {
 					name = coloredDash .. "Weapons will no longer be equipped by the addon.\n\n" ..
 					coloredDash .. "Removed support for dungeon and holiday boss queues. Queue automation will now strictly accept role checks.\n\n" ..
-					coloredDash .. "Removed Developer Mode for end users. (Output previously locked behind this toggle is now shown free of charge.)",
+					coloredDash .. "Removed Developer Mode for end users. (Output previously locked behind this toggle is now shown free of charge.)\n\n" ..
+					coloredDash .. "Removed the player's quest count from the World Map.",
 					order = 41,
 					type = "description",
 					fontSize = "medium",

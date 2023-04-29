@@ -107,8 +107,11 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.RarityId then
 				HelpMePlayDB.RarityId = nil
 			end
-			if HelpMePlayDB.QueuesEnabled then
+			if (HelpMePlayDB.QueuesEnabled) then
 				HelpMePlayDB.QueuesEnabled = nil
+			end
+			if (HelpMePlayDB.ShowQuestCountEnabled) then
+				HelpMePlayDB.ShowQuestCountEnabled = nil
 			end
 			if (HelpMePlayDB.DevModeEnabled) then
 				local playerGUID = UnitGUID("player")

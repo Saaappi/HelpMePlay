@@ -455,22 +455,3 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 end)
-
-WorldMapFrame:HookScript("OnShow", function(self)
-	if HelpMePlayDB.ShowQuestCountEnabled then
-		if IsAddOnLoaded("!KalielsTracker") == false then
-			local _, numQuests = C_QuestLog.GetNumQuestLogEntries()
-			WorldMapFrame.BorderFrame.HMPQuestCountText = WorldMapFrame.BorderFrame:CreateFontString("QuestCountText", "OVERLAY", "GameFontNormal")
-			WorldMapFrame.BorderFrame.HMPQuestCountText:SetPoint("TOP", WorldMapFrame.BorderFrame, "TOP", 0, 20)
-			WorldMapFrame.BorderFrame.HMPQuestCountText:SetFont("Fonts\\FRIZQT__.TTF", 16, "OUTLINE")
-			WorldMapFrame.BorderFrame.HMPQuestCountText:SetText("|cffFFE680" .. "(" .. numQuests .. "/35)" .. "|r")
-		end
-	end
-end)
-WorldMapFrame:HookScript("OnHide", function(self)
-	if WorldMapFrame.BorderFrame.HMPQuestCountText then
-		if IsAddOnLoaded("!KalielsTracker") == false then
-			WorldMapFrame.BorderFrame.HMPQuestCountText:SetText("")
-		end
-	end
-end)
