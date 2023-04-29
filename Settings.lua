@@ -249,9 +249,22 @@ local settings = {
 						end
 					end,
 				},
+				MuteTalkingHead = {
+					name = "Mute Talking Head",
+					order = 9,
+					desc = "Toggle to silence talking heads once and for all!",
+					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.TalkingHeadEnabled then
+							HelpMePlayDB.TalkingHeadEnabled = false
+						end
+						return HelpMePlayDB.TalkingHeadEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.TalkingHeadEnabled = val end,
+				},
 				Notes = {
 					name = "Notes",
-					order = 9,
+					order = 10,
 					desc = "Toggle the application of helpful tips to the tooltip of select NPCs in the world.\n\n" ..
 					"An example would be the |cffFFD100Lever-Locked Chests|r in Torghast.",
 					type = "toggle",
@@ -265,7 +278,7 @@ local settings = {
 				},
 				Party_Play = {
 					name = "Party Play",
-					order = 10,
+					order = 11,
 					desc = "Toggle to enable Party Play functionality.",
 					type = "toggle",
 					get = function(_)
@@ -278,7 +291,7 @@ local settings = {
 				},
 				Player_Talents = {
 					name = "Player Talents",
-					order = 11,
+					order = 12,
 					desc = "Toggle to add a button to the talent interface to automatically learn talents for your specialization!\n\n" ..
 					"This will require a reload!",
 					type = "toggle",
@@ -308,7 +321,7 @@ local settings = {
 				},
 				ReadyChecks = {
 					name = "Ready Checks",
-					order = 12,
+					order = 13,
 					desc = "Toggle automatically accepting ready checks. You're always ready!",
 					type = "toggle",
 					get = function(_)
@@ -321,7 +334,7 @@ local settings = {
 				},
 				Repairs = {
 					name = "Repairs",
-					order = 13,
+					order = 14,
 					desc = "Toggle automatically repairing with repair merchants.",
 					type = "toggle",
 					get = function(_)
@@ -334,7 +347,7 @@ local settings = {
 				},
 				RoleCheck = {
 					name = "Role Check",
-					order = 14,
+					order = 15,
 					desc = "Toggle to allow the addon to accept role checks.",
 					type = "toggle",
 					get = function(_)
@@ -347,7 +360,7 @@ local settings = {
 				},
 				Speech = {
 					name = "Speech",
-					order = 15,
+					order = 16,
 					desc = "Toggle the ability for the addon to interact with NPC speech.\n\n" ..
 					"An example would be |cffFFD100The Games We Play|r quest in Ardenweald.",
 					type = "toggle",
@@ -361,7 +374,7 @@ local settings = {
 				},
 				Trainers = {
 					name = "Trainers",
-					order = 16,
+					order = 17,
 					desc = "Toggle automatically purchasing training from... well... trainers!",
 					type = "toggle",
 					get = function(_)
@@ -374,7 +387,7 @@ local settings = {
 				},
 				Transmog = {
 					name = "Transmog",
-					order = 17,
+					order = 18,
 					desc = "Toggle to add a button next to the inventory UI to help you learn unknown transmog appearances faster!\n\n" ..
 					"This will require a reload!",
 					type = "toggle",
@@ -404,7 +417,7 @@ local settings = {
 				},
 				Vehicles = {
 					name = "Vehicles",
-					order = 18,
+					order = 19,
 					desc = "Toggle the automatic exit from specific vehicles.\n\n" ..
 					"This is currently only used on |cffFFD100Murky's Egg|r in Highmountain.",
 					type = "toggle",
@@ -418,7 +431,7 @@ local settings = {
 				},
 				WarMode = {
 					name = "War Mode",
-					order = 19,
+					order = 20,
 					desc = "Toggle automatically entering War Mode when entering Stormwind City or Orgrimmar at level 20 or higher.",
 					type = "toggle",
 					get = function(_)
@@ -431,7 +444,7 @@ local settings = {
 				},
 				Waypoints = {
 					name = "Waypoints",
-					order = 20,
+					order = 21,
 					desc = "Toggle the plotting of waypoints when accepting specific quests.",
 					type = "toggle",
 					get = function(_)
@@ -986,22 +999,9 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.AutoEquipQuestRewardsEnabled = val end,
 				},
-				MuteTalkingHead = {
-					name = "Mute Talking Head",
-					order = 15,
-					desc = "Toggle to silence talking heads once and for all!",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.TalkingHeadEnabled then
-							HelpMePlayDB.TalkingHeadEnabled = false
-						end
-						return HelpMePlayDB.TalkingHeadEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.TalkingHeadEnabled = val end,
-				},
 				Purchase_Quest_Items = {
 					name = "Purchase Quest Items",
-					order = 16,
+					order = 15,
 					desc = "Toggle to allow the addon to purchase quest items from merchants.",
 					type = "toggle",
 					get = function()
@@ -1014,7 +1014,7 @@ local settings = {
 				},
 				Threads_of_Fate = {
 					name = "Threads of Fate",
-					order = 17,
+					order = 16,
 					desc = "Toggle to opt in for Threads of Fate automation.",
 					type = "toggle",
 					get = function()
@@ -1867,7 +1867,7 @@ local settings = {
 					name = coloredDash .. "There will now be output when learning talents from a custom loadout.\n\n" ..
 					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n" ..
 					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.\n\n" ..
-					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Quests|r tab and renamed it to \"Mute Talking Head\".\n\n" ..
+					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Features|r tab and renamed it to \"Mute Talking Head\".\n\n" ..
 					coloredDash .. "Moved the |cffFFD100Quest Mobs|r settings to the |cffFFD100Quests|r tab.",
 					order = 21,
 					type = "description",
