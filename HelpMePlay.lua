@@ -115,7 +115,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if (HelpMePlayDB.DevModeEnabled) then
 				local playerGUID = UnitGUID("player")
-				if (addonTable.myCharacters[playerGUID] == false) then
+				if (not addonTable.myCharacters[playerGUID]) then
 					HelpMePlayDB.DevModeEnabled = nil
 				end
 			end
