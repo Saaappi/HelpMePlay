@@ -1049,6 +1049,125 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.TheMawEnabled = val end,
 				},
+				ZoneSelectionHeader = {
+					name = "Zone Selection",
+					order = 30,
+					type = "header",
+				},
+				ZoneSelectionBFA = {
+					name = "Battle for Azeroth",
+					order = 31,
+					desc = "Select the zone the addon should choose when interacting with the call board in Boralus or Dazar'alor.",
+					type = "select",
+					style = "dropdown",
+					values = function()
+						if UnitFactionGroup("player") == "Alliance" then
+							values = {
+								[0] = "Disabled",
+								[47962] = "|T2065627:0|t " .. (C_Map.GetMapInfo(942)).name, -- Stormsong Valley
+								[47960] = "|T2065630:0|t " .. (C_Map.GetMapInfo(895)).name, -- Tiragarde Sound
+								[47961] = "|T2065567:0|t " .. (C_Map.GetMapInfo(896)).name, -- Drustvar
+							}
+						else
+							values = {
+								[0] = "Disabled",
+								[47512] = "|T2032229:0|t " .. (C_Map.GetMapInfo(863)).name, -- Nazmir
+								[47513] = "|T2065632:0|t " .. (C_Map.GetMapInfo(864)).name, -- Vol'dun
+								[47514] = "|T2065640:0|t " .. (C_Map.GetMapInfo(862)).name, -- Zuldazar
+							}
+						end
+						return values
+					end,
+					sorting = function()
+						if UnitFactionGroup("player") == "Alliance" then
+							values = {
+								[1] = 0,
+								[2] = 47961,
+								[3] = 47960,
+								[4] = 47962,
+							}
+						else
+							values = {
+								[1] = 0,
+								[2] = 47512,
+								[3] = 47513,
+								[4] = 47514,
+							}
+						end
+						return values
+					end,
+					get = function()
+						local faction = UnitFactionGroup("player")
+						if not HelpMePlayDB.ZoneId_BFA then
+							HelpMePlayDB.ZoneId_BFA = {}
+							HelpMePlayDB.ZoneId_BFA["Alliance"] = 0
+							HelpMePlayDB.ZoneId_BFA["Horde"] = 0
+						end
+						return HelpMePlayDB.ZoneId_BFA[faction]
+					end,
+					set = function(_, zoneID)
+						local faction = UnitFactionGroup("player")
+						HelpMePlayDB.ZoneId_BFA[faction] = zoneID
+					end,
+				},
+				ZoneSelectionShadowlands = {
+					name = "Shadowlands",
+					order = 32,
+					desc = "Select the zone the addon should choose when interacting with the call board in Oribos.",
+					type = "select",
+					style = "dropdown",
+					values = {
+						[0] = "Disabled",
+						[62275] = "|T3551337:0|t " .. (C_Map.GetMapInfo(1569)).name, -- Bastion
+						[62277] = "|T3551336:0|t " .. (C_Map.GetMapInfo(1565)).name, -- Ardenweald
+						[62278] = "|T3551338:0|t " .. (C_Map.GetMapInfo(1536)).name, -- Maldraxxus
+						[62279] = "|T3551339:0|t " .. (C_Map.GetMapInfo(1525)).name, -- Revendreth
+						[64846] = "|T3257863:0|t " .. (C_Map.GetMapInfo(1618)).name, -- Torghast
+					},
+					sorting = {
+						[1] = 0,
+						[2] = 62277,
+						[3] = 62275,
+						[4] = 62278,
+						[5] = 62279,
+						[6] = 64846,
+					},
+					get = function()
+						if not HelpMePlayDB.ZoneID_SL then
+							HelpMePlayDB.ZoneID_SL = 0
+						end
+						return HelpMePlayDB.ZoneID_SL
+					end,
+					set = function(_, zoneID) HelpMePlayDB.ZoneID_SL = zoneID end,
+				},
+				ZoneSelectionDragonflight = {
+					name = "Dragonflight",
+					order = 33,
+					desc = "Select the zone the addon should choose when interacting with the call board in The Waking Shores.",
+					type = "select",
+					style = "dropdown",
+					values = {
+						[0] = "Disabled",
+						[72266] = "|T4672500:0|t " .. (C_Map.GetMapInfo(2022)).name, -- The Waking Shores
+						[72267] = "|T4672498:0|t " .. (C_Map.GetMapInfo(2023)).name, -- Ohn'ahran Plains
+						[72268] = "|T4672495:0|t " .. (C_Map.GetMapInfo(2024)).name, -- The Azure Span
+						[72269] = "|T4672499:0|t " .. (C_Map.GetMapInfo(2025)).name, -- Thaldraszus
+					},
+					sorting = {
+						[1] = 0,
+						[2] = 72267,
+						[3] = 72269,
+						[4] = 72268,
+						[5] = 72266,
+					},
+					get = function()
+						if not HelpMePlayDB.ZoneID_DF then
+							HelpMePlayDB.ZoneID_DF = 0
+						end
+						return HelpMePlayDB.ZoneID_DF
+					end,
+					set = function(_, zoneID) HelpMePlayDB.ZoneID_DF = zoneID end,
+				},
             },
         },
 		Expansion_Features_Tab = {
@@ -1201,133 +1320,11 @@ local settings = {
 				},
             },
         },
-		Zone_Selection_Tab = {
-            name = "Zone Selection",
-			desc = "Define which zones the addon should choose when interacting with Adventure Maps.",
-            type = "group",
-            order = 5,
-            args = {
-				Zone_Selection_BFA = {
-					name = "Battle for Azeroth",
-					order = 1,
-					desc = "Select the zone the addon should choose when interacting with the call board in Boralus or Dazar'alor.",
-					type = "select",
-					style = "dropdown",
-					values = function()
-						if UnitFactionGroup("player") == "Alliance" then
-							values = {
-								[0] = "Disabled",
-								[47962] = "|T2065627:0|t " .. (C_Map.GetMapInfo(942)).name, -- Stormsong Valley
-								[47960] = "|T2065630:0|t " .. (C_Map.GetMapInfo(895)).name, -- Tiragarde Sound
-								[47961] = "|T2065567:0|t " .. (C_Map.GetMapInfo(896)).name, -- Drustvar
-							}
-						else
-							values = {
-								[0] = "Disabled",
-								[47512] = "|T2032229:0|t " .. (C_Map.GetMapInfo(863)).name, -- Nazmir
-								[47513] = "|T2065632:0|t " .. (C_Map.GetMapInfo(864)).name, -- Vol'dun
-								[47514] = "|T2065640:0|t " .. (C_Map.GetMapInfo(862)).name, -- Zuldazar
-							}
-						end
-						return values
-					end,
-					sorting = function()
-						if UnitFactionGroup("player") == "Alliance" then
-							values = {
-								[1] = 0,
-								[2] = 47961,
-								[3] = 47960,
-								[4] = 47962,
-							}
-						else
-							values = {
-								[1] = 0,
-								[2] = 47512,
-								[3] = 47513,
-								[4] = 47514,
-							}
-						end
-						return values
-					end,
-					get = function()
-						local faction = UnitFactionGroup("player")
-						if not HelpMePlayDB.ZoneId_BFA then
-							HelpMePlayDB.ZoneId_BFA = {}
-							HelpMePlayDB.ZoneId_BFA["Alliance"] = 0
-							HelpMePlayDB.ZoneId_BFA["Horde"] = 0
-						end
-						return HelpMePlayDB.ZoneId_BFA[faction]
-					end,
-					set = function(_, zoneID)
-						local faction = UnitFactionGroup("player")
-						HelpMePlayDB.ZoneId_BFA[faction] = zoneID
-					end,
-				},
-				Zone_Selection_Shadowlands = {
-					name = "Shadowlands",
-					order = 2,
-					desc = "Select the zone the addon should choose when interacting with the call board in Oribos.",
-					type = "select",
-					style = "dropdown",
-					values = {
-						[0] = "Disabled",
-						[62275] = "|T3551337:0|t " .. (C_Map.GetMapInfo(1569)).name, -- Bastion
-						[62277] = "|T3551336:0|t " .. (C_Map.GetMapInfo(1565)).name, -- Ardenweald
-						[62278] = "|T3551338:0|t " .. (C_Map.GetMapInfo(1536)).name, -- Maldraxxus
-						[62279] = "|T3551339:0|t " .. (C_Map.GetMapInfo(1525)).name, -- Revendreth
-						[64846] = "|T3257863:0|t " .. (C_Map.GetMapInfo(1618)).name, -- Torghast
-					},
-					sorting = {
-						[1] = 0,
-						[2] = 62277,
-						[3] = 62275,
-						[4] = 62278,
-						[5] = 62279,
-						[6] = 64846,
-					},
-					get = function()
-						if not HelpMePlayDB.ZoneID_SL then
-							HelpMePlayDB.ZoneID_SL = 0
-						end
-						return HelpMePlayDB.ZoneID_SL
-					end,
-					set = function(_, zoneID) HelpMePlayDB.ZoneID_SL = zoneID end,
-				},
-				Zone_Selection_DF = {
-					name = "Dragonflight",
-					order = 3,
-					desc = "Select the zone the addon should choose when interacting with the call board in The Waking Shores.",
-					type = "select",
-					style = "dropdown",
-					values = {
-						[0] = "Disabled",
-						[72266] = "|T4672500:0|t " .. (C_Map.GetMapInfo(2022)).name, -- The Waking Shores
-						[72267] = "|T4672498:0|t " .. (C_Map.GetMapInfo(2023)).name, -- Ohn'ahran Plains
-						[72268] = "|T4672495:0|t " .. (C_Map.GetMapInfo(2024)).name, -- The Azure Span
-						[72269] = "|T4672499:0|t " .. (C_Map.GetMapInfo(2025)).name, -- Thaldraszus
-					},
-					sorting = {
-						[1] = 0,
-						[2] = 72267,
-						[3] = 72269,
-						[4] = 72268,
-						[5] = 72266,
-					},
-					get = function()
-						if not HelpMePlayDB.ZoneID_DF then
-							HelpMePlayDB.ZoneID_DF = 0
-						end
-						return HelpMePlayDB.ZoneID_DF
-					end,
-					set = function(_, zoneID) HelpMePlayDB.ZoneID_DF = zoneID end,
-				},
-            },
-        },
 		Sounds_Tab = {
             name = "Sounds",
 			desc = "Mute specific sounds in the game that you find annoying.",
             type = "group",
-            order = 6,
+            order = 5,
             args = {
 				Enable = {
 					name = "Enable",
@@ -1380,7 +1377,7 @@ local settings = {
             name = "Extras",
 			desc = "Toggle the use of bonus settings.",
             type = "group",
-            order = 7,
+            order = 6,
             args = {
 				Toggle_Header = {
 					name = "Toggles",
@@ -1679,7 +1676,7 @@ local settings = {
             name = "Import",
 			desc = "Import custom data into the addon for features like player talents and more!",
             type = "group",
-            order = 8,
+            order = 7,
             args = {
 				Player_Talents_Header = {
 					name = "Player Talents",
@@ -1914,7 +1911,7 @@ local settings = {
             name = "Changelog",
 			desc = "Review the changelog for the currently installed release.",
             type = "group",
-            order = 9,
+            order = 8,
 			args = {
 				text = {
 					name = "|cffFFD100" .. GetAddOnMetadata(addonName, "Version") .. "|r",
@@ -1940,7 +1937,8 @@ local settings = {
 				},
 				changedText = {
 					name = coloredDash .. "There will now be output when learning talents from a custom loadout.\n\n" ..
-					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n",
+					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n" ..
+					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
@@ -1967,7 +1965,8 @@ local settings = {
 					name = coloredDash .. "Weapons will no longer be equipped by the addon.\n\n" ..
 					coloredDash .. "Removed support for dungeon and holiday boss queues. Queue automation will now strictly accept role checks.\n\n" ..
 					coloredDash .. "Removed |cffFFD100Developer Mode|r for end users. (Output previously locked behind this toggle is now shown free of charge.)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature. (This feature felt out of place in the addon.)",
+					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature. (This feature felt out of place in the addon.)\n\n" ..
+					coloredDash .. "Removed the |cffFFD100Zone Selection|r tab. (There were only 3 dropdowns living here, so it felt better to move them to a more populated tab that still applied to their identity: |cffFFD100Quests|r.",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
@@ -1989,7 +1988,7 @@ local settings = {
             name = "About",
 			desc = "Learn about the addon and its author.",
             type = "group",
-            order = 10,
+            order = 9,
             args = {
                 versionText = {
 					name = "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version"),
