@@ -133,36 +133,37 @@ end)
 
 local function CompleteQuest()
 	local numQuestChoices = GetNumQuestChoices()
-	if numQuestChoices > 1 then
-		if HelpMePlayDB.CompleteQuestsEnabled then
+	if (numQuestChoices > 1) then
+		if (HelpMePlayDB.CompleteQuestsEnabled) then
 			if HelpMePlayDB.QuestRewardID == 0 or HelpMePlayDB.QuestRewardID == false or HelpMePlayDB.QuestRewardID == nil then return false end
 			
-			if HelpMePlayDB.QuestRewardID == 1 then
+			if (HelpMePlayDB.QuestRewardID == 1) then
 				itemLevels = {}
-			elseif HelpMePlayDB.QuestRewardID == 2 then
-				sellPrices = {}
 			end
 			
 			local itemID = 0
-			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
+			local itemSellPrice = 0
+			local totalSellPrice = 0
+			local itemLink = ""
+			if (UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"]) then
 				for i = 1, numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
-					local questRewardItemLink = GetQuestItemLink("choice", i)
-					if questRewardItemLink then
-						_, itemID = string.split(":", questRewardItemLink); itemID = tonumber(itemID)
+					itemLink = GetQuestItemLink("choice", i)
+					if (itemLink) then
+						_, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
 						
 						-- Before we continue, let's make sure we aren't supposed to take
 						-- a specific reward from the current quest. For example, we always
 						-- want to take the Champion's Purse from Argent Tournament dailies.
-						if addonTable.QUESTREWARDS[itemID] then
+						if (addonTable.QUESTREWARDS[itemID]) then
 							bestItemIndex = i
 							break
 						end
 
-						if HelpMePlayDB.QuestRewardID == 1 then
+						if (HelpMePlayDB.QuestRewardID == 1) then
 							-- First check to see if the reward is a weapon. If it's a weapon,
 							-- we want to leave the choice to the player.
-							local _, _, _, _, _, itemType = GetItemInfo(questRewardItemLink)
+							local _, _, _, _, _, itemType = GetItemInfo(itemLink)
 							if itemType == "Weapon" then return end
 							
 							local rewardItemLevel = GetDetailedItemLevelInfo(GetQuestItemLink("choice", i))
@@ -217,21 +218,20 @@ local function CompleteQuest()
 									end
 								end
 							end
-						elseif HelpMePlayDB.QuestRewardID == 2 then
-							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(questRewardItemLink)
-							if sellPrice > 0 then
-								local totalSellPrice = 0
-								local phSellPrice = quantity*sellPrice
-								if phSellPrice > totalSellPrice then
-									print(phSellPrice)
+						elseif (HelpMePlayDB.QuestRewardID == 2) then
+							local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemLink)
+							if (sellPrice > 0) then
+								itemSellPrice = (quantity * sellPrice)
+								if (itemSellPrice > totalSellPrice) then
 									bestItemIndex = i
+									totalSellPrice = itemSellPrice
 								end
 							end
 						end
 					end
 				end
 				
-				if bestItemIndex == 0 then
+				if (bestItemIndex == 0) then
 					-- All quest rewards were of the same item level or sell price.
 					-- Pick a random reward.
 					GetQuestReward(random(1, numQuestChoices))
@@ -242,7 +242,9 @@ local function CompleteQuest()
 					GetQuestReward(bestItemIndex)
 					if (HelpMePlayDB.QuestRewardID == 2) then
 						if (HelpMePlayDB.JunkerEnabled) then
-							HelpMePlayJunkerGlobalDB[itemID] = true
+							if (not HelpMePlayJunkerGlobalDB[itemID]) then
+								HelpMePlayJunkerGlobalDB[itemID] = true
+							end
 						end
 					end
 				end
