@@ -1320,59 +1320,6 @@ local settings = {
 				},
             },
         },
-		Sounds_Tab = {
-            name = "Sounds",
-			desc = "Mute specific sounds in the game that you find annoying.",
-            type = "group",
-            order = 5,
-            args = {
-				Enable = {
-					name = "Enable",
-					order = 1,
-					desc = "Toggle to enable the ability for the addon to mute sounds.",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.SoundsEnabled then
-							HelpMePlayDB.SoundsEnabled = false
-						end
-						return HelpMePlayDB.SoundsEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.SoundsEnabled = val end,
-				},
-				Sounds_Header = {
-					name = "Sounds",
-					order = 2,
-					type = "header",
-				},
-				Sound_Input = {
-					name = "Sounds",
-					order = 3,
-					desc = "Input a list of sound IDs for the addon to mute. Each sound ID should be on its own line.\n\n|cffFFD100NOTE|r: You must reload after adding the sound IDs.",
-					type = "input",
-					multiline = true,
-					get = function(_) return HelpMePlayDB.Sounds end,
-					set = function(_, val)
-						local sounds = {}
-						for soundID in val:gmatch("[^\r\n]+") do
-							table.insert(sounds, soundID)
-						end
-						for _, soundID in ipairs(sounds) do
-							if tonumber(soundID) then
-								soundID = tonumber(soundID)
-								if HelpMePlayDB.Sounds[soundID] then
-									HelpMePlayDB.Sounds[soundID] = nil
-									UnmuteSoundFile(soundID)
-								else
-									HelpMePlayDB.Sounds[soundID] = true
-								end
-							else
-								print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": |cffFFD100" .. soundID .. "|r isn't a valid sound ID.")
-							end
-						end
-					end,
-				},
-            },
-        },
 		Extras_Tab = {
             name = "Extras",
 			desc = "Toggle the use of bonus settings.",
@@ -1966,7 +1913,8 @@ local settings = {
 					coloredDash .. "Removed support for dungeon and holiday boss queues. Queue automation will now strictly accept role checks.\n\n" ..
 					coloredDash .. "Removed |cffFFD100Developer Mode|r for end users. (|cff009AE4Output previously locked behind this toggle is now shown free of charge.|r)\n\n" ..
 					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature. (|cff009AE4This feature felt out of place in the addon.|r)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Zone Selection|r tab. (|cff009AE4There were only 3 dropdowns living here, so it felt better to move them to a more populated tab that still applied to their identity:|r |cffFFD100Quests|r|cff009AE4.|r)",
+					coloredDash .. "Removed the |cffFFD100Zone Selection|r tab. (|cff009AE4There were only 3 dropdowns living here, so it felt better to move them to a more populated tab that still applied to their identity:|r |cffFFD100Quests|r|cff009AE4.|r)\n\n" ..
+					coloredDash .. "Removed the |cffFFD100Sounds|r tab and the underlying mute feature. (|cff009AE4This feature felt out of place in the addon.|r)",
 					order = 41,
 					type = "description",
 					fontSize = "medium",

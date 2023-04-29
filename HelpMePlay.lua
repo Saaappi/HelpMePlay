@@ -119,6 +119,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 					HelpMePlayDB.DevModeEnabled = nil
 				end
 			end
+			if (HelpMePlayDB.Sounds) then
+				HelpMePlayDB.Sounds = nil
+			end
 		end
 	end
 end)
