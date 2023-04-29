@@ -107,6 +107,15 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.RarityId then
 				HelpMePlayDB.RarityId = nil
 			end
+			if HelpMePlayDB.QueuesEnabled then
+				HelpMePlayDB.QueuesEnabled = nil
+			end
+			if (HelpMePlayDB.DevModeEnabled) then
+				local playerGUID = UnitGUID("player")
+				if (addonTable.myCharacters[playerGUID] == false) then
+					HelpMePlayDB.DevModeEnabled = nil
+				end
+			end
 		end
 	end
 end)

@@ -96,7 +96,7 @@ local settings = {
 				DeveloperMode = {
 					name = "Developer Mode",
 					order = 3,
-					desc = "Toggle and the addon will output \"random\" information at \"spontaneous\" moments.\n\nThis really should be for the author's eyes only but... have fun!",
+					desc = "Toggle access to developer-only commands and debug output for gossip options.",
 					type = "toggle",
 					get = function(_)
 						if not HelpMePlayDB.DevModeEnabled then
@@ -105,6 +105,13 @@ local settings = {
 						return HelpMePlayDB.DevModeEnabled
 					end,
 					set = function(_, val) HelpMePlayDB.DevModeEnabled = val end,
+					hidden = function()
+						local playerGUID = UnitGUID("player")
+						if (addonTable.myCharacters[playerGUID] == false) then
+							return true
+						end
+						return false
+					end,
 				},
             },
         },
@@ -299,23 +306,9 @@ local settings = {
 						StaticPopup_Show("HELPMEPLAY_BUTTON_TOGGLE")
 					end,
 				},
-				Queues = {
-					name = "Queues",
-					order = 12,
-					desc = "Toggle to allow the addon to accept role checks.\n\n" ..
-					"As of 10.0.7, it's no longer possible for any addon to accept queues.",
-					type = "toggle",
-					get = function(_)
-						if not HelpMePlayDB.QueuesEnabled then
-							HelpMePlayDB.QueuesEnabled = false
-						end
-						return HelpMePlayDB.QueuesEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.QueuesEnabled = val end,
-				},
-				Ready_Checks = {
+				ReadyChecks = {
 					name = "Ready Checks",
-					order = 13,
+					order = 12,
 					desc = "Toggle automatically accepting ready checks. You're always ready!",
 					type = "toggle",
 					get = function(_)
@@ -328,7 +321,7 @@ local settings = {
 				},
 				Repairs = {
 					name = "Repairs",
-					order = 14,
+					order = 13,
 					desc = "Toggle automatically repairing with repair merchants.",
 					type = "toggle",
 					get = function(_)
@@ -338,6 +331,19 @@ local settings = {
 						return HelpMePlayDB.RepairsEnabled
 					end,
 					set = function(_, val) HelpMePlayDB.RepairsEnabled = val end,
+				},
+				RoleCheck = {
+					name = "Role Check",
+					order = 14,
+					desc = "Toggle to allow the addon to accept role checks.",
+					type = "toggle",
+					get = function(_)
+						if not HelpMePlayDB.RoleCheckEnabled then
+							HelpMePlayDB.RoleCheckEnabled = false
+						end
+						return HelpMePlayDB.RoleCheckEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.RoleCheckEnabled = val end,
 				},
 				Speech = {
 					name = "Speech",
@@ -410,7 +416,7 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.VehiclesEnabled = val end,
 				},
-				War_Mode = {
+				WarMode = {
 					name = "War Mode",
 					order = 19,
 					desc = "Toggle automatically entering War Mode when entering Stormwind City or Orgrimmar at level 20 or higher.",
@@ -446,7 +452,7 @@ local settings = {
 						HelpMePlayDB.WaypointsEnabled = val
 					end,
 				},
-				Equip_Loot_Advanced_Header = {
+				EquipLootAdvancedHeader = {
 					name = "Equip Loot (Advanced)",
 					order = 30,
 					type = "header",
@@ -457,7 +463,7 @@ local settings = {
 						return true
 					end,
 				},
-				Ignore_Bind = {
+				IgnoreBind = {
 					name = "Ignore Bind",
 					order = 31,
 					desc = "Toggle allowing the Equip Loot feature to equip BoE loot from slain enemies.",
@@ -477,40 +483,9 @@ local settings = {
 						return true
 					end,
 				},
-				Queues_Advanced_Header = {
-					name = "Queues (Advanced)",
-					order = 40,
-					type = "header",
-					hidden = function()
-						if HelpMePlayDB.QueuesEnabled then
-							return false
-						end
-						return true
-					end,
-				},
-				Holiday_Queues = {
-					name = "Holiday Queues",
-					order = 41,
-					desc = "Toggle the presence of a button next to your character micro menu that automatically queues you for the active holiday boss.",
-					type = "toggle",
-					get = function(_)
-						if not HelpMePlayDB.HolidayQueuesEnabled then
-							HelpMePlayDB.HolidayQueuesEnabled = false
-						end
-						return HelpMePlayDB.HolidayQueuesEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.HolidayQueuesEnabled = val end,
-					hidden = function()
-						if HelpMePlayDB.QueuesEnabled then
-							return false
-						end
-						HelpMePlayDB.HolidayQueuesEnabled = false
-						return true
-					end,
-				},
-				Trainers_Advanced_Header = {
+				TrainersAdvancedHeader = {
 					name = "Trainers (Advanced)",
-					order = 50,
+					order = 40,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.TrainersEnabled then
@@ -519,9 +494,9 @@ local settings = {
 						return true
 					end,
 				},
-				Trainers_Gold_Amount = {
+				TrainersGoldAmount = {
 					name = "Trainers Minimum Amount",
-					order = 51,
+					order = 41,
 					usage = "|cffFFFFFF" .. "Enter an amount of gold to add to the cost of a spell to train. Your character must have the cost plus this number (default is 50 gold) before HelpMePlay will buy it.",
 					type = "input",
 					get = function()
@@ -544,9 +519,9 @@ local settings = {
 						return true
 					end,
 				},
-				Junker_Advanced_Header = {
+				JunkerAdvancedHeader = {
 					name = "Junker (Advanced)",
-					order = 60,
+					order = 50,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.JunkerEnabled then
@@ -555,9 +530,9 @@ local settings = {
 						return true
 					end,
 				},
-				Junker_Safe_Mode = {
+				JunkerSafeMode = {
 					name = "Safe Mode",
-					order = 61,
+					order = 51,
 					desc = "Toggle to only allow Junker to sell items in batches of 12. This will allow you to use the buyback tab in case it sells something it shouldn't.\n\n" ..
 					"It's recommended you enable this.",
 					type = "toggle",
@@ -575,9 +550,9 @@ local settings = {
 						return true
 					end,
 				},
-				Junker_Soulbound_Mode = {
+				JunkerSoulboundMode = {
 					name = "Soulbound Mode",
-					order = 62,
+					order = 52,
 					desc = "Toggle to allow Junker to sell items that are soulbound and are under a certain item level threshold.\n\n" ..
 					"This feature is mutually exclusive with the |cffFFD100Preserve Transmog|r option under the Rarity dropdown.",
 					type = "toggle",
@@ -601,9 +576,9 @@ local settings = {
 						return true
 					end,
 				},
-				Junker_Auto_Sell = {
+				JunkerAutoSell = {
 					name = "Auto Sell",
-					order = 63,
+					order = 53,
 					desc = "Toggle to allow Junker to automatically sell when the merchant window is opened.",
 					type = "toggle",
 					get = function(_)
@@ -620,9 +595,9 @@ local settings = {
 						return true
 					end,
 				},
-				Junker_Rarity_Dropdown = {
+				JunkerRarityDropdown = {
 					name = "Rarity",
-					order = 64,
+					order = 54,
 					desc = "Select the minimum item rarity threshold Junker should consider when selling items.\n\n" ..
 					"Setting the threshold to Poor will make Junker consider all items, whereas setting it to Uncommon will tell Junker not to sell Poor or Common items.\n\n" ..
 					"Preserve Transmog uses Poor as its underlying threshold but it won't sell armor or weapons. This option is mutually exclusive with Soulbound Mode.",
@@ -666,9 +641,9 @@ local settings = {
 						return true
 					end,
 				},
-				Junker_Import_Button = {
+				JunkerImportButton = {
 					name = "Import",
-					order = 65,
+					order = 55,
 					type = "execute",
 					func = function(_, _)
 						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {
@@ -770,9 +745,9 @@ local settings = {
 						return true
 					end,
 				},
-				Soulbound_Mode_Item_Level = {
+				SoulboundModeItemLevel = {
 					name = "Soulbound Mode Item Level",
-					order = 66,
+					order = 56,
 					type = "range",
 					min = 25,
 					max = 50,
@@ -794,9 +769,9 @@ local settings = {
 						return true
 					end,
 				},
-				Party_Play_Advanced_Header = {
+				PartyPlayAdvancedHeader = {
 					name = "Party Play (Advanced)",
-					order = 70,
+					order = 60,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.PartyPlayEnabled then
@@ -805,9 +780,9 @@ local settings = {
 						return true
 					end,
 				},
-				Party_Play_Announce = {
+				PartyPlayAnnounce = {
 					name = "Announce",
-					order = 71,
+					order = 61,
 					desc = "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.",
 					type = "toggle",
 					get = function()
@@ -824,9 +799,9 @@ local settings = {
 						return true
 					end,
 				},
-				Party_Play_Auto_Share = {
+				PartyPlayAutoShare = {
 					name = "Auto Share",
-					order = 72,
+					order = 62,
 					desc = "Automatically share quests with party members as you accept them.\n\n" ..
 					"For the best results, all party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.",
 					type = "toggle",
@@ -846,7 +821,7 @@ local settings = {
 				},
             },
         },
-		Quests_Tab = {
+		QuestsTab = {
             name = "Quests",
 			desc = "Toggle features related to quests!",
             type = "group",
@@ -1985,7 +1960,8 @@ local settings = {
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "There will now be output when learning talents from a custom loadout.",
+					name = coloredDash .. "There will now be output when learning talents from a custom loadout.\n\n" ..
+					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
@@ -2009,7 +1985,9 @@ local settings = {
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "Weapons will no longer be equipped by the addon.",
+					name = coloredDash .. "Weapons will no longer be equipped by the addon.\n\n" ..
+					coloredDash .. "Removed support for dungeon and holiday boss queues. Queue automation will now strictly accept role checks.\n\n" ..
+					coloredDash .. "Removed Developer Mode for end users. (Output previously locked behind this toggle is now shown free of charge.)",
 					order = 41,
 					type = "description",
 					fontSize = "medium",

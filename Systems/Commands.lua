@@ -152,8 +152,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 					print(dest .. "," .. zone .. ": " .. taxiNodeData.nodeID)
 				end
 			end
-		else
-			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
 		end
 	elseif cmd == "talents" then
 		if HelpMePlayDB.DevModeEnabled then
@@ -227,8 +225,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			-- Add the concatenated traits variable to the edit box
 			-- and show it.
 			editBox:SetText(text)
-		else
-			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Developer Mode must be enabled to use this command.")
 		end
 	end
 end
