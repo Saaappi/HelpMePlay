@@ -1333,7 +1333,7 @@ local settings = {
 				},
             },
         },
-		Extras_Tab = {
+		ExtrasTab = {
             name = "Extras",
 			desc = "Toggle the use of bonus settings.",
             type = "group",
@@ -1343,20 +1343,6 @@ local settings = {
 					name = "Toggles",
 					order = 0,
 					type = "header",
-				},
-				Wave_at_Players = {
-					name = "Wave at Players",
-					order = 1,
-					desc = "Toggle to have a ridiculously small chance to wave at a player when you click on them.\n\n" ..
-					"The chance is approximately the same as the X-45 Heartbreaker dropping for you. Good luck!",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.WaveAtPlayersEnabled then
-							HelpMePlayDB.WaveAtPlayersEnabled = false
-						end
-						return HelpMePlayDB.WaveAtPlayersEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.WaveAtPlayersEnabled = val end,
 				},
 				Quest_Mobs_Header = {
 					name = "Quest Mobs",
@@ -1913,9 +1899,10 @@ local settings = {
 					name = coloredDash .. "Weapons will no longer be equipped by the addon.\n\n" ..
 					coloredDash .. "Removed support for dungeon and holiday boss queues. Queue automation will now strictly accept role checks.\n\n" ..
 					coloredDash .. "Removed |cffFFD100Developer Mode|r for end users. (|cff009AE4Output previously locked behind this toggle is now shown free of charge.|r)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature. (|cff009AE4This feature felt out of place in the addon.|r)\n\n" ..
+					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature.\n\n" ..
 					coloredDash .. "Removed the |cffFFD100Zone Selection|r tab. (|cff009AE4There were only 3 dropdowns living here, so it felt better to move them to a more populated tab that still applied to their identity:|r |cffFFD100Quests|r|cff009AE4.|r)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Sounds|r tab and the underlying mute feature. (|cff009AE4This feature felt out of place in the addon.|r)",
+					coloredDash .. "Removed the |cffFFD100Sounds|r tab and the underlying mute feature.\n\n" ..
+					coloredDash .. "Removed the |cffFFD100Wave at Players|r feature.",
 					order = 41,
 					type = "description",
 					fontSize = "medium",

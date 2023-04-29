@@ -122,6 +122,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if (HelpMePlayDB.Sounds) then
 				HelpMePlayDB.Sounds = nil
 			end
+			if (HelpMePlayDB.WaveAtPlayersEnabled) then
+				HelpMePlayDB.WaveAtPlayersEnabled = nil
+			end
 		end
 	end
 end)
