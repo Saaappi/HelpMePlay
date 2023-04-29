@@ -223,6 +223,7 @@ local function CompleteQuest()
 								local totalSellPrice = 0
 								local phSellPrice = quantity*sellPrice
 								if phSellPrice > totalSellPrice then
+									print(phSellPrice)
 									bestItemIndex = i
 								end
 							end
@@ -248,9 +249,13 @@ local function CompleteQuest()
 			end
 		end
 	elseif numQuestChoices == 1 then
-		GetQuestReward(1)
+		if (HelpMePlayDB.CompleteQuestsEnabled) then
+			GetQuestReward(1)
+		end
 	else
-		QuestFrameCompleteQuestButton:Click()
+		if (HelpMePlayDB.CompleteQuestsEnabled) then
+			QuestFrameCompleteQuestButton:Click()
+		end
 	end
 end
 
