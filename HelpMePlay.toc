@@ -1,11 +1,11 @@
 ## Author: LightskyGG
-## Interface: 100007
+## Interface: 100100
 ## Name: HelpMePlay
 ## Notes: Allows you to tailor an automated experience that best fits your playstyle!
 ## SavedVariables: HelpMePlayDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayIgnoredQuestsDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB, HelpMePlayQuestMobsDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Title: HelpMePlay
-## Version: 2.0.24
+## Version: 2.1.0
 ## OptionalDeps: Ace3
 
 # Libraries

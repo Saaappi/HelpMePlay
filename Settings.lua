@@ -1961,7 +1961,8 @@ local settings = {
 				},
 				changedText = {
 					name = coloredDash .. "There will now be output when learning talents from a custom loadout.\n\n" ..
-					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".",
+					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n" ..
+					coloredDash .. "Updated the interface version to support Patch 10.1.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
