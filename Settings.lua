@@ -107,7 +107,7 @@ local settings = {
 					set = function(_, val) HelpMePlayDB.DevModeEnabled = val end,
 					hidden = function()
 						local playerGUID = UnitGUID("player")
-						if (addonTable.myCharacters[playerGUID] == false) then
+						if (not addonTable.myCharacters[playerGUID]) then
 							return true
 						end
 						return false

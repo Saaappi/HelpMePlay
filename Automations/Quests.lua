@@ -145,11 +145,12 @@ local function CompleteQuest()
 			
 			local itemID = 0
 			if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
-				for i=1, numQuestChoices do
+				for i = 1, numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					local questRewardItemLink = GetQuestItemLink("choice", i)
 					if questRewardItemLink then
 						_, itemID = string.split(":", questRewardItemLink); itemID = tonumber(itemID)
+						
 						-- Before we continue, let's make sure we aren't supposed to take
 						-- a specific reward from the current quest. For example, we always
 						-- want to take the Champion's Purse from Argent Tournament dailies.
@@ -238,8 +239,8 @@ local function CompleteQuest()
 					-- reward automation is told to pick the reward by sell price, then
 					-- automatically add the item to the GLOBAL Junker table.
 					GetQuestReward(bestItemIndex)
-					if HelpMePlayDB.QuestRewardID == 2 then
-						if HelpMePlayDB.JunkerEnabled then
+					if (HelpMePlayDB.QuestRewardID == 2) then
+						if (HelpMePlayDB.JunkerEnabled) then
 							HelpMePlayJunkerGlobalDB[itemID] = true
 						end
 					end
