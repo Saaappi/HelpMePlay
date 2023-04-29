@@ -986,22 +986,9 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.AutoEquipQuestRewardsEnabled = val end,
 				},
-				Purchase_Quest_Items = {
-					name = "Purchase Quest Items",
-					order = 15,
-					desc = "Toggle to allow the addon to purchase quest items from merchants.",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.PurchaseQuestItemsEnabled then
-							HelpMePlayDB.PurchaseQuestItemsEnabled = false
-						end
-						return HelpMePlayDB.PurchaseQuestItemsEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
-				},
 				MuteTalkingHead = {
 					name = "Mute Talking Head",
-					order = 16,
+					order = 15,
 					desc = "Toggle to silence talking heads once and for all!",
 					type = "toggle",
 					get = function()
@@ -1011,6 +998,19 @@ local settings = {
 						return HelpMePlayDB.TalkingHeadEnabled
 					end,
 					set = function(_, val) HelpMePlayDB.TalkingHeadEnabled = val end,
+				},
+				Purchase_Quest_Items = {
+					name = "Purchase Quest Items",
+					order = 16,
+					desc = "Toggle to allow the addon to purchase quest items from merchants.",
+					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.PurchaseQuestItemsEnabled then
+							HelpMePlayDB.PurchaseQuestItemsEnabled = false
+						end
+						return HelpMePlayDB.PurchaseQuestItemsEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
 				},
 				Threads_of_Fate = {
 					name = "Threads of Fate",
