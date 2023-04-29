@@ -972,22 +972,9 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.CompleteQuestsEnabled = val end,
 				},
-				Purchase_Quest_Items = {
-					name = "Purchase Quest Items",
-					order = 14,
-					desc = "Toggle to allow the addon to purchase quest items from merchants.",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.PurchaseQuestItemsEnabled then
-							HelpMePlayDB.PurchaseQuestItemsEnabled = false
-						end
-						return HelpMePlayDB.PurchaseQuestItemsEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
-				},
 				Equip_Quest_Rewards = {
 					name = "Equip Quest Rewards",
-					order = 15,
+					order = 14,
 					desc = "Toggle to allow the addon to equip quest rewards that are upgrades.\n\n" ..
 					"This will only apply if the |cffFFD100Quest Rewards|r dropdown is set to Item Level.",
 					type = "toggle",
@@ -999,9 +986,35 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.AutoEquipQuestRewardsEnabled = val end,
 				},
+				Purchase_Quest_Items = {
+					name = "Purchase Quest Items",
+					order = 15,
+					desc = "Toggle to allow the addon to purchase quest items from merchants.",
+					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.PurchaseQuestItemsEnabled then
+							HelpMePlayDB.PurchaseQuestItemsEnabled = false
+						end
+						return HelpMePlayDB.PurchaseQuestItemsEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.PurchaseQuestItemsEnabled = val end,
+				},
+				MuteTalkingHead = {
+					name = "Mute Talking Head",
+					order = 16,
+					desc = "Toggle to silence talking heads once and for all!",
+					type = "toggle",
+					get = function()
+						if not HelpMePlayDB.TalkingHeadEnabled then
+							HelpMePlayDB.TalkingHeadEnabled = false
+						end
+						return HelpMePlayDB.TalkingHeadEnabled
+					end,
+					set = function(_, val) HelpMePlayDB.TalkingHeadEnabled = val end,
+				},
 				Threads_of_Fate = {
 					name = "Threads of Fate",
-					order = 16,
+					order = 17,
 					desc = "Toggle to opt in for Threads of Fate automation.",
 					type = "toggle",
 					get = function()
@@ -1331,22 +1344,9 @@ local settings = {
 					order = 0,
 					type = "header",
 				},
-				Talking_Head = {
-					name = "Talking Head",
-					order = 1,
-					desc = "Toggle to silence talking heads once and for all!",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.TalkingHeadEnabled then
-							HelpMePlayDB.TalkingHeadEnabled = false
-						end
-						return HelpMePlayDB.TalkingHeadEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.TalkingHeadEnabled = val end,
-				},
 				Wave_at_Players = {
 					name = "Wave at Players",
-					order = 2,
+					order = 1,
 					desc = "Toggle to have a ridiculously small chance to wave at a player when you click on them.\n\n" ..
 					"The chance is approximately the same as the X-45 Heartbreaker dropping for you. Good luck!",
 					type = "toggle",
@@ -1885,7 +1885,8 @@ local settings = {
 				changedText = {
 					name = coloredDash .. "There will now be output when learning talents from a custom loadout.\n\n" ..
 					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n" ..
-					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.",
+					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.\n\n" ..
+					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Quests|r tab and renamed it to \"Mute Talking Head\".",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
