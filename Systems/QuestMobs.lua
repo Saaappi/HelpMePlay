@@ -1,11 +1,19 @@
 local addonName, addonTable = ...
 local e = CreateFrame("Frame")
 local iconKey = addonName .. "Icon"
+local textKey = addonName .. "Text"
 
 local function UpdateNamePlate(namePlate, unit)
 	local tooltipData = C_TooltipInfo.GetUnit(unit)
 	local icon = namePlate:CreateTexture(nil, "OVERLAY")
+	local fontString = namePlate:CreateFontString(nil, "OVERLAY")
+	
+	fontString:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
+	fontString:SetTextColor(1, 1, 1)
+	fontString:SetPoint("LEFT", icon, "RIGHT")
+	
 	namePlate[iconKey] = icon
+	namePlate[textKey] = fontString
 	
 	if (not UnitIsPlayer(unit)) then
 		for i = 3, #tooltipData.lines do
@@ -56,9 +64,7 @@ local function UpdateNamePlate(namePlate, unit)
 							icon:SetPoint("CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 						end
 						if (HelpMePlayDB.QuestMobIconID == 0) then
-							--icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
 							icon:SetTexture("Interface\\Minimap\\ObjectIconsAtlas")
-							--icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
 							icon:SetTexCoord(0.272461, 0.303711, 0.834961, 0.866211)
 						elseif (HelpMePlayDB.QuestMobIconID == 1) then
 							icon:SetTexture(HelpMePlayDB.QuestMobIcon)
@@ -66,6 +72,8 @@ local function UpdateNamePlate(namePlate, unit)
 							icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
 							icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
 						end
+						
+						fontString:SetText(maxProgress - minProgress)
 						
 						icon:Show()
 						return
@@ -79,44 +87,45 @@ local function UpdateNamePlate(namePlate, unit)
 	end
 end
 
-local function GetQuestProgressForUnit(namePlate)
+local function UpdateTextKey(namePlate)
 	local tooltipData = C_TooltipInfo.GetUnit(namePlate)
-	local objectiveCount = 0
-	local removeIcon = false
 	for i = 3, #tooltipData.lines do
 		local line = tooltipData.lines[i]
 		TooltipUtil.SurfaceArgs(line)
 		
-		if (line.type == 17) and (line.id) then
+		local plate = C_NamePlate.GetNamePlateForUnit(namePlate)
+		if (line.id) then
 			local text = GetQuestObjectiveInfo(line.id, 1, false)
-			
-			if (text) then
-				local numDone, numNeeded = string.match(text, "(%d+)/(%d+)")
-				if (numDone) and (numNeeded) then
-					local numRemaining = numNeeded - numDone
-					if (numRemaining == 0) then
-						removeIcon = true
-					else
-						removeIcon = false
+			if (text:match("(%d+)%%")) or (text:match("(%d+)/(%d+)")) then
+				local continue = true
+				local minProgress, maxProgress = text:match("(%d+)/(%d+)")
+				local percentProgress = text:match("(%d+)%%")
+				if (minProgress) and (maxProgress) then
+					minProgress = tonumber(minProgress)
+					maxProgress = tonumber(maxProgress)
+					if (minProgress == maxProgress) then
+						continue = false
 					end
-				else
-					local progress = tonumber(string.match(text, "([%d%.]+)%%"))
-					if (progress) and (progress == 100) then
-						removeIcon = true
-					elseif (progress) and (progress < 100) then
-						removeIcon = false
-					else
-						removeIcon = false
+				end
+				
+				if (percentProgress) then
+					percentProgress = tonumber(percentProgress)
+					if (percentProgress == 100) then
+						continue = false
+					end
+				end
+				
+				if (continue) then
+					if (plate[textKey]) then
+						if (minProgress) and (maxProgress) then
+							plate[textKey]:SetText(maxProgress - minProgress)
+						elseif (percentProgress) and (percentProgress < 100) then
+							plate[textKey]:SetText(percentProgress .. "%")
+						end
 					end
 				end
 			end
 		end
-	end
-	
-	if (removeIcon) then
-		return true
-	else
-		return false
 	end
 end
 
@@ -125,6 +134,7 @@ e:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
 e:RegisterEvent("UI_INFO_MESSAGE")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_REMOVED")
+e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "NAME_PLATE_UNIT_ADDED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
@@ -145,6 +155,9 @@ e:SetScript("OnEvent", function(self, event, ...)
         if (namePlate[iconKey]) then
             namePlate[iconKey]:Hide()
         end
+		if (namePlate[textKey]) then
+			namePlate[textKey]:Hide()
+		end
 	end
 	if (event == "UI_INFO_MESSAGE") then
 		local _, message = ...
@@ -156,6 +169,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
 					if (namePlate[iconKey]) then
 						namePlate[iconKey]:Hide()
+					end
+					if (namePlate[textKey]) then
+						namePlate[textKey]:Hide()
 					end
 				end
 			end
@@ -176,8 +192,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
 				if (namePlate[iconKey]) then
 					namePlate[iconKey]:Hide()
+					
+				end
+				if (namePlate[textKey]) then
+					namePlate[textKey]:Hide()
 				end
 			end
+		end
+	end
+	if (event == "UNIT_QUEST_LOG_CHANGED") then
+		local namePlates = C_NamePlate.GetNamePlates()
+		for i = 1, #namePlates do
+			UpdateTextKey(namePlates[i].namePlateUnitToken)
 		end
 	end
 end)
