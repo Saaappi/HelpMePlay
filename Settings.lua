@@ -1860,7 +1860,7 @@ local settings = {
 				},
 				addedText = {
 					name = coloredDash .. "Added the ability for the player to add their own items to the Merchant automation.\n\n" ..
-					coloredDash .. "Added quest criteria text to the nameplate next to the quest mobs icon.",
+					coloredDash .. "Added text next to the quest mobs icon that represents the remaining count needed of something from that enemy.",
 					order = 11,
 					type = "description",
 					fontSize = "medium",

@@ -10,7 +10,7 @@ local function UpdateNamePlate(namePlate, unit)
 	
 	fontString:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 	fontString:SetTextColor(1, 1, 1)
-	fontString:SetPoint("LEFT", icon, "RIGHT")
+	fontString:SetPoint("LEFT", icon, "RIGHT", 5, 0)
 	
 	namePlate[iconKey] = icon
 	namePlate[textKey] = fontString
