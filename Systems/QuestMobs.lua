@@ -56,10 +56,15 @@ local function UpdateNamePlate(namePlate, unit)
 							icon:SetPoint("CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 						end
 						if (HelpMePlayDB.QuestMobIconID == 0) then
-							icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
-							icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
+							--icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
+							icon:SetTexture("Interface\\Minimap\\ObjectIconsAtlas")
+							--icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
+							icon:SetTexCoord(0.272461, 0.303711, 0.834961, 0.866211)
 						elseif (HelpMePlayDB.QuestMobIconID == 1) then
 							icon:SetTexture(HelpMePlayDB.QuestMobIcon)
+						elseif (HelpMePlayDB.QuestMobIconID == 2) then
+							icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
+							icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
 						end
 						
 						icon:Show()

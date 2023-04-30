@@ -1218,15 +1218,17 @@ local settings = {
 					values = {
 						[0] = "Default",
 						[1] = "Custom",
+						[2] = "Original",
 					},
 					sorting = {
 						[1] = 0,
 						[2] = 1,
+						[3] = 2,
 					},
 					get = function()
 						if not HelpMePlayDB.QuestMobIcon then
 							HelpMePlayDB.QuestMobIconID = 0
-							HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
+							HelpMePlayDB.QuestMobIcon = "QuestNormal"
 						end
 						return HelpMePlayDB.QuestMobIconID
 					end,
@@ -1235,7 +1237,7 @@ local settings = {
 						local icon = ""
 						
 						if iconID == 0 then
-							icon = "Mobile-QuestIcon"
+							icon = "QuestNormal"
 						elseif iconID == 1 then
 							StaticPopupDialogs["HELPMEPLAY_QUESTMOBSICON_CUSTOM"] = {
 								text = "Enter the icon name that you wish to have on quest NPC nameplates.\n\n" ..
@@ -1270,11 +1272,15 @@ local settings = {
 								preferredIndex = 3,
 							}
 							StaticPopup_Show("HELPMEPLAY_QUESTMOBSICON_CUSTOM")
+						elseif (iconID == 2) then
+							icon = "Mobile-QuestIcon"
 						end
 						
 						for i = 1, #namePlates do
 							if namePlates[i][addonName.."Icon"] then
 								if iconID == 0 then
+									namePlates[i][addonName.."Icon"]:SetAtlas(icon)
+								elseif (iconID == 2) then
 									namePlates[i][addonName.."Icon"]:SetAtlas(icon)
 								end
 							end
@@ -1869,7 +1875,8 @@ local settings = {
 					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.\n\n" ..
 					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Features|r tab and renamed it to \"Mute Talking Head\".\n\n" ..
 					coloredDash .. "Moved the |cffFFD100Quest Mobs|r settings to the |cffFFD100Quests|r tab.\n\n" ..
-					coloredDash .. "When a quest is abandoned, the quest mobs icon will be removed from the enemies associated with that quest.",
+					coloredDash .. "When a quest is abandoned, the quest mobs icon will be removed from the enemies associated with that quest.\n\n" ..
+					coloredDash .. "Updated the default quest mobs icon. (Players can revert by changing the icon setting to \"Original\" in the settings.)",
 					order = 21,
 					type = "description",
 					fontSize = "medium",

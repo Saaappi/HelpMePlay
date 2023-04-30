@@ -226,5 +226,9 @@ function HelpMePlay:SlashCommandHandler(cmd)
 			-- and show it.
 			editBox:SetText(text)
 		end
+	elseif cmd == "atlas" and arg1 ~= nil then
+		if HelpMePlayDB.DevModeEnabled then
+			print(CreateAtlasMarkup(arg1, 32, 32))
+		end
 	end
 end
