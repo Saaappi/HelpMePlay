@@ -1868,7 +1868,8 @@ local settings = {
 					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n" ..
 					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.\n\n" ..
 					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Features|r tab and renamed it to \"Mute Talking Head\".\n\n" ..
-					coloredDash .. "Moved the |cffFFD100Quest Mobs|r settings to the |cffFFD100Quests|r tab.",
+					coloredDash .. "Moved the |cffFFD100Quest Mobs|r settings to the |cffFFD100Quests|r tab.\n\n" ..
+					coloredDash .. "When a quest is abandoned, the quest mobs icon will be removed from the enemies associated with that quest.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
@@ -1883,7 +1884,9 @@ local settings = {
 					coloredDash .. "Fixed an issue that prevented the addon from choosing a covenant.\n\n" ..
 					coloredDash .. "Fixed an error when the player would try to choose an artifact in their Legion Class Hall.\n\n" ..
 					coloredDash .. "Corrected an oversight that allowed the addon to complete quests with 0 or 1 reward when |cffFFD100Complete Quests|r is disabled.\n\n" ..
-					coloredDash .. "The |cffFFD100Sell Price|r option for |cffFFD100Quest Rewards|r should once again be working as intended.",
+					coloredDash .. "The |cffFFD100Sell Price|r option for |cffFFD100Quest Rewards|r should once again be working as intended.\n\n" ..
+					coloredDash .. "Fixed an issue that prevented the quest mobs icon from appearing on nameplates of enemies required for a quest if they were already visible when the quest was accepted.\n\n" ..
+					coloredDash .. "Fixed a longstanding issue with the quest mobs icon tech. Once all quest criteria has been met for an enemy, the quest mobs icon will be removed from the nameplate immediately. (Opposed to once the nameplate is removed from the player's screen.)",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
