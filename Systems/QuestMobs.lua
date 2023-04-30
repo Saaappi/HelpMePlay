@@ -10,7 +10,12 @@ local function UpdateNamePlate(namePlate, unit)
 	
 	fontString:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 	fontString:SetTextColor(1, 1, 1)
-	fontString:SetPoint("LEFT", icon, "RIGHT", 5, 0)
+	
+	if (HelpMePlayDB.QuestMobIconID > 0) then
+		fontString:SetPoint("LEFT", icon, "RIGHT", 5, 0)
+	else
+		fontString:SetPoint("LEFT", icon, "RIGHT")
+	end
 	
 	namePlate[iconKey] = icon
 	namePlate[textKey] = fontString
