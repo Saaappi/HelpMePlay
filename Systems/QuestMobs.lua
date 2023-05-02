@@ -82,9 +82,10 @@ local function UpdateNamePlate(plate)
 			else
 				if (plate[iconKey]) then
 					plate[iconKey]:Hide()
+					plate[iconKey] = nil
 				end
 				if (plate[textKey]) then
-					plate[textKey]:Hide()
+					plate[textKey] = nil
 				end
 			end
 		end
@@ -128,9 +129,11 @@ local function UpdateTextKey(plate)
 		else
 			if (plate[iconKey]) then
 				plate[iconKey]:Hide()
+				plate[iconKey] = nil
 			end
 			if (plate[textKey]) then
 				plate[textKey]:Hide()
+				plate[textKey] = nil
 			end
 		end
 	end
@@ -148,10 +151,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.QuestMobsEnabled == false or HelpMePlayDB.QuestMobsEnabled == nil then return false end
 		
 		local unit = ...
-		local namePlate = C_NamePlate.GetNamePlateForUnit(unit)
+		local plate = C_NamePlate.GetNamePlateForUnit(unit)
 		
 		C_Timer.After(0.25, function()
-			UpdateNamePlate(namePlate)
+			UpdateNamePlate(plate)
 		end)
 	end
 	if event == "NAME_PLATE_UNIT_REMOVED" then
@@ -159,13 +162,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.QuestMobsEnabled == false or HelpMePlayDB.QuestMobsEnabled == nil then return false end
 		
 		local unit = ...
-		local namePlate = C_NamePlate.GetNamePlateForUnit(unit)
+		local plate = C_NamePlate.GetNamePlateForUnit(unit)
 		
-        if (namePlate[iconKey]) then
-            namePlate[iconKey]:Hide()
+        if (plate[iconKey]) then
+            plate[iconKey]:Hide()
+            plate[iconKey] = nil
         end
-		if (namePlate[textKey]) then
-			namePlate[textKey]:Hide()
+		if (plate[textKey]) then
+			plate[textKey]:Hide()
+			plate[textKey] = nil
 		end
 	end
 	if (event == "UI_INFO_MESSAGE") then
@@ -173,14 +178,16 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if (message == "Objective Complete.") then
 			local namePlates = C_NamePlate.GetNamePlates()
 			for i = 1, #namePlates do
-				local namePlate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
+				local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
 				
 				if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-					if (namePlate[iconKey]) then
-						namePlate[iconKey]:Hide()
+					if (plate[iconKey]) then
+						plate[iconKey]:Hide()
+						plate[iconKey] = nil
 					end
-					if (namePlate[textKey]) then
-						namePlate[textKey]:Hide()
+					if (plate[textKey]) then
+						plate[textKey]:Hide()
+						plate[textKey] = nil
 					end
 				end
 			end
@@ -189,22 +196,24 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if (event == "QUEST_ACCEPTED") then
 		local namePlates = C_NamePlate.GetNamePlates()
 		for i = 1, #namePlates do
-			local namePlate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
-			UpdateNamePlate(namePlate)
+			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
+			UpdateNamePlate(plate)
 		end
 	end
 	if (event == "QUEST_REMOVED") then
 		local namePlates = C_NamePlate.GetNamePlates()
 		for i = 1, #namePlates do
-			local namePlate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
+			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
 			
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-				if (namePlate[iconKey]) then
-					namePlate[iconKey]:Hide()
+				if (plate[iconKey]) then
+					plate[iconKey]:Hide()
+					plate[iconKey] = nil
 					
 				end
-				if (namePlate[textKey]) then
-					namePlate[textKey]:Hide()
+				if (plate[textKey]) then
+					plate[textKey]:Hide()
+					plate[textKey] = nil
 				end
 			end
 		end
