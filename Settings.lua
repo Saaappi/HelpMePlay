@@ -37,8 +37,7 @@ function HelpMePlay:MinimapIcon(bool)
 				type = "launcher",
 				icon = "236688", -- 100 Exalted Reputations (Achievement)
 				OnTooltipShow = function(tooltip)
-					--tooltip:SetText(addonTable.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r") -- for 10.1
-					tooltip:SetText(addonTable.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:SetText(addonTable.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r")
 					tooltip:AddLine("Configure the addon's settings and tailor an experience that best fits your playstyle!")
 					tooltip:Show()
 				end,
@@ -1849,8 +1848,7 @@ local settings = {
             order = 8,
 			args = {
 				text = {
---					name = "|cffFFD100" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r", -- for 10.1
-					name = "|cffFFD100" .. GetAddOnMetadata(addonName, "Version") .. "|r",
+					name = "|cffFFD100" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r",
 					order = 1,
 					type = "description",
 					fontSize = "large",
@@ -1938,8 +1936,7 @@ local settings = {
             order = 9,
             args = {
                 versionText = {
---					name = "|cffFFD100Version|r: " .. C_AddOns.GetAddOnMetadata(addonName, "Version"), -- for 10.1
-					name = "|cffFFD100Version|r: " .. GetAddOnMetadata(addonName, "Version"),
+					name = "|cffFFD100Version|r: " .. C_AddOns.GetAddOnMetadata(addonName, "Version"),
 					order = 1,
 					type = "description",
 				},
