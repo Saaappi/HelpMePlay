@@ -1357,7 +1357,7 @@ local settings = {
 					desc = "Choose how far on the y-axis the icon should be.",
 					get = function()
 						if not HelpMePlayDB.QuestMobIconYOffset then
-							HelpMePlayDB.QuestMobIconYOffset = 0
+							HelpMePlayDB.QuestMobIconYOffset = 15
 						end
 						return HelpMePlayDB.QuestMobIconYOffset
 					end,
