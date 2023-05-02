@@ -21,6 +21,7 @@ local function UpdateNamePlate(plate)
 	
 	local unit = plate.namePlateUnitToken
 	local criteria = 0
+	local percentCriteria = 0
 	if (unit) then
 		if (not UnitIsPlayer(unit)) then
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(unit)) then
@@ -40,7 +41,7 @@ local function UpdateNamePlate(plate)
 					if (line.leftText:match("(%d+)%%")) then -- Enemy counts toward a % progress bar
 						local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
 						if (not (percent == 100)) then
-							criteria = criteria.." - "..(100-percent)
+							percentCriteria = 100-percent
 						end
 					end
 				end
@@ -76,7 +77,11 @@ local function UpdateNamePlate(plate)
 					icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
 				end
 				
-				fontString:SetText(criteria)
+				if (percentCriteria ~= 0) then
+					fontString:SetText(criteria.." - "..percentCriteria.."%")
+				else
+					fontString:SetText(criteria)
+				end
 				
 				icon:Show()
 			else
