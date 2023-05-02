@@ -1853,69 +1853,50 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				addedHeader = {
+				--[[addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "Added the ability for the player to add their own items to the Merchant automation.\n\n" ..
-					coloredDash .. "Added text next to the quest mobs icon that represents the remaining count needed of something from that enemy.",
+					name = coloredDash .. "",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "There will now be output when learning talents from a custom loadout.\n\n" ..
-					coloredDash .. "Renamed the \"Queues\" toggle to \"Role Checks\".\n\n" ..
-					coloredDash .. "Moved the zone selection dropdowns to the |cffFFD100Quests|r tab under their own header.\n\n" ..
-					coloredDash .. "Moved the |cffFFD100Talking Head|r toggle to the |cffFFD100Features|r tab and renamed it to \"Mute Talking Head\".\n\n" ..
-					coloredDash .. "Moved the |cffFFD100Quest Mobs|r settings to the |cffFFD100Quests|r tab.\n\n" ..
-					coloredDash .. "When a quest is abandoned, the quest mobs icon will be removed from the enemies associated with that quest.\n\n" ..
-					coloredDash .. "Updated the default quest mobs icon. (Players can revert by changing the icon setting to \"Original\" in the settings.)",
+					name = coloredDash .. "Updated all player talent builds.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
 				},
-				fixedHeader = {
+				--[[fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "Fixed an issue that prevented the Threads of Fate or Story mode from being selected at Fatescribe Roh-Tahl.\n\n" ..
-					coloredDash .. "Fixed an issue that prevented the addon from choosing a covenant.\n\n" ..
-					coloredDash .. "Fixed an error when the player would try to choose an artifact in their Legion Class Hall.\n\n" ..
-					coloredDash .. "Corrected an oversight that allowed the addon to complete quests with 0 or 1 reward when |cffFFD100Complete Quests|r is disabled.\n\n" ..
-					coloredDash .. "The |cffFFD100Sell Price|r option for |cffFFD100Quest Rewards|r should once again be working as intended.\n\n" ..
-					coloredDash .. "Fixed an issue that prevented the quest mobs icon from appearing on nameplates of enemies required for a quest if they were already visible when the quest was accepted.\n\n" ..
-					coloredDash .. "Fixed a longstanding issue with the quest mobs icon tech. Once all quest criteria has been met for an enemy, the quest mobs icon will be removed from the nameplate immediately. (Opposed to once the nameplate is removed from the player's screen.)",
+					name = coloredDash .. "",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
-				},
-				removedHeader = {
+				},]]
+				--[[removedHeader = {
 					name = "Removed",
 					order = 40,
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "Weapons will no longer be equipped by the addon.\n\n" ..
-					coloredDash .. "Removed support for dungeon and holiday boss queues. Queue automation will now strictly accept role checks.\n\n" ..
-					coloredDash .. "Removed |cffFFD100Developer Mode|r for end users. (|cff009AE4Output previously locked behind this toggle is now shown free of charge.|r)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Show Quest Count|r feature.\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Zone Selection|r tab. (|cff009AE4There were only 3 dropdowns living here, so it felt better to move them to a more populated tab that still applied to their identity:|r |cffFFD100Quests|r|cff009AE4.|r)\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Sounds|r tab and the underlying mute feature.\n\n" ..
-					coloredDash .. "Removed the |cffFFD100Wave at Players|r feature.",
+					name = coloredDash .. "",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				--[[Author_Notes_Header = {
 					name = "Author Notes",
 					order = 50,
