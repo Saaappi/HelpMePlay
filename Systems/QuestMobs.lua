@@ -87,10 +87,8 @@ local function UpdateNamePlate(plate)
 			else
 				if (plate[iconKey]) then
 					plate[iconKey]:Hide()
-					plate[iconKey] = nil
 				end
 				if (plate[textKey]) then
-					plate[textKey] = nil
 				end
 			end
 		end
@@ -134,11 +132,9 @@ local function UpdateTextKey(plate)
 		else
 			if (plate[iconKey]) then
 				plate[iconKey]:Hide()
-				plate[iconKey] = nil
 			end
 			if (plate[textKey]) then
 				plate[textKey]:Hide()
-				plate[textKey] = nil
 			end
 		end
 	end
@@ -171,11 +167,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
         if (plate[iconKey]) then
             plate[iconKey]:Hide()
-            plate[iconKey] = nil
         end
 		if (plate[textKey]) then
 			plate[textKey]:Hide()
-			plate[textKey] = nil
 		end
 	end
 	if (event == "UI_INFO_MESSAGE") then
@@ -188,11 +182,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
 					if (plate[iconKey]) then
 						plate[iconKey]:Hide()
-						plate[iconKey] = nil
 					end
 					if (plate[textKey]) then
 						plate[textKey]:Hide()
-						plate[textKey] = nil
 					end
 				end
 			end
@@ -213,12 +205,10 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
 				if (plate[iconKey]) then
 					plate[iconKey]:Hide()
-					plate[iconKey] = nil
 					
 				end
 				if (plate[textKey]) then
 					plate[textKey]:Hide()
-					plate[textKey] = nil
 				end
 			end
 		end
