@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 --[[
@@ -12,7 +12,7 @@ local function AddGlowToActionBarButton(button)
 	button:SetScript("OnClick", function()
 		ActionButton_HideOverlayGlow(button)
 	end)
-	C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
+	C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
 		ActionButton_HideOverlayGlow(button)
 	end)
 end
@@ -25,7 +25,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.SpeechEnabled == false or HelpMePlayDB.SpeechEnabled == nil then return false end
 		local msg = ...
-		for k,v in pairs(addonTable.SPEECH) do
+		for k,v in pairs(addon.SPEECH) do
 			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "emote" then
 					DoEmote(v.emote, nil)
@@ -47,7 +47,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.SpeechEnabled == false or HelpMePlayDB.SpeechEnabled == nil then return false end
 		local msg = ...
-		for k,v in pairs(addonTable.SPEECH) do
+		for k,v in pairs(addon.SPEECH) do
 			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then
@@ -66,7 +66,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.SpeechEnabled == false or HelpMePlayDB.SpeechEnabled == nil then return false end
 		local msg = ...
-		for k,v in pairs(addonTable.SPEECH) do
+		for k,v in pairs(addon.SPEECH) do
 			if string.find(string.lower(msg), string.lower(k)) then
 				if v.type == "glow" then
 					if v.button == 1 then

@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local GOSSIP = {
 	-- Objects
 	[0] = {
@@ -3019,4 +3019,4 @@ local GOSSIP = {
 	},
 	-- Classic (End)
 }
-addonTable.GOSSIP = GOSSIP
+addon.GOSSIP = GOSSIP

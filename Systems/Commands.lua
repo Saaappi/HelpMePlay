@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function Gossip(gossip)
@@ -75,7 +75,7 @@ local function Confirm()
 		
 		-- If the NPC doesn't have a "g" table, then report that to the player.
 		if not HelpMePlayPlayerDialogDB[npcID]["g"] then
-			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
+			print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
 			return
 		end
 		
@@ -95,7 +95,7 @@ end
 function HelpMePlay:SlashCommandHandler(cmd)
 	local cmd, arg1, arg2 = string.split(" ", cmd)
 	if not cmd or cmd == "" then
-		Settings.OpenToCategory(addonName)
+		Settings.OpenToCategory(name)
 	elseif cmd == "gossip" and arg1 ~= nil then
 		Gossip(arg1)
 	elseif cmd == "confirm" then

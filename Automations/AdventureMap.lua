@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 e:RegisterEvent("ADVENTURE_MAP_OPEN")
@@ -25,7 +25,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA[faction]) == false then
 					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA[faction])
 				else
-					for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Horde"]) do
+					for _, questID in ipairs(addon.ADVENTURE_MAP_QUESTS["BFA_Horde"]) do
 						if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
 							C_AdventureMap.StartQuest(questID)
 						end
@@ -42,7 +42,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_BFA[faction]) == false then
 					C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_BFA[faction])
 				else
-					for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["BFA_Alliance"]) do
+					for _, questID in ipairs(addon.ADVENTURE_MAP_QUESTS["BFA_Alliance"]) do
 						if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
 							C_AdventureMap.StartQuest(questID)
 						end
@@ -64,7 +64,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneId_SL) == false then
 				C_AdventureMap.StartQuest(HelpMePlayDB.ZoneId_SL)
 			else
-				for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["SL"]) do
+				for _, questID in ipairs(addon.ADVENTURE_MAP_QUESTS["SL"]) do
 					if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
 						C_AdventureMap.StartQuest(questID)
 						return
@@ -79,7 +79,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			if C_QuestLog.IsQuestFlaggedCompleted(HelpMePlayDB.ZoneID_DF) == false then
 				C_AdventureMap.StartQuest(HelpMePlayDB.ZoneID_DF)
 			else
-				for _, questID in ipairs(addonTable.ADVENTURE_MAP_QUESTS["DF"]) do
+				for _, questID in ipairs(addon.ADVENTURE_MAP_QUESTS["DF"]) do
 					if C_QuestLog.IsQuestFlaggedCompleted(questID) == false then
 						C_AdventureMap.StartQuest(questID)
 						return

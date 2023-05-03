@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 local TITANICRESEARCH = {
 	-- Corrupted Mementos: 1719
@@ -34,4 +34,4 @@ local TITANICRESEARCH = {
 	},
 }
 
-addonTable.TITANICRESEARCH = TITANICRESEARCH
+addon.TITANICRESEARCH = TITANICRESEARCH

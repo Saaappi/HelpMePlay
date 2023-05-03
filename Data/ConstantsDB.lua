@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local CONSTANTS = {
 	-- Timers
 	["HALF_SECOND"]					= 0.5,
@@ -58,6 +58,6 @@ local CONSTANTS = {
 		[23] 	= true,
 		[26] 	= true,
 	},
-	["COLORED_ADDON_NAME"] = "|cff00FFFF"..addonName.."|r"
+	["COLORED_ADDON_NAME"] = "|cff00FFFF"..name.."|r"
 }
-addonTable.CONSTANTS = CONSTANTS
+addon.CONSTANTS = CONSTANTS

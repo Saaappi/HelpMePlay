@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 -- Cinematics
@@ -7,7 +7,7 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 	if HelpMePlayDB.CinematicsEnabled == false or HelpMePlayDB.CinematicsEnabled == nil then return false end
 	
 	local mapId = C_Map.GetBestMapForUnit("player")
-	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
+	for key, badMapId in ipairs(addon.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
 			return false
 		end
@@ -23,7 +23,7 @@ hooksecurefunc("MovieFrame_PlayMovie", function(self, movieId)
 	if HelpMePlayDB.CinematicsEnabled == false or HelpMePlayDB.CinematicsEnabled == nil then return false end
 	
 	local mapId = C_Map.GetBestMapForUnit("player")
-	for key, badMapId in ipairs(addonTable.CINEMATIC_BADMAPS) do
+	for key, badMapId in ipairs(addon.CINEMATIC_BADMAPS) do
 		if badMapId == mapId then
 			return false
 		end

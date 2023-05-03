@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function TalentPurchased(configID, entry)
@@ -19,9 +19,9 @@ local function TalentPurchased(configID, entry)
 		local name, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		if spellLink then
-			print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, spellLink))
+			print(string.format(addon.CONSTANTS.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, spellLink))
 		else
-			print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, name))
+			print(string.format(addon.CONSTANTS.COLORED_ADDON_NAME .. ": Learned a new talent! |T%s:0|t %s", icon, name))
 		end
 	end
 end
@@ -119,13 +119,13 @@ e:SetScript("OnEvent", function(self, event, addon)
 				local importStream = ""
 				if HelpMePlayDB.PlayerTalents[classID] ~= nil then
 					if HelpMePlayDB.PlayerTalents[classID][specID] ~= "" then
-						print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Learning from a custom loadout...")
+						print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": Learning from a custom loadout...")
 						importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB.PlayerTalents[classID][specID])
 					else
-						importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
+						importStream = ExportUtil.MakeImportDataStream(addon.PLAYER_TALENTS[specID].importString)
 					end
 				else
-					importStream = ExportUtil.MakeImportDataStream(addonTable.PLAYER_TALENTS[specID].importString)
+					importStream = ExportUtil.MakeImportDataStream(addon.PLAYER_TALENTS[specID].importString)
 				end
 				
 				local headerValid, serializationVersion, specID, treeHash = ClassTalentImportExportMixin:ReadLoadoutHeader(importStream)
@@ -135,7 +135,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 				end
 				
 				local patch = GetBuildInfo()
-				if (patch ~= addonTable.PLAYER_TALENTS[specID].patch) then
+				if (patch ~= addon.PLAYER_TALENTS[specID].patch) then
 					ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
 					return false
 				end

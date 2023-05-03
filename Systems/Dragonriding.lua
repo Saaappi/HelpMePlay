@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 e:RegisterEvent("ADDON_LOADED")
@@ -26,9 +26,9 @@ e:SetScript("OnEvent", function(self, event, addon)
 				button1 = YES,
 				button2 = CANCEL,
 				OnAccept = function(self, data)
-					local configID = C_Traits.GetConfigIDByTreeID(addonTable.CONSTANTS["DRAGONRIDING_TREE_ID"])
-					C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-						for _, node in ipairs(addonTable.DRAGONRIDING_TRAITS) do
+					local configID = C_Traits.GetConfigIDByTreeID(addon.CONSTANTS["DRAGONRIDING_TREE_ID"])
+					C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
+						for _, node in ipairs(addon.DRAGONRIDING_TRAITS) do
 							if C_Traits.CanPurchaseRank(configID, node.nodeID, node.entryID) then
 								local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
 								if #nodeInfo.entryIDs > 1 then

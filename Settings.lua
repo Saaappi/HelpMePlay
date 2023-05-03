@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local coloredDash = "|cffFFD100-|r "
 local icon = ""
 --local authorNote = "|cff009AE4"
@@ -28,16 +28,16 @@ function HelpMePlay:MinimapIcon(bool)
 	HelpMePlayDB.MinimapIconEnabled = bool
 	if bool then
 		if icon ~= "" then
-			icon:Show(addonName)
+			icon:Show(name)
 		else
 			icon = LibStub("LibDBIcon-1.0")
 			-- Create a Lib DB first to hold all the
 			-- information for the minimap icon.
-			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
+			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(name, {
 				type = "launcher",
 				icon = "236688", -- 100 Exalted Reputations (Achievement)
 				OnTooltipShow = function(tooltip)
-					tooltip:SetText(addonTable.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r")
+					tooltip:SetText(addon.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. C_AddOns.GetAddOnMetadata(name, "Version") .. "|r")
 					tooltip:AddLine("Configure the addon's settings and tailor an experience that best fits your playstyle!")
 					tooltip:Show()
 				end,
@@ -46,18 +46,18 @@ function HelpMePlay:MinimapIcon(bool)
 			
 			-- Register the minimap button with the
 			-- LDB.
-			icon:Register(addonName, iconLDB, HelpMePlayDB)
-			icon:Show(addonName)
+			icon:Register(name, iconLDB, HelpMePlayDB)
+			icon:Show(name)
 		end
 	else
 		if icon ~= "" then
-			icon:Hide(addonName)
+			icon:Hide(name)
 		end
 	end
 end
 
 local settings = {
-	name = addonName,
+	name = name,
 	handler = HelpMePlay,
 	type = "group",
 	args = {
@@ -107,7 +107,7 @@ local settings = {
 					set = function(_, val) HelpMePlayDB.DevModeEnabled = val end,
 					hidden = function()
 						local playerGUID = UnitGUID("player")
-						if (not addonTable.myCharacters[playerGUID]) then
+						if (not addon.myCharacters[playerGUID]) then
 							return true
 						end
 						return false
@@ -682,7 +682,7 @@ local settings = {
 											HelpMePlay:ImportToJunker(id, "BLACKLIST")
 										end
 									end
-									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from AutoVendor to Junker!")
+									print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from AutoVendor to Junker!")
 								elseif IsAddOnLoaded("Dejunk") then
 									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["inclusions"]) do
 										HelpMePlay:ImportToJunker(id, "ADD")
@@ -690,9 +690,9 @@ local settings = {
 									for id, _ in pairs(__DEJUNK_SAVED_VARIABLES__["Global"]["sell"]["exclusions"]) do
 										HelpMePlay:ImportToJunker(id, "BLACKLIST")
 									end
-									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from Dejunk to Junker!")
+									print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported all items from Dejunk to Junker!")
 								else
-									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "No auto sell addon enabled.")
+									print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "No auto sell addon enabled.")
 								end
 							end,
 							OnCancel = function(self, data)
@@ -720,7 +720,7 @@ local settings = {
 												HelpMePlay:ImportToJunker(id, "ADD")
 											end
 										end
-										print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
+										print(string.format(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
 									end,
 									OnCancel = function(self)
 										local count = 0
@@ -731,7 +731,7 @@ local settings = {
 												count = count + 1
 											end
 										end
-										print(string.format(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
+										print(string.format(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "Imported %s item(s) to Junker!", count))
 									end,
 									OnAlt = function() end,
 									showAlert = true,
@@ -869,7 +869,7 @@ local settings = {
 					fontSize = "medium",
 					hidden = function()
 						local playerLevel = UnitLevel("player")
-						if playerLevel < addonTable.CONSTANTS["CHROMIE_TIME_MAX_LEVEL"] then
+						if playerLevel < addon.CONSTANTS["CHROMIE_TIME_MAX_LEVEL"] then
 							return false
 						end
 						return true
@@ -1201,8 +1201,8 @@ local settings = {
 						if val == false then
 							local namePlates = C_NamePlate.GetNamePlates()
 							for i = 1, #namePlates do
-								if namePlates[i][addonName.."Icon"] then
-									namePlates[i][addonName.."Icon"]:Hide()
+								if namePlates[i][name.."Icon"] then
+									namePlates[i][name.."Icon"]:Hide()
 								end
 							end
 						end
@@ -1252,15 +1252,15 @@ local settings = {
 									if StartsWith(self.editBox:GetText(), "#") then
 										icon = string.sub(self.editBox:GetText(), 2)
 										for i = 1, #namePlates do
-											if namePlates[i][addonName.."Icon"] then
-												namePlates[i][addonName.."Icon"]:SetAtlas(icon)
+											if namePlates[i][name.."Icon"] then
+												namePlates[i][name.."Icon"]:SetAtlas(icon)
 											end
 										end
 									else
 										icon = "Interface\\ICONS\\" .. self.editBox:GetText(); HelpMePlayDB.QuestMobIcon = icon
 										for i = 1, #namePlates do
-											if namePlates[i][addonName.."Icon"] then
-												namePlates[i][addonName.."Icon"]:SetTexture(icon)
+											if namePlates[i][name.."Icon"] then
+												namePlates[i][name.."Icon"]:SetTexture(icon)
 											end
 										end
 									end
@@ -1277,11 +1277,11 @@ local settings = {
 						end
 						
 						for i = 1, #namePlates do
-							if namePlates[i][addonName.."Icon"] then
+							if namePlates[i][name.."Icon"] then
 								if iconID == 0 then
-									namePlates[i][addonName.."Icon"]:SetAtlas(icon)
+									namePlates[i][name.."Icon"]:SetAtlas(icon)
 								elseif (iconID == 2) then
-									namePlates[i][addonName.."Icon"]:SetAtlas(icon)
+									namePlates[i][name.."Icon"]:SetAtlas(icon)
 								end
 							end
 						end
@@ -1750,7 +1750,7 @@ local settings = {
 									-- the import string into the database.
 									HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] = importString
 								else
-									print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": Please open the talent interface once before trying to import a custom loadout.")
+									print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": Please open the talent interface once before trying to import a custom loadout.")
 									return false
 								end
 							end,
@@ -1834,7 +1834,7 @@ local settings = {
 								-- Insert the merchant "string" into the table.
 								table.insert(HelpMePlayDB.PlayerDB.Merchants[merchantID], { questID = questID, itemID = itemID, itemCount = itemCount })
 							else
-								print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": The following line contains too few or too many entries:\n" .. line)
+								print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": The following line contains too few or too many entries:\n" .. line)
 							end
 						end
 					end,
@@ -1848,33 +1848,33 @@ local settings = {
             order = 8,
 			args = {
 				text = {
-					name = "|cffFFD100" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r",
+					name = "|cffFFD100" .. C_AddOns.GetAddOnMetadata(name, "Version") .. "|r",
 					order = 1,
 					type = "description",
 					fontSize = "large",
 				},
-				--[[addedHeader = {
+				addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "Added support for the |cffFFD100Ground Skimming|r and |cffFFD100Land's Blessing|r traits.",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},]]
-				changedHeader = {
+				},
+				--[[changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Updated all player talent builds.",
+					name = coloredDash .. "",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				--[[fixedHeader = {
 					name = "Fixed",
 					order = 30,
@@ -1917,7 +1917,7 @@ local settings = {
             order = 9,
             args = {
                 versionText = {
-					name = "|cffFFD100Version|r: " .. C_AddOns.GetAddOnMetadata(addonName, "Version"),
+					name = "|cffFFD100Version|r: " .. C_AddOns.GetAddOnMetadata(name, "Version"),
 					order = 1,
 					type = "description",
 				},
@@ -2017,5 +2017,5 @@ local settings = {
 		},
 	},
 }
-addonTable.settings = settings
-addonTable.mainOptions = mainOptions
+addon.settings = settings
+addon.mainOptions = mainOptions

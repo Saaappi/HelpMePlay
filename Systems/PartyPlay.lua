@@ -1,7 +1,7 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 local tooltip = CreateFrame("GameTooltip", "HelpMePlayScannerTooltip", UIParent, "GameTooltipTemplate")
-local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
+local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(name)
 
 local function Filter_ChatFrame(self, event, msg, author, ...)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
@@ -39,7 +39,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- Send the desired message to the
 		-- specified chat channel.
 		local addon, msg, channel, _, playerName = ...
-		if addon == addonName then
+		if addon == name then
 			playerName = string.split("-", playerName)
 			local unitName = UnitName("player")
 			if unitName == playerName then
@@ -50,7 +50,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if event == "GROUP_JOINED" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled.")
+		print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled.")
 	end
 	if event == "QUEST_ACCEPTED" then
 		-- Add the quest to the table.
@@ -69,7 +69,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[HMP]: Accepted \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(name, "[HMP]: Accepted \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
 				end
 				if HelpMePlayDB.PartyPlayAutoShareEnabled then
 					if C_QuestLog.IsPushableQuest(questID) then
@@ -94,12 +94,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		
 		local questID = ...
-		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
+		C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
 			if HelpMePlayCharacterQuestsDB[questID] then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
 					-- The player abandoned the quest or
 					-- left the area (eg. world quests).
-					C_ChatInfo.SendAddonMessage(addonName, "[HMP]: Removed \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(name, "[HMP]: Removed \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
 				end
 				HelpMePlayCharacterQuestsDB[questID] = nil
 			end
@@ -118,7 +118,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(addonName, "[HMP]: Turned in \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
+					C_ChatInfo.SendAddonMessage(name, "[HMP]: Turned in \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
 				end
 			end
 		end
@@ -139,7 +139,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				if supportedMsgType == msgType then
 					if isRegistered then
 						if HelpMePlayDB.PartyPlayAnnounceEnabled then
-							C_ChatInfo.SendAddonMessage(addonName, "[HMP]: " .. msg)
+							C_ChatInfo.SendAddonMessage(name, "[HMP]: " .. msg)
 						end
 					end
 				end
@@ -165,7 +165,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 								if progressPercent ~= questData.progressPercent then
 									if isRegistered then
 										if HelpMePlayDB.PartyPlayAnnounceEnabled then
-											C_ChatInfo.SendAddonMessage(addonName, "[HMP]: " .. text .. " (" .. questData.title .. ")", "PARTY")
+											C_ChatInfo.SendAddonMessage(name, "[HMP]: " .. text .. " (" .. questData.title .. ")", "PARTY")
 										end
 									end
 									questData.progressPercent = progressPercent

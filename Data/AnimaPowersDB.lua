@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local ANIMAPOWERS = {
 	[1] = { -- Warrior
 		[71] = { -- Arms
@@ -2478,4 +2478,4 @@ local ANIMAPOWERS = {
 	},
 }
 
-addonTable.ANIMAPOWERS = ANIMAPOWERS
+addon.ANIMAPOWERS = ANIMAPOWERS

@@ -1,7 +1,7 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
-local iconKey = addonName.."Icon"
-local textKey = addonName.."Text"
+local iconKey = name.."Icon"
+local textKey = name.."Text"
 
 local function UpdateNamePlate(plate)
 	local icon = plate:CreateTexture(nil, "OVERLAY")

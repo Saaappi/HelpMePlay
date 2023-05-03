@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 local talentSystemButton = _G.CreateFrame(
 	"Button",
@@ -19,7 +19,7 @@ local function CheckTalents(talentTree, currencyID)
 					C_Garrison.ResearchTalent(talent.perkID, rank)
 				end
 			else
-				print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "You need more currency! Amount Needed: " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
+				print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "You need more currency! Amount Needed: " .. talentInfo["researchCurrencyCosts"][1].currencyQuantity-currency.quantity .. " |T" .. currency.iconFileID .. ":0|t " .. currency.name)
 				return
 			end
 		end
@@ -40,7 +40,7 @@ local function GetTalentTreeInfo(talentTreeID)
 				button1 = YES,
 				button2 = CANCEL,
 				OnAccept = function(self, data)
-					CheckTalents(addonTable.TITANICRESEARCH, 1719)
+					CheckTalents(addon.TITANICRESEARCH, 1719)
 				end,
 				timeout = 30,
 				showAlert = true,
@@ -83,7 +83,7 @@ local function GetTalentTreeInfo(talentTreeID)
 				button1 = YES,
 				button2 = CANCEL,
 				OnAccept = function(self, data)
-					CheckTalents(addonTable.BOXOFMANYTHINGS, 1904)
+					CheckTalents(addon.BOXOFMANYTHINGS, 1904)
 				end,
 				timeout = 30,
 				showAlert = true,

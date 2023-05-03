@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function NumKeys(tbl)
@@ -18,11 +18,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local guid = UnitGUID("mouseover")
 			if guid then
 				local _, _, _, _, _, npcID = strsplit("-", guid); npcID = tonumber(npcID)
-				for id, data in pairs(addonTable.NOTES) do
+				for id, data in pairs(addon.NOTES) do
 					if id == npcID then
 						-- Check to see if the tooltip change has already been made.
 						for i = 1, GameTooltip:NumLines() do
-							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), addonName) then return end
+							if string.find(_G[GameTooltip:GetName().."TextLeft"..i]:GetText(), name) then return end
 						end
 						
 						if data.conditions ~= false then

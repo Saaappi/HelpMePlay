@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
@@ -39,7 +39,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local faction = UnitFactionGroup("player")
 				if faction == "Alliance" then
 					for boardIndex, mission in pairs(missions) do
-						if addonTable.GARRISON_MISSIONS[mission.missionID] then
+						if addon.GARRISON_MISSIONS[mission.missionID] then
 							if mission.inProgress == false then
 								C_Garrison.AddFollowerToMission(mission.missionID, followers[1].followerID)
 								C_Garrison.StartMission(mission.missionID)
@@ -50,7 +50,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				else
 					for boardIndex, mission in pairs(missions) do
-						if addonTable.GARRISON_MISSIONS[mission.missionID] then
+						if addon.GARRISON_MISSIONS[mission.missionID] then
 							if mission.inProgress == false then
 								C_Garrison.AddFollowerToMission(mission.missionID, followers[1].followerID)
 								C_Garrison.StartMission(mission.missionID)

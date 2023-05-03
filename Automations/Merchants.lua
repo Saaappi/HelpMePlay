@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function CheckMerchant(tbl, npcID)
@@ -18,7 +18,7 @@ local function CheckMerchant(tbl, npcID)
 					end
 					
 					-- Stocking Up on Supplies (Alliance/Horde) (Exile's Reach)
-					C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+					C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
 						for bagID = 0, 4 do
 							for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
 								local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
@@ -47,7 +47,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local GUID = UnitGUID("target")
 		if GUID then
 			local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
-			CheckMerchant(addonTable.QUESTMERCHANTS, npcID)
+			CheckMerchant(addon.QUESTMERCHANTS, npcID)
 			CheckMerchant(HelpMePlayDB.PlayerDB.Merchants, npcID)
 		end
 	end

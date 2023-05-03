@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function ShowPower(text, artID, spellLink, spellDescription)
@@ -9,7 +9,7 @@ end
 
 local function GetChoices()
 	if UnitAffectingCombat("player") then
-		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
+		C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
 			GetChoices()
 		end)
 	else
@@ -19,7 +19,7 @@ local function GetChoices()
 		if numChoices == 1 then
 			C_PlayerChoice.SendPlayerChoiceResponse(choices[1].buttons[1].id)
 			HideUIPanel(PlayerChoiceFrame)
-			ShowPower(addonTable.CONSTANTS.COLORED_ADDON_NAME, choices[1].choiceArtID, GetSpellLink(choices[1].spellID), GetSpellDescription(choices[1].spellID))
+			ShowPower(addon.CONSTANTS.COLORED_ADDON_NAME, choices[1].choiceArtID, GetSpellLink(choices[1].spellID), GetSpellDescription(choices[1].spellID))
 		else
 			local _, _, classID = UnitClass("player")
 			local specIndex = GetSpecialization()
@@ -29,8 +29,8 @@ local function GetChoices()
 			local highestPriority = 9
 			local priority = 9 -- 1 = HIGHEST, 9 = LOWEST
 			for i = 1, numChoices do
-				if addonTable.ANIMAPOWERS[classID][specID][choices[i].spellID] then
-					priority = addonTable.ANIMAPOWERS[classID][specID][choices[i].spellID]
+				if addon.ANIMAPOWERS[classID][specID][choices[i].spellID] then
+					priority = addon.ANIMAPOWERS[classID][specID][choices[i].spellID]
 					if priority < highestPriority then
 						highestPriority = priority
 						bestPowerIndex = i
@@ -45,10 +45,10 @@ local function GetChoices()
 			end
 			
 			if HelpMePlayDB.TorghastPowersId == 1 then -- NOTIFY
-				ShowPower(addonTable.CONSTANTS.COLORED_ADDON_NAME, choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
+				ShowPower(addon.CONSTANTS.COLORED_ADDON_NAME, choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
 				highestPriority = 9
 			elseif HelpMePlayDB.TorghastPowersId == 2 then -- AUTOMATIC
-				ShowPower(addonTable.CONSTANTS.COLORED_ADDON_NAME, choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
+				ShowPower(addon.CONSTANTS.COLORED_ADDON_NAME, choices[bestPowerIndex].choiceArtID, GetSpellLink(choices[bestPowerIndex].spellID), GetSpellDescription(choices[bestPowerIndex].spellID)) 
 				C_PlayerChoice.SendPlayerChoiceResponse(choices[bestPowerIndex].buttons[1].id)
 				HideUIPanel(PlayerChoiceFrame)
 				highestPriority = 9

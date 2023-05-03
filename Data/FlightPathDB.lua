@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local FLIGHT_PATHS = {
 	[993] = { -- Broken Isles
 		["g"] = {
@@ -73,4 +73,4 @@ local FLIGHT_PATHS = {
 	},
 }
 
-addonTable.FLIGHT_PATHS = FLIGHT_PATHS
+addon.FLIGHT_PATHS = FLIGHT_PATHS

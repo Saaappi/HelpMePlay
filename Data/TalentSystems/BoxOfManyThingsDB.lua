@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 local BOXOFMANYTHINGS = {
 	-- Tower Knowledge: 1904
@@ -57,4 +57,4 @@ local BOXOFMANYTHINGS = {
 	},
 }
 
-addonTable.BOXOFMANYTHINGS = BOXOFMANYTHINGS
+addon.BOXOFMANYTHINGS = BOXOFMANYTHINGS

@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local WAYPOINTS = {
 	[26176] = { -- Onward to Thelsamar
 		{
@@ -762,4 +762,4 @@ local WAYPOINTS = {
 		},
 	},
 }
-addonTable.WAYPOINTS = WAYPOINTS
+addon.WAYPOINTS = WAYPOINTS

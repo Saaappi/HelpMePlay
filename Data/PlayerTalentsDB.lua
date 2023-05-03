@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local PLAYER_TALENTS = {
 	-- Death Knight
 	[250] = { -- Blood
@@ -166,4 +166,4 @@ local PLAYER_TALENTS = {
 		["patch"] 			= "10.1.0",
 	},
 }
-addonTable.PLAYER_TALENTS = PLAYER_TALENTS
+addon.PLAYER_TALENTS = PLAYER_TALENTS

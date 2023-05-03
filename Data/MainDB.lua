@@ -1,5 +1,5 @@
-local addonName, addonTable = ...
-local L_NOTES = addonTable.L_NOTES
+local name, addon = ...
+local L_NOTES = addon.L_NOTES
 
 -- Adventure Maps
 local ADVENTURE_MAP_QUESTS = {
@@ -27,7 +27,7 @@ local ADVENTURE_MAP_QUESTS = {
 		72269, -- Thaldraszus
 	},
 }
-addonTable.ADVENTURE_MAP_QUESTS = ADVENTURE_MAP_QUESTS
+addon.ADVENTURE_MAP_QUESTS = ADVENTURE_MAP_QUESTS
 
 -- Dragonriding
 local DRAGONRIDING_TRAITS = {
@@ -46,8 +46,10 @@ local DRAGONRIDING_TRAITS = {
 	{ ["nodeID"] = 64058, ["entryID"] = 82377 }, 	-- At Home Aloft
 	{ ["nodeID"] = 92672, ["entryID"] = 114806 }, 	-- Aerial Halt
 	{ ["nodeID"] = 92671, ["entryID"] = 114805 }, 	-- Airborne Recovery
+	{ ["nodeID"] = 92679, ["entryID"] = 114815 }, 	-- Ground Skimming
+	{ ["nodeID"] = 92678, ["entryID"] = 114814 }, 	-- Land's Blessing
 }
-addonTable.DRAGONRIDING_TRAITS = DRAGONRIDING_TRAITS
+addon.DRAGONRIDING_TRAITS = DRAGONRIDING_TRAITS
 
 -- Dungeon Queues
 local DUNGEON_QUEUES_BY_QUEST = {
@@ -62,7 +64,7 @@ local DUNGEON_QUEUES_BY_QUEST = {
 		["t"] 	= "INTERFACE\\ICONS\\levelupicon-lfd",
 	},
 }
-addonTable.DUNGEON_QUEUES_BY_QUEST = DUNGEON_QUEUES_BY_QUEST
+addon.DUNGEON_QUEUES_BY_QUEST = DUNGEON_QUEUES_BY_QUEST
 
 -- Emotes
 	-- These emotes are processed when the specified
@@ -78,14 +80,14 @@ local EMOTES = {
 	[162592] 	= { gossip=true, emote="salute" }, 		-- Runestone of Chosen
 	[164835] 	= { gossip=false, emote="dismount" }, 	-- Kee-La (Exile's Reach)
 }
-addonTable.EMOTES = EMOTES
+addon.EMOTES = EMOTES
 
 -- Garrison Missions
 local GARRISON_MISSIONS = {
 	[2] 	= "Gronnlings Abound",
 	[66]	= "Killing the Corrupted",
 }
-addonTable.GARRISON_MISSIONS = GARRISON_MISSIONS
+addon.GARRISON_MISSIONS = GARRISON_MISSIONS
 
 -- Maps
 local CINEMATIC_BADMAPS = {
@@ -93,7 +95,7 @@ local CINEMATIC_BADMAPS = {
 	217,	-- Ruins of Gilneas
 	1169,	-- Tol Dagor
 }
-addonTable.CINEMATIC_BADMAPS = CINEMATIC_BADMAPS
+addon.CINEMATIC_BADMAPS = CINEMATIC_BADMAPS
 
 -- Notes
 local NOTES = {
@@ -149,12 +151,12 @@ local NOTES = {
 		},
 	},
 }
-addonTable.NOTES = NOTES
+addon.NOTES = NOTES
 
 -- Ignored NPCs (Gossip)
 local IGNORED_GOSSIP_NPC = {
 }
-addonTable.IGNORED_GOSSIP_NPC = IGNORED_GOSSIP_NPC
+addon.IGNORED_GOSSIP_NPC = IGNORED_GOSSIP_NPC
 
 -- Quests
 local IGNORED_QUESTS = {
@@ -162,7 +164,7 @@ local IGNORED_QUESTS = {
 	[59583] = true, -- Welcome to Stormwind
 	[60343] = true, -- Welcome to Orgrimmar
 }
-addonTable.IGNORED_QUESTS = IGNORED_QUESTS
+addon.IGNORED_QUESTS = IGNORED_QUESTS
 
 -- Quest Rewards
 local QUESTREWARDS = {
@@ -171,8 +173,8 @@ local QUESTREWARDS = {
 local IGNORED_QUESTREWARDS = {
 	[200880] = true, -- Wind-Sealed Mana Capsule
 }
-addonTable.QUESTREWARDS = QUESTREWARDS
-addonTable.IGNORED_QUESTREWARDS = IGNORED_QUESTREWARDS
+addon.QUESTREWARDS = QUESTREWARDS
+addon.IGNORED_QUESTREWARDS = IGNORED_QUESTREWARDS
 
 -- Quest Merchants
 local QUESTMERCHANTS = {
@@ -195,7 +197,7 @@ local QUESTMERCHANTS = {
 		{ ["questID"] = 66223, ["itemID"] = 192153, ["itemCount"] = 7 }, -- Can We Keep It? (Frigidfish)
 	},
 }
-addonTable.QUESTMERCHANTS = QUESTMERCHANTS
+addon.QUESTMERCHANTS = QUESTMERCHANTS
 
 -- Speech
 local SPEECH = {
@@ -207,13 +209,13 @@ local SPEECH = {
 	["some ask permission, and always thank us for our trouble."]				= { type="emote", emote="thank" },
 	["how strong he must have been!"]											= { type="emote", emote="flex" },
 }
-addonTable.SPEECH = SPEECH
+addon.SPEECH = SPEECH
 
 -- Vehicles
 local VEHICLES = {
 	89619,	-- Murky (Highmountain)
 }
-addonTable.VEHICLES = VEHICLES
+addon.VEHICLES = VEHICLES
 
 -- Holidays
 local HOLIDAYS = {
@@ -239,4 +241,4 @@ local HOLIDAYS = {
 		["height"] 		= 26,
 	},
 }
-addonTable.HOLIDAYS = HOLIDAYS
+addon.HOLIDAYS = HOLIDAYS

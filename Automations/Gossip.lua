@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 local gossips = {}
 
@@ -33,7 +33,7 @@ local function SelectOption(npcID)
 	end
 	
 	-- Get the gossip table based on the current map.
-	gossips = addonTable.GOSSIP
+	gossips = addon.GOSSIP
 	if gossips then
 		if gossips[npcID] then
 			for _, gossip in pairs(gossips[npcID]["g"]) do
@@ -198,7 +198,7 @@ end
 local function GetNPCID()
 	local npcID = 0
 	if IsShiftKeyDown() then
-		C_Timer.After(addonTable.CONSTANTS["GOSSIP_SHOW_CALLBACK_DELAY"], function()
+		C_Timer.After(addon.CONSTANTS["GOSSIP_SHOW_CALLBACK_DELAY"], function()
 			-- If the SHIFT key is down, then delay using the callback delay timer.
 			GetNPCID()
 		end)
@@ -212,7 +212,7 @@ local function GetNPCID()
 			-- then we need to exit the function because we shouldn't process gossip for this NPC.
 			npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
 			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
-			if addonTable.IGNORED_GOSSIP_NPC[npcID] then return end
+			if addon.IGNORED_GOSSIP_NPC[npcID] then return end
 		end
 		
 		-- Get the player's current map ID, then call the GetParentMapID function.

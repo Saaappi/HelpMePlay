@@ -1,6 +1,6 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
-local L = addonTable.L
+local L = addon.L
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
 local HMPTransmogButton = _G.CreateFrame(
 	"Button",
@@ -15,7 +15,7 @@ local function RequipOriginalItems(equippedItems)
 	local currentlyEquippedItemLink = ""
 	if not UnitAffectingCombat("player") then
 		ToggleCharacter("PaperDollFrame"); CharacterFrameCloseButton:Click()
-		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
+		C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
 			-- We need to rescan the equipped items
 			-- so we can run comparisons to the original items.
 			for _, item in ipairs(equippedItems) do
@@ -69,7 +69,7 @@ local function GetEquippedItems()
 	
 	if not UnitAffectingCombat("player") then
 		ToggleCharacter("PaperDollFrame"); CharacterFrameCloseButton:Click()
-		C_Timer.After(addonTable.CONSTANTS["ONE_SECOND"], function()
+		C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
 			-- Get the players currently equipped items
 			-- in transmog-capable slots and store them
 			-- in a separate table.

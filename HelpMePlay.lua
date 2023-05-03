@@ -1,12 +1,12 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
-local category = addonName .. " |T236688:16|t"
+local category = name .. " |T236688:16|t"
 
 HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0", "AceHook-3.0")
 
 function HelpMePlay:OnInitialize()
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay", addonTable.settings)
-	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay", addonName); addonTable.settings = self.settings
+	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay", addon.settings)
+	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay", name); addon.settings = self.settings
 	self:RegisterChatCommand("hmp", "SlashCommandHandler")
 	self:RegisterChatCommand("helpmeplay", "SlashCommandHandler")
 	
@@ -31,7 +31,7 @@ end
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
-		if addonLoaded == addonName then
+		if addonLoaded == name then
 			if HelpMePlayIgnoredCreaturesDB == nil then
 				HelpMePlayIgnoredCreaturesDB = {}
 			end
@@ -115,7 +115,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if (HelpMePlayDB.DevModeEnabled) then
 				local playerGUID = UnitGUID("player")
-				if (not addonTable.myCharacters[playerGUID]) then
+				if (not addon.myCharacters[playerGUID]) then
 					HelpMePlayDB.DevModeEnabled = nil
 				end
 			end

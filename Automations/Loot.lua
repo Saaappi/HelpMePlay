@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function InvertTable(tbl)
@@ -10,8 +10,8 @@ local function InvertTable(tbl)
 end
 
 local function EquipItem(itemLink, inventoryType)
-	C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
-		if UnitLevel("player") < addonTable.CONSTANTS["MAX_PLAYER_LEVEL"] then
+	C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
+		if UnitLevel("player") < addon.CONSTANTS["MAX_PLAYER_LEVEL"] then
 			if not UnitAffectingCombat("player") then
 				if itemLink then
 					local equipSlot = 0
@@ -20,8 +20,8 @@ local function EquipItem(itemLink, inventoryType)
 					local equippedItem = 0
 					local equippedItemQuality = 0
 					local _, _, _, _, _, itemType, _, _, _, _, _, _, subClassID = GetItemInfo(itemLink)
-					if type(addonTable.CONSTANTS["SLOTS"][inventoryType]) == "table" then
-						for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
+					if type(addon.CONSTANTS["SLOTS"][inventoryType]) == "table" then
+						for _, invSlotID in ipairs(addon.CONSTANTS["SLOTS"][inventoryType]) do
 							equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
 							if equippedItem:IsValid() then
 								if itemType == "Weapon" then
@@ -37,10 +37,10 @@ local function EquipItem(itemLink, inventoryType)
 							end
 						end
 					else
-						equippedItem = ItemLocation:CreateFromEquipmentSlot(addonTable.CONSTANTS["SLOTS"][inventoryType])
+						equippedItem = ItemLocation:CreateFromEquipmentSlot(addon.CONSTANTS["SLOTS"][inventoryType])
 						if equippedItem:IsValid() then
 							if itemType == "Weapon" then
-								for _, invSlotID in ipairs(addonTable.CONSTANTS["SLOTS"][inventoryType]) do
+								for _, invSlotID in ipairs(addon.CONSTANTS["SLOTS"][inventoryType]) do
 									if itemType == "Weapon" then
 										local equippedItemItemLink = C_Item.GetItemLink(equippedItem)
 										local equippedItemSubClassID = select(13, GetItemInfo(equippedItemItemLink))
@@ -51,7 +51,7 @@ local function EquipItem(itemLink, inventoryType)
 							local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
 							equippedItemQuality = C_Item.GetItemQuality(equippedItem)
 							if lootItemLevel > equippedItemLevel then
-								equipSlot = addonTable.CONSTANTS["SLOTS"][inventoryType]
+								equipSlot = addon.CONSTANTS["SLOTS"][inventoryType]
 							end
 						end
 					end
@@ -66,7 +66,7 @@ local function EquipItem(itemLink, inventoryType)
 								return
 							end
 						end
-						C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+						C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
 							for bagID = 0, 4 do
 								for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
 									local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
@@ -76,12 +76,12 @@ local function EquipItem(itemLink, inventoryType)
 											local isBound = C_Item.IsBound(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 											if isBound or HelpMePlayDB.EquipLootIgnoreBindEnabled then
 												local canTransmog = 0
-												if addonTable.CONSTANTS["TRANSMOG_SLOTS"][inventoryType] then
+												if addon.CONSTANTS["TRANSMOG_SLOTS"][inventoryType] then
 													canTransmog = C_Item.CanItemTransmogAppearance(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 												end
 												if canTransmog or canTransmog == 0 then
 													local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-													print(string.format("%s: Equipping an item upgrade. |T%s:0|t %s", addonTable.CONSTANTS.COLORED_ADDON_NAME, containerItemIcon, containerItemLink))
+													print(string.format("%s: Equipping an item upgrade. |T%s:0|t %s", addon.CONSTANTS.COLORED_ADDON_NAME, containerItemIcon, containerItemLink))
 													ClearCursor()
 													C_Container.PickupContainerItem(bagID, slotID)
 													EquipCursorItem(equipSlot)
@@ -99,7 +99,7 @@ local function EquipItem(itemLink, inventoryType)
 					end
 				end
 			else
-				C_Timer.After(addonTable.CONSTANTS["HALF_SECOND"], function()
+				C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
 					EquipItem(itemLink)
 				end)
 			end
@@ -117,7 +117,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if GUID == UnitGUID("player") then
 			local itemLink = string.match(text,"|%x+|Hitem:.-|h.-|h|r")
 			local inventoryType = C_Item.GetItemInventoryTypeByID(itemLink)
-			if addonTable.CONSTANTS["SLOTS"][inventoryType] then
+			if addon.CONSTANTS["SLOTS"][inventoryType] then
 				EquipItem(itemLink, inventoryType)
 			end
 		end

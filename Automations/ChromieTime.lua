@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
@@ -11,7 +11,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if type == 45 then
 			if IsShiftKeyDown() == false then
 				local playerLevel = UnitLevel("player")
-				if playerLevel < addonTable.CONSTANTS["CHROMIE_TIME_MAX_LEVEL"] then
+				if playerLevel < addon.CONSTANTS["CHROMIE_TIME_MAX_LEVEL"] then
 					if UnitChromieTimeID("player") ~= HelpMePlayDB.ChromieTimeID then
 						C_ChromieTime.SelectChromieTimeOption(HelpMePlayDB.ChromieTimeID)
 					end

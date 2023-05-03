@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
@@ -54,7 +54,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 								local specIndex = GetSpecialization()
 								local specID = GetSpecializationInfo(specIndex)
 								
-								C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[addonTable.COVENANTS_BY_SPEC[classID][specID]].buttons[1].id)
+								C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[addon.COVENANTS_BY_SPEC[classID][specID]].buttons[1].id)
 								HideUIPanel(PlayerChoiceFrame)
 							end
 						elseif id == 342 or id == 352 then

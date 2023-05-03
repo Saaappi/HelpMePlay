@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function TakeFlightPath(flightPathNodeId, mapId)
@@ -10,7 +10,7 @@ local function TakeFlightPath(flightPathNodeId, mapId)
 			if _G.IsMounted() then
 				_G.Dismount()
 			end
-			print(string.format("%s: Flying to: [|cffFFD100%s|r]!", addonTable.CONSTANTS.COLORED_ADDON_NAME, dest))
+			print(string.format("%s: Flying to: [|cffFFD100%s|r]!", addon.CONSTANTS.COLORED_ADDON_NAME, dest))
 			TakeTaxiNode(taxiNodeData.slotIndex)
 			return
 		end
@@ -18,9 +18,9 @@ local function TakeFlightPath(flightPathNodeId, mapId)
 end
 
 local function GetFlightPathInfo(mapId)
-	if addonTable.FLIGHT_PATHS[mapId] ~= nil then
-		for i = 1, #addonTable.FLIGHT_PATHS[mapId]["g"] do
-			local flightPath = addonTable.FLIGHT_PATHS[mapId]["g"][i]
+	if addon.FLIGHT_PATHS[mapId] ~= nil then
+		for i = 1, #addon.FLIGHT_PATHS[mapId]["g"] do
+			local flightPath = addon.FLIGHT_PATHS[mapId]["g"][i]
 			local numConditions = #flightPath.c
 			local numConditionsMatched = 0
 			for _, condition in ipairs(flightPath.c) do

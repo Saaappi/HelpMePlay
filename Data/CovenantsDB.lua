@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local COVENANTS_BY_SPEC = {
 	[1] = { -- Warrior
 		[71] = 1, 	-- Arms (Kyrian)
@@ -66,4 +66,4 @@ local COVENANTS_BY_SPEC = {
 	},
 }
 
-addonTable.COVENANTS_BY_SPEC = COVENANTS_BY_SPEC
+addon.COVENANTS_BY_SPEC = COVENANTS_BY_SPEC

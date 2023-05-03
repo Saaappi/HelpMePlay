@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 local function AddWaypoint(mapID, x, y, title, icon, displayID)
@@ -7,7 +7,7 @@ local function AddWaypoint(mapID, x, y, title, icon, displayID)
 		persistent = nil,
 		minimap = false,
 		world = true,
-		from = addonName,
+		from = name,
 		worldmap_icon = icon,
 		worldmap_displayID = displayID,
 	}
@@ -24,7 +24,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local questID = ...
 		if select(2, IsAddOnLoaded("TomTom")) then
-			for id, waypoint in pairs(addonTable.WAYPOINTS) do
+			for id, waypoint in pairs(addon.WAYPOINTS) do
 				if id == questID then
 					for _, data in ipairs(waypoint) do
 						local mapID, x, y, title, icon, displayID, quests, plotCondition, faction = data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]
@@ -59,7 +59,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local questID = ...
 		if select(2, IsAddOnLoaded("TomTom")) then
-			for id, waypoint in pairs(addonTable.WAYPOINTS) do
+			for id, waypoint in pairs(addon.WAYPOINTS) do
 				if id == questID then
 					for _, data in ipairs(waypoint) do
 						local mapID, x, y, title, icon, displayID, quests, plotCondition, faction = data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]

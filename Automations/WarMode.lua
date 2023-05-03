@@ -1,4 +1,4 @@
-local addonName, addonTable = ...
+local name, addon = ...
 local e = CreateFrame("Frame")
 
 --[[
@@ -18,12 +18,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.WarModeEnabled == false or HelpMePlayDB.WarModeEnabled == nil then return false end
 		local _, newLevel = ...
 		if newLevel == 20 then
-			print(addonTable.CONSTANTS.COLORED_ADDON_NAME .. ": You should return to Orgrimmar (Horde) or Stormwind City (Alliance) to enable War Mode for bonus experience!")
+			print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": You should return to Orgrimmar (Horde) or Stormwind City (Alliance) to enable War Mode for bonus experience!")
 			
 			local mapID = C_Map.GetBestMapForUnit("player")
-			if (mapID == 84 or mapID == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
+			if (mapID == 84 or mapID == 85) and UnitLevel("player") < addon.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
 				if C_PvP.IsWarModeDesired() == false then
-					C_Timer.After(addonTable.CONSTANTS["FIVE_SECONDS"], function()
+					C_Timer.After(addon.CONSTANTS["FIVE_SECONDS"], function()
 						C_PvP.ToggleWarMode()
 					end)
 				end
@@ -34,9 +34,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.WarModeEnabled == false or HelpMePlayDB.WarModeEnabled == nil then return false end
 		local mapID = C_Map.GetBestMapForUnit("player")
-		if (mapID == 84 or mapID == 85) and UnitLevel("player") < addonTable.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
+		if (mapID == 84 or mapID == 85) and UnitLevel("player") < addon.CONSTANTS["WAR_MODE_MAX_LEVEL"] then
 			if C_PvP.IsWarModeDesired() == false then
-				C_Timer.After(addonTable.CONSTANTS["FIVE_SECONDS"], function()
+				C_Timer.After(addon.CONSTANTS["FIVE_SECONDS"], function()
 					C_PvP.ToggleWarMode()
 				end)
 			end
