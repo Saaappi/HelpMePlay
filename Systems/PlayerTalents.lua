@@ -91,8 +91,8 @@ local function Import(loadoutEntryInfo, treeID)
 end
 
 e:RegisterEvent("ADDON_LOADED")
-e:SetScript("OnEvent", function(self, event, addon)
-	if event == "ADDON_LOADED" and addon == "Blizzard_ClassTalentUI" then
+e:SetScript("OnEvent", function(self, event, addonLoaded)
+	if (event == "ADDON_LOADED") and (addonLoaded == "Blizzard_ClassTalentUI") then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.TalentButtonEnabled == false or HelpMePlayDB.TalentButtonEnabled == nil then return false end
 		

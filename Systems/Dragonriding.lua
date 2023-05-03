@@ -2,8 +2,8 @@ local name, addon = ...
 local e = CreateFrame("Frame")
 
 e:RegisterEvent("ADDON_LOADED")
-e:SetScript("OnEvent", function(self, event, addon)
-	if event == "ADDON_LOADED" and addon == "Blizzard_GenericTraitUI" then
+e:SetScript("OnEvent", function(self, event, addonLoaded)
+	if (event == "ADDON_LOADED") and (addonLoaded == "Blizzard_GenericTraitUI") then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		
 		local dragonridingTraitButton = _G.CreateFrame(
@@ -20,7 +20,7 @@ e:SetScript("OnEvent", function(self, event, addon)
 		
 		HMPDragonridingTraitButton:HookScript("OnClick", function(self)
 			local configID = C_Traits.GetConfigIDByTreeID(addon.CONSTANTS["DRAGONRIDING_TREE_ID"])
-			C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
+			C_Timer.After(0.5, function()
 				for _, node in ipairs(addon.DRAGONRIDING_TRAITS) do
 					if C_Traits.CanPurchaseRank(configID, node.nodeID, node.entryID) then
 						local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
