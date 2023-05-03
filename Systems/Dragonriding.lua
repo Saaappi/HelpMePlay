@@ -19,16 +19,14 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 		HMPDragonridingTraitButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
 		HMPDragonridingTraitButton:HookScript("OnClick", function(self)
-			local configID = C_Traits.GetConfigIDByTreeID(addon.CONSTANTS["DRAGONRIDING_TREE_ID"])
+			local configID = C_Traits.GetConfigIDByTreeID(672)
 			C_Timer.After(0.5, function()
 				for _, node in ipairs(addon.DRAGONRIDING_TRAITS) do
-					if C_Traits.CanPurchaseRank(configID, node.nodeID, node.entryID) then
-						local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
-						if #nodeInfo.entryIDs > 1 then
-							C_Traits.SetSelection(configID, node.nodeID, node.entryID)
-						else
-							C_Traits.PurchaseRank(configID, node.nodeID)
-						end
+					local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
+					if (#nodeInfo.entryIDs > 1) then
+						C_Traits.SetSelection(configID, node.nodeID, node.entryID)
+					else
+						C_Traits.PurchaseRank(configID, node.nodeID)
 					end
 				end
 				C_Traits.CommitConfig(configID)
@@ -43,12 +41,12 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 		end)
 
 		HMPDragonridingTraitButton:HookScript("OnLeave", function(self)
-			if GameTooltip:GetOwner() == self then
+			if (GameTooltip:GetOwner() == self) then
 				GameTooltip:Hide()
 			end
 		end)
 		
-		if HelpMePlayDB.DragonridingButtonEnabled then
+		if (HelpMePlayDB.DragonridingButtonEnabled) then
 			HMPDragonridingTraitButton:SetPoint("RIGHT", GenericTraitFrame.Currency, "RIGHT", 0, -30)
 			HMPDragonridingTraitButton:Show()
 		end

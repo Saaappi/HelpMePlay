@@ -11,7 +11,6 @@ local CONSTANTS = {
 	["CHROMIE_TIME_MAX_LEVEL"]		= 60,
 	["MIN_DUNGEON_RWD_LEVEL"]		= 60,
 	-- Dragonriding
-	["DRAGONRIDING_TREE_ID"] 		= 672,
 	["SLOTS"] = {
 		[1] 	= 1, 				-- Head
 		[2] 	= 2, 				-- Neck
