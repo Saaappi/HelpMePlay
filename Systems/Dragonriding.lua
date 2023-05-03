@@ -19,36 +19,20 @@ e:SetScript("OnEvent", function(self, event, addon)
 		HMPDragonridingTraitButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		
 		HMPDragonridingTraitButton:HookScript("OnClick", function(self)
-			StaticPopupDialogs["HELPMEPLAY_DRAGONRIDING"] = {
-				text = "Are you sure you want HelpMePlay to learn your Dragonriding traits?\n\n" ..
-				"For the choice nodes, |cffFFD100Dragonrider's Compassion|r and |cffFFD100Dragonrider's Hunt|r will be selected.\n\n" ..
-				"|cffFFD100NOTE|r: The choice nodes can be changed on the fly at no cost to you.",
-				button1 = YES,
-				button2 = CANCEL,
-				OnAccept = function(self, data)
-					local configID = C_Traits.GetConfigIDByTreeID(addon.CONSTANTS["DRAGONRIDING_TREE_ID"])
-					C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
-						for _, node in ipairs(addon.DRAGONRIDING_TRAITS) do
-							if C_Traits.CanPurchaseRank(configID, node.nodeID, node.entryID) then
-								local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
-								if #nodeInfo.entryIDs > 1 then
-									C_Traits.SetSelection(configID, node.nodeID, node.entryID)
-								else
-									C_Traits.PurchaseRank(configID, node.nodeID)
-								end
-							end
+			local configID = C_Traits.GetConfigIDByTreeID(addon.CONSTANTS["DRAGONRIDING_TREE_ID"])
+			C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
+				for _, node in ipairs(addon.DRAGONRIDING_TRAITS) do
+					if C_Traits.CanPurchaseRank(configID, node.nodeID, node.entryID) then
+						local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
+						if #nodeInfo.entryIDs > 1 then
+							C_Traits.SetSelection(configID, node.nodeID, node.entryID)
+						else
+							C_Traits.PurchaseRank(configID, node.nodeID)
 						end
-						C_Traits.CommitConfig(configID)
-					end)
-				end,
-				timeout = 30,
-				showAlert = true,
-				whileDead = false,
-				hideOnEscape = true,
-				enterClicksFirstButton = false,
-				preferredIndex = 3,
-			}
-			StaticPopup_Show("HELPMEPLAY_DRAGONRIDING")
+					end
+				end
+				C_Traits.CommitConfig(configID)
+			end)
 		end)
 
 		HMPDragonridingTraitButton:HookScript("OnEnter", function(self)
