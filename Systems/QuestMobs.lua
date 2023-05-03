@@ -69,12 +69,12 @@ local function UpdateNamePlate(plate)
 				end
 				if (HelpMePlayDB.QuestMobIconID == 0) then
 					icon:SetTexture("Interface\\Minimap\\ObjectIconsAtlas")
-					icon:SetTexCoord(0.272461, 0.303711, 0.834961, 0.866211)
+					icon:SetTexCoord(0.3046875, 0.3359375, 0.875, 0.90625)
 				elseif (HelpMePlayDB.QuestMobIconID == 1) then
 					icon:SetTexture(HelpMePlayDB.QuestMobIcon)
 				elseif (HelpMePlayDB.QuestMobIconID == 2) then
 					icon:SetTexture("Interface\\Garrison\\MobileAppIcons")
-					icon:SetTexCoord(0.381836, 0.506836, 0.254883, 0.379883)
+					icon:SetTexCoord(0.3818359375, 0.5068359375, 0.2548828125, 0.3798828125)
 				end
 				
 				if (percentCriteria ~= 0) then

@@ -1875,17 +1875,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				--[[fixedHeader = {
+				fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "Fixed the (new) default quest mobs icon. (It should no longer be a random chalice.)",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[removedHeader = {
 					name = "Removed",
 					order = 40,
