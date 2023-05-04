@@ -29,16 +29,15 @@ local function UpdateNamePlate(plate)
 				local tooltipData = C_TooltipInfo.GetUnit(unit)
 				for i=1,(#tooltipData.lines) do
 					local line = tooltipData.lines[i]
-					TooltipUtil.SurfaceArgs(line)
 					
-					if (line.leftText:match("(%d+)/(%d+)")) then -- Enemy counts toward a kill count
+					if (line.leftText:match("(%d+)/(%d+)")) then
 						local numDone, numRequired = line.leftText:match("(%d+)/(%d+)"); numDone = tonumber(numDone); numRequired = tonumber(numRequired)
-						if (not (numDone == numRequired)) then -- The player still needs to kill the enemy
+						if (not (numDone == numRequired)) then
 							criteria = criteria+(numRequired-numDone)
 						end
 					end
 					
-					if (line.leftText:match("(%d+)%%")) then -- Enemy counts toward a % progress bar
+					if (line.leftText:match("(%d+)%%")) then
 						local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
 						if (not (percent == 100)) then
 							percentCriteria = 100-percent
@@ -105,27 +104,24 @@ local function UpdateTextKey(plate)
 			
 			for i=1,(#tooltipData.lines) do
 				local line = tooltipData.lines[i]
-				TooltipUtil.SurfaceArgs(line)
 				
-				if (line.leftText:match("(%d+)/(%d+)")) then -- Enemy counts toward a kill count
+				if (line.leftText:match("(%d+)/(%d+)")) then
 					local numDone, numRequired = line.leftText:match("(%d+)/(%d+)"); numDone = tonumber(numDone); numRequired = tonumber(numRequired)
-					if (not (numDone == numRequired)) then -- The player still needs to kill the enemy
+					if (not (numDone == numRequired)) then
 						criteria = criteria+(numRequired-numDone)
-					else
-						shouldAddIconToNamePlate = false
 					end
 				end
 				
-				if (line.leftText:match("(%d+)%%")) then -- Enemy counts toward a % progress bar
+				if (line.leftText:match("(%d+)%%")) then
 					local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
 					if (not (percent == 100)) then
-						criteria = criteria.." - "..(100-percent)
-					else
-						shouldAddIconToNamePlate = false
+						percentCriteria = 100-percent
 					end
 				end
 				
-				if (plate[textKey]) then
+				if (percentCriteria ~= 0) then
+					plate[textKey]:SetText(criteria.." - "..percentCriteria.."%")
+				else
 					plate[textKey]:SetText(criteria)
 				end
 			end
