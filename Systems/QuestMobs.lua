@@ -121,12 +121,12 @@ local function UpdateTextKey(plate)
 				end
 			end
 		else
-			if (plate[name.."Icon"]) then
+			--if (plate[name.."Icon"]) then
 				plate[name.."Icon"]:Hide()
-			end
-			if (plate[name.."Text"]) then
+			--end
+			--if (plate[name.."Text"]) then
 				plate[name.."Text"]:Hide()
-			end
+			--end
 		end
 	end
 end
