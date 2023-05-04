@@ -142,6 +142,7 @@ e:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
 e:RegisterEvent("UI_INFO_MESSAGE")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_REMOVED")
+e:RegisterEvent("QUEST_LOG_CHANGED")
 e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "NAME_PLATE_UNIT_ADDED" then
@@ -210,7 +211,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
-	if (event == "UNIT_QUEST_LOG_CHANGED") then
+	if (event == "UNIT_QUEST_LOG_CHANGED") or (event == "QUEST_LOG_CHANGED") then
 		local namePlates = C_NamePlate.GetNamePlates()
 		for i = 1, #namePlates do
 			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
