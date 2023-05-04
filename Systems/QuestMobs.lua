@@ -1,6 +1,17 @@
 local name, addon = ...
 local e = CreateFrame("Frame")
 
+local function Wipe()
+	local plates = C_NamePlate.GetNamePlates()
+	for i=1,#plates do
+		local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+		if (C_QuestLog.UnitIsRelatedToActiveQuest(plates[i].namePlateUnitToken) == false) then
+			plate[name.."Icon"]:Hide()
+			plate[name.."Text"]:Hide()
+		end
+	end
+end
+
 local function UpdateNamePlate(plate)
 	local icon = plate:CreateTexture(nil, "OVERLAY")
 	local fontString = plate:CreateFontString(nil, "OVERLAY")
@@ -132,6 +143,7 @@ e:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
 e:RegisterEvent("UI_INFO_MESSAGE")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_REMOVED")
+e:RegisterEvent("QUEST_TURNED_IN")
 e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "NAME_PLATE_UNIT_ADDED" then
@@ -157,14 +169,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if (event == "UI_INFO_MESSAGE") then
 		local _, message = ...
 		if (message == "Objective Complete.") then
-			local namePlates = C_NamePlate.GetNamePlates()
-			for i = 1, #namePlates do
-				local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
-				if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-					plate[name.."Icon"]:Hide()
-					plate[name.."Text"]:Hide()
-				end
-			end
+			Wipe()
 		end
 	end
 	if (event == "QUEST_ACCEPTED") then
@@ -174,15 +179,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			UpdateNamePlate(plate)
 		end
 	end
-	if (event == "QUEST_REMOVED") then
-		local namePlates = C_NamePlate.GetNamePlates()
-		for i = 1, #namePlates do
-			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
-			if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-				plate[name.."Icon"]:Hide()
-				plate[name.."Text"]:Hide()
-			end
-		end
+	if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
+		Wipe()
 	end
 	if (event == "UNIT_QUEST_LOG_CHANGED") then
 		local namePlates = C_NamePlate.GetNamePlates()
