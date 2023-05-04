@@ -1,12 +1,11 @@
 ## Author: LightskyGG
 ## Interface: 100100
-## Name: HelpMePlay
-## Notes: Allows you to tailor an automated experience that best fits your playstyle!
+## Title: HelpMePlay
+## Notes: Version: 2.1.3
 ## SavedVariables: HelpMePlayDB, HelpMePlayPlayerDialogDB, HelpMePlayIgnoredCreaturesDB, HelpMePlayIgnoredQuestsDB, HelpMePlayJunkerGlobalDB, HelpMePlayJunkerGlobalBlacklistDB, HelpMePlayQuestMobsDB
 ## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
-## Title: HelpMePlay
-## Version: 2.1.2
-## IconTexture: Interface\ICONS\achievement_reputation_08
+## Version: 2.1.3
+## IconTexture: Interface\AddOns\HelpMePlay\Images\helpmeplay-icon.png
 ## OptionalDeps: Ace3
 
 # Libraries
