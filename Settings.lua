@@ -2001,7 +2001,7 @@ local settings = {
 					"Copy the link below, and thank you for opening an issue!",
 					button1 = "OK",
 					OnShow = function(self, data)
-						self.editBox:SetText("https://github.com/Saaappi/HelpMePlay/issues/new")
+						self.editBox:SetText("https://legacy.curseforge.com/wow/addons/helpmeplay/issues/create")
 						self.editBox:HighlightText()
 					end,
 					timeout = 20,
