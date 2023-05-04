@@ -124,7 +124,6 @@ local function UpdateTextKey(plate)
 					if (percentCriteria ~= 0) then
 						plate[name.."Text"]:SetText(criteria.." - "..percentCriteria.."%")
 					else
-						SetRaidTargetIcon(plate.namePlateUnitToken, 1)
 						plate[name.."Text"]:SetText(criteria)
 					end
 					
