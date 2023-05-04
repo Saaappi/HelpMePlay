@@ -82,6 +82,7 @@ local function UpdateNamePlate(plate)
 					plate[name.."Icon"]:Hide()
 				end
 				if (plate[name.."Text"]) then
+					plate[name.."Text"]:Hide()
 				end
 			end
 		end
@@ -121,12 +122,8 @@ local function UpdateTextKey(plate)
 				end
 			end
 		else
-			--if (plate[name.."Icon"]) then
-				plate[name.."Icon"]:Hide()
-			--end
-			--if (plate[name.."Text"]) then
-				plate[name.."Text"]:Hide()
-			--end
+			plate[name.."Icon"]:Hide()
+			plate[name.."Text"]:Hide()
 		end
 	end
 end
