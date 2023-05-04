@@ -8,10 +8,11 @@ local function UpdateNamePlate(plate)
 	fontString:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
 	fontString:SetTextColor(1, 1, 1)
 	
-	if (HelpMePlayDB.QuestMobIconID > 0) then
-		fontString:SetPoint("LEFT", icon, "RIGHT", 5, 0)
+	local plateHorizontalScale = C_CVar.GetCVar("NamePlateHorizontalScale")
+	if (plateHorizontalScale == "1") then
+		fontString:SetPoint("LEFT", plate, "RIGHT", 0, -5)
 	else
-		fontString:SetPoint("LEFT", icon, "RIGHT")
+		fontString:SetPoint("LEFT", plate, "RIGHT")
 	end
 	
 	plate[name.."Icon"] = icon
@@ -42,7 +43,7 @@ local function UpdateNamePlate(plate)
 				end
 				
 				icon:ClearAllPoints()
-				icon:SetSize(20, 20)
+				icon:SetSize(16, 16)
 				if (HelpMePlayDB.QuestMobIconPosition == 0) then
 					icon:SetPoint("TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 				elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
@@ -78,12 +79,8 @@ local function UpdateNamePlate(plate)
 				end
 				icon:Show()
 			else
-				if (plate[name.."Icon"]) then
-					plate[name.."Icon"]:Hide()
-				end
-				if (plate[name.."Text"]) then
-					plate[name.."Text"]:Hide()
-				end
+				plate[name.."Icon"]:Hide()
+				plate[name.."Text"]:Hide()
 			end
 		end
 	end
@@ -120,6 +117,8 @@ local function UpdateTextKey(plate)
 						plate[name.."Text"]:SetText(criteria)
 					end
 				end
+				
+				plate[name.."Text"]:Show()
 			end
 		else
 			plate[name.."Icon"]:Hide()
@@ -151,12 +150,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local unit = ...
 		local plate = C_NamePlate.GetNamePlateForUnit(unit)
-        if (plate[name.."Icon"]) then
-            plate[name.."Icon"]:Hide()
-        end
-		if (plate[name.."Text"]) then
-			plate[name.."Text"]:Hide()
-		end
+        
+		plate[name.."Icon"]:Hide()
+		plate[name.."Text"]:Hide()
 	end
 	if (event == "UI_INFO_MESSAGE") then
 		local _, message = ...
@@ -165,12 +161,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			for i = 1, #namePlates do
 				local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
 				if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-					if (plate[name.."Icon"]) then
-						plate[name.."Icon"]:Hide()
-					end
-					if (plate[name.."Text"]) then
-						plate[name.."Text"]:Hide()
-					end
+					plate[name.."Icon"]:Hide()
+					plate[name.."Text"]:Hide()
 				end
 			end
 		end
@@ -187,13 +179,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		for i = 1, #namePlates do
 			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-				if (plate[name.."Icon"]) then
-					plate[name.."Icon"]:Hide()
-					
-				end
-				if (plate[name.."Text"]) then
-					plate[name.."Text"]:Hide()
-				end
+				plate[name.."Icon"]:Hide()
+				plate[name.."Text"]:Hide()
 			end
 		end
 	end
