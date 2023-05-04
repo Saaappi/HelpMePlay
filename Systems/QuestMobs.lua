@@ -1,7 +1,5 @@
 local name, addon = ...
 local e = CreateFrame("Frame")
-local iconKey = name.."Icon"
-local textKey = name.."Text"
 
 local function UpdateNamePlate(plate)
 	local icon = plate:CreateTexture(nil, "OVERLAY")
@@ -16,8 +14,8 @@ local function UpdateNamePlate(plate)
 		fontString:SetPoint("LEFT", icon, "RIGHT")
 	end
 	
-	plate[iconKey] = icon
-	plate[textKey] = fontString
+	plate[name.."Icon"] = icon
+	plate[name.."Text"] = fontString
 	
 	local unit = plate.namePlateUnitToken
 	local criteria = 0
@@ -84,10 +82,10 @@ local function UpdateNamePlate(plate)
 				
 				icon:Show()
 			else
-				if (plate[iconKey]) then
-					plate[iconKey]:Hide()
+				if (plate[name.."Icon"]) then
+					plate[name.."Icon"]:Hide()
 				end
-				if (plate[textKey]) then
+				if (plate[name.."Text"]) then
 				end
 			end
 		end
@@ -100,38 +98,45 @@ local function UpdateTextKey(plate)
 	local percentCriteria = 0
 	if (not UnitIsPlayer(unit)) then
 		if (C_QuestLog.UnitIsRelatedToActiveQuest(unit)) then
-			local shouldAddIconToNamePlate = true
-			local tooltipData = C_TooltipInfo.GetUnit(unit)
-			
-			for i=1,(#tooltipData.lines) do
-				local line = tooltipData.lines[i]
+			if (plate[name.."Text"]) then
+				local shouldAddIconToNamePlate = true
+				local tooltipData = C_TooltipInfo.GetUnit(unit)
 				
-				if (line.leftText:match("(%d+)/(%d+)")) then
-					local numDone, numRequired = line.leftText:match("(%d+)/(%d+)"); numDone = tonumber(numDone); numRequired = tonumber(numRequired)
-					if (not (numDone == numRequired)) then
-						criteria = criteria+(numRequired-numDone)
+				for i=1,(#tooltipData.lines) do
+					local line = tooltipData.lines[i]
+					
+					plate[name.."Text"]:Hide()
+					
+					if (line.leftText:match("(%d+)/(%d+)")) then
+						local numDone, numRequired = line.leftText:match("(%d+)/(%d+)"); numDone = tonumber(numDone); numRequired = tonumber(numRequired)
+						if (not (numDone == numRequired)) then
+							criteria = criteria+(numRequired-numDone)
+						end
 					end
-				end
-				
-				if (line.leftText:match("(%d+)%%")) then
-					local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
-					if (not (percent == 100)) then
-						percentCriteria = 100-percent
+					
+					if (line.leftText:match("(%d+)%%")) then
+						local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
+						if (not (percent == 100)) then
+							percentCriteria = 100-percent
+						end
 					end
-				end
-				
-				if (percentCriteria ~= 0) then
-					plate[textKey]:SetText(criteria.." - "..percentCriteria.."%")
-				else
-					plate[textKey]:SetText(criteria)
+					
+					if (percentCriteria ~= 0) then
+						plate[name.."Text"]:SetText(criteria.." - "..percentCriteria.."%")
+					else
+						SetRaidTargetIcon(plate.namePlateUnitToken, 1)
+						plate[name.."Text"]:SetText(criteria)
+					end
+					
+					plate[name.."Text"]:Show()
 				end
 			end
 		else
-			if (plate[iconKey]) then
-				plate[iconKey]:Hide()
+			if (plate[name.."Icon"]) then
+				plate[name.."Icon"]:Hide()
 			end
-			if (plate[textKey]) then
-				plate[textKey]:Hide()
+			if (plate[name.."Text"]) then
+				plate[name.."Text"]:Hide()
 			end
 		end
 	end
@@ -142,7 +147,7 @@ e:RegisterEvent("NAME_PLATE_UNIT_REMOVED")
 e:RegisterEvent("UI_INFO_MESSAGE")
 e:RegisterEvent("QUEST_ACCEPTED")
 e:RegisterEvent("QUEST_REMOVED")
-e:RegisterEvent("QUEST_LOG_CHANGED")
+e:RegisterEvent("QUEST_LOG_UPDATE")
 e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
 	if event == "NAME_PLATE_UNIT_ADDED" then
@@ -163,11 +168,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local unit = ...
 		local plate = C_NamePlate.GetNamePlateForUnit(unit)
 		
-        if (plate[iconKey]) then
-            plate[iconKey]:Hide()
+        if (plate[name.."Icon"]) then
+            plate[name.."Icon"]:Hide()
         end
-		if (plate[textKey]) then
-			plate[textKey]:Hide()
+		if (plate[name.."Text"]) then
+			plate[name.."Text"]:Hide()
 		end
 	end
 	if (event == "UI_INFO_MESSAGE") then
@@ -178,11 +183,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 				local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
 				
 				if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-					if (plate[iconKey]) then
-						plate[iconKey]:Hide()
+					if (plate[name.."Icon"]) then
+						plate[name.."Icon"]:Hide()
 					end
-					if (plate[textKey]) then
-						plate[textKey]:Hide()
+					if (plate[name.."Text"]) then
+						plate[name.."Text"]:Hide()
 					end
 				end
 			end
@@ -201,17 +206,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
 			
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(namePlates[i].namePlateUnitToken) == false) then
-				if (plate[iconKey]) then
-					plate[iconKey]:Hide()
+				if (plate[name.."Icon"]) then
+					plate[name.."Icon"]:Hide()
 					
 				end
-				if (plate[textKey]) then
-					plate[textKey]:Hide()
+				if (plate[name.."Text"]) then
+					plate[name.."Text"]:Hide()
 				end
 			end
 		end
 	end
-	if (event == "UNIT_QUEST_LOG_CHANGED") or (event == "QUEST_LOG_CHANGED") then
+	if (event == "UNIT_QUEST_LOG_CHANGED") or (event == "QUEST_LOG_UPDATE") then
 		local namePlates = C_NamePlate.GetNamePlates()
 		for i = 1, #namePlates do
 			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
