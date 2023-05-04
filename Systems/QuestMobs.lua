@@ -97,6 +97,7 @@ end
 local function UpdateTextKey(plate)
 	local unit = plate.namePlateUnitToken
 	local criteria = 0
+	local percentCriteria = 0
 	if (not UnitIsPlayer(unit)) then
 		if (C_QuestLog.UnitIsRelatedToActiveQuest(unit)) then
 			local shouldAddIconToNamePlate = true
