@@ -1222,8 +1222,8 @@ local settings = {
 					},
 					sorting = {
 						[1] = 0,
-						[2] = 1,
-						[3] = 2,
+						[2] = 2,
+						[3] = 1,
 					},
 					get = function()
 						if not HelpMePlayDB.QuestMobIcon then
