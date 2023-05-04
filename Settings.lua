@@ -1939,7 +1939,7 @@ local settings = {
 					"Her content has inspired me to spend countless hours pouring over the codebase of the addon, bringing all of you the best product I can.\n\n" ..
 					"If you're interested, she uploads frequently to her YouTube channel and began streaming live on Twitch.tv!\n\n" ..
 					"Click this button to get a link to her YouTube channel.",
-					image = "Interface/AddOns/HelpMePlay/Assets/Acknowledgments/Icon_Ack_KrakenLatte",
+					image = "Interface/AddOns/HelpMePlay/Images/helpmeplay-krakenlatte-icon.png",
 					func = function(_, _)
 						StaticPopupDialogs["HELPMEPLAY_ACK_KRAKENLATTE"] = {
 							text = "Thanks for showing an interest in Kraken Latte's content! She'll be enthused to have you around.\n\n" ..
@@ -1967,7 +1967,7 @@ local settings = {
 					desc = "Canary is a prominent member of Kraken's community. She plays the game in her free time and is a wonderful artist.\n\n" ..
 					"She's provided feedback over the past few months that has led to enhancements in features like Cinematics, Gossips, and Party Play.\n\n" ..
 					"If you're looking for an artist, click here to get the link to her Twitter and find out if her commissions are open!",
-					image = "Interface/AddOns/HelpMePlay/Assets/Acknowledgments/Icon_Ack_GildedCanary",
+					image = "Interface/AddOns/HelpMePlay/Images/helpmeplay-gildedcanary-icon.png",
 					func = function(_, _)
 						StaticPopupDialogs["HELPMEPLAY_ACK_GILDEDCANARY"] = {
 							text = "Thank you for showing an interest in Gilded Canary's artistry!\n\n" ..
