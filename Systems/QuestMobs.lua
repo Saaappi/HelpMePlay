@@ -144,12 +144,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 			plate[addonName.."Text"]:Hide()
 		end
 	end
-	--[[if (event == "UI_INFO_MESSAGE") then
+	if (event == "UI_INFO_MESSAGE") then
 		local _, message = ...
 		if (message == "Objective Complete.") then
 			Wipe()
 		end
-	end]]
+	end
 	if (event == "QUEST_ACCEPTED") then
 		local plates = C_NamePlate.GetNamePlates()
 		for i=1,#plates do
