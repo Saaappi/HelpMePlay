@@ -1929,7 +1929,7 @@ local settings = {
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "Added support for the |cffFFD100Ground Skimming|r and |cffFFD100Land's Blessing|r traits.",
+					name = coloredDash .. "Added support for the |cffFFD100Ground Skimming|r and |cffFFD100Land's Blessing|r Dragonriding traits.",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
