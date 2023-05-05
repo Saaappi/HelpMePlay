@@ -1,4 +1,4 @@
-local name, addon = ...
+local addonName, addon = ...
 local coloredDash = "|cffFFD100-|r "
 local icon = ""
 --local authorNote = "|cff009AE4"
@@ -28,16 +28,16 @@ function HelpMePlay:MinimapIcon(bool)
 	HelpMePlayDB.MinimapIconEnabled = bool
 	if bool then
 		if icon ~= "" then
-			icon:Show(name)
+			icon:Show(addonName)
 		else
 			icon = LibStub("LibDBIcon-1.0")
 			-- Create a Lib DB first to hold all the
 			-- information for the minimap icon.
-			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(name, {
+			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
 				type = "launcher",
 				icon = "236688", -- 100 Exalted Reputations (Achievement)
 				OnTooltipShow = function(tooltip)
-					tooltip:SetText(addon.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. C_AddOns.GetAddOnMetadata(name, "Version") .. "|r")
+					tooltip:SetText(addon.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r")
 					tooltip:AddLine("Configure the addon's settings and tailor an experience that best fits your playstyle!")
 					tooltip:Show()
 				end,
@@ -46,18 +46,18 @@ function HelpMePlay:MinimapIcon(bool)
 			
 			-- Register the minimap button with the
 			-- LDB.
-			icon:Register(name, iconLDB, HelpMePlayDB)
-			icon:Show(name)
+			icon:Register(addonName, iconLDB, HelpMePlayDB)
+			icon:Show(addonName)
 		end
 	else
 		if icon ~= "" then
-			icon:Hide(name)
+			icon:Hide(addonName)
 		end
 	end
 end
 
 local settings = {
-	name = name,
+	name = addonName,
 	handler = HelpMePlay,
 	type = "group",
 	args = {
@@ -1329,6 +1329,35 @@ local settings = {
 					end,
 					set = function(_, iconPositionID)
 						HelpMePlayDB.QuestMobIconPosition = iconPositionID
+						local plates = C_NamePlate.GetNamePlates()
+						for i=1,#plates do
+							local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+							if (plate[addonName.."Icon"]) then
+								plate[addonName.."Icon"]:ClearAllPoints()
+								if (iconPositionID == 0) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								end
+								if (iconPositionID == 0) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 1) then
+									plate[addonName.."Icon"]:SetPoint("TOP", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 2) then
+									plate[addonName.."Icon"]:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 3) then
+									plate[addonName.."Icon"]:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 4) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 5) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 6) then
+									plate[addonName.."Icon"]:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 7) then
+									plate[addonName.."Icon"]:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (iconPositionID == 8) then
+									plate[addonName.."Icon"]:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								end
+							end
+						end
 					end,
 				},
 				QuestMobsIconXOffset = {
@@ -1345,7 +1374,35 @@ local settings = {
 						end
 						return HelpMePlayDB.QuestMobIconXOffset
 					end,
-					set = function(_, val) HelpMePlayDB.QuestMobIconXOffset = val end,
+					set = function(_, iconXOffset) 
+						HelpMePlayDB.QuestMobIconXOffset = iconXOffset
+						local plates = C_NamePlate.GetNamePlates()
+						for i=1,#plates do
+							local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+							if (plate[addonName.."Icon"]) then
+								plate[addonName.."Icon"]:ClearAllPoints()
+								if (HelpMePlayDB.QuestMobIconPosition == 0) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
+									plate[addonName.."Icon"]:SetPoint("TOP", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 2) then
+									plate[addonName.."Icon"]:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 3) then
+									plate[addonName.."Icon"]:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 4) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 5) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 6) then
+									plate[addonName.."Icon"]:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 7) then
+									plate[addonName.."Icon"]:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 8) then
+									plate[addonName.."Icon"]:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								end
+							end
+						end
+					end,
 				},
 				QuestMobsIconYOffset = {
 					name = "Icon Y Offset",
@@ -1361,7 +1418,35 @@ local settings = {
 						end
 						return HelpMePlayDB.QuestMobIconYOffset
 					end,
-					set = function(_, val) HelpMePlayDB.QuestMobIconYOffset = val end,
+					set = function(_, iconYOffset)
+						HelpMePlayDB.QuestMobIconYOffset = iconYOffset
+						local plates = C_NamePlate.GetNamePlates()
+						for i=1,#plates do
+							local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+							if (plate[addonName.."Icon"]) then
+								plate[addonName.."Icon"]:ClearAllPoints()
+								if (HelpMePlayDB.QuestMobIconPosition == 0) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
+									plate[addonName.."Icon"]:SetPoint("TOP", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 2) then
+									plate[addonName.."Icon"]:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 3) then
+									plate[addonName.."Icon"]:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 4) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 5) then
+									plate[addonName.."Icon"]:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 6) then
+									plate[addonName.."Icon"]:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 7) then
+									plate[addonName.."Icon"]:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								elseif (HelpMePlayDB.QuestMobIconPosition == 8) then
+									plate[addonName.."Icon"]:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+								end
+							end
+						end
+					end,
 				},
 				QuestMobsCriteriaPosition = {
 					name = "Criteria Position",
@@ -1399,6 +1484,35 @@ local settings = {
 					end,
 					set = function(_, iconPositionID)
 						HelpMePlayDB.QuestMobCriteriaPosition = iconPositionID
+						local plates = C_NamePlate.GetNamePlates()
+						for i=1,#plates do
+							local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+							if (plate[addonName.."Text"]) then
+								plate[addonName.."Text"]:ClearAllPoints()
+								if (iconPositionID == 0) then
+									plate[addonName.."Text"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								end
+								if (iconPositionID == 0) then
+									plate[addonName.."Text"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 1) then
+									plate[addonName.."Text"]:SetPoint("TOP", plate, "CENTER", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 2) then
+									plate[addonName.."Text"]:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 3) then
+									plate[addonName.."Text"]:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 4) then
+									plate[addonName.."Text"]:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 5) then
+									plate[addonName.."Text"]:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 6) then
+									plate[addonName.."Text"]:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 7) then
+									plate[addonName.."Text"]:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (iconPositionID == 8) then
+									plate[addonName.."Text"]:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								end
+							end
+						end
 					end,
 				},
 				QuestMobsCriteriaXOffset = {
@@ -1415,7 +1529,35 @@ local settings = {
 						end
 						return HelpMePlayDB.QuestMobCriteriaXOffset
 					end,
-					set = function(_, val) HelpMePlayDB.QuestMobCriteriaXOffset = val end,
+					set = function(_, criteriaXOffset)
+						HelpMePlayDB.QuestMobCriteriaXOffset = criteriaXOffset
+						local plates = C_NamePlate.GetNamePlates()
+						for i=1,#plates do
+							local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+							if (plate[addonName.."Text"]) then
+								plate[addonName.."Text"]:ClearAllPoints()
+								if (HelpMePlayDB.QuestMobCriteriaPosition == 0) then
+									plate[addonName.."Text"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 1) then
+									plate[addonName.."Text"]:SetPoint("TOP", plate, "CENTER", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 2) then
+									plate[addonName.."Text"]:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 3) then
+									plate[addonName.."Text"]:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 4) then
+									plate[addonName.."Text"]:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 5) then
+									plate[addonName.."Text"]:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 6) then
+									plate[addonName.."Text"]:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 7) then
+									plate[addonName.."Text"]:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 8) then
+									plate[addonName.."Text"]:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								end
+							end
+						end
+					end,
 				},
 				QuestMobsCriteriaYOffset = {
 					name = "Criteria Y Offset",
@@ -1431,7 +1573,35 @@ local settings = {
 						end
 						return HelpMePlayDB.QuestMobCriteriaYOffset
 					end,
-					set = function(_, val) HelpMePlayDB.QuestMobCriteriaYOffset = val end,
+					set = function(_, criteriaYOffset)
+						HelpMePlayDB.QuestMobCriteriaYOffset = criteriaYOffset
+						local plates = C_NamePlate.GetNamePlates()
+						for i=1,#plates do
+							local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+							if (plate[addonName.."Text"]) then
+								plate[addonName.."Text"]:ClearAllPoints()
+								if (HelpMePlayDB.QuestMobCriteriaPosition == 0) then
+									plate[addonName.."Text"]:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 1) then
+									plate[addonName.."Text"]:SetPoint("TOP", plate, "CENTER", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 2) then
+									plate[addonName.."Text"]:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 3) then
+									plate[addonName.."Text"]:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 4) then
+									plate[addonName.."Text"]:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 5) then
+									plate[addonName.."Text"]:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 6) then
+									plate[addonName.."Text"]:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 7) then
+									plate[addonName.."Text"]:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								elseif (HelpMePlayDB.QuestMobCriteriaPosition == 8) then
+									plate[addonName.."Text"]:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+								end
+							end
+						end
+					end,
 				},
             },
         },
@@ -1918,7 +2088,7 @@ local settings = {
             order = 8,
 			args = {
 				text = {
-					name = "|cffFFD100" .. C_AddOns.GetAddOnMetadata(name, "Version") .. "|r",
+					name = "|cffFFD100" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r",
 					order = 1,
 					type = "description",
 					fontSize = "large",
@@ -1990,7 +2160,7 @@ local settings = {
             order = 9,
             args = {
                 versionText = {
-					name = "|cffFFD100Version|r: " .. C_AddOns.GetAddOnMetadata(name, "Version"),
+					name = "|cffFFD100Version|r: " .. C_AddOns.GetAddOnMetadata(addonName, "Version"),
 					order = 1,
 					type = "description",
 				},

@@ -1,12 +1,12 @@
-local name, addon = ...
+local addonName, addon = ...
 local e = CreateFrame("Frame")
-local category = name .. " |T236688:16|t"
+local category = addonName .. " |T236688:16|t"
 
 HelpMePlay = LibStub("AceAddon-3.0"):NewAddon("HelpMePlay", "AceConsole-3.0", "AceHook-3.0")
 
 function HelpMePlay:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("HelpMePlay", addon.settings)
-	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay", name); addon.settings = self.settings
+	self.mainOptions = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("HelpMePlay", addonName); addon.settings = self.settings
 	self:RegisterChatCommand("hmp", "SlashCommandHandler")
 	self:RegisterChatCommand("helpmeplay", "SlashCommandHandler")
 	
@@ -31,7 +31,7 @@ end
 e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
-		if addonLoaded == name then
+		if addonLoaded == addonName then
 			if HelpMePlayIgnoredCreaturesDB == nil then
 				HelpMePlayIgnoredCreaturesDB = {}
 			end

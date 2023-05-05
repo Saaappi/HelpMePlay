@@ -48,7 +48,7 @@ local function Wipe()
 	end
 end
 
-local function UpdateNamePlate(plate)
+function HelpMePlay:UpdateNamePlate(plate)
 	local unit = plate.namePlateUnitToken
 	if (unit) then
 		if (not UnitIsPlayer(unit)) then
@@ -91,7 +91,7 @@ local function UpdateNamePlate(plate)
 					if (HelpMePlayDB.QuestMobIconPosition == 0) then
 						hmpIcon:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
-						hmpIcon:SetPoint("TOP", plate, "BOTTOM", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("TOP", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 2) then
 						hmpIcon:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 3) then
@@ -151,7 +151,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local unit = ...
 		local plate = C_NamePlate.GetNamePlateForUnit(unit)
 		C_Timer.After(0.10, function()
-			UpdateNamePlate(plate)
+			HelpMePlay:UpdateNamePlate(plate)
 		end)
 	end
 	if event == "NAME_PLATE_UNIT_REMOVED" then
@@ -179,7 +179,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local plates = C_NamePlate.GetNamePlates()
 		for i=1,#plates do
 			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
-			UpdateNamePlate(plate)
+			HelpMePlay:UpdateNamePlate(plate)
 		end
 	end
 	if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
@@ -189,7 +189,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local plates = C_NamePlate.GetNamePlates()
 		for i=1,#plates do
 			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
-			UpdateNamePlate(plate)
+			HelpMePlay:UpdateNamePlate(plate)
 		end
 	end
 end)
