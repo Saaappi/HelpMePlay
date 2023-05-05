@@ -1294,21 +1294,21 @@ local settings = {
 					end,
 				},
 				QuestMobsIconPosition = {
-					name = "Position",
+					name = "Icon Position",
 					order = 43,
 					desc = "Select where to place the icon on the nameplate.",
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = "Top",
-						[1] = "Bottom",
-						[2] = "Left",
-						[3] = "Right",
-						[4] = "TopLeft",
-						[5] = "TopRight",
-						[6] = "BottomLeft",
-						[7] = "BottomRight",
-						[8] = "Center",
+						[0] = "TOP",
+						[1] = "BOTTOM",
+						[2] = "LEFT",
+						[3] = "RIGHT",
+						[4] = "TOPLEFT",
+						[5] = "TOPRIGHT",
+						[6] = "BOTTOMLEFT",
+						[7] = "BOTTOMRIGHT",
+						[8] = "CENTER",
 					},
 					sorting = {
 						[1] = 0,
@@ -1323,7 +1323,7 @@ local settings = {
 					},
 					get = function()
 						if not HelpMePlayDB.QuestMobIconPosition then
-							HelpMePlayDB.QuestMobIconPosition = 8
+							HelpMePlayDB.QuestMobIconPosition = 2
 						end
 						return HelpMePlayDB.QuestMobIconPosition
 					end,
@@ -1332,12 +1332,12 @@ local settings = {
 					end,
 				},
 				QuestMobsIconXOffset = {
-					name = "X Offset",
+					name = "Icon X Offset",
 					order = 44,
 					type = "range",
 					min = -50,
 					max = 50,
-					step = 2,
+					step = 1,
 					desc = "Choose how far on the x-axis the icon should be.",
 					get = function()
 						if not HelpMePlayDB.QuestMobIconXOffset then
@@ -1348,12 +1348,12 @@ local settings = {
 					set = function(_, val) HelpMePlayDB.QuestMobIconXOffset = val end,
 				},
 				QuestMobsIconYOffset = {
-					name = "Y Offset",
+					name = "Icon Y Offset",
 					order = 45,
 					type = "range",
 					min = -50,
 					max = 50,
-					step = 2,
+					step = 1,
 					desc = "Choose how far on the y-axis the icon should be.",
 					get = function()
 						if not HelpMePlayDB.QuestMobIconYOffset then
@@ -1362,6 +1362,76 @@ local settings = {
 						return HelpMePlayDB.QuestMobIconYOffset
 					end,
 					set = function(_, val) HelpMePlayDB.QuestMobIconYOffset = val end,
+				},
+				QuestMobsCriteriaPosition = {
+					name = "Criteria Position",
+					order = 46,
+					desc = "Select where to place the criteria text on the nameplate.",
+					type = "select",
+					style = "dropdown",
+					values = {
+						[0] = "TOP",
+						[1] = "BOTTOM",
+						[2] = "LEFT",
+						[3] = "RIGHT",
+						[4] = "TOPLEFT",
+						[5] = "TOPRIGHT",
+						[6] = "BOTTOMLEFT",
+						[7] = "BOTTOMRIGHT",
+						[8] = "CENTER",
+					},
+					sorting = {
+						[1] = 0,
+						[2] = 1,
+						[3] = 2,
+						[4] = 3,
+						[5] = 4,
+						[6] = 5,
+						[7] = 6,
+						[8] = 7,
+						[9] = 8,
+					},
+					get = function()
+						if not HelpMePlayDB.QuestMobCriteriaPosition then
+							HelpMePlayDB.QuestMobCriteriaPosition = 3
+						end
+						return HelpMePlayDB.QuestMobCriteriaPosition
+					end,
+					set = function(_, iconPositionID)
+						HelpMePlayDB.QuestMobCriteriaPosition = iconPositionID
+					end,
+				},
+				QuestMobsCriteriaXOffset = {
+					name = "Criteria X Offset",
+					order = 47,
+					type = "range",
+					min = -50,
+					max = 50,
+					step = 1,
+					desc = "Choose how far on the x-axis the criteria text should be.",
+					get = function()
+						if not HelpMePlayDB.QuestMobCriteriaXOffset then
+							HelpMePlayDB.QuestMobCriteriaXOffset = 0
+						end
+						return HelpMePlayDB.QuestMobCriteriaXOffset
+					end,
+					set = function(_, val) HelpMePlayDB.QuestMobCriteriaXOffset = val end,
+				},
+				QuestMobsCriteriaYOffset = {
+					name = "Criteria Y Offset",
+					order = 48,
+					type = "range",
+					min = -50,
+					max = 50,
+					step = 1,
+					desc = "Choose how far on the y-axis the criteria should be.",
+					get = function()
+						if not HelpMePlayDB.QuestMobCriteriaYOffset then
+							HelpMePlayDB.QuestMobCriteriaYOffset = 0
+						end
+						return HelpMePlayDB.QuestMobCriteriaYOffset
+					end,
+					set = function(_, val) HelpMePlayDB.QuestMobCriteriaYOffset = val end,
 				},
             },
         },

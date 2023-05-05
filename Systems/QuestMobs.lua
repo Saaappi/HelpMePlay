@@ -1,6 +1,17 @@
 local addonName, addon = ...
 local e = CreateFrame("Frame")
 local fontStrings = {}
+local positions = {
+	[0] = "TOP",
+	[1] = "BOTTOM",
+	[2] = "LEFT",
+	[3] = "RIGHT",
+	[4] = "TOPLEFT",
+	[5] = "TOPRIGHT",
+	[6] = "BOTTOMLEFT",
+	[7] = "BOTTOMRIGHT",
+	[8] = "CENTER",
+}
 
 local function GetCriteria(plate)
 	local killCollectCriteriaText, percentCriteriaText = 0, 0
@@ -51,11 +62,24 @@ local function UpdateNamePlate(plate)
 					hmpText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
 					hmpText:SetTextColor(1, 1, 1)
 					
-					local plateHorizontalScale = C_CVar.GetCVar("NamePlateHorizontalScale")
-					if (plateHorizontalScale == "1") then
-						hmpText:SetPoint("LEFT", plate, "RIGHT", 0, -5)
-					else
-						hmpText:SetPoint("LEFT", plate, "RIGHT")
+					if (HelpMePlayDB.QuestMobCriteriaPosition == 0) then
+						hmpText:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 1) then
+						hmpText:SetPoint("TOP", plate, "BOTTOM", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 2) then
+						hmpText:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 3) then
+						hmpText:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 4) then
+						hmpText:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 5) then
+						hmpText:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 6) then
+						hmpText:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 7) then
+						hmpText:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
+					elseif (HelpMePlayDB.QuestMobCriteriaPosition == 8) then
+						hmpText:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobCriteriaXOffset, HelpMePlayDB.QuestMobCriteriaYOffset)
 					end
 					
 					plate[addonName.."Icon"] = hmpIcon
@@ -65,24 +89,25 @@ local function UpdateNamePlate(plate)
 					hmpIcon:SetSize(16, 16)
 					
 					if (HelpMePlayDB.QuestMobIconPosition == 0) then
-						hmpIcon:SetPoint("TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("BOTTOM", plate, "TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
-						hmpIcon:SetPoint("BOTTOM", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("TOP", plate, "BOTTOM", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 2) then
-						hmpIcon:SetPoint("LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("RIGHT", plate, "LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 3) then
-						hmpIcon:SetPoint("RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("LEFT", plate, "RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 4) then
-						hmpIcon:SetPoint("TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("BOTTOMRIGHT", plate, "TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 5) then
-						hmpIcon:SetPoint("TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("BOTTOMLEFT", plate, "TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 6) then
-						hmpIcon:SetPoint("BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("TOPRIGHT", plate, "BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 7) then
-						hmpIcon:SetPoint("BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("TOPLEFT", plate, "BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					elseif (HelpMePlayDB.QuestMobIconPosition == 8) then
-						hmpIcon:SetPoint("CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+						hmpIcon:SetPoint("CENTER", plate, "CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 					end
+
 					if (HelpMePlayDB.QuestMobIconID == 0) then
 						hmpIcon:SetTexture("Interface\\Minimap\\ObjectIconsAtlas")
 						hmpIcon:SetTexCoord(0.3046875, 0.3359375, 0.875, 0.90625)
