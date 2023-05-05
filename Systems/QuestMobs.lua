@@ -150,13 +150,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 			Wipe()
 		end
 	end]]
-	--[[if (event == "QUEST_ACCEPTED") then
+	if (event == "QUEST_ACCEPTED") then
 		local plates = C_NamePlate.GetNamePlates()
 		for i=1,#plates do
 			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
 			UpdateNamePlate(plate)
 		end
-	end]]
+	end
 	if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
 		Wipe()
 	end
