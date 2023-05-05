@@ -2111,7 +2111,8 @@ local settings = {
 				},
 				changedText = {
 					name = coloredDash .. "Updated the README with all the latest changes.\n\n" ..
-					coloredDash .. "The x/y offsets for icon position can now be adjusted in single increments (down from double).",
+					coloredDash .. "The x/y offsets for the Quest Mobs icon position can now be adjusted in single increments (down from double).\n\n" ..
+					coloredDash .. "The Quest Mobs icon can now be adjusted in real time. (No more turning your camera or hiding and showing the nameplates to see your change.)",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
