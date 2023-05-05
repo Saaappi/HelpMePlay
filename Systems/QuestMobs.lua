@@ -1,19 +1,16 @@
 local name, addon = ...
 local e = CreateFrame("Frame")
-local hmpIcon = ""
-local hmpText = ""
+local fontStrings = {}
 
 local function Wipe()
 	local plates = C_NamePlate.GetNamePlates()
 	for i=1,#plates do
 		local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
-		if (C_QuestLog.UnitIsRelatedToActiveQuest(plates[i].namePlateUnitToken) == false) then
-			if (plate[name.."Icon"]) then
-				plate[name.."Icon"]:Hide()
-			end
-			if (plate[name.."Text"]) then
-				plate[name.."Text"]:Hide()
-			end
+		if (plate[name.."Icon"]) then
+			plate[name.."Icon"]:Hide()
+		end
+		if (plate[name.."Text"]) then
+			plate[name.."Text"]:Hide()
 		end
 	end
 end
@@ -21,32 +18,34 @@ end
 local function UpdateNamePlate(plate)
 	local unit = plate.namePlateUnitToken
 	if (unit) then
-		if (UnitIsPlayer(unit) == false) then
+		if (not UnitIsPlayer(unit)) then
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(unit)) then
-				local killCollectCriteriaText = 0
-				local percentCriteriaText = 0
-				if (not plate[name.."Icon"]) then
+				local hmpIcon, hmpText = "", ""
+				local killCollectCriteriaText, percentCriteriaText = 0, 0
+				if (not fontStrings[unit]) then
 					hmpIcon = plate:CreateTexture(nil, "OVERLAY")
-				end
-				if (not plate[name.."Text"]) then
 					hmpText = plate:CreateFontString(nil, "OVERLAY")
-				end
-				
-				hmpText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
-				hmpText:SetTextColor(1, 1, 1)
-				
-				local plateHorizontalScale = C_CVar.GetCVar("NamePlateHorizontalScale")
-				if (plateHorizontalScale == "1") then
-					hmpText:SetPoint("LEFT", plate, "RIGHT", 0, -5)
-				else
-					hmpText:SetPoint("LEFT", plate, "RIGHT")
+					
+					hmpText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+					hmpText:SetTextColor(1, 1, 1)
+					
+					local plateHorizontalScale = C_CVar.GetCVar("NamePlateHorizontalScale")
+					if (plateHorizontalScale == "1") then
+						hmpText:SetPoint("LEFT", plate, "RIGHT", 0, -5)
+					else
+						hmpText:SetPoint("LEFT", plate, "RIGHT")
+					end
+					
+					hmpIcon:ClearAllPoints()
+					hmpIcon:SetSize(16, 16)
+					fontStrings[unit] = true
 				end
 				
 				plate[name.."Icon"] = hmpIcon
 				plate[name.."Text"] = hmpText
 				local shouldAddIconToNamePlate = true
 				local tooltipData = C_TooltipInfo.GetUnit(unit)
-				for i=1,(#tooltipData.lines) do
+				for i=1,#tooltipData.lines do
 					local line = tooltipData.lines[i]
 					if (line.leftText:match("(%d+)/(%d+)")) then
 						local numDone, numRequired = line.leftText:match("(%d+)/(%d+)"); numDone = tonumber(numDone); numRequired = tonumber(numRequired)
@@ -62,8 +61,6 @@ local function UpdateNamePlate(plate)
 					end
 				end
 				
-				hmpIcon:ClearAllPoints()
-				hmpIcon:SetSize(16, 16)
 				if (HelpMePlayDB.QuestMobIconPosition == 0) then
 					hmpIcon:SetPoint("TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
 				elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
@@ -97,7 +94,9 @@ local function UpdateNamePlate(plate)
 				else
 					hmpText:SetText(killCollectCriteriaText)
 				end
+				
 				hmpIcon:Show()
+				hmpText:Show()
 			end
 		end
 	end
@@ -117,7 +116,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local unit = ...
 		local plate = C_NamePlate.GetNamePlateForUnit(unit)
-		C_Timer.After(0.25, function()
+		C_Timer.After(0.10, function()
 			UpdateNamePlate(plate)
 		end)
 	end
@@ -132,31 +131,32 @@ e:SetScript("OnEvent", function(self, event, ...)
 			plate[name.."Icon"]:Hide()
 		end
 		if (plate[name.."Text"]) then
+			fontStrings[unit] = nil
 			plate[name.."Text"]:Hide()
 		end
 	end
-	if (event == "UI_INFO_MESSAGE") then
+	--[[if (event == "UI_INFO_MESSAGE") then
 		local _, message = ...
 		if (message == "Objective Complete.") then
 			Wipe()
 		end
-	end
-	if (event == "QUEST_ACCEPTED") then
-		local namePlates = C_NamePlate.GetNamePlates()
-		for i = 1, #namePlates do
-			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
+	end]]
+	--[[if (event == "QUEST_ACCEPTED") then
+		local plates = C_NamePlate.GetNamePlates()
+		for i=1,#plates do
+			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
 			UpdateNamePlate(plate)
 		end
-	end
-	if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
+	end]]
+	--[[if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
 		Wipe()
-	end
-	if (event == "UNIT_QUEST_LOG_CHANGED") then
-		local namePlates = C_NamePlate.GetNamePlates()
-		for i = 1, #namePlates do
-			local plate = C_NamePlate.GetNamePlateForUnit(namePlates[i].namePlateUnitToken)
+	end]]
+	--[[if (event == "UNIT_QUEST_LOG_CHANGED") then
+		local plates = C_NamePlate.GetNamePlates()
+		for i=1,#plates do
+			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
 			UpdateNamePlate(plate)
 		end
-	end
+	end]]
 end)
 
