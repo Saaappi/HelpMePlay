@@ -1,7 +1,6 @@
-local name, addon = ...
+local addonName, addon = ...
 local e = CreateFrame("Frame")
 
--- Cinematics
 CinematicFrame:HookScript("OnShow", function(self, ...)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.CinematicsEnabled == false or HelpMePlayDB.CinematicsEnabled == nil then return false end
@@ -17,7 +16,6 @@ CinematicFrame:HookScript("OnShow", function(self, ...)
 	return true
 end)
 
--- Movies
 hooksecurefunc("MovieFrame_PlayMovie", function(self, movieId)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.CinematicsEnabled == false or HelpMePlayDB.CinematicsEnabled == nil then return false end

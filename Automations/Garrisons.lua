@@ -1,21 +1,20 @@
-local name, addon = ...
+local addonName, addon = ...
 local e = CreateFrame("Frame")
 
 e:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 e:RegisterEvent("PLAYER_CHOICE_UPDATE")
 e:SetScript("OnEvent", function(self, event, ...)
-	-- Architect Table
 	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.ArchitectTableEnabled == false or HelpMePlayDB.ArchitectTableEnabled == nil then return false end
 		
 		local type = ...
-		if type == 30 then -- Architect Table
+		if type == 30 then
 			local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
 			if garrisonLevel == 1 then
 				local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)
 				if HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == false or HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == nil then
-					for i = 1, #plotsForBuilding do
+					for i=1,#plotsForBuilding do
 						local buildingId = C_Garrison.GetOwnedBuildingInfo(plotsForBuilding[i])
 						if buildingId ~= nil then
 							HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
@@ -28,7 +27,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					end
 				end
 			end
-		elseif type == 32 then -- Mission Table
+		elseif type == 32 then
 			if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 			if HelpMePlayDB.MissionTableEnabled == false or HelpMePlayDB.MissionTableEnabled == nil then return false end
 			
@@ -64,7 +63,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	
-	-- Outposts
 	if event == "PLAYER_CHOICE_UPDATE" then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.GarrisonOutpostsEnabled == false or HelpMePlayDB.GarrisonOutpostsEnabled == nil then return false end
@@ -76,7 +74,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 					if tonumber(id) then id = tonumber(id) end
 				
 					if id then
-						if id == 74594 or id == 81119 then
+						if (id == 74594 or id == 81119) then
 							-- 74594: Durotan
 							-- 81119: Drafting Table
 							C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[2].buttons[1].id)

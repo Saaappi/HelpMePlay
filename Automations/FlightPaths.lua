@@ -1,4 +1,4 @@
-local name, addon = ...
+local addonName, addon = ...
 local e = CreateFrame("Frame")
 
 local function TakeFlightPath(flightPathNodeId, mapId)
@@ -86,7 +86,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local system = ...
 		if system == 2 then
-			-- 2 is the "Adventure" taxi map.
 			GetFlightPathInfo(GetTaxiMapID())
 		end
 	end

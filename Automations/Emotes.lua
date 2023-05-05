@@ -1,20 +1,6 @@
-local name, addon = ...
+local addonName, addon = ...
 local e = CreateFrame("Frame")
 
---[[
-	Description:
-		The addon.EMOTES table holds key-value pairs
-		associated with an NPC ID.
-		
-		If gossip in the table is TRUE for a given NPC, then
-		we want to process the GOSSIP_SHOW event. Otherwise,
-		just ignore it.
-		
-		As a shortcut, we use the PLAYER_TARGET_CHANGED event
-		to quickly emote at targets. This is used in Dun Morogh
-		on the Stolen Rams, as well as in Maldraxxus on the
-		Runestones for the "Repeat After Me" quest.
-]]--
 e:RegisterEvent("GOSSIP_SHOW")
 e:RegisterEvent("PLAYER_TARGET_CHANGED")
 e:SetScript("OnEvent", function(self, event, ...)
