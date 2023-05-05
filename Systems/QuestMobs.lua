@@ -157,9 +157,9 @@ e:SetScript("OnEvent", function(self, event, ...)
 			UpdateNamePlate(plate)
 		end
 	end]]
-	--[[if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
+	if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
 		Wipe()
-	end]]
+	end
 	if (event == "UNIT_QUEST_LOG_CHANGED") then
 		local plates = C_NamePlate.GetNamePlates()
 		for i=1,#plates do
