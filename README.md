@@ -94,9 +94,12 @@ Enter Azeroth, grab some ale, and let HelpMePlay take care of the heavy lifting.
 - **Icon** - Choose an icon to use as the indicator.
    - *This icon can be from Wowhead, look up a spell, achievement, item, etc, then either click its icon or select the Icon link under the Quick Facts section.*
    - *You can also use an atlas as your icon. Atlases are texture that contain sub-textures. You can go here: https://www.townlong-yak.com/framexml/live/Helix/AtlasInfo.lua to get a full list of atlases. Get the name of the atlas you want (it won't be a number), then in the popup put # in front of the atlas name.*
-- **Position** - Select where on the nameplate the icon should be placed.
-- **X Offset** - Determine how far the icon should be shifted on the X-axis.
-- **Y Offset** - Determine how far the icon should be shifted on the Y-axis.
+- **Icon Position** - Select where on the nameplate the icon should be placed.
+- **Icon Y Offset** - Determine how far the icon should be shifted on the Y-axis.
+- **Icon X Offset** - Determine how far the icon should be shifted on the X-axis.
+- **Criteria Position** - Select where on the nameplate the criteria text should be placed.
+- **Criteria Y Offset** - Determine how far the criteria text should be shifted on the Y-axis.
+- **Criteria X Offset** - Determine how far the criteria text should be shifted on the X-axis.
 
 ----
 
