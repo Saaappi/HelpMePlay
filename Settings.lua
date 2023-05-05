@@ -2078,7 +2078,7 @@ local settings = {
 					name = "Quest ID:",
 					order = 14,
 					desc = "Enter the quest ID prerequisite.\n\n" ..
-					"The item will only be purchased if the player is actively on the quest. If no quest is needed, please leave the entry set to 0.",
+					"The item will only be purchased if the player is actively on the quest. If no quest is needed, please leave the entry blank.",
 					type = "input",
 					get = function(_)
 						HelpMePlayDB.merchantQuestID = 0
@@ -2106,9 +2106,6 @@ local settings = {
 						end
 						if (HelpMePlayDB.merchantItemID == 0) then
 							print(addon.CONSTANTS.COLORED_ADDON_NAME..": ".."Please enter an item ID.")
-						end
-						if (HelpMePlayDB.merchantQuestID == 0) then
-							print(addon.CONSTANTS.COLORED_ADDON_NAME..": ".."Please enter a quest ID.")
 						end
 						
 						HelpMePlayDB.merchantID = 0
