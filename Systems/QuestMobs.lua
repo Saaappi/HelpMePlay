@@ -1,16 +1,38 @@
-local name, addon = ...
+local addonName, addon = ...
 local e = CreateFrame("Frame")
 local fontStrings = {}
+
+local function GetCriteria(plate)
+	local killCollectCriteriaText, percentCriteriaText = 0, 0
+	local unit = plate.namePlateUnitToken
+	local tooltipData = C_TooltipInfo.GetUnit(unit)
+	for i=1,#tooltipData.lines do
+		local line = tooltipData.lines[i]
+		if (line.leftText:match("(%d+)/(%d+)")) then
+			local numDone, numRequired = line.leftText:match("(%d+)/(%d+)"); numDone = tonumber(numDone); numRequired = tonumber(numRequired)
+			if (not (numDone == numRequired)) then
+				killCollectCriteriaText = killCollectCriteriaText+(numRequired-numDone)
+			end
+		end
+		if (line.leftText:match("(%d+)%%")) then
+			local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
+			if (not (percent == 100)) then
+				percentCriteriaText = 100-percent
+			end
+		end
+	end
+	return killCollectCriteriaText, percentCriteriaText
+end
 
 local function Wipe()
 	local plates = C_NamePlate.GetNamePlates()
 	for i=1,#plates do
 		local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
-		if (plate[name.."Icon"]) then
-			plate[name.."Icon"]:Hide()
+		if (plate[addonName.."Icon"]) then
+			plate[addonName.."Icon"]:Hide()
 		end
-		if (plate[name.."Text"]) then
-			plate[name.."Text"]:Hide()
+		if (plate[addonName.."Text"]) then
+			plate[addonName.."Text"]:Hide()
 		end
 	end
 end
@@ -20,8 +42,8 @@ local function UpdateNamePlate(plate)
 	if (unit) then
 		if (not UnitIsPlayer(unit)) then
 			if (C_QuestLog.UnitIsRelatedToActiveQuest(unit)) then
+				local killCollectCriteriaText, percentCriteriaText = GetCriteria(plate)
 				local hmpIcon, hmpText = "", ""
-				local killCollectCriteriaText, percentCriteriaText = 0, 0
 				if (not fontStrings[unit]) then
 					hmpIcon = plate:CreateTexture(nil, "OVERLAY")
 					hmpText = plate:CreateFontString(nil, "OVERLAY")
@@ -36,67 +58,54 @@ local function UpdateNamePlate(plate)
 						hmpText:SetPoint("LEFT", plate, "RIGHT")
 					end
 					
+					plate[addonName.."Icon"] = hmpIcon
+					plate[addonName.."Text"] = hmpText
+					
 					hmpIcon:ClearAllPoints()
 					hmpIcon:SetSize(16, 16)
+					
+					if (HelpMePlayDB.QuestMobIconPosition == 0) then
+						hmpIcon:SetPoint("TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
+						hmpIcon:SetPoint("BOTTOM", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 2) then
+						hmpIcon:SetPoint("LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 3) then
+						hmpIcon:SetPoint("RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 4) then
+						hmpIcon:SetPoint("TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 5) then
+						hmpIcon:SetPoint("TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 6) then
+						hmpIcon:SetPoint("BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 7) then
+						hmpIcon:SetPoint("BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					elseif (HelpMePlayDB.QuestMobIconPosition == 8) then
+						hmpIcon:SetPoint("CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
+					end
+					if (HelpMePlayDB.QuestMobIconID == 0) then
+						hmpIcon:SetTexture("Interface\\Minimap\\ObjectIconsAtlas")
+						hmpIcon:SetTexCoord(0.3046875, 0.3359375, 0.875, 0.90625)
+					elseif (HelpMePlayDB.QuestMobIconID == 1) then
+						hmpIcon:SetTexture(HelpMePlayDB.QuestMobIcon)
+					elseif (HelpMePlayDB.QuestMobIconID == 2) then
+						hmpIcon:SetTexture("Interface\\Garrison\\MobileAppIcons")
+						hmpIcon:SetTexCoord(0.3818359375, 0.5068359375, 0.2548828125, 0.3798828125)
+					end
+					
+					if (percentCriteriaText) and (percentCriteriaText ~= 0) then
+						hmpText:SetText(killCollectCriteriaText.." - "..percentCriteriaText.."%")
+					else
+						hmpText:SetText(killCollectCriteriaText)
+					end
 					fontStrings[unit] = true
-				end
-				
-				plate[name.."Icon"] = hmpIcon
-				plate[name.."Text"] = hmpText
-				local shouldAddIconToNamePlate = true
-				local tooltipData = C_TooltipInfo.GetUnit(unit)
-				for i=1,#tooltipData.lines do
-					local line = tooltipData.lines[i]
-					if (line.leftText:match("(%d+)/(%d+)")) then
-						local numDone, numRequired = line.leftText:match("(%d+)/(%d+)"); numDone = tonumber(numDone); numRequired = tonumber(numRequired)
-						if (not (numDone == numRequired)) then
-							killCollectCriteriaText = killCollectCriteriaText+(numRequired-numDone)
-						end
-					end
-					if (line.leftText:match("(%d+)%%")) then
-						local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
-						if (not (percent == 100)) then
-							percentCriteriaText = 100-percent
-						end
-					end
-				end
-				
-				if (HelpMePlayDB.QuestMobIconPosition == 0) then
-					hmpIcon:SetPoint("TOP", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 1) then
-					hmpIcon:SetPoint("BOTTOM", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 2) then
-					hmpIcon:SetPoint("LEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 3) then
-					hmpIcon:SetPoint("RIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 4) then
-					hmpIcon:SetPoint("TOPLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 5) then
-					hmpIcon:SetPoint("TOPRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 6) then
-					hmpIcon:SetPoint("BOTTOMLEFT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 7) then
-					hmpIcon:SetPoint("BOTTOMRIGHT", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				elseif (HelpMePlayDB.QuestMobIconPosition == 8) then
-					hmpIcon:SetPoint("CENTER", HelpMePlayDB.QuestMobIconXOffset, HelpMePlayDB.QuestMobIconYOffset)
-				end
-				if (HelpMePlayDB.QuestMobIconID == 0) then
-					hmpIcon:SetTexture("Interface\\Minimap\\ObjectIconsAtlas")
-					hmpIcon:SetTexCoord(0.3046875, 0.3359375, 0.875, 0.90625)
-				elseif (HelpMePlayDB.QuestMobIconID == 1) then
-					hmpIcon:SetTexture(HelpMePlayDB.QuestMobIcon)
-				elseif (HelpMePlayDB.QuestMobIconID == 2) then
-					hmpIcon:SetTexture("Interface\\Garrison\\MobileAppIcons")
-					hmpIcon:SetTexCoord(0.3818359375, 0.5068359375, 0.2548828125, 0.3798828125)
-				end
-				if (percentCriteriaText ~= 0) then
-					hmpText:SetText(killCollectCriteriaText.." - "..percentCriteriaText.."%")
 				else
-					hmpText:SetText(killCollectCriteriaText)
+					if (percentCriteriaText) and (percentCriteriaText ~= 0) then
+						plate[addonName.."Text"]:SetText(killCollectCriteriaText.." - "..percentCriteriaText.."%")
+					else
+						plate[addonName.."Text"]:SetText(killCollectCriteriaText)
+					end
 				end
-				
-				hmpIcon:Show()
-				hmpText:Show()
 			end
 		end
 	end
@@ -127,12 +136,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local unit = ...
 		local plate = C_NamePlate.GetNamePlateForUnit(unit)
         
-		if (plate[name.."Icon"]) then
-			plate[name.."Icon"]:Hide()
+		if (plate[addonName.."Icon"]) then
+			plate[addonName.."Icon"]:Hide()
 		end
-		if (plate[name.."Text"]) then
+		if (plate[addonName.."Text"]) then
 			fontStrings[unit] = nil
-			plate[name.."Text"]:Hide()
+			plate[addonName.."Text"]:Hide()
 		end
 	end
 	--[[if (event == "UI_INFO_MESSAGE") then
@@ -151,12 +160,12 @@ e:SetScript("OnEvent", function(self, event, ...)
 	--[[if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
 		Wipe()
 	end]]
-	--[[if (event == "UNIT_QUEST_LOG_CHANGED") then
+	if (event == "UNIT_QUEST_LOG_CHANGED") then
 		local plates = C_NamePlate.GetNamePlates()
 		for i=1,#plates do
 			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
 			UpdateNamePlate(plate)
 		end
-	end]]
+	end
 end)
 
