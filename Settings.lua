@@ -2101,11 +2101,22 @@ local settings = {
 					"Once completed, select this button to import the item.",
 					type = "execute",
 					func = function(_, _)
+						local continue = true
 						if (HelpMePlayDB.merchantID == 0) then
 							print(addon.CONSTANTS.COLORED_ADDON_NAME..": ".."Please enter a merchant ID.")
+							continue = false
 						end
 						if (HelpMePlayDB.merchantItemID == 0) then
 							print(addon.CONSTANTS.COLORED_ADDON_NAME..": ".."Please enter an item ID.")
+							continue = false
+						end
+						
+						if (continue) then
+							if (not HelpMePlayDB.PlayerDB.Merchants[HelpMePlayDB.merchantID]) then
+								HelpMePlayDB.PlayerDB.Merchants[HelpMePlayDB.merchantID] = {}
+							end
+							
+							table.insert(HelpMePlayDB.PlayerDB.Merchants[HelpMePlayDB.merchantID], { questID = HelpMePlayDB.merchantQuestID, itemID = HelpMePlayDB.merchantItemID, itemCount = HelpMePlayDB.purchaseQuantity })
 						end
 						
 						HelpMePlayDB.merchantID = 0
@@ -2114,69 +2125,6 @@ local settings = {
 						HelpMePlayDB.merchantQuestID = 0
 					end,
 				},
-				--[[Merchant_Input = {
-					name = "Merchant Strings:",
-					order = 15,
-					desc = "Enter the merchant ID, item ID, purchase quantity, and quest ID (if needed). Each value should be separated by a comma. Each new entry should be on a new line. Spaces between the commas won't matter.\n\n" ..
-					"Example:\n" ..
-					"|cffFFD100162804,180817,1,0|r (Will purchase the Cypher of Relocation from Ve'nari.)\n\n" ..
-					"|cffFFD1001247,2894,1,384|r (Will purchase the Rhapsody Malt for the Beer Basted Boar Ribs quest in Dun Morogh if the player is on the appropriate quest.)\n\n" ..
-					"If you want to remove an item from an NPC, you must re-enter the same line you used to add the item. Only 1 item can be removed from an NPC at a time.",
-					type = "input",
-					multiline = true,
-					get = function(_) return HelpMePlayDB.PlayerDB.Merchants end,
-					set = function(_, val)
-						for line in string.gmatch(val, "[^\n]+") do
-							local count = 0
-							for substring in string.gmatch(line, "[^,]+") do
-								count = count + 1
-							end
-							
-							if count == 4 then
-								-- Build an empty table and insert all the entries
-								-- into the table.
-								local entries = {}
-								for substring in string.gmatch(line, "[^,]+") do
-									table.insert(entries, substring)
-								end
-								
-								-- Take all the split values and assign them to variables.
-								local merchantID = entries[1]; merchantID = tonumber(merchantID)
-								local itemID = entries[2]; itemID = tonumber(itemID)
-								local itemCount = entries[3]; itemCount = tonumber(itemCount)
-								local questID = entries[4]; questID = tonumber(questID)
-								
-								-- If a table doesn't already exist for this merchant, then
-								-- create an empty one.
-								if not HelpMePlayDB.PlayerDB.Merchants[merchantID] then
-									HelpMePlayDB.PlayerDB.Merchants[merchantID] = {}
-								end
-								
-								-- Check if the player has already entered this item for the given
-								-- merchant ID.
-								if HelpMePlayDB.PlayerDB.Merchants[merchantID] then
-									local indexToRemove
-									for index, merchantData in pairs(HelpMePlayDB.PlayerDB.Merchants[merchantID]) do
-										if merchantData.itemID == itemID then
-											indexToRemove = index
-											break
-										end
-									end
-									
-									if indexToRemove then
-										table.remove(HelpMePlayDB.PlayerDB.Merchants[merchantID], indexToRemove)
-										return
-									end
-								end
-								
-								-- Insert the merchant "string" into the table.
-								table.insert(HelpMePlayDB.PlayerDB.Merchants[merchantID], { questID = questID, itemID = itemID, itemCount = itemCount })
-							else
-								print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": The following line contains too few or too many entries:\n" .. line)
-							end
-						end
-					end,
-				},]]
             },
         },
 		Changelog_Tab = {
