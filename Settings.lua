@@ -2016,9 +2016,110 @@ local settings = {
 					order = 10,
 					type = "header",
 				},
-				Merchant_Input = {
-					name = "Merchant Strings:",
+				MerchantIDInput = {
+					name = "NPC ID:",
 					order = 11,
+					desc = "Enter the NPC ID of the merchant.",
+					type = "input",
+					get = function(_)
+						HelpMePlayDB.merchantID = 0
+						return HelpMePlayDB.merchantID
+					end,
+					set = function(_, merchantID)
+						HelpMePlayDB.merchantID = tonumber(merchantID)
+					end,
+					validate = function(_, input)
+						if tonumber(input) then
+							return true
+						end
+						return "Please enter a valid NPC ID."
+					end,
+				},
+				ItemIDInput = {
+					name = "Item ID:",
+					order = 12,
+					desc = "Enter the item ID of the item to be purchased from the merchant.",
+					type = "input",
+					get = function(_)
+						HelpMePlayDB.merchantItemID = 0
+						return HelpMePlayDB.merchantID
+					end,
+					set = function(_, merchantItemID)
+						HelpMePlayDB.merchantItemID = tonumber(merchantItemID)
+					end,
+					validate = function(_, input)
+						if tonumber(input) then
+							return true
+						end
+						return "Please enter a valid item ID."
+					end,
+				},
+				PurchaseQuantityInput = {
+					name = "Purchase Quantity:",
+					order = 13,
+					desc = "Enter the quantity to purchase from the merchant.\n\n" ..
+					"Although it's not visible, this value defaults to 1. You can leave it blank unless you need to purchase more than 1 of the desired item.",
+					type = "input",
+					get = function(_)
+						HelpMePlayDB.purchaseQuantity = 1
+						return HelpMePlayDB.purchaseQuantity
+					end,
+					set = function(_, purchaseQuantity)
+						HelpMePlayDB.purchaseQuantity = tonumber(purchaseQuantity)
+					end,
+					validate = function(_, input)
+						if tonumber(input) then
+							return true
+						end
+						return "Please enter a valid purchase quantity."
+					end,
+				},
+				QuestIDInput = {
+					name = "Quest ID:",
+					order = 14,
+					desc = "Enter the quest ID prerequisite.\n\n" ..
+					"The item will only be purchased if the player is actively on the quest. If no quest is needed, please leave the entry set to 0.",
+					type = "input",
+					get = function(_)
+						HelpMePlayDB.merchantQuestID = 0
+						return HelpMePlayDB.merchantQuestID
+					end,
+					set = function(_, merchantQuestID)
+						HelpMePlayDB.merchantQuestID = tonumber(merchantQuestID)
+					end,
+					validate = function(_, input)
+						if tonumber(input) then
+							return true
+						end
+						return "Please enter a valid purchase quantity."
+					end,
+				},
+				MerchantImportButton = {
+					name = "Import Item",
+					order = 15,
+					desc = "Enter an item to purchase from the merchant using the previous text boxes.\n\n" ..
+					"Once completed, select this button to import the item.",
+					type = "execute",
+					func = function(_, _)
+						if (HelpMePlayDB.merchantID == 0) then
+							print(addon.CONSTANTS.COLORED_ADDON_NAME..": ".."Please enter a merchant ID.")
+						end
+						if (HelpMePlayDB.merchantItemID == 0) then
+							print(addon.CONSTANTS.COLORED_ADDON_NAME..": ".."Please enter an item ID.")
+						end
+						if (HelpMePlayDB.merchantQuestID == 0) then
+							print(addon.CONSTANTS.COLORED_ADDON_NAME..": ".."Please enter a quest ID.")
+						end
+						
+						HelpMePlayDB.merchantID = 0
+						HelpMePlayDB.merchantItemID = 0
+						HelpMePlayDB.purchaseQuantity = 1
+						HelpMePlayDB.merchantQuestID = 0
+					end,
+				},
+				--[[Merchant_Input = {
+					name = "Merchant Strings:",
+					order = 15,
 					desc = "Enter the merchant ID, item ID, purchase quantity, and quest ID (if needed). Each value should be separated by a comma. Each new entry should be on a new line. Spaces between the commas won't matter.\n\n" ..
 					"Example:\n" ..
 					"|cffFFD100162804,180817,1,0|r (Will purchase the Cypher of Relocation from Ve'nari.)\n\n" ..
@@ -2078,7 +2179,7 @@ local settings = {
 							end
 						end
 					end,
-				},
+				},]]
             },
         },
 		Changelog_Tab = {
