@@ -887,30 +887,30 @@ local settings = {
 					type = "select",
 					style = "dropdown",
 					values = {
-						[99] = "Disabled",
-						[6] = "Burning Crusade",
-						[7] = "Wrath of the Lich King",
-						[5] = "Cataclysm",
-						[8] = "Mists of Pandaria",
-						[9] = "Warlords of Draenor",
-						[10] = "Legion",
-						[0] = "Battle for Azeroth",
-						[14] = "Shadowlands",
+						[99] = LOSS_OF_CONTROL_DISPLAY_PACIFYSILENCE,
+						[6] = EXPANSION_NAME1,
+						[7] = EXPANSION_NAME2,
+						[5] = EXPANSION_NAME3,
+						[8] = EXPANSION_NAME4,
+						[9] = EXPANSION_NAME5,
+						[10] = EXPANSION_NAME6,
+						[0] = EXPANSION_NAME7,
+						[14] = EXPANSION_NAME8,
 					},
-					sorting = { -- Sort the options chronologically by expansion.
-						[1] = 99, 	-- Disabled
-						[2] = 6, 	-- Burning Crusade
-						[3] = 7, 	-- Wrath of the Lich King
-						[4] = 5, 	-- Cataclysm
-						[5] = 8, 	-- Mists of Pandaria
-						[6] = 9, 	-- Warlords of Draenor
-						[7] = 10, 	-- Legion
-						[8] = 0, 	-- Battle for Azeroth
-						[9] = 14, 	-- Shadowlands
+					sorting = {
+						[1] = 99,
+						[2] = 6,
+						[3] = 7,
+						[4] = 5,
+						[5] = 8,
+						[6] = 9,
+						[7] = 10,
+						[8] = 0,
+						[9] = 14,
 					},
 					get = function()
 						if not HelpMePlayDB.ChromieTimeID then
-							HelpMePlayDB.ChromieTimeID = 0 -- Battle for Azeroth (Current Timeline)
+							HelpMePlayDB.ChromieTimeID = 0
 						end
 						return HelpMePlayDB.ChromieTimeID
 					end,
@@ -923,14 +923,14 @@ local settings = {
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = "Disabled",
+						[0] = LOSS_OF_CONTROL_DISPLAY_PACIFYSILENCE,
 						[1] = "Item Level",
 						[2] = "Sell Price"
 					},
-					sorting = { -- Sort the options chronologically by expansion.
-						[1] = 0, 	-- Disabled
-						[2] = 1, 	-- Item Level
-						[3] = 2, 	-- Sell Price
+					sorting = {
+						[1] = 0,
+						[2] = 1,
+						[3] = 2,
 					},
 					get = function()
 						if not HelpMePlayDB.QuestRewardID then
@@ -1076,14 +1076,14 @@ local settings = {
 					values = function()
 						if UnitFactionGroup("player") == "Alliance" then
 							values = {
-								[0] = "Disabled",
+								[0] = LOSS_OF_CONTROL_DISPLAY_PACIFYSILENCE,
 								[47962] = "|T2065627:0|t " .. (C_Map.GetMapInfo(942)).name, -- Stormsong Valley
 								[47960] = "|T2065630:0|t " .. (C_Map.GetMapInfo(895)).name, -- Tiragarde Sound
 								[47961] = "|T2065567:0|t " .. (C_Map.GetMapInfo(896)).name, -- Drustvar
 							}
 						else
 							values = {
-								[0] = "Disabled",
+								[0] = LOSS_OF_CONTROL_DISPLAY_PACIFYSILENCE,
 								[47512] = "|T2032229:0|t " .. (C_Map.GetMapInfo(863)).name, -- Nazmir
 								[47513] = "|T2065632:0|t " .. (C_Map.GetMapInfo(864)).name, -- Vol'dun
 								[47514] = "|T2065640:0|t " .. (C_Map.GetMapInfo(862)).name, -- Zuldazar
@@ -1130,12 +1130,12 @@ local settings = {
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = "Disabled",
-						[62275] = "|T3551337:0|t " .. (C_Map.GetMapInfo(1569)).name, -- Bastion
-						[62277] = "|T3551336:0|t " .. (C_Map.GetMapInfo(1565)).name, -- Ardenweald
-						[62278] = "|T3551338:0|t " .. (C_Map.GetMapInfo(1536)).name, -- Maldraxxus
-						[62279] = "|T3551339:0|t " .. (C_Map.GetMapInfo(1525)).name, -- Revendreth
-						[64846] = "|T3257863:0|t " .. (C_Map.GetMapInfo(1618)).name, -- Torghast
+						[0] = LOSS_OF_CONTROL_DISPLAY_PACIFYSILENCE,
+						[62275] = "|T3551337:0|t " .. (C_Map.GetMapInfo(1569)).name,
+						[62277] = "|T3551336:0|t " .. (C_Map.GetMapInfo(1565)).name,
+						[62278] = "|T3551338:0|t " .. (C_Map.GetMapInfo(1536)).name,
+						[62279] = "|T3551339:0|t " .. (C_Map.GetMapInfo(1525)).name,
+						[64846] = "|T3257863:0|t " .. (C_Map.GetMapInfo(1618)).name,
 					},
 					sorting = {
 						[1] = 0,
@@ -1160,11 +1160,11 @@ local settings = {
 					type = "select",
 					style = "dropdown",
 					values = {
-						[0] = "Disabled",
-						[72266] = "|T4672500:0|t " .. (C_Map.GetMapInfo(2022)).name, -- The Waking Shores
-						[72267] = "|T4672498:0|t " .. (C_Map.GetMapInfo(2023)).name, -- Ohn'ahran Plains
-						[72268] = "|T4672495:0|t " .. (C_Map.GetMapInfo(2024)).name, -- The Azure Span
-						[72269] = "|T4672499:0|t " .. (C_Map.GetMapInfo(2025)).name, -- Thaldraszus
+						[0] = LOSS_OF_CONTROL_DISPLAY_PACIFYSILENCE,
+						[72266] = "|T4672500:0|t " .. (C_Map.GetMapInfo(2022)).name,
+						[72267] = "|T4672498:0|t " .. (C_Map.GetMapInfo(2023)).name,
+						[72268] = "|T4672495:0|t " .. (C_Map.GetMapInfo(2024)).name,
+						[72269] = "|T4672499:0|t " .. (C_Map.GetMapInfo(2025)).name,
 					},
 					sorting = {
 						[1] = 0,
