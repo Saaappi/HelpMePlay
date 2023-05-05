@@ -2093,7 +2093,7 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				addedHeader = {
+				--[[addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
@@ -2103,8 +2103,8 @@ local settings = {
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},
-				changedHeader = {
+				},]]
+				--[[changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
@@ -2114,7 +2114,7 @@ local settings = {
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				fixedHeader = {
 					name = "Fixed",
 					order = 30,
