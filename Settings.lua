@@ -845,21 +845,21 @@ local settings = {
 						local chromieTimeID = UnitChromieTimeID("player")
 						local chromieTimeString = ""
 						if chromieTimeID == 0 then
-							chromieTimeString = "Battle for Azeroth (Current Timeline)"
+							chromieTimeString = EXPANSION_NAME7
 						elseif chromieTimeID == 5 then
-							chromieTimeString = "Cataclysm"
+							chromieTimeString = EXPANSION_NAME1
 						elseif chromieTimeID == 6 then
-							chromieTimeString = "Burning Crusade"
+							chromieTimeString = EXPANSION_NAME2
 						elseif chromieTimeID == 7 then
-							chromieTimeString = "Wrath of the Lich King"
+							chromieTimeString = EXPANSION_NAME3
 						elseif chromieTimeID == 8 then
-							chromieTimeString = "Mists of Pandaria"
+							chromieTimeString = EXPANSION_NAME4
 						elseif chromieTimeID == 9 then
-							chromieTimeString = "Warlords of Draenor"
+							chromieTimeString = EXPANSION_NAME5
 						elseif chromieTimeID == 10 then
-							chromieTimeString = "Legion"
+							chromieTimeString = EXPANSION_NAME6
 						elseif chromieTimeID == 14 then
-							chromieTimeString = "Shadowlands"
+							chromieTimeString = EXPANSION_NAME8
 						end
 						
 						return "|T237538:14|t " .. chromieTimeString

@@ -57,6 +57,6 @@ local CONSTANTS = {
 		[23] 	= true,
 		[26] 	= true,
 	},
-	["COLORED_ADDON_NAME"] = "|cff00FFFF"..name.."|r"
+	["COLORED_ADDON_NAME"] = "|cff00FFFF"..addonName.."|r"
 }
 addon.CONSTANTS = CONSTANTS

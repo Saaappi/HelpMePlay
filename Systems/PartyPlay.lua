@@ -1,14 +1,11 @@
 local addonName, addon = ...
 local e = CreateFrame("Frame")
 local tooltip = CreateFrame("GameTooltip", "HelpMePlayScannerTooltip", UIParent, "GameTooltipTemplate")
-local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(name)
+local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
 
 local function Filter_ChatFrame(self, event, msg, author, ...)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-	-- I don't want the auto share feature to
-	-- report the "%s is already on that quest"
-	-- message to the chat frame.
 	if msg:find("already on that quest.") then
 		return true
 	end
