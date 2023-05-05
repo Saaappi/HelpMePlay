@@ -48,28 +48,24 @@ local function EquipItem(itemLink)
 						end
 						
 						if equipSlot > 0 then
-							-- If the item would replace an heirloom, and the player's level
-							-- is lower than the heirloom's effective level, then don't equip it.
-							if equippedItemQuality == 7 then
-								local equippedItemID = C_Item.GetItemID(equippedItem)
-								local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
-								if UnitLevel("player") < effectiveHeirloomLevel then
-									return
-								end
+							local equippedItemID = C_Item.GetItemID(equippedItem)
+							local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
+							if (effectiveHeirloomLevel) then
+								if (effectiveHeirloomLevel >= UnitLevel("player")) then return end
 							end
 							C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
-								for bagID = 0, 4 do
-									for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
+								for bagID=0,4 do
+									for slotID=1,C_Container.GetContainerNumSlots(bagID) do
 										local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
-										if containerItemInfo then
+										if (containerItemInfo) then
 											local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-											if containerItemInfo.itemID == rewardItemID then
+											if (containerItemInfo.itemID == rewardItemID) then
 												local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
 												print(string.format("%s: Equipping an item upgrade. |T%s:0|t %s", addon.CONSTANTS.COLORED_ADDON_NAME, containerItemIcon, containerItemLink))
 												ClearCursor()
 												C_Container.PickupContainerItem(bagID, slotID)
 												EquipCursorItem(equipSlot)
-												if HelpMePlayDB.JunkerEnabled then
+												if (HelpMePlayDB.JunkerEnabled) then
 													HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
 												end
 												break
@@ -111,8 +107,6 @@ hooksecurefunc(QuestLogHeaderCodeMixin, "OnClick", function(self)
 						C_QuestLog.SetAbandonQuest()
 						C_QuestLog.AbandonQuest()
 					else
-						-- We hit the next zone or area header,
-						-- so let's break from the loop.
 						break
 					end
 				end
@@ -146,23 +140,18 @@ local function CompleteQuest()
 			local totalSellPrice = 0
 			local itemLink = ""
 			if (UnitLevel("player") < addon.CONSTANTS["MAX_PLAYER_LEVEL"]) then
-				for i = 1, numQuestChoices do
+				for i=1,numQuestChoices do
 					local _, _, quantity = GetQuestItemInfo("choice", i)
 					itemLink = GetQuestItemLink("choice", i)
 					if (itemLink) then
 						_, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
 						
-						-- Before we continue, let's make sure we aren't supposed to take
-						-- a specific reward from the current quest. For example, we always
-						-- want to take the Champion's Purse from Argent Tournament dailies.
 						if (addon.QUESTREWARDS[itemID]) then
 							bestItemIndex = i
 							break
 						end
 
 						if (HelpMePlayDB.QuestRewardID == 1) then
-							-- First check to see if the reward is a weapon. If it's a weapon,
-							-- we want to leave the choice to the player.
 							local _, _, _, _, _, itemType = GetItemInfo(itemLink)
 							if itemType == "Weapon" then return end
 							
@@ -180,13 +169,13 @@ local function CompleteQuest()
 												if equippedItemQuality == 7 then
 													local equippedItemID = C_Item.GetItemID(item)
 													local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
-													if UnitLevel("player") >= effectiveHeirloomLevel then
-														if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+													if (UnitLevel("player") > effectiveHeirloomLevel) then
+														if (rewardItemLevel > C_Item.GetCurrentItemLevel(item)) then
 															bestItemIndex = i
 														end
 													end
 												else
-													if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+													if (rewardItemLevel > C_Item.GetCurrentItemLevel(item)) then
 														bestItemIndex = i
 													end
 												end
@@ -203,13 +192,13 @@ local function CompleteQuest()
 												if equippedItemQuality == 7 then
 													local equippedItemID = C_Item.GetItemID(item)
 													local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
-													if UnitLevel("player") >= effectiveHeirloomLevel then
-														if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+													if (UnitLevel("player") > effectiveHeirloomLevel) then
+														if (rewardItemLevel > C_Item.GetCurrentItemLevel(item)) then
 															bestItemIndex = i
 														end
 													end
 												else
-													if rewardItemLevel > C_Item.GetCurrentItemLevel(item) then
+													if (rewardItemLevel > C_Item.GetCurrentItemLevel(item)) then
 														bestItemIndex = i
 													end
 												end

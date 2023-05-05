@@ -2099,7 +2099,7 @@ local settings = {
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "Added support for the |cffFFD100Ground Skimming|r and |cffFFD100Land's Blessing|r Dragonriding traits.",
+					name = coloredDash .. "",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
@@ -2110,9 +2110,7 @@ local settings = {
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Updated the README with all the latest changes.\n\n" ..
-					coloredDash .. "The x/y offsets for the Quest Mobs icon position can now be adjusted in single increments (down from double). (The cap is still 50 to -50.)\n\n" ..
-					coloredDash .. "The Quest Mobs icon can now be adjusted in real time. (No more turning your camera or hiding and showing the nameplates to see your change.)",
+					name = coloredDash .. "",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
@@ -2123,9 +2121,8 @@ local settings = {
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "Fixed the (new) default quest mobs icon. (It should no longer be a random chalice.)\n\n" ..
-					coloredDash .. "Fixed an issue with updating percent criteria on the nameplate.\n\n" ..
-					coloredDash .. "Fixed an issue where the font in the nameplate could layer itself, causing an obfuscated view of quest criteria.",
+					name = coloredDash .. "Fixed an error that would sometimes occur when looting weapons or armor from slain enemies.\n\n" ..
+					coloredDash .. "Fixed an issue where heirlooms were being replaced by loot and quest rewards.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
