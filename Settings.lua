@@ -1882,7 +1882,8 @@ local settings = {
 				},
 				fixedText = {
 					name = coloredDash .. "Fixed the (new) default quest mobs icon. (It should no longer be a random chalice.)\n\n" ..
-					coloredDash .. "Fixed an issue with updating percent criteria on the nameplate.",
+					coloredDash .. "Fixed an issue with updating percent criteria on the nameplate.\n\n" ..
+					coloredDash .. "Fixed an issue where the font in the nameplate could layer itself, causing an obfuscated view of quest criteria.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
