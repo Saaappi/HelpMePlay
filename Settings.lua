@@ -2122,7 +2122,7 @@ local settings = {
 				},
 				fixedText = {
 					name = coloredDash .. "Fixed an error that would sometimes occur when looting weapons or armor from slain enemies.\n\n" ..
-					coloredDash .. "Fixed an issue where heirlooms were sometimes being replaced by loot and quest rewards.",
+					coloredDash .. "Fixed an issue where heirlooms were sometimes being replaced prematurely by loot and quest rewards.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
