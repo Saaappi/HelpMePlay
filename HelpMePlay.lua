@@ -10,21 +10,10 @@ function HelpMePlay:OnInitialize()
 	self:RegisterChatCommand("hmp", "SlashCommandHandler")
 	self:RegisterChatCommand("helpmeplay", "SlashCommandHandler")
 	
-	-- Default Options
 	if HelpMePlayDB == nil then
 		HelpMePlayDB = {}
 	else
-		-- The options aren't nil, so let's run
-		-- some code to ensure we get the state
-		-- of the options we expect.
 		HelpMePlay:MinimapIcon(HelpMePlayDB.MinimapIconEnabled)
-	end
-	
-	-- Reset the quest mobs icon to 0 since backend changes
-	-- were made.
-	if HelpMePlayDB.QuestMobIcon == 0 or HelpMePlayDB.QuestMobIcon == 1 then
-		HelpMePlayDB.QuestMobIcon = "Mobile-QuestIcon"
-		HelpMePlayDB.QuestMobIconId = 0
 	end
 end
 
@@ -49,6 +38,21 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if HelpMePlayDB.MerchantItems == nil then
 				HelpMePlayDB.MerchantItems = {}
+			end
+			if HelpMePlayDB.Junker == nil then
+				HelpMePlayDB.Junker = {}
+			end
+			if HelpMePlayDB.Junker.GlobalDB == nil then
+				HelpMePlayDB.Junker.GlobalDB = {}
+			end
+			if HelpMePlayDB.Junker.GlobalBlacklistDB == nil then
+				HelpMePlayDB.Junker.GlobalBlacklistDB = {}
+			end
+			if HelpMePlayDB.Junker.DB == nil then
+				HelpMePlayDB.Junker.DB = {}
+			end
+			if HelpMePlayDB.Junker.BlacklistDB == nil then
+				HelpMePlayDB.Junker.BlacklistDB = {}
 			end
 			
 			-- Deprecate these old settings.
@@ -138,9 +142,6 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if (HelpMePlayDB.HideNPE) then
 				HelpMePlayDB.HideNPE = nil
-			end
-			if (HelpMePlayDB.Junker) then
-				HelpMePlayDB.Junker = nil
 			end
 			if (HelpMePlayDB.SoundsEnabled) then
 				HelpMePlayDB.SoundsEnabled = nil
