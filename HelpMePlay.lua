@@ -130,6 +130,21 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 				HelpMePlayCharacterDB.Junker.BlacklistDB = HelpMePlayJunkerBlacklistDB
 				HelpMePlayJunkerBlacklistDB = nil
 			end
+			if (HelpMePlayDB.OpenablesEnabled) then
+				HelpMePlayDB.OpenablesEnabled = nil
+			end
+			if (HelpMePlayDB.HideNPE) then
+				HelpMePlayDB.HideNPE = nil
+			end
+			if (HelpMePlayDB.Junker) then
+				HelpMePlayDB.Junker = nil
+			end
+			if (HelpMePlayDB.SoundsEnabled) then
+				HelpMePlayDB.SoundsEnabled = nil
+			end
+			if (HelpMePlayDB.TradeSkillCategoriesCollapsed) then
+				HelpMePlayDB.TradeSkillCategoriesCollapsed = nil
+			end
 		end
 	end
 end)
