@@ -61,7 +61,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		
 		local questID = ...
-		HelpMePlayCharacterQuestsDB[questID] = { title = GetQuestTitleFromID[questID], progressPercent = 0 }
+		HelpMePlayCharacterDB.Quests[questID] = { title = GetQuestTitleFromID[questID], progressPercent = 0 }
 		
 		if UnitInParty("player") then
 			if isRegistered then
@@ -92,13 +92,13 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local questID = ...
 		C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
-			if HelpMePlayCharacterQuestsDB[questID] then
+			if HelpMePlayCharacterDB.Quests[questID] then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
 					-- The player abandoned the quest or
 					-- left the area (eg. world quests).
 					C_ChatInfo.SendAddonMessage(name, "[HMP]: Removed \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
 				end
-				HelpMePlayCharacterQuestsDB[questID] = nil
+				HelpMePlayCharacterDB.Quests[questID] = nil
 			end
 		end)
 	end
@@ -111,7 +111,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		
 		local questID = ...
-		HelpMePlayCharacterQuestsDB[questID] = nil
+		HelpMePlayCharacterDB.Quests[questID] = nil
 		if UnitInParty("player") then
 			if isRegistered then
 				if HelpMePlayDB.PartyPlayAnnounceEnabled then
@@ -152,7 +152,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local unit = ...
 			if unit == "player" then
 				local numObjectives, text, objectiveType
-				for questID, questData in pairs(HelpMePlayCharacterQuestsDB) do
+				for questID, questData in pairs(HelpMePlayCharacterDB.Quests) do
 					if C_QuestLog.IsOnQuest(questID) then
 						numObjectives = C_QuestLog.GetNumQuestObjectives(questID)
 						for index=1, numObjectives do
@@ -172,7 +172,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 							end
 						end
 					else
-						HelpMePlayCharacterQuestsDB[questID] = nil
+						HelpMePlayCharacterDB.Quests[questID] = nil
 					end
 				end
 			end

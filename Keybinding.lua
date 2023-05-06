@@ -18,11 +18,11 @@ function HelpMePlayKeyPressHandler(key)
 				local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 				local _, _, itemQuality = GetItemInfo(itemLink)
 				if itemQuality > 0 then
-					if HelpMePlayJunkerDB[itemId] then
-						HelpMePlayJunkerDB[itemId] = nil
+					if HelpMePlayCharacterDB.Junker.DB[itemId] then
+						HelpMePlayCharacterDB.Junker.DB[itemId] = nil
 					else
-						HelpMePlayJunkerBlacklistDB[itemId] = nil
-						HelpMePlayJunkerDB[itemId] = true
+						HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = nil
+						HelpMePlayCharacterDB.Junker.DB[itemId] = true
 					end
 				end
 			end
@@ -35,12 +35,12 @@ function HelpMePlayKeyPressHandler(key)
 				local _, _, itemQuality = GetItemInfo(itemLink)
 				if itemQuality > 0 then
 					if HelpMePlayDB.Junker.GlobalDB[itemId] then
-						HelpMePlayJunkerDB[itemId] = nil
+						HelpMePlayCharacterDB.Junker.DB[itemId] = nil
 						HelpMePlayDB.Junker.GlobalDB[itemId] = nil
 					else
-						HelpMePlayJunkerBlacklistDB[itemId] = nil
+						HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = nil
 						HelpMePlayDB.Junker.GlobalBlacklistDB[itemId] = nil
-						HelpMePlayJunkerDB[itemId] = nil
+						HelpMePlayCharacterDB.Junker.DB[itemId] = nil
 						HelpMePlayDB.Junker.GlobalDB[itemId] = true
 					end
 				end
@@ -51,11 +51,11 @@ function HelpMePlayKeyPressHandler(key)
 			local _, itemLink = GameTooltip:GetItem()
 			if itemLink then
 				local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
-				if HelpMePlayJunkerBlacklistDB[itemId] then
-					HelpMePlayJunkerBlacklistDB[itemId] = nil
+				if HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] then
+					HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = nil
 				else
-					HelpMePlayJunkerDB[itemId] = nil
-					HelpMePlayJunkerBlacklistDB[itemId] = true
+					HelpMePlayCharacterDB.Junker.DB[itemId] = nil
+					HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = true
 				end
 			end
 		end
@@ -65,10 +65,10 @@ function HelpMePlayKeyPressHandler(key)
 			if itemLink then
 				local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 				if HelpMePlayDB.Junker.GlobalBlacklistDB[itemId] then
-					HelpMePlayJunkerBlacklistDB[itemId] = nil
+					HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = nil
 					HelpMePlayDB.Junker.GlobalBlacklistDB[itemId] = nil
 				else
-					HelpMePlayJunkerDB[itemId] = nil
+					HelpMePlayCharacterDB.Junker.DB[itemId] = nil
 					HelpMePlayDB.Junker.GlobalDB[itemId] = nil
 					HelpMePlayDB.Junker.GlobalBlacklistDB[itemId] = true
 				end

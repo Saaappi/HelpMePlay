@@ -32,24 +32,8 @@ e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
 		if addonLoaded == addonName then
-			if HelpMePlayCharacterQuestsDB == nil then
-				HelpMePlayCharacterQuestsDB = {}
-			end
-			if HelpMePlayJunkerDB == nil then
-				HelpMePlayJunkerDB = {}
-				HelpMePlayDB["Junker"] = {}
-			end
-			if HelpMePlayJunkerBlacklistDB == nil then
-				HelpMePlayJunkerBlacklistDB = {}
-			end
 			if HelpMePlayDB.TheMawEnabled == nil then
 				HelpMePlayDB.TheMawEnabled = false
-			end
-			if HelpMePlayDB.Sounds == nil then
-				HelpMePlayDB.Sounds = {}
-			end
-			if HelpMePlayDB.BarberShop == nil then
-				HelpMePlayDB.BarberShop = {}
 			end
 			if HelpMePlayDB.PlayerTalents == nil then
 				HelpMePlayDB.PlayerTalents = {}
@@ -108,7 +92,7 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 				HelpMePlayDB.WaveAtPlayersEnabled = nil
 			end
 			if HelpMePlayPlayerDialogDB then
-				HelpMePlayDB.PlayerDialogs = HelpMePlayPlayerDialogDB
+				HelpMePlayDB.PlayerDB.Gossips = HelpMePlayPlayerDialogDB
 				HelpMePlayPlayerDialogDB = nil
 			end
 			if HelpMePlayIgnoredCreaturesDB then
@@ -130,6 +114,21 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlaySavesDB then
 				HelpMePlayCharacterDB.Saves = HelpMePlaySavesDB
 				HelpMePlaySavesDB = nil
+			end
+			if HelpMePlayCharacterQuestsDB then
+				HelpMePlayCharacterDB.Quests = HelpMePlayCharacterQuestsDB
+				HelpMePlayCharacterQuestsDB = nil
+			end
+			if HelpMePlayDB.BarberShop then
+				HelpMePlayDB.BarberShop = nil
+			end
+			if HelpMePlayJunkerDB then
+				HelpMePlayCharacterDB.Junker.DB = HelpMePlayJunkerDB
+				HelpMePlayJunkerDB = nil
+			end
+			if HelpMePlayJunkerBlacklistDB then
+				HelpMePlayCharacterDB.Junker.BlacklistDB = HelpMePlayJunkerBlacklistDB
+				HelpMePlayJunkerBlacklistDB = nil
 			end
 		end
 	end

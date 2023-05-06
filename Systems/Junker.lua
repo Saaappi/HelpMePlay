@@ -13,16 +13,16 @@ local highlightTexture = e:CreateTexture()
 function HelpMePlay:ImportToJunker(itemId, instruction)
 	itemId = tonumber(itemId)
 	if instruction == "ADD" then
-		if HelpMePlayJunkerDB[itemId] then
-			HelpMePlayJunkerDB[itemId] = nil
+		if HelpMePlayCharacterDB.Junker.DB[itemId] then
+			HelpMePlayCharacterDB.Junker.DB[itemId] = nil
 		else
-			HelpMePlayJunkerDB[itemId] = true
+			HelpMePlayCharacterDB.Junker.DB[itemId] = true
 		end
 	else
-		if HelpMePlayJunkerBlacklistDB[itemId] then
-			HelpMePlayJunkerBlacklistDB[itemId] = nil
+		if HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] then
+			HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = nil
 		else
-			HelpMePlayJunkerBlacklistDB[itemId] = true
+			HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = true
 		end
 	end
 	return
@@ -89,7 +89,7 @@ local function HelpMePlaySellItems()
 				--
 				-- We need to ensure the item isn't on
 				-- the blacklist.
-				if not HelpMePlayDB.Junker.GlobalBlacklistDB[itemId] and not HelpMePlayJunkerBlacklistDB[itemId] then
+				if not HelpMePlayDB.Junker.GlobalBlacklistDB[itemId] and not HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] then
 					local _, _, itemQuality = GetItemInfo(itemLink)
 					local _, itemType = GetItemInfoInstant(itemId)
 					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
@@ -97,7 +97,7 @@ local function HelpMePlaySellItems()
 						if sellPrice > 0 then
 							local shouldItemBeSold = false
 							
-							if HelpMePlayJunkerGlobalDB[itemId] or HelpMePlayJunkerDB[itemId] then
+							if HelpMePlayJunkerGlobalDB[itemId] or HelpMePlayCharacterDB.Junker.DB[itemId] then
 								shouldItemBeSold = true
 							end
 							
@@ -196,10 +196,10 @@ local function OnTooltipSetItem(tooltip, data)
 		elseif HelpMePlayDB.Junker.GlobalBlacklistDB[itemID] then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED (GLOBAL)|r")
-		elseif HelpMePlayJunkerDB[itemID] then
+		elseif HelpMePlayCharacterDB.Junker.DB[itemID] then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL|r")
-		elseif HelpMePlayJunkerBlacklistDB[itemID] then
+		elseif HelpMePlayCharacterDB.Junker.BlacklistDB[itemID] then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED|r")
 		end

@@ -3,7 +3,7 @@
 ## Title: HelpMePlay
 ## Notes: Version: 2.1.4
 ## SavedVariables: HelpMePlayDB
-## SavedVariablesPerCharacter: HelpMePlayCharacterDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
+## SavedVariablesPerCharacter: HelpMePlayCharacterDB
 ## Version: 2.1.4
 ## IconTexture: Interface\AddOns\HelpMePlay\Images\helpmeplay-icon.png
 ## OptionalDeps: Ace3
