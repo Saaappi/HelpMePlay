@@ -2187,28 +2187,28 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				--[[addedHeader = {
+				addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "Added a new dropdown to the Merchants section of the Import settings that allows the player to remove the items they add to the merchant table. (It's no longer necessary to re-enter the string used to add the items.)",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},]]
-				--[[changedHeader = {
+				},
+				changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "Replaced the Merchant Strings multiline text box with 4 new text box widgets.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				fixedHeader = {
 					name = "Fixed",
 					order = 30,
