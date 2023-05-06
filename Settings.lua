@@ -2140,18 +2140,18 @@ local settings = {
 					values = function()
 						local items = {}
 						for merchantID,info in pairs(HelpMePlayDB.PlayerDB.Merchants) do
-							--[[if (info) and (info ~= {}) then
+							if (info ~= {}) then
 								local itemName = ItemInfo(info.itemID)
 								local _, _, _, _, itemIcon = GetItemInfoInstant(info.itemID)
 								if (itemName) then
 									items[merchantID] = "|T"..itemIcon..":0|t "..itemName
 								end
-							else]]
+							else
 								local values = {
-									[0] = "<add items first...>",
+									[0] = "<nothing to show...>",
 								}
 								return values
-							--end
+							end
 						end
 						return items
 					end,
