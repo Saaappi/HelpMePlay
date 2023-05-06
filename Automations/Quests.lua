@@ -66,7 +66,7 @@ local function EquipItem(itemLink)
 												C_Container.PickupContainerItem(bagID, slotID)
 												EquipCursorItem(equipSlot)
 												if (HelpMePlayDB.JunkerEnabled) then
-													HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+													HelpMePlayDB.Junker.GlobalDB[containerItemInfo.itemID] = true
 												end
 												break
 											end
@@ -231,8 +231,8 @@ local function CompleteQuest()
 					GetQuestReward(bestItemIndex)
 					if (HelpMePlayDB.QuestRewardID == 2) then
 						if (HelpMePlayDB.JunkerEnabled) then
-							if (not HelpMePlayJunkerGlobalDB[itemID]) then
-								HelpMePlayJunkerGlobalDB[itemID] = true
+							if (not HelpMePlayDB.Junker.GlobalDB[itemID]) then
+								HelpMePlayDB.Junker.GlobalDB[itemID] = true
 							end
 						end
 					end
@@ -276,7 +276,7 @@ local function GetAvailableQuests(gossipInfo)
 		end)
 	else
 		for i, questData in ipairs(gossipInfo) do
-			if not HelpMePlayIgnoredQuestsDB[questData.questID] and not addon.IGNORED_QUESTS[questData.questID] then
+			if not HelpMePlayDB.IgnoredQuests[questData.questID] and not addon.IGNORED_QUESTS[questData.questID] then
 				C_GossipInfo.SelectAvailableQuest(questData.questID)
 			end
 		end
@@ -291,7 +291,7 @@ local function QUEST_GREETING()
 	else
 		for i = 1, GetNumActiveQuests() do
 			local questId = GetActiveQuestID(i)
-			if HelpMePlayIgnoredQuestsDB[questId] then return end
+			if HelpMePlayDB.IgnoredQuests[questId] then return end
 			if addon.IGNORED_QUESTS[questId] then return end
 			
 			local _, isComplete = GetActiveTitle(i)
@@ -301,7 +301,7 @@ local function QUEST_GREETING()
 		end
 		for i = 1, GetNumAvailableQuests() do
 			local _, _, _, _, questId = GetAvailableQuestInfo(i)
-			if HelpMePlayIgnoredQuestsDB[questId] then return end
+			if HelpMePlayDB.IgnoredQuests[questId] then return end
 			if addon.IGNORED_QUESTS[questId] then return end
 			
 			SelectAvailableQuest(i)
@@ -342,7 +342,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local unitGUID = UnitGUID("target")
 			if unitGUID then
 				local _, _, _, _, _, npcID = string.split("-", unitGUID); npcID = tonumber(npcID)
-				if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+				if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 			end
 			
 			local activeQuests = C_GossipInfo.GetActiveQuests()
@@ -378,7 +378,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		-- on the ignore list.
 		for i = 1, C_QuestLog.GetNumQuestLogEntries() do
 			local id = C_QuestLog.GetQuestIDForLogIndex(i)
-			if id == questID and (HelpMePlayIgnoredQuestsDB[questID] or addon.IGNORED_QUESTS[questID]) then
+			if id == questID and (HelpMePlayDB.IgnoredQuests[questID] or addon.IGNORED_QUESTS[questID]) then
 				C_QuestLog.SetSelectedQuest(id)
 				C_QuestLog.SetAbandonQuest()
 				C_QuestLog.AbandonQuest()
@@ -405,7 +405,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local GUID = UnitGUID("target")
 			if GUID then
 				local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
-				if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+				if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 				if addon.IGNORED_QUESTS[GetQuestID()] then QuestFrameDeclineButton:Click() end
 			end
 			QUEST_DETAIL(false)
@@ -418,7 +418,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local GUID = UnitGUID("target")
 		if GUID then
 			local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
-			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+			if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 		end
 		QUEST_GREETING()
 	end
@@ -443,7 +443,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		local unitGUID = UnitGUID("target") or UnitGUID("mouseover")
 		if unitGUID then
 			local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
-			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+			if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 		end
 		
 		if IsQuestCompletable() then

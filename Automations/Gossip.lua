@@ -211,7 +211,7 @@ local function GetNPCID()
 			-- Check a couple tables for an entry matching the NPC ID. If one is found,
 			-- then we need to exit the function because we shouldn't process gossip for this NPC.
 			npcID = select(6, strsplit("-", GUID)); npcID = tonumber(npcID)
-			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+			if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 			if addon.IGNORED_GOSSIP_NPC[npcID] then return end
 		end
 		
@@ -237,7 +237,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			
 			-- If the NPC should be ignored, then let's disregard the request to handle automatically
 			-- setting the hearthstone location.
-			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+			if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 			
 			if HelpMePlayDB.PlayerDialogs[npcID] then
 				if HelpMePlayDB.PlayerDialogs[npcID]["c"] then
@@ -265,7 +265,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
 			
 			-- If the NPC should be ignored, then let's disregard the request to handle confirmation.
-			if HelpMePlayIgnoredCreaturesDB[npcID] then return end
+			if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 			
 			if HelpMePlayDB.PlayerDialogs[npcID] then
 				if HelpMePlayDB.PlayerDialogs[npcID]["c"] then

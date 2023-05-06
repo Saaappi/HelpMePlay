@@ -113,20 +113,20 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		if arg1 == "npc" then
 			local npcID = tonumber(arg2)
 			if npcID then
-				if HelpMePlayIgnoredCreaturesDB[npcID] == nil then
-					HelpMePlayIgnoredCreaturesDB[npcID] = true
+				if HelpMePlayDB.IgnoredCreatures[npcID] == nil then
+					HelpMePlayDB.IgnoredCreatures[npcID] = true
 				else
-					HelpMePlayIgnoredCreaturesDB[npcID] = nil
+					HelpMePlayDB.IgnoredCreatures[npcID] = nil
 				end
 			else
 				if UnitIsPlayer("target") == false then
 					local unitGUID = UnitGUID("target")
 					if unitGUID then
 						local _, _, _, _, _, npcID = strsplit("-", unitGUID); npcID = tonumber(npcID)
-						if HelpMePlayIgnoredCreaturesDB[npcID] == nil then
-							HelpMePlayIgnoredCreaturesDB[npcID] = true
+						if HelpMePlayDB.IgnoredCreatures[npcID] == nil then
+							HelpMePlayDB.IgnoredCreatures[npcID] = true
 						else
-							HelpMePlayIgnoredCreaturesDB[npcID] = nil
+							HelpMePlayDB.IgnoredCreatures[npcID] = nil
 						end
 					end
 				end
@@ -134,10 +134,10 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		elseif arg1 == "quest" then
 			local questId = tonumber(arg2)
 			if questId then
-				if HelpMePlayIgnoredQuestsDB[questId] == nil then
-					HelpMePlayIgnoredQuestsDB[questId] = true
+				if HelpMePlayDB.IgnoredQuests[questId] == nil then
+					HelpMePlayDB.IgnoredQuests[questId] = true
 				else
-					HelpMePlayIgnoredQuestsDB[questId] = nil
+					HelpMePlayDB.IgnoredQuests[questId] = nil
 				end
 			end
 		end

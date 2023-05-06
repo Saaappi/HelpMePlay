@@ -62,7 +62,7 @@ local function EquipItem(itemLink, inventoryType)
 													C_Container.PickupContainerItem(bagID, slotID)
 													EquipCursorItem(equipSlot)
 													if (HelpMePlayDB.JunkerEnabled) then
-														HelpMePlayJunkerGlobalDB[containerItemInfo.itemID] = true
+														HelpMePlayDB.Junker.GlobalDB[containerItemInfo.itemID] = true
 													end
 													break
 												end

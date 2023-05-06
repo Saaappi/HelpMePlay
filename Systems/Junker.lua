@@ -190,7 +190,7 @@ local function OnTooltipSetItem(tooltip, data)
 	local itemLink = select(2, TooltipUtil.GetDisplayedItem(tooltip))
 	if itemLink then
 		local _, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
-		if HelpMePlayJunkerGlobalDB[itemID] then
+		if HelpMePlayDB.Junker.GlobalDB[itemID] then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL (GLOBAL)|r")
 		elseif HelpMePlayJunkerGlobalBlacklistDB[itemID] then

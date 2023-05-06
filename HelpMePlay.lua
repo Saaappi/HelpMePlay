@@ -32,12 +32,6 @@ e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
 		if addonLoaded == addonName then
-			if HelpMePlayIgnoredCreaturesDB == nil then
-				HelpMePlayIgnoredCreaturesDB = {}
-			end
-			if HelpMePlayIgnoredQuestsDB == nil then
-				HelpMePlayIgnoredQuestsDB = {}
-			end
 			if HelpMePlaySavesDB == nil then
 				HelpMePlaySavesDB = {}
 			end
@@ -50,9 +44,6 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if HelpMePlayJunkerBlacklistDB == nil then
 				HelpMePlayJunkerBlacklistDB = {}
-			end
-			if HelpMePlayJunkerGlobalDB == nil then
-				HelpMePlayJunkerGlobalDB = {}
 			end
 			if HelpMePlayJunkerGlobalBlacklistDB == nil then
 				HelpMePlayJunkerGlobalBlacklistDB = {}
@@ -128,6 +119,18 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayPlayerDialogDB then
 				HelpMePlayDB.PlayerDialogs = HelpMePlayPlayerDialogDB
 				HelpMePlayPlayerDialogDB = nil
+			end
+			if HelpMePlayIgnoredCreaturesDB then
+				HelpMePlayDB.IgnoredCreatures = HelpMePlayIgnoredCreaturesDB
+				HelpMePlayIgnoredCreaturesDB = nil
+			end
+			if HelpMePlayIgnoredQuestsDB then
+				HelpMePlayDB.IgnoredQuests = HelpMePlayIgnoredQuestsDB
+				HelpMePlayIgnoredQuestsDB = nil
+			end
+			if HelpMePlayJunkerGlobalDB then
+				HelpMePlayDB.Junker.GlobalDB = HelpMePlayJunkerGlobalDB
+				HelpMePlayJunkerGlobalDB = nil
 			end
 		end
 	end

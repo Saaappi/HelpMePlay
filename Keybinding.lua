@@ -34,14 +34,14 @@ function HelpMePlayKeyPressHandler(key)
 				local _, itemId = string.split(":", itemLink); itemId = tonumber(itemId)
 				local _, _, itemQuality = GetItemInfo(itemLink)
 				if itemQuality > 0 then
-					if HelpMePlayJunkerGlobalDB[itemId] then
+					if HelpMePlayDB.Junker.GlobalDB[itemId] then
 						HelpMePlayJunkerDB[itemId] = nil
-						HelpMePlayJunkerGlobalDB[itemId] = nil
+						HelpMePlayDB.Junker.GlobalDB[itemId] = nil
 					else
 						HelpMePlayJunkerBlacklistDB[itemId] = nil
 						HelpMePlayJunkerGlobalBlacklistDB[itemId] = nil
 						HelpMePlayJunkerDB[itemId] = nil
-						HelpMePlayJunkerGlobalDB[itemId] = true
+						HelpMePlayDB.Junker.GlobalDB[itemId] = true
 					end
 				end
 			end
@@ -69,7 +69,7 @@ function HelpMePlayKeyPressHandler(key)
 					HelpMePlayJunkerGlobalBlacklistDB[itemId] = nil
 				else
 					HelpMePlayJunkerDB[itemId] = nil
-					HelpMePlayJunkerGlobalDB[itemId] = nil
+					HelpMePlayDB.Junker.GlobalDB[itemId] = nil
 					HelpMePlayJunkerGlobalBlacklistDB[itemId] = true
 				end
 			end
