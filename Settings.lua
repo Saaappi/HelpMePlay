@@ -2133,7 +2133,7 @@ local settings = {
 				MerchantItemsDropdown = {
 					name = "Merchant Items:",
 					order = 16,
-					desc = "Select an item from the dropdown to remove it from the table.",
+					desc = "Select an item from the dropdown to remove it from the merchant table.",
 					type = "select",
 					style = "dropdown",
 					values = function()
@@ -2146,28 +2146,34 @@ local settings = {
 										local itemName = GetItemInfo(info.itemID)
 										local _, _, _, _, itemIcon = GetItemInfoInstant(info.itemID)
 										
-										if (not HelpMePlayDB.MerchantItems[merchantID]) then
+										--[[if (not HelpMePlayDB.MerchantItems[merchantID]) then
 											HelpMePlayDB.MerchantItems[merchantID] = {}
-										end
+										end]]
 										
-										for k,v in ipairs(HelpMePlayDB.MerchantItems[merchantID]) do
-											if (v == itemName) then
-												HelpMePlayDB.MerchantItems[merchantID][k] = nil
+										for k,v in pairs(HelpMePlayDB.MerchantItems) do
+											if (k == info.itemID) then
+												HelpMePlayDB.MerchantItems[k] = nil
 											end
 										end
 										
-										table.insert(HelpMePlayDB.MerchantItems[merchantID], itemName)
+										HelpMePlayDB.MerchantItems[info.itemID] = "|T"..itemIcon..":0|t"..itemName
 									end)
 								end
 							end
 						end
 						return HelpMePlayDB.MerchantItems
 					end,
-					--[[get = function()
+					get = function()
 						return HelpMePlayDB.MerchantItems
-					end,]]
-					set = function(_, text)
-						print(text)
+					end,
+					set = function(_, itemID)
+						for k,v in pairs(HelpMePlayDB.PlayerDB.Merchants) do
+							for i,j in ipairs(v) do
+								if (j.itemID == itemID) then
+									HelpMePlayDB.PlayerDB.Merchants[k][i] = nil
+								end
+							end
+						end
 					end,
 				},
             },
