@@ -24,6 +24,21 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayCharacterDB == nil then
 				HelpMePlayCharacterDB = {}
 			end
+			if HelpMePlayCharacterDB.Saves == nil then
+				HelpMePlayCharacterDB.Saves = {}
+			end
+			if HelpMePlayCharacterDB.Quests == nil then
+				HelpMePlayCharacterDB.Quests = {}
+			end
+			if HelpMePlayCharacterDB.Junker == nil then
+				HelpMePlayCharacterDB.Junker = {}
+			end
+			if HelpMePlayCharacterDB.Junker.DB == nil then
+				HelpMePlayCharacterDB.Junker.DB = {}
+			end
+			if HelpMePlayCharacterDB.Junker.BlacklistDB == nil then
+				HelpMePlayCharacterDB.Junker.BlacklistDB = {}
+			end
 			if HelpMePlayDB.TheMawEnabled == nil then
 				HelpMePlayDB.TheMawEnabled = false
 			end
