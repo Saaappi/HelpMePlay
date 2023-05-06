@@ -12,7 +12,7 @@ local function CheckMerchant(tbl, npcID)
 							BuyMerchantItem(item, merchantData[i].itemCount)
 						end
 					end
-					
+					--test
 					C_Timer.After(0.5, function()
 						for bagID=0,4 do
 							for slotID=1,C_Container.GetContainerNumSlots(bagID) do
