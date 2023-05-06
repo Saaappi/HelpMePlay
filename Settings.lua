@@ -1,6 +1,7 @@
 local addonName, addon = ...
 local coloredDash = "|cffFFD100-|r "
 local icon = ""
+local items = {}
 --local authorNote = "|cff009AE4"
 
 local function ItemInfo(itemID)
@@ -2028,7 +2029,6 @@ local settings = {
 					desc = "Enter the NPC ID of the merchant.",
 					type = "input",
 					get = function(_)
-						HelpMePlayDB.merchantID = 0
 						return HelpMePlayDB.merchantID
 					end,
 					set = function(_, merchantID)
@@ -2047,7 +2047,6 @@ local settings = {
 					desc = "Enter the item ID of the item to be purchased from the merchant.",
 					type = "input",
 					get = function(_)
-						HelpMePlayDB.merchantItemID = 0
 						return HelpMePlayDB.merchantID
 					end,
 					set = function(_, merchantItemID)
@@ -2138,35 +2137,38 @@ local settings = {
 					type = "select",
 					style = "dropdown",
 					values = function()
-						local items = {}
-						for merchantID,info in pairs(HelpMePlayDB.PlayerDB.Merchants) do
-							if (info ~= {}) then
-								local itemName = ItemInfo(info.itemID)
-								local _, _, _, _, itemIcon = GetItemInfoInstant(info.itemID)
-								if (itemName) then
-									items[merchantID] = "|T"..itemIcon..":0|t "..itemName
+						local merchantDB = HelpMePlayDB.PlayerDB.Merchants
+						if (merchantDB and merchantDB ~= {}) then
+							for merchantID,merchantData in pairs(merchantDB) do
+								for index,info in ipairs(merchantData) do
+									C_Item.RequestLoadItemDataByID(info.itemID)
+									C_Timer.After(0.1, function()
+										local itemName = GetItemInfo(info.itemID)
+										local _, _, _, _, itemIcon = GetItemInfoInstant(info.itemID)
+										
+										if (not HelpMePlayDB.MerchantItems[merchantID]) then
+											HelpMePlayDB.MerchantItems[merchantID] = {}
+										end
+										
+										for k,v in ipairs(HelpMePlayDB.MerchantItems[merchantID]) do
+											if (v == itemName) then
+												HelpMePlayDB.MerchantItems[merchantID][k] = nil
+											end
+										end
+										
+										table.insert(HelpMePlayDB.MerchantItems[merchantID], itemName)
+									end)
 								end
-							else
-								local values = {
-									[0] = "<nothing to show...>",
-								}
-								return values
 							end
 						end
-						return items
+						return HelpMePlayDB.MerchantItems
 					end,
 					--[[get = function()
-						return HelpMePlayDB.PlayerDB.Merchants
+						return HelpMePlayDB.MerchantItems
 					end,]]
-					--[[set = function(_, rarityID)
-						HelpMePlayDB.RarityID = rarityID
-						if rarityID == 5 then
-							if HelpMePlayDB.JunkerSoulboundModeEnabled then
-								-- Disable Soulbound Mode since the player chose the Preserve Transmog option.
-								HelpMePlayDB.JunkerSoulboundModeEnabled = false
-							end
-						end
-					end,]]
+					set = function(_, text)
+						print(text)
+					end,
 				},
             },
         },
