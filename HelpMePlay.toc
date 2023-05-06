@@ -7,7 +7,7 @@
 ## Version: 2.1.4
 ## IconTexture: Interface\AddOns\HelpMePlay\Images\helpmeplay-icon.png
 ## OptionalDeps: Ace3
-## X-Project-ID: 521304
+## X-Curse-Project-ID: 521304
 
 # Libraries
 Lib\LibStub\LibStub.lua
