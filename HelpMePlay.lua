@@ -32,6 +32,9 @@ e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
 		if addonLoaded == addonName then
+			if HelpMePlayCharacterDB == nil then
+				HelpMePlayCharacterDB = {}
+			end
 			if HelpMePlayDB.TheMawEnabled == nil then
 				HelpMePlayDB.TheMawEnabled = false
 			end
