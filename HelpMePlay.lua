@@ -38,9 +38,6 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayIgnoredQuestsDB == nil then
 				HelpMePlayIgnoredQuestsDB = {}
 			end
-			if HelpMePlayPlayerDialogDB == nil then
-				HelpMePlayPlayerDialogDB = {}
-			end
 			if HelpMePlaySavesDB == nil then
 				HelpMePlaySavesDB = {}
 			end
@@ -127,6 +124,10 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if (HelpMePlayDB.WaveAtPlayersEnabled) then
 				HelpMePlayDB.WaveAtPlayersEnabled = nil
+			end
+			if HelpMePlayPlayerDialogDB then
+				HelpMePlayDB.PlayerDialogs = HelpMePlayPlayerDialogDB
+				HelpMePlayPlayerDialogDB = nil
 			end
 		end
 	end
