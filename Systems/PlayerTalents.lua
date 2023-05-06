@@ -10,12 +10,12 @@ local function TalentPurchased(configID, entry)
 		entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[1])
 	end
 	
-	if HelpMePlaySavesDB["Talents"] == nil then
-		HelpMePlaySavesDB["Talents"] = {}
+	if HelpMePlayCharacterDB.Saves["Talents"] == nil then
+		HelpMePlayCharacterDB.Saves["Talents"] = {}
 	end
 	
-	if HelpMePlaySavesDB["Talents"][entry.nodeID] == nil then
-		HelpMePlaySavesDB["Talents"][entry.nodeID] = true
+	if HelpMePlayCharacterDB.Saves["Talents"][entry.nodeID] == nil then
+		HelpMePlayCharacterDB.Saves["Talents"][entry.nodeID] = true
 		local name, _, icon = GetSpellInfo(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		local spellLink = GetSpellLink(C_Traits.GetDefinitionInfo(entryInfo.definitionID).spellID)
 		if spellLink then

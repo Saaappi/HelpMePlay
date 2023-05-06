@@ -32,9 +32,6 @@ e:RegisterEvent("ADDON_LOADED")
 e:SetScript("OnEvent", function(self, event, addonLoaded)
 	if event == "ADDON_LOADED" then
 		if addonLoaded == addonName then
-			if HelpMePlaySavesDB == nil then
-				HelpMePlaySavesDB = {}
-			end
 			if HelpMePlayCharacterQuestsDB == nil then
 				HelpMePlayCharacterQuestsDB = {}
 			end
@@ -44,12 +41,6 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			end
 			if HelpMePlayJunkerBlacklistDB == nil then
 				HelpMePlayJunkerBlacklistDB = {}
-			end
-			if HelpMePlayJunkerGlobalBlacklistDB == nil then
-				HelpMePlayJunkerGlobalBlacklistDB = {}
-			end
-			if HelpMePlayQuestMobsDB == nil then
-				HelpMePlayQuestMobsDB = {}
 			end
 			if HelpMePlayDB.TheMawEnabled == nil then
 				HelpMePlayDB.TheMawEnabled = false
@@ -131,6 +122,14 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayJunkerGlobalDB then
 				HelpMePlayDB.Junker.GlobalDB = HelpMePlayJunkerGlobalDB
 				HelpMePlayJunkerGlobalDB = nil
+			end
+			if HelpMePlayJunkerGlobalBlacklistDB then
+				HelpMePlayDB.Junker.GlobalBlacklistDB = HelpMePlayJunkerGlobalBlacklistDB
+				HelpMePlayJunkerGlobalBlacklistDB = nil
+			end
+			if HelpMePlaySavesDB then
+				HelpMePlayCharacterDB.Saves = HelpMePlaySavesDB
+				HelpMePlaySavesDB = nil
 			end
 		end
 	end

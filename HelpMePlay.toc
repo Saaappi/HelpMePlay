@@ -2,8 +2,8 @@
 ## Interface: 100100
 ## Title: HelpMePlay
 ## Notes: Version: 2.1.4
-## SavedVariables: HelpMePlayDB, HelpMePlayJunkerGlobalBlacklistDB, HelpMePlayQuestMobsDB
-## SavedVariablesPerCharacter: HelpMePlaySavesDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
+## SavedVariables: HelpMePlayDB
+## SavedVariablesPerCharacter: HelpMePlayCharacterDB, HelpMePlayCharacterQuestsDB, HelpMePlayJunkerDB, HelpMePlayJunkerBlacklistDB
 ## Version: 2.1.4
 ## IconTexture: Interface\AddOns\HelpMePlay\Images\helpmeplay-icon.png
 ## OptionalDeps: Ace3

@@ -89,7 +89,7 @@ local function HelpMePlaySellItems()
 				--
 				-- We need to ensure the item isn't on
 				-- the blacklist.
-				if not HelpMePlayJunkerGlobalBlacklistDB[itemId] and not HelpMePlayJunkerBlacklistDB[itemId] then
+				if not HelpMePlayDB.Junker.GlobalBlacklistDB[itemId] and not HelpMePlayJunkerBlacklistDB[itemId] then
 					local _, _, itemQuality = GetItemInfo(itemLink)
 					local _, itemType = GetItemInfoInstant(itemId)
 					local _, _, _, _, _, _, _, _, _, _, sellPrice = GetItemInfo(itemId)
@@ -193,7 +193,7 @@ local function OnTooltipSetItem(tooltip, data)
 		if HelpMePlayDB.Junker.GlobalDB[itemID] then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL (GLOBAL)|r")
-		elseif HelpMePlayJunkerGlobalBlacklistDB[itemID] then
+		elseif HelpMePlayDB.Junker.GlobalBlacklistDB[itemID] then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED (GLOBAL)|r")
 		elseif HelpMePlayJunkerDB[itemID] then

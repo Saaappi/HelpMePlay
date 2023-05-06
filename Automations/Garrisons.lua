@@ -13,17 +13,17 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
 			if garrisonLevel == 1 then
 				local plotsForBuilding = C_Garrison.GetPlotsForBuilding(26)
-				if HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == false or HelpMePlaySavesDB["isGarrisonBarracksPlaced"] == nil then
+				if HelpMePlayCharacterDB.Saves["isGarrisonBarracksPlaced"] == false or HelpMePlayCharacterDB.Saves["isGarrisonBarracksPlaced"] == nil then
 					for i=1,#plotsForBuilding do
 						local buildingId = C_Garrison.GetOwnedBuildingInfo(plotsForBuilding[i])
 						if buildingId ~= nil then
-							HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
+							HelpMePlayCharacterDB.Saves["isGarrisonBarracksPlaced"] = true
 							return
 						end
 						C_Garrison.PlaceBuilding(plotsForBuilding[i], 26)
 						PlaySound(SOUNDKIT.UI_GARRISON_ARCHITECT_TABLE_UPGRADE_START)
 						HideUIPanel(GarrisonBuildingFrame)
-						HelpMePlaySavesDB["isGarrisonBarracksPlaced"] = true
+						HelpMePlayCharacterDB.Saves["isGarrisonBarracksPlaced"] = true
 					end
 				end
 			end
