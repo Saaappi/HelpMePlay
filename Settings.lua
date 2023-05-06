@@ -4,17 +4,6 @@ local icon = ""
 local items = {}
 --local authorNote = "|cff009AE4"
 
-local function ItemInfo(itemID)
-	local info = GetItemInfo(itemID)
-	if (info) then
-		return info
-	else
-		C_Timer.After(0.10, function()
-			ItemInfo(itemID)
-		end)
-	end
-end
-
 local function StartsWith(text, prefix)
 	return text:find(prefix, 1, true) == 1
 end
@@ -2216,7 +2205,8 @@ local settings = {
 				},
 				fixedText = {
 					name = coloredDash .. "Fixed an error that would sometimes occur when looting weapons or armor from slain enemies.\n\n" ..
-					coloredDash .. "Fixed an issue where heirlooms were sometimes being replaced prematurely by loot and quest rewards.",
+					coloredDash .. "Fixed an issue where heirlooms were sometimes being replaced prematurely by loot and quest rewards.\n\n" ..
+					coloredDash .. "Fixed an issue where completing an objective would wipe the Quest Mobs indicators from other enemies still required for quests.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",

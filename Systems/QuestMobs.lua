@@ -35,19 +35,6 @@ local function GetCriteria(plate)
 	return killCollectCriteriaText, percentCriteriaText
 end
 
-local function Wipe()
-	local plates = C_NamePlate.GetNamePlates()
-	for i=1,#plates do
-		local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
-		if (plate[addonName.."Icon"]) then
-			plate[addonName.."Icon"]:Hide()
-		end
-		if (plate[addonName.."Text"]) then
-			plate[addonName.."Text"]:Hide()
-		end
-	end
-end
-
 function HelpMePlay:UpdateNamePlate(plate)
 	local unit = plate.namePlateUnitToken
 	if (unit) then
@@ -172,7 +159,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 	if (event == "UI_INFO_MESSAGE") then
 		local _, message = ...
 		if (message == "Objective Complete.") then
-			Wipe()
+			local plates = C_NamePlate.GetNamePlates()
+			for i=1,#plates do
+				local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+				HelpMePlay:UpdateNamePlate(plate)
+			end
 		end
 	end
 	if (event == "QUEST_ACCEPTED") then
@@ -183,7 +174,11 @@ e:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if (event == "QUEST_REMOVED") or (event == "QUEST_TURNED_IN") then
-		Wipe()
+		local plates = C_NamePlate.GetNamePlates()
+		for i=1,#plates do
+			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+			HelpMePlay:UpdateNamePlate(plate)
+		end
 	end
 	if (event == "UNIT_QUEST_LOG_CHANGED") then
 		local plates = C_NamePlate.GetNamePlates()
