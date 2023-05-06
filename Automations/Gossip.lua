@@ -23,9 +23,9 @@ local function SelectOption(npcID)
 	
 	-- Player-submitted gossip options. I need to do some work here.
 	for index, gossipSubTable in ipairs(options) do
-		if HelpMePlayDB.PlayerDialogs[npcID] then
-			if HelpMePlayDB.PlayerDialogs[npcID]["g"] then
-				for _, index in ipairs(HelpMePlayDB.PlayerDialogs[npcID]["g"]) do
+		if HelpMePlayDB.PlayerDB.Gossips[npcID] then
+			if HelpMePlayDB.PlayerDB.Gossips[npcID]["g"] then
+				for _, index in ipairs(HelpMePlayDB.PlayerDB.Gossips[npcID]["g"]) do
 					C_GossipInfo.SelectOption(index)
 				end
 			end
@@ -239,8 +239,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			-- setting the hearthstone location.
 			if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 			
-			if HelpMePlayDB.PlayerDialogs[npcID] then
-				if HelpMePlayDB.PlayerDialogs[npcID]["c"] then
+			if HelpMePlayDB.PlayerDB.Gossips[npcID] then
+				if HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] then
 					StaticPopup1Button1:Click("LeftButton")
 				end
 			else
@@ -267,8 +267,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 			-- If the NPC should be ignored, then let's disregard the request to handle confirmation.
 			if HelpMePlayDB.IgnoredCreatures[npcID] then return end
 			
-			if HelpMePlayDB.PlayerDialogs[npcID] then
-				if HelpMePlayDB.PlayerDialogs[npcID]["c"] then
+			if HelpMePlayDB.PlayerDB.Gossips[npcID] then
+				if HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] then
 					StaticPopup1Button1:Click("LeftButton")
 				end
 			else

@@ -22,8 +22,8 @@ local function Gossip(gossip)
 		
 		-- Check if the gossip ID is 0. If it is, then wipe that NPC's gossip table.
 		if gossip == 0 then
-			if HelpMePlayDB.PlayerDialogs[npcID] then
-				HelpMePlayDB.PlayerDialogs[npcID] = nil
+			if HelpMePlayDB.PlayerDB.Gossips[npcID] then
+				HelpMePlayDB.PlayerDB.Gossips[npcID] = nil
 			end
 			return
 		end
@@ -35,28 +35,28 @@ local function Gossip(gossip)
 	local gossips = C_GossipInfo.GetOptions()
 	if (#gossips > 0) then
 		-- If the NPC isn't in the dialog/confirm table, then add an empty table for it.
-		if not HelpMePlayDB.PlayerDialogs[npcID] then
-			HelpMePlayDB.PlayerDialogs[npcID] = {}
+		if not HelpMePlayDB.PlayerDB.Gossips[npcID] then
+			HelpMePlayDB.PlayerDB.Gossips[npcID] = {}
 		end
 		
 		-- If the NPC table doesn't have the "g" table, or the gossip table, then create it.
-		if not HelpMePlayDB.PlayerDialogs[npcID]["g"] then
-			HelpMePlayDB.PlayerDialogs[npcID]["g"] = {}
+		if not HelpMePlayDB.PlayerDB.Gossips[npcID]["g"] then
+			HelpMePlayDB.PlayerDB.Gossips[npcID]["g"] = {}
 		end
 		
 		-- First, count the number of gossips in the NPC's table. If 0, then it's a fresh table
 		-- and we don't need to loop. Otherwise, loop.
-		local numGossips = #HelpMePlayDB.PlayerDialogs[npcID]["g"]
+		local numGossips = #HelpMePlayDB.PlayerDB.Gossips[npcID]["g"]
 		if numGossips > 0 then
 			-- Check if the current gossip option is in the NPC's gossip table.
-			for index, optionID in ipairs(HelpMePlayDB.PlayerDialogs[npcID]["g"]) do
+			for index, optionID in ipairs(HelpMePlayDB.PlayerDB.Gossips[npcID]["g"]) do
 				-- If it's in the table, then remove it. Otherwise, insert it into the table.
 				if optionID == gossips[gossip].gossipOptionID then
-					HelpMePlayDB.PlayerDialogs[npcID]["g"][index] = nil
+					HelpMePlayDB.PlayerDB.Gossips[npcID]["g"][index] = nil
 				end
 			end
 		else
-			table.insert(HelpMePlayDB.PlayerDialogs[npcID]["g"], gossips[gossip].gossipOptionID)
+			table.insert(HelpMePlayDB.PlayerDB.Gossips[npcID]["g"], gossips[gossip].gossipOptionID)
 		end
 	end
 end
@@ -69,12 +69,12 @@ local function Confirm()
 		local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
 		
 		-- If the NPC isn't in the dialog/confirm table, then add an empty table for it.
-		if not HelpMePlayDB.PlayerDialogs[npcID] then
-			HelpMePlayDB.PlayerDialogs[npcID] = {}
+		if not HelpMePlayDB.PlayerDB.Gossips[npcID] then
+			HelpMePlayDB.PlayerDB.Gossips[npcID] = {}
 		end
 		
 		-- If the NPC doesn't have a "g" table, then report that to the player.
-		if not HelpMePlayDB.PlayerDialogs[npcID]["g"] then
+		if not HelpMePlayDB.PlayerDB.Gossips[npcID]["g"] then
 			print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
 			return
 		end
@@ -82,11 +82,11 @@ local function Confirm()
 		-- If the NPC table doesn't have the "c" table, or the confirm table, then create it.
 		--
 		-- If they do have a "c" table, then remove it.
-		if not HelpMePlayDB.PlayerDialogs[npcID]["c"] then
-			HelpMePlayDB.PlayerDialogs[npcID]["c"] = true
+		if not HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] then
+			HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] = true
 		else
-			if HelpMePlayDB.PlayerDialogs[npcID]["c"] then
-				HelpMePlayDB.PlayerDialogs[npcID]["c"] = nil
+			if HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] then
+				HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] = nil
 			end
 		end
 	end
