@@ -2171,6 +2171,7 @@ local settings = {
 							for i,j in ipairs(v) do
 								if (j.itemID == itemID) then
 									HelpMePlayDB.PlayerDB.Merchants[k][i] = nil
+									HelpMePlayDB.MerchantItems[itemID] = nil
 								end
 							end
 						end
