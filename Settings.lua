@@ -2083,10 +2083,9 @@ local settings = {
 					name = "Quest ID:",
 					order = 14,
 					desc = "Enter the quest ID prerequisite.\n\n" ..
-					"The item will only be purchased if the player is actively on the quest. If no quest is needed, please leave the entry blank.",
+					"The item will only be purchased if the player is actively on the quest. If no quest is needed, please enter 0.",
 					type = "input",
 					get = function(_)
-						HelpMePlayDB.merchantQuestID = 0
 						return HelpMePlayDB.merchantQuestID
 					end,
 					set = function(_, merchantQuestID)
@@ -2133,7 +2132,8 @@ local settings = {
 				MerchantItemsDropdown = {
 					name = "Merchant Items:",
 					order = 16,
-					desc = "Select an item from the dropdown to remove it from the merchant table.",
+					desc = "Select an item from the dropdown to remove it from the merchant table.\n\n" ..
+					"|cffFFD100New items won't appear in the list until you navigate away from the Import section of the settings.|r",
 					type = "select",
 					style = "dropdown",
 					values = function()
@@ -2145,10 +2145,6 @@ local settings = {
 									C_Timer.After(0.1, function()
 										local itemName = GetItemInfo(info.itemID)
 										local _, _, _, _, itemIcon = GetItemInfoInstant(info.itemID)
-										
-										--[[if (not HelpMePlayDB.MerchantItems[merchantID]) then
-											HelpMePlayDB.MerchantItems[merchantID] = {}
-										end]]
 										
 										for k,v in pairs(HelpMePlayDB.MerchantItems) do
 											if (k == info.itemID) then
