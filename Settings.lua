@@ -2208,7 +2208,8 @@ local settings = {
 					name = coloredDash .. "Fixed an error that would sometimes occur when looting weapons or armor from slain enemies.\n\n" ..
 					coloredDash .. "Fixed an issue where heirlooms were sometimes being replaced prematurely by loot and quest rewards.\n\n" ..
 					coloredDash .. "Fixed an issue where completing an objective would wipe the Quest Mobs indicators from other enemies still required for quests.\n\n" ..
-					coloredDash .. "Fixed an issue where percent criteria could show on the nameplate when a progress bar didn't pertain to the active quest(s).",
+					coloredDash .. "Fixed an issue where percent criteria could show on the nameplate when a progress bar didn't pertain to the active quest(s).\n\n" ..
+					coloredDash .. "Fixed an issue where enemies required for quests that were seen before accepting the quest might not get the Quest Mobs indicators. (This didn't apply to every enemy in the game.)",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
