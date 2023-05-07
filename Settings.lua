@@ -2193,7 +2193,8 @@ local settings = {
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Replaced the Merchant Strings multiline text box with 4 new text box widgets.",
+					name = coloredDash .. "Replaced the Merchant Strings multiline text box with 4 new text box widgets.\n\n" ..
+					coloredDash .. "Adjusted the criteria text on the nameplate when the enemy relates to only 1 criteria type (kill/collect or progress bar).",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
