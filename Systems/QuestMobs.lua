@@ -39,7 +39,8 @@ function HelpMePlay:UpdateNamePlate(plate)
 	local unit = plate.namePlateUnitToken
 	if (unit) then
 		if (not UnitIsPlayer(unit)) then
-			if (C_QuestLog.UnitIsRelatedToActiveQuest(unit)) then
+			local killCollect, percent = GetCriteria(plate)
+			if (killCollect > 0) or (percent > 0) then
 				local killCollectCriteriaText, percentCriteriaText = GetCriteria(plate)
 				local hmpIcon, hmpText = "", ""
 				if (not fontStrings[unit]) then
@@ -126,6 +127,13 @@ function HelpMePlay:UpdateNamePlate(plate)
 						plate[addonName.."Text"]:SetText("?")
 					end
 				end
+			else
+				if (plate[addonName.."Icon"]) then
+					plate[addonName.."Icon"]:Hide()
+				end
+				if (plate[addonName.."Text"]) then
+					plate[addonName.."Text"]:Hide()
+				end
 			end
 		end
 	end
@@ -155,12 +163,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local unit = ...
 		local plate = C_NamePlate.GetNamePlateForUnit(unit)
+		
+		if (fontStrings[unit]) then
+			fontStrings[unit] = nil
+		end
         
 		if (plate[addonName.."Icon"]) then
 			plate[addonName.."Icon"]:Hide()
 		end
 		if (plate[addonName.."Text"]) then
-			fontStrings[unit] = nil
 			plate[addonName.."Text"]:Hide()
 		end
 	end
