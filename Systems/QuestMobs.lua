@@ -25,10 +25,8 @@ local function GetCriteria(plate)
 				killCollectCriteriaText = killCollectCriteriaText+(numRequired-numDone)
 			end
 		end
-		--if (line.leftText:match("(%d+)%%")) then
-		if (line.leftText:match("(%d+%%)(?!%s*Threat)")) then
-			--local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
-			local percent = line.leftText:match("(%d+%%)(?!%s*Threat)"); percent = tonumber(percent)
+		if (line.leftText:match("%((%d+)%%%)")) then
+			local percent = line.leftText:match("%((%d+)%%%)"); percent = tonumber(percent)
 			if (not (percent == 100)) then
 				percentCriteriaText = 100-percent
 			end
@@ -107,17 +105,25 @@ function HelpMePlay:UpdateNamePlate(plate)
 						hmpIcon:SetTexCoord(0.3818359375, 0.5068359375, 0.2548828125, 0.3798828125)
 					end
 					
-					if (percentCriteriaText) and (percentCriteriaText ~= 0) then
+					if (percentCriteriaText and percentCriteriaText ~= 0) and (killCollectCriteriaText and killCollectCriteriaText > 0) then
 						hmpText:SetText(killCollectCriteriaText.." - "..percentCriteriaText.."%")
-					else
+					elseif (percentCriteriaText and percentCriteriaText ~= 0) and (killCollectCriteriaText == 0) then
+						hmpText:SetText(percentCriteriaText.."%")
+					elseif (killCollectCriteriaText and killCollectCriteriaText > 0) and (percentCriteriaText == 0) then
 						hmpText:SetText(killCollectCriteriaText)
+					else
+						hmpText:SetText("?")
 					end
 					fontStrings[unit] = true
 				else
-					if (percentCriteriaText) and (percentCriteriaText ~= 0) then
+					if (percentCriteriaText and percentCriteriaText ~= 0) and (killCollectCriteriaText and killCollectCriteriaText > 0) then
 						plate[addonName.."Text"]:SetText(killCollectCriteriaText.." - "..percentCriteriaText.."%")
-					else
+					elseif (percentCriteriaText and percentCriteriaText ~= 0) and (killCollectCriteriaText == 0) then
+						plate[addonName.."Text"]:SetText(percentCriteriaText.."%")
+					elseif (killCollectCriteriaText and killCollectCriteriaText > 0) and (percentCriteriaText == 0) then
 						plate[addonName.."Text"]:SetText(killCollectCriteriaText)
+					else
+						plate[addonName.."Text"]:SetText("?")
 					end
 				end
 			end
