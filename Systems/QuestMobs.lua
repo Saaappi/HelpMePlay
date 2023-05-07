@@ -197,3 +197,18 @@ e:SetScript("OnEvent", function(self, event, ...)
 	end
 end)
 
+local interval = 15
+local elapsed = 0
+local onUpdate = CreateFrame("Frame")
+onUpdate:SetScript("OnUpdate", function(self, delta)
+	elapsed = elapsed + delta
+	if (elapsed >= interval) then
+		elapsed = 0
+		local plates = C_NamePlate.GetNamePlates()
+		for i=1,#plates do
+			local plate = C_NamePlate.GetNamePlateForUnit(plates[i].namePlateUnitToken)
+			HelpMePlay:UpdateNamePlate(plate)
+		end
+	end
+end)
+
