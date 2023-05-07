@@ -25,8 +25,10 @@ local function GetCriteria(plate)
 				killCollectCriteriaText = killCollectCriteriaText+(numRequired-numDone)
 			end
 		end
-		if (line.leftText:match("(%d+)%%")) then
-			local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
+		--if (line.leftText:match("(%d+)%%")) then
+		if (line.leftText:match("(%d+%%)(?!%s*Threat)")) then
+			--local percent = line.leftText:match("(%d+)%%"); percent = tonumber(percent)
+			local percent = line.leftText:match("(%d+%%)(?!%s*Threat)"); percent = tonumber(percent)
 			if (not (percent == 100)) then
 				percentCriteriaText = 100-percent
 			end
