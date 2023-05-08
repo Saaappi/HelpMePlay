@@ -27,21 +27,15 @@ function HelpMePlay:MinimapIcon(bool)
 			icon:Show(addonName)
 		else
 			icon = LibStub("LibDBIcon-1.0")
-			-- Create a Lib DB first to hold all the
-			-- information for the minimap icon.
 			local iconLDB = LibStub:GetLibrary("LibDataBroker-1.1"):NewDataObject(addonName, {
 				type = "launcher",
-				icon = "236688", -- 100 Exalted Reputations (Achievement)
+				icon = "Interface\\AddOns\\HelpMePlay\\Images\\helpmeplay-icon.png",
 				OnTooltipShow = function(tooltip)
-					tooltip:SetText(addon.CONSTANTS.COLORED_ADDON_NAME .. " |cffFFFFFF" .. C_AddOns.GetAddOnMetadata(addonName, "Version") .. "|r")
-					tooltip:AddLine("Configure the addon's settings and tailor an experience that best fits your playstyle!")
+					tooltip:SetText(addonName)
 					tooltip:Show()
 				end,
 				OnClick = function() HelpMePlay:SlashCommandHandler("") end,
 			})
-			
-			-- Register the minimap button with the
-			-- LDB.
 			icon:Register(addonName, iconLDB, HelpMePlayDB)
 			icon:Show(addonName)
 		end
@@ -2176,44 +2170,39 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				addedHeader = {
+				--[[addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "Added a new dropdown to the Merchants section of the Import settings that allows the player to remove the items they add to the merchant table. (It's no longer necessary to re-enter the string used to add the items.)",
+					name = coloredDash .. "",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Replaced the Merchant Strings multiline text box with 4 new text box widgets.\n\n" ..
-					coloredDash .. "Adjusted the criteria text on the nameplate when the enemy relates to only 1 criteria type (kill/collect or progress bar).",
+					name = coloredDash .. "Changed the minimap icon to match the icon used in the addon list.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
 				},
-				fixedHeader = {
+				--[[fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "Fixed an error that would sometimes occur when looting weapons or armor from slain enemies.\n\n" ..
-					coloredDash .. "Fixed an issue where heirlooms were sometimes being replaced prematurely by loot and quest rewards.\n\n" ..
-					coloredDash .. "Fixed an issue where completing an objective would wipe the Quest Mobs indicators from other enemies still required for quests.\n\n" ..
-					coloredDash .. "Fixed an issue where percent criteria could show on the nameplate when a progress bar didn't pertain to the active quest(s).\n\n" ..
-					coloredDash .. "Fixed an issue where enemies required for quests that were seen before accepting the quest might not get the Quest Mobs indicators. (This didn't apply to every enemy in the game.)",
+					name = coloredDash .. "",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				--[[removedHeader = {
 					name = "Removed",
 					order = 40,
