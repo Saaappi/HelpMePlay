@@ -34,7 +34,9 @@ function HelpMePlay:MinimapIcon(bool)
 					tooltip:SetText(addonName)
 					tooltip:Show()
 				end,
-				OnClick = function() HelpMePlay:SlashCommandHandler("") end,
+				OnClick = function()
+					HelpMePlay:SlashCommandHandler("")
+				end,
 			})
 			icon:Register(addonName, iconLDB, HelpMePlayDB)
 			icon:Show(addonName)
@@ -2192,17 +2194,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},
-				--[[fixedHeader = {
+				fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "The minimap icon should once again open the settings menu for the addon (and not just the settings menu for the game.)",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[removedHeader = {
 					name = "Removed",
 					order = 40,

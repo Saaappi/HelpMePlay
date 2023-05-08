@@ -95,7 +95,7 @@ end
 function HelpMePlay:SlashCommandHandler(cmd)
 	local cmd, arg1, arg2 = string.split(" ", cmd)
 	if not cmd or cmd == "" then
-		Settings.OpenToCategory(name)
+		Settings.OpenToCategory(addonName)
 	elseif cmd == "gossip" and arg1 ~= nil then
 		Gossip(arg1)
 	elseif cmd == "confirm" then
