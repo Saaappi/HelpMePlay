@@ -457,40 +457,9 @@ local settings = {
 						HelpMePlayDB.WaypointsEnabled = val
 					end,
 				},
-				EquipLootAdvancedHeader = {
-					name = "Equip Loot (Advanced)",
-					order = 30,
-					type = "header",
-					hidden = function()
-						if HelpMePlayDB.EquipLootEnabled then
-							return false
-						end
-						return true
-					end,
-				},
-				IgnoreBind = {
-					name = "Ignore Bind",
-					order = 31,
-					desc = "Toggle allowing the Equip Loot feature to equip BoE loot from slain enemies.",
-					type = "toggle",
-					get = function(_)
-						if not HelpMePlayDB.EquipLootIgnoreBindEnabled then
-							HelpMePlayDB.EquipLootIgnoreBindEnabled = false
-						end
-						return HelpMePlayDB.EquipLootIgnoreBindEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.EquipLootIgnoreBindEnabled = val end,
-					hidden = function()
-						if HelpMePlayDB.EquipLootEnabled then
-							return false
-						end
-						HelpMePlayDB.EquipLootIgnoreBindEnabled = false
-						return true
-					end,
-				},
 				TrainersAdvancedHeader = {
 					name = "Trainers (Advanced)",
-					order = 40,
+					order = 30,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.TrainersEnabled then
@@ -501,7 +470,7 @@ local settings = {
 				},
 				TrainersGoldAmount = {
 					name = "Trainers Minimum Amount",
-					order = 41,
+					order = 31,
 					usage = "|cffFFFFFF" .. "Enter an amount of gold to add to the cost of a spell to train. Your character must have the cost plus this number (default is 50 gold) before HelpMePlay will buy it.",
 					type = "input",
 					get = function()
@@ -526,7 +495,7 @@ local settings = {
 				},
 				JunkerAdvancedHeader = {
 					name = "Junker (Advanced)",
-					order = 50,
+					order = 40,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.JunkerEnabled then
@@ -537,7 +506,7 @@ local settings = {
 				},
 				JunkerSafeMode = {
 					name = "Safe Mode",
-					order = 51,
+					order = 41,
 					desc = "Toggle to only allow Junker to sell items in batches of 12. This will allow you to use the buyback tab in case it sells something it shouldn't.\n\n" ..
 					"It's recommended you enable this.",
 					type = "toggle",
@@ -557,7 +526,7 @@ local settings = {
 				},
 				JunkerSoulboundMode = {
 					name = "Soulbound Mode",
-					order = 52,
+					order = 42,
 					desc = "Toggle to allow Junker to sell items that are soulbound and are under a certain item level threshold.\n\n" ..
 					"This feature is mutually exclusive with the |cffFFD100Preserve Transmog|r option under the Rarity dropdown.",
 					type = "toggle",
@@ -583,7 +552,7 @@ local settings = {
 				},
 				JunkerAutoSell = {
 					name = "Auto Sell",
-					order = 53,
+					order = 43,
 					desc = "Toggle to allow Junker to automatically sell when the merchant window is opened.",
 					type = "toggle",
 					get = function(_)
@@ -602,7 +571,7 @@ local settings = {
 				},
 				JunkerRarityDropdown = {
 					name = "Rarity",
-					order = 54,
+					order = 44,
 					desc = "Select the minimum item rarity threshold Junker should consider when selling items.\n\n" ..
 					"Setting the threshold to Poor will make Junker consider all items, whereas setting it to Uncommon will tell Junker not to sell Poor or Common items.\n\n" ..
 					"Preserve Transmog uses Poor as its underlying threshold but it won't sell armor or weapons. This option is mutually exclusive with Soulbound Mode.",
@@ -648,7 +617,7 @@ local settings = {
 				},
 				JunkerImportButton = {
 					name = "Import",
-					order = 55,
+					order = 45,
 					type = "execute",
 					func = function(_, _)
 						StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT"] = {
@@ -752,7 +721,7 @@ local settings = {
 				},
 				SoulboundModeItemLevel = {
 					name = "Soulbound Mode Item Level",
-					order = 56,
+					order = 46,
 					type = "range",
 					min = 25,
 					max = 50,
@@ -776,7 +745,7 @@ local settings = {
 				},
 				PartyPlayAdvancedHeader = {
 					name = "Party Play (Advanced)",
-					order = 60,
+					order = 50,
 					type = "header",
 					hidden = function()
 						if HelpMePlayDB.PartyPlayEnabled then
@@ -787,7 +756,7 @@ local settings = {
 				},
 				PartyPlayAnnounce = {
 					name = "Announce",
-					order = 61,
+					order = 51,
 					desc = "Automatically report quest-related activity like accepting or removing quests, slaying an enemy, collecting quest items around the quest area, etc.",
 					type = "toggle",
 					get = function()
@@ -806,7 +775,7 @@ local settings = {
 				},
 				PartyPlayAutoShare = {
 					name = "Auto Share",
-					order = 62,
+					order = 52,
 					desc = "Automatically share quests with party members as you accept them.\n\n" ..
 					"For the best results, all party members should also have HelpMePlay with |cffFFD100Accept Quests|r enabled.",
 					type = "toggle",
@@ -2201,22 +2170,23 @@ local settings = {
 				},
 				fixedText = {
 					name = coloredDash .. "The minimap icon should once again open the settings menu for the addon (and not just the settings menu for the game.)\n\n" ..
-					coloredDash .. "Fixed an issue with NPC tooltip notes returning an error.",
+					coloredDash .. "Fixed an issue with NPC tooltip notes returning an error.\n\n" ..
+					coloredDash .. "Fixed an issue where equipped item validity was throwing an error. (This pertains to equipping new items obtained from quests or loot.)",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
 				},
-				--[[removedHeader = {
+				removedHeader = {
 					name = "Removed",
 					order = 40,
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "Removed the |cffFFD100Ignore Bind|r toggle. (This was under the advanced settings for |cffFFD100Equip Loot|r.)",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[Author_Notes_Header = {
 					name = "Author Notes",
 					order = 50,

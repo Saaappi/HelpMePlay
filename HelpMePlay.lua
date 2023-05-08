@@ -164,6 +164,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if (HelpMePlayDB.TradeSkillCategoriesCollapsed) then
 				HelpMePlayDB.TradeSkillCategoriesCollapsed = nil
 			end
+			if (HelpMePlayDB.EquipLootIgnoreBindEnabled) then
+				HelpMePlayDB.EquipLootIgnoreBindEnabled = nil
+			end
 		end
 	end
 end)
