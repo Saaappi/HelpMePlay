@@ -9,8 +9,6 @@ local CONSTANTS = {
 	["MAX_PLAYER_LEVEL"] 			= 70,
 	["WAR_MODE_MAX_LEVEL"]			= 60,
 	["CHROMIE_TIME_MAX_LEVEL"]		= 60,
-	["MIN_DUNGEON_RWD_LEVEL"]		= 60,
-	-- Dragonriding
 	["SLOTS"] = {
 		[1] 	= 1, 				-- Head
 		[2] 	= 2, 				-- Neck

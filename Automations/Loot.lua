@@ -94,7 +94,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			local itemLink = string.match(text,"|%x+|Hitem:.-|h.-|h|r")
 			local inventoryType = C_Item.GetItemInventoryTypeByID(itemLink)
 			if (addon.CONSTANTS["SLOTS"][inventoryType]) then
-				EquipItem(itemLink, inventoryType)
+				addon.EquipItem(itemLink)
 			end
 		end
 	end

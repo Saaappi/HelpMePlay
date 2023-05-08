@@ -4,88 +4,6 @@ local itemLevels = {}
 local sellPrices = {}
 local bestItemIndex = 0
 
-local function EquipItem(itemLink)
-	if UnitLevel("player") < addon.CONSTANTS["MAX_PLAYER_LEVEL"] then
-		if not UnitAffectingCombat("player") then
-			if itemLink then
-				local _, _, _, _, _, itemType, itemSubType = GetItemInfo(itemLink)
-				if (itemType == "Weapon") or (itemType == "Armor" and itemSubType == "Miscellaneous") then return end
-
-				local equipSlot = 0
-				local _, rewardItemID = string.split(":", itemLink); rewardItemID = tonumber(rewardItemID)
-				local rewardItemLevel = GetDetailedItemLevelInfo(itemLink)
-				local rewardItemType = C_Item.GetItemInventoryTypeByID(itemLink)
-				C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
-					local equippedItem = 0
-					local equippedItemQuality = 0
-					if rewardItemType ~= 0 then
-						if type(addon.CONSTANTS["SLOTS"][rewardItemType]) == "table" then
-							for _, invSlotID in ipairs(addon.CONSTANTS["SLOTS"][rewardItemType]) do
-								equippedItem = ItemLocation:CreateFromEquipmentSlot(invSlotID)
-								if equippedItem:IsValid() then
-									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
-									if rewardItemLevel > equippedItemLevel then
-										equipSlot = invSlotID
-									end
-								else
-									equipSlot = invSlotID
-								end
-							end
-						else
-							equippedItem = ItemLocation:CreateFromEquipmentSlot(addon.CONSTANTS["SLOTS"][rewardItemType])
-							if equippedItem:IsValid() then
-								if rewardItemType ~= 4 and rewardItemType ~= 19 then
-									local equippedItemLevel = C_Item.GetCurrentItemLevel(equippedItem)
-									equippedItemQuality = C_Item.GetItemQuality(equippedItem)
-									if rewardItemLevel > equippedItemLevel then
-										equipSlot = addon.CONSTANTS["SLOTS"][rewardItemType]
-									end
-								end
-							else
-								equipSlot = addon.CONSTANTS["SLOTS"][rewardItemType]
-							end
-						end
-						
-						if equipSlot > 0 then
-							local equippedItemID = C_Item.GetItemID(equippedItem)
-							local _, _, _, _, _, _, _, effectiveHeirloomLevel = C_Heirloom.GetHeirloomInfo(equippedItemID)
-							if (effectiveHeirloomLevel) then
-								if (effectiveHeirloomLevel >= UnitLevel("player")) then return end
-							end
-							C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
-								for bagID=0,4 do
-									for slotID=1,C_Container.GetContainerNumSlots(bagID) do
-										local containerItemInfo = C_Container.GetContainerItemInfo(bagID, slotID)
-										if (containerItemInfo) then
-											local containerItemLink = C_Item.GetItemLink(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-											if (containerItemInfo.itemID == rewardItemID) then
-												local containerItemIcon = C_Item.GetItemIcon(ItemLocation:CreateFromBagAndSlot(bagID, slotID))
-												print(string.format("%s: Equipping an item upgrade. |T%s:0|t %s", addon.CONSTANTS.COLORED_ADDON_NAME, containerItemIcon, containerItemLink))
-												ClearCursor()
-												C_Container.PickupContainerItem(bagID, slotID)
-												EquipCursorItem(equipSlot)
-												if (HelpMePlayDB.JunkerEnabled) then
-													HelpMePlayDB.Junker.GlobalDB[containerItemInfo.itemID] = true
-												end
-												break
-											end
-										end
-									end
-								end
-							end)
-						end
-					end
-				end)
-			end
-		else
-			C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
-				EquipItem(itemLink)
-			end)
-		end
-	end
-end
-
 hooksecurefunc("QuestMapLogTitleButton_OnClick", function(self)
 	if IsControlKeyDown() or IsAltKeyDown() then
 		C_QuestLog.SetSelectedQuest(self.questID)
@@ -221,13 +139,8 @@ local function CompleteQuest()
 				end
 				
 				if (bestItemIndex == 0) then
-					-- All quest rewards were of the same item level or sell price.
-					-- Pick a random reward.
 					GetQuestReward(random(1, numQuestChoices))
 				else
-					-- Get the quest reward at the specified best index. If the quest
-					-- reward automation is told to pick the reward by sell price, then
-					-- automatically add the item to the GLOBAL Junker table.
 					GetQuestReward(bestItemIndex)
 					if (HelpMePlayDB.QuestRewardID == 2) then
 						if (HelpMePlayDB.JunkerEnabled) then
@@ -338,7 +251,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.CompleteQuestsEnabled == false or HelpMePlayDB.CompleteQuestsEnabled == nil then return false end
 		
 		local type = ...
-		if type == 3 then -- Gossip
+		if type == 3 then
 			local unitGUID = UnitGUID("target")
 			if unitGUID then
 				local _, _, _, _, _, npcID = string.split("-", unitGUID); npcID = tonumber(npcID)
@@ -372,10 +285,6 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end)
 		end
 		
-		-- It's not always possible to prevent a quest
-		-- from being auto accepted. If that's the case,
-		-- simply remove it from the player's log if it's
-		-- on the ignore list.
 		for i = 1, C_QuestLog.GetNumQuestLogEntries() do
 			local id = C_QuestLog.GetQuestIDForLogIndex(i)
 			if id == questID and (HelpMePlayDB.IgnoredQuests[questID] or addon.IGNORED_QUESTS[questID]) then
@@ -431,8 +340,8 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if itemLink then
 			local _, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
 			if addon.IGNORED_QUESTREWARDS[itemID] then return end
-			C_Timer.After(addon.CONSTANTS["HALF_SECOND"], function()
-				EquipItem(itemLink)
+			C_Timer.After(0.5, function()
+				addon.EquipItem(itemLink)
 			end)
 		end
 	end

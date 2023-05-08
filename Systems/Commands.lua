@@ -2,25 +2,19 @@ local addonName, addon = ...
 local e = CreateFrame("Frame")
 
 local function Gossip(gossip)
-	-- First, let's check if the gossip parameter is a number.
 	if tonumber(gossip) then
-		-- Cast gossip as a number and reassign it to the variable.
 		gossip = tonumber(gossip)
 	elseif gossip == nil then
-		-- If a gossip index isn't provided, then set it to 0.
 		gossip = 0
 	else
 		return
 	end
-	
-	-- Get the GUID of the targeted NPC.
+
 	local GUID = UnitGUID("target")
 	local npcID = 0
 	if GUID then
-		-- If the GUID is valid, then split the GUID, get the NPC ID and cast it as a number.
 		_, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
 		
-		-- Check if the gossip ID is 0. If it is, then wipe that NPC's gossip table.
 		if gossip == 0 then
 			if HelpMePlayDB.PlayerDB.Gossips[npcID] then
 				HelpMePlayDB.PlayerDB.Gossips[npcID] = nil
@@ -29,28 +23,19 @@ local function Gossip(gossip)
 		end
 	end
 	
-	-- Get the available gossip options from the NPC.
-	--
-	-- Make sure gossips is valid before continuing.
 	local gossips = C_GossipInfo.GetOptions()
 	if (#gossips > 0) then
-		-- If the NPC isn't in the dialog/confirm table, then add an empty table for it.
 		if not HelpMePlayDB.PlayerDB.Gossips[npcID] then
 			HelpMePlayDB.PlayerDB.Gossips[npcID] = {}
 		end
 		
-		-- If the NPC table doesn't have the "g" table, or the gossip table, then create it.
 		if not HelpMePlayDB.PlayerDB.Gossips[npcID]["g"] then
 			HelpMePlayDB.PlayerDB.Gossips[npcID]["g"] = {}
 		end
 		
-		-- First, count the number of gossips in the NPC's table. If 0, then it's a fresh table
-		-- and we don't need to loop. Otherwise, loop.
 		local numGossips = #HelpMePlayDB.PlayerDB.Gossips[npcID]["g"]
 		if numGossips > 0 then
-			-- Check if the current gossip option is in the NPC's gossip table.
 			for index, optionID in ipairs(HelpMePlayDB.PlayerDB.Gossips[npcID]["g"]) do
-				-- If it's in the table, then remove it. Otherwise, insert it into the table.
 				if optionID == gossips[gossip].gossipOptionID then
 					HelpMePlayDB.PlayerDB.Gossips[npcID]["g"][index] = nil
 				end
@@ -62,26 +47,19 @@ local function Gossip(gossip)
 end
 
 local function Confirm()
-	-- Get the GUID of the targeted NPC.
 	local GUID = UnitGUID("target")
 	if GUID then
-		-- If the GUID is valid, then split the GUID, get the NPC ID and cast it as a number.
 		local _, _, _, _, _, npcID = string.split("-", GUID); npcID = tonumber(npcID)
-		
-		-- If the NPC isn't in the dialog/confirm table, then add an empty table for it.
+
 		if not HelpMePlayDB.PlayerDB.Gossips[npcID] then
 			HelpMePlayDB.PlayerDB.Gossips[npcID] = {}
 		end
-		
-		-- If the NPC doesn't have a "g" table, then report that to the player.
+
 		if not HelpMePlayDB.PlayerDB.Gossips[npcID]["g"] then
 			print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": |cffFFD100" .. UnitName("target") .. "|r doesn't have a gossip entry. Please add a gossip entry (|cffFFD100/hmp gossip X|r) before attempting to automate confirmation.")
 			return
 		end
-		
-		-- If the NPC table doesn't have the "c" table, or the confirm table, then create it.
-		--
-		-- If they do have a "c" table, then remove it.
+
 		if not HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] then
 			HelpMePlayDB.PlayerDB.Gossips[npcID]["c"] = true
 		else
@@ -101,11 +79,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 	elseif cmd == "confirm" then
 		Confirm()
 	elseif (cmd == "quest" or cmd == "q") and arg1 ~= nil then
-		-- A shorthand way to check if a given quest has
-		-- been completed by the current player.
-		--
-		-- The argument must be a number, else silently
-		-- fail out.
 		if tonumber(arg1) then
 			self:Print(tostring(C_QuestLog.IsQuestFlaggedCompleted(arg1)))
 		end
@@ -143,7 +116,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 	elseif cmd == "taxi" and arg1 ~= nil then
 		if HelpMePlayDB.DevModeEnabled then
-			-- The flight map frame must be visible.
 			if not FlightMapFrame:IsVisible() then return end
 			
 			for _, taxiNodeData in ipairs(C_TaxiMap.GetAllTaxiNodes(GetTaxiMapID())) do
@@ -155,14 +127,9 @@ function HelpMePlay:SlashCommandHandler(cmd)
 		end
 	elseif cmd == "talents" then
 		if HelpMePlayDB.DevModeEnabled then
-			-- Create a couple variables to hold the scroll
-			-- frame and edit box.
 			local scrollFrame
 			local editBox
 			
-			-- If the scroll frame exists, then set the
-			-- aforementioned variables to the existing
-			-- frames and show them.
 			if HMPTalentScrollFrame then
 				scrollFrame = HMPTalentScrollFrame
 				editBox = HMPTalentEditBox
@@ -170,9 +137,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				HMPTalentEditBox:Show()
 				HMPTalentCloseButton:Show()
 			else
-				-- If the scroll frame and its children
-				-- don't exist, then create them and setup
-				-- their attributes.
 				local button = CreateFrame("Button", "HMPTalentCloseButton", HMPTalentScrollFrame, "UIPanelButtonTemplate")
 				local scrollFrame = CreateFrame("ScrollFrame", "HMPTalentScrollFrame", UIParent, "UIPanelScrollFrameTemplate")
 				scrollFrame:SetSize(300,200)
@@ -193,11 +157,6 @@ function HelpMePlay:SlashCommandHandler(cmd)
 				end)
 			end
 			
-			-- Iterate through the current specialization's
-			-- talent nodes and insert them into the traits
-			-- table.
-			-- By default, these will be entered in numerical
-			-- order by the node ID.
 			local configID = C_ClassTalents.GetActiveConfigID()
 			local nodes = C_Traits.GetTreeNodes(C_Traits.GetConfigInfo(configID).treeIDs[1])
 			local text = ""
@@ -213,22 +172,22 @@ function HelpMePlay:SlashCommandHandler(cmd)
 					end
 				end
 			end
-			
-			-- Sort the traits table alphabetically by trait name.
+
 			table.sort(traits, function(a, b) return string.lower(a.name) < string.lower(b.name) end)
-			
-			-- Append all the traits to the text variable.
+
 			for _, v in ipairs(traits) do
 				text = text .. "\t\t{ -- " .. v.name .. "\n\t\t\t[\"n\"] = " .. v.nodeID .. ",\n\t\t\t[\"e\"] = " .. v.entryID .. ",\n\t\t},\n"
 			end
-			
-			-- Add the concatenated traits variable to the edit box
-			-- and show it.
+
 			editBox:SetText(text)
 		end
 	elseif cmd == "atlas" and arg1 ~= nil then
 		if HelpMePlayDB.DevModeEnabled then
 			print(CreateAtlasMarkup(arg1, 32, 32))
+		end
+	elseif (cmd == "equip" and arg1 ~= nil) then
+		if HelpMePlayDB.DevModeEnabled then
+			addon.EquipItem(arg1)
 		end
 	end
 end

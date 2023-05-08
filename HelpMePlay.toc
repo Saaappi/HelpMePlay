@@ -22,16 +22,16 @@ Lib\AceHook-3.0\AceHook-3.0.xml
 Lib\AceComm-3.0\AceComm-3.0.xml
 Lib\LibDBIcon-1.0\LibDBIcon-1.0.lua
 
-# Data
+# Localization
+
+# Stuff to Load after Localization
 Data\ConstantsDB.lua
 Data\DeveloperDB.lua
-
+Functions.lua
 HelpMePlay.lua
-
-# Options
 Settings.lua
 
-# Data
+# Data Files
 Data\MainDB.lua
 Data\AnimaPowersDB.lua
 Data\FlightPathDB.lua
