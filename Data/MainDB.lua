@@ -66,11 +66,6 @@ local DUNGEON_QUEUES_BY_QUEST = {
 }
 addon.DUNGEON_QUEUES_BY_QUEST = DUNGEON_QUEUES_BY_QUEST
 
--- Emotes
-	-- These emotes are processed when the specified
-	-- NPC is targeted.
-	-- Set 'gossip' to false if the GOSSIP_SHOW event
-	-- shouldn't be handled for a specific NPC.
 local EMOTES = {
 	[153580]	= { gossip=false, emote="wave" }, 		-- Gor'groth (Exile's Reach)
 	[162553] 	= { gossip=true, emote="flex" }, 		-- Runestone of Constructs
@@ -82,14 +77,12 @@ local EMOTES = {
 }
 addon.EMOTES = EMOTES
 
--- Garrison Missions
 local GARRISON_MISSIONS = {
 	[2] 	= "Gronnlings Abound",
 	[66]	= "Killing the Corrupted",
 }
 addon.GARRISON_MISSIONS = GARRISON_MISSIONS
 
--- Maps
 local CINEMATIC_BADMAPS = {
 	21, 	-- Silverpine Forest
 	217,	-- Ruins of Gilneas
@@ -97,7 +90,6 @@ local CINEMATIC_BADMAPS = {
 }
 addon.CINEMATIC_BADMAPS = CINEMATIC_BADMAPS
 
--- Notes
 local NOTES = {
 	[159915] = { -- Gatamatos
 		["note"] = "|cff3CB043CLICK ME!|r",
@@ -153,12 +145,10 @@ local NOTES = {
 }
 addon.NOTES = NOTES
 
--- Ignored NPCs (Gossip)
 local IGNORED_GOSSIP_NPC = {
 }
 addon.IGNORED_GOSSIP_NPC = IGNORED_GOSSIP_NPC
 
--- Quests
 local IGNORED_QUESTS = {
 	[53437] = true, -- The MOTHERLODE!!: Raw Deal
 	[59583] = true, -- Welcome to Stormwind
@@ -166,7 +156,6 @@ local IGNORED_QUESTS = {
 }
 addon.IGNORED_QUESTS = IGNORED_QUESTS
 
--- Quest Rewards
 local QUESTREWARDS = {
 	[45724] = "Champion's Purse",
 }
@@ -176,7 +165,6 @@ local IGNORED_QUESTREWARDS = {
 addon.QUESTREWARDS = QUESTREWARDS
 addon.IGNORED_QUESTREWARDS = IGNORED_QUESTREWARDS
 
--- Quest Merchants
 local QUESTMERCHANTS = {
 	-- Legion
 		-- Highmountain
@@ -199,7 +187,6 @@ local QUESTMERCHANTS = {
 }
 addon.QUESTMERCHANTS = QUESTMERCHANTS
 
--- Speech
 local SPEECH = {
 	-- Playful Trickster (Ardenweald)
 	["not so much as a word of praise!"]										= { type="emote", emote="praise" },
@@ -211,34 +198,7 @@ local SPEECH = {
 }
 addon.SPEECH = SPEECH
 
--- Vehicles
 local VEHICLES = {
 	89619,	-- Murky (Highmountain)
 }
 addon.VEHICLES = VEHICLES
-
--- Holidays
-local HOLIDAYS = {
-	[324] = { -- Hallow's End
-		["rewardID"] 	= 285,
-		["mountID"] 	= 219,
-		["icon"] 		= "Interface\\ICONS\\inv_belt_12",
-		["width"] 		= 28,
-		["height"] 		= 26,
-	},
-	[327] = { -- Brewfest
-		["rewardID"] 	= 287,
-		["mountID"] 	= 202,
-		["icon"] 		= "Interface\\ICONS\\ability_mount_kotobrewfest",
-		["width"] 		= 28,
-		["height"] 		= 26,
-	},
-	[423] = { -- Love is in the Air
-		["rewardID"] 	= 288,
-		["mountID"] 	= 352,
-		["icon"] 		= "Interface\\ICONS\\inv_rocketmountpink",
-		["width"] 		= 28,
-		["height"] 		= 26,
-	},
-}
-addon.HOLIDAYS = HOLIDAYS

@@ -2200,7 +2200,8 @@ local settings = {
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "The minimap icon should once again open the settings menu for the addon (and not just the settings menu for the game.)",
+					name = coloredDash .. "The minimap icon should once again open the settings menu for the addon (and not just the settings menu for the game.)\n\n" ..
+					coloredDash .. "Fixed an issue with NPC tooltip notes returning an error.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
