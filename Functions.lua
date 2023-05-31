@@ -87,6 +87,10 @@ addon.EquipItem = function(itemLink)
 					end
 				end)
 			end
+		else
+			C_Timer.After(1, function()
+				addon.EquipItem(itemLink)
+			end)
 		end
 	else
 		C_Timer.After(1, function()
