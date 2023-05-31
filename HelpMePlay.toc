@@ -63,18 +63,16 @@ Automations\FlightPaths.lua
 Automations\Loot.lua
 Automations\Misc.lua
 Automations\Waypoints.lua
-
-# Systems
-Systems\Transmog.lua
-Systems\PlayerTalents.lua
-Systems\Dragonriding.lua
-Systems\TalentSystems.lua
-Systems\Notes.lua
-Systems\PartyPlay.lua
-Systems\Junker.lua
-Systems\QuestMobs.lua
-Systems\TalkingHead.lua
-Systems\PersonalHealth.lua
+Automations\Transmog.lua
+Automations\PlayerTalents.lua
+Automations\Dragonriding.lua
+Automations\TalentSystems.lua
+Automations\Notes.lua
+Automations\PartyPlay.lua
+Automations\Junker.lua
+Automations\QuestMobs.lua
+Automations\TalkingHead.lua
+Automations\PersonalHealth.lua
 
 # General Stuff
 Commands.lua
