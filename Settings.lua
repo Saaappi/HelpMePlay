@@ -475,7 +475,7 @@ local settings = {
 					type = "input",
 					get = function()
 						if not HelpMePlayDB.TrainersMinAmount then
-							HelpMePlayDB.TrainersMinAmount = 500000 -- 50 gold
+							HelpMePlayDB.TrainersMinAmount = 500000
 						end
 						return GetCoinTextureString(HelpMePlayDB.TrainersMinAmount)
 					end,
@@ -539,7 +539,6 @@ local settings = {
 					set = function(_, val)
 						HelpMePlayDB.JunkerSoulboundModeEnabled = val
 						if val then
-							-- Set the rarity to Poor since the player enabled Soulbound Mode.
 							HelpMePlayDB.RarityID = 0
 						end
 					end,
@@ -586,12 +585,12 @@ local settings = {
 						[4] = "Epic",
 					},
 					sorting = {
-						[1] = 5, 	-- Preserve Transmog
-						[2] = 0, 	-- Poor
-						[3] = 1, 	-- Common
-						[4] = 2, 	-- Uncommon
-						[5] = 3, 	-- Rare
-						[6] = 4, 	-- Epic
+						[1] = 5,
+						[2] = 0,
+						[3] = 1,
+						[4] = 2,
+						[5] = 3,
+						[6] = 4,
 					},
 					get = function()
 						if not HelpMePlayDB.RarityID then
@@ -603,7 +602,6 @@ local settings = {
 						HelpMePlayDB.RarityID = rarityID
 						if rarityID == 5 then
 							if HelpMePlayDB.JunkerSoulboundModeEnabled then
-								-- Disable Soulbound Mode since the player chose the Preserve Transmog option.
 								HelpMePlayDB.JunkerSoulboundModeEnabled = false
 							end
 						end
@@ -629,10 +627,6 @@ local settings = {
 							button1 = "Import from Addon",
 							button2 = "Import from List",
 							button3 = CANCEL,
-							-- This is confusing, but I don't want Cancel
-							-- as the second button. Thus, OnAlt is used
-							-- for cancels and OnCancel is used for loading
-							-- an item ID list.
 							OnButton1 = function(self, data)
 								if IsAddOnLoaded("AutoVendor") then
 									if AutoVendorDB["profiles"]["Default"] then
@@ -657,15 +651,6 @@ local settings = {
 								end
 							end,
 							OnCancel = function(self, data)
-								-- Create a count variable to track how many items
-								-- are inserted into the table.
-								--
-								-- Get the text from the editbox and store it in a
-								-- string variable.
-								--
-								-- Convert the string to a table.
-								--
-								-- Import each item id into the table.
 								StaticPopupDialogs["HELPMEPLAY_JUNKER_IMPORT_ITEMLIST"] = {
 									text = "|T132281:36|t\n\n" ..
 									"Please paste your comma-delimited list of items in the editbox below.",
@@ -1656,12 +1641,12 @@ local settings = {
 						[5] = "Auto",
 					},
 					sorting = {
-						[1] = 0, 	-- Disabled
-						[2] = 5, 	-- Auto
-						[3] = 1, 	-- Kyrian
-						[4] = 3, 	-- Necrolord
-						[5] = 4, 	-- Night Fae
-						[6] = 2, 	-- Venthyr
+						[1] = 0,
+						[2] = 5,
+						[3] = 1,
+						[4] = 3,
+						[5] = 4,
+						[6] = 2,
 					},
 					get = function()
 						if not HelpMePlayDB.CovenantID then
@@ -1702,9 +1687,9 @@ local settings = {
 						[2] = "Auto",
 					},
 					sorting = {
-						[1] = 0, 	-- Disabled
-						[2] = 1, 	-- Notify
-						[3] = 2, 	-- Automatic
+						[1] = 0,
+						[2] = 1,
+						[3] = 2,
 					},
 					get = function()
 						if not HelpMePlayDB.TorghastPowersID then
@@ -1840,23 +1825,21 @@ local settings = {
 						[13] = CreateAtlasMarkup("classicon-evoker") .. " " .. "Evoker",
 					},
 					sorting = {
-						[1] = 6, 	-- Death Knight
-						[2] = 12, 	-- Demon Hunter
-						[3] = 11, 	-- Druid
-						[4] = 13, 	-- Evoker
-						[5] = 3, 	-- Hunter
-						[6] = 8, 	-- Mage
-						[7] = 10, 	-- Monk
-						[8] = 2, 	-- Paladin
-						[9] = 5, 	-- Priest
-						[10] = 4, 	-- Rogue
-						[11] = 7, 	-- Shaman
-						[12] = 9, 	-- Warlock
-						[13] = 1, 	-- Warrior
+						[1] = 6,
+						[2] = 12,
+						[3] = 11,
+						[4] = 13,
+						[5] = 3,
+						[6] = 8,
+						[7] = 10,
+						[8] = 2,
+						[9] = 5,
+						[10] = 4,
+						[11] = 7,
+						[12] = 9,
+						[13] = 1,
 					},
 					get = function()
-						-- If not set, then set the default class to Warrior so the
-						-- specialization dropdown can be populated.
 						if not HelpMePlayDB.classID then
 							HelpMePlayDB.classID = 1
 						end
@@ -1907,10 +1890,6 @@ local settings = {
 							button1 = "OK",
 							button2 = "Delete",
 							button3 = CANCEL,
-							-- This is confusing, but I don't want Cancel
-							-- as the second button. Thus, OnAlt is used
-							-- for cancels and OnCancel is used for deleting
-							-- talent loadouts for the class/spec.
 							OnButton1 = function(self, data)
 								local importString = self.editBox:GetText()
 								
@@ -1918,28 +1897,21 @@ local settings = {
 									local importStream = ExportUtil.MakeImportDataStream(importString)
 									local headerValid, serializationVersion, specID, treeHash = ClassTalentImportExportMixin:ReadLoadoutHeader(importStream)
 									
-									-- If the import string isn't valid, then return an error.
 									if (not headerValid) then
 										ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_BAD_STRING)
 										return false
 									end
 									
-									-- If the import string specID doesn't match the specID chosen in the
-									-- dropdown, then return an error.
 									if specID ~= HelpMePlayDB.specID then
 										ClassTalentImportExportMixin:ShowImportError("|cffFF0000Loadout does not match the chosen specialization.|r")
 										return false
 									end
 									
-									-- If the import stream is a loadout from a previous patch, then return
-									-- an error.
 									if LOADOUT_SERIALIZATION_VERSION ~= nil and (serializationVersion ~= LOADOUT_SERIALIZATION_VERSION) then
 										ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
 										return false
 									end
 									
-									-- If the PlayerTalents table is nil, then populate it with some empty
-									-- data.
 									if HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID] == nil then
 										HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID] = {}
 									end
@@ -1947,8 +1919,6 @@ local settings = {
 										HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] = ""
 									end
 									
-									-- The import string should be valid and all is right in the world, so put
-									-- the import string into the database.
 									HelpMePlayDB.PlayerTalents[HelpMePlayDB.classID][specID] = importString
 								else
 									print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": Please open the talent interface once before trying to import a custom loadout.")
@@ -1962,7 +1932,7 @@ local settings = {
 									end
 								end
 							end,
-							OnAlt = function() end, -- Cancel Button
+							OnAlt = function() end,
 							showAlert = true,
 							hasEditBox = true,
 							whileDead = false,
