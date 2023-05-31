@@ -68,7 +68,6 @@ Automations\Waypoints.lua
 Systems\Transmog.lua
 Systems\PlayerTalents.lua
 Systems\Dragonriding.lua
-Systems\Commands.lua
 Systems\TalentSystems.lua
 Systems\Notes.lua
 Systems\PartyPlay.lua
@@ -78,4 +77,5 @@ Systems\TalkingHead.lua
 Systems\PersonalHealth.lua
 
 # General Stuff
+Commands.lua
 Keybinding.lua
