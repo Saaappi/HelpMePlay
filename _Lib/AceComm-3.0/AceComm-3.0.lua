@@ -51,7 +51,7 @@ AceComm.multipart_reassemblers = nil
 AceComm.multipart_spool = AceComm.multipart_spool or {}
 
 --- Register for Addon Traffic on a specified prefix
--- @param prefix A printable character (\032-\255) classification of the message (typically name or nameEvent), max 16 characters
+-- @param prefix A printable character (\032-\255) classification of the message (typically AddonName or AddonNameEvent), max 16 characters
 -- @param method Callback to call on message reception: Function reference, or method name (string) to call on self. Defaults to "OnCommReceived"
 function AceComm:RegisterComm(prefix, method)
 	if method == nil then
@@ -73,7 +73,7 @@ end
 local warnedPrefix=false
 
 --- Send a message over the Addon Channel
--- @param prefix A printable character (\032-\255) classification of the message (typically name or nameEvent)
+-- @param prefix A printable character (\032-\255) classification of the message (typically AddonName or AddonNameEvent)
 -- @param text Data to send, nils (\000) not allowed. Any length.
 -- @param distribution Addon channel, e.g. "RAID", "GUILD", etc; see SendAddonMessage API
 -- @param target Destination for some distributions; see SendAddonMessage API
