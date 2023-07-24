@@ -1,5 +1,5 @@
 ## Author: LightskyGG
-## Interface: 100100
+## Interface: 100105
 ## Title: HelpMePlay
 ## Notes: Version: 2.1.5
 ## SavedVariables: HelpMePlayDB
@@ -9,70 +9,114 @@
 ## OptionalDeps: Ace3
 
 # Libraries
-Lib\LibStub\LibStub.lua
-Lib\LibDataBroker-1.1\LibDataBroker-1.1.lua
-Lib\CallbackHandler-1.0\CallbackHandler-1.0.xml
-Lib\AceAddon-3.0\AceAddon-3.0.xml
-Lib\AceEvent-3.0\AceEvent-3.0.xml
-Lib\AceDB-3.0\AceDB-3.0.xml
-Lib\AceConsole-3.0\AceConsole-3.0.xml
-Lib\AceGUI-3.0\AceGUI-3.0.xml
-Lib\AceConfig-3.0\AceConfig-3.0.xml
-Lib\AceHook-3.0\AceHook-3.0.xml
-Lib\AceComm-3.0\AceComm-3.0.xml
-Lib\LibDBIcon-1.0\LibDBIcon-1.0.lua
+_Lib\LibStub\LibStub.lua
+_Lib\LibDataBroker-1.1\LibDataBroker-1.1.lua
+_Lib\CallbackHandler-1.0\CallbackHandler-1.0.xml
+_Lib\AceAddon-3.0\AceAddon-3.0.xml
+_Lib\AceEvent-3.0\AceEvent-3.0.xml
+_Lib\AceDB-3.0\AceDB-3.0.xml
+_Lib\AceConsole-3.0\AceConsole-3.0.xml
+_Lib\AceGUI-3.0\AceGUI-3.0.xml
+_Lib\AceConfig-3.0\AceConfig-3.0.xml
+_Lib\AceHook-3.0\AceHook-3.0.xml
+_Lib\AceComm-3.0\AceComm-3.0.xml
+_Lib\LibDBIcon-1.0\LibDBIcon-1.0.lua
 
-# Stuff to Load after Localization
-Data\ConstantsDB.lua
-Data\DeveloperDB.lua
-Functions.lua
+# Data Files (Most Important)
+_Data\ConstantsDB.lua
+_Data\DeveloperDB.lua
+
+# AddOn-Wide Functions
+_Functions\Functions.lua
+
+# AddOn Files
 HelpMePlay.lua
 Settings.lua
 
-# Data Files
-Data\MainDB.lua
-Data\AnimaPowersDB.lua
-Data\FlightPathDB.lua
-Data\WaypointsDB.lua
-Data\CovenantsDB.lua
-Data\PlayerTalentsDB.lua
-Data\TalentSystems\TitanicResearchDB.lua
-Data\TalentSystems\BoxOfManyThingsDB.lua
-Data\Gossips\GossipDB.lua
+# Data Files (Less Important)
+_Data\MainDB.lua
+_Data\AnimaPowersDB.lua
+_Data\FlightPathDB.lua
+_Data\WaypointsDB.lua
+_Data\CovenantsDB.lua
+_Data\PlayerTalentsDB.lua
+_Data\TalentSystems\TitanicResearchDB.lua
+_Data\TalentSystems\BoxOfManyThingsDB.lua
+_Data\Gossips\GossipDB.lua
 
-# Automations
-Automations\ChromieTime.lua
-Automations\AdventureMap.lua
-Automations\Trainers.lua
-Automations\AnimaPowers.lua
-Automations\Garrisons.lua
-Automations\WarMode.lua
-Automations\PlayerChoice.lua
-Automations\Merchants.lua
-Automations\ReadyChecks.lua
-Automations\Emotes.lua
-Automations\Speech.lua
-Automations\Groups.lua
-Automations\Gossip.lua
-Automations\Vehicles.lua
-Automations\RoleCheck.lua
-Automations\Repairs.lua
-Automations\Cinematics.lua
-Automations\Quests.lua
-Automations\FlightPaths.lua
-Automations\Loot.lua
-Automations\Misc.lua
-Automations\Waypoints.lua
-Automations\Transmog.lua
-Automations\PlayerTalents.lua
-Automations\Dragonriding.lua
-Automations\TalentSystems.lua
-Automations\Notes.lua
-Automations\PartyPlay.lua
-Automations\Junker.lua
-Automations\QuestMobs.lua
-Automations\TalkingHead.lua
-Automations\PersonalHealth.lua
+# Adventure Map
+AdventureMap\Core.lua
+
+# CinematicCanceler
+CinematicCanceler\Core.lua
+
+# CloseTalkingHead
+CloseTalkingHead\Core.lua
+
+# Dragonriding
+Dragonriding\Core.lua
+
+# Emotes
+Emotes\Core.lua
+
+# FlightMaster
+FlightMaster\Core.lua
+
+# Groups
+Groups\Core.lua
+
+# Junker
+Junker\Loot.lua
+Junker\Core.lua
+
+# Merchants
+Merchants\Core.lua
+
+# Misc
+Misc\Core.lua
+
+# PartyPlay
+PartyPlay\Core.lua
+
+# PersonalHealth
+PersonalHealth\Core.lua
+
+# QuestManager
+QuestManager\ChromieTime.lua
+QuestManager\Garrisons.lua
+QuestManager\PlayerChoice.lua
+QuestManager\Speech.lua
+QuestManager\Gossip.lua
+QuestManager\Vehicles.lua
+QuestManager\Repairs.lua
+QuestManager\Core.lua
+QuestManager\Notes.lua
+QuestManager\QuestMobs.lua
+
+# ReadyChecks
+ReadyChecks\Core.lua
+
+# RoleCheck
+RoleCheck\Core.lua
+
+# TalentAdvisor
+TalentAdvisor\PlayerTalents.lua
+TalentAdvisor\TalentSystems.lua
+
+# Torghast
+Torghast\AnimaPowers.lua
+
+# Trainers
+Trainers\Core.lua
+
+# Wardrobe
+Wardrobe\Core.lua
+
+# WarMode
+WarMode\Core.lua
+
+# WaypointCoordinator
+WaypointCoordinator\Core.lua
 
 # General Stuff
 Commands.lua
