@@ -1,5 +1,5 @@
 local addonName, addon = ...
-local e = CreateFrame("Frame")
+local events = CreateFrame("Frame")
 local tooltip = CreateFrame("GameTooltip", "HelpMePlayScannerTooltip", UIParent, "GameTooltipTemplate")
 local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonName)
 
@@ -24,32 +24,33 @@ end})
 
 ChatFrame_AddMessageEventFilter("CHAT_MSG_SYSTEM", Filter_ChatFrame)
 
-e:RegisterEvent("CHAT_MSG_ADDON")
-e:RegisterEvent("GROUP_JOINED")
-e:RegisterEvent("QUEST_ACCEPTED")
-e:RegisterEvent("QUEST_REMOVED")
-e:RegisterEvent("QUEST_TURNED_IN")
-e:RegisterEvent("UI_INFO_MESSAGE")
-e:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
-e:SetScript("OnEvent", function(self, event, ...)
-	if event == "CHAT_MSG_ADDON" then
+events:RegisterEvent("CHAT_MSG_ADDON")
+events:RegisterEvent("GROUP_JOINED")
+events:RegisterEvent("QUEST_ACCEPTED")
+events:RegisterEvent("QUEST_REMOVED")
+events:RegisterEvent("QUEST_TURNED_IN")
+events:RegisterEvent("UI_INFO_MESSAGE")
+events:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
+events:SetScript("OnEvent", function(self, event, ...)
+	if ( event == "CHAT_MSG_ADDON" ) then
 		-- Send the desired message to the
 		-- specified chat channel.
 		local addon, msg, channel, _, playerName = ...
-		if addon == name then
+		if ( addon == name ) then
 			playerName = string.split("-", playerName)
 			local unitName = UnitName("player")
-			if unitName == playerName then
+			if ( unitName == playerName ) then
 				SendChatMessage(msg, channel)
 			end
 		end
 	end
-	if event == "GROUP_JOINED" then
+	if ( event == "GROUP_JOINED" ) then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
+
 		print(addon.CONSTANTS.COLORED_ADDON_NAME .. ": " .. "[|cffFF7900WARNING|r] You've joined a group with Party Play enabled.")
 	end
-	if event == "QUEST_ACCEPTED" then
+	if ( event == "QUEST_ACCEPTED" ) then
 		-- Add the quest to the table.
 		--
 		-- Report to party chat that a
@@ -61,15 +62,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		
 		local questID = ...
-		HelpMePlayCharacterDB.Quests[questID] = { title = GetQuestTitleFromID[questID], progressPercent = 0 }
-		
-		if UnitInParty("player") then
-			if isRegistered then
-				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(name, "[HMP]: Accepted \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
+		HelpMePlayCharacterDB.Quests[questID] = { title = C_QuestLog.GetTitleForQuestID(questID), progressPercent = 0 }
+
+		if ( UnitInParty("player") ) then
+			if ( isRegistered ) then
+				if ( HelpMePlayDB.PartyPlayAnnounceEnabled ) then
+				    SendChatMessage("[HMP]: Accepted: " .. C_QuestLog.GetTitleForQuestID(questID) .. "!", "PARTY")
 				end
-				if HelpMePlayDB.PartyPlayAutoShareEnabled then
-					if C_QuestLog.IsPushableQuest(questID) then
+				if ( HelpMePlayDB.PartyPlayAutoShareEnabled ) then
+					if ( C_QuestLog.IsPushableQuest(questID) ) then
 						C_QuestLog.SetSelectedQuest(questID)
 						QuestLogPushQuest()
 					end
@@ -77,7 +78,7 @@ e:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
 	end
-	if event == "QUEST_REMOVED" then
+	if ( event == "QUEST_REMOVED" ) then
 		-- This event fires when quests are
 		-- turned in, but also when they're
 		-- abandoned.
@@ -91,18 +92,14 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		
 		local questID = ...
-		C_Timer.After(addon.CONSTANTS["ONE_SECOND"], function()
-			if HelpMePlayCharacterDB.Quests[questID] then
-				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					-- The player abandoned the quest or
-					-- left the area (eg. world quests).
-					C_ChatInfo.SendAddonMessage(name, "[HMP]: Removed \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
-				end
-				HelpMePlayCharacterDB.Quests[questID] = nil
-			end
-		end)
+        if ( HelpMePlayCharacterDB.Quests[questID] ~= nil ) then
+            if ( HelpMePlayDB.PartyPlayAnnounceEnabled ) then
+                SendChatMessage("[HMP]: Removed: " .. C_QuestLog.GetTitleForQuestID(questID) .. "!", "PARTY")
+            end
+            HelpMePlayCharacterDB.Quests[questID] = nil
+        end
 	end
-	if event == "QUEST_TURNED_IN" then
+	if ( event == "QUEST_TURNED_IN" ) then
 		-- Remove the quest from the table.
 		--
 		-- Report to party chat the a quest
@@ -112,15 +109,15 @@ e:SetScript("OnEvent", function(self, event, ...)
 		
 		local questID = ...
 		HelpMePlayCharacterDB.Quests[questID] = nil
-		if UnitInParty("player") then
-			if isRegistered then
-				if HelpMePlayDB.PartyPlayAnnounceEnabled then
-					C_ChatInfo.SendAddonMessage(name, "[HMP]: Turned in \"" .. GetQuestTitleFromID[questID] .. "\"", "PARTY")
+		if ( UnitInParty("player") ) then
+			if ( isRegistered ) then
+				if ( HelpMePlayDB.PartyPlayAnnounceEnabled ) then
+					SendChatMessage("[HMP]: Turned in: " .. C_QuestLog.GetTitleForQuestID(questID) .. "!", "PARTY")
 				end
 			end
 		end
 	end
-	if event == "UI_INFO_MESSAGE" then
+	if ( event == "UI_INFO_MESSAGE" ) then
 		-- Scrape the message from the UI to
 		-- send to the channel.
 		--
@@ -129,40 +126,41 @@ e:SetScript("OnEvent", function(self, event, ...)
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		
-		if UnitInParty("player") then
+		if ( UnitInParty("player") ) then
 			local supportedMsgTypes = { 290, 292, 293, 294, 295 }
 			local msgType, msg = ...
 			for _, supportedMsgType in ipairs(supportedMsgTypes) do
-				if supportedMsgType == msgType then
-					if isRegistered then
-						if HelpMePlayDB.PartyPlayAnnounceEnabled then
-							C_ChatInfo.SendAddonMessage(name, "[HMP]: " .. msg)
+				if ( supportedMsgType == msgType ) then
+					if ( isRegistered ) then
+						if ( HelpMePlayDB.PartyPlayAnnounceEnabled ) then
+							SendChatMessage("[HMP]: "..msg, "PARTY")
 						end
 					end
 				end
 			end
 		end
 	end
-	if event == "UNIT_QUEST_LOG_CHANGED" then
+	if ( event == "UNIT_QUEST_LOG_CHANGED" ) then
 		-- Used explicitly to handle quests
 		-- with progress bars.
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
-		if UnitInParty("player") then
+
+		if ( UnitInParty("player") ) then
 			local unit = ...
-			if unit == "player" then
+			if ( unit == "player" ) then
 				local numObjectives, text, objectiveType
 				for questID, questData in pairs(HelpMePlayCharacterDB.Quests) do
-					if C_QuestLog.IsOnQuest(questID) then
+					if ( C_QuestLog.IsOnQuest(questID) ) then
 						numObjectives = C_QuestLog.GetNumQuestObjectives(questID)
-						for index=1, numObjectives do
+						for index = 1, numObjectives do
 							text, objectiveType = GetQuestObjectiveInfo(questID, index, false)
-							if objectiveType == "progressbar" then
+							if ( objectiveType == "progressbar" ) then
 								local progressPercent = GetQuestProgressBarPercent(questID)
-								if progressPercent ~= questData.progressPercent then
-									if isRegistered then
-										if HelpMePlayDB.PartyPlayAnnounceEnabled then
-											C_ChatInfo.SendAddonMessage(name, "[HMP]: " .. text .. " (" .. questData.title .. ")", "PARTY")
+								if ( progressPercent ~= questData.progressPercent ) then
+									if ( isRegistered ) then
+										if ( HelpMePlayDB.PartyPlayAnnounceEnabled ) then
+											SendChatMessage("[HMP]: "..text.." ("..questData.title..")", "PARTY")
 										end
 									end
 									questData.progressPercent = progressPercent
