@@ -2,8 +2,8 @@ local addonName, addon = ...
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
 
 local HMPTransmogButton = CreateFrame("Button", "HMPTransmogButton", nil, "UIPanelButtonTemplate")
-local normalTexture = e:CreateTexture()
-local highlightTexture = e:CreateTexture()
+local normalTexture = HMPTransmogButton:CreateTexture()
+local highlightTexture = HMPTransmogButton:CreateTexture()
 
 local function RequipOriginalItems(equippedItems)
 	local currentlyEquippedItemLink = ""
