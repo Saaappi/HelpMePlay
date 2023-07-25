@@ -9,7 +9,7 @@ events:SetScript("OnEvent", function(self, event, ...)
 
 		local GUID = UnitGUID("target")
 		if ( GUID ) then
-			local _, _, _, _, _, npcID = strsplit("-", guid); npcID = tonumber(npcID)
+			local _, _, _, _, _, npcID = strsplit("-", GUID); npcID = tonumber(npcID)
 			for id, t in pairs(addon.EMOTES) do
 				if ( id == npcID ) then
 					if ( t.emote == "dismount" ) then
