@@ -2098,6 +2098,7 @@ local settings = {
 					name = coloredDash .. "ToC bump for Patch 10.1.5.\n" ..
 					coloredDash .. "Multiple backend code improvements for performance.\n" ..
 					coloredDash .. "Emote automation is now only triggered on target change. (Opposed to on target change and when the gossip options are displayed.)\n" ..
+					coloredDash .. "Updated the leveling builds.\n" ..
 					coloredDash .. "Updated the Ace3 and LibDBIcon libraries.",
 					order = 21,
 					type = "description",
