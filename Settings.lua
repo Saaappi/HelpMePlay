@@ -2128,7 +2128,8 @@ local settings = {
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Emote automation is now only triggered on target change. (Opposed to on target change and when the gossip options are displayed.)",
+					name = coloredDash .. "Multiple backend code improvements for performance.\n" ..
+					coloredDash .. "Emote automation is now only triggered on target change. (Opposed to on target change and when the gossip options are displayed.)",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
