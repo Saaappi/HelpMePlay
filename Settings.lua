@@ -2104,19 +2104,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},
-				--[[fixedHeader = {
+				fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "The minimap icon should once again open the settings menu for the addon (and not just the settings menu for the game.)\n\n" ..
-					coloredDash .. "Fixed an issue with NPC tooltip notes returning an error.\n\n" ..
-					coloredDash .. "Fixed an issue where equipped item validity was throwing an error. (This pertains to equipping new items obtained from quests or loot.)",
+					name = coloredDash .. "Party Play announcements and sharing should once again work as intended.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				removedHeader = {
 					name = "Removed",
 					order = 40,
