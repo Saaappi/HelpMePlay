@@ -1,28 +1,24 @@
 local addonName, addon = ...
-local e = CreateFrame("Frame")
-addon.HMPJunkerMerchantButton = _G.CreateFrame(
-	"Button",
-	"HMPJunkerMerchantButton",
-	_G.MerchantFrame,
-	"UIPanelButtonTemplate"
-)
-local normalTexture = e:CreateTexture()
-local pushedTexture = e:CreateTexture()
-local highlightTexture = e:CreateTexture()
+local events = CreateFrame("Frame")
 
-function HelpMePlay:ImportToJunker(itemId, instruction)
-	itemId = tonumber(itemId)
-	if instruction == "ADD" then
-		if HelpMePlayCharacterDB.Junker.DB[itemId] then
-			HelpMePlayCharacterDB.Junker.DB[itemId] = nil
+addon.HMPJunkerMerchantButton = CreateFrame("Button", "HMPJunkerMerchantButton", MerchantFrame, "UIPanelButtonTemplate")
+local normalTexture = addon.HMPJunkerMerchantButton:CreateTexture()
+local pushedTexture = addon.HMPJunkerMerchantButton:CreateTexture()
+local highlightTexture = addon.HMPJunkerMerchantButton:CreateTexture()
+
+function HelpMePlay:ImportToJunker(itemID, instruction)
+	itemID = tonumber(itemID)
+	if ( instruction == "ADD" ) then
+		if ( HelpMePlayCharacterDB.Junker.DB[itemID] ) then
+			HelpMePlayCharacterDB.Junker.DB[itemID] = nil
 		else
-			HelpMePlayCharacterDB.Junker.DB[itemId] = true
+			HelpMePlayCharacterDB.Junker.DB[itemID] = true
 		end
 	else
-		if HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] then
-			HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = nil
+		if ( HelpMePlayCharacterDB.Junker.BlacklistDB[itemID] ) then
+			HelpMePlayCharacterDB.Junker.BlacklistDB[itemID] = nil
 		else
-			HelpMePlayCharacterDB.Junker.BlacklistDB[itemId] = true
+			HelpMePlayCharacterDB.Junker.BlacklistDB[itemID] = true
 		end
 	end
 	return
@@ -162,17 +158,18 @@ local function HelpMePlaySellItems()
 	end
 end
 
-e:RegisterEvent("MERCHANT_SHOW")
-e:SetScript("OnEvent", function(self, event, ...)
+events:RegisterEvent("MERCHANT_SHOW")
+events:SetScript("OnEvent", function(self, event, ...)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-	if event == "MERCHANT_SHOW" then
-		if HelpMePlayDB.JunkerEnabled == false or HelpMePlayDB.JunkerEnabled == nil then
+
+	if ( event == "MERCHANT_SHOW" ) then
+		if ( HelpMePlayDB.JunkerEnabled == false or HelpMePlayDB.JunkerEnabled == nil ) then
 			HelpMePlay:HideJunkerButton()
 		else
 			HelpMePlay:ShowJunkerButton()
 			
-			if HelpMePlayDB.JunkerAutoSellEnabled then
-				if HelpMePlayDB.JunkerSafeModeEnabled then
+			if ( HelpMePlayDB.JunkerAutoSellEnabled ) then
+				if ( HelpMePlayDB.JunkerSafeModeEnabled ) then
 					HelpMePlaySellItems()
 				else
 					for i = 1, 12 do
@@ -188,18 +185,18 @@ local function OnTooltipSetItem(tooltip, data)
 	if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 	
 	local itemLink = select(2, TooltipUtil.GetDisplayedItem(tooltip))
-	if itemLink then
+	if ( itemLink ) then
 		local _, itemID = string.split(":", itemLink); itemID = tonumber(itemID)
-		if HelpMePlayDB.Junker.GlobalDB[itemID] then
+		if ( HelpMePlayDB.Junker.GlobalDB[itemID] ) then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL (GLOBAL)|r")
-		elseif HelpMePlayDB.Junker.GlobalBlacklistDB[itemID] then
+		elseif ( HelpMePlayDB.Junker.GlobalBlacklistDB[itemID] ) then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED (GLOBAL)|r")
-		elseif HelpMePlayCharacterDB.Junker.DB[itemID] then
+		elseif ( HelpMePlayCharacterDB.Junker.DB[itemID] ) then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFSELL|r")
-		elseif HelpMePlayCharacterDB.Junker.BlacklistDB[itemID] then
+		elseif ( HelpMePlayCharacterDB.Junker.BlacklistDB[itemID] ) then
 			tooltip:AddLine(" ")
 			tooltip:AddDoubleLine(addon.CONSTANTS.COLORED_ADDON_NAME .. ":", "|cffFFFFFFBLACKLISTED|r")
 		end
@@ -214,8 +211,7 @@ end)
 
 HMPJunkerMerchantButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText("This button can be used to trigger the selling process.\n\n" ..
-	"|cffADD8E6Added by HelpMePlay|r")
+	GameTooltip:SetText("This button can be used to trigger the selling process. (Added by HelpMePlay)", 1, 1, 1, true)
 	GameTooltip:Show()
 end)
 
