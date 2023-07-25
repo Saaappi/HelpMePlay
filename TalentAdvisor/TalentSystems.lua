@@ -1,20 +1,15 @@
 local addonName, addon = ...
 local e = CreateFrame("Frame")
-local talentSystemButton = _G.CreateFrame(
-	"Button",
-	"HMPTalentSystemButton",
-	nil,
-	"UIPanelButtonTemplate"
-)
+local talentSystemButton = CreateFrame("Button", "HMPTalentSystemButton", nil, "UIPanelButtonTemplate")
 
 local function CheckTalents(talentTree, currencyID)
 	local currency = 0
 	local talentInfo = ""
 	for _, talent in ipairs(talentTree) do
 		talentInfo = C_Garrison.GetTalentInfo(talent.perkID)
-		if talentInfo.researched == false and talentInfo.isBeingResearched == false then
+		if ( talentInfo.researched == false and talentInfo.isBeingResearched == false ) then
 			currency = C_CurrencyInfo.GetCurrencyInfo(currencyID)
-			if currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity then
+			if ( currency.quantity >= talentInfo["researchCurrencyCosts"][1].currencyQuantity ) then
 				for rank = (talentInfo.talentRank + 1), talentInfo.talentMaxRank do
 					C_Garrison.ResearchTalent(talent.perkID, rank)
 				end
@@ -27,8 +22,8 @@ local function CheckTalents(talentTree, currencyID)
 end
 
 local function GetTalentTreeInfo(talentTreeID)
-	if talentTreeID == 271 then -- Titanic Research Archive
-		if HelpMePlayDB.TitanResearchEnabled then
+	if ( talentTreeID == 271 ) then -- Titanic Research Archive
+		if ( HelpMePlayDB.TitanResearchEnabled ) then
 			HMPTalentSystemButton:SetSize(50, 20)
 			HMPTalentSystemButton:SetText("Learn")
 			
@@ -54,13 +49,12 @@ local function GetTalentTreeInfo(talentTreeID)
 
 			HMPTalentSystemButton:HookScript("OnEnter", function(self)
 				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-				GameTooltip:SetText("Automatically learns all possible talents in the given system.\n\n" ..
-				"|cffADD8E6Added by HelpMePlay|r")
+				GameTooltip:SetText("Automatically learns all possible talents in the given system. (Added by HelpMePlay)", 1, 1, 1, true)
 				GameTooltip:Show()
 			end)
 
 			HMPTalentSystemButton:HookScript("OnLeave", function(self)
-				if GameTooltip:GetOwner() == self then
+				if ( GameTooltip:GetOwner() == self ) then
 					GameTooltip:Hide()
 				end
 			end)
@@ -70,8 +64,8 @@ local function GetTalentTreeInfo(talentTreeID)
 		else
 			return
 		end
-	elseif talentTreeID == 461 then -- The Box of Many Things
-		if HelpMePlayDB.BoxOfManyThingsEnabled then
+	elseif ( talentTreeID == 461 ) then -- The Box of Many Things
+		if ( HelpMePlayDB.BoxOfManyThingsEnabled ) then
 			HMPTalentSystemButton:SetSize(50, 20)
 			HMPTalentSystemButton:SetText("Learn")
 			
@@ -97,13 +91,12 @@ local function GetTalentTreeInfo(talentTreeID)
 
 			HMPTalentSystemButton:HookScript("OnEnter", function(self)
 				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-				GameTooltip:SetText("Automatically learns all possible talents in the given system.\n\n" ..
-				"|cffADD8E6Added by HelpMePlay|r")
+				GameTooltip:SetText("Automatically learns all possible talents in the given system. (Added by HelpMePlay)", 1, 1, 1, true)
 				GameTooltip:Show()
 			end)
 
 			HMPTalentSystemButton:HookScript("OnLeave", function(self)
-				if GameTooltip:GetOwner() == self then
+				if ( GameTooltip:GetOwner() == self ) then
 					GameTooltip:Hide()
 				end
 			end)
@@ -120,21 +113,24 @@ e:RegisterEvent("GARRISON_TALENT_NPC_CLOSED")
 e:RegisterEvent("GARRISON_TALENT_NPC_OPENED")
 e:RegisterEvent("GARRISON_TALENT_RESEARCH_STARTED")
 e:SetScript("OnEvent", function(self, event, ...)
-	if event == "GARRISON_TALENT_NPC_OPENED" then
+	if ( event == "GARRISON_TALENT_NPC_OPENED" ) then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+
 		local _, talentTreeID = ...
 		GetTalentTreeInfo(talentTreeID)
 	end
 	
-	if event == "GARRISON_TALENT_RESEARCH_STARTED" then
+	if ( event == "GARRISON_TALENT_RESEARCH_STARTED" ) then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
+
 		local _, talentTreeID = ...
 		GetTalentTreeInfo(talentTreeID)
 	end
 	
-	if event == "GARRISON_TALENT_NPC_CLOSED" then
+	if ( event == "GARRISON_TALENT_NPC_CLOSED" ) then
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
-		if HMPTalentSystemButton:IsVisible() then
+
+		if ( HMPTalentSystemButton:IsVisible() ) then
 			HMPTalentSystemButton:Hide()
 		end
 	end
