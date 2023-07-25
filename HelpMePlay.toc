@@ -72,9 +72,6 @@ Junker\Core.lua
 # Merchants
 Merchants\Core.lua
 
-# Misc
-Misc\Core.lua
-
 # PartyPlay
 PartyPlay\Core.lua
 

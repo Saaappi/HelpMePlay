@@ -167,6 +167,12 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if (HelpMePlayDB.EquipLootIgnoreBindEnabled) then
 				HelpMePlayDB.EquipLootIgnoreBindEnabled = nil
 			end
+			if ( HelpMePlayDB.AutoInviteEnabled ) then
+			    HelpMePlayDB.AutoInviteEnabled = nil
+			end
+            if ( HelpMePlayDB.InviteKeyword ) then
+                HelpMePlayDB.InviteKeyword = nil
+            end
 		end
 	end
 end)

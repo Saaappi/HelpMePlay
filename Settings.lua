@@ -1757,39 +1757,6 @@ local settings = {
 					end,
 					set = function(_, val) HelpMePlayDB.WaterReminderMaxDelay = val end,
 				},
-				Party_Invitations_Header = {
-					name = "Party Invitations",
-					order = 20,
-					type = "header",
-				},
-				Auto_Invite = {
-					name = "Auto Invite",
-					order = 21,
-					desc = "Toggle to allow the addon to process whispers for inviting players.",
-					type = "toggle",
-					get = function()
-						if not HelpMePlayDB.AutoInviteEnabled then
-							HelpMePlayDB.AutoInviteEnabled = false
-						end
-						return HelpMePlayDB.AutoInviteEnabled
-					end,
-					set = function(_, val) HelpMePlayDB.AutoInviteEnabled = val end,
-				},
-				Invite_Keyword = {
-					name = "Invite Keyword",
-					order = 22,
-					usage = "|cffFFFFFF" .. "Enter a keyword people can whisper you to automatically receive a party invite.\n\n" ..
-					"The default keywords are |cffFFD100invite|r and |cffFFD100inv|r.\n\n" ..
-					"Players can always message you the default keywords even if you specify a custom entry.|r",
-					type = "input",
-					get = function()
-						if not HelpMePlayDB.InviteKeyword then
-							HelpMePlayDB.InviteKeyword = "invite"
-						end
-						return HelpMePlayDB.InviteKeyword
-					end,
-					set = function(_, val) HelpMePlayDB.InviteKeyword = string.lower(val) end,
-				},
             },
         },
 		Import_Tab = {
@@ -2149,17 +2116,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				--[[removedHeader = {
+				removedHeader = {
 					name = "Removed",
 					order = 40,
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "Removed the |cffFFD100Ignore Bind|r toggle. (This was under the advanced settings for |cffFFD100Equip Loot|r.)",
+					name = coloredDash .. "Removed the Auto Invite automation.",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[Author_Notes_Header = {
 					name = "Author Notes",
 					order = 50,
