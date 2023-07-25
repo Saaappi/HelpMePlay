@@ -2122,17 +2122,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				--[[changedHeader = {
+				changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Changed the minimap icon to match the icon used in the addon list.",
+					name = coloredDash .. "Emote automation is now only triggered on target change. (Opposed to on target change and when the gossip options are displayed.)",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[fixedHeader = {
 					name = "Fixed",
 					order = 30,
