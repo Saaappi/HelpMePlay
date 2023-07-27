@@ -2110,7 +2110,8 @@ local settings = {
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "Party Play announcements and sharing should once again work as intended.",
+					name = coloredDash .. "Party Play announcements and sharing should once again work as intended.\n" ..
+					coloredDash .. "Player talents are now properly saved on the server side using the correct config ID.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
