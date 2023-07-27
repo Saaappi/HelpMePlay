@@ -84,8 +84,12 @@ local function Import(loadoutEntryInfo, treeID)
         end
     end
 	
-	C_Traits.StageConfig(configID)
-	C_Traits.CommitConfig(configID)
+	local loadoutConfigID = C_ClassTalents.GetLastSelectedSavedConfigID(PlayerUtil.GetCurrentSpecID())
+    local isStaged = C_Traits.StageConfig(loadoutConfigID)
+    if ( isStaged ) then
+        C_Traits.CommitConfig(loadoutConfigID)
+    end
+
     return true
 end
 
