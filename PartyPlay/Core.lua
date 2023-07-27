@@ -7,8 +7,6 @@ local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonPrefix)
 
 if ( not isRegistered ) then
     print(addonName .. " not registered to the server to send chat messages!")
-else
-    print(addonName .. " registered successfully!")
 end
 
 local function Filter_ChatFrame(self, event, msg, author, ...)
