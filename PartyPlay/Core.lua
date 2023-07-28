@@ -105,16 +105,11 @@ events:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if ( event == "UI_INFO_MESSAGE" ) then
-		-- Scrape the message from the UI to
-		-- send to the channel.
-		--
-		-- This is used in cases like:
-		-- 6/6 Bewitched Bear slain
 		if HelpMePlayDB.Enabled == false or HelpMePlayDB.Enabled == nil then return false end
 		if HelpMePlayDB.PartyPlayEnabled == false or HelpMePlayDB.PartyPlayEnabled == nil then return false end
 		
 		if ( UnitInParty("player") ) then
-			local supportedMsgTypes = { 290, 292, 293, 294, 295 }
+			local supportedMsgTypes = { 304, 305, 306 }
 			local msgType, msg = ...
 			for _, supportedMsgType in ipairs(supportedMsgTypes) do
 				if ( supportedMsgType == msgType ) then
