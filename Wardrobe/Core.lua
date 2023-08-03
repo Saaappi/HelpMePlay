@@ -201,7 +201,7 @@ else -- Base UI
         HMPTransmogButton:SetSize(24, 24)
         if ( HelpMePlayDB.TransmogButtonEnabled ) then
             if ( ContainerFrameCombinedBags:IsVisible() ) then
-                HMPTransmogButton:SetPoint("RIGHT", ContainerFrameCombinedBags.PortraitContainer, "BOTTOM", -20, -15)
+                HMPTransmogButton:SetPoint("BOTTOMLEFT", ContainerFrameCombinedBags, "TOPLEFT", 0, 5)
             else
                 HMPTransmogButton:SetPoint("TOPRIGHT", ContainerFrame5, "TOPLEFT", -5, -10)
             end

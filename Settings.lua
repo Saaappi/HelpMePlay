@@ -2089,21 +2089,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				--[[changedHeader = {
+				changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "ToC bump for Patch 10.1.5.\n" ..
-					coloredDash .. "Multiple backend code improvements for performance.\n" ..
-					coloredDash .. "Emote automation is now only triggered on target change. (Opposed to on target change and when the gossip options are displayed.)\n" ..
-					coloredDash .. "Updated the leveling builds.\n" ..
-					coloredDash .. "Updated the Ace3 and LibDBIcon libraries.",
+					name = coloredDash .. "Shifted the Transmog button's position slightly when no addons are used.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				fixedHeader = {
 					name = "Fixed",
 					order = 30,
@@ -2115,17 +2111,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},
-				removedHeader = {
+				--[[removedHeader = {
 					name = "Removed",
 					order = 40,
 					type = "header",
 				},
 				removedText = {
-					name = coloredDash .. "Removed the Auto Invite automation.",
+					name = coloredDash .. "",
 					order = 41,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				--[[Author_Notes_Header = {
 					name = "Author Notes",
 					order = 50,
