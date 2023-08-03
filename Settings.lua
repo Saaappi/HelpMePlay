@@ -2089,7 +2089,7 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				changedHeader = {
+				--[[changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
@@ -2103,15 +2103,14 @@ local settings = {
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "Party Play announcements and sharing should once again work as intended.\n" ..
-					coloredDash .. "Player talents are now properly saved on the server side using the correct config ID.",
+					name = coloredDash .. "Fixed the tooltip for the Transmog button stretching across the screen.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",

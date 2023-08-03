@@ -202,11 +202,10 @@ else -- Base UI
         if ( HelpMePlayDB.TransmogButtonEnabled ) then
             if ( ContainerFrameCombinedBags:IsVisible() ) then
                 HMPTransmogButton:SetPoint("RIGHT", ContainerFrameCombinedBags.PortraitContainer, "BOTTOM", -20, -15)
-                HMPTransmogButton:Show()
             else
                 HMPTransmogButton:SetPoint("TOPRIGHT", ContainerFrame5, "TOPLEFT", -5, -10)
-                HMPTransmogButton:Show()
             end
+            HMPTransmogButton:Show()
         end
 	end)
 end
@@ -217,8 +216,7 @@ end)
 
 HMPTransmogButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText("|cffFFFFFFLearn All Transmog|r\n" ..
-	"Click this button to learn all USABLE and UNKNOWN transmog in your inventory. (Added by HelpMePlay)", 1, 1, 1, true)
+	GameTooltip:SetText("Click this button to learn all USABLE and UNKNOWN transmog in your inventory. (Added by HelpMePlay)", 1, 1, 1, 1, true)
 	GameTooltip:Show()
 end)
 
