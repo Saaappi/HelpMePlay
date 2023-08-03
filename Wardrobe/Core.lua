@@ -1,8 +1,13 @@
 local addonName, addon = ...
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
-local size = 32
+local width = 36
+local height = 36
 
 local HMPTransmogButton = CreateFrame("Button", "HMPTransmogButton", ContainerFrameCombinedBags, "UIPanelButtonTemplate")
+tinsert(UISpecialFrames, "HMPTransmogButton")
+
+HMPTransmogButton:SetSize(width, height)
+HMPTransmogButton:RegisterForClicks("LeftButtonUp")
 
 HMPTransmogButton.texture = HMPTransmogButton:CreateTexture()
 HMPTransmogButton.texture:SetTexture(132860)
@@ -10,15 +15,13 @@ HMPTransmogButton.texture:SetAllPoints(HMPTransmogButton)
 
 HMPTransmogButton.highlightTexture = HMPTransmogButton:CreateTexture()
 HMPTransmogButton.highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-HMPTransmogButton.highlightTexture:SetSize(size, (size - 1))
+HMPTransmogButton.highlightTexture:SetSize(width, (height - 1))
 HMPTransmogButton:SetHighlightTexture(HMPTransmogButton.highlightTexture, "ADD")
 
 HMPTransmogButton.pushedTexture = HMPTransmogButton:CreateTexture()
 HMPTransmogButton.pushedTexture:SetTexture("Interface\\Buttons\\UI-Quickslot-Depress")
-HMPTransmogButton.pushedTexture:SetSize(size, size)
+HMPTransmogButton.pushedTexture:SetSize(width, height)
 HMPTransmogButton:SetPushedTexture(HMPTransmogButton.pushedTexture)
-
-HMPTransmogButton:RegisterForClicks("LeftButtonUp")
 
 local function RequipOriginalItems(equippedItems)
 	local currentlyEquippedItemLink = ""
@@ -98,9 +101,6 @@ local function GetEquippedItems()
 end
 
 if select(2, IsAddOnLoaded("AdiBags")) then -- AdiBags
-	normalTexture:SetSize(size, size)
-	highlightTexture:SetSize(size, size)
-	HMPTransmogButton:SetSize(size, size)
 	local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 	HelpMePlay:SecureHook(AdiBags, "OpenAllBags", function(self)
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
@@ -114,9 +114,6 @@ if select(2, IsAddOnLoaded("AdiBags")) then -- AdiBags
 		end
 	end)
 elseif ( select(2, IsAddOnLoaded("ArkInventory")) ) then -- ArkInventory
-	normalTexture:SetSize(size, size)
-	highlightTexture:SetSize(size, size)
-	HMPTransmogButton:SetSize(size, size)
 	local ArkInventory = LibStub("AceAddon-3.0"):GetAddon("ArkInventory")
 	HelpMePlay:SecureHook(ArkInventory, "Frame_Main_Show", function(self)
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
@@ -130,9 +127,6 @@ elseif ( select(2, IsAddOnLoaded("ArkInventory")) ) then -- ArkInventory
 		end
 	end)
 elseif ( select(2, IsAddOnLoaded("Bagnon")) ) then -- Bagnon
-	normalTexture:SetSize(size, size)
-	highlightTexture:SetSize(size, size)
-	HMPTransmogButton:SetSize(size, size)
 	HelpMePlay:SecureHook(Bagnon.InventoryFrame, "OnShow", function(self)
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
 			HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
@@ -146,11 +140,6 @@ elseif ( select(2, IsAddOnLoaded("Bagnon")) ) then -- Bagnon
 		end
 	end)
 elseif ( select(2, IsAddOnLoaded("ElvUI")) ) then -- ElvUI
-	tinsert(UISpecialFrames, "HMPTransmogButton")
-	
-	normalTexture:SetSize(size, size)
-	highlightTexture:SetSize(size, size)
-	HMPTransmogButton:SetSize(size, size)
 	HelpMePlay:SecureHook("ToggleAllBags", function()
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
 			-- Players can have ElvUI enabled but disable
@@ -205,7 +194,7 @@ else -- Base UI
 	EventRegistry:RegisterCallback("ContainerFrame.OpenAllBags", function()
         if ( HelpMePlayDB.TransmogButtonEnabled ) then
             if ( ContainerFrameCombinedBags:IsVisible() ) then
-                HMPTransmogButton:SetPoint("BOTTOMLEFT", ContainerFrameCombinedBags, "TOPLEFT", 0, 5)
+                HMPTransmogButton:SetPoint("BOTTOMLEFT", HMPTransmogButton:GetParent(), "TOPLEFT", 0, 10)
             else
                 HMPTransmogButton:SetPoint("TOPRIGHT", ContainerFrame5, "TOPLEFT", -5, -10)
             end
@@ -220,7 +209,8 @@ end)
 
 HMPTransmogButton:HookScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText("Click this button to learn all USABLE and UNKNOWN transmog in your inventory. (Added by HelpMePlay)", 1, 1, 1, 1, true)
+	GameTooltip:SetText("|cffFF7C0AHelpMePlay|r\n" ..
+	"Click this button to learn all usable and unknown transmog in your inventory.", 1, 1, 1, 1, true)
 	GameTooltip:Show()
 end)
 
