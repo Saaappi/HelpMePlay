@@ -2095,7 +2095,8 @@ local settings = {
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Shifted the Transmog button's position slightly when no addons are used.",
+					name = coloredDash .. "Shifted the Transmog button's position slightly when no addons are used.\n" ..
+					coloredDash .. "Changed the Transmog button's icon.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",

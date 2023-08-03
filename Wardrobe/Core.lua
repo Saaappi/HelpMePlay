@@ -1,9 +1,24 @@
 local addonName, addon = ...
 local slots = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
+local size = 32
 
-local HMPTransmogButton = CreateFrame("Button", "HMPTransmogButton", nil, "UIPanelButtonTemplate")
-local normalTexture = HMPTransmogButton:CreateTexture()
-local highlightTexture = HMPTransmogButton:CreateTexture()
+local HMPTransmogButton = CreateFrame("Button", "HMPTransmogButton", ContainerFrameCombinedBags, "UIPanelButtonTemplate")
+
+HMPTransmogButton.texture = HMPTransmogButton:CreateTexture()
+HMPTransmogButton.texture:SetTexture(132860)
+HMPTransmogButton.texture:SetAllPoints(HMPTransmogButton)
+
+HMPTransmogButton.highlightTexture = HMPTransmogButton:CreateTexture()
+HMPTransmogButton.highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+HMPTransmogButton.highlightTexture:SetSize(size, (size - 1))
+HMPTransmogButton:SetHighlightTexture(HMPTransmogButton.highlightTexture, "ADD")
+
+HMPTransmogButton.pushedTexture = HMPTransmogButton:CreateTexture()
+HMPTransmogButton.pushedTexture:SetTexture("Interface\\Buttons\\UI-Quickslot-Depress")
+HMPTransmogButton.pushedTexture:SetSize(size, size)
+HMPTransmogButton:SetPushedTexture(HMPTransmogButton.pushedTexture)
+
+HMPTransmogButton:RegisterForClicks("LeftButtonUp")
 
 local function RequipOriginalItems(equippedItems)
 	local currentlyEquippedItemLink = ""
@@ -82,18 +97,10 @@ local function GetEquippedItems()
 	return
 end
 
-normalTexture:SetTexture("Interface\\Warfront\\WarfrontAssetIcons")
-normalTexture:SetTexCoord(0.516602, 0.579102, 0.00195312, 0.126953)
-highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-HMPTransmogButton:SetNormalTexture(normalTexture)
-HMPTransmogButton:SetHighlightTexture(highlightTexture, "ADD")
-
-HMPTransmogButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-
 if select(2, IsAddOnLoaded("AdiBags")) then -- AdiBags
-	normalTexture:SetSize(24, 24)
-	highlightTexture:SetSize(24, 24)
-	HMPTransmogButton:SetSize(24, 24)
+	normalTexture:SetSize(size, size)
+	highlightTexture:SetSize(size, size)
+	HMPTransmogButton:SetSize(size, size)
 	local AdiBags = LibStub("AceAddon-3.0"):GetAddon("AdiBags")
 	HelpMePlay:SecureHook(AdiBags, "OpenAllBags", function(self)
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
@@ -107,9 +114,9 @@ if select(2, IsAddOnLoaded("AdiBags")) then -- AdiBags
 		end
 	end)
 elseif ( select(2, IsAddOnLoaded("ArkInventory")) ) then -- ArkInventory
-	normalTexture:SetSize(24, 24)
-	highlightTexture:SetSize(24, 24)
-	HMPTransmogButton:SetSize(24, 24)
+	normalTexture:SetSize(size, size)
+	highlightTexture:SetSize(size, size)
+	HMPTransmogButton:SetSize(size, size)
 	local ArkInventory = LibStub("AceAddon-3.0"):GetAddon("ArkInventory")
 	HelpMePlay:SecureHook(ArkInventory, "Frame_Main_Show", function(self)
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
@@ -123,9 +130,9 @@ elseif ( select(2, IsAddOnLoaded("ArkInventory")) ) then -- ArkInventory
 		end
 	end)
 elseif ( select(2, IsAddOnLoaded("Bagnon")) ) then -- Bagnon
-	normalTexture:SetSize(24, 24)
-	highlightTexture:SetSize(24, 24)
-	HMPTransmogButton:SetSize(24, 24)
+	normalTexture:SetSize(size, size)
+	highlightTexture:SetSize(size, size)
+	HMPTransmogButton:SetSize(size, size)
 	HelpMePlay:SecureHook(Bagnon.InventoryFrame, "OnShow", function(self)
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
 			HMPTransmogButton:SetPoint("TOPRIGHT", BagnonInventoryFrame1, "TOPLEFT", -5, -1)
@@ -141,9 +148,9 @@ elseif ( select(2, IsAddOnLoaded("Bagnon")) ) then -- Bagnon
 elseif ( select(2, IsAddOnLoaded("ElvUI")) ) then -- ElvUI
 	tinsert(UISpecialFrames, "HMPTransmogButton")
 	
-	normalTexture:SetSize(24, 24)
-	highlightTexture:SetSize(24, 24)
-	HMPTransmogButton:SetSize(24, 24)
+	normalTexture:SetSize(size, size)
+	highlightTexture:SetSize(size, size)
+	HMPTransmogButton:SetSize(size, size)
 	HelpMePlay:SecureHook("ToggleAllBags", function()
 		if ( HelpMePlayDB.TransmogButtonEnabled ) then
 			-- Players can have ElvUI enabled but disable
@@ -196,9 +203,6 @@ elseif ( select(2, IsAddOnLoaded("ElvUI")) ) then -- ElvUI
 	end)
 else -- Base UI
 	EventRegistry:RegisterCallback("ContainerFrame.OpenAllBags", function()
-	    normalTexture:SetSize(24, 24)
-        highlightTexture:SetSize(24, 24)
-        HMPTransmogButton:SetSize(24, 24)
         if ( HelpMePlayDB.TransmogButtonEnabled ) then
             if ( ContainerFrameCombinedBags:IsVisible() ) then
                 HMPTransmogButton:SetPoint("BOTTOMLEFT", ContainerFrameCombinedBags, "TOPLEFT", 0, 5)
