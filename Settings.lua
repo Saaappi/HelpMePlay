@@ -2107,7 +2107,8 @@ local settings = {
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "Fixed the tooltip for the Transmog button stretching across the screen.",
+					name = coloredDash .. "Fixed the tooltip for the Transmog button stretching across the screen.\n" ..
+					coloredDash .. "Fixed an issue with the Transmog button remaining on the screen when the inventory was closed.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
