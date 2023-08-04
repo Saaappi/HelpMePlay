@@ -7,28 +7,6 @@ local height = 24
 
 addon.HMPTransmogButton = CreateFrame("Button", "HMPTransmogButton", nil, "UIPanelButtonTemplate")
 
-local function InitButton()
-    addon.HMPTransmogButton = CreateFrame("Button", "HMPTransmogButton", nil, "UIPanelButtonTemplate")
-    tinsert(UISpecialFrames, "HMPTransmogButton")
-
-    addon.HMPTransmogButton:SetSize(width, height)
-    addon.HMPTransmogButton:RegisterForClicks("LeftButtonUp")
-
-    addon.HMPTransmogButton.texture = addon.HMPTransmogButton:CreateTexture()
-    addon.HMPTransmogButton.texture:SetTexture(132860)
-    addon.HMPTransmogButton.texture:SetAllPoints(addon.HMPTransmogButton)
-
-    addon.HMPTransmogButton.highlightTexture = addon.HMPTransmogButton:CreateTexture()
-    addon.HMPTransmogButton.highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-    addon.HMPTransmogButton.highlightTexture:SetSize(width, (height - 1))
-    addon.HMPTransmogButton:SetHighlightTexture(addon.HMPTransmogButton.highlightTexture, "ADD")
-
-    addon.HMPTransmogButton.pushedTexture = addon.HMPTransmogButton:CreateTexture()
-    addon.HMPTransmogButton.pushedTexture:SetTexture("Interface\\Buttons\\UI-Quickslot-Depress")
-    addon.HMPTransmogButton.pushedTexture:SetSize(width, height)
-    addon.HMPTransmogButton:SetPushedTexture(addon.HMPTransmogButton.pushedTexture)
-end
-
 local function RequipOriginalItems(equippedItems)
 	local currentlyEquippedItemLink = ""
 	if ( not UnitAffectingCombat("player") ) then
@@ -104,6 +82,45 @@ local function GetEquippedItems()
 	end
 	
 	return
+end
+
+local function InitButton()
+    addon.HMPTransmogButton = CreateFrame("Button", "HMPTransmogButton", nil, "UIPanelButtonTemplate")
+    tinsert(UISpecialFrames, "HMPTransmogButton")
+
+    addon.HMPTransmogButton:SetSize(width, height)
+    addon.HMPTransmogButton:RegisterForClicks("LeftButtonUp")
+
+    addon.HMPTransmogButton.texture = addon.HMPTransmogButton:CreateTexture()
+    addon.HMPTransmogButton.texture:SetTexture(132860)
+    addon.HMPTransmogButton.texture:SetAllPoints(addon.HMPTransmogButton)
+
+    addon.HMPTransmogButton.highlightTexture = addon.HMPTransmogButton:CreateTexture()
+    addon.HMPTransmogButton.highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+    addon.HMPTransmogButton.highlightTexture:SetSize(width, (height - 1))
+    addon.HMPTransmogButton:SetHighlightTexture(addon.HMPTransmogButton.highlightTexture, "ADD")
+
+    addon.HMPTransmogButton.pushedTexture = addon.HMPTransmogButton:CreateTexture()
+    addon.HMPTransmogButton.pushedTexture:SetTexture("Interface\\Buttons\\UI-Quickslot-Depress")
+    addon.HMPTransmogButton.pushedTexture:SetSize(width, height)
+    addon.HMPTransmogButton:SetPushedTexture(addon.HMPTransmogButton.pushedTexture)
+
+    addon.HMPTransmogButton:HookScript("OnClick", function(self)
+    	GetEquippedItems()
+    end)
+
+    addon.HMPTransmogButton:HookScript("OnEnter", function(self)
+    	GameTooltip:SetOwner(self, "ANCHOR_TOP")
+    	GameTooltip:SetText("|cffFF7C0A" .. addonName .. "|r\n\n" ..
+    	"Click this button to learn all usable and unknown transmog in your inventory.", 1, 1, 1, 1, true)
+    	GameTooltip:Show()
+    end)
+
+    addon.HMPTransmogButton:HookScript("OnLeave", function(self)
+    	if ( GameTooltip:GetOwner() == self ) then
+    		GameTooltip:Hide()
+    	end
+    end)
 end
 
 if select(2, IsAddOnLoaded("AdiBags")) then -- AdiBags
@@ -221,23 +238,6 @@ else -- Base UI
         end
 	end)
 end
-
-addon.HMPTransmogButton:HookScript("OnClick", function(self)
-	GetEquippedItems()
-end)
-
-addon.HMPTransmogButton:HookScript("OnEnter", function(self)
-	GameTooltip:SetOwner(self, "ANCHOR_TOP")
-	GameTooltip:SetText("|cffFF7C0A" .. addonName .. "|r\n\n" ..
-	"Click this button to learn all usable and unknown transmog in your inventory.", 1, 1, 1, 1, true)
-	GameTooltip:Show()
-end)
-
-addon.HMPTransmogButton:HookScript("OnLeave", function(self)
-	if ( GameTooltip:GetOwner() == self ) then
-		GameTooltip:Hide()
-	end
-end)
 
 events:RegisterEvent("PLAYER_LOGIN")
 events:RegisterEvent("USE_COMBINED_BAGS_CHANGED")
