@@ -4,7 +4,7 @@
 ## Notes: Version: 2.1.6
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayCharacterDB
-## Version: 2.1.6
+## Version: 2.1.7
 ## IconTexture: Interface\AddOns\HelpMePlay\_Images\helpmeplay-icon.png
 ## OptionalDeps: Ace3
 

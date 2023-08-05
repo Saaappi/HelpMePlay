@@ -2078,41 +2078,39 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				--[[addedHeader = {
+				addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "The Transmog button now supports the LiteBag addon.",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},]]
-				changedHeader = {
+				},
+				--[[changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "Shifted the Transmog button's position slightly when no addons are used.\n" ..
-					coloredDash .. "Changed the Transmog button's icon.",
+					name = coloredDash .. "",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},
-				fixedHeader = {
+				},]]
+				--[[fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "Fixed the tooltip for the Transmog button stretching across the screen.\n" ..
-					coloredDash .. "Fixed an issue with the Transmog button remaining on the screen when the inventory was closed.",
+					name = coloredDash .. "",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				--[[removedHeader = {
 					name = "Removed",
 					order = 40,

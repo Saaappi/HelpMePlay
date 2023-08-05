@@ -221,10 +221,14 @@ else -- Base UI
 	EventRegistry:RegisterCallback("ContainerFrame.OpenAllBags", function()
         if ( HelpMePlayDB.TransmogButtonEnabled ) then
             InitButton()
-            if ( addon.combinedBags ) then
-                addon.HMPTransmogButton:SetPoint("BOTTOMLEFT", ContainerFrameCombinedBags, "TOPLEFT", 0, 10)
+            if ( IsAddOnLoaded("LiteBag") ) then
+                addon.HMPTransmogButton:SetPoint("BOTTOMLEFT", LiteBagBackpack, "TOPLEFT", 0, 10)
             else
-                addon.HMPTransmogButton:SetPoint("TOPRIGHT", ContainerFrame5.CloseButton, "TOPLEFT", -115, 0)
+                if ( addon.combinedBags ) then
+                    addon.HMPTransmogButton:SetPoint("BOTTOMLEFT", ContainerFrameCombinedBags, "TOPLEFT", 0, 10)
+                else
+                    addon.HMPTransmogButton:SetPoint("TOPRIGHT", ContainerFrame5.CloseButton, "TOPLEFT", -115, 0)
+                end
             end
             addon.HMPTransmogButton:Show()
         end
