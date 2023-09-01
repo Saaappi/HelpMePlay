@@ -1,5 +1,5 @@
 ## Author: LightskyGG
-## Interface: 100105
+## Interface: 100107
 ## Title: HelpMePlay
 ## Notes: Version: 2.1.8
 ## SavedVariables: HelpMePlayDB

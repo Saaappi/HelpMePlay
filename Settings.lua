@@ -2089,17 +2089,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				--[[changedHeader = {
+				changedHeader = {
 					name = "Changed",
 					order = 20,
 					type = "header",
 				},
 				changedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "TOC bump for Patch 10.1.7.",
 					order = 21,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				fixedHeader = {
 					name = "Fixed",
 					order = 30,
