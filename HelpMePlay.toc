@@ -1,10 +1,10 @@
 ## Author: LightskyGG
 ## Interface: 100105
 ## Title: HelpMePlay
-## Notes: Version: 2.1.6
+## Notes: Version: 2.1.8
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayCharacterDB
-## Version: 2.1.7
+## Version: 2.1.8
 ## IconTexture: Interface\AddOns\HelpMePlay\_Images\helpmeplay-icon.png
 ## OptionalDeps: Ace3
 

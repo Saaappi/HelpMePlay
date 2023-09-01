@@ -48,6 +48,9 @@ e:SetScript("OnEvent", function(self, event, addonLoaded)
 			if HelpMePlayDB.PlayerDB == nil then
 				HelpMePlayDB.PlayerDB = {}
 			end
+			if HelpMePlayDB.IgnoredCreatures == nil then
+                HelpMePlayDB.IgnoredCreatures = {}
+            end
 			if HelpMePlayDB.PlayerDB.Merchants == nil then
 				HelpMePlayDB.PlayerDB.Merchants = {}
 			end

@@ -2078,17 +2078,17 @@ local settings = {
 					type = "description",
 					fontSize = "large",
 				},
-				addedHeader = {
+				--[[addedHeader = {
 					name = "Added",
 					order = 10,
 					type = "header",
 				},
 				addedText = {
-					name = coloredDash .. "The Transmog button now supports the LiteBag addon.",
+					name = coloredDash .. "",
 					order = 11,
 					type = "description",
 					fontSize = "medium",
-				},
+				},]]
 				--[[changedHeader = {
 					name = "Changed",
 					order = 20,
@@ -2100,17 +2100,17 @@ local settings = {
 					type = "description",
 					fontSize = "medium",
 				},]]
-				--[[fixedHeader = {
+				fixedHeader = {
 					name = "Fixed",
 					order = 30,
 					type = "header",
 				},
 				fixedText = {
-					name = coloredDash .. "",
+					name = coloredDash .. "Fixed a mistake that caused a Lua error to be thrown during quest accept.",
 					order = 31,
 					type = "description",
 					fontSize = "medium",
-				},]]
+				},
 				--[[removedHeader = {
 					name = "Removed",
 					order = 40,
