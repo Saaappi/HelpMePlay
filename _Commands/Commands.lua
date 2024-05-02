@@ -2,7 +2,7 @@ local addonName, addon = ...
 
 SLASH_HelpMePlay1 = "/hmp"
 SLASH_HelpMePlay2 = "/helpmeplay"
-SlashCmdList["HelpMePlay2"] = function(cmd)
+SlashCmdList["HelpMePlay"] = function(cmd)
 	local command, subcommand, arg1 = string.split(" ", cmd)
 	if not command or command == "" then
 		InterfaceOptionsFrame_OpenToCategory(addonName)
