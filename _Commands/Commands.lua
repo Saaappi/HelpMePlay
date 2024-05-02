@@ -1,7 +1,7 @@
 local addonName, addon = ...
 
-SLASH_HelpMePlay21 = "/hmp"
-SLASH_HelpMePlay22 = "/helpmeplay"
+SLASH_HelpMePlay1 = "/hmp"
+SLASH_HelpMePlay2 = "/helpmeplay"
 SlashCmdList["HelpMePlay2"] = function(cmd)
 	local command, subcommand, arg1 = string.split(" ", cmd)
 	if not command or command == "" then
