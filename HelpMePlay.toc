@@ -1,120 +1,77 @@
 ## Author: LightskyGG
-## Interface: 100107
-## Title: HelpMePlay
-## Notes: Version: 2.1.8
+## Interface: 100207
+## Title: HelpMePlay2
+## Version: 3.0.0B1
+## IconTexture: 236681
 ## SavedVariables: HelpMePlayDB
-## SavedVariablesPerCharacter: HelpMePlayCharacterDB
-## Version: 2.1.8
-## IconTexture: Interface\AddOns\HelpMePlay\_Images\helpmeplay-icon.png
-## OptionalDeps: Ace3
+## SavedVariablesPerCharacter: HelpMePlayDB_Character
+
+# Main
+Main.lua
 
 # Libraries
-_Lib\LibStub\LibStub.lua
-_Lib\LibDataBroker-1.1\LibDataBroker-1.1.lua
-_Lib\CallbackHandler-1.0\CallbackHandler-1.0.xml
-_Lib\AceAddon-3.0\AceAddon-3.0.xml
-_Lib\AceEvent-3.0\AceEvent-3.0.xml
-_Lib\AceDB-3.0\AceDB-3.0.xml
-_Lib\AceConsole-3.0\AceConsole-3.0.xml
-_Lib\AceGUI-3.0\AceGUI-3.0.xml
-_Lib\AceConfig-3.0\AceConfig-3.0.xml
-_Lib\AceHook-3.0\AceHook-3.0.xml
-_Lib\AceComm-3.0\AceComm-3.0.xml
-_Lib\LibDBIcon-1.0\LibDBIcon-1.0.lua
+_Lib\Embeds.xml
 
-# Data Files (Most Important)
-_Data\ConstantsDB.lua
-_Data\DeveloperDB.lua
+# Data
+_Data\Constants.lua
+_Data\Map_Data.lua
+_Data\Quest_Data.lua
+_Data\Talent_Data.lua
+_Data\QuestMobs.lua
+_Data\WorldEvents_Data.lua
 
-# AddOn-Wide Functions
-_Functions\Functions.lua
+# Settings
+Settings\TalentImporter.lua
+Settings\Settings.lua
+Settings\Settings_QuestMobs.lua
 
-# AddOn Files
-HelpMePlay.lua
-Settings.lua
+# Classes
+_Classes\Button.lua
+_Classes\Frame.lua
+_Classes\DropDown.lua
+_Classes\Slider.lua
 
-# Data Files (Less Important)
-_Data\MainDB.lua
-_Data\AnimaPowersDB.lua
-_Data\FlightPathDB.lua
-_Data\WaypointsDB.lua
-_Data\CovenantsDB.lua
-_Data\PlayerTalentsDB.lua
-_Data\TalentSystems\TitanicResearchDB.lua
-_Data\TalentSystems\BoxOfManyThingsDB.lua
-_Data\Gossips\GossipDB.lua
+# Functions
+_Functions\EvalConditions.lua
+_Functions\Print.lua
+_Functions\QuestMobs.lua
+_Functions\Quests.lua
+_Functions\Trainers.lua
+_Functions\WorldEvents.lua
 
-# Adventure Map
-AdventureMap\Core.lua
+# Cutscenes
+Cutscenes\Cutscenes.lua
 
-# CinematicCanceler
-CinematicCanceler\Core.lua
+# Quests
+Quests\Events.lua
+Quests\QuestMobs.lua
+Quests\WarMode.lua
 
-# CloseTalkingHead
-CloseTalkingHead\Core.lua
+# Gossip
+Gossip\Gossip.lua
 
-# Dragonriding
-Dragonriding\Core.lua
+# Party Play
+PartyPlay\PartyPlay.lua
 
-# Emotes
-Emotes\Core.lua
+# Ready Checks
+ReadyChecks\ReadyChecks.lua
 
-# FlightMaster
-FlightMaster\Core.lua
+# Role Checks
+RoleChecks\RoleChecks.lua
 
-# Groups
-Groups\Core.lua
+# Merchants & Trainers
+Merchants\Trainers.lua
 
-# Junker
-Junker\Loot.lua
-Junker\Core.lua
+# Talents
+Talents\DynamicFlight.lua
+Talents\PlayerTalents.lua
 
-# Merchants
-Merchants\Core.lua
+# World Events
+WorldEvents\WorldEventsQueue.lua
+WorldEvents\OpenHolidayItems.lua
 
-# PartyPlay
-PartyPlay\Core.lua
+# Guild Bank
+GuildBank\GuildBank.lua
 
-# PersonalHealth
-PersonalHealth\Core.lua
-
-# QuestManager
-QuestManager\ChromieTime.lua
-QuestManager\Garrisons.lua
-QuestManager\PlayerChoice.lua
-QuestManager\Speech.lua
-QuestManager\Gossip.lua
-QuestManager\Vehicles.lua
-QuestManager\Repairs.lua
-QuestManager\Core.lua
-QuestManager\Notes.lua
-QuestManager\QuestMobs.lua
-
-# ReadyChecks
-ReadyChecks\Core.lua
-
-# RoleCheck
-RoleCheck\Core.lua
-
-# TalentAdvisor
-TalentAdvisor\PlayerTalents.lua
-TalentAdvisor\TalentSystems.lua
-
-# Torghast
-Torghast\AnimaPowers.lua
-
-# Trainers
-Trainers\Core.lua
-
-# Wardrobe
-Wardrobe\Core.lua
-
-# WarMode
-WarMode\Core.lua
-
-# WaypointCoordinator
-WaypointCoordinator\Core.lua
-
-# General Stuff
-Commands.lua
-Keybinding.lua
+# Commands
+_Commands\Commands.lua
