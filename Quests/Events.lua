@@ -1,6 +1,117 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+local function QUEST_COMPLETE()
+    if not IsShiftKeyDown() then
+        local questID = GetQuestID()
+        local mapID = C_Map.GetBestMapForUnit("player")
+        if questID and mapID then
+            if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                if HelpMePlayDB["GuideQuests"][mapID][questID] then
+                    HelpMePlay.CompleteQuest()
+                end
+            elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
+                HelpMePlay.CompleteQuest()
+            end
+        end
+    else
+        C_Timer.After(1, QUEST_COMPLETE)
+    end
+end
+
+local function QUEST_DETAIL()
+    if not IsShiftKeyDown() then
+        if QuestGetAutoAccept() then
+            CloseQuest()
+        else
+            local questID = GetQuestID()
+            local mapID = C_Map.GetBestMapForUnit("player")
+            if questID and mapID then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
+                        AcceptQuest()
+                    end
+                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
+                    AcceptQuest()
+                end
+            end
+        end
+    else
+        C_Timer.After(1, QUEST_DETAIL)
+    end
+end
+
+local function QUEST_GREETING()
+    if not IsShiftKeyDown() then
+        local GUID = UnitGUID("target")
+        if GUID then
+            local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
+            if npcID then
+                if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
+            end
+        end
+
+        for i = 1, GetNumActiveQuests() do
+            local questID = GetActiveQuestID(i)
+            local isComplete = select(2, GetActiveTitle(i))
+            local mapID = C_Map.GetBestMapForUnit("player")
+            if questID and isComplete and mapID then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
+                        SelectActiveQuest()
+                    end
+                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
+                    SelectActiveQuest()
+                end
+            end
+        end
+
+        for i = 1, GetNumAvailableQuests() do
+            local questID = select(5, GetAvailableQuestInfo(i))
+            local mapID = C_Map.GetBestMapForUnit("player")
+            if questID and mapID then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
+                        SelectAvailableQuest()
+                        AcceptQuest()
+                    end
+                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
+                    SelectAvailableQuest()
+                    AcceptQuest()
+                end
+            end
+        end
+    else
+        C_Timer.After(1, QUEST_GREETING)
+    end
+end
+
+local function QUEST_PROGRESS()
+    if not IsShiftKeyDown() then
+        if IsQuestCompletable() then
+            local questID = GetQuestID()
+            local mapID = C_Map.GetBestMapForUnit("player")
+            if questID and mapID then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
+                        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+                            QuestFrameCompleteButton:Click()
+                            HelpMePlay.CompleteQuest()
+                        end)
+                    end
+                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
+                    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+                        QuestFrameCompleteButton:Click()
+                        HelpMePlay.CompleteQuest()
+                    end)
+                end
+            end
+        end
+    else
+        C_Timer.After(1, QUEST_PROGRESS)
+    end
+end
+
 eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:RegisterEvent("QUEST_ACCEPTED")
@@ -123,104 +234,25 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "QUEST_COMPLETE" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
-        local questID = GetQuestID()
-        local mapID = C_Map.GetBestMapForUnit("player")
-        if questID and mapID then
-            if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                    HelpMePlay.CompleteQuest()
-                end
-            elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                HelpMePlay.CompleteQuest()
-            end
-        end
+        QUEST_COMPLETE()
     end
 
     if event == "QUEST_DETAIL" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
-        if QuestGetAutoAccept() then
-            CloseQuest()
-        else
-            local questID = GetQuestID()
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        AcceptQuest()
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    AcceptQuest()
-                end
-            end
-        end
+        QUEST_DETAIL()
     end
 
     if event == "QUEST_GREETING" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
-        local GUID = UnitGUID("target")
-        if GUID then
-            local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
-            if npcID then
-                if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
-            end
-        end
-
-        for i = 1, GetNumActiveQuests() do
-            local questID = GetActiveQuestID(i)
-            local isComplete = select(2, GetActiveTitle(i))
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and isComplete and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        SelectActiveQuest()
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    SelectActiveQuest()
-                end
-            end
-        end
-
-        for i = 1, GetNumAvailableQuests() do
-            local questID = select(5, GetAvailableQuestInfo(i))
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        SelectAvailableQuest()
-                        AcceptQuest()
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    SelectAvailableQuest()
-                    AcceptQuest()
-                end
-            end
-        end
+        QUEST_GREETING()
     end
 
     if event == "QUEST_PROGRESS" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
-        if IsQuestCompletable() then
-            local questID = GetQuestID()
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                            QuestFrameCompleteButton:Click()
-                            HelpMePlay.CompleteQuest()
-                        end)
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                        QuestFrameCompleteButton:Click()
-                        HelpMePlay.CompleteQuest()
-                    end)
-                end
-            end
-        end
+        QUEST_PROGRESS()
     end
 
     if event == "UPDATE_MOUSEOVER_UNIT" then
