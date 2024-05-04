@@ -9,15 +9,25 @@ local function CheckForQuestReward(itemLink)
     -- then don't bother iterating the player's inventory.
     if not C_Item.IsEquippableItem(itemLink) then return end
 
+    -- In case the player enters combat after completing the quest
+    -- but before this function is called, then trigger a timer.
+    if UnitAffectingCombat("player") then C_Timer.After(1, function() CheckForQuestReward(itemLink) end) end
+
     for bagID = 0, 4 do
         local numSlots = C_Container.GetContainerNumSlots(bagID)
         if numSlots > 0 then
             for slotID = 1, numSlots do
                 local containerItemLink = C_Container.GetContainerItemLink(bagID, slotID)
                 if containerItemLink then
-                    if containerItemLink == itemLink then -- We found a match! HOORAY!
-                        C_Item.EquipItemByName(containerItemLink)
+                    if containerItemLink == itemLink then
+                        print("WE FOUND A MATCH! HOORAY!")
+                    else
+                        print(containerItemLink)
                     end
+                    --if containerItemLink == itemLink then
+                        --C_Item.EquipItemByName(containerItemLink)
+                        --C_Timer.After(0.5, function() C_Item.EquipItemByName(containerItemLink) end)
+                    --end
                 end
             end
         end
@@ -156,7 +166,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         GetQuestReward(bestRewardIndex)
 
                         -- Check the player's inventory for the quest reward they just acquired.
-                        CheckForQuestReward(bestRewardItemLink)
+                        C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink) end)
                     else
                         -- No rewards available, so just complete the quest.
                         QuestFrameCompleteButton:Click("LeftButton")
