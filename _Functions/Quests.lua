@@ -55,57 +55,86 @@ local function IsWeaponRewardValidForSpecID(specID, subClassID)
     return true
 end
 
-local function CheckItemLevelUpgrade(itemLink, equippedItems, rewardIndex, isRewardValid)
+local function CheckItemLevelUpgrade(itemLinks, equippedItems, isRewardValid)
     local bestRewardItemLink = ""
     local destSlot = 0
     local bestItemLevelDifference = 0
     local bestRewardIndex = 0
-    local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
-    if inventorySlotID then
-        if addon.InventoryType[inventorySlotID] then
-            -- Get the item's class and subclass IDs. We'll use these for determining if
-            -- an item is valid for the player.
-            local classID, subClassID = select(12, C_Item.GetItemInfo(itemLink))
-            if classID == 2 then -- Weapon
-                isRewardValid = IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
-            end
+    for index, itemLink in ipairs(itemLinks) do
+        local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
+        if inventorySlotID then
+            if addon.InventoryType[inventorySlotID] then
+                -- Get the item's class and subclass IDs. We'll use these for determining if
+                -- an item is valid for the player.
+                local equipLoc, _, _, classID, subClassID = select(9, C_Item.GetItemInfo(itemLink))
+                if classID == 2 then -- Weapon
+                    isRewardValid = IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
+                end
 
-            -- isRewardValid is always passed as TRUE to the function; however, if the item
-            -- class is a weapon that isn't valid for a class/spec (e.g. Bows for a Survival Hunter),
-            -- then the variable is set to FALSE and we return default values from the function.
-            --
-            -- These default values will prevent that reward from not being selected in situations
-            -- where the player has a choice.
-            if isRewardValid then
-                -- Get the actual inventory slot ID because sometimes it can be different.
-                inventorySlotID = addon.InventoryType[inventorySlotID] or 0
-                local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
-                if canDualWield and classID == 2 then
-                    -- Handle weapon logic for dual wield classes, such as Rogues
-                    -- and Fury Warriors.
-                    for slot = 16, 17 do
-                        if rewardItemLevel > equippedItems[slot] then
-                            local itemLevelDifference = rewardItemLevel - equippedItems[slot]
-                            if itemLevelDifference > bestItemLevelDifference then
-                                bestItemLevelDifference = itemLevelDifference
-                                bestRewardItemLink = itemLink
-                                destSlot = slot
-                                bestRewardIndex = rewardIndex
+                -- isRewardValid is always passed as TRUE to the function; however, if the item
+                -- class is a weapon that isn't valid for a class/spec (e.g. Bows for a Survival Hunter),
+                -- then the variable is set to FALSE and we return default values from the function.
+                --
+                -- These default values will prevent that reward from not being selected in situations
+                -- where the player has a choice.
+                if isRewardValid then
+                    -- Get the actual inventory slot ID because sometimes it can be different.
+                    inventorySlotID = addon.InventoryType[inventorySlotID] or 0
+                    local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
+                    if canDualWield and classID == 2 then
+                        -- Handle weapon logic for dual wield classes, such as Rogues
+                        -- and Fury Warriors.
+                        for slot = 16, 17 do
+                            if rewardItemLevel > equippedItems[slot] then
+                                local itemLevelDifference = rewardItemLevel - equippedItems[slot]
+                                if itemLevelDifference > bestItemLevelDifference then
+                                    bestItemLevelDifference = itemLevelDifference
+                                    bestRewardItemLink = itemLink
+                                    destSlot = slot
+                                    bestRewardIndex = index
+                                end
                             end
                         end
-                    end
-                else
-                    if rewardItemLevel > equippedItems[inventorySlotID] then
-                        bestRewardItemLink = itemLink
-                        bestRewardIndex = rewardIndex
-                        destSlot = inventorySlotID
+                    elseif classID == 4 and (equipLoc == "INVTYPE_FINGER" or equipLoc == "INVTYPE_TRINKET") then
+                        -- Handle logic for checking rings and trinkets.
+                        if equipLoc == "INVTYPE_FINGER" then
+                            for slot = 11, 12 do
+                                if rewardItemLevel > equippedItems[slot] then
+                                    local itemLevelDifference = rewardItemLevel - equippedItems[slot]
+                                    if itemLevelDifference > bestItemLevelDifference then
+                                        bestItemLevelDifference = itemLevelDifference
+                                        bestRewardItemLink = itemLink
+                                        destSlot = slot
+                                        bestRewardIndex = index
+                                    end
+                                end
+                            end
+                        else
+                            for slot = 13, 14 do
+                                if rewardItemLevel > equippedItems[slot] then
+                                    local itemLevelDifference = rewardItemLevel - equippedItems[slot]
+                                    if itemLevelDifference > bestItemLevelDifference then
+                                        bestItemLevelDifference = itemLevelDifference
+                                        bestRewardItemLink = itemLink
+                                        destSlot = slot
+                                        bestRewardIndex = index
+                                    end
+                                end
+                            end
+                        end
+                    else
+                        if rewardItemLevel > equippedItems[inventorySlotID] then
+                            bestRewardItemLink = itemLink
+                            bestRewardIndex = index
+                            destSlot = inventorySlotID
+                        end
                     end
                 end
-                return bestRewardIndex, bestRewardItemLink, destSlot
             end
         end
+        return bestRewardIndex, bestRewardItemLink, destSlot
+        --return 0, "", 0
     end
-    return 0, "", 0
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")
@@ -121,7 +150,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- items.
                 ShowUIPanel(CharacterFrame); HideUIPanel(CharacterFrame)
 
-                C_Timer.After(1, function()
+                C_Timer.After(0.5, function()
                     -- Check if the player is in combat. This will cause some trouble if they
                     -- are, so let's deal with it now.
                     if UnitAffectingCombat("player") then C_Timer.After(1, HelpMePlay.CompleteQuest) end
@@ -185,8 +214,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         local itemLinks = {
                             "|cff0070dd|Hitem:193716::::::::70:72::1:1:3524:1:28:2155:::::|h[Algeth'ar Hedgecleaver]|h|r",
                             "|cffffffff|Hitem:2489::::::::70:72::14::1:28:73:::::|h[Two-Handed Sword]|h|r",
-                            --"|cff0070dd|Hitem:193708::::::::70:72::1:1:3524:1:28:2155:::::|h[Platinum Star Band]|h|r",
                             --"|cffa335ee|Hitem:207159::::::::70:72::6:1:3524:1:28:2611:::::|h[Band of Burning Thorns]|h|r",
+                            --"|cff0070dd|Hitem:193708::::::::70:72::1:1:3524:1:28:2155:::::|h[Platinum Star Band]|h|r",
+                            --"|cff0070dd|Hitem:193762::::::::70:72::1:1:3524:1:28:2587:::::|h[Blazebinder's Hoof]|h|r",
+                            --"|cffa335ee|Hitem:207169::::::::70:72::6:1:3524:1:28:2611:::::|h[Branch of the Tormented Ancient]|h|r",
                         }
 
                         local bestRewardIndex = 0
@@ -196,16 +227,14 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- ITEM LEVEL.
                             for rewardIndex = 1, numQuestChoices do
                                 --local itemLink = GetQuestItemLink("choice", rewardIndex)
-                                local itemLink = itemLinks[rewardIndex]
-                                if itemLink then
+                                --if itemLink then
+                                    local itemLink = itemLinks[rewardIndex]
                                     C_Item.RequestLoadItemDataByID(itemLink)
-                                    C_Timer.After(1, function()
-                                        bestRewardIndex, bestRewardItemLink, destSlot = CheckItemLevelUpgrade(itemLink, equippedItems, rewardIndex, true)
-                                        if bestRewardItemLink ~= "" and destSlot ~= 0 then
-                                            print(destSlot .. ": " .. bestRewardItemLink)
-                                        end
-                                    end)
-                                end
+                                --end
+                            end
+                            bestRewardIndex, bestRewardItemLink, destSlot = CheckItemLevelUpgrade(itemLinks, equippedItems, true)
+                            if bestRewardItemLink ~= "" and destSlot ~= 0 then
+                                print(destSlot .. ": " .. bestRewardItemLink)
                             end
                         elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE.
                             for rewardIndex = 1, numQuestChoices do
@@ -240,8 +269,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     elseif numQuestChoices == 1 then
                         local itemLink = GetQuestItemLink("choice", 1)
                         if itemLink then
-                            local classID, subClassID = select(12, C_Item.GetItemInfo(itemLink))
-                            local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(itemLink, equippedItems, classID, 1))
+                            local itemLinks = { itemLink }
+                            local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(itemLinks, equippedItems, true))
                             -- There is only one decision to be made, so let the addon
                             -- make it for the player regardless of their settings.
                             GetQuestReward(1)
@@ -254,16 +283,17 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         -- (not choices) available.
                         local numQuestRewards = GetNumQuestRewards()
                         if numQuestRewards > 0 then
+                            local itemLinks = {}
                             for rewardIndex = 1, numQuestRewards do
                                 local itemLink = GetQuestItemLink("reward", rewardIndex)
                                 if itemLink then
-                                    local classID, subClassID = select(12, C_Item.GetItemInfo(itemLink))
-                                    local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(itemLink, equippedItems, classID, rewardIndex))
-                                    if bestRewardItemLink ~= "" and destSlot ~= 0 then
-                                        -- Check the player's inventory for the quest reward they just acquired.
-                                        C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
-                                    end
+                                    table.insert(itemLinks, itemLink)
                                 end
+                            end
+                            local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(itemLinks, equippedItems, true))
+                            if bestRewardItemLink ~= "" and destSlot ~= 0 then
+                                -- Check the player's inventory for the quest reward they just acquired.
+                                C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
                             end
                         end
                         QuestFrameCompleteButton:Click("LeftButton")
