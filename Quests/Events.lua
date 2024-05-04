@@ -23,7 +23,7 @@ local function QUEST_DETAIL()
     local questID = GetQuestID()
     if HelpMePlayDB["IgnoreRepeatableQuests"] then
         if questID then
-            print("This is a repeatable quest. Ignoring...")
+            print("|cffFFD100[NEEDS TESTING]|r This is a repeatable quest. Ignoring...")
             if C_QuestLog.IsRepeatableQuest(questID) then return end
         end
     end
