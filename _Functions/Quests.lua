@@ -108,23 +108,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         QuestFrameCompleteButton:Click("LeftButton")
                         QuestFrameCompleteQuestButton:Click("LeftButton")
                     end
-
-                    -- Setup a few necessary variables.
-                    --[[local bestSellPrice = 0
-                    local bestItemIndex = 0
-                    if numQuestChoices > 1 or numQuestRewards > 1 then
-                        
-
-                        for index = 1, numQuestChoices do
-                            if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- Item Level
-                                local itemLink = GetQuestItemLink("choice", index)
-                                if itemLink then
-
-                                end
-                            elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- Sell Price
-                                
-                            end
-                        end]]
                 end)
             end
 
