@@ -3,3 +3,4 @@ What's New
 - Fixed an issue (hopefully) that allowed the Quest Mobs icon to remain on the nameplate even after the quest objective was completed.
 - Players can now hold the SHIFT key to temporarily pause quest-related automation.
 - Players can now toggle a setting to ignore repeatable quests. Hopefully you can save your precious Iskaara supplies! (Resolves #81)
+- The '/wave' emote to Gor'groth has been removed.

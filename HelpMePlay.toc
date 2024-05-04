@@ -15,7 +15,7 @@ _Lib\Embeds.xml
 # Data
 _Data\Constants.lua
 _Data\Map_Data.lua
-_Data\Quest_Data.lua
+_Data\Quests.lua
 _Data\Talent_Data.lua
 _Data\QuestMobs.lua
 _Data\WorldEvents_Data.lua
