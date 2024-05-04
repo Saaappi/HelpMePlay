@@ -111,8 +111,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     --
                     -- A quest "reward" is something given to the player without their decision,
                     -- whereas a quest "choice" is a reward the player can choose.
-                    local numQuestChoices, numQuestRewards = GetNumQuestChoices(), GetNumQuestRewards()
-                    if numQuestChoices > 1 or numQuestRewards > 1 then
+                    local numQuestChoices = GetNumQuestChoices()
+                    if numQuestChoices > 1 then
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
 
                         local bestRewardIndex = 0
@@ -168,7 +168,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             print(bestRewardItemLink)
                             GetQuestReward(bestRewardIndex)
                         end
-                    elseif numQuestChoices == 1 or numQuestRewards == 1 then
+                    elseif numQuestChoices == 1 then
                         local bestRewardItemLink = ""
                         local bestRewardIndex = 0
 
