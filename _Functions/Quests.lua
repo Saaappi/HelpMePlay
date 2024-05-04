@@ -66,16 +66,25 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     -- A quest "reward" is something given to the player without their decision,
                     -- whereas a quest "choice" is a reward the player can choose.
                     local numQuestChoices, numQuestRewards = GetNumQuestChoices(), GetNumQuestRewards()
-                    --if numQuestChoices > 1 or numQuestRewards > 1 then
-                    if numQuestChoices == 1 or numQuestRewards == 1 then
+                    if numQuestChoices > 1 or numQuestRewards > 1 then
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
 
                         local bestRewardIndex = 0
+                        local bestRewardItemLink = ""
                         local bestSellPrice = 0
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- Process quest rewards by ITEM LEVEL.
                             for rewardIndex = 1, numQuestChoices do
                                 local itemLink = GetQuestItemLink("choice", rewardIndex)
-                                print(itemLink)
+                                if itemLink then
+                                    local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
+                                    if inventorySlotID then
+                                        local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
+                                        if rewardItemLevel > equippedItems[inventorySlotID] then
+                                            bestRewardItemLink = itemLink
+                                            bestRewardIndex = rewardIndex
+                                        end
+                                    end
+                                end
                             end
                         elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- Process quest rewards by SELL PRICE.
                             for rewardIndex = 1, numQuestChoices do
@@ -86,6 +95,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                     if sellPrice > 0 then
                                         sellPrice = sellPrice * quantity
                                         if sellPrice > bestSellPrice then
+                                            bestRewardItemLink = itemLink
                                             bestSellPrice = sellPrice
                                             bestRewardIndex = rewardIndex
                                         end
@@ -96,13 +106,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                         -- If no item is found to be better based on the player's settings, then
                         -- choose an item randomly.
-                        --if bestRewardIndex == 0 then
-                            --GetQuestReward(math.random(1, numQuestChoices))
-                        --end
-                    --elseif numQuestChoices == 1 or numQuestRewards == 1 then
+                        if bestRewardIndex == 0 then
+                            GetQuestReward(math.random(1, numQuestChoices))
+                        else
+                            print(bestRewardItemLink)
+                            GetQuestReward(bestRewardIndex)
+                        end
+                    elseif numQuestChoices == 1 or numQuestRewards == 1 then
                         -- There is only one decision to be made, so let the addon
                         -- make it for the player regardless of their settings.
-                        --GetQuestReward(1)
+                        GetQuestReward(1)
                     else
                         -- No rewards available, so just complete the quest.
                         QuestFrameCompleteButton:Click("LeftButton")
