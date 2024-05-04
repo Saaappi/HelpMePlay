@@ -1,6 +1,29 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+-- Iterates through the player's inventory to check for the
+-- quest reward they just received. If it's found, then equip
+-- the item.
+local function CheckForQuestReward(itemLink)
+    -- The item reward we received should be equippable. If it's not,
+    -- then don't bother iterating the player's inventory.
+    if not C_Item.IsEquippableItem(itemLink) then return end
+
+    for bagID = 0, 4 do
+        local numSlots = C_Container.GetContainerNumSlots(bagID)
+        if numSlots > 0 then
+            for slotID = 1, numSlots do
+                local containerItemLink = C_Container.GetContainerItemLink(bagID, slotID)
+                if containerItemLink then
+                    if containerItemLink == itemLink then -- We found a match! HOORAY!
+                        C_Item.EquipItemByName(containerItemLink)
+                    end
+                end
+            end
+        end
+    end
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
@@ -113,9 +136,27 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             GetQuestReward(bestRewardIndex)
                         end
                     elseif numQuestChoices == 1 or numQuestRewards == 1 then
+                        local bestRewardItemLink = ""
+                        local bestRewardIndex = 0
+
+                        local itemLink = GetQuestItemLink("choice", 1)
+                        if itemLink then
+                            local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
+                            if inventorySlotID then
+                                local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
+                                if rewardItemLevel > equippedItems[inventorySlotID] then
+                                    bestRewardItemLink = itemLink
+                                    bestRewardIndex = 1
+                                end
+                            end
+                        end
+
                         -- There is only one decision to be made, so let the addon
                         -- make it for the player regardless of their settings.
-                        GetQuestReward(1)
+                        GetQuestReward(bestRewardIndex)
+
+                        -- Check the player's inventory for the quest reward they just acquired.
+                        CheckForQuestReward(bestRewardItemLink)
                     else
                         -- No rewards available, so just complete the quest.
                         QuestFrameCompleteButton:Click("LeftButton")
