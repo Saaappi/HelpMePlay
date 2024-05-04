@@ -15,6 +15,7 @@ local skipCutscenesCB
 local adventureMapsCB
 local questsCB
 local allQuestsCB
+local ignoreRepeatableQuestsCB
 local emotesCB
 local muteTalkingHeadCB
 local gossipCB
@@ -165,9 +166,26 @@ C_Timer.After(5, function()
     allQuestsCB = allQuestsCB:CheckButton()
     allQuestsCB:SetChecked(HelpMePlayDB["AcceptAndCompleteAllQuests"])
 
+    ignoreRepeatableQuestsCB = {
+        name = addonName .. "IgnoreRepeatableQuestsCB",
+        parent = allQuestsCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
+        tooltipHeader = "Ignore Repeatable Quests",
+        tooltipText = "Toggle to ignore repeatable quests.",
+        onClick = function()
+            HelpMePlayDB["IgnoreRepeatableQuests"] = ignoreRepeatableQuestsCB:GetChecked()
+        end,
+    }
+    setmetatable(ignoreRepeatableQuestsCB, { __index = HelpMePlay.Button })
+    ignoreRepeatableQuestsCB = ignoreRepeatableQuestsCB:CheckButton()
+    ignoreRepeatableQuestsCB:SetChecked(HelpMePlayDB["IgnoreRepeatableQuests"])
+
     emotesCB = {
         name = addonName .. "EmotesCB",
-        parent = allQuestsCB,
+        parent = ignoreRepeatableQuestsCB,
         anchor = "TOPLEFT",
         relativeAnchor = "BOTTOMLEFT",
         oX = -15,

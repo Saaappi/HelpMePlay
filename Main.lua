@@ -35,6 +35,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["AcceptAndCompleteAllQuests"] == nil then
                 HelpMePlayDB["AcceptAndCompleteAllQuests"] = false
             end
+            if HelpMePlayDB["IgnoreRepeatableQuests"] == nil then
+                HelpMePlayDB["IgnoreRepeatableQuests"] = false
+            end
             if HelpMePlayDB["UseEmotes"] == nil then
                 HelpMePlayDB["UseEmotes"] = false
             end
