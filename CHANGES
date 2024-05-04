@@ -1,3 +1,4 @@
 What's New
 - Fixed an issue causing the wrong talent spell link to be printed when the second choice in selection nodes was chosen.
+- Fixed an issue (hopefully) that allowed the Quest Mobs icon to remain on the nameplate even after the quest objective was completed.
 - Players can now hold the SHIFT key to temporarily pause quest-related automation.
