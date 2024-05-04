@@ -53,6 +53,36 @@ addon.CanDualWield = {
     72, -- Fury Warrior
 }
 
+addon.InventoryType = {
+    [1] = 1,            -- Head
+    [2] = 2,            -- Neck
+    [3] = 3,            -- Shoulder
+    --[4] = 4,          -- Shirt
+    [5] = 5,            -- Chest
+    [6] = 6,            -- Waist
+    [7] = 7,            -- Legs
+    [8] = 8,            -- Feet
+    [9] = 9,            -- Wrist
+    [10] = 10,          -- Hands
+    [11] = { 11, 12 },  -- Finger1, Finger2
+    [12] = { 13, 14 },  -- Trinket1, Trinket2
+    [13] = { 16, 17 },  -- One-Hand Weapons
+    [14] = 17,          -- Shield
+    [15] = 16,          -- Ranged (Bows, Crossbows, Guns)
+    [16] = 15,          -- Back
+    [17] = 16,          -- Two-Hand Weapons
+    --[18] = 0,         -- Bag
+    --[19] = 19,        -- Tabard
+    [20] = 5,           -- Robe (Chest)
+    [21] = 16,          -- Main-Hand Weapon
+    [22] = 16,          -- Off-Hand Weapon
+    [23] = 17,          -- Holdable
+    --[24] = 0,         -- Ammo
+    [25] = 16,          -- Thrown
+    [26] = 16,          -- Ranged (Bows, Crossbows, Guns)
+    -- Everything after 26 is useless.
+}
+
 -- These are the options in the Quest Rewards
 -- dropdown.
 addon.QUEST_REWARDS_TYPES = {
