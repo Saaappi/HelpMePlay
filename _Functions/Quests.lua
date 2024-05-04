@@ -169,8 +169,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if bestRewardIndex == 0 then
                             GetQuestReward(math.random(1, numQuestChoices))
                         else
-                            print(bestRewardItemLink)
                             GetQuestReward(bestRewardIndex)
+
+                            -- Check the player's inventory for the quest reward they just acquired.
+                            C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink) end)
                         end
                     elseif numQuestChoices == 1 then
                         local bestRewardItemLink = ""
