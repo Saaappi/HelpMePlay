@@ -506,7 +506,7 @@ C_Timer.After(5, function()
         title = "Quest Rewards",
         tooltipHeader = "Quest Rewards",
         tooltipText = "Select how quest rewards should be chosen.\n\n" ..
-        "Chosen quest rewards are automatically equipped by " .. addonName .. ".",
+        "If Item Level is selected, then chosen quest rewards are automatically equipped by " .. addonName .. ".",
         options = {
             {
                 ["text"] = "Item Level",
