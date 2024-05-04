@@ -25,25 +25,41 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
 
                     -- Collect all the player's equipped items. We'll convert these to item levels
-                    -- shortly since we're only making a numeral comparison.
+                    -- shortly since we're only making a numeral comparison. A 0 means there isn't
+                    -- an equipped item in that slot.
                     --
                     -- We intentionally ignore weapons (for now).
-                    local equippedItemLevels = {}
-                    equippedItemLevels[1] = GetInventoryItemLink("player", 1) or 0      -- Head
-                    equippedItemLevels[2] = GetInventoryItemLink("player", 2) or 0      -- Neck
-                    equippedItemLevels[3] = GetInventoryItemLink("player", 3) or 0      -- Shoulder
-                    equippedItemLevels[5] = GetInventoryItemLink("player", 5) or 0      -- Chest
-                    equippedItemLevels[6] = GetInventoryItemLink("player", 6) or 0      -- Waist
-                    equippedItemLevels[7] = GetInventoryItemLink("player", 7) or 0      -- Legs
-                    equippedItemLevels[8] = GetInventoryItemLink("player", 8) or 0      -- Feet
-                    equippedItemLevels[9] = GetInventoryItemLink("player", 9) or 0      -- Wrist
-                    equippedItemLevels[10] = GetInventoryItemLink("player", 10) or 0    -- Hands
-                    equippedItemLevels[11] = GetInventoryItemLink("player", 11) or 0    -- Finger1
-                    equippedItemLevels[12] = GetInventoryItemLink("player", 12) or 0    -- Finger2
-                    equippedItemLevels[13] = GetInventoryItemLink("player", 13) or 0    -- Trinket1
-                    equippedItemLevels[14] = GetInventoryItemLink("player", 14) or 0    -- Trinket2
-                    equippedItemLevels[15] = GetInventoryItemLink("player", 15) or 0    -- Back
+                    local equippedItems = {}
+                    equippedItems[1] = GetInventoryItemLink("player", 1) or 0      -- Head
+                    equippedItems[2] = GetInventoryItemLink("player", 2) or 0      -- Neck
+                    equippedItems[3] = GetInventoryItemLink("player", 3) or 0      -- Shoulder
+                    equippedItems[5] = GetInventoryItemLink("player", 5) or 0      -- Chest
+                    equippedItems[6] = GetInventoryItemLink("player", 6) or 0      -- Waist
+                    equippedItems[7] = GetInventoryItemLink("player", 7) or 0      -- Legs
+                    equippedItems[8] = GetInventoryItemLink("player", 8) or 0      -- Feet
+                    equippedItems[9] = GetInventoryItemLink("player", 9) or 0      -- Wrist
+                    equippedItems[10] = GetInventoryItemLink("player", 10) or 0    -- Hands
+                    equippedItems[11] = GetInventoryItemLink("player", 11) or 0    -- Finger1
+                    equippedItems[12] = GetInventoryItemLink("player", 12) or 0    -- Finger2
+                    equippedItems[13] = GetInventoryItemLink("player", 13) or 0    -- Trinket1
+                    equippedItems[14] = GetInventoryItemLink("player", 14) or 0    -- Trinket2
+                    equippedItems[15] = GetInventoryItemLink("player", 15) or 0    -- Back
 
+                    -- Convert the equipped items into their item levels.
+                    for inventorySlotID, itemLink in pairs(equippedItems) do
+                        if itemLink ~= 0 then
+                            local itemID = C_Item.GetItemInfoInstant(itemLink)
+                            local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
+                            local actualItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink)
+                            if heirloomMaxLevel and (heirloomMaxLevel >= addon.playerLevel) then
+                                -- If the player has an heirloom equipped in the slot, and they haven't
+                                -- outleveled the heirloom, then set the itemlevel for that slot to 999
+                                -- to prevent the item from being replaced.
+                                actualItemLevel = 999
+                            end
+                            equippedItems[inventorySlotID] = actualItemLevel
+                        end
+                    end
 
                     -- Setup a few necessary variables.
                     local bestSellPrice = 0
