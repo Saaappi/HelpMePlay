@@ -32,7 +32,6 @@ local keepMeSafeCB
 -- Dropdowns
 local chromieTimeDropDown
 local questRewardsDropDown
-local questMobsIconDropDown
 
 -- Edit Boxes
 local trainerProtectionValueEB
@@ -506,7 +505,8 @@ C_Timer.After(5, function()
         height = 38,
         title = "Quest Rewards",
         tooltipHeader = "Quest Rewards",
-        tooltipText = "Select how quest rewards should be chosen.",
+        tooltipText = "Select how quest rewards should be chosen.\n\n" ..
+        "Chosen quest rewards are automatically equipped by " .. addonName .. ".",
         options = {
             {
                 ["text"] = "Item Level",

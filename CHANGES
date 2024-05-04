@@ -4,6 +4,6 @@ What's New
 - Fixed an issue that prevented quests from being completed when 'All Quests' is enabled.
 - Players can now hold the SHIFT key to temporarily pause quest-related automation.
 - [NEEDS TESTING] Players can now toggle a setting to ignore repeatable quests. Hopefully you can save your precious Iskaara supplies! (Resolves #81)
-- Players can now select 'Item Level' from the Quest Rewards dropdown.
+- Players can now select 'Item Level' from the Quest Rewards dropdown. Selected quest rewards are automatically equipped.
 - The outdated version icon (next to Version in the settings) will now show for every Beta release.
 - The '/wave' emote to Gor'groth has been removed.
