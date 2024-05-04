@@ -135,9 +135,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                 -- Show and hide the character paperdoll frame to cache the player's equipped
                 -- items.
-                ShowUIPanel(CharacterFrame); HideUIPanel(CharacterFrame)
+                --ShowUIPanel(CharacterFrame); HideUIPanel(CharacterFrame)
 
-                C_Timer.After(0.5, function()
+                C_Timer.After(0.1, function()
                     -- Check if the player is in combat. This will cause some trouble if they
                     -- are, so let's deal with it now.
                     if UnitAffectingCombat("player") then C_Timer.After(1, HelpMePlay.CompleteQuest) end
@@ -238,8 +238,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             end
                         end
 
-                        -- If no item is found to be better based on the player's settings, then
-                        -- choose an item randomly.
+                        -- If the bestRewardIndex variable is unchanged from its default of 0,
+                        -- then no valid reward was found. As such, let's pick a random reward.
                         if bestRewardIndex == 0 then
                             GetQuestReward(math.random(1, numQuestChoices))
                         else
