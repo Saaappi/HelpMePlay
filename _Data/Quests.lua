@@ -89,11 +89,22 @@ addon.InventoryType = {
 --
 -- The numbers on the right are subclass IDs from C_Item.GetItemInfo.
 addon.EquipLoc = {
+    [71] = { 1, 5, 6, 8, 10 }, -- Arms Warrior
     [72] = { 0, 1, 4, 5, 6, 7, 8, 10 }, -- Fury Warrior
+    [73] = { 0, 4, 7 }, -- Protection Warrior
+    [102] = { 4, 6, 10 }, -- Balance Druid
+    [103] = { 4, 6, 10 }, -- Feral Druid
+    [104] = { 4, 6, 10 }, -- Guardian Druid
+    [105] = { 4, 6, 10 }, -- Restoration Druid
+    [250] = { 1, 5, 6, 8 }, -- Blood Death Knight
+    [251] = { 0, 1, 4, 5, 6, 7, 8 }, -- Frost Death Knight
+    [252] = { 1, 5, 6, 8 }, -- Unholy Death Knight
     [255] = { 6, 10 }, -- Survival Hunter (They should use Polearms or Staves.)
     [260] = { 0, 4, 7, 11, 12, 13, 15 }, -- Outlaw Rogue (They can use anything in their offhand, but the mainhand must be a slow 1H weapon.)
     [261] = { 15 }, -- Subtlety Rogue (They can use anything, but most abilities REQUIRE daggers.)
     [263] = { 0, 4, 11, 12, 13 }, -- Enhancement Shaman
+    [577] = { 0, 1, 9, 11, 12, 13 }, -- Havoc Demon Hunter
+    [581] = { 0, 1, 9, 11, 12, 13 }, -- Vengeance Demon Hunter
 }
 
 -- These are the options in the Quest Rewards

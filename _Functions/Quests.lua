@@ -133,10 +133,14 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                     if isRewardValid then
                                         local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
                                         if inventorySlotID then
-                                            local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
-                                            if rewardItemLevel > equippedItems[inventorySlotID] then
-                                                bestRewardItemLink = itemLink
-                                                bestRewardIndex = rewardIndex
+                                            if addon.InventoryType[inventorySlotID] then
+                                                -- Get the actual inventory slot ID because sometimes it can be different.
+                                                inventorySlotID = addon.InventoryType[inventorySlotID] or 0
+                                                local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
+                                                if rewardItemLevel > equippedItems[inventorySlotID] then
+                                                    bestRewardItemLink = itemLink
+                                                    bestRewardIndex = rewardIndex
+                                                end
                                             end
                                         end
                                     end
