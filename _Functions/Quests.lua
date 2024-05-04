@@ -66,7 +66,7 @@ local function CheckItemLevelUpgrade(itemLinks, equippedItems, isRewardValid)
             if addon.InventoryType[inventorySlotID] then
                 -- Get the item's class and subclass IDs. We'll use these for determining if
                 -- an item is valid for the player.
-                local equipLoc, _, _, classID, subClassID = select(9, C_Item.GetItemInfo(itemLink))
+                local equipLoc, _, classID, subClassID = select(4, C_Item.GetItemInfoInstant(itemLink))
                 if classID == 2 then -- Weapon
                     isRewardValid = IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
                 end
@@ -132,9 +132,8 @@ local function CheckItemLevelUpgrade(itemLinks, equippedItems, isRewardValid)
                 end
             end
         end
-        return bestRewardIndex, bestRewardItemLink, destSlot
-        --return 0, "", 0
     end
+    return bestRewardIndex, bestRewardItemLink, destSlot
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")
@@ -212,10 +211,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
 
                         local itemLinks = {
-                            "|cff0070dd|Hitem:193716::::::::70:72::1:1:3524:1:28:2155:::::|h[Algeth'ar Hedgecleaver]|h|r",
                             "|cffffffff|Hitem:2489::::::::70:72::14::1:28:73:::::|h[Two-Handed Sword]|h|r",
-                            --"|cffa335ee|Hitem:207159::::::::70:72::6:1:3524:1:28:2611:::::|h[Band of Burning Thorns]|h|r",
+                            "|cff0070dd|Hitem:193716::::::::70:72::1:1:3524:1:28:2155:::::|h[Algeth'ar Hedgecleaver]|h|r",
                             --"|cff0070dd|Hitem:193708::::::::70:72::1:1:3524:1:28:2155:::::|h[Platinum Star Band]|h|r",
+                            --"|cffa335ee|Hitem:207159::::::::70:72::6:1:3524:1:28:2611:::::|h[Band of Burning Thorns]|h|r",
                             --"|cff0070dd|Hitem:193762::::::::70:72::1:1:3524:1:28:2587:::::|h[Blazebinder's Hoof]|h|r",
                             --"|cffa335ee|Hitem:207169::::::::70:72::6:1:3524:1:28:2611:::::|h[Branch of the Tormented Ancient]|h|r",
                         }
@@ -228,14 +227,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             for rewardIndex = 1, numQuestChoices do
                                 --local itemLink = GetQuestItemLink("choice", rewardIndex)
                                 --if itemLink then
-                                    local itemLink = itemLinks[rewardIndex]
-                                    C_Item.RequestLoadItemDataByID(itemLink)
+                                    --local itemLink = itemLinks[rewardIndex]
+                                    --C_Item.RequestLoadItemDataByID(itemLink)
                                 --end
                             end
-                            bestRewardIndex, bestRewardItemLink, destSlot = CheckItemLevelUpgrade(itemLinks, equippedItems, true)
-                            if bestRewardItemLink ~= "" and destSlot ~= 0 then
-                                print(destSlot .. ": " .. bestRewardItemLink)
-                            end
+                            --C_Timer.After(1, function()
+                                bestRewardIndex, bestRewardItemLink, destSlot = CheckItemLevelUpgrade(itemLinks, equippedItems, true)
+                                if bestRewardItemLink ~= "" and destSlot ~= 0 then
+                                    print(destSlot .. ": " .. bestRewardItemLink)
+                                end
+                            --end)
                         elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE.
                             for rewardIndex = 1, numQuestChoices do
                                 local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
