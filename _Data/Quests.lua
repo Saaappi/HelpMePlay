@@ -83,6 +83,19 @@ addon.InventoryType = {
     -- Everything after 26 is useless.
 }
 
+-- The value on the left is a specID. Not every spec is necessary
+-- to support. The value on the right is the type of weapons they
+-- can (and should) use.
+--
+-- The numbers on the right are subclass IDs from C_Item.GetItemInfo.
+addon.EquipLoc = {
+    [72] = { 0, 1, 4, 5, 6, 7, 8, 10 }, -- Fury Warrior
+    [255] = { 6, 10 }, -- Survival Hunter (They should use Polearms or Staves.)
+    [260] = { 0, 4, 7, 11, 12, 13, 15 }, -- Outlaw Rogue (They can use anything in their offhand, but the mainhand must be a slow 1H weapon.)
+    [261] = { 15 }, -- Subtlety Rogue (They can use anything, but most abilities REQUIRE daggers.)
+    [263] = { 0, 4, 11, 12, 13 }, -- Enhancement Shaman
+}
+
 -- These are the options in the Quest Rewards
 -- dropdown.
 addon.QUEST_REWARDS_TYPES = {

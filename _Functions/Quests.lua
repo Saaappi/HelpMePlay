@@ -33,6 +33,15 @@ local function CheckForQuestReward(itemLink)
     end
 end
 
+local function IsWeaponRewardValidForSpecID(specID, subClassID)
+    for _, v in ipairs(addon.EquipLoc[specID]) do
+        if subClassID == v then
+            return true
+        end
+    end
+    return false
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
@@ -108,14 +117,24 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         local bestSellPrice = 0
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- Process quest rewards by ITEM LEVEL.
                             for rewardIndex = 1, numQuestChoices do
+                                local isRewardValid = true
                                 local itemLink = GetQuestItemLink("choice", rewardIndex)
                                 if itemLink then
-                                    local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
-                                    if inventorySlotID then
-                                        local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
-                                        if rewardItemLevel > equippedItems[inventorySlotID] then
-                                            bestRewardItemLink = itemLink
-                                            bestRewardIndex = rewardIndex
+                                    -- Let's check if the reward is a weapon. If it's a weapon, then
+                                    -- let's ensure it's a supported weapon for the class. For example,
+                                    -- a Survival Hunter shouldn't take a bow over a polearm.
+                                    local classID, subClassID = C_Item.GetItemInfo(itemLink)
+                                    if classID == 2 then -- Weapon
+                                        isRewardValid = IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
+                                    end
+                                    if isRewardValid then
+                                        local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
+                                        if inventorySlotID then
+                                            local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
+                                            if rewardItemLevel > equippedItems[inventorySlotID] then
+                                                bestRewardItemLink = itemLink
+                                                bestRewardIndex = rewardIndex
+                                            end
                                         end
                                     end
                                 end
