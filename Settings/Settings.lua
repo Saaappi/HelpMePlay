@@ -50,12 +50,12 @@ InterfaceOptions_AddCategory(Panel)
 -- installed version of the addon is older than the date
 -- below, then the user hasn't updated their addon.
 local nextUpdate = {
-    ["monthDay"] = 5,
+    ["monthDay"] = 1,
     ["weekday"] = 1,
-    ["month"] = 5,
+    ["month"] = 1,
     ["minute"] = 0,
     ["hour"] = 0,
-    ["year"] = 2024
+    ["year"] = 1980
 }
 
 C_Timer.After(5, function()
@@ -76,7 +76,7 @@ C_Timer.After(5, function()
         oY = -25,
         width = 16,
         height = 16,
-        tooltipText = "|cffFF0000" .. "This version is outdated!" .. "|r",
+        tooltipText = C_AddOns.GetAddOnMetadata(addonName, "Version") .. " is an outdated version. You should check CurseForge for an update.",
     }
     setmetatable(outdatedVersionHB, { __index = HelpMePlay.Button })
     outdatedVersionHB = outdatedVersionHB:HelpButton()
