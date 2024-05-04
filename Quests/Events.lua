@@ -20,11 +20,18 @@ local function QUEST_COMPLETE()
 end
 
 local function QUEST_DETAIL()
+    local questID = GetQuestID()
+    if HelpMePlayDB["IgnoreRepeatableQuests"] then
+        if questID then
+            print("This is a repeatable quest. Ignoring...")
+            if C_QuestLog.IsRepeatableQuest(questID) then return end
+        end
+    end
+
     if not IsShiftKeyDown() then
         if QuestGetAutoAccept() then
             CloseQuest()
         else
-            local questID = GetQuestID()
             local mapID = C_Map.GetBestMapForUnit("player")
             if questID and mapID then
                 if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
