@@ -80,18 +80,20 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                 if isRewardValid then
                     -- Get the actual inventory slot ID because sometimes it can be different.
                     inventorySlotID = addon.InventoryType[inventorySlotID] or 0
+
+                    -- Get the reward's actual item level.
                     local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
+
+                    -- Set these variables to 0 to start. If we're dealing with weapons, rings,
+                    -- or trinkets, then these values will change to the corresponding inventory
+                    -- slot IDs for the loop.
                     local start, finish = 0, 0
                     if (canDualWield and classID == 2) or (classID == 4 and (equipLoc == "INVTYPE_FINGER" or equipLoc == "INVTYPE_TRINKET")) then
                         if canDualWield and classID == 2 then
-                            -- Handle weapon logic for dual wield classes, such as Rogues
-                            -- and Fury Warriors.
                             start, finish = 16, 17
                         elseif classID == 4 and equipLoc == "INVTYPE_FINGER" then
-                            -- Handle logic for rings.
                             start, finish = 11, 12
                         elseif classID == 4 and equipLoc == "INVTYPE_TRINKET" then
-                            -- Handle logic for trinkets.
                             start, finish = 13, 14
                         end
                         for slot = start, finish do
@@ -106,6 +108,9 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                             end
                         end
                     else
+                        -- This is for every other reward that doesn't adhere to a dual wield class/spec,
+                        -- rings, or trinkets. Weapons of all varieties are still handled here, just not
+                        -- for dual wield classes/specs.
                         if rewardItemLevel > equippedItems[inventorySlotID] then
                             bestRewardItemLink = itemLink
                             bestRewardIndex = index
