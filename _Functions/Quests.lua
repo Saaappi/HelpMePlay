@@ -34,12 +34,15 @@ local function CheckForQuestReward(itemLink)
 end
 
 local function IsWeaponRewardValidForSpecID(specID, subClassID)
-    for _, v in ipairs(addon.EquipLoc[specID]) do
-        if subClassID == v then
-            return true
+    if addon.EquipLoc[specID] then
+        for _, v in ipairs(addon.EquipLoc[specID]) do
+            if subClassID == v then
+                return true
+            end
         end
+        return false
     end
-    return false
+    return true
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")
