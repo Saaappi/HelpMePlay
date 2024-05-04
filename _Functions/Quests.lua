@@ -193,7 +193,26 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         -- Check the player's inventory for the quest reward they just acquired.
                         C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink) end)
                     else
-                        -- No rewards available, so just complete the quest.
+                        -- There are either no rewards available, or there are only quest rewards
+                        -- (not choices) available.
+                        local numQuestRewards = GetNumQuestRewards()
+                        if numQuestRewards > 0 then
+                            for rewardIndex = 1, numQuestRewards do
+                                local itemLink = GetQuestItemLink("reward", rewardIndex)
+                                if itemLink then
+                                    local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
+                                    if inventorySlotID then
+                                        -- Get the actual inventory slot ID because sometimes it can be different.
+                                        inventorySlotID = addon.InventoryType[inventorySlotID]
+                                        local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
+                                        if rewardItemLevel > equippedItems[inventorySlotID] then
+                                            -- Check the player's inventory for the quest reward they just acquired.
+                                            C_Timer.After(1, function() CheckForQuestReward(itemLink) end)
+                                        end
+                                    end
+                                end
+                            end
+                        end
                         QuestFrameCompleteButton:Click("LeftButton")
                         QuestFrameCompleteQuestButton:Click("LeftButton")
                     end
