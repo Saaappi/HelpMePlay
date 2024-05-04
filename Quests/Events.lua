@@ -21,13 +21,6 @@ end
 
 local function QUEST_DETAIL()
     local questID = GetQuestID()
-    if HelpMePlayDB["IgnoreRepeatableQuests"] then
-        if questID then
-            print("|cffFFD100[NEEDS TESTING]|r This is a repeatable quest. Ignoring...")
-            if C_QuestLog.IsRepeatableQuest(questID) then return end
-        end
-    end
-
     if not IsShiftKeyDown() then
         if QuestGetAutoAccept() then
             CloseQuest()
@@ -174,14 +167,18 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
             if availableQuests and mapID then
                 for _, quest in ipairs(availableQuests) do
-                    if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                        if HelpMePlayDB["GuideQuests"][mapID][quest.questID] then
+                    if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
+                        -- We do nothing here because the player chose to ignore repeatable quests.
+                    else
+                        if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                            if HelpMePlayDB["GuideQuests"][mapID][quest.questID] then
+                                C_GossipInfo.SelectAvailableQuest(quest.questID)
+                                AcceptQuest()
+                            end
+                        elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
                             C_GossipInfo.SelectAvailableQuest(quest.questID)
                             AcceptQuest()
                         end
-                    elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                        C_GossipInfo.SelectAvailableQuest(quest.questID)
-                        AcceptQuest()
                     end
                 end
             end
