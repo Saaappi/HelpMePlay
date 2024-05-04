@@ -1,10 +1,10 @@
 What's New
 - Fixed an issue causing the wrong talent spell link to be printed when the second choice in selection nodes was chosen.
-- Fixed an issue (hopefully) that allowed the Quest Mobs icon to remain on the nameplate even after the quest objective was completed.
+- Fixed an issue (hopefully) that allowed the Quest Mobs icon to remain on visible nameplates even after the associated quest objective was completed.
 - Fixed an issue that prevented quests from being completed when 'All Quests' is enabled.
 - Players can now hold the SHIFT key to temporarily pause quest-related automation.
 - [NEEDS TESTING] Players can now toggle a setting to ignore repeatable quests. Hopefully you can save your precious Iskaara supplies! (Resolves #81)
-- Players can now select 'Item Level' from the Quest Rewards dropdown. Selected quest rewards are automatically equipped.
+- Players can now select 'Item Level' (NEW) from the Quest Rewards dropdown. Selected quest rewards are automatically equipped.
 - Players can now toggle 'Repairs' (NEW) in the settings to automatically repair at merchants.
 - The outdated version icon (next to Version in the settings) will now show for every Beta release.
 - The '/wave' emote to Gor'groth has been removed.
