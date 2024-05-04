@@ -13,21 +13,20 @@ local function CheckForQuestReward(itemLink)
     -- but before this function is called, then trigger a timer.
     if UnitAffectingCombat("player") then C_Timer.After(1, function() CheckForQuestReward(itemLink) end) end
 
+    -- Get the provided item link's ID. This is necessary for comparison
+    -- to items in the inventory. For some reason item link comparison is
+    -- busted. :)
+    local itemID = C_Item.GetItemInfoInstant(itemLink)
+
     for bagID = 0, 4 do
         local numSlots = C_Container.GetContainerNumSlots(bagID)
         if numSlots > 0 then
             for slotID = 1, numSlots do
-                local containerItemLink = C_Container.GetContainerItemLink(bagID, slotID)
-                if containerItemLink then
-                    if containerItemLink == itemLink then
-                        print("WE FOUND A MATCH! HOORAY!")
-                    else
-                        print(containerItemLink)
+                local containerItemID = C_Container.GetContainerItemID(bagID, slotID)
+                if containerItemID then
+                    if containerItemID == itemID then
+                        C_Item.EquipItemByName(itemLink)
                     end
-                    --if containerItemLink == itemLink then
-                        --C_Item.EquipItemByName(containerItemLink)
-                        --C_Timer.After(0.5, function() C_Item.EquipItemByName(containerItemLink) end)
-                    --end
                 end
             end
         end
