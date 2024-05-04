@@ -81,10 +81,20 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                     -- Get the actual inventory slot ID because sometimes it can be different.
                     inventorySlotID = addon.InventoryType[inventorySlotID] or 0
                     local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
-                    if canDualWield and classID == 2 then
-                        -- Handle weapon logic for dual wield classes, such as Rogues
-                        -- and Fury Warriors.
-                        for slot = 16, 17 do
+                    local start, finish = 0, 0
+                    if (canDualWield and classID == 2) or (classID == 4 and (equipLoc == "INVTYPE_FINGER" or equipLoc == "INVTYPE_TRINKET")) then
+                        if canDualWield and classID == 2 then
+                            -- Handle weapon logic for dual wield classes, such as Rogues
+                            -- and Fury Warriors.
+                            start, finish = 16, 17
+                        elseif classID == 4 and equipLoc == "INVTYPE_FINGER" then
+                            -- Handle logic for rings.
+                            start, finish = 11, 12
+                        elseif classID == 4 and equipLoc == "INVTYPE_TRINKET" then
+                            -- Handle logic for trinkets.
+                            start, finish = 13, 14
+                        end
+                        for slot = start, finish do
                             if rewardItemLevel > equippedItems[slot] then
                                 local itemLevelDifference = rewardItemLevel - equippedItems[slot]
                                 if itemLevelDifference > bestItemLevelDifference then
@@ -92,33 +102,6 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                                     bestRewardItemLink = itemLink
                                     destSlot = slot
                                     bestRewardIndex = index
-                                end
-                            end
-                        end
-                    elseif classID == 4 and (equipLoc == "INVTYPE_FINGER" or equipLoc == "INVTYPE_TRINKET") then
-                        -- Handle logic for checking rings and trinkets.
-                        if equipLoc == "INVTYPE_FINGER" then
-                            for slot = 11, 12 do
-                                if rewardItemLevel > equippedItems[slot] then
-                                    local itemLevelDifference = rewardItemLevel - equippedItems[slot]
-                                    if itemLevelDifference > bestItemLevelDifference then
-                                        bestItemLevelDifference = itemLevelDifference
-                                        bestRewardItemLink = itemLink
-                                        destSlot = slot
-                                        bestRewardIndex = index
-                                    end
-                                end
-                            end
-                        else
-                            for slot = 13, 14 do
-                                if rewardItemLevel > equippedItems[slot] then
-                                    local itemLevelDifference = rewardItemLevel - equippedItems[slot]
-                                    if itemLevelDifference > bestItemLevelDifference then
-                                        bestItemLevelDifference = itemLevelDifference
-                                        bestRewardItemLink = itemLink
-                                        destSlot = slot
-                                        bestRewardIndex = index
-                                    end
                                 end
                             end
                         end
