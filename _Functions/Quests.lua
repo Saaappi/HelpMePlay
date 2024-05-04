@@ -8,7 +8,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if addonLoaded == addonName then
             -- How to handle completing a quest.
             function HelpMePlay.CompleteQuest()
-                if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
+                if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
                 C_Timer.After(addon.Constants["TIMER_DELAY"], function()
                     -- Check if the player is in combat. This will cause some trouble if they
@@ -46,11 +46,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     equippedItems[15] = GetInventoryItemLink("player", 15) or 0    -- Back
 
                     -- Convert the equipped items into their item levels.
-                    for inventorySlotID, itemLink in pairs(equippedItems) do
-                        if itemLink ~= 0 then
-                            local itemID = C_Item.GetItemInfoInstant(itemLink)
+                    for inventorySlotID, value in pairs(equippedItems) do
+                        if value ~= 0 then
+                            local itemID = C_Item.GetItemInfoInstant(value)
                             local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
-                            local actualItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink)
+                            local actualItemLevel = C_Item.GetDetailedItemLevelInfo(value)
                             if heirloomMaxLevel and (heirloomMaxLevel >= addon.playerLevel) then
                                 -- If the player has an heirloom equipped in the slot, and they haven't
                                 -- outleveled the heirloom, then set the itemlevel for that slot to 999
@@ -59,10 +59,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             end
                             equippedItems[inventorySlotID] = actualItemLevel
                         end
+                        print(inventorySlotID .. ": " .. value)
                     end
 
                     -- Setup a few necessary variables.
-                    local bestSellPrice = 0
+                    --[[local bestSellPrice = 0
                     local bestItemIndex = 0
                     local numQuestRewards = GetNumQuestRewards()
                     local numQuestChoices = GetNumQuestChoices()
@@ -70,12 +71,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end
 
                         for index = 1, numQuestChoices do
-                            if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then
+                            if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- Item Level
                                 local itemLink = GetQuestItemLink("choice", index)
                                 if itemLink then
 
                                 end
-                            elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then
+                            elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- Sell Price
                                 local quantity = select(3, GetQuestItemInfo("choice", index))
                                 local itemLink = GetQuestItemLink("choice", index)
                                 if quantity and itemLink then
@@ -100,7 +101,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     else
                         QuestFrameCompleteButton:Click()
                         QuestFrameCompleteQuestButton:Click()
-                    end
+                    end]]
                 end)
             end
 

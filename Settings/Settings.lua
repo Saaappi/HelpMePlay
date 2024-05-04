@@ -506,12 +506,11 @@ C_Timer.After(5, function()
         height = 38,
         title = "Quest Rewards",
         tooltipHeader = "Quest Rewards",
-        tooltipText = "Select how quest rewards should be chosen.\n\n" ..
-        "|cffFF0000Item Level will be available for testing in a later build.|r",
+        tooltipText = "Select how quest rewards should be chosen.",
         options = {
             {
                 ["text"] = "Item Level",
-                ["disabled"] = true,
+                ["disabled"] = false,
                 ["func"] = function()
                     local value = 1
                     HelpMePlayDB["QuestRewardSelectionTypeID"] = value

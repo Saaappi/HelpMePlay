@@ -143,10 +143,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     end
 
     if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
-        if HelpMePlayDB["PurchaseQuestItems"] == false then return end
-
         local type = ...
         if type == 3 then
+            if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+
             local GUID = UnitGUID("target")
             local mapID = C_Map.GetBestMapForUnit("player")
             if GUID then
@@ -186,6 +186,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
             end
         elseif type == 5 then -- Merchant
+            if HelpMePlayDB["PurchaseQuestItems"] == false then return end
+
 			C_Timer.After(addon.Constants["TIMER_DELAY"], function()
                 for index = 1, GetMerchantNumItems() do
                     local itemID = GetMerchantItemID(index)

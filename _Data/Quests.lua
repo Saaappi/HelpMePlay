@@ -13,9 +13,28 @@ addon.AdventureMaps = {
     },
 }
 
+-- TODO: Can this be removed? Do I need this table
+-- if players will have Route Builder eventually?
 addon.Emotes = {}
 
+-- TODO: Can this be removed? Do I need this table
+-- if players will have Route Builder eventually?
 addon.IgnoredQuestGivers = {}
+
+-- These are the options in the Chromie Time
+-- dropdown.
+addon.CHROMIE_TIME_IDS = {
+    [16] = "Dragonflight",
+    [15] = EXPANSION_NAME7,
+    [14] = EXPANSION_NAME8,
+    [10] = EXPANSION_NAME6,
+    [9] = EXPANSION_NAME5,
+    [8] = EXPANSION_NAME4,
+    [7] = EXPANSION_NAME2,
+    [6] = EXPANSION_NAME1,
+    [5] = EXPANSION_NAME3,
+    [0] = NONE,
+}
 
 --------------------------------
 -- Quest Rewards (Item Level) --
@@ -32,4 +51,12 @@ addon.CanDualWield = {
     261, -- Subtlety Rogue
     263, -- Enhancement Shaman
     72, -- Fury Warrior
+}
+
+-- These are the options in the Quest Rewards
+-- dropdown.
+addon.QUEST_REWARDS_TYPES = {
+    [2] = "Sell Price",
+    [1] = "Item Level",
+    [0] = NONE,
 }
