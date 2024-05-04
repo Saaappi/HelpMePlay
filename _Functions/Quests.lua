@@ -124,9 +124,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 local itemLink = GetQuestItemLink("choice", rewardIndex)
                                 if itemLink then
                                     -- Let's check if the reward is a weapon. If it's a weapon, then
-                                    -- let's ensure it's a supported weapon for the class. For example,
+                                    -- let's ensure it's a supported weapon for the class/spec. For example,
                                     -- a Survival Hunter shouldn't take a bow over a polearm.
-                                    local classID, subClassID = C_Item.GetItemInfo(itemLink)
+                                    local classID, subClassID = select(12, C_Item.GetItemInfo(itemLink))
                                     if classID == 2 then -- Weapon
                                         isRewardValid = IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
                                     end
