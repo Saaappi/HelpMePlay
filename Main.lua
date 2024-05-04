@@ -59,6 +59,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["TrainerProtectionValue"] == nil then
                 HelpMePlayDB["TrainerProtectionValue"] = 0
             end
+            if HelpMePlayDB["ShouldRepair"] == nil then
+                HelpMePlayDB["ShouldRepair"] = false
+            end
             if HelpMePlayDB["PurchaseQuestItems"] == nil then
                 HelpMePlayDB["PurchaseQuestItems"] = false
             end

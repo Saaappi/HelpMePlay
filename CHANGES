@@ -5,5 +5,6 @@ What's New
 - Players can now hold the SHIFT key to temporarily pause quest-related automation.
 - [NEEDS TESTING] Players can now toggle a setting to ignore repeatable quests. Hopefully you can save your precious Iskaara supplies! (Resolves #81)
 - Players can now select 'Item Level' from the Quest Rewards dropdown. Selected quest rewards are automatically equipped.
+- Players can now toggle 'Repairs' (NEW) in the settings to automatically repair at merchants.
 - The outdated version icon (next to Version in the settings) will now show for every Beta release.
 - The '/wave' emote to Gor'groth has been removed.

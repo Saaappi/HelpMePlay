@@ -60,6 +60,7 @@ ReadyChecks\ReadyChecks.lua
 RoleChecks\RoleChecks.lua
 
 # Merchants & Trainers
+Merchants\Repair.lua
 Merchants\Trainers.lua
 
 # Talents

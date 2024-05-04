@@ -22,6 +22,7 @@ local gossipCB
 local partyPlayCB
 local readyChecksCB
 local roleChecksCB
+local repairsCB
 local purchaseQuestItemsCB
 local dynamicFlightCB
 local worldEventQueueCB
@@ -286,9 +287,26 @@ C_Timer.After(5, function()
     roleChecksCB = roleChecksCB:CheckButton()
     roleChecksCB:SetChecked(HelpMePlayDB["AcceptRoleChecks"])
 
+    repairsCB = {
+        name = addonName .. "RepairsCB",
+        parent = roleChecksCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
+        tooltipHeader = "Repairs",
+        tooltipText = "Toggle to automatically repair at merchants.",
+        onClick = function()
+            HelpMePlayDB["ShouldRepair"] = repairsCB:GetChecked()
+        end,
+    }
+    setmetatable(repairsCB, { __index = HelpMePlay.Button })
+    repairsCB = repairsCB:CheckButton()
+    repairsCB:SetChecked(HelpMePlayDB["ShouldRepair"])
+
     purchaseQuestItemsCB = {
         name = addonName .. "PurchaseQuestItemsCB",
-        parent = roleChecksCB,
+        parent = repairsCB,
         anchor = "TOPLEFT",
         relativeAnchor = "BOTTOMLEFT",
         oX = 0,
