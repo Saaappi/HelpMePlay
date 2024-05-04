@@ -55,12 +55,12 @@ local function IsWeaponRewardValidForSpecID(specID, subClassID)
     return true
 end
 
-local function CheckItemLevelUpgrade(itemLinks, equippedItems, isRewardValid)
+local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
     local bestRewardItemLink = ""
     local destSlot = 0
     local bestItemLevelDifference = 0
     local bestRewardIndex = 0
-    for index, itemLink in ipairs(itemLinks) do
+    for index, itemLink in ipairs(rewards) do
         local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
         if inventorySlotID then
             if addon.InventoryType[inventorySlotID] then
@@ -205,38 +205,33 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     --
                     -- A quest "reward" is something given to the player without their decision,
                     -- whereas a quest "choice" is a reward the player can choose.
-                    --local numQuestChoices = GetNumQuestChoices()
-                    local numQuestChoices = 2
+                    local numQuestChoices = GetNumQuestChoices()
+                    --local numQuestChoices = 2
                     if numQuestChoices > 1 then
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
 
-                        local itemLinks = {
-                            "|cffffffff|Hitem:2489::::::::70:72::14::1:28:73:::::|h[Two-Handed Sword]|h|r",
-                            "|cff0070dd|Hitem:193716::::::::70:72::1:1:3524:1:28:2155:::::|h[Algeth'ar Hedgecleaver]|h|r",
-                            --"|cff0070dd|Hitem:193708::::::::70:72::1:1:3524:1:28:2155:::::|h[Platinum Star Band]|h|r",
+                        --[[local itemLinks = {
+                            --"|cffffffff|Hitem:2489::::::::70:72::14::1:28:73:::::|h[Two-Handed Sword]|h|r",
+                            --"|cff0070dd|Hitem:193716::::::::70:72::1:1:3524:1:28:2155:::::|h[Algeth'ar Hedgecleaver]|h|r",
                             --"|cffa335ee|Hitem:207159::::::::70:72::6:1:3524:1:28:2611:::::|h[Band of Burning Thorns]|h|r",
+                            --"|cff0070dd|Hitem:193708::::::::70:72::1:1:3524:1:28:2155:::::|h[Platinum Star Band]|h|r",
                             --"|cff0070dd|Hitem:193762::::::::70:72::1:1:3524:1:28:2587:::::|h[Blazebinder's Hoof]|h|r",
                             --"|cffa335ee|Hitem:207169::::::::70:72::6:1:3524:1:28:2611:::::|h[Branch of the Tormented Ancient]|h|r",
-                        }
+                        }]]
 
                         local bestRewardIndex = 0
                         local bestSellPrice = 0
                         local bestRewardItemLink = ""
                         local destSlot = 0
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- ITEM LEVEL.
+                            local rewards = {}
                             for rewardIndex = 1, numQuestChoices do
-                                --local itemLink = GetQuestItemLink("choice", rewardIndex)
-                                --if itemLink then
-                                    --local itemLink = itemLinks[rewardIndex]
-                                    --C_Item.RequestLoadItemDataByID(itemLink)
-                                --end
-                            end
-                            --C_Timer.After(1, function()
-                                bestRewardIndex, bestRewardItemLink, destSlot = CheckItemLevelUpgrade(itemLinks, equippedItems, true)
-                                if bestRewardItemLink ~= "" and destSlot ~= 0 then
-                                    print(destSlot .. ": " .. bestRewardItemLink)
+                                local itemLink = GetQuestItemLink("choice", rewardIndex)
+                                if itemLink then
+                                    table.insert(rewards, itemLink)
                                 end
-                            --end)
+                            end
+                            bestRewardIndex, bestRewardItemLink, destSlot = CheckItemLevelUpgrade(rewards, equippedItems, true)
                         elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE.
                             for rewardIndex = 1, numQuestChoices do
                                 local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
@@ -260,18 +255,18 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if bestRewardIndex == 0 then
                             GetQuestReward(math.random(1, numQuestChoices))
                         else
-                            --if bestRewardItemLink ~= "" and destSlot ~= 0 then
-                                --GetQuestReward(bestRewardIndex)
+                            if bestRewardItemLink ~= "" and destSlot ~= 0 then
+                                GetQuestReward(bestRewardIndex)
 
                                 -- Check the player's inventory for the quest reward they just acquired.
-                                --C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
-                            --end
+                                C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
+                            end
                         end
                     elseif numQuestChoices == 1 then
                         local itemLink = GetQuestItemLink("choice", 1)
                         if itemLink then
-                            local itemLinks = { itemLink }
-                            local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(itemLinks, equippedItems, true))
+                            local rewards = { itemLink }
+                            local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
                             -- There is only one decision to be made, so let the addon
                             -- make it for the player regardless of their settings.
                             GetQuestReward(1)
@@ -284,14 +279,14 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         -- (not choices) available.
                         local numQuestRewards = GetNumQuestRewards()
                         if numQuestRewards > 0 then
-                            local itemLinks = {}
+                            local rewards = {}
                             for rewardIndex = 1, numQuestRewards do
                                 local itemLink = GetQuestItemLink("reward", rewardIndex)
                                 if itemLink then
-                                    table.insert(itemLinks, itemLink)
+                                    table.insert(rewards, itemLink)
                                 end
                             end
-                            local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(itemLinks, equippedItems, true))
+                            local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
                             if bestRewardItemLink ~= "" and destSlot ~= 0 then
                                 -- Check the player's inventory for the quest reward they just acquired.
                                 C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
