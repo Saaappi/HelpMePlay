@@ -89,6 +89,12 @@ addon.InventoryType = {
 --
 -- The numbers on the right are subclass IDs from C_Item.GetItemInfo.
 addon.EquipLoc = {
+    [62] = { 10 }, -- Arcane Mage
+    [63] = { 10 }, -- Fire Mage
+    [64] = { 10 }, -- Frost Mage
+    [65] = { 0, 1, 4, 5, 6, 7, 8 }, -- Holy Paladin
+    [66] = { 0, 4, 7 }, -- Protection Paladin
+    [70] = { 0, 1, 4, 5, 6, 7, 8 }, -- Retribution Paladin
     [71] = { 1, 5, 6, 8, 10 }, -- Arms Warrior
     [72] = { 0, 1, 4, 5, 6, 7, 8, 10 }, -- Fury Warrior
     [73] = { 0, 4, 7 }, -- Protection Warrior
@@ -99,12 +105,20 @@ addon.EquipLoc = {
     [250] = { 1, 5, 6, 8 }, -- Blood Death Knight
     [251] = { 0, 1, 4, 5, 6, 7, 8 }, -- Frost Death Knight
     [252] = { 1, 5, 6, 8 }, -- Unholy Death Knight
+    [253] = { 2, 3, 18 }, -- Beast Mastery Hunter
+    [254] = { 2, 3, 18 }, -- Marksmanship Hunter
     [255] = { 6, 10 }, -- Survival Hunter (They should use Polearms or Staves.)
     [260] = { 0, 4, 7, 11, 12, 13, 15 }, -- Outlaw Rogue (They can use anything in their offhand, but the mainhand must be a slow 1H weapon.)
     [261] = { 15 }, -- Subtlety Rogue (They can use anything, but most abilities REQUIRE daggers.)
     [263] = { 0, 4, 11, 12, 13 }, -- Enhancement Shaman
+    [268] = { 0, 4, 6, 7, 10, 11, 12, 13 }, -- Brewmaster Monk
+    [269] = { 0, 4, 6, 7, 10, 11, 12, 13 }, -- Windwalker Monk
+    [270] = { 0, 4, 6, 7, 10, 11, 12, 13 }, -- Mistweaver Monk
     [577] = { 0, 1, 9, 11, 12, 13 }, -- Havoc Demon Hunter
     [581] = { 0, 1, 9, 11, 12, 13 }, -- Vengeance Demon Hunter
+    [1467] = { 0, 1, 4, 5, 7, 8, 10, 11, 12, 13, 15 }, -- Devastation Evoker
+    [1468] = { 0, 1, 4, 5, 7, 8, 10, 11, 12, 13, 15 }, -- Preservation Evoker
+    [1473] = { 0, 1, 4, 5, 7, 8, 10, 11, 12, 13, 15 }, -- Augmentation Evoker
 }
 
 -- These are the options in the Quest Rewards
