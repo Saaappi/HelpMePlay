@@ -50,7 +50,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if value ~= 0 then
                             local itemID = C_Item.GetItemInfoInstant(value)
                             local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
-                            local actualItemLevel = C_Item.GetDetailedItemLevelInfo(value)
+                            local actualItemLevel = C_Item.GetDetailedItemLevelInfo(value) or 0
                             if heirloomMaxLevel and (heirloomMaxLevel >= addon.playerLevel) then
                                 -- If the player has an heirloom equipped in the slot, and they haven't
                                 -- outleveled the heirloom, then set the itemlevel for that slot to 999
@@ -59,16 +59,61 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             end
                             equippedItems[inventorySlotID] = actualItemLevel
                         end
-                        print(inventorySlotID .. ": " .. value)
+                    end
+
+                    -- Check the number of quest rewards and choices from the opened quest.
+                    --
+                    -- A quest "reward" is something given to the player without their decision,
+                    -- whereas a quest "choice" is a reward the player can choose.
+                    local numQuestChoices, numQuestRewards = GetNumQuestChoices(), GetNumQuestRewards()
+                    --if numQuestChoices > 1 or numQuestRewards > 1 then
+                    if numQuestChoices == 1 or numQuestRewards == 1 then
+                        if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
+
+                        local bestRewardIndex = 0
+                        local bestSellPrice = 0
+                        if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- Process quest rewards by ITEM LEVEL.
+                            for rewardIndex = 1, numQuestChoices do
+                                local itemLink = GetQuestItemLink("choice", rewardIndex)
+                                print(itemLink)
+                            end
+                        elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- Process quest rewards by SELL PRICE.
+                            for rewardIndex = 1, numQuestChoices do
+                                local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
+                                local itemLink = GetQuestItemLink("choice", rewardIndex)
+                                if quantity and itemLink then
+                                    local sellPrice = select(11, C_Item.GetItemInfo(itemLink))
+                                    if sellPrice > 0 then
+                                        sellPrice = sellPrice * quantity
+                                        if sellPrice > bestSellPrice then
+                                            bestSellPrice = sellPrice
+                                            bestRewardIndex = rewardIndex
+                                        end
+                                    end
+                                end
+                            end
+                        end
+
+                        -- If no item is found to be better based on the player's settings, then
+                        -- choose an item randomly.
+                        --if bestRewardIndex == 0 then
+                            --GetQuestReward(math.random(1, numQuestChoices))
+                        --end
+                    --elseif numQuestChoices == 1 or numQuestRewards == 1 then
+                        -- There is only one decision to be made, so let the addon
+                        -- make it for the player regardless of their settings.
+                        --GetQuestReward(1)
+                    else
+                        -- No rewards available, so just complete the quest.
+                        QuestFrameCompleteButton:Click("LeftButton")
+                        QuestFrameCompleteQuestButton:Click("LeftButton")
                     end
 
                     -- Setup a few necessary variables.
                     --[[local bestSellPrice = 0
                     local bestItemIndex = 0
-                    local numQuestRewards = GetNumQuestRewards()
-                    local numQuestChoices = GetNumQuestChoices()
                     if numQuestChoices > 1 or numQuestRewards > 1 then
-                        if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end
+                        
 
                         for index = 1, numQuestChoices do
                             if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- Item Level
@@ -77,31 +122,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                                 end
                             elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- Sell Price
-                                local quantity = select(3, GetQuestItemInfo("choice", index))
-                                local itemLink = GetQuestItemLink("choice", index)
-                                if quantity and itemLink then
-                                    local sellPrice = select(11, C_Item.GetItemInfo(itemLink))
-                                    if sellPrice > 0 then
-                                        sellPrice = sellPrice * quantity
-                                        if sellPrice > bestSellPrice then
-                                            bestSellPrice = sellPrice
-                                            bestItemIndex = index
-                                        end
-                                    end
-                                end
+                                
                             end
-                        end
-
-                        if bestItemIndex == 0 then
-                            -- All items sell for the same value, so pick a random reward.
-                            GetQuestReward(math.random(1, numQuestChoices))
-                        end
-                    elseif numQuestChoices == 1 or numQuestRewards == 1 then
-                        GetQuestReward(1)
-                    else
-                        QuestFrameCompleteButton:Click()
-                        QuestFrameCompleteQuestButton:Click()
-                    end]]
+                        end]]
                 end)
             end
 
