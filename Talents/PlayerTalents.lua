@@ -88,7 +88,11 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
             GameTooltip:SetOwner(classTalentsButton, "ANCHOR_CURSOR_RIGHT")
             GameTooltip:SetText("Class Talents")
             if HelpMePlayDB["ClassTalents"][classID][specID] and (HelpMePlayDB["ClassTalents"][classID][specID].importString ~= nil and HelpMePlayDB["ClassTalents"][classID][specID].importString ~= "") then
-                GameTooltip:AddLine(format("Click to learn a random talent for |c%s%s %s|r.", addon.playerClassColor:GenerateHexColor(), addon.playerSpecName, addon.playerClassName), 1, 1, 1, true)
+                GameTooltip:AddLine(format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s",
+                addon.playerClassColor:GenerateHexColor(),
+                addon.playerSpecName,
+                addon.playerClassName,
+                HelpMePlayDB["ClassTalents"][classID][specID].importDate), 1, 1, 1, true)
             else
                 GameTooltip:AddLine("|cff56585DYour current specialization is unsupported.|r")
             end

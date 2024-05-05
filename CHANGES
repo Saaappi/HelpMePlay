@@ -7,5 +7,6 @@ What's New
 - Players can now toggle a setting to ignore repeatable quests. Hopefully you can save your precious Iskaara supplies! (Resolves #81)
 - Players can now select 'Item Level' (NEW) from the Quest Rewards dropdown. Selected quest rewards are automatically equipped.
 - Players can now toggle 'Repairs' (NEW) in the settings to automatically repair at merchants.
+- The import date for a talent loadout is now reflected in the talent button's tooltip.
 - The outdated version icon (next to Version in the settings) will now show for every Beta release.
 - The '/wave' emote to Gor'groth has been removed.
