@@ -2,6 +2,7 @@ What's New
 - Fixed an issue causing the wrong talent spell link to be printed when the second choice in selection nodes was chosen.
 - Fixed an issue (hopefully) that allowed the Quest Mobs icon to remain on visible nameplates even after the associated quest objective was completed.
 - Fixed an issue that prevented quests from being completed when 'All Quests' is enabled.
+- Fixed an issue that caused quests in a list not to be accepted during a certain event.
 - Players can now hold the SHIFT key to temporarily pause quest-related automation.
 - Players can now toggle a setting to ignore repeatable quests. Hopefully you can save your precious Iskaara supplies! (Resolves #81)
 - Players can now select 'Item Level' (NEW) from the Quest Rewards dropdown. Selected quest rewards are automatically equipped.
