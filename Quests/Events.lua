@@ -58,10 +58,10 @@ local function QUEST_GREETING()
             if questID and isComplete and mapID then
                 if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                     if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        SelectActiveQuest()
+                        SelectActiveQuest(i)
                     end
                 elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    SelectActiveQuest()
+                    SelectActiveQuest(i)
                 end
             end
         end
