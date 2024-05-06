@@ -34,6 +34,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             info.checked = false
                             info.menuList = key
                             info.disabled = option.disabled
+                            info.tooltipTitle = option.tooltipTitle
+                            info.tooltipText = option.tooltipText
+                            info.tooltipOnButton = 1
                             info.func = option.func
                             LibDD:UIDropDownMenu_AddButton(info)
                         end

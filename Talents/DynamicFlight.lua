@@ -8,7 +8,7 @@ local function PurchaseTalents()
     C_Traits.ResetTree(configID, treeID)
 
     C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-        for _, node in ipairs(addon.DynamicFlightTalents) do
+        for _, node in pairs(addon.DynamicFlightTalents) do
             local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
             if #nodeInfo.entryIDs > 1 then
                 C_Traits.SetSelection(configID, node.nodeID, node.entryID)
@@ -35,7 +35,7 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
             width = 24,
             height = 24,
             tooltipHeader = "Dynamic Flight Talents",
-            tooltipText = "Click to automatically learn your Dynamic Flight (Dragonriding) talents.",
+            tooltipText = "Click to automatically learn your Dynamic Flight talents.",
             onClick = function() PurchaseTalents() end,
         }
         setmetatable(dynamicFlightTalentsButton, { __index = HelpMePlay.Button })

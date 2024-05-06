@@ -101,6 +101,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["QuestMobsIconYOffset"] == nil then
                 HelpMePlayDB["QuestMobsIconYOffset"] = 0
             end
+            if HelpMePlayDB["DynamicFlightTrait1"] == nil then
+                HelpMePlayDB["DynamicFlightTrait1"] = { ["spellID"] = 384824, ["nodeID"] = 64065, ["entryID"] = 82385 }
+            end
+            if HelpMePlayDB["DynamicFlightTrait2"] == nil then
+                HelpMePlayDB["DynamicFlightTrait2"] = { ["spellID"] = 381871, ["nodeID"] = 64062, ["entryID"] = 82381 }
+            end
 
             -- If the Guide Quests table is nil, then initialize it.
             if HelpMePlayDB["GuideQuests"] == nil then
