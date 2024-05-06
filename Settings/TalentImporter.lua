@@ -89,6 +89,7 @@ addon.OpenTalentImporter = function()
     -- last bit is probably redundant.
     _G[frame:GetName() .. "CloseButton"]:SetScript("OnClick", function()
         HideEditBoxes()
+        backButton:Hide()
         frame:Hide()
     end)
 
