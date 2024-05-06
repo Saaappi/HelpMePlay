@@ -40,6 +40,16 @@ local function HideEditBoxes()
     return true
 end
 
+-- Function to update the text for an edit box.
+local function UpdateText(editBox, text, importDate, importPatch)
+    if text then
+        editBox:SetText(text)
+    end
+    editBox.importDateText:SetText(format("%s |cffFFD100(%s)|r", importDate, importPatch))
+
+    return true
+end
+
 -- This is the function to build the talent importer frame.
 -- This is called when the Talent Importer button is clicked
 -- from the settings.
@@ -79,7 +89,7 @@ addon.OpenTalentImporter = function()
     -- last bit is probably redundant.
     _G[frame:GetName() .. "CloseButton"]:SetScript("OnClick", function()
         HideEditBoxes()
-        --frame:Hide()
+        frame:Hide()
     end)
 
     -- Set the frame's title, icon, and position.
@@ -139,11 +149,24 @@ addon.OpenTalentImporter = function()
                     -- If the player already imported a string in the past, go ahead
                     -- and display that in the editbox.
                     local classTalents = HelpMePlayDB["ClassTalents"][button.classID][addon.specEditBoxes[button.ID][i].id]
+
                     if classTalents then
-                        editBox:SetText(classTalents.importString)
-                        editBox.importDateText:SetText(classTalents.importDate)
+                        -- TODO: Remove this at some point.
+                        -- I'm splitting the importDate field into two separate fields.
+                        -- This field will be nil until the user enters a new loadout.
+                        -- As such, set the importPatch field to the current patch.
+                        if not classTalents.importPatch then
+                            classTalents.importPatch = (GetBuildInfo())
+                        end
+
+                        -- TODO: Remove this at some point.
+                        -- Let's trim the importDate field to remove the patch information.
+                        if string.match(classTalents.importDate, "(.-) %(.-%)") then
+                            classTalents.importDate = string.match(classTalents.importDate, "(.-) %(.-%)")
+                        end
+                        UpdateText(editBox, classTalents.importString, classTalents.importDate, classTalents.importPatch)
                     else
-                        editBox:SetText(format("|cffFF0000%s %s.|r", "Please import a loadout for", addon.specEditBoxes[button.ID][i].name))
+                        UpdateText(editBox, format("|cffFF0000%s %s.|r", "Please import a loadout for", addon.specEditBoxes[button.ID][i].name), "", "")
                     end
 
                     -- Set the new talent build when the player presses the enter key.
@@ -163,11 +186,15 @@ addon.OpenTalentImporter = function()
                         --
                         -- Initialize the importString and importDate variables so they're not nil.
                         if self:GetText() == "" then
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importDate = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importString = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importDate = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importPatch = self:GetText()
                         else
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importDate = "|cffFFD100" .. date("%m/%d/%Y") .. " (" .. (GetBuildInfo()) .. ")|r"
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importString = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importDate = date("%m/%d/%Y")
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importPatch = (GetBuildInfo())
+                            classTalents = HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id]
+                            UpdateText(editBox, nil, classTalents.importDate, classTalents.importPatch)
                         end
                     end)
 
