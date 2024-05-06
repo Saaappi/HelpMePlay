@@ -22,6 +22,9 @@ local frameIcon = 132222
 local editBoxHeight = 20
 local editBoxWidth = 375
 
+-- This variable is the specialization icon texture size.
+local specIconTextureSize = 24
+
 -- Hide the edit boxes if they already exist so as not to cause a visual
 -- bug when they're created again.
 local function HideEditBoxes()
@@ -112,6 +115,19 @@ addon.OpenTalentImporter = function()
                     editBox:SetSize(editBoxWidth, editBoxHeight)
                     editBox:SetFontObject("ChatFontNormal")
 
+                    -- Create two textures to the left of the edit boxes. The first
+                    -- texture will be the specialization icon. The second texture
+                    -- will be a border to cover the edges of the texture.
+                    local border = editBox:CreateTexture("ARTWORK")
+                    border:SetPoint("BOTTOMRIGHT", _G[addonName .. "SpecEditBox" .. i], "BOTTOMLEFT", -10, 0)
+                    border:SetSize(specIconTextureSize + 2, specIconTextureSize + 2)
+                    border:SetAtlas("Artifacts-PerkRing-Final", false)
+
+                    local texture = editBox:CreateTexture("BACKGROUND")
+                    texture:SetPoint("BOTTOMRIGHT", _G[addonName .. "SpecEditBox" .. i], "BOTTOMLEFT", -10, 0)
+                    texture:SetSize(specIconTextureSize - 4, specIconTextureSize - 4)
+                    SetPortraitToTexture(texture, select(4, GetSpecializationInfoByID(addon.specEditBoxes[button.ID][i].id)))
+
                     --[[ I plan to do away with the title on the bars. I want to use spec icons next to the
                         bars instead. :)
                     editBox["title"] = editBox:CreateFontString(nil, "OVERLAY", "GameTooltipText")
@@ -157,13 +173,16 @@ addon.OpenTalentImporter = function()
                         end
                     end)
 
+                    -- Set the edit box positions.
                     if i == 1 then
-                        editBox:SetPoint("TOPLEFT", addon.classButtons[8].name, "BOTTOMLEFT", 0, -40)
+                        editBox:SetPoint("TOPLEFT", addon.classButtons[2].name, "BOTTOMLEFT", 0, -40)
+                        editBox:SetPoint("TOPRIGHT", addon.classButtons[8].name, "BOTTOMRIGHT", 0, -40)
                     else
-                        editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i - 1), "BOTTOMLEFT", 0, -25)
+                        editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i - 1), "BOTTOMLEFT", 0, -20)
                     end
 
-                    -- Create the back button.
+                    -- Create the back button. This back button just resets the frame,
+                    -- so not entirely necessary but I think it's nice. :)
                     if not backButton then
                         backButton = {
                             name = addonName .. "TalentImporterBackButton",
@@ -181,7 +200,7 @@ addon.OpenTalentImporter = function()
                         }
                         setmetatable(backButton, { __index = HelpMePlay.Button })
                         backButton = backButton:BaseButton()
-                        backButton:SetScript("OnClick", function(self, button)
+                        backButton:SetScript("OnClick", function(self)
                             frame:SetHeight(frameBaseHeight)
                             HideEditBoxes()
                             backButton:Hide()
