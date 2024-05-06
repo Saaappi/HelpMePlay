@@ -1,365 +1,116 @@
 local addonName, addon = ...
-local talentImporterFrame
-local talentImporterFrameHeight = 200
 
+-- This is the talent importer frame variable.
+local frame = {}
+
+-- This is the default height and width of the talent importer frame.
+local frameBaseHeight = 200
+local frameBaseWidth = 400
+
+-- This is the expanded height and width of the talent importer frame.
+local frameExpandedHeight = 375
+--local frameExpandedWidth = 0 -- unused
+
+-- These variables are some minor configuration for the frame.
+local frameTitle = "Talent Importer"
+local frameIcon = 132222
+
+-- This is the default height and width of the edit boxes.
+local editBoxHeight = 20
+local editBoxWidth = 375
+
+-- Hide the edit boxes if they already exist so as not to cause a visual
+-- bug when they're created again.
+local function HideEditBoxes()
+    for j = 1, 4 do
+        if _G[addonName .. "SpecEditBox" .. j] then
+            if _G[addonName .. "SpecEditBox" .. j]:IsVisible() then
+                _G[addonName .. "SpecEditBox" .. j]:Hide()
+                _G[addonName .. "SpecEditBox" .. j] = nil
+            end
+        end
+    end
+    return true
+end
+
+-- This is the function to build the talent importer frame.
+-- This is called when the Talent Importer button is clicked
+-- from the settings.
 addon.OpenTalentImporter = function()
-    if talentImporterFrame then
-        if talentImporterFrame:IsVisible() then
-            talentImporterFrame:Hide()
+    -- If the frame is already visible, then hide it.
+    if frame then
+        if frame:IsVisible() then
+            frame:Hide()
             return
         end
     end
 
-    if not talentImporterFrame then
-        talentImporterFrame = {
+    -- If the frame hasn't been created yet (it's just an empty table),
+    -- then let's create it!
+    --
+    -- If the frame already exists, then it's being reopened, so reset
+    -- its height back to the base value.
+    if frame == {} then
+        frame = {
             name = addonName .. "TalentImporterFrame",
             parent = UIParent,
-            width = 400,
-            height = talentImporterFrameHeight
+            width = frameBaseWidth,
+            height = frameBaseHeight,
         }
-        setmetatable(talentImporterFrame, { __index = HelpMePlay.Frame })
-        talentImporterFrame = talentImporterFrame:PortraitFrame()
+        setmetatable(frame, { __index = HelpMePlay.Frame })
+        frame = frame:PortraitFrame()
     else
-        talentImporterFrame:SetHeight(200)
+        frame:SetHeight(frameBaseHeight)
     end
 
-    _G[talentImporterFrame:GetName() .. "CloseButton"]:SetScript("OnClick", function()
-        for j = 1, 4 do
-            if _G[addonName .. "SpecEditBox" .. j] then
-                if _G[addonName .. "SpecEditBox" .. j]:IsVisible() then
-                    _G[addonName .. "SpecEditBox" .. j]:Hide()
-                    _G[addonName .. "SpecEditBox" .. j] = nil
-                end
-            end
-        end
-        talentImporterFrame:Hide()
+    -- TODO: Is there a better way to hide these editboxes so they're
+    -- not recreated on every creation? Is the frame:Hide() redundant?
+    --
+    -- By default, selecting the close button doesn't hide the children.
+    -- This may or may not be intended, so for right now I loop, hide the
+    -- editboxes, then set them to nil. Afterward, I hide the frame; the
+    -- last bit is probably redundant.
+    _G[frame:GetName() .. "CloseButton"]:SetScript("OnClick", function()
+        HideEditBoxes()
+        --frame:Hide()
     end)
 
-    talentImporterFrame:SetTitle("Talent Importer")
-    talentImporterFrame:SetPortraitToAsset(132222)
-    talentImporterFrame:SetPoint("CENTER", talentImporterFrame:GetParent(), "CENTER", 0, 0)
+    -- Set the frame's title, icon, and position.
+    frame:SetTitle(frameTitle)
+    frame:SetPortraitToAsset(frameIcon)
+    frame:SetPoint("CENTER", frame:GetParent(), "CENTER", 0, 0)
 
-    local classButtons = {
-        {
-            ["id"] = 1,
-            ["name"] = addonName .. "DeathKnightButton",
-            ["atlas"] = "classicon-deathknight",
-            ["classID"] = 6,
-            ["className"] = "Death Knight",
-            ["classColor"] = C_ClassColor.GetClassColor("DEATHKNIGHT"),
-        },
-        {
-            ["id"] = 2,
-            ["name"] = addonName .. "DemonHunterButton",
-            ["atlas"] = "classicon-demonhunter",
-            ["classID"] = 12,
-            ["className"] = "Demon Hunter",
-            ["classColor"] = C_ClassColor.GetClassColor("DEMONHUNTER"),
-        },
-        {
-            ["id"] = 3,
-            ["name"] = addonName .. "DruidButton",
-            ["atlas"] = "classicon-druid",
-            ["classID"] = 11,
-            ["className"] = "Druid",
-            ["classColor"] = C_ClassColor.GetClassColor("DRUID"),
-        },
-        {
-            ["id"] = 4,
-            ["name"] = addonName .. "EvokerButton",
-            ["atlas"] = "classicon-evoker",
-            ["classID"] = 13,
-            ["className"] = "Evoker",
-            ["classColor"] = C_ClassColor.GetClassColor("EVOKER"),
-        },
-        {
-            ["id"] = 5,
-            ["name"] = addonName .. "HunterButton",
-            ["atlas"] = "classicon-hunter",
-            ["classID"] = 3,
-            ["className"] = "Hunter",
-            ["classColor"] = C_ClassColor.GetClassColor("HUNTER"),
-        },
-        {
-            ["id"] = 6,
-            ["name"] = addonName .. "MageButton",
-            ["atlas"] = "classicon-mage",
-            ["classID"] = 8,
-            ["className"] = "Mage",
-            ["classColor"] = C_ClassColor.GetClassColor("MAGE"),
-        },
-        {
-            ["id"] = 7,
-            ["name"] = addonName .. "MonkButton",
-            ["atlas"] = "classicon-monk",
-            ["classID"] = 10,
-            ["className"] = "Monk",
-            ["classColor"] = C_ClassColor.GetClassColor("MONK"),
-        },
-        {
-            ["id"] = 8,
-            ["name"] = addonName .. "PaladinButton",
-            ["atlas"] = "classicon-paladin",
-            ["classID"] = 2,
-            ["className"] = "Paladin",
-            ["classColor"] = C_ClassColor.GetClassColor("PALADIN"),
-        },
-        {
-            ["id"] = 9,
-            ["name"] = addonName .. "PriestButton",
-            ["atlas"] = "classicon-priest",
-            ["classID"] = 5,
-            ["className"] = "Priest",
-            ["classColor"] = C_ClassColor.GetClassColor("PRIEST"),
-        },
-        {
-            ["id"] = 10,
-            ["name"] = addonName .. "RogueButton",
-            ["atlas"] = "classicon-rogue",
-            ["classID"] = 4,
-            ["className"] = "Rogue",
-            ["classColor"] = C_ClassColor.GetClassColor("ROGUE"),
-        },
-        {
-            ["id"] = 11,
-            ["name"] = addonName .. "ShamanButton",
-            ["atlas"] = "classicon-shaman",
-            ["classID"] = 7,
-            ["className"] = "Shaman",
-            ["classColor"] = C_ClassColor.GetClassColor("SHAMAN"),
-        },
-        {
-            ["id"] = 12,
-            ["name"] = addonName .. "WarlockButton",
-            ["atlas"] = "classicon-warlock",
-            ["classID"] = 9,
-            ["className"] = "Warlock",
-            ["classColor"] = C_ClassColor.GetClassColor("WARLOCK"),
-        },
-        {
-            ["id"] = 13,
-            ["name"] = addonName .. "WarriorButton",
-            ["atlas"] = "classicon-warrior",
-            ["classID"] = 1,
-            ["className"] = "Warrior",
-            ["classColor"] = C_ClassColor.GetClassColor("WARRIOR"),
-        },
-    }
-
-    local specEditBoxes = {
-        { -- Death Knight
-            {
-                ["id"] = 250,
-                ["name"] = "Blood",
-            },
-            {
-                ["id"] = 251,
-                ["name"] = "Frost",
-            },
-            {
-                ["id"] = 252,
-                ["name"] = "Unholy",
+    -- Create the class icon buttons if they don't exist.
+    if not _G[addon.classButtons[1].name] then
+        for index, btn in ipairs(addon.classButtons) do
+            local button = {
+                name = btn.name,
+                parent = frame,
+                ID = btn.id,
+                classID = btn.classID,
+                atlas = btn.atlas
             }
-        },
-        { -- Demon Hunter
-            {
-                ["id"] = 577,
-                ["name"] = "Havoc",
-            },
-            {
-                ["id"] = 581,
-                ["name"] = "Vengeance",
-            }
-        },
-        { -- Druid
-            {
-                ["id"] = 102,
-                ["name"] = "Balance",
-            },
-            {
-                ["id"] = 103,
-                ["name"] = "Feral",
-            },
-            {
-                ["id"] = 104,
-                ["name"] = "Guardian",
-            },
-            {
-                ["id"] = 105,
-                ["name"] = "Restoration",
-            },
-        },
-        { -- Evoker
-            {
-                ["id"] = 1473,
-                ["name"] = "Augmentation",
-            },
-            {
-                ["id"] = 1467,
-                ["name"] = "Devastation",
-            },
-            {
-                ["id"] = 1468,
-                ["name"] = "Preservation",
-            },
-        },
-        { -- Hunter
-            {
-                ["id"] = 253,
-                ["name"] = "Beast Mastery",
-            },
-            {
-                ["id"] = 254,
-                ["name"] = "Marksmanship",
-            },
-            {
-                ["id"] = 255,
-                ["name"] = "Survival",
-            },
-        },
-        { -- Mage
-            {
-                ["id"] = 62,
-                ["name"] = "Arcane",
-            },
-            {
-                ["id"] = 63,
-                ["name"] = "Fire",
-            },
-            {
-                ["id"] = 64,
-                ["name"] = "Frost",
-            },
-        },
-        { -- Monk
-            {
-                ["id"] = 268,
-                ["name"] = "Brewmaster",
-            },
-            {
-                ["id"] = 270,
-                ["name"] = "Mistweaver",
-            },
-            {
-                ["id"] = 269,
-                ["name"] = "Windwalker",
-            },
-        },
-        { -- Paladin
-            {
-                ["id"] = 65,
-                ["name"] = "Holy",
-            },
-            {
-                ["id"] = 66,
-                ["name"] = "Protection",
-            },
-            {
-                ["id"] = 70,
-                ["name"] = "Retribution",
-            },
-        },
-        { -- Priest
-            {
-                ["id"] = 256,
-                ["name"] = "Discipline",
-            },
-            {
-                ["id"] = 257,
-                ["name"] = "Holy",
-            },
-            {
-                ["id"] = 258,
-                ["name"] = "Shadow",
-            },
-        },
-        { -- Rogue
-            {
-                ["id"] = 259,
-                ["name"] = "Assassination",
-            },
-            {
-                ["id"] = 260,
-                ["name"] = "Outlaw",
-            },
-            {
-                ["id"] = 261,
-                ["name"] = "Subtlety",
-            },
-        },
-        { -- Shaman
-            {
-                ["id"] = 262,
-                ["name"] = "Elemental",
-            },
-            {
-                ["id"] = 263,
-                ["name"] = "Enhancement",
-            },
-            {
-                ["id"] = 264,
-                ["name"] = "Restoration",
-            },
-        },
-        { -- Warlock
-            {
-                ["id"] = 265,
-                ["name"] = "Affliction",
-            },
-            {
-                ["id"] = 266,
-                ["name"] = "Demonology",
-            },
-            {
-                ["id"] = 267,
-                ["name"] = "Destruction",
-            },
-        },
-        { -- Warrior
-            {
-                ["id"] = 71,
-                ["name"] = "Arms",
-            },
-            {
-                ["id"] = 72,
-                ["name"] = "Fury",
-            },
-            {
-                ["id"] = 73,
-                ["name"] = "Protection",
-            },
-        },
-    }
-
-    if not _G[classButtons[1].name] then
-        for index, btn in ipairs(classButtons) do
-            local button = CreateFrame("Button", btn.name, talentImporterFrame, "ActionButtonTemplate")
-            button["id"] = btn.id
-            button["classID"] = btn.classID
-            button:RegisterForClicks("LeftButtonUp")
-            ---@diagnostic disable-next-line: undefined-field
-            button.icon:SetAtlas(btn.atlas)
+            setmetatable(button, { __index = HelpMePlay.Button })
+            button = button:ActionButton()
 
             button:SetScript("OnClick", function()
-                talentImporterFrameHeight = 375
-                button:GetParent():SetHeight(talentImporterFrameHeight)
+                -- Resize the frame to accommodate the edit boxes.
+                button:GetParent():SetHeight(frameExpandedHeight)
 
-                -- If the editboxes already exist, then delete them.
-                for j = 1, 4 do
-                    if _G[addonName .. "SpecEditBox" .. j] then
-                        if _G[addonName .. "SpecEditBox" .. j]:IsVisible() then
-                            _G[addonName .. "SpecEditBox" .. j]:Hide()
-                            _G[addonName .. "SpecEditBox" .. j] = nil
-                        end
-                    end
-                end
+                -- Delete the editboxes if they already exist to prevent them
+                -- from overlapping when they're recreated.
+                HideEditBoxes()
 
-                for i = 1, #specEditBoxes[button.id] do
-                    local editBox = CreateFrame("EditBox", addonName .. "SpecEditBox" .. i, talentImporterFrame, "InputBoxTemplate")
+                for i = 1, #addon.specEditBoxes[button.ID] do
+                    -- Create the edit box. Don't auto focus them, set their size,
+                    -- and select their default font.
+                    local editBox = CreateFrame("EditBox", addonName .. "SpecEditBox" .. i, frame, "InputBoxTemplate")
                     editBox:SetAutoFocus(false)
-                    editBox:SetSize(375, 20)
+                    editBox:SetSize(editBoxWidth, editBoxHeight)
                     editBox:SetFontObject("ChatFontNormal")
 
+                    --[[ I plan to do away with the title on the bars. I want to use spec icons next to the
+                        bars instead. :)
                     editBox["title"] = editBox:CreateFontString(nil, "OVERLAY", "GameTooltipText")
                     editBox["title"]:SetPoint("BOTTOMLEFT", editBox["title"]:GetParent(), "TOPLEFT", 0, 5)
                     local classTalents = HelpMePlayDB["ClassTalents"][button.classID][specEditBoxes[button.id][i].id]
@@ -368,18 +119,25 @@ addon.OpenTalentImporter = function()
                     else
                         editBox["title"]:SetText(specEditBoxes[button.id][i].name .. " - |cffFF0000No previous import available|r")
                     end
+                    ]]
 
                     -- If the player already imported a string in the past, go ahead
                     -- and display that in the editbox.
+                    local classTalents = HelpMePlayDB["ClassTalents"][button.classID][addon.specEditBoxes[button.ID][i].id]
                     if classTalents then
                         editBox:SetText(classTalents.importString)
                     end
 
+                    -- Set the new talent build when the player presses the enter key.
                     editBox:SetScript("OnEnterPressed", function(self)
+                        -- Clear the focus so the player doesn't get stuck in the edit box.
                         self:ClearFocus()
+
+                        -- If classTalents is nil here, then the table for that spec hasn't been
+                        -- created yet. Create it as an empty table.
                         if not classTalents then
-                            HelpMePlayDB.ClassTalents[button.classID][specEditBoxes[button.id][i].id] = {}
-                            classTalents = HelpMePlayDB.ClassTalents[button.classID][specEditBoxes[button.id][i].id]
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id] = {}
+                            classTalents = HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id]
                         end
 
                         if self:GetText() == "" then

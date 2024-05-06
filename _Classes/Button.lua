@@ -163,7 +163,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     helpButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
 
                     return helpButton
-                end
+                end,
+                ActionButton = function(button)
+                    local actionButton = CreateFrame("Button", button.name, button.parent, "ActionButtonTemplate")
+                    actionButton.ID = button.ID
+                    actionButton.classID = button.classID
+                    actionButton:RegisterForClicks("LeftButton")
+                    actionButton.icon:SetAtlas(button.atlas)
+
+                    return actionButton
+                end,
             }
         end
 
