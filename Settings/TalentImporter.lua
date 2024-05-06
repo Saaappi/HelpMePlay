@@ -23,7 +23,8 @@ local editBoxHeight = 20
 local editBoxWidth = 375
 
 -- This variable is the specialization icon texture size.
-local specIconTextureSize = 24
+local specIconTextureSize = 32
+local borderTextureSize = 37
 
 -- Hide the edit boxes if they already exist so as not to cause a visual
 -- bug when they're created again.
@@ -115,36 +116,34 @@ addon.OpenTalentImporter = function()
                     editBox:SetSize(editBoxWidth, editBoxHeight)
                     editBox:SetFontObject("ChatFontNormal")
 
-                    -- Create two textures to the left of the edit boxes. The first
-                    -- texture will be the specialization icon. The second texture
-                    -- will be a border to cover the edges of the texture.
-                    local border = editBox:CreateTexture("ARTWORK")
-                    border:SetPoint("BOTTOMRIGHT", _G[addonName .. "SpecEditBox" .. i], "BOTTOMLEFT", -10, 0)
-                    border:SetSize(specIconTextureSize + 2, specIconTextureSize + 2)
-                    border:SetAtlas("Artifacts-PerkRing-Final", false)
-
-                    local texture = editBox:CreateTexture("BACKGROUND")
+                    -- Create the specialization icon texture to indicate which spec
+                    -- the corresponding edit box (the one to its right) is for.
+                    local texture = editBox:CreateTexture(nil, "BACKGROUND")
                     texture:SetPoint("BOTTOMRIGHT", _G[addonName .. "SpecEditBox" .. i], "BOTTOMLEFT", -10, 0)
-                    texture:SetSize(specIconTextureSize - 4, specIconTextureSize - 4)
+                    texture:SetSize(specIconTextureSize, specIconTextureSize)
                     SetPortraitToTexture(texture, select(4, GetSpecializationInfoByID(addon.specEditBoxes[button.ID][i].id)))
 
-                    --[[ I plan to do away with the title on the bars. I want to use spec icons next to the
-                        bars instead. :)
-                    editBox["title"] = editBox:CreateFontString(nil, "OVERLAY", "GameTooltipText")
-                    editBox["title"]:SetPoint("BOTTOMLEFT", editBox["title"]:GetParent(), "TOPLEFT", 0, 5)
-                    local classTalents = HelpMePlayDB["ClassTalents"][button.classID][specEditBoxes[button.id][i].id]
-                    if classTalents and (classTalents.importString ~= nil and classTalents.importString ~= "") then
-                        editBox["title"]:SetText(specEditBoxes[button.id][i].name .. " - " .. classTalents.importDate)
-                    else
-                        editBox["title"]:SetText(specEditBoxes[button.id][i].name .. " - |cffFF0000No previous import available|r")
-                    end
-                    ]]
+                    -- Create the border texture to overlay the specialization icon
+                    -- texture above.
+                    local border = editBox:CreateTexture(nil, "BORDER")
+                    border:SetPoint("CENTER", texture, "CENTER", 0, 0)
+                    border:SetSize(borderTextureSize, borderTextureSize)
+                    border:SetAtlas("Artifacts-PerkRing-Final", false)
+
+                    -- Create a font string to use on the right-hand side of the edit
+                    -- box for the importDate value.
+                    editBox.importDateText = editBox:CreateFontString(nil, "OVERLAY", "GameTooltipText")
+                    editBox.importDateText:SetPoint("TOPLEFT", editBox, "TOPRIGHT", 5, 0)
+                    editBox.importDateText:SetPoint("BOTTOMLEFT", editBox, "BOTTOMRIGHT", 5, 0)
 
                     -- If the player already imported a string in the past, go ahead
                     -- and display that in the editbox.
                     local classTalents = HelpMePlayDB["ClassTalents"][button.classID][addon.specEditBoxes[button.ID][i].id]
                     if classTalents then
                         editBox:SetText(classTalents.importString)
+                        editBox.importDateText:SetText(classTalents.importDate)
+                    else
+                        editBox:SetText(format("|cffFF0000%s %s.|r", "Please import a loadout for", addon.specEditBoxes[button.ID][i].name))
                     end
 
                     -- Set the new talent build when the player presses the enter key.
@@ -166,7 +165,6 @@ addon.OpenTalentImporter = function()
                         if self:GetText() == "" then
                             HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importString = self:GetText()
                             HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importDate = self:GetText()
-                            self:SetText("|cffFF0000No previous import available|r")
                         else
                             HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importString = self:GetText()
                             HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importDate = "|cffFFD100" .. date("%m/%d/%Y") .. " (" .. (GetBuildInfo()) .. ")|r"
