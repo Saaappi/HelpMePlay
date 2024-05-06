@@ -19,6 +19,7 @@ _Data\Quests.lua
 _Data\Talent_Data.lua
 _Data\QuestMobs.lua
 _Data\WorldEvents_Data.lua
+_Data\TalentImporter.lua
 
 # Settings
 Settings\TalentImporter.lua

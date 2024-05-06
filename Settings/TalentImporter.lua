@@ -1,11 +1,14 @@
 local addonName, addon = ...
 
 -- This is the talent importer frame variable.
-local frame = {}
+local frame
+
+-- This is the back button to reset the frame.
+local backButton
 
 -- This is the default height and width of the talent importer frame.
-local frameBaseHeight = 200
-local frameBaseWidth = 400
+local frameBaseHeight = 125
+local frameBaseWidth = 725
 
 -- This is the expanded height and width of the talent importer frame.
 local frameExpandedHeight = 375
@@ -50,7 +53,7 @@ addon.OpenTalentImporter = function()
     --
     -- If the frame already exists, then it's being reopened, so reset
     -- its height back to the base value.
-    if frame == {} then
+    if not frame then
         frame = {
             name = addonName .. "TalentImporterFrame",
             parent = UIParent,
@@ -140,21 +143,51 @@ addon.OpenTalentImporter = function()
                             classTalents = HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id]
                         end
 
+                        -- If the text is empty, then we didn't find a talent import string for
+                        -- the spec. Instead, put some text in there to indicate as much.
+                        --
+                        -- Initialize the importString and importDate variables so they're not nil.
                         if self:GetText() == "" then
-                            HelpMePlayDB.ClassTalents[button.classID][specEditBoxes[button.id][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][specEditBoxes[button.id][i].id].importDate = self:GetText()
-                            editBox["title"]:SetText(specEditBoxes[button.id][i].name .. " - |cffFF0000No previous import available|r")
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importString = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importDate = self:GetText()
+                            self:SetText("|cffFF0000No previous import available|r")
                         else
-                            HelpMePlayDB.ClassTalents[button.classID][specEditBoxes[button.id][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][specEditBoxes[button.id][i].id].importDate = "|cffFFD100" .. date("%m/%d/%Y") .. " (" .. (GetBuildInfo()) .. ")|r"
-                            self["title"]:SetText(specEditBoxes[button.id][i].name .. " - " .. classTalents.importDate)
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importString = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.id][i].id].importDate = "|cffFFD100" .. date("%m/%d/%Y") .. " (" .. (GetBuildInfo()) .. ")|r"
                         end
                     end)
 
                     if i == 1 then
-                        editBox:SetPoint("TOPLEFT", classButtons[8].name, "BOTTOMLEFT", 0, -40)
+                        editBox:SetPoint("TOPLEFT", addon.classButtons[8].name, "BOTTOMLEFT", 0, -40)
                     else
-                        editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i-1), "BOTTOMLEFT", 0, -25)
+                        editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i - 1), "BOTTOMLEFT", 0, -25)
+                    end
+
+                    -- Create the back button.
+                    if not backButton then
+                        backButton = {
+                            name = addonName .. "TalentImporterBackButton",
+                            parent = frame,
+                            anchor = "BOTTOMRIGHT",
+                            relativeAnchor = "BOTTOMRIGHT",
+                            oX = -10,
+                            oY = 10,
+                            width = 80,
+                            height = 25,
+                            text = "Back",
+                            tooltipHeader = "",
+                            tooltipText = "",
+                            onClick = nil,
+                        }
+                        setmetatable(backButton, { __index = HelpMePlay.Button })
+                        backButton = backButton:BaseButton()
+                        backButton:SetScript("OnClick", function(self, button)
+                            frame:SetHeight(frameBaseHeight)
+                            HideEditBoxes()
+                            backButton:Hide()
+                        end)
+                    else
+                        backButton:Show()
                     end
                 end
             end)
@@ -167,15 +200,14 @@ addon.OpenTalentImporter = function()
                 GameTooltip:Hide()
             end)
 
+            -- Set the class button positions.
             if index == 1 then
                 button:SetPoint("TOPLEFT", button:GetParent(), "TOPLEFT", 10, -60)
-            elseif index < 8 then
-                button:SetPoint("LEFT", classButtons[index-1].name, "RIGHT", 11, 0)
             else
-                button:SetPoint("TOP", classButtons[index-7].name, "BOTTOM", 0, -20)
+                button:SetPoint("LEFT", addon.classButtons[index-1].name, "RIGHT", 10, 0)
             end
         end
     end
 
-    talentImporterFrame:Show()
+    frame:Show()
 end
