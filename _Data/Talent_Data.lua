@@ -23,11 +23,6 @@ addon.LoadDynamicFlightTalents = function()
         { ["nodeID"] = 64059, ["entryID"] = 82378 }, 	-- Beyond Infinity
         { ["nodeID"] = 64060, ["entryID"] = 82379 }, 	-- Yearning for the Sky
         { ["nodeID"] = 64058, ["entryID"] = 82377 }, 	-- At Home Aloft
-        
-        
-        
-        
-        
     }
     table.insert(addon.DynamicFlightTalents, 7, { ["nodeID"] = HelpMePlayDB["DynamicFlightTrait1"].nodeID, ["entryID"] = HelpMePlayDB["DynamicFlightTrait1"].entryID })
     table.insert(addon.DynamicFlightTalents, 17, { ["nodeID"] = HelpMePlayDB["DynamicFlightTrait2"].nodeID, ["entryID"] = HelpMePlayDB["DynamicFlightTrait2"].entryID })

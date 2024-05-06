@@ -31,7 +31,7 @@ C_Timer.After(5, function()
                 ["disabled"] = false,
                 ["func"] = function()
                     local spellID = 378409
-                    local nodeID = 64605
+                    local nodeID = 64065
                     local entryID = 82386
                     HelpMePlayDB["DynamicFlightTrait1"].spellID = spellID
                     HelpMePlayDB["DynamicFlightTrait1"].nodeID = nodeID
@@ -48,7 +48,7 @@ C_Timer.After(5, function()
                 ["disabled"] = false,
                 ["func"] = function()
                     local spellID = 384824
-                    local nodeID = 64605
+                    local nodeID = 64065
                     local entryID = 82385
                     HelpMePlayDB["DynamicFlightTrait1"].spellID = spellID
                     HelpMePlayDB["DynamicFlightTrait1"].nodeID = nodeID
