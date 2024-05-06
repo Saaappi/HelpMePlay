@@ -252,6 +252,5 @@ addon.OpenTalentImporter = function()
             end
         end
     end
-
     frame:Show()
 end
