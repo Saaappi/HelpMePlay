@@ -143,6 +143,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["ClassColorFrames"] == nil then
                 HelpMePlayDB["ClassColorFrames"] = false
             end
+            if HelpMePlayDB["LootUnderMouse"] == nil then
+                HelpMePlayDB["LootUnderMouse"] = false
+            end
 
             -- If the Guide Quests table is nil, then initialize it.
             if HelpMePlayDB["GuideQuests"] == nil then

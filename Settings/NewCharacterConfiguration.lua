@@ -10,6 +10,8 @@ local autoLootCB
 local disableTutorialsCB
 local autoPushSpellsCB
 local classColorFramesCB
+local lootWindowUnderMouseCB
+local disableDialogCB
 
 local Panel = CreateFrame("Frame", addonName .. "NewCharacterConfigurationPanel")
 Panel.name = "New Character Config"
@@ -85,7 +87,7 @@ C_Timer.After(5, function()
         oX = 0,
         oY = -5,
         tooltipHeader = "Auto Loot",
-        tooltipText = "Toggle to enable Auto Loot. De-toggle to disable auto loot.",
+        tooltipText = "Toggle to enable Auto Loot. De-toggle to disable Auto Loot.",
         onClick = function()
             HelpMePlayDB["AutoLoot"] = autoLootCB:GetChecked()
         end,
@@ -149,4 +151,41 @@ C_Timer.After(5, function()
     setmetatable(classColorFramesCB, { __index = HelpMePlay.Button })
     classColorFramesCB = classColorFramesCB:CheckButton()
     classColorFramesCB:SetChecked(HelpMePlayDB["ClassColorFrames"])
+
+    -- This check button will make the loot window appear under the
+    -- mouse.
+    lootWindowUnderMouseCB = {
+        name = addonName .. "LootWindowUnderMouseCB",
+        parent = classColorFramesCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
+        tooltipHeader = "Loot Under Mouse",
+        tooltipText = "Toggle to make the loot window appear under your mouse. De-toggle to make the loot window appear near the top-left corner.",
+        onClick = function()
+            HelpMePlayDB["LootUnderMouse"] = lootWindowUnderMouseCB:GetChecked()
+        end,
+    }
+    setmetatable(lootWindowUnderMouseCB, { __index = HelpMePlay.Button })
+    lootWindowUnderMouseCB = lootWindowUnderMouseCB:CheckButton()
+    lootWindowUnderMouseCB:SetChecked(HelpMePlayDB["LootUnderMouse"])
+
+    -- This check button grants the ability to toggle dialog.
+    disableDialogCB = {
+        name = addonName .. "DisableDialogCB",
+        parent = lootWindowUnderMouseCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
+        tooltipHeader = "Disable Dialog",
+        tooltipText = "Toggle to silence dialog. De-toggle to enable dialog.",
+        onClick = function()
+            HelpMePlayDB["DisableDialog"] = disableDialogCB:GetChecked()
+        end,
+    }
+    setmetatable(disableDialogCB, { __index = HelpMePlay.Button })
+    disableDialogCB = disableDialogCB:CheckButton()
+    disableDialogCB:SetChecked(HelpMePlayDB["DisableDialog"])
 end)
