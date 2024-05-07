@@ -25,7 +25,7 @@ C_Timer.After(5, function()
         tooltipText = "Pick your talent.",
         options = {
             {
-                ["text"] = (GetSpellInfo(378409)),
+                ["text"] = "|T4640484:0|t " .. (GetSpellInfo(378409)),
                 ["tooltipTitle"] = (GetSpellInfo(378409)),
                 ["tooltipText"] = GetSpellDescription(378409),
                 ["disabled"] = false,
@@ -42,7 +42,7 @@ C_Timer.After(5, function()
                 end,
             },
             {
-                ["text"] = (GetSpellInfo(384824)),
+                ["text"] = "|T4640480:0|t " .. (GetSpellInfo(384824)),
                 ["tooltipTitle"] = (GetSpellInfo(384824)),
                 ["tooltipText"] = GetSpellDescription(384824),
                 ["disabled"] = false,
@@ -78,7 +78,7 @@ C_Timer.After(5, function()
         tooltipText = "Pick your talent.",
         options = {
             {
-                ["text"] = (GetSpellInfo(381870)),
+                ["text"] = "|T4640482:0|t " .. (GetSpellInfo(381870)),
                 ["tooltipTitle"] = (GetSpellInfo(381870)),
                 ["tooltipText"] = GetSpellDescription(381870),
                 ["disabled"] = false,
@@ -95,7 +95,7 @@ C_Timer.After(5, function()
                 end,
             },
             {
-                ["text"] = (GetSpellInfo(381871)),
+                ["text"] = "|T4640483:0|t " .. (GetSpellInfo(381871)),
                 ["tooltipTitle"] = (GetSpellInfo(381871)),
                 ["tooltipText"] = GetSpellDescription(381871),
                 ["disabled"] = false,
