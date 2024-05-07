@@ -107,6 +107,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["DynamicFlightTrait2"] == nil then
                 HelpMePlayDB["DynamicFlightTrait2"] = { ["spellID"] = 381871, ["nodeID"] = 64062, ["entryID"] = 82381 }
             end
+            if HelpMePlayDB["NCCEnabled"] == nil then
+                HelpMePlayDB["NCCEnabled"] = false
+            end
             if HelpMePlayDB["NCC_ActionBar2"] == nil then
                 HelpMePlayDB["NCC_ActionBar2"] = false
             end

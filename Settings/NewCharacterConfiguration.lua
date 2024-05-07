@@ -22,6 +22,9 @@ Panel.name = "New Character Config"
 Panel.parent = _G[addonName .. "SettingsPanel"].name
 InterfaceOptions_AddCategory(Panel)
 
+-- Get all the player's Edit Mode layouts and return them
+-- so the dropdown menu can populate its options with
+-- the player's layouts.
 local function GetLayouts()
     local layouts = {
         {
@@ -65,6 +68,33 @@ local function GetLayouts()
 end
 
 C_Timer.After(5, function()
+    -- Create an enable button. If it's enabled, then the new character
+    -- button will appear for new characters. If it's disabled, then
+    -- the button won't appear.
+    local nccEnabledCB = CreateFrame("CheckButton", addonName .. "NewCharacterConfigurationEnabledCB", Panel, "SettingsCheckBoxTemplate")
+    nccEnabledCB:SetPoint("TOPRIGHT", -15, -10)
+
+    nccEnabledCB.text = nccEnabledCB:CreateFontString(nil, nil, "GameTooltipText")
+    nccEnabledCB.text:SetPoint("RIGHT", nccEnabledCB, "LEFT", -5, 0)
+    nccEnabledCB.text:SetText("Enabled")
+
+    nccEnabledCB:SetScript("OnClick", function()
+        HelpMePlayDB["NCCEnabled"] = nccEnabledCB:GetChecked()
+        if nccEnabledCB:GetChecked() then
+            addon.NewCharacter()
+        end
+    end)
+    nccEnabledCB:SetScript("OnEnter", function(self)
+        GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
+        GameTooltip:SetText("New Character Configuration")
+        GameTooltip:AddLine("Toggle the New Character Configuration system on or off.", 1, 1, 1, true)
+        GameTooltip:Show()
+    end)
+    nccEnabledCB:SetScript("OnLeave", function()
+        GameTooltip:Hide()
+    end)
+    nccEnabledCB:SetChecked(HelpMePlayDB["NCCEnabled"])
+
     -- Action Bars Section Title
     actionBarsSectionFont = Panel:CreateFontString(addonName .. "ActionBars", nil, "GameTooltipText")
     actionBarsSectionFont:SetPoint("TOPLEFT", 15, -10)
