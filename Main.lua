@@ -128,6 +128,21 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["NCC_ActionBar8"] == nil then
                 HelpMePlayDB["NCC_ActionBar8"] = false
             end
+            if HelpMePlayDB["ClearAllTracking"] == nil then
+                HelpMePlayDB["ClearAllTracking"] = false
+            end
+            if HelpMePlayDB["AutoLoot"] == nil then
+                HelpMePlayDB["AutoLoot"] = false
+            end
+            if HelpMePlayDB["DisableTutorials"] == nil then
+                HelpMePlayDB["DisableTutorials"] = false
+            end
+            if HelpMePlayDB["AutoPushSpells"] == nil then
+                HelpMePlayDB["AutoPushSpells"] = false
+            end
+            if HelpMePlayDB["ClassColorFrames"] == nil then
+                HelpMePlayDB["ClassColorFrames"] = false
+            end
 
             -- If the Guide Quests table is nil, then initialize it.
             if HelpMePlayDB["GuideQuests"] == nil then
