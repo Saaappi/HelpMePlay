@@ -24,6 +24,7 @@ _Data\TalentImporter.lua
 # Settings
 Settings\TalentImporter.lua
 Settings\Settings.lua
+Settings\NewCharacterConfiguration.lua
 Settings\Settings_DynamicFlight.lua
 Settings\Settings_QuestMobs.lua
 

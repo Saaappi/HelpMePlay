@@ -107,6 +107,27 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["DynamicFlightTrait2"] == nil then
                 HelpMePlayDB["DynamicFlightTrait2"] = { ["spellID"] = 381871, ["nodeID"] = 64062, ["entryID"] = 82381 }
             end
+            if HelpMePlayDB["NCC_ActionBar2"] == nil then
+                HelpMePlayDB["NCC_ActionBar2"] = false
+            end
+            if HelpMePlayDB["NCC_ActionBar3"] == nil then
+                HelpMePlayDB["NCC_ActionBar3"] = false
+            end
+            if HelpMePlayDB["NCC_ActionBar4"] == nil then
+                HelpMePlayDB["NCC_ActionBar4"] = false
+            end
+            if HelpMePlayDB["NCC_ActionBar5"] == nil then
+                HelpMePlayDB["NCC_ActionBar5"] = false
+            end
+            if HelpMePlayDB["NCC_ActionBar6"] == nil then
+                HelpMePlayDB["NCC_ActionBar6"] = false
+            end
+            if HelpMePlayDB["NCC_ActionBar7"] == nil then
+                HelpMePlayDB["NCC_ActionBar7"] = false
+            end
+            if HelpMePlayDB["NCC_ActionBar8"] == nil then
+                HelpMePlayDB["NCC_ActionBar8"] = false
+            end
 
             -- If the Guide Quests table is nil, then initialize it.
             if HelpMePlayDB["GuideQuests"] == nil then
