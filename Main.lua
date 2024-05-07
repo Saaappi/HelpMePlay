@@ -146,6 +146,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["LootUnderMouse"] == nil then
                 HelpMePlayDB["LootUnderMouse"] = false
             end
+            if HelpMePlayDB["NCC_EditModeLayoutID"] == nil then
+                HelpMePlayDB["NCC_EditModeLayoutID"] = 1
+            end
 
             -- If the Guide Quests table is nil, then initialize it.
             if HelpMePlayDB["GuideQuests"] == nil then

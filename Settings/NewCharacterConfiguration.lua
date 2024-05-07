@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 -- Font Strings
 local actionBarsSectionFont
@@ -13,10 +14,55 @@ local classColorFramesCB
 local lootWindowUnderMouseCB
 local disableDialogCB
 
+-- DropDowns
+local editModeDropDown
+
 local Panel = CreateFrame("Frame", addonName .. "NewCharacterConfigurationPanel")
 Panel.name = "New Character Config"
 Panel.parent = _G[addonName .. "SettingsPanel"].name
 InterfaceOptions_AddCategory(Panel)
+
+local function GetLayouts()
+    local layouts = {
+        {
+            ["text"] = "Modern",
+            ["disabled"] = false,
+            ["func"] = function()
+                local layoutID = 1
+                HelpMePlayDB["NCC_EditModeLayoutID"] = layoutID
+                LibDD:UIDropDownMenu_SetSelectedValue(editModeDropDown, layoutID, layoutID)
+                LibDD:UIDropDownMenu_SetText(editModeDropDown, "Modern")
+            end,
+        },
+        {
+            ["text"] = "Classic",
+            ["disabled"] = false,
+            ["func"] = function()
+                local layoutID = 2
+                HelpMePlayDB["NCC_EditModeLayoutID"] = layoutID
+                LibDD:UIDropDownMenu_SetSelectedValue(editModeDropDown, layoutID, layoutID)
+                LibDD:UIDropDownMenu_SetText(editModeDropDown, "Classic")
+            end,
+        },
+    }
+    local gameLayouts = C_EditMode.GetLayouts()
+    for index, layout in ipairs(gameLayouts.layouts) do
+        table.insert(layouts, (index + 2),
+            {
+                ["text"] = layout.layoutName,
+                ["disabled"] = false,
+                ["func"] = function()
+                    local layoutID = index + 2
+                    HelpMePlayDB["NCC_EditModeLayoutID"] = layoutID
+                    LibDD:UIDropDownMenu_SetSelectedValue(editModeDropDown, layoutID, layoutID)
+                    LibDD:UIDropDownMenu_SetText(editModeDropDown, layout.layoutName)
+                end,
+            }
+        )
+    end
+
+    return layouts
+end
 
 C_Timer.After(5, function()
     -- Action Bars Section Title
@@ -188,4 +234,24 @@ C_Timer.After(5, function()
     setmetatable(disableDialogCB, { __index = HelpMePlay.Button })
     disableDialogCB = disableDialogCB:CheckButton()
     disableDialogCB:SetChecked(HelpMePlayDB["DisableDialog"])
+
+    -- This dropdown will allow players to define the Edit Mode
+    -- layout they wish to use on all their characters.
+    editModeDropDown = {
+        name = addonName .. "EditModeDropDown",
+        parent = _G[addonName .. "ActionBarButtonCB" .. 2],
+        anchor = "LEFT",
+        relativeAnchor = "RIGHT",
+        oX = 200,
+        oY = 0,
+        width = 150,
+        height = 38,
+        title = "Edit Mode",
+        tooltipHeader = "Edit Mode",
+        tooltipText = "Select the default layout you would like all your new characters to use.",
+        options = GetLayouts(),
+    }
+    setmetatable(editModeDropDown, { __index = HelpMePlay.DropDown })
+    editModeDropDown = editModeDropDown:DropDown()
+    LibDD:UIDropDownMenu_SetText(editModeDropDown, GetLayouts()[HelpMePlayDB["NCC_EditModeLayoutID"]].text)
 end)
