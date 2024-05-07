@@ -146,6 +146,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["LootUnderMouse"] == nil then
                 HelpMePlayDB["LootUnderMouse"] = false
             end
+            if HelpMePlayDB["DisableDialog"] == nil then
+                HelpMePlayDB["DisableDialog"] = false
+            end
             if HelpMePlayDB["NCC_EditModeLayoutID"] == nil then
                 HelpMePlayDB["NCC_EditModeLayoutID"] = 1
             end
