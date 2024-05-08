@@ -24,6 +24,7 @@ _Data\Heirloom.lua
 
 # Settings
 Settings\TalentImporter.lua
+Settings\Heirloom.lua
 Settings\Settings.lua
 Settings\Settings_DynamicFlight.lua
 Settings\NewCharacterConfiguration.lua
