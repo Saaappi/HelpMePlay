@@ -43,7 +43,7 @@ local function CheckForQuestReward(itemLink, destSlot)
     end
 end
 
-local function IsWeaponRewardValidForSpecID(specID, subClassID)
+addon.IsWeaponRewardValidForSpecID = function(specID, subClassID)
     if addon.EquipLoc[specID] then
         for _, v in ipairs(addon.EquipLoc[specID]) do
             if subClassID == v then
@@ -68,7 +68,7 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                 -- an item is valid for the player.
                 local equipLoc, _, classID, subClassID = select(4, C_Item.GetItemInfoInstant(itemLink))
                 if classID == 2 then -- Weapon
-                    isRewardValid = IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
+                    isRewardValid = addon.IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
                 end
 
                 -- isRewardValid is always passed as TRUE to the function; however, if the item
@@ -215,18 +215,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     -- A quest "reward" is something given to the player without their decision,
                     -- whereas a quest "choice" is a reward the player can choose.
                     local numQuestChoices = GetNumQuestChoices()
-                    --local numQuestChoices = 2
                     if numQuestChoices > 1 then
                         if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
-
-                        --[[local itemLinks = {
-                            --"|cffffffff|Hitem:2489::::::::70:72::14::1:28:73:::::|h[Two-Handed Sword]|h|r",
-                            --"|cff0070dd|Hitem:193716::::::::70:72::1:1:3524:1:28:2155:::::|h[Algeth'ar Hedgecleaver]|h|r",
-                            --"|cffa335ee|Hitem:207159::::::::70:72::6:1:3524:1:28:2611:::::|h[Band of Burning Thorns]|h|r",
-                            --"|cff0070dd|Hitem:193708::::::::70:72::1:1:3524:1:28:2155:::::|h[Platinum Star Band]|h|r",
-                            --"|cff0070dd|Hitem:193762::::::::70:72::1:1:3524:1:28:2587:::::|h[Blazebinder's Hoof]|h|r",
-                            --"|cffa335ee|Hitem:207169::::::::70:72::6:1:3524:1:28:2611:::::|h[Branch of the Tormented Ancient]|h|r",
-                        }]]
 
                         local bestRewardIndex = 0
                         local bestSellPrice = 0

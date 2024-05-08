@@ -20,6 +20,7 @@ _Data\Talent_Data.lua
 _Data\QuestMobs.lua
 _Data\WorldEvents_Data.lua
 _Data\TalentImporter.lua
+_Data\Heirloom.lua
 
 # Settings
 Settings\TalentImporter.lua
@@ -79,6 +80,7 @@ GuildBank\GuildBank.lua
 
 # Character
 Character\NewCharacter.lua
+Character\Heirloom.lua
 
 # Commands
 _Commands\Commands.lua
