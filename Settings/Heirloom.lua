@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 -- This is the talent importer frame variable.
 local frame
@@ -25,12 +26,12 @@ local frameIcon = 1030912
 
 -- Hide the edit boxes if they already exist so as not to cause a visual
 -- bug when they're created again.
-local function HideEditBoxes()
-    for j = 1, 4 do
-        if _G[addonName .. "SpecEditBox" .. j] then
-            if _G[addonName .. "SpecEditBox" .. j]:IsVisible() then
-                _G[addonName .. "SpecEditBox" .. j]:Hide()
-                _G[addonName .. "SpecEditBox" .. j] = nil
+local function HideDropDowns()
+    for j = 1, 2 do
+        if _G[addonName .. "HeirloomDropDown" .. j] then
+            if _G[addonName .. "HeirloomDropDown" .. j]:IsVisible() then
+                _G[addonName .. "HeirloomDropDown" .. j]:Hide()
+                _G[addonName .. "HeirloomDropDown" .. j] = nil
             end
         end
     end
@@ -66,7 +67,7 @@ addon.OpenHeirloomSelector = function()
     -- its height back to the base value.
     if not frame then
         frame = {
-            name = addonName .. "HeirloomSelectorFrame",
+            name = addonName .. "HeirloomSelectionFrame",
             parent = UIParent,
             width = frameBaseWidth,
             height = frameBaseHeight,
@@ -85,7 +86,7 @@ addon.OpenHeirloomSelector = function()
     -- editboxes, then set them to nil. Afterward, I hide the frame; the
     -- last bit is probably redundant.
     _G[frame:GetName() .. "CloseButton"]:SetScript("OnClick", function()
-        HideEditBoxes()
+        HideDropDowns()
         backButton:Hide()
         frame:Hide()
     end)
@@ -110,16 +111,48 @@ addon.OpenHeirloomSelector = function()
 
             button:SetScript("OnClick", function()
                 -- Resize the frame to accommodate the edit boxes.
-                --button:GetParent():SetHeight(frameExpandedHeight)
+                button:GetParent():SetHeight(frameExpandedHeight)
 
-                -- Delete the editboxes if they already exist to prevent them
+                -- Delete the dropdowns if they already exist to prevent them
                 -- from overlapping when they're recreated.
-                --HideEditBoxes()
+                HideDropDowns()
 
-                --[[for i = 1, #addon.specEditBoxes[button.ID] do
+                for i = 1, 1 do
+                    -- Create the dropdown menus.
+                    local dropDown = LibDD:Create_UIDropDownMenu(addonName .. "HeirloomDropDown" .. i, frame)
+                    UIDropDownMenu_SetWidth(dropDown, 125)
+
+                    dropDown.title = dropDown:CreateFontString(nil, "OVERLAY", "GameTooltipText")
+                    dropDown.title:SetPoint("BOTTOMLEFT", dropDown["title"]:GetParent(), "TOPLEFT", 15, 5)
+                    if i == 1 then
+                        dropDown.title:SetText("Head")
+                    else
+                        dropDown.title:SetText("Shoulder")
+                    end
+
+                    --[[LibDD:UIDropDownMenu_Initialize(dropDown, function(self, level)
+                        local info = LibDD:UIDropDownMenu_CreateInfo()
+                        for key, option in ipairs(myDropDown.options) do
+                            info.text = option.text
+                            info.checked = false
+                            info.menuList = key
+                            info.disabled = option.disabled
+                            info.tooltipTitle = option.tooltipTitle
+                            info.tooltipText = option.tooltipText
+                            info.tooltipOnButton = 1
+                            info.func = option.func
+                            LibDD:UIDropDownMenu_AddButton(info)
+                        end
+                    end)]]
+
+                    if i == 1 then
+                        dropDown:SetPoint("TOPLEFT", addon.classButtons[1].name, "BOTTOMLEFT", 0, -40)
+                    else
+                        dropDown:SetPoint("TOPLEFT", addon.classButtons[1].name, "BOTTOMLEFT", 0, -100)
+                    end
                     -- Create the edit box. Don't auto focus them, set their size,
                     -- and select their default font.
-                    local editBox = CreateFrame("EditBox", addonName .. "SpecEditBox" .. i, frame, "InputBoxTemplate")
+                    --[[local editBox = CreateFrame("EditBox", addonName .. "SpecEditBox" .. i, frame, "InputBoxTemplate")
                     editBox:SetAutoFocus(false)
                     editBox:SetSize(editBoxWidth, editBoxHeight)
                     editBox:SetFontObject("ChatFontNormal")
@@ -202,36 +235,36 @@ addon.OpenHeirloomSelector = function()
                         editBox:SetPoint("TOPRIGHT", addon.classButtons[8].name, "BOTTOMRIGHT", 0, -40)
                     else
                         editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i - 1), "BOTTOMLEFT", 0, -20)
-                    end
+                    end]]
+                end
 
-                    -- Create the back button. This back button just resets the frame,
-                    -- so not entirely necessary but I think it's nice. :)
-                    if not backButton then
-                        backButton = {
-                            name = addonName .. "TalentImporterBackButton",
-                            parent = frame,
-                            anchor = "BOTTOMRIGHT",
-                            relativeAnchor = "BOTTOMRIGHT",
-                            oX = -10,
-                            oY = 10,
-                            width = 80,
-                            height = 25,
-                            text = "Back",
-                            tooltipHeader = "",
-                            tooltipText = "",
-                            onClick = nil,
-                        }
-                        setmetatable(backButton, { __index = HelpMePlay.Button })
-                        backButton = backButton:BaseButton()
-                        backButton:SetScript("OnClick", function(self)
-                            frame:SetHeight(frameBaseHeight)
-                            HideEditBoxes()
-                            backButton:Hide()
-                        end)
-                    else
-                        backButton:Show()
-                    end
-                end]]
+                -- Create the back button. This back button just resets the frame,
+                -- so not entirely necessary but I think it's nice. :)
+                if not backButton then
+                    backButton = {
+                        name = addonName .. "HeirloomSelectionBackButton",
+                        parent = frame,
+                        anchor = "BOTTOMRIGHT",
+                        relativeAnchor = "BOTTOMRIGHT",
+                        oX = -10,
+                        oY = 10,
+                        width = 80,
+                        height = 25,
+                        text = "Back",
+                        tooltipHeader = "",
+                        tooltipText = "",
+                        onClick = nil,
+                    }
+                    setmetatable(backButton, { __index = HelpMePlay.Button })
+                    backButton = backButton:BaseButton()
+                    backButton:SetScript("OnClick", function(self)
+                        frame:SetHeight(frameBaseHeight)
+                        HideDropDowns()
+                        backButton:Hide()
+                    end)
+                else
+                    backButton:Show()
+                end
             end)
             button:SetScript("OnEnter", function(self)
                 GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
