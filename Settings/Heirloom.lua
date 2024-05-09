@@ -263,7 +263,8 @@ addon.OpenHeirloomSelector = function()
                         height = 25,
                         text = "Commit",
                         tooltipHeader = "Commit",
-                        tooltipText = "Commit your heirloom selections for this class.",
+                        tooltipText = "Commit your heirloom selections for this class.\n\n" ..
+                        "|cffFF0000Once committed, you must use the Reset button below if you wish to make new selections.|r",
                         onClick = nil,
                     }
                     setmetatable(commitButton, { __index = HelpMePlay.Button })
