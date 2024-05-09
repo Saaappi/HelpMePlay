@@ -6,6 +6,8 @@ local frame
 
 -- This is the back button to reset the frame.
 local backButton
+local doneButton
+local resetButton
 
 -- This is the default height and width of the talent importer frame.
 local frameBaseHeight = 125
@@ -262,9 +264,73 @@ addon.OpenHeirloomSelector = function()
                         frame:SetHeight(frameBaseHeight)
                         HideDropDowns()
                         backButton:Hide()
+                        doneButton:Hide()
+                        resetButton:Hide()
                     end)
                 else
                     backButton:Show()
+                end
+
+                -- Create the done button. This done button will close the selection
+                -- frame and show a button in the middle of the characters screen to
+                -- create their heirlooms. This will only need to be done once per
+                -- class.
+                if not doneButton then
+                    doneButton = {
+                        name = addonName .. "HeirloomSelectionDoneButton",
+                        parent = backButton,
+                        anchor = "BOTTOM",
+                        relativeAnchor = "TOP",
+                        oX = 0,
+                        oY = 10,
+                        width = 80,
+                        height = 25,
+                        text = "Done",
+                        tooltipHeader = "",
+                        tooltipText = "",
+                        onClick = nil,
+                    }
+                    setmetatable(doneButton, { __index = HelpMePlay.Button })
+                    doneButton = doneButton:BaseButton()
+                    doneButton:SetScript("OnClick", function(self)
+                        HideDropDowns()
+                        frame:Hide()
+                        doneButton:Hide()
+                        backButton:Hide()
+                        resetButton:Hide()
+                    end)
+                else
+                    doneButton:Show()
+                end
+
+                -- Create the reset button. The reset button allows the player
+                -- to wipe the saved settings for heirlooms on a given class.
+                if not resetButton then
+                    resetButton = {
+                        name = addonName .. "HeirloomSelectionResetButton",
+                        parent = frame,
+                        anchor = "TOPRIGHT",
+                        relativeAnchor = "TOPRIGHT",
+                        oX = -10,
+                        oY = -20,
+                        width = 80,
+                        height = 30,
+                        text = "Reset",
+                        tooltipHeader = "",
+                        tooltipText = "",
+                        onClick = nil,
+                    }
+                    setmetatable(resetButton, { __index = HelpMePlay.Button })
+                    resetButton = resetButton:BaseButton()
+                    resetButton:SetScript("OnClick", function(self)
+                        HideDropDowns()
+                        frame:Hide()
+                        resetButton:Hide()
+                        backButton:Hide()
+                        doneButton:Hide()
+                    end)
+                else
+                    resetButton:Show()
                 end
             end)
             button:SetScript("OnEnter", function(self)
