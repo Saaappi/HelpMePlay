@@ -347,29 +347,32 @@ addon.OpenHeirloomSelector = function()
                         resetButton:Hide()
                         WipeHeirloomTables()
 
-                        heirloomButton = {
-                            name = addonName .. "HeirloomSecureButton",
-                            texture = C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID),
-                            parent = UIParent,
-                            anchor = "CENTER",
-                            relativeAnchor = "CENTER",
-                            oX = 100,
-                            oY = 0,
-                            width = 48,
-                            height = 48,
-                            attribute = "item",
-                            attributeValue = HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID,
-                            postClick = function(self, button, isDown) if not isDown then CreateHeirloom(addon.playerClassID) end end,
-                        }
-                        setmetatable(heirloomButton, { __index = HelpMePlay.Button })
-                        heirloomButton = heirloomButton:SecureButton()
+                        heirloomButton = CreateFrame("Button", nil, UIParent, "SecureActionButtonTemplate")
+                        heirloomButton:ClearAllPoints()
+                        heirloomButton:SetSize(48, 48)
+                        heirloomButton:SetPoint("CENTER")
+
+                        heirloomButton.texture = heirloomButton:CreateTexture()
+                        heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID))
+                        heirloomButton.texture:SetAllPoints()
+
+                        heirloomButton:RegisterForClicks("AnyUp")
+                        heirloomButton:SetMouseClickEnabled(true)
+                        heirloomButton:SetAttribute("type", "item")
+                        heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID)
+
+                        heirloomButton:SetScript("PostClick", function()
+                            CreateHeirloom(addon.playerClassID)
+                        end)
                         heirloomButton:SetScript("OnEnter", function()
-                            GameTooltip:SetOwner(heirloomButton, "ANCHOR_CURSOR_RIGHT")
+                            GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
                             GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID)
                         end)
                         heirloomButton:SetScript("OnLeave", function()
                             GameTooltip:Hide()
                         end)
+
+                        heirloomButton:Show()
                     end)
                 else
                     doneButton:Show()
