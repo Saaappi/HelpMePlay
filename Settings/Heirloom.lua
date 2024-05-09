@@ -342,14 +342,16 @@ addon.OpenHeirloomSelector = function()
                     setmetatable(resetButton, { __index = HelpMePlay.Button })
                     resetButton = resetButton:BaseButton()
                     resetButton:SetScript("OnClick", function(self)
+                        -- Resetting will clear the selections for the current class
+                        -- but also reset the frame.
                         HideDropDowns()
-                        frame:Hide()
                         resetButton:Hide()
                         commitButton:Hide()
                         HelpMePlayDB["Heirlooms"][addon.playerClassID] = {}
                         if not commitButton:IsEnabled() then
                             commitButton:SetEnabled(true)
                         end
+                        frame:SetHeight(frameBaseHeight)
                     end)
                 else
                     resetButton:Show()
