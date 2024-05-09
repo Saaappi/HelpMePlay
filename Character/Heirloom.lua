@@ -29,6 +29,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- If the player has the heirloom in question, then continue.
                 if C_Heirloom.PlayerHasHeirloom(heirloomItemID) then
                     local itemClassID, itemSubClassID = select(6, C_Item.GetItemInfoInstant(heirloomItemID))
+                    local inventoryType = addon.InventoryType[C_Item.GetItemInventoryTypeByID(heirloomItemID)]
                     if itemClassID == 2 then -- Weapon
                         local isHeirloomValid = IsHeirloomValidForClassID(addon.playerClassID, itemSubClassID)
                         if isHeirloomValid then
@@ -43,8 +44,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if isHeirloomValid then
                             local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
                             if heirloomMaxLevel > addon.playerLevel then
-                                --local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
-                                --print(itemLink)
+                                local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
+                                table.insert(addon.Heirlooms[inventoryType], itemLink)
                             end
                         end
                     end

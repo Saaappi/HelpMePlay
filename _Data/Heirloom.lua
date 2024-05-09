@@ -1,5 +1,25 @@
 local addonName, addon = ...
 
+addon.Heirlooms = {
+    {}, -- Head
+    {}, -- Neck
+    {}, -- Shoulder
+    {}, -- ?
+    {}, -- Chest
+    {}, -- ?
+    {}, -- Legs
+    {}, -- ?
+    {}, -- ?
+    {}, -- ?
+    {}, -- Ring 1
+    {}, -- Ring 2
+    {}, -- Trinket 1
+    {}, -- Trinket 2
+    {}, -- Back
+    {}, -- Weapon 1
+    {}, -- Weapon 2
+}
+
 addon.HeirloomArmorTypeIDByClass = {
     [1] = 4, -- Warrior
     [2] = 4, -- Paladin
@@ -71,4 +91,19 @@ addon.HeirloomEquipLoc = {
     [1473] = { 0, 1, 4, 5, 7, 8, 10, 11, 12, 13, 15 }, -- Augmentation Evoker
     --
     [1] = { 0, 1, 4, 5, 6, 7, 8 }, -- Warrior
+}
+
+addon.HeirloomDropDowns = {
+    { ["name"] = "Head", ["id"] = 1 },
+    { ["name"] = "Neck", ["id"] = 2 },
+    { ["name"] = "Shoulder", ["id"] = 3 },
+    { ["name"] = "Back", ["id"] = 15 },
+    { ["name"] = "Chest", ["id"] = 5 },
+    { ["name"] = "Legs", ["id"] = 7 },
+    { ["name"] = "Ring 1", ["id"] = 11 },
+    { ["name"] = "Ring 2", ["id"] = 12 },
+    { ["name"] = "Trinket 1", ["id"] = 13 },
+    { ["name"] = "Trinket 2", ["id"] = 14 },
+    { ["name"] = "Weapon 1", ["id"] = 16 },
+    { ["name"] = "Weapon 2", ["id"] = 17 },
 }

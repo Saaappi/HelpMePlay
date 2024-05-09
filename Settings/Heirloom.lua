@@ -117,38 +117,39 @@ addon.OpenHeirloomSelector = function()
                 -- from overlapping when they're recreated.
                 HideDropDowns()
 
-                for i = 1, 1 do
+                for i, slot in ipairs(addon.HeirloomDropDowns) do
                     -- Create the dropdown menus.
                     local dropDown = LibDD:Create_UIDropDownMenu(addonName .. "HeirloomDropDown" .. i, frame)
                     UIDropDownMenu_SetWidth(dropDown, 125)
 
                     dropDown.title = dropDown:CreateFontString(nil, "OVERLAY", "GameTooltipText")
                     dropDown.title:SetPoint("BOTTOMLEFT", dropDown["title"]:GetParent(), "TOPLEFT", 15, 5)
-                    if i == 1 then
-                        dropDown.title:SetText("Head")
-                    else
-                        dropDown.title:SetText("Shoulder")
-                    end
+                    dropDown.title:SetText(slot.name)
 
-                    --[[LibDD:UIDropDownMenu_Initialize(dropDown, function(self, level)
+                    LibDD:UIDropDownMenu_Initialize(dropDown, function(self, level)
                         local info = LibDD:UIDropDownMenu_CreateInfo()
-                        for key, option in ipairs(myDropDown.options) do
-                            info.text = option.text
+                        for key, option in ipairs(addon.Heirlooms[slot.id]) do
+                            info.text = option
                             info.checked = false
                             info.menuList = key
-                            info.disabled = option.disabled
-                            info.tooltipTitle = option.tooltipTitle
-                            info.tooltipText = option.tooltipText
-                            info.tooltipOnButton = 1
-                            info.func = option.func
+                            info.disabled = false
+                            info.func = function() print (addon.Heirlooms[slot.id][key]) end
                             LibDD:UIDropDownMenu_AddButton(info)
                         end
-                    end)]]
+                    end)
 
                     if i == 1 then
                         dropDown:SetPoint("TOPLEFT", addon.classButtons[1].name, "BOTTOMLEFT", 0, -40)
+                    --[[elseif i <= 4 then
+                        dropDown:SetPoint("TOPLEFT", addonName .. "HeirloomDropDown" .. (i - 1), "BOTTOMLEFT", 0, -30)]]
+                    elseif i == 5 then
+                        dropDown:SetPoint("LEFT", addonName .. "HeirloomDropDown" .. (1), "RIGHT", 50, 0)
+                    --[[elseif i <= 8 then
+                        dropDown:SetPoint("TOPLEFT", addonName .. "HeirloomDropDown" .. (i - 1), "BOTTOMLEFT", 0, -30)]]
+                    elseif i == 9 then
+                        dropDown:SetPoint("LEFT", addonName .. "HeirloomDropDown" .. (5), "RIGHT", 50, 0)
                     else
-                        dropDown:SetPoint("TOPLEFT", addon.classButtons[1].name, "BOTTOMLEFT", 0, -100)
+                        dropDown:SetPoint("TOPLEFT", addonName .. "HeirloomDropDown" .. (i - 1), "BOTTOMLEFT", 0, -30)
                     end
                     -- Create the edit box. Don't auto focus them, set their size,
                     -- and select their default font.
