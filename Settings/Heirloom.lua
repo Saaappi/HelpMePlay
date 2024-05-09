@@ -27,7 +27,7 @@ local frameIcon = 1030912
 -- Hide the edit boxes if they already exist so as not to cause a visual
 -- bug when they're created again.
 local function HideDropDowns()
-    for j = 1, 2 do
+    for j = 1, #addon.HeirloomDropDowns do
         if _G[addonName .. "HeirloomDropDown" .. j] then
             if _G[addonName .. "HeirloomDropDown" .. j]:IsVisible() then
                 _G[addonName .. "HeirloomDropDown" .. j]:Hide()
