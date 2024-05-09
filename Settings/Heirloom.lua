@@ -59,22 +59,54 @@ local function WipeHeirloomTables()
     end
 end
 
+local function EquipHeirloom(itemLink)
+    -- The item reward we received should be equippable. If it's not,
+    -- then don't bother iterating the player's inventory.
+    if not C_Item.IsEquippableItem(itemLink) then return end
+
+    -- In case the player enters combat after completing the quest
+    -- but before this function is called, then trigger a timer.
+    if UnitAffectingCombat("player") then C_Timer.After(1, function() EquipHeirloom(itemLink) end) end
+
+    -- Get the provided item link's ID. This is necessary for comparison
+    -- to items in the inventory. For some reason item link comparison is
+    -- busted. :)
+    local itemID = C_Item.GetItemInfoInstant(itemLink)
+
+    for bagID = 0, 4 do
+        local numSlots = C_Container.GetContainerNumSlots(bagID)
+        if numSlots > 0 then
+            for slotID = 1, numSlots do
+                local containerItemID = C_Container.GetContainerItemID(bagID, slotID)
+                if containerItemID then
+                    if containerItemID == itemID then
+                        C_Item.EquipItemByName(itemLink)
+                    end
+                end
+            end
+        end
+    end
+end
+
 local function CreateHeirloom(classID)
     -- Create the heirloom at the index.
     C_Heirloom.CreateHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemID)
 
-    -- Increment the index. Hide the button if the condition
-    -- is met.
-    index = index + 1
-    if index == (#HelpMePlayDB["Heirlooms"][classID] + 1) then
-        heirloomButton:Hide()
-        return
-    end
+    C_Timer.After(1, function()
+        EquipHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemLink)
+        -- Increment the index. Hide the button if the condition
+        -- is met.
+        index = index + 1
+        if index == (#HelpMePlayDB["Heirlooms"][classID] + 1) then
+            heirloomButton:Hide()
+            return
+        end
 
-    heirloomButton:SetAttribute("type", "item")
-    heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][classID][index].itemID)
-    heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][index].itemID))
-    GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][classID][index].itemID)
+        heirloomButton:SetAttribute("type", "item")
+        heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][classID][index].itemID)
+        heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][index].itemID))
+        GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][classID][index].itemID)
+    end)
 end
 
 -- This is the function to build the talent importer frame.
