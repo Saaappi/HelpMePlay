@@ -311,8 +311,9 @@ addon.OpenHeirloomSelector = function()
                     setmetatable(commitButton, { __index = HelpMePlay.Button })
                     commitButton = commitButton:BaseButton()
                     commitButton:SetScript("OnClick", function(self)
+                        -- Committing will reset the frame and disable the Commit button
+                        -- (for the committed class). 
                         HideDropDowns()
-                        frame:Hide()
                         commitButton:Hide()
                         resetButton:Hide()
                         WipeHeirloomTables()
@@ -347,6 +348,7 @@ addon.OpenHeirloomSelector = function()
                         HideDropDowns()
                         resetButton:Hide()
                         commitButton:Hide()
+                        WipeHeirloomTables()
                         HelpMePlayDB["Heirlooms"][addon.playerClassID] = {}
                         if not commitButton:IsEnabled() then
                             commitButton:SetEnabled(true)
