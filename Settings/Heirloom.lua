@@ -23,6 +23,7 @@ local frameTitle = "Heirloom Selection"
 local frameIcon = 1030912
 
 local index = 1
+local looms = {}
 
 -- Hide the edit boxes if they already exist so as not to cause a visual
 -- bug when they're created again.
@@ -174,6 +175,12 @@ addon.OpenHeirloomSelector = function()
                 -- Resize the frame to accommodate the edit boxes.
                 button:GetParent():SetHeight(frameExpandedHeight)
 
+                if next(HelpMePlayDB["Heirlooms"][button.classID]) then
+                    if doneButton then
+                        doneButton:SetEnabled(false)
+                    end
+                end
+
                 -- Delete the dropdowns if they already exist to prevent them
                 -- from overlapping when they're recreated.
                 HideDropDowns()
@@ -266,13 +273,13 @@ addon.OpenHeirloomSelector = function()
                             info.menuList = key
                             info.disabled = false
                             info.func = function()
-                                table.insert(HelpMePlayDB["Heirlooms"][button.classID], { itemID = option.itemID, itemLink = option.itemLink })
-                                LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][button.classID][i].itemLink)
+                                table.insert(looms, { itemID = option.itemID, itemLink = option.itemLink })
+                                LibDD:UIDropDownMenu_SetText(dropDown, looms[i].itemLink)
                             end
                             LibDD:UIDropDownMenu_AddButton(info)
                         end
                     end)
-                    if HelpMePlayDB["Heirlooms"][button.classID][1] then
+                    if HelpMePlayDB["Heirlooms"][button.classID][i] then
                         LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][button.classID][i].itemLink)
                     end
 
@@ -346,33 +353,7 @@ addon.OpenHeirloomSelector = function()
                         backButton:Hide()
                         resetButton:Hide()
                         WipeHeirloomTables()
-
-                        heirloomButton = CreateFrame("Button", nil, UIParent, "SecureActionButtonTemplate")
-                        heirloomButton:ClearAllPoints()
-                        heirloomButton:SetSize(48, 48)
-                        heirloomButton:SetPoint("CENTER")
-
-                        heirloomButton.texture = heirloomButton:CreateTexture()
-                        heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID))
-                        heirloomButton.texture:SetAllPoints()
-
-                        heirloomButton:RegisterForClicks("AnyUp")
-                        heirloomButton:SetMouseClickEnabled(true)
-                        heirloomButton:SetAttribute("type", "item")
-                        heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID)
-
-                        heirloomButton:SetScript("PostClick", function()
-                            CreateHeirloom(addon.playerClassID)
-                        end)
-                        heirloomButton:SetScript("OnEnter", function()
-                            GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-                            GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID)
-                        end)
-                        heirloomButton:SetScript("OnLeave", function()
-                            GameTooltip:Hide()
-                        end)
-
-                        heirloomButton:Show()
+                        table.insert(HelpMePlayDB["Heirlooms"][addon.playerClassID], looms)
                     end)
                 else
                     doneButton:Show()
@@ -404,6 +385,9 @@ addon.OpenHeirloomSelector = function()
                         backButton:Hide()
                         doneButton:Hide()
                         HelpMePlayDB["Heirlooms"][addon.playerClassID] = {}
+                        if not doneButton:IsEnabled() then
+                            doneButton:SetEnabled(true)
+                        end
                     end)
                 else
                     resetButton:Show()
