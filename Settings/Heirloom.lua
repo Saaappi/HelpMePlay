@@ -8,6 +8,7 @@ local frame
 local backButton
 local doneButton
 local resetButton
+local heirloomButton
 
 -- This is the default height and width of the talent importer frame.
 local frameBaseHeight = 125
@@ -21,10 +22,7 @@ local frameExpandedHeight = 375
 local frameTitle = "Heirloom Selection"
 local frameIcon = 1030912
 
--- TODO: Replace with variables for dropdowns.
--- This is the default height and width of the edit boxes.
---local editBoxHeight = 20
---local editBoxWidth = 375
+local index = 1
 
 -- Hide the edit boxes if they already exist so as not to cause a visual
 -- bug when they're created again.
@@ -59,6 +57,24 @@ local function WipeHeirloomTables()
     for key, _ in pairs(addon.Heirlooms) do
         addon.Heirlooms[key] = {}
     end
+end
+
+local function CreateHeirloom(classID)
+    -- Create the heirloom at the index.
+    C_Heirloom.CreateHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemID)
+
+    -- Increment the index. Hide the button if the condition
+    -- is met.
+    index = index + 1
+    if index == (#HelpMePlayDB["Heirlooms"][classID] + 1) then
+        heirloomButton:Hide()
+        return
+    end
+
+    heirloomButton:SetAttribute("type", "item")
+    heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][classID][index].itemID)
+    heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][index].itemID))
+    GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][classID][index].itemID)
 end
 
 -- This is the function to build the talent importer frame.
@@ -152,10 +168,10 @@ addon.OpenHeirloomSelector = function()
                                     local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
                                     if type(inventoryType) == "table" then
                                         for i = 1, 2 do
-                                            table.insert(addon.Heirlooms[inventoryType[i]], itemLink)
+                                            table.insert(addon.Heirlooms[inventoryType[i]], { itemLink = itemLink, itemID = heirloomItemID })
                                         end
                                     else
-                                        table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                        table.insert(addon.Heirlooms[inventoryType], { itemLink = itemLink, itemID = heirloomItemID })
                                     end
                                 end
                             end
@@ -163,21 +179,21 @@ addon.OpenHeirloomSelector = function()
                             local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
                             if heirloomMaxLevel > addon.playerLevel then
                                 local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
-                                table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                table.insert(addon.Heirlooms[inventoryType], { itemLink = itemLink, itemID = heirloomItemID })
                             end
                         elseif itemClassID == 4 and C_Item.GetItemInventoryTypeByID(heirloomItemID) == 11 or C_Item.GetItemInventoryTypeByID(heirloomItemID) == 12 then -- Rings/Trinkets
                             local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
                             if heirloomMaxLevel > addon.playerLevel then
                                 local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
                                 for i = 1, 2 do
-                                    table.insert(addon.Heirlooms[inventoryType[i]], itemLink)
+                                    table.insert(addon.Heirlooms[inventoryType[i]], { itemLink = itemLink, itemID = heirloomItemID })
                                 end
                             end
                         elseif itemClassID == 4 and inventoryType == 15 then -- Back
                             local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
                             if heirloomMaxLevel > addon.playerLevel then
                                 local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
-                                table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                table.insert(addon.Heirlooms[inventoryType], { itemLink = itemLink, itemID = heirloomItemID })
                             end
                         elseif itemClassID == 4 and C_Item.GetItemInventoryTypeByID(heirloomItemID) == 14 then -- Shields
                             local isHeirloomValid = IsHeirloomValidForClassID(button.classID, 21)
@@ -185,7 +201,7 @@ addon.OpenHeirloomSelector = function()
                                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
                                 if heirloomMaxLevel > addon.playerLevel then
                                     local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
-                                    table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                    table.insert(addon.Heirlooms[inventoryType], { itemLink = itemLink, itemID = heirloomItemID })
                                 end
                             end
                         elseif itemClassID == 4 then
@@ -194,7 +210,7 @@ addon.OpenHeirloomSelector = function()
                                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
                                 if heirloomMaxLevel > addon.playerLevel then
                                     local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
-                                    table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                    table.insert(addon.Heirlooms[inventoryType], { itemLink = itemLink, itemID = heirloomItemID })
                                 end
                             end
                         end
@@ -213,11 +229,14 @@ addon.OpenHeirloomSelector = function()
                     LibDD:UIDropDownMenu_Initialize(dropDown, function(self, level)
                         local info = LibDD:UIDropDownMenu_CreateInfo()
                         for key, option in ipairs(addon.Heirlooms[slot.id]) do
-                            info.text = option
+                            info.text = option.itemLink
                             info.checked = false
                             info.menuList = key
                             info.disabled = false
-                            info.func = function() print (addon.Heirlooms[slot.id][key]) end
+                            info.func = function()
+                                table.insert(HelpMePlayDB["Heirlooms"][button.classID], { itemID = option.itemID, itemLink = option.itemLink })
+                                LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][button.classID][i].itemLink)
+                            end
                             LibDD:UIDropDownMenu_AddButton(info)
                         end
                     end)
@@ -231,92 +250,6 @@ addon.OpenHeirloomSelector = function()
                     else
                         dropDown:SetPoint("TOPLEFT", addonName .. "HeirloomDropDown" .. (i - 1), "BOTTOMLEFT", 0, -30)
                     end
-                    -- Create the edit box. Don't auto focus them, set their size,
-                    -- and select their default font.
-                    --[[local editBox = CreateFrame("EditBox", addonName .. "SpecEditBox" .. i, frame, "InputBoxTemplate")
-                    editBox:SetAutoFocus(false)
-                    editBox:SetSize(editBoxWidth, editBoxHeight)
-                    editBox:SetFontObject("ChatFontNormal")
-
-                    -- Create the specialization icon texture to indicate which spec
-                    -- the corresponding edit box (the one to its right) is for.
-                    local texture = editBox:CreateTexture(nil, "BACKGROUND")
-                    texture:SetPoint("BOTTOMRIGHT", _G[addonName .. "SpecEditBox" .. i], "BOTTOMLEFT", -10, 0)
-                    texture:SetSize(specIconTextureSize, specIconTextureSize)
-                    SetPortraitToTexture(texture, select(4, GetSpecializationInfoByID(addon.specEditBoxes[button.ID][i].id)))
-
-                    -- Create the border texture to overlay the specialization icon
-                    -- texture above.
-                    local border = editBox:CreateTexture(nil, "BORDER")
-                    border:SetPoint("CENTER", texture, "CENTER", 0, 0)
-                    border:SetSize(borderTextureSize, borderTextureSize)
-                    border:SetAtlas("Artifacts-PerkRing-Final", false)
-
-                    -- Create a font string to use on the right-hand side of the edit
-                    -- box for the importDate value.
-                    editBox.importDateText = editBox:CreateFontString(nil, "OVERLAY", "GameTooltipText")
-                    editBox.importDateText:SetPoint("TOPLEFT", editBox, "TOPRIGHT", 5, 0)
-                    editBox.importDateText:SetPoint("BOTTOMLEFT", editBox, "BOTTOMRIGHT", 5, 0)
-
-                    -- If the player already imported a string in the past, go ahead
-                    -- and display that in the editbox.
-                    local classTalents = HelpMePlayDB["ClassTalents"][button.classID][addon.specEditBoxes[button.ID][i].id]
-
-                    if classTalents then
-                        -- TODO: Remove this at some point.
-                        -- I'm splitting the importDate field into two separate fields.
-                        -- This field will be nil until the user enters a new loadout.
-                        -- As such, set the importPatch field to the current patch.
-                        if not classTalents.importPatch then
-                            classTalents.importPatch = (GetBuildInfo())
-                        end
-
-                        -- TODO: Remove this at some point.
-                        -- Let's trim the importDate field to remove the patch information.
-                        if string.match(classTalents.importDate, "(.-) %(.-%)") then
-                            classTalents.importDate = string.match(classTalents.importDate, "(.-) %(.-%)")
-                        end
-                        UpdateText(editBox, classTalents.importString, classTalents.importDate, classTalents.importPatch)
-                    else
-                        UpdateText(editBox, format("|cffFF0000%s %s.|r", "Please import a loadout for", addon.specEditBoxes[button.ID][i].name), "", "")
-                    end
-
-                    -- Set the new talent build when the player presses the enter key.
-                    editBox:SetScript("OnEnterPressed", function(self)
-                        -- Clear the focus so the player doesn't get stuck in the edit box.
-                        self:ClearFocus()
-
-                        -- If classTalents is nil here, then the table for that spec hasn't been
-                        -- created yet. Create it as an empty table.
-                        if not classTalents then
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id] = {}
-                            classTalents = HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id]
-                        end
-
-                        -- If the text is empty, then we didn't find a talent import string for
-                        -- the spec. Instead, put some text in there to indicate as much.
-                        --
-                        -- Initialize the importString and importDate variables so they're not nil.
-                        if self:GetText() == "" then
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importDate = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importPatch = self:GetText()
-                        else
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importDate = date("%m/%d/%Y")
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importPatch = (GetBuildInfo())
-                            classTalents = HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id]
-                            UpdateText(editBox, nil, classTalents.importDate, classTalents.importPatch)
-                        end
-                    end)
-
-                    -- Set the edit box positions.
-                    if i == 1 then
-                        editBox:SetPoint("TOPLEFT", addon.classButtons[2].name, "BOTTOMLEFT", 0, -40)
-                        editBox:SetPoint("TOPRIGHT", addon.classButtons[8].name, "BOTTOMRIGHT", 0, -40)
-                    else
-                        editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i - 1), "BOTTOMLEFT", 0, -20)
-                    end]]
                 end
 
                 -- Create the back button. This back button just resets the frame,
@@ -378,6 +311,30 @@ addon.OpenHeirloomSelector = function()
                         backButton:Hide()
                         resetButton:Hide()
                         WipeHeirloomTables()
+
+                        heirloomButton = {
+                            name = addonName .. "HeirloomSecureButton",
+                            texture = C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID),
+                            parent = UIParent,
+                            anchor = "CENTER",
+                            relativeAnchor = "CENTER",
+                            oX = 100,
+                            oY = 0,
+                            width = 48,
+                            height = 48,
+                            attribute = "item",
+                            attributeValue = HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID,
+                            postClick = function(self, button, isDown) if not isDown then CreateHeirloom(addon.playerClassID) end end,
+                        }
+                        setmetatable(heirloomButton, { __index = HelpMePlay.Button })
+                        heirloomButton = heirloomButton:SecureButton()
+                        heirloomButton:SetScript("OnEnter", function()
+                            GameTooltip:SetOwner(heirloomButton, "ANCHOR_CURSOR_RIGHT")
+                            GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][addon.playerClassID][1].itemID)
+                        end)
+                        heirloomButton:SetScript("OnLeave", function()
+                            GameTooltip:Hide()
+                        end)
                     end)
                 else
                     doneButton:Show()
@@ -408,6 +365,7 @@ addon.OpenHeirloomSelector = function()
                         resetButton:Hide()
                         backButton:Hide()
                         doneButton:Hide()
+                        HelpMePlayDB["Heirlooms"][addon.playerClassID] = {}
                     end)
                 else
                     resetButton:Show()

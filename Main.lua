@@ -189,6 +189,24 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 HelpMePlayDB["ClassTalents"][13] = {}
             end
 
+            -- If the Heirloom class tables are nil, then initialize them.
+            if HelpMePlayDB["Heirlooms"] == nil then
+                HelpMePlayDB["Heirlooms"] = {}
+                HelpMePlayDB["Heirlooms"][1] = {}
+                HelpMePlayDB["Heirlooms"][2] = {}
+                HelpMePlayDB["Heirlooms"][3] = {}
+                HelpMePlayDB["Heirlooms"][4] = {}
+                HelpMePlayDB["Heirlooms"][5] = {}
+                HelpMePlayDB["Heirlooms"][6] = {}
+                HelpMePlayDB["Heirlooms"][7] = {}
+                HelpMePlayDB["Heirlooms"][8] = {}
+                HelpMePlayDB["Heirlooms"][9] = {}
+                HelpMePlayDB["Heirlooms"][10] = {}
+                HelpMePlayDB["Heirlooms"][11] = {}
+                HelpMePlayDB["Heirlooms"][12] = {}
+                HelpMePlayDB["Heirlooms"][13] = {}
+            end
+
             -- Unload the event for performance.
             eventHandler:UnregisterEvent("ADDON_LOADED")
         end
