@@ -86,6 +86,8 @@ addon.HeirloomEquipLoc = {
     [1473] = { 0, 1, 4, 5, 7, 8, 10, 11, 12, 13, 15 }, -- Augmentation Evoker
     --
     [1] = { 0, 1, 4, 5, 6, 7, 8 }, -- Warrior
+    [2] = { 0, 1, 4, 5, 7, 8 }, -- Paladin
+    [3] = { 2, 3, 6, 10, 18 }, -- Hunter
 }
 
 addon.HeirloomDropDowns = {

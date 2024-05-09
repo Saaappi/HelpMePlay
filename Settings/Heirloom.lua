@@ -55,6 +55,12 @@ local function IsHeirloomValidForClassID(classID, itemSubClassID)
     return false
 end
 
+local function WipeHeirloomTables()
+    for key, _ in pairs(addon.Heirlooms) do
+        addon.Heirlooms[key] = {}
+    end
+end
+
 -- This is the function to build the talent importer frame.
 -- This is called when the Talent Importer button is clicked
 -- from the settings.
@@ -124,8 +130,12 @@ addon.OpenHeirloomSelector = function()
                 -- from overlapping when they're recreated.
                 HideDropDowns()
 
+                -- Wipe the heirloom tables (in memory) to prevent heirlooms
+                -- from compounding the dropdown menus.
+                WipeHeirloomTables()
+
                 -- Get the player's armor type by their class ID.
-                local armorTypeID = GetHeirloomArmorTypeIDByClassID(addon.playerClassID)
+                local armorTypeID = GetHeirloomArmorTypeIDByClassID(button.classID)
 
                 -- Get the item IDs of all the heirlooms in the game.
                 local heirlooms = C_Heirloom.GetHeirloomItemIDs()
@@ -135,7 +145,7 @@ addon.OpenHeirloomSelector = function()
                         local itemClassID, itemSubClassID = select(6, C_Item.GetItemInfoInstant(heirloomItemID))
                         local inventoryType = addon.InventoryType[C_Item.GetItemInventoryTypeByID(heirloomItemID)]
                         if itemClassID == 2 then -- Weapon
-                            local isHeirloomValid = IsHeirloomValidForClassID(addon.playerClassID, itemSubClassID)
+                            local isHeirloomValid = IsHeirloomValidForClassID(button.classID, itemSubClassID)
                             if isHeirloomValid then
                                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
                                 if heirloomMaxLevel > addon.playerLevel then
@@ -311,6 +321,7 @@ addon.OpenHeirloomSelector = function()
                         backButton:Hide()
                         doneButton:Hide()
                         resetButton:Hide()
+                        WipeHeirloomTables()
                     end)
                 else
                     backButton:Show()
@@ -343,6 +354,7 @@ addon.OpenHeirloomSelector = function()
                         doneButton:Hide()
                         backButton:Hide()
                         resetButton:Hide()
+                        WipeHeirloomTables()
                     end)
                 else
                     doneButton:Show()
