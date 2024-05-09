@@ -159,6 +159,29 @@ addon.OpenHeirloomSelector = function()
                                     end
                                 end
                             end
+                        elseif itemClassID == 4 and C_Item.GetItemInventoryTypeByID(heirloomItemID) == 2 then -- Neck
+                            local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
+                            if heirloomMaxLevel > addon.playerLevel then
+                                local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
+                                table.insert(addon.Heirlooms[inventoryType], itemLink)
+                            end
+                        elseif itemClassID == 4 and C_Item.GetItemInventoryTypeByID(heirloomItemID) == 11 or C_Item.GetItemInventoryTypeByID(heirloomItemID) == 12 then -- Rings/Trinkets
+                            local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
+                            if heirloomMaxLevel > addon.playerLevel then
+                                local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
+                                for i = 1, 2 do
+                                    table.insert(addon.Heirlooms[inventoryType[i]], itemLink)
+                                end
+                            end
+                        elseif itemClassID == 4 and itemSubClassID == 6 then -- Shields
+                            local isHeirloomValid = IsHeirloomValidForClassID(button.classID, 21)
+                            if isHeirloomValid then
+                                local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
+                                if heirloomMaxLevel > addon.playerLevel then
+                                    local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
+                                    table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                end
+                            end
                         elseif itemClassID == 4 then
                             local isHeirloomValid = (itemSubClassID == armorTypeID)
                             if isHeirloomValid then
@@ -193,16 +216,10 @@ addon.OpenHeirloomSelector = function()
                         end
                     end)
 
-                    
-
                     if i == 1 then
                         dropDown:SetPoint("TOPLEFT", addon.classButtons[1].name, "BOTTOMLEFT", 0, -40)
-                    --[[elseif i <= 4 then
-                        dropDown:SetPoint("TOPLEFT", addonName .. "HeirloomDropDown" .. (i - 1), "BOTTOMLEFT", 0, -30)]]
                     elseif i == 5 then
                         dropDown:SetPoint("LEFT", addonName .. "HeirloomDropDown" .. (1), "RIGHT", 50, 0)
-                    --[[elseif i <= 8 then
-                        dropDown:SetPoint("TOPLEFT", addonName .. "HeirloomDropDown" .. (i - 1), "BOTTOMLEFT", 0, -30)]]
                     elseif i == 9 then
                         dropDown:SetPoint("LEFT", addonName .. "HeirloomDropDown" .. (5), "RIGHT", 50, 0)
                     else
