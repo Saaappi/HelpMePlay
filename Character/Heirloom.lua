@@ -52,9 +52,9 @@ local function CreateHeirloom(classID)
         end
 
         heirloomButton:SetAttribute("type", "item")
-        heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][classID][index].itemID)
-        heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][index].itemID))
-        GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][classID][index].itemID)
+        heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][classID][index].itemLink)
+        heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][index].itemLink))
+        GameTooltip:SetHyperlink(HelpMePlayDB["Heirlooms"][classID][index].itemLink)
     end)
 end
 
@@ -62,28 +62,36 @@ addon.CreateHeirloomButton = function(classID)
     if addon.playerLevel <= 10 then
     --if addon.playerLevel <= 10 and (not HelpMePlayDB_Character["UsedHeirloomButton"]) then
         if not heirloomButton and (#HelpMePlayDB["Heirlooms"][classID] > 0) then
-            heirloomButton = {
-                name = addonName .. "HeirloomSecureButton",
-                texture = C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][1].itemID),
-                parent = UIParent,
-                anchor = "CENTER",
-                relativeAnchor = "CENTER",
-                oX = 100,
-                oY = 0,
-                width = 48,
-                height = 48,
-                attribute = "item",
-                attributeValue = HelpMePlayDB["Heirlooms"][classID][1].itemID,
-                postClick = nil,
-            }
-            setmetatable(heirloomButton, { __index = HelpMePlay.Button })
-            heirloomButton = heirloomButton:SecureButton()
-            heirloomButton:SetScript("PostClick", function(self, button, isDown)
+            heirloomButton = CreateFrame("Button", addonName .. "HeirloomSecureButton", UIParent, "SecureActionButtonTemplate")
+            heirloomButton:ClearAllPoints()
+            heirloomButton:SetSize(48, 48)
+            heirloomButton:SetPoint("CENTER", UIParent, "CENTER", 100, 0)
+
+            heirloomButton.texture = heirloomButton:CreateTexture()
+            heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][1].itemID))
+            heirloomButton.texture:SetAllPoints()
+
+            heirloomButton.highlightTexture = heirloomButton:CreateTexture()
+            heirloomButton.highlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+            heirloomButton.highlightTexture:SetSize(48, 48)
+            heirloomButton:SetHighlightTexture(heirloomButton.highlightTexture, "ADD")
+
+            heirloomButton.pushedTexture = heirloomButton:CreateTexture()
+            heirloomButton.pushedTexture:SetTexture("Interface\\Buttons\\UI-Quickslot-Depress")
+            heirloomButton.pushedTexture:SetSize(48, 48)
+            heirloomButton:SetPushedTexture(heirloomButton.pushedTexture)
+
+            heirloomButton:RegisterForClicks("AnyUp", "AnyDown")
+            heirloomButton:SetMouseClickEnabled(true)
+            heirloomButton:SetAttribute("type", "item")
+            heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][classID][1].itemLink)
+
+            heirloomButton:SetScript("PreClick", function(self, button, isDown)
                 if not isDown then CreateHeirloom(classID) end
             end)
             heirloomButton:SetScript("OnEnter", function()
                 GameTooltip:SetOwner(heirloomButton, "ANCHOR_CURSOR_RIGHT")
-                GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][classID][1].itemID)
+                GameTooltip:SetHyperlink(HelpMePlayDB["Heirlooms"][classID][index].itemLink)
             end)
             heirloomButton:SetScript("OnLeave", function()
                 GameTooltip:Hide()
