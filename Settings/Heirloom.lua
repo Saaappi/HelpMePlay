@@ -173,7 +173,13 @@ addon.OpenHeirloomSelector = function()
                                     table.insert(addon.Heirlooms[inventoryType[i]], itemLink)
                                 end
                             end
-                        elseif itemClassID == 4 and itemSubClassID == 6 then -- Shields
+                        elseif itemClassID == 4 and inventoryType == 15 then -- Back
+                            local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
+                            if heirloomMaxLevel > addon.playerLevel then
+                                local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
+                                table.insert(addon.Heirlooms[inventoryType], itemLink)
+                            end
+                        elseif itemClassID == 4 and C_Item.GetItemInventoryTypeByID(heirloomItemID) == 14 then -- Shields
                             local isHeirloomValid = IsHeirloomValidForClassID(button.classID, 21)
                             if isHeirloomValid then
                                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
