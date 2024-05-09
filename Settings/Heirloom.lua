@@ -272,6 +272,9 @@ addon.OpenHeirloomSelector = function()
                             LibDD:UIDropDownMenu_AddButton(info)
                         end
                     end)
+                    if HelpMePlayDB["Heirlooms"][button.classID][1] then
+                        LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][button.classID][i].itemLink)
+                    end
 
                     if i == 1 then
                         dropDown:SetPoint("TOPLEFT", addon.classButtons[1].name, "BOTTOMLEFT", 0, -40)
