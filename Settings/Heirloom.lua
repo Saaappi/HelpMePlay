@@ -13,7 +13,7 @@ local frameBaseHeight = 125
 local frameExpandedHeight = 375
 local frameBaseWidth = 725
 local frameTitle = "Heirlooms"
-local frameIcon = 1030912
+local frameIcon = 4673926
 
 local index = 1
 local looms = {}
