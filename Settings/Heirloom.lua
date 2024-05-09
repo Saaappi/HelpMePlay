@@ -226,7 +226,19 @@ addon.OpenHeirloomSelector = function()
                             info.menuList = key
                             info.disabled = false
                             info.func = function()
-                                table.insert(HelpMePlayDB["Heirlooms"][classButton.classID], { itemID = option.itemID, itemLink = option.itemLink })
+                                local removedIndex = 0
+                                for heirloomIndex, heirloom in ipairs(HelpMePlayDB["Heirlooms"][classButton.classID]) do
+                                    if heirloom.slot then
+                                        table.remove(HelpMePlayDB["Heirlooms"][classButton.classID], heirloomIndex)
+                                        removedIndex = heirloomIndex
+                                    end
+                                end
+                                if removedIndex ~= 0 then
+                                    table.insert(HelpMePlayDB["Heirlooms"][classButton.classID], removedIndex, { itemID = option.itemID, itemLink = option.itemLink, slot = slot.id })
+                                else
+                                    table.insert(HelpMePlayDB["Heirlooms"][classButton.classID], { itemID = option.itemID, itemLink = option.itemLink, slot = slot.id })
+                                    removedIndex = 0
+                                end
                                 LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][classButton.classID][i].itemLink)
                             end
                             LibDD:UIDropDownMenu_AddButton(info)

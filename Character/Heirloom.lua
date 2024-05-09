@@ -5,7 +5,7 @@ local index = 1
 
 -- Automatically equip the heirlooms as they're created for
 -- a complete automated experience.
-local function EquipHeirloom(itemLink)
+local function EquipHeirloom(itemLink, slot)
     -- In case the player enters combat after creating an heirloom
     -- but before this function is called, then trigger a timer.
     if UnitAffectingCombat("player") then C_Timer.After(1, function() EquipHeirloom(itemLink) end) end
@@ -22,7 +22,7 @@ local function EquipHeirloom(itemLink)
                 local containerItemID = C_Container.GetContainerItemID(bagID, slotID)
                 if containerItemID then
                     if containerItemID == itemID then
-                        C_Item.EquipItemByName(itemLink)
+                        C_Item.EquipItemByName(itemLink, slot)
                     end
                 end
             end
@@ -32,16 +32,16 @@ end
 
 local function CreateHeirloom(classID)
     -- Set the flag that the heirloom button was used for the current character.
-    --[[if HelpMePlayDB_Character["UsedHeirloomButton"] == nil or HelpMePlayDB_Character["UsedHeirloomButton"] == false then
+    if HelpMePlayDB_Character["UsedHeirloomButton"] == nil or HelpMePlayDB_Character["UsedHeirloomButton"] == false then
         HelpMePlayDB_Character["UsedHeirloomButton"] = true
-    end]]
+    end
 
     -- Create the heirloom at the index.
     C_Heirloom.CreateHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemID)
 
-    C_Timer.After(1, function()
+    C_Timer.After(1.25, function()
         -- Try to equip the heirloom.
-        EquipHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemLink)
+        EquipHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemLink, HelpMePlayDB["Heirlooms"][classID][index].slot)
 
         -- Increment the index. Hide the button if the condition
         -- is met.
