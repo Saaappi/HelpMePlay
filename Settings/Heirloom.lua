@@ -108,6 +108,16 @@ local function CreateHeirloom(classID)
     end)
 end
 
+local function DoesClassHaveHeirloomData(classID)
+    -- If there is heirloom data for the selected class,
+    -- then disable the commit button. The only way to
+    -- commit new selections is by resetting first.
+    if (#HelpMePlayDB["Heirlooms"][classID]) > 0 then
+        return true
+    end
+    return false
+end
+
 -- This is the function to build the talent importer frame.
 -- This is called when the Talent Importer button is clicked
 -- from the settings.
@@ -167,14 +177,8 @@ addon.OpenHeirloomSelector = function()
             classButton = classButton:ActionButton()
 
             classButton:SetScript("OnClick", function()
-                -- Resize the frame to accommodate the edit boxes.
-                classButton:GetParent():SetHeight(frameExpandedHeight)
-
-                if next(HelpMePlayDB["Heirlooms"][classButton.classID]) then
-                    if commitButton then
-                        commitButton:SetEnabled(false)
-                    end
-                end
+                -- Resize the frame to accommodate the dropdowns.
+                frame:SetHeight(frameExpandedHeight)
 
                 -- Delete the dropdowns if they already exist to prevent them
                 -- from overlapping when they're recreated.
@@ -318,8 +322,19 @@ addon.OpenHeirloomSelector = function()
                         resetButton:Hide()
                         WipeHeirloomTables()
                         table.insert(HelpMePlayDB["Heirlooms"][addon.playerClassID], looms)
+                        frame:SetHeight(frameBaseHeight)
                     end)
+                    if DoesClassHaveHeirloomData(classButton.classID) then
+                        commitButton:SetEnabled(false)
+                    else
+                        commitButton:SetEnabled(true)
+                    end
                 else
+                    if DoesClassHaveHeirloomData(classButton.classID) then
+                        commitButton:SetEnabled(false)
+                    else
+                        commitButton:SetEnabled(true)
+                    end
                     commitButton:Show()
                 end
 
