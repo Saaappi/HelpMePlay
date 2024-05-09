@@ -117,7 +117,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     secureButton:SetAttribute("type", button.attribute)
                     secureButton:SetAttribute(button.attribute, button.attributeValue)
 
-                    secureButton:SetScript("PostClick", button.postClick)
+                    --secureButton:SetScript("PostClick", button.postClick)
 
                     return secureButton
                 end,

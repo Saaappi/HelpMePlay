@@ -16,7 +16,6 @@ local frameTitle = "Heirlooms"
 local frameIcon = 4673926
 
 local index = 1
-local looms = {}
 
 -- Hide the dropdowns if they already exist. They shouldn't be recreated
 -- and stack on top of one another.
@@ -58,54 +57,6 @@ local function WipeHeirloomTables()
     for key, _ in pairs(addon.Heirlooms) do
         addon.Heirlooms[key] = {}
     end
-end
-
--- Automatically equip the heirlooms as they're created for
--- a complete automated experience.
-local function EquipHeirloom(itemLink)
-    -- In case the player enters combat after creating an heirloom
-    -- but before this function is called, then trigger a timer.
-    if UnitAffectingCombat("player") then C_Timer.After(1, function() EquipHeirloom(itemLink) end) end
-
-    -- Get the provided item link's ID. This is necessary for comparison
-    -- to items in the inventory. For some reason item link comparison is
-    -- busted. :)
-    local itemID = C_Item.GetItemInfoInstant(itemLink)
-
-    for bagID = 0, 4 do
-        local numSlots = C_Container.GetContainerNumSlots(bagID)
-        if numSlots > 0 then
-            for slotID = 1, numSlots do
-                local containerItemID = C_Container.GetContainerItemID(bagID, slotID)
-                if containerItemID then
-                    if containerItemID == itemID then
-                        C_Item.EquipItemByName(itemLink)
-                    end
-                end
-            end
-        end
-    end
-end
-
-local function CreateHeirloom(classID)
-    -- Create the heirloom at the index.
-    C_Heirloom.CreateHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemID)
-
-    C_Timer.After(1, function()
-        EquipHeirloom(HelpMePlayDB["Heirlooms"][classID][index].itemLink)
-        -- Increment the index. Hide the button if the condition
-        -- is met.
-        index = index + 1
-        if index == (#HelpMePlayDB["Heirlooms"][classID] + 1) then
-            heirloomButton:Hide()
-            return
-        end
-
-        heirloomButton:SetAttribute("type", "item")
-        heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][classID][index].itemID)
-        heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][index].itemID))
-        GameTooltip:SetHyperlink("item:" .. HelpMePlayDB["Heirlooms"][classID][index].itemID)
-    end)
 end
 
 local function DoesClassHaveHeirloomData(classID)
@@ -155,6 +106,9 @@ addon.OpenHeirloomSelector = function()
     -- frame.
     frame.CloseButton:SetScript("OnClick", function(self)
         HideDropDowns()
+        if commitButton and resetButton then
+            commitButton:Hide(); resetButton:Hide()
+        end
         self:GetParent():Hide()
     end)
 
@@ -272,8 +226,8 @@ addon.OpenHeirloomSelector = function()
                             info.menuList = key
                             info.disabled = false
                             info.func = function()
-                                table.insert(looms, { itemID = option.itemID, itemLink = option.itemLink })
-                                LibDD:UIDropDownMenu_SetText(dropDown, looms[i].itemLink)
+                                table.insert(HelpMePlayDB["Heirlooms"][classButton.classID], { itemID = option.itemID, itemLink = option.itemLink })
+                                LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][classButton.classID][i].itemLink)
                             end
                             LibDD:UIDropDownMenu_AddButton(info)
                         end
