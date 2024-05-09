@@ -4,29 +4,22 @@ local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 -- This is the talent importer frame variable.
 local frame
 
--- This is the back button to reset the frame.
-local backButton
-local doneButton
+-- Basic Buttons
+local commitButton
 local resetButton
-local heirloomButton
 
--- This is the default height and width of the talent importer frame.
+-- Frame Variables
 local frameBaseHeight = 125
-local frameBaseWidth = 725
-
--- This is the expanded height and width of the talent importer frame.
 local frameExpandedHeight = 375
---local frameExpandedWidth = 0 -- unused
-
--- These variables are some minor configuration for the frame.
-local frameTitle = "Heirloom Selection"
+local frameBaseWidth = 725
+local frameTitle = "Heirlooms"
 local frameIcon = 1030912
 
 local index = 1
 local looms = {}
 
--- Hide the edit boxes if they already exist so as not to cause a visual
--- bug when they're created again.
+-- Hide the dropdowns if they already exist. They shouldn't be recreated
+-- and stack on top of one another.
 local function HideDropDowns()
     for j = 1, #addon.HeirloomDropDowns do
         if _G[addonName .. "HeirloomDropDown" .. j] then
@@ -39,10 +32,14 @@ local function HideDropDowns()
     return true
 end
 
+-- Get the armor type subclass ID to use for determing which
+-- heirlooms to show in armor slots.
 local function GetHeirloomArmorTypeIDByClassID(classID)
     return addon.HeirloomArmorTypeIDByClass[classID]
 end
 
+-- This is used for weapon heirlooms to determine if an heirloom
+-- weapon should be displayed for a given class.
 local function IsHeirloomValidForClassID(classID, itemSubClassID)
     if addon.HeirloomEquipLoc[classID] then
         for _, v in ipairs(addon.HeirloomEquipLoc[classID]) do
@@ -54,18 +51,19 @@ local function IsHeirloomValidForClassID(classID, itemSubClassID)
     return false
 end
 
+-- This is to prevent heirloom duplication in the dropdowns.
+-- Without it, clicking between class icons or closing/opening
+-- the frame repeatedly will dupe the dropdown lists.
 local function WipeHeirloomTables()
     for key, _ in pairs(addon.Heirlooms) do
         addon.Heirlooms[key] = {}
     end
 end
 
+-- Automatically equip the heirlooms as they're created for
+-- a complete automated experience.
 local function EquipHeirloom(itemLink)
-    -- The item reward we received should be equippable. If it's not,
-    -- then don't bother iterating the player's inventory.
-    if not C_Item.IsEquippableItem(itemLink) then return end
-
-    -- In case the player enters combat after completing the quest
+    -- In case the player enters combat after creating an heirloom
     -- but before this function is called, then trigger a timer.
     if UnitAffectingCombat("player") then C_Timer.After(1, function() EquipHeirloom(itemLink) end) end
 
@@ -114,7 +112,8 @@ end
 -- This is called when the Talent Importer button is clicked
 -- from the settings.
 addon.OpenHeirloomSelector = function()
-    -- If the frame is already visible, then hide it.
+    -- If the frame is visible, then hide it instead of trying
+    -- to create it a second time.
     if frame then
         if frame:IsVisible() then
             frame:Hide()
@@ -129,7 +128,7 @@ addon.OpenHeirloomSelector = function()
     -- its height back to the base value.
     if not frame then
         frame = {
-            name = addonName .. "HeirloomSelectionFrame",
+            name = addonName .. "HeirloomFrame",
             parent = UIParent,
             width = frameBaseWidth,
             height = frameBaseHeight,
@@ -140,17 +139,13 @@ addon.OpenHeirloomSelector = function()
         frame:SetHeight(frameBaseHeight)
     end
 
-    -- TODO: Is there a better way to hide these editboxes so they're
-    -- not recreated on every creation? Is the frame:Hide() redundant?
-    --
-    -- By default, selecting the close button doesn't hide the children.
-    -- This may or may not be intended, so for right now I loop, hide the
-    -- editboxes, then set them to nil. Afterward, I hide the frame; the
-    -- last bit is probably redundant.
-    _G[frame:GetName() .. "CloseButton"]:SetScript("OnClick", function()
+    -- By default, for some reason, clicking the close button
+    -- doesn't actually do anything. Therefore, a function
+    -- must be called to clear the dropdowns and hide the parent
+    -- frame.
+    frame.CloseButton:SetScript("OnClick", function(self)
         HideDropDowns()
-        backButton:Hide()
-        frame:Hide()
+        self:GetParent():Hide()
     end)
 
     -- Set the frame's title, icon, and position.
@@ -160,24 +155,24 @@ addon.OpenHeirloomSelector = function()
 
     -- Create the class icon buttons if they don't exist.
     if not _G[addon.classButtons[1].name] then
-        for index, btn in ipairs(addon.classButtons) do
-            local button = {
-                name = btn.name,
+        for buttonIndex, button in ipairs(addon.classButtons) do
+            local classButton = {
+                name = button.name,
                 parent = frame,
-                ID = btn.id,
-                classID = btn.classID,
-                atlas = btn.atlas
+                ID = button.id,
+                classID = button.classID,
+                atlas = button.atlas
             }
-            setmetatable(button, { __index = HelpMePlay.Button })
-            button = button:ActionButton()
+            setmetatable(classButton, { __index = HelpMePlay.Button })
+            classButton = classButton:ActionButton()
 
-            button:SetScript("OnClick", function()
+            classButton:SetScript("OnClick", function()
                 -- Resize the frame to accommodate the edit boxes.
-                button:GetParent():SetHeight(frameExpandedHeight)
+                classButton:GetParent():SetHeight(frameExpandedHeight)
 
-                if next(HelpMePlayDB["Heirlooms"][button.classID]) then
-                    if doneButton then
-                        doneButton:SetEnabled(false)
+                if next(HelpMePlayDB["Heirlooms"][classButton.classID]) then
+                    if commitButton then
+                        commitButton:SetEnabled(false)
                     end
                 end
 
@@ -279,8 +274,8 @@ addon.OpenHeirloomSelector = function()
                             LibDD:UIDropDownMenu_AddButton(info)
                         end
                     end)
-                    if HelpMePlayDB["Heirlooms"][button.classID][i] then
-                        LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][button.classID][i].itemLink)
+                    if HelpMePlayDB["Heirlooms"][classButton.classID][i] then
+                        LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][classButton.classID][i].itemLink)
                     end
 
                     if i == 1 then
@@ -294,86 +289,54 @@ addon.OpenHeirloomSelector = function()
                     end
                 end
 
-                -- Create the back button. This back button just resets the frame,
-                -- so not entirely necessary but I think it's nice. :)
-                if not backButton then
-                    backButton = {
-                        name = addonName .. "HeirloomSelectionBackButton",
-                        parent = frame,
-                        anchor = "BOTTOMRIGHT",
-                        relativeAnchor = "BOTTOMRIGHT",
-                        oX = -10,
-                        oY = 10,
-                        width = 80,
-                        height = 25,
-                        text = "Back",
-                        tooltipHeader = "",
-                        tooltipText = "",
-                        onClick = nil,
-                    }
-                    setmetatable(backButton, { __index = HelpMePlay.Button })
-                    backButton = backButton:BaseButton()
-                    backButton:SetScript("OnClick", function(self)
-                        frame:SetHeight(frameBaseHeight)
-                        HideDropDowns()
-                        backButton:Hide()
-                        doneButton:Hide()
-                        resetButton:Hide()
-                        WipeHeirloomTables()
-                    end)
-                else
-                    backButton:Show()
-                end
-
                 -- Create the done button. This done button will close the selection
                 -- frame and show a button in the middle of the characters screen to
                 -- create their heirlooms. This will only need to be done once per
                 -- class.
-                if not doneButton then
-                    doneButton = {
-                        name = addonName .. "HeirloomSelectionDoneButton",
-                        parent = backButton,
-                        anchor = "BOTTOM",
-                        relativeAnchor = "TOP",
+                if not commitButton then
+                    commitButton = {
+                        name = addonName .. "HeirloomCommitButton",
+                        parent = _G[addon.classButtons[13].name],
+                        anchor = "TOPRIGHT",
+                        relativeAnchor = "BOTTOMRIGHT",
                         oX = 0,
-                        oY = 10,
+                        oY = -20,
                         width = 80,
                         height = 25,
-                        text = "Done",
-                        tooltipHeader = "",
-                        tooltipText = "",
+                        text = "Commit",
+                        tooltipHeader = "Commit",
+                        tooltipText = "Commit your heirloom selections for this class.",
                         onClick = nil,
                     }
-                    setmetatable(doneButton, { __index = HelpMePlay.Button })
-                    doneButton = doneButton:BaseButton()
-                    doneButton:SetScript("OnClick", function(self)
+                    setmetatable(commitButton, { __index = HelpMePlay.Button })
+                    commitButton = commitButton:BaseButton()
+                    commitButton:SetScript("OnClick", function(self)
                         HideDropDowns()
                         frame:Hide()
-                        doneButton:Hide()
-                        backButton:Hide()
+                        commitButton:Hide()
                         resetButton:Hide()
                         WipeHeirloomTables()
                         table.insert(HelpMePlayDB["Heirlooms"][addon.playerClassID], looms)
                     end)
                 else
-                    doneButton:Show()
+                    commitButton:Show()
                 end
 
                 -- Create the reset button. The reset button allows the player
                 -- to wipe the saved settings for heirlooms on a given class.
                 if not resetButton then
                     resetButton = {
-                        name = addonName .. "HeirloomSelectionResetButton",
-                        parent = frame,
-                        anchor = "TOPRIGHT",
-                        relativeAnchor = "TOPRIGHT",
-                        oX = -10,
-                        oY = -30,
+                        name = addonName .. "HeirloomResetButton",
+                        parent = commitButton,
+                        anchor = "TOP",
+                        relativeAnchor = "BOTTOM",
+                        oX = 0,
+                        oY = -5,
                         width = 80,
                         height = 25,
                         text = "Reset",
-                        tooltipHeader = "",
-                        tooltipText = "",
+                        tooltipHeader = "Reset",
+                        tooltipText = "Reset your heirloom selections for this class.",
                         onClick = nil,
                     }
                     setmetatable(resetButton, { __index = HelpMePlay.Button })
@@ -382,31 +345,30 @@ addon.OpenHeirloomSelector = function()
                         HideDropDowns()
                         frame:Hide()
                         resetButton:Hide()
-                        backButton:Hide()
-                        doneButton:Hide()
+                        commitButton:Hide()
                         HelpMePlayDB["Heirlooms"][addon.playerClassID] = {}
-                        if not doneButton:IsEnabled() then
-                            doneButton:SetEnabled(true)
+                        if not commitButton:IsEnabled() then
+                            commitButton:SetEnabled(true)
                         end
                     end)
                 else
                     resetButton:Show()
                 end
             end)
-            button:SetScript("OnEnter", function(self)
+            classButton:SetScript("OnEnter", function(self)
                 GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-                GameTooltip:SetText(btn.className, btn.classColor.r, btn.classColor.g, btn.classColor.b)
+                GameTooltip:SetText(button.className, button.classColor.r, button.classColor.g, button.classColor.b)
                 GameTooltip:Show()
             end)
-            button:SetScript("OnLeave", function()
+            classButton:SetScript("OnLeave", function()
                 GameTooltip:Hide()
             end)
 
             -- Set the class button positions.
-            if index == 1 then
-                button:SetPoint("TOPLEFT", button:GetParent(), "TOPLEFT", 10, -60)
+            if buttonIndex == 1 then
+                classButton:SetPoint("TOPLEFT", frame, "TOPLEFT", 10, -60)
             else
-                button:SetPoint("LEFT", addon.classButtons[index-1].name, "RIGHT", 10, 0)
+                classButton:SetPoint("LEFT", addon.classButtons[buttonIndex - 1].name, "RIGHT", 10, 0)
             end
         end
     end

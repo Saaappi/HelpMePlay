@@ -8,7 +8,7 @@ local addonVersion
 -- Basic Buttons
 local openIssueButton
 local talentImporterButton
-local heirloomSelectorButton
+local heirloomButton
 local routeBuilderButton
 
 -- Check Buttons
@@ -656,8 +656,8 @@ C_Timer.After(5, function()
         end
     end)
 
-    heirloomSelectorButton = {
-        name = addonName .. "HeirloomSelectorButton",
+    heirloomButton = {
+        name = addonName .. "HeirloomButton",
         parent = talentImporterButton,
         anchor = "TOPLEFT",
         relativeAnchor = "BOTTOMLEFT",
@@ -665,14 +665,14 @@ C_Timer.After(5, function()
         oY = -10,
         width = 125,
         height = 25,
-        text = "Heirloom Selector",
-        tooltipHeader = "Heirloom Selector",
+        text = "Heirlooms",
+        tooltipHeader = "Heirlooms",
         tooltipText = "Click to open the Heirloom selection utility.",
         onClick = nil,
     }
-    setmetatable(heirloomSelectorButton, { __index = HelpMePlay.Button })
-    heirloomSelectorButton = heirloomSelectorButton:BaseButton()
-    heirloomSelectorButton:SetScript("OnClick", function(self, button)
+    setmetatable(heirloomButton, { __index = HelpMePlay.Button })
+    heirloomButton = heirloomButton:BaseButton()
+    heirloomButton:SetScript("OnClick", function(self, button)
         if button == "LeftButton" then
             HideUIPanel(SettingsPanel)
             addon.OpenHeirloomSelector()
@@ -681,7 +681,7 @@ C_Timer.After(5, function()
 
     routeBuilderButton = {
         name = addonName .. "RouteBuilderButton",
-        parent = heirloomSelectorButton,
+        parent = heirloomButton,
         anchor = "LEFT",
         relativeAnchor = "RIGHT",
         oX = 10,
