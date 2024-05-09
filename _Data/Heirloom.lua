@@ -1,23 +1,18 @@
 local addonName, addon = ...
 
 addon.Heirlooms = {
-    {}, -- Head
-    {}, -- Neck
-    {}, -- Shoulder
-    {}, -- ?
-    {}, -- Chest
-    {}, -- ?
-    {}, -- Legs
-    {}, -- ?
-    {}, -- ?
-    {}, -- ?
-    {}, -- Ring 1
-    {}, -- Ring 2
-    {}, -- Trinket 1
-    {}, -- Trinket 2
-    {}, -- Back
-    {}, -- Weapon 1
-    {}, -- Weapon 2
+    [1] = {}, -- Head
+    [2] = {}, -- Neck
+    [3] = {}, -- Shoulder
+    [5] = {}, -- Chest
+    [7] = {}, -- Legs
+    [11] = {}, -- Ring 1
+    [12] = {}, -- Ring 2
+    [13] = {}, -- Trinket 1
+    [14] = {}, -- Trinket 2
+    [15] = {}, -- Back
+    [16] = {}, -- Weapon 1
+    [17] = {}, -- Weapon 2
 }
 
 addon.HeirloomArmorTypeIDByClass = {

@@ -81,7 +81,6 @@ GuildBank\GuildBank.lua
 
 # Character
 Character\NewCharacter.lua
-Character\Heirloom.lua
 
 # Commands
 _Commands\Commands.lua

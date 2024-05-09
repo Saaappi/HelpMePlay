@@ -40,14 +40,19 @@ local function HideDropDowns()
     return true
 end
 
--- Function to update the text for an edit box.
-local function UpdateText(editBox, text, importDate, importPatch)
-    if text then
-        editBox:SetText(text)
-    end
-    editBox.importDateText:SetText(format("%s |cffFFD100(%s)|r", importDate, importPatch))
+local function GetHeirloomArmorTypeIDByClassID(classID)
+    return addon.HeirloomArmorTypeIDByClass[classID]
+end
 
-    return true
+local function IsHeirloomValidForClassID(classID, itemSubClassID)
+    if addon.HeirloomEquipLoc[classID] then
+        for _, v in ipairs(addon.HeirloomEquipLoc[classID]) do
+            if itemSubClassID == v then
+                return true
+            end
+        end
+    end
+    return false
 end
 
 -- This is the function to build the talent importer frame.
@@ -119,6 +124,44 @@ addon.OpenHeirloomSelector = function()
                 -- from overlapping when they're recreated.
                 HideDropDowns()
 
+                -- Get the player's armor type by their class ID.
+                local armorTypeID = GetHeirloomArmorTypeIDByClassID(addon.playerClassID)
+
+                -- Get the item IDs of all the heirlooms in the game.
+                local heirlooms = C_Heirloom.GetHeirloomItemIDs()
+                for _, heirloomItemID in ipairs(heirlooms) do
+                    -- If the player has the heirloom in question, then continue.
+                    if C_Heirloom.PlayerHasHeirloom(heirloomItemID) then
+                        local itemClassID, itemSubClassID = select(6, C_Item.GetItemInfoInstant(heirloomItemID))
+                        local inventoryType = addon.InventoryType[C_Item.GetItemInventoryTypeByID(heirloomItemID)]
+                        if itemClassID == 2 then -- Weapon
+                            local isHeirloomValid = IsHeirloomValidForClassID(addon.playerClassID, itemSubClassID)
+                            if isHeirloomValid then
+                                local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
+                                if heirloomMaxLevel > addon.playerLevel then
+                                    local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
+                                    if type(inventoryType) == "table" then
+                                        for i = 1, 2 do
+                                            table.insert(addon.Heirlooms[inventoryType[i]], itemLink)
+                                        end
+                                    else
+                                        table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                    end
+                                end
+                            end
+                        elseif itemClassID == 4 then
+                            local isHeirloomValid = (itemSubClassID == armorTypeID)
+                            if isHeirloomValid then
+                                local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
+                                if heirloomMaxLevel > addon.playerLevel then
+                                    local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
+                                    table.insert(addon.Heirlooms[inventoryType], itemLink)
+                                end
+                            end
+                        end
+                    end
+                end
+
                 for i, slot in ipairs(addon.HeirloomDropDowns) do
                     -- Create the dropdown menus.
                     local dropDown = LibDD:Create_UIDropDownMenu(addonName .. "HeirloomDropDown" .. i, frame)
@@ -139,6 +182,8 @@ addon.OpenHeirloomSelector = function()
                             LibDD:UIDropDownMenu_AddButton(info)
                         end
                     end)
+
+                    
 
                     if i == 1 then
                         dropDown:SetPoint("TOPLEFT", addon.classButtons[1].name, "BOTTOMLEFT", 0, -40)
@@ -312,9 +357,9 @@ addon.OpenHeirloomSelector = function()
                         anchor = "TOPRIGHT",
                         relativeAnchor = "TOPRIGHT",
                         oX = -10,
-                        oY = -20,
+                        oY = -30,
                         width = 80,
-                        height = 30,
+                        height = 25,
                         text = "Reset",
                         tooltipHeader = "",
                         tooltipText = "",
