@@ -215,7 +215,7 @@ addon.OpenHeirloomSelector = function()
                     UIDropDownMenu_SetWidth(dropDown, 125)
 
                     dropDown.title = dropDown:CreateFontString(nil, "OVERLAY", "GameTooltipText")
-                    dropDown.title:SetPoint("BOTTOMLEFT", dropDown["title"]:GetParent(), "TOPLEFT", 15, 5)
+                    dropDown.title:SetPoint("BOTTOMLEFT", dropDown, "TOPLEFT", 15, 5)
                     dropDown.title:SetText(slot.name)
 
                     LibDD:UIDropDownMenu_Initialize(dropDown, function(self, level)
@@ -227,17 +227,19 @@ addon.OpenHeirloomSelector = function()
                             info.disabled = false
                             info.func = function()
                                 local removedIndex = 0
-                                for heirloomIndex, heirloom in ipairs(HelpMePlayDB["Heirlooms"][classButton.classID]) do
-                                    if heirloom.slot then
-                                        table.remove(HelpMePlayDB["Heirlooms"][classButton.classID], heirloomIndex)
-                                        removedIndex = heirloomIndex
+                                if (#HelpMePlayDB["Heirlooms"][classButton.classID]) > 0 then
+                                    for j, heirloom in ipairs(HelpMePlayDB["Heirlooms"][classButton.classID]) do
+                                        if heirloom.slot == slot.id then
+                                            table.remove(HelpMePlayDB["Heirlooms"][classButton.classID], j)
+                                            removedIndex = j
+                                        end
                                     end
                                 end
                                 if removedIndex ~= 0 then
+                                    print("Heirloom removed.")
                                     table.insert(HelpMePlayDB["Heirlooms"][classButton.classID], removedIndex, { itemID = option.itemID, itemLink = option.itemLink, slot = slot.id })
                                 else
                                     table.insert(HelpMePlayDB["Heirlooms"][classButton.classID], { itemID = option.itemID, itemLink = option.itemLink, slot = slot.id })
-                                    removedIndex = 0
                                 end
                                 LibDD:UIDropDownMenu_SetText(dropDown, HelpMePlayDB["Heirlooms"][classButton.classID][i].itemLink)
                             end
