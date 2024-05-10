@@ -15,6 +15,10 @@ local frameBaseWidth = 725
 local frameTitle = "Heirlooms"
 local frameIcon = 4673926
 
+-- Font Strings
+local classNameText
+local classNameText_DefaultText = "No Class Selected"
+
 local index = 1
 
 -- Hide the dropdowns if they already exist. They shouldn't be recreated
@@ -117,6 +121,12 @@ addon.OpenHeirloomSelector = function()
     frame:SetPortraitToAsset(frameIcon)
     frame:SetPoint("CENTER", frame:GetParent(), "CENTER", 0, 0)
 
+    -- Set the class name text to nothing to start.
+    classNameText = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalMed1")
+    classNameText:SetPoint("CENTER", frame, "CENTER")
+    classNameText:SetPoint("TOP", frame, "TOP", 0, -30)
+    classNameText:SetText(classNameText_DefaultText)
+
     -- Create the class icon buttons if they don't exist.
     if not _G[addon.classButtons[1].name] then
         for buttonIndex, button in ipairs(addon.classButtons) do
@@ -125,6 +135,8 @@ addon.OpenHeirloomSelector = function()
                 parent = frame,
                 ID = button.id,
                 classID = button.classID,
+                className = button.className,
+                classColor = button.classColor,
                 atlas = button.atlas
             }
             setmetatable(classButton, { __index = HelpMePlay.Button })
@@ -133,6 +145,10 @@ addon.OpenHeirloomSelector = function()
             classButton:SetScript("OnClick", function()
                 -- Resize the frame to accommodate the dropdowns.
                 frame:SetHeight(frameExpandedHeight)
+
+                -- Change the class name text to the name of the
+                -- selected class.
+                classNameText:SetText(button.classColor:WrapTextInColorCode(button.className))
 
                 -- Delete the dropdowns if they already exist to prevent them
                 -- from overlapping when they're recreated.
@@ -338,6 +354,7 @@ addon.OpenHeirloomSelector = function()
                             commitButton:SetEnabled(true)
                         end
                         frame:SetHeight(frameBaseHeight)
+                        classNameText:SetText(classNameText_DefaultText)
                     end)
                 else
                     resetButton:Show()
