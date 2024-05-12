@@ -1,7 +1,7 @@
 ## Author: LightskyGG
 ## Interface: 100207
 ## Title: HelpMePlay
-## Version: 3.0.0B4
+## Version: 3.0.0B5
 ## IconTexture: 236681
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
@@ -82,6 +82,9 @@ GuildBank\GuildBank.lua
 # Character
 Character\NewCharacter.lua
 Character\Heirloom.lua
+
+# Vignettes
+Vignettes\Vignettes.lua
 
 # Commands
 _Commands\Commands.lua

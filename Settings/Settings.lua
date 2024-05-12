@@ -29,6 +29,7 @@ local dynamicFlightCB
 local worldEventQueueCB
 local openHolidayItemsCB
 local warModeCB
+local rareScanCB
 local keepMeSafeCB
 
 -- Dropdowns
@@ -392,6 +393,23 @@ C_Timer.After(5, function()
     setmetatable(warModeCB, { __index = HelpMePlay.Button })
     warModeCB = warModeCB:CheckButton()
     warModeCB:SetChecked(HelpMePlayDB["UseWarMode"])
+
+    rareScanCB = {
+        name = addonName .. "RareScanCB",
+        parent = warModeCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
+        tooltipHeader = "Rare Scan",
+        tooltipText = "Toggle if you wish to receive a popup notification and sound for nearby rares.",
+        onClick = function()
+            HelpMePlayDB["RareScan"] = rareScanCB:GetChecked()
+        end,
+    }
+    setmetatable(rareScanCB, { __index = HelpMePlay.Button })
+    rareScanCB = rareScanCB:CheckButton()
+    rareScanCB:SetChecked(HelpMePlayDB["RareScan"])
 
     chromieTimeDropDown = {
         name = addonName .. "ChromieTimeDropDown",

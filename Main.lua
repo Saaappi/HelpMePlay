@@ -80,6 +80,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["UseWarMode"] == nil then
                 HelpMePlayDB["UseWarMode"] = false
             end
+            if HelpMePlayDB["RareScan"] == nil then
+                HelpMePlayDB["RareScan"] = false
+            end
             if HelpMePlayDB["ChromieTimeExpansionID"] == nil then
                 HelpMePlayDB["ChromieTimeExpansionID"] = 0
             end
