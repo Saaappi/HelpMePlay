@@ -39,6 +39,7 @@ _Classes\Slider.lua
 # Functions
 _Functions\EvalConditions.lua
 _Functions\Print.lua
+_Functions\Strings.lua
 _Functions\QuestMobs.lua
 _Functions\Quests.lua
 _Functions\Trainers.lua
