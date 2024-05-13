@@ -1,4 +1,1 @@
-- The Talent Importer utility received a visual update.
-- Players can now choose what the addon selects for the Dynamic Flight choice nodes.
-- Players can now configure the addon to automate setting configurations for new characters.
-- Players can now configure the addon to automate the creation and equipping of heirlooms.
+- Players can now toggle rare scan in the settings. This is complete with a clickable popup and a map ping sound.
