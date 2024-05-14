@@ -1,7 +1,10 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local worldEventQueueButton
+local leftChevron
+local rightChevron
 local activeEvents = {}
+local currentEventIndex = 1
 
 local worldEvents = {
     [559] = {
@@ -100,10 +103,12 @@ local worldEvents = {
     },
 }
 
+-- This function is used to update (refresh) the button when the player
+-- completes an active event.
 local function RefreshEvents()
     if next(activeEvents) == nil then
         worldEventQueueButton:Hide()
-        HelpMePlay.Print("No more active events. Hiding button...")
+        HelpMePlay.Print("No more active events...")
     end
 
     for eventID, event in pairs(activeEvents) do
@@ -112,10 +117,25 @@ local function RefreshEvents()
         else
             worldEventQueueButton.icon:SetTexture(event.texture)
         end
-        worldEventQueueButton["name"] = event.name
-        worldEventQueueButton["dungeonQueueID"] = event.dungeonQueueID
+        worldEventQueueButton.name = event.name
+        worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
         break
     end
+end
+
+-- This function is used to update the button to the next event in the
+-- table based on the chevron the player clicked (left or right).
+--
+-- This allows the player to select the event they're interested in rather
+-- than being forced to participate in an event they may not want to do.
+local function SetWorldEventQueueButtonToEvent(event)
+    if event.atlas then
+        worldEventQueueButton.icon:SetAtlas(event.atlas)
+    else
+        worldEventQueueButton.icon:SetTexture(event.texture)
+    end
+    worldEventQueueButton.name = event.name
+    worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
 end
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")
@@ -128,8 +148,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
             return
         end
-        local currentDate = C_DateAndTime.GetCurrentCalendarTime()
 
+        local currentDate = C_DateAndTime.GetCurrentCalendarTime()
         local events = addon.GetActiveEvents(currentDate)
         if next(events) ~= nil then
             for _, evt in ipairs(events) do
@@ -146,10 +166,52 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if next(activeEvents) ~= nil then
                 worldEventQueueButton = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
                 worldEventQueueButton:RegisterForClicks("LeftButtonUp")
+
                 RefreshEvents()
 
+                -- There are multiple events active, so let's make the chevron
+                -- buttons so the player can toggle between the active events.
+                if (#activeEvents > 1) then
+                    if not leftChevron then
+                        leftChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
+                        leftChevron:SetSize(20, 20)
+                        leftChevron:SetPoint("TOPLEFT", worldEventQueueButton, "BOTTOMLEFT", 2, -5)
+                        leftChevron.texture = leftChevron:CreateTexture()
+                        leftChevron.texture:SetPoint("CENTER")
+                        leftChevron.texture:SetAtlas("uitools-icon-chevron-left", true)
+
+                        leftChevron:SetNormalTexture(leftChevron.texture)
+
+                        leftChevron:SetScript("OnClick", function()
+                            if currentEventIndex == 1 then
+                                currentEventIndex = #activeEvents
+                            else
+                                currentEventIndex = currentEventIndex - 1
+                            end
+                            SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
+                        end)
+
+                        rightChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
+                        rightChevron:SetSize(20, 20)
+                        rightChevron:SetPoint("TOPRIGHT", worldEventQueueButton, "BOTTOMRIGHT", -2, -5)
+                        rightChevron.texture = rightChevron:CreateTexture()
+                        rightChevron.texture:SetPoint("CENTER")
+                        rightChevron.texture:SetAtlas("uitools-icon-chevron-right", true)
+
+                        rightChevron:SetNormalTexture(rightChevron.texture)
+
+                        rightChevron:SetScript("OnClick", function()
+                            if currentEventIndex == (#activeEvents) then
+                                currentEventIndex = 1
+                            else
+                                currentEventIndex = currentEventIndex + 1
+                            end
+                            SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
+                        end)
+                    end
+                end
+
                 worldEventQueueButton:SetScript("OnClick", function()
-                    ---@diagnostic disable-next-line: undefined-global
                     LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, worldEventQueueButton.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
                 end)
                 worldEventQueueButton:SetScript("OnEnter", function(self)
