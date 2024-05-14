@@ -3,12 +3,6 @@ local eventHandler = CreateFrame("Frame")
 local DressUpModelFrame
 local HelpMePlayAlertSystem
 
-local SpecialCreatures = {
-    [203377] = true,
-    [203364] = true,
-    [203358] = true,
-}
-
 addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID, label)
     -- If the DressUpModelFrame doesn't exist, then let's create it.
     -- We'll use the frame to get a creature's display ID from their
@@ -152,7 +146,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if GUID then
                 local creatureID = addon.SplitString(GUID, "-", 6)
                 if creatureID then
-                    if SpecialCreatures[creatureID] then
+                    if UnitIsBattlePet("target") then
                         HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
                         HelpMePlayAlertSystem:AddAlert(UnitName("target"), GUID, CreateAtlasMarkup("WildBattlePetCapturable") .. " Battle Pet Detected")
                     end
