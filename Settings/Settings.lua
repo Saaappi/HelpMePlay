@@ -618,10 +618,9 @@ C_Timer.After(5, function()
         width = 100,
         height = 10,
         title = "Deposit Keep Amount",
-        maxLetters = 5,
+        maxLetters = 7,
         tooltipHeader = "Deposit Keep Amount",
-        tooltipText = "Enter the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-        "|cffFF0000NOTE:|r You can enter up to 99,999.",
+        tooltipText = "Enter the minimum amount of gold you would like to keep on your character after making a deposit.",
         onEnterPressed = function(self)
             if tonumber(self:GetText(), 10) then
                 HelpMePlayDB["DepositKeepAmount"] = tonumber(self:GetText(), 10) * 10000
