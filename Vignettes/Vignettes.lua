@@ -3,7 +3,13 @@ local eventHandler = CreateFrame("Frame")
 local DressUpModelFrame
 local HelpMePlayAlertSystem
 
-addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID)
+local SpecialCreatures = {
+    [203377] = true,
+    [203364] = true,
+    [203358] = true,
+}
+
+addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID, label)
     -- If the DressUpModelFrame doesn't exist, then let's create it.
     -- We'll use the frame to get a creature's display ID from their
     -- NPC ID.
@@ -32,7 +38,6 @@ addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID)
 
     -- Set the popup's quality and label.
     local quality = Enum.ItemQuality.Epic
-    local label = "Rare Detected"
 
     -- Set the model of the frame using the creature's NPC ID.
     --
@@ -109,13 +114,14 @@ addon.ProcessVignette = function(vignetteGUID)
         local msg = CreateAtlasMarkup(atlasName, 16, 16) .. " |cff06BEC6" .. name .. "|r spotted! [" .. currentTime .. "]"
         if msg and atlasName == "VignetteKill" then
             HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
-            HelpMePlayAlertSystem:AddAlert(name, vignetteGUID)
+            HelpMePlayAlertSystem:AddAlert(name, vignetteGUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
         end
     end
 end
 
 eventHandler:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 eventHandler:RegisterEvent("VIGNETTE_MINIMAP_UPDATED")
+eventHandler:RegisterEvent("UNIT_TARGET")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "NAME_PLATE_UNIT_ADDED" then
         if HelpMePlayDB["RareScan"] == false then return end
@@ -129,7 +135,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 processed[GUID] = true
                 SetRaidTarget(..., 7)
                 HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
-                HelpMePlayAlertSystem:AddAlert(UnitName(...), GUID)
+                HelpMePlayAlertSystem:AddAlert(UnitName(...), GUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
             end
         end
     elseif event == "VIGNETTE_MINIMAP_UPDATED" then
@@ -138,6 +144,20 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local vignetteGUID = ...
         if vignetteGUID then
             addon.ProcessVignette(vignetteGUID)
+        end
+    elseif event == "UNIT_TARGET" then
+        local unit = ...
+        if unit == "player" then
+            local GUID = UnitGUID("target")
+            if GUID then
+                local creatureID = addon.SplitString(GUID, "-", 6)
+                if creatureID then
+                    if SpecialCreatures[creatureID] then
+                        HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
+                        HelpMePlayAlertSystem:AddAlert(UnitName("target"), GUID, CreateAtlasMarkup("WildBattlePetCapturable") .. " Battle Pet Detected")
+                    end
+                end
+            end
         end
     end
 end)
