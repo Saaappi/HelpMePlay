@@ -30,21 +30,34 @@ addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID)
         end
     end
 
+    -- Set the popup's quality and label.
+    local quality = Enum.ItemQuality.Epic
+    local label = "Rare Detected"
+
     -- Set the model of the frame using the creature's NPC ID.
     --
     -- Get the display info for that creature ID.
     DressUpModelFrame:SetCreature(creatureID)
     local displayID = DressUpModelFrame:GetDisplayInfo()
     if displayID and displayID ~= 0 then
+        frame:SetUpDisplay(frame.Icon, quality, name, label, "CosmeticIconFrame")
         SetPortraitTextureFromCreatureDisplayID(frame.Icon, displayID)
     else
-        frame.Icon:SetTexture(237272)
+        frame:SetUpDisplay(237272, quality, name, label, "CosmeticIconFrame")
     end
 
-    -- Set the frame's name to the rare's name and change
-    -- the label text.
-	frame.Name:SetText(name)
-    frame.Label:SetText("Rare Detected")
+    frame.timers = {}
+	local effectID1 = 135;
+	local effectID2 = 136;
+
+	-- stagger effect timings
+	frame.LeftModelScene:AddEffect(effectID1, frame.LeftModelScene);
+	table.insert(frame.timers, C_Timer.NewTimer(0.25, function() frame.LeftModelScene:AddEffect(effectID2, frame.LeftModelScene); end));
+	table.insert(frame.timers, C_Timer.NewTimer(0.5, function() frame.LeftModelScene:AddEffect(effectID1, frame.LeftModelScene); end));
+
+	table.insert(frame.timers, C_Timer.NewTimer(0.3, function() frame.RightModelScene:AddEffect(effectID1, frame.RightModelScene); end));
+	table.insert(frame.timers, C_Timer.NewTimer(0.55, function() frame.RightModelScene:AddEffect(effectID2, frame.RightModelScene); end));
+	table.insert(frame.timers, C_Timer.NewTimer(0.8, function() frame.RightModelScene:AddEffect(effectID1, frame.RightModelScene); end));
 
     -- Set the frame's onclick function. Clicking the popup
     -- will plot a waypoint (if it's a vignette) and try to
