@@ -115,7 +115,6 @@ end
 
 eventHandler:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 eventHandler:RegisterEvent("VIGNETTE_MINIMAP_UPDATED")
-eventHandler:RegisterEvent("UNIT_TARGET")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "NAME_PLATE_UNIT_ADDED" then
         if HelpMePlayDB["RareScan"] == false then return end
@@ -138,20 +137,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local vignetteGUID = ...
         if vignetteGUID then
             addon.ProcessVignette(vignetteGUID)
-        end
-    elseif event == "UNIT_TARGET" then
-        local unit = ...
-        if unit == "player" then
-            local GUID = UnitGUID("target")
-            if GUID then
-                local creatureID = addon.SplitString(GUID, "-", 6)
-                if creatureID then
-                    if UnitIsBattlePet("target") then
-                        HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
-                        HelpMePlayAlertSystem:AddAlert(UnitName("target"), GUID, CreateAtlasMarkup("WildBattlePetCapturable") .. " Battle Pet Detected")
-                    end
-                end
-            end
         end
     end
 end)
