@@ -87,6 +87,9 @@ Character\Heirloom.lua
 # Vignettes
 Vignettes\Vignettes.lua
 
+# Wardrobe
+Wardrobe\Wardrobe.lua
+
 # Chat Icons
 ChatIcons\ChatIcons.lua
 
