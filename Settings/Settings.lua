@@ -30,6 +30,7 @@ local worldEventQueueCB
 local openHolidayItemsCB
 local warModeCB
 local rareScanCB
+local chatIconsCB
 local keepMeSafeCB
 
 -- Dropdowns
@@ -410,6 +411,23 @@ C_Timer.After(5, function()
     setmetatable(rareScanCB, { __index = HelpMePlay.Button })
     rareScanCB = rareScanCB:CheckButton()
     rareScanCB:SetChecked(HelpMePlayDB["RareScan"])
+
+    chatIconsCB = {
+        name = addonName .. "ChatIconsCB",
+        parent = rareScanCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
+        tooltipHeader = "Chat Icons",
+        tooltipText = "Toggle to show item and collection status (when appropriate) icons in the chat frame.",
+        onClick = function()
+            HelpMePlayDB["ShowChatIcons"] = chatIconsCB:GetChecked()
+        end,
+    }
+    setmetatable(chatIconsCB, { __index = HelpMePlay.Button })
+    chatIconsCB = chatIconsCB:CheckButton()
+    chatIconsCB:SetChecked(HelpMePlayDB["ShowChatIcons"])
 
     chromieTimeDropDown = {
         name = addonName .. "ChromieTimeDropDown",

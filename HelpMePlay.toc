@@ -87,5 +87,8 @@ Character\Heirloom.lua
 # Vignettes
 Vignettes\Vignettes.lua
 
+# Chat Icons
+ChatIcons\ChatIcons.lua
+
 # Commands
 _Commands\Commands.lua
