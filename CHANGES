@@ -1,3 +1,2 @@
-- Players can now enter up to gold cap for the Deposit Keep amount.
-- Players can now toggle between active events for the World Event Queue button if there are multiple supported events active simultaneously.
-- Players can now toggle rare scan in the settings. This is complete with a clickable popup and a map ping sound.
+Enhancements:
+- The Deposit Keep feature for guild banks now also works in reverse. If your funds are below your threshold, then visiting a guild bank will withdraw from the bank instead. (Keep Me Safe still applies for withdraws.)
