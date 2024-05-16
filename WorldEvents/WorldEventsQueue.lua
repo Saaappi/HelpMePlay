@@ -215,8 +215,13 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, worldEventQueueButton.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
                 end)
                 worldEventQueueButton:SetScript("OnEnter", function(self)
-                    GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
+                    GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
                     GameTooltip:SetText(self.name)
+                    local _, isTank, isHealer, isDamage = GetLFGRoles()
+                    GameTooltip:AddLine(format("\nSelected Role(s):\n" ..
+                    "Tank: |cffFFFFFF%s|r\n" ..
+                    "Healer: |cffFFFFFF%s|r\n" ..
+                    "Damage: |cffFFFFFF%s|r", tostring(isTank), tostring(isHealer), tostring(isDamage)))
                     GameTooltip:Show()
                 end)
                 worldEventQueueButton:SetScript("OnLeave", function()
