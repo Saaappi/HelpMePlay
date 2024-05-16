@@ -6,6 +6,8 @@ local iconPath = format("Interface\\AddOns\\%s\\ChatIcons\\Icons", addonName)
 --
 -- \124 is the ASCII code for |. I feel it's a bit more readable and it's how the game
 -- parses it anyway (and how it's returned to the chat frame.)
+--
+-- Icon Credit: AmiYuy (Can I Mog It?) ♥
 ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, ...)
     if HelpMePlayDB["ShowChatIcons"] == false then return end
     local function GetItemIconHMP(itemLink)
