@@ -621,7 +621,7 @@ C_Timer.After(5, function()
         maxLetters = 7,
         tooltipHeader = "Deposit Keep Amount",
         tooltipText = "Enter the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-        "Visiting a guild bank while below this threshold will instead attempt to withdraw the perfect amount of funds to return you to your threshold.",
+        "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.",
         onEnterPressed = function(self)
             if tonumber(self:GetText(), 10) then
                 HelpMePlayDB["DepositKeepAmount"] = tonumber(self:GetText(), 10) * 10000
