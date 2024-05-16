@@ -10,10 +10,8 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, 
         if item then
             local itemType = item[6]
             if itemType == "Armor" or itemType == "Weapon" then
-                print("A")
                 local sourceID = select(2, C_TransmogCollection.GetItemInfo(itemLink))
                 if sourceID then
-                    print("B")
                     local isCollected = select(5, C_TransmogCollection.GetAppearanceSourceInfo(sourceID))
                     local canPlayerCollectSource = select(2, C_TransmogCollection.PlayerCanCollectSource(sourceID))
                     local bindType = item[14]
