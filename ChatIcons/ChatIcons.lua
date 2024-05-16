@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local iconPath = format("Interface\\AddOns\\%s\\ChatIcons\\Icons", addonName)
 
 ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, ...)
     if HelpMePlayDB["ShowChatIcons"] == false then return end
@@ -8,30 +9,32 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, 
         local item = { C_Item.GetItemInfo(itemLink) }
         if item then
             local itemType = item[6]
-            if itemType == "Armor" or itemType == "Weapon"then
+            if itemType == "Armor" or itemType == "Weapon" then
+                print("A")
                 local sourceID = select(2, C_TransmogCollection.GetItemInfo(itemLink))
                 if sourceID then
+                    print("B")
                     local isCollected = select(5, C_TransmogCollection.GetAppearanceSourceInfo(sourceID))
                     local canPlayerCollectSource = select(2, C_TransmogCollection.PlayerCanCollectSource(sourceID))
                     local bindType = item[14]
                     if bindType == 1 then -- Soulbound
                         if not isCollected then
                             if canPlayerCollectSource then
-                                collectedTexture = format("Interface\\AddOns\\%s\\Chat\\Icons\\UNKNOWN", addonName)
+                                collectedTexture = format("%s\\UNKNOWN", iconPath)
                             else
-                                collectedTexture = format("Interface\\AddOns\\%s\\Chat\\Icons\\UNKNOWABLE_SOULBOUND", addonName)
+                                collectedTexture = format("%s\\UNKNOWABLE_SOULBOUND", iconPath)
                             end
                         end
                     elseif bindType == 0 then -- BoE
                         if not isCollected then
                             if canPlayerCollectSource then
-                                collectedTexture = format("Interface\\AddOns\\%s\\Chat\\Icons\\UNKNOWN", addonName)
+                                collectedTexture = format("%s\\UNKNOWN", iconPath)
                             else
-                                collectedTexture = format("Interface\\AddOns\\%s\\Chat\\Icons\\UNKNOWABLE_BY_CHARACTER", addonName)
+                                collectedTexture = format("%s\\UNKNOWABLE_BY_CHARACTER", iconPath)
                             end
                         end
                     end
-                    collectedTexture = format("Interface\\AddOns\\%s\\Chat\\Icons\\KNOWN", addonName)
+                    collectedTexture = format("%s\\KNOWN", iconPath)
                 end
                 return format("\124T%s:12\124t %s |T%s:12|t", texture, itemLink, collectedTexture)
             end
