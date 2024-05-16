@@ -53,24 +53,26 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         StaticPopup_Show(popup.name)
                     else
                         transactionAmount = transactionAmount * -1
-                        popup = {
-                            name = "HELPMEPLAY_WITHDRAW_KEEP_ME_SAFE",
-                            text = format("You're about to withdraw %s from |cffFFD100%s|r. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), (GetGuildInfo("player"))),
-                            button1 = ACCEPT,
-                            button2 = CANCEL,
-                            onAccept = function()
-                                ManageGuildBankFunds()
-                            end,
-                            showAlert = false,
-                            whileDead = false,
-                            hideOnEscape = true,
-                            hasEditBox = false,
-                            enterClicksFirstButton = false,
-                            preferredIndex = 3,
-                        }
-                        setmetatable(popup, { __index = HelpMePlay.Frame })
-                        popup = popup:Popup()
-                        StaticPopup_Show(popup.name)
+                        if transactionAmount < 0 then
+                            popup = {
+                                name = "HELPMEPLAY_WITHDRAW_KEEP_ME_SAFE",
+                                text = format("You're about to withdraw %s from |cffFFD100%s|r. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), (GetGuildInfo("player"))),
+                                button1 = ACCEPT,
+                                button2 = CANCEL,
+                                onAccept = function()
+                                    ManageGuildBankFunds()
+                                end,
+                                showAlert = false,
+                                whileDead = false,
+                                hideOnEscape = true,
+                                hasEditBox = false,
+                                enterClicksFirstButton = false,
+                                preferredIndex = 3,
+                            }
+                            setmetatable(popup, { __index = HelpMePlay.Frame })
+                            popup = popup:Popup()
+                            StaticPopup_Show(popup.name)
+                        end
                     end
                 else
                     ManageGuildBankFunds()
