@@ -1,6 +1,11 @@
 local addonName, addon = ...
 local iconPath = format("Interface\\AddOns\\%s\\ChatIcons\\Icons", addonName)
 
+-- Add a message event filter for CHAT_MSG_LOOT. The code is pretty self explanatory.
+-- The only gotcha may be the formats near the bottom.
+--
+-- \124 is the ASCII code for |. I feel it's a bit more readable and it's how the game
+-- parses it anyway (and how it's returned to the chat frame.)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, ...)
     if HelpMePlayDB["ShowChatIcons"] == false then return end
     local function GetItemIconHMP(itemLink)
@@ -34,7 +39,7 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, 
                     end
                     collectedTexture = format("%s\\KNOWN", iconPath)
                 end
-                return format("\124T%s:12\124t %s |T%s:12|t", texture, itemLink, collectedTexture)
+                return format("\124T%s:12\124t %s \124T%s:12\124t", texture, itemLink, collectedTexture)
             end
         end
         return format("\124T%s:12\124t %s", texture, itemLink)
