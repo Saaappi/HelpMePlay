@@ -2,4 +2,4 @@ New Features:
 - Players can now enable "Chat Icons" in the settings to show item and collection status icons directly in the chat frame.
 
 Enhancements:
-- The Deposit Keep feature for guild banks now also works in reverse. If your funds are below your threshold, then visiting a guild bank will withdraw from the bank instead. (Keep Me Safe still applies for withdraws.)
+- The Deposit Keep feature for guild banks now also works in reverse; if your funds are below your threshold, then visiting a guild bank will withdraw from the bank instead. (Keep Me Safe still applies for withdraws.)
