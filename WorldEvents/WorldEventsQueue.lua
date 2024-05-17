@@ -142,8 +142,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
         local questID = ...
-        for eventID, event in pairs(activeEvents) do
-            if event.questID == questID then
+        for eventID, evt in pairs(activeEvents) do
+            if evt.questIDForVisibility == questID then
                 activeEvents[eventID] = nil
                 break
             end
