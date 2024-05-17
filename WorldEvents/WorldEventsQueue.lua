@@ -11,7 +11,6 @@ local currentEventIndex = 1
 local function RefreshEvents()
     if next(activeEvents) == nil then
         worldEventQueueButton:Hide()
-        HelpMePlay.Print("No more active events...")
     end
 
     for _, event in pairs(activeEvents) do
