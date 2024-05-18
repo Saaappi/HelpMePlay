@@ -24,7 +24,7 @@ function HelpMePlayKeybind(key)
                     -- abandon all the quests in the zone.
                     local popup = {
                         name = "HELPMEPLAY_QUICKQUESTABANDON_CONFIRM",
-                        text = format("You're about to abandon all quests within %s. Do you want to continue?", focus:GetText()),
+                        text = format("You're about to abandon all quests within |cffFFD100%s|r. Do you want to continue?", focus:GetText()),
                         button1 = ACCEPT,
                         button2 = CANCEL,
                         onAccept = function()

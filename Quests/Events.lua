@@ -32,7 +32,11 @@ local function QUEST_DETAIL()
                         AcceptQuest()
                     end
                 elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    AcceptQuest()
+                    if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
+                    elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
+                    else
+                        AcceptQuest()
+                    end
                 end
             end
         end
@@ -76,8 +80,12 @@ local function QUEST_GREETING()
                         AcceptQuest()
                     end
                 elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    SelectAvailableQuest(i)
-                    AcceptQuest()
+                    if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
+                    elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
+                    else
+                        SelectAvailableQuest(i)
+                        AcceptQuest()
+                    end
                 end
             end
         end

@@ -121,7 +121,17 @@ end
 eventHandler:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 eventHandler:RegisterEvent("VIGNETTE_MINIMAP_UPDATED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
-    if event == "NAME_PLATE_UNIT_ADDED" then
+    if event == "VIGNETTE_MINIMAP_UPDATED" then
+        if HelpMePlayDB["RareScan"] == false then return end
+
+        -- If the GUID is valid and it hasn't been seen, then
+        -- process it.
+        local vignetteGUID = ...
+        if vignetteGUID and (not processed[vignetteGUID]) then
+            processed[vignetteGUID] = true
+            addon.ProcessVignette(vignetteGUID)
+        end
+    elseif event == "NAME_PLATE_UNIT_ADDED" then
         if HelpMePlayDB["RareScan"] == false then return end
 
         -- Get the unit's classification; if it's rare or rare elite, then
@@ -134,18 +144,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 SetRaidTarget(..., 7)
                 HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
                 HelpMePlayAlertSystem:AddAlert(UnitName(...), Enum.ItemQuality.Epic, GUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
-            end
-        end
-    elseif event == "VIGNETTE_MINIMAP_UPDATED" then
-        if HelpMePlayDB["RareScan"] == false then return end
-
-        -- If the GUID is valid and it hasn't been seen, then
-        -- process it.
-        local vignetteGUID = ...
-        if vignetteGUID then
-            if not processed[vignetteGUID] then
-                processed[vignetteGUID] = true
-                addon.ProcessVignette(vignetteGUID)
             end
         end
     end
