@@ -1,0 +1,10 @@
+<Bindings>
+	<Binding name="HELPMEPLAY_DUMMY" header="HELPMEPLAY">
+	</Binding>
+	<Binding name="HELPMEPLAY_DELETECURSORITEM" category="HelpMePlay">
+		HelpMePlayKeybind(GetBindingKey("HELPMEPLAY_DELETECURSORITEM"))
+	</Binding>
+	<Binding name="HELPMEPLAY_QUICKQUESTABANDON" category="HelpMePlay">
+		HelpMePlayKeybind(GetBindingKey("HELPMEPLAY_QUICKQUESTABANDON"))
+	</Binding>
+</Bindings>

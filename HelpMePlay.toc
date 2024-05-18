@@ -45,6 +45,9 @@ _Functions\Quests.lua
 _Functions\Trainers.lua
 _Functions\WorldEvents.lua
 
+# Keybinds
+_Keybinds\Keybinds.lua
+
 # Cutscenes
 Cutscenes\Cutscenes.lua
 

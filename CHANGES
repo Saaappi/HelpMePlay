@@ -1,6 +1,8 @@
 New Features:
 - Players can find a new icon in their Character Frame next to "Gear Manager" to collect all unknown and appropriate appearances from their inventory.
 - Players can now enable "Chat Icons" in the settings to show item and collection status icons directly in the chat frame.
+- Added keybind support for quickly deleting cursor items. This is VERY helpful in Remix. :)
+- Added keybind support for quickly abandoning quests by the quest or by the zone.
 
 Enhancements:
 - The Deposit Keep feature for guild banks now also works in reverse; if your funds are below your threshold, then visiting a guild bank will withdraw instead. (Keep Me Safe still applies for withdraws.)
