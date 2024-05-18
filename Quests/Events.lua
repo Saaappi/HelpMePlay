@@ -169,7 +169,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 for _, quest in ipairs(availableQuests) do
                     if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
                         -- We do nothing here because the player chose to ignore repeatable quests.
-                    elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == 2 then
+                    elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
                         -- We do nothing here because the player chose to ignore daily quests.
                     else
                         if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
