@@ -2,11 +2,15 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local DressUpModelFrame
 local HelpMePlayAlertSystem
+local processed = {}
 
-addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID, label)
+local function GetCreatureDisplayByGUID(GUID)
+    -- Set the creatureID to 0 by default. If it's still 0
+    -- by the end, then we'll use a Westfall Chicken for
+    -- the model.
+    local creatureID = 0
+
     -- If the DressUpModelFrame doesn't exist, then let's create it.
-    -- We'll use the frame to get a creature's display ID from their
-    -- NPC ID.
     if not DressUpModelFrame then
         DressUpModelFrame = CreateFrame("DressUpModel", nil, UIParent)
         DressUpModelFrame:SetPoint("TOPRIGHT", 0, 0)
@@ -14,35 +18,39 @@ addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID, label)
         DressUpModelFrame:Hide()
     end
 
-    -- Get the creature ID from the provided GUID.
-    local vignetteInfo
-    local creatureID = 0
-    local type = ""
-    if vignetteOrCreatureGUID then
-        type = addon.SplitString(vignetteOrCreatureGUID, "-", 1)
-        if type == "Creature" then
-            creatureID = addon.SplitString(vignetteOrCreatureGUID, "-", 6)
-        elseif type == "Vignette" then
-            vignetteInfo = C_VignetteInfo.GetVignetteInfo(vignetteOrCreatureGUID)
-            if vignetteInfo then
-                creatureID = addon.SplitString(vignetteInfo.objectGUID, "-", 6)
-            end
+    -- Get the creature type, and depending on its type, the process is
+    -- slightly different to get the creatureID.
+    local creatureType = addon.SplitString(GUID, "-", 1)
+    if creatureType and creatureType == "Creature" then
+        creatureID = addon.SplitString(GUID, "-", 6)
+    elseif creatureType and creatureType == "Vignette" then
+        local vignetteInfo = C_VignetteInfo.GetVignetteInfo(GUID)
+        if vignetteInfo then
+            creatureID = addon.SplitString(vignetteInfo.objectGUID, "-", 6)
         end
     end
 
-    -- Set the popup's quality and label.
-    local quality = Enum.ItemQuality.Epic
+    if creatureID ~= 0 then
+        DressUpModelFrame:SetCreature(creatureID)
+        local displayID = DressUpModelFrame:GetDisplayInfo()
+        if displayID and displayID ~= 0 then
+            return displayID
+        end
+    end
+    return 0
+end
 
-    -- Set the model of the frame using the creature's NPC ID.
-    --
-    -- Get the display info for that creature ID.
-    DressUpModelFrame:SetCreature(creatureID)
-    local displayID = DressUpModelFrame:GetDisplayInfo()
+addon.CreateFauxPopup = function(frame, name, quality, GUID, label)
+    -- Get the creature's display ID.
+    local displayID = GetCreatureDisplayByGUID(GUID)
+
+    -- If the displayID isn't valid or is 0, then we'll use the texture
+    -- of the Fractured Necrolyte Skull.
     if displayID and displayID ~= 0 then
         frame:SetUpDisplay(frame.Icon, quality, name, label, "CosmeticIconFrame")
         SetPortraitTextureFromCreatureDisplayID(frame.Icon, displayID)
     else
-        frame:SetUpDisplay(237272, quality, name, label, "CosmeticIconFrame")
+        frame:SetUpDisplay(133731, quality, name, label, "CosmeticIconFrame")
     end
 
     frame.timers = {}
@@ -63,7 +71,7 @@ addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID, label)
     -- target the rare.
     frame:SetScript("OnClick", function()
         if type == "Vignette" then
-            local vignettePosition = C_VignetteInfo.GetVignettePosition(vignetteOrCreatureGUID, addon.mapID)
+            local vignettePosition = C_VignetteInfo.GetVignettePosition(GUID, addon.mapID)
             local x, y = vignettePosition:GetXY()
             if C_AddOns.IsAddOnLoaded("TomTom") then
                 local waypoint = {
@@ -92,7 +100,6 @@ addon.CreateFauxPopup = function(frame, name, vignetteOrCreatureGUID, label)
 	PlaySound(SOUNDKIT.MAP_PING, "Master")
 end
 
-local processed = {}
 addon.ProcessVignette = function(vignetteGUID)
     -- If any of these are true, then return.
     if processed[vignetteGUID] then return end
@@ -100,15 +107,13 @@ addon.ProcessVignette = function(vignetteGUID)
     if not addon.mapID then return end
 
     local vignetteInfo = C_VignetteInfo.GetVignetteInfo(vignetteGUID)
-    local currentTime = date("%X")
     if vignetteInfo and addon.mapID then
         processed[vignetteGUID] = true
         if vignetteInfo.type == 0 and not vignetteInfo.onMinimap then return end
-        local name, atlasName, vignetteID = vignetteInfo.name, vignetteInfo.atlasName, vignetteInfo.vignetteID
-        local msg = CreateAtlasMarkup(atlasName, 16, 16) .. " |cff06BEC6" .. name .. "|r spotted! [" .. currentTime .. "]"
-        if msg and atlasName == "VignetteKill" then
+        local name, atlasName = vignetteInfo.name, vignetteInfo.atlasName
+        if atlasName == "VignetteKill" then
             HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
-            HelpMePlayAlertSystem:AddAlert(name, vignetteGUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
+            HelpMePlayAlertSystem:AddAlert(name, Enum.ItemQuality.Rare, vignetteGUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
         end
     end
 end
@@ -128,15 +133,20 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 processed[GUID] = true
                 SetRaidTarget(..., 7)
                 HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
-                HelpMePlayAlertSystem:AddAlert(UnitName(...), GUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
+                HelpMePlayAlertSystem:AddAlert(UnitName(...), Enum.ItemQuality.Epic, GUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
             end
         end
     elseif event == "VIGNETTE_MINIMAP_UPDATED" then
         if HelpMePlayDB["RareScan"] == false then return end
 
+        -- If the GUID is valid and it hasn't been seen, then
+        -- process it.
         local vignetteGUID = ...
         if vignetteGUID then
-            addon.ProcessVignette(vignetteGUID)
+            if not processed[vignetteGUID] then
+                processed[vignetteGUID] = true
+                addon.ProcessVignette(vignetteGUID)
+            end
         end
     end
 end)

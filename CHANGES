@@ -8,3 +8,7 @@ New Features:
 Enhancements:
 - The Deposit Keep feature for guild banks now also works in reverse; if your funds are below your threshold, then visiting a guild bank will withdraw instead. (Keep Me Safe still applies for withdraws.)
 - The World Event queue button will now display your selected roles in its tooltip.
+
+Fixes:
+- Fixed an issue that allowed the icon on the rare popup to use the icon from previous popups.
+- Fixed an issue that allowed the rare popup to appear more than once for the same rare.
