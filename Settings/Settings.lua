@@ -17,6 +17,7 @@ local adventureMapsCB
 local questsCB
 local allQuestsCB
 local ignoreRepeatableQuestsCB
+local ignoreDailyQuestsCB
 local emotesCB
 local muteTalkingHeadCB
 local gossipCB
@@ -186,9 +187,26 @@ C_Timer.After(5, function()
     ignoreRepeatableQuestsCB = ignoreRepeatableQuestsCB:CheckButton()
     ignoreRepeatableQuestsCB:SetChecked(HelpMePlayDB["IgnoreRepeatableQuests"])
 
+    ignoreDailyQuestsCB = {
+        name = addonName .. "IgnoreDailyQuestsCB",
+        parent = ignoreRepeatableQuestsCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
+        tooltipHeader = "Ignore Daily Quests",
+        tooltipText = "Toggle to ignore daily quests.",
+        onClick = function()
+            HelpMePlayDB["IgnoreDailyQuests"] = ignoreDailyQuestsCB:GetChecked()
+        end,
+    }
+    setmetatable(ignoreDailyQuestsCB, { __index = HelpMePlay.Button })
+    ignoreDailyQuestsCB = ignoreDailyQuestsCB:CheckButton()
+    ignoreDailyQuestsCB:SetChecked(HelpMePlayDB["IgnoreDailyQuests"])
+
     emotesCB = {
         name = addonName .. "EmotesCB",
-        parent = ignoreRepeatableQuestsCB,
+        parent = ignoreDailyQuestsCB,
         anchor = "TOPLEFT",
         relativeAnchor = "BOTTOMLEFT",
         oX = -15,
@@ -309,11 +327,11 @@ C_Timer.After(5, function()
 
     purchaseQuestItemsCB = {
         name = addonName .. "PurchaseQuestItemsCB",
-        parent = repairsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
+        parent = skipCutscenesCB,
+        anchor = "LEFT",
+        relativeAnchor = "RIGHT",
+        oX = 225,
+        oY = 0,
         tooltipHeader = "Purchase Quest Items",
         tooltipText = "Toggle to automatically purchase quest items from merchants.",
         onClick = function()
@@ -326,11 +344,11 @@ C_Timer.After(5, function()
 
     dynamicFlightCB = {
         name = addonName .. "DynamicFlightCB",
-        parent = skipCutscenesCB,
-        anchor = "LEFT",
-        relativeAnchor = "RIGHT",
-        oX = 225,
-        oY = 0,
+        parent = purchaseQuestItemsCB,
+        anchor = "TOPLEFT",
+        relativeAnchor = "BOTTOMLEFT",
+        oX = 0,
+        oY = -5,
         tooltipHeader = "Dynamic Flight",
         tooltipText = "Toggle to add a button to learn Dynamic Flight (Dragonriding) talents.",
         onClick = function()
