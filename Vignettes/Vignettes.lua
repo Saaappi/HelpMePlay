@@ -102,14 +102,11 @@ end
 
 addon.ProcessVignette = function(vignetteGUID)
     -- If any of these are true, then return.
-    if processed[vignetteGUID] then return end
     if UnitOnTaxi("player") then return end
-    if not addon.mapID then return end
 
     local vignetteInfo = C_VignetteInfo.GetVignetteInfo(vignetteGUID)
-    if vignetteInfo and addon.mapID then
-        processed[vignetteGUID] = true
-        if vignetteInfo.type == 0 and not vignetteInfo.onMinimap then return end
+    if vignetteInfo then
+        if vignetteInfo.type == 0 and (not vignetteInfo.onMinimap) then return end
         local name, atlasName = vignetteInfo.name, vignetteInfo.atlasName
         if atlasName == "VignetteKill" then
             HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)

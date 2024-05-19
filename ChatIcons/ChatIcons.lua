@@ -14,7 +14,7 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, 
         local texture = C_Item.GetItemIconByID(itemLink)
         local collectedTexture
         local item = { C_Item.GetItemInfo(itemLink) }
-        if item then
+        if item and texture then
             local itemType = item[6]
             if itemType == "Armor" or itemType == "Weapon" then
                 local sourceID = select(2, C_TransmogCollection.GetItemInfo(itemLink))

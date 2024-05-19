@@ -9,7 +9,7 @@ local addonVersion
 local openIssueButton
 local talentImporterButton
 local heirloomButton
-local routeBuilderButton
+--local routeBuilderButton
 
 -- Check Buttons
 local skipCutscenesCB
@@ -733,7 +733,7 @@ C_Timer.After(5, function()
         end
     end)
 
-    routeBuilderButton = {
+    --[[routeBuilderButton = {
         name = addonName .. "RouteBuilderButton",
         parent = heirloomButton,
         anchor = "LEFT",
@@ -755,7 +755,7 @@ C_Timer.After(5, function()
             --addon.OpenTalentImporter()
         end
     end)
-    routeBuilderButton:SetEnabled(false)
+    routeBuilderButton:SetEnabled(false)]]
 
     openIssueButton = {
         name = addonName .. "OpenIssueButton",
