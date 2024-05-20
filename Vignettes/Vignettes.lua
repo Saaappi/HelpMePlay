@@ -2,7 +2,8 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local DressUpModelFrame
 local HelpMePlayAlertSystem
-local processed = {}
+local processedRares = {}
+local processedVignettes = {}
 
 local function GetCreatureDisplayByGUID(GUID)
     -- Set the creatureID to 0 by default. If it's still 0
@@ -124,8 +125,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- If the GUID is valid and it hasn't been seen, then
         -- process it.
         local vignetteGUID = ...
-        if vignetteGUID and (not processed[vignetteGUID]) then
-            processed[vignetteGUID] = true
+        if vignetteGUID and (not processedVignettes[vignetteGUID]) then
+            processedVignettes[vignetteGUID] = true
             addon.ProcessVignette(vignetteGUID)
         end
     elseif event == "NAME_PLATE_UNIT_ADDED" then
@@ -136,8 +137,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local unitClassification = UnitClassification(...)
         if unitClassification == "rare" or unitClassification == "rareelite" then
             local GUID = UnitGUID(...)
-            if GUID and (not processed[GUID]) then
-                processed[GUID] = true
+            local creatureType = addon.SplitString(GUID, "-", 1)
+            if (GUID and creatureType == "Creature") and (not processedRares[GUID]) then
+                processedRares[GUID] = true
                 SetRaidTarget(..., 7)
                 HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
                 HelpMePlayAlertSystem:AddAlert(UnitName(...), Enum.ItemQuality.Epic, GUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
