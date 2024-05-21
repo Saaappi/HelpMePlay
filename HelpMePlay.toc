@@ -21,6 +21,7 @@ _Data\QuestMobs.lua
 _Data\WorldEvents_Data.lua
 _Data\TalentImporter.lua
 _Data\Heirloom.lua
+_Data\Mounts.lua
 
 # Settings
 Settings\TalentImporter.lua
@@ -40,10 +41,12 @@ _Classes\Slider.lua
 _Functions\EvalConditions.lua
 _Functions\Print.lua
 _Functions\Strings.lua
+_Functions\Tables.lua
 _Functions\QuestMobs.lua
 _Functions\Quests.lua
 _Functions\Trainers.lua
 _Functions\WorldEvents.lua
+_Functions\Mounts.lua
 
 # Keybinds
 _Keybinds\Keybinds.lua
@@ -95,6 +98,9 @@ Wardrobe\Wardrobe.lua
 
 # Chat Icons
 ChatIcons\ChatIcons.lua
+
+# Mounts
+Mounts\Mounts.lua
 
 # Commands
 _Commands\Commands.lua

@@ -216,6 +216,18 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 HelpMePlayDB["Heirlooms"][13] = {}
             end
 
+            -- If the Mounts table is nil, then initialize it.
+            if HelpMePlayDB["Mounts"] == nil then
+                HelpMePlayDB["Mounts"] = {}
+                HelpMePlayDB["Ground"] = {}
+                HelpMePlayDB["Aquatic"] = {}
+                HelpMePlayDB["Flying"] = {}
+                HelpMePlayDB["Dynamic"] = {}
+                HelpMePlayDB["AQ"] = {}
+                HelpMePlayDB["Vashjir"] = {}
+                HelpMePlayDB["Unused"] = {}
+            end
+
             -- Unload the event for performance.
             eventHandler:UnregisterEvent("ADDON_LOADED")
         end
