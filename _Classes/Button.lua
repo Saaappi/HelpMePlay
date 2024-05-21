@@ -92,6 +92,46 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                     return iconButton
                 end,
+                IconButtonWithBorder = function(button)
+                    local iconButton = CreateFrame("Button", button.name, button.parent, "SecureFrameTemplate")
+                    iconButton:SetSize(34, 34)
+                    iconButton:RegisterForClicks("LeftButtonUp")
+
+                    local parent = iconButton:GetName()
+                    iconButton.texture = iconButton:CreateTexture(format("%sIconTexture", parent), "ARTWORK")
+                    iconButton.texture:SetTexture(button.texture)
+                    iconButton.texture:SetAllPoints()
+
+                    iconButton.blackCover = iconButton:CreateTexture(format("%sBlackCover", parent), "OVERLAY")
+                    iconButton.blackCover:SetColorTexture(0, 0, 0, 0.6)
+
+                    iconButton.border = iconButton:CreateTexture(format("%sBorder", parent), "OVERLAY")
+                    iconButton.border:SetSize(42, 42)
+                    iconButton.border:SetPoint("CENTER")
+                    iconButton.border:SetAtlas("Forge-ColorSwatchHighlight", false)
+
+                    iconButton.highlightTexture = iconButton:CreateTexture(format("%sHighlightTexture", parent), "OVERLAY", nil, 1)
+                    iconButton.highlightTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
+                    iconButton.highlightTexture:SetSize(38, 38)
+                    iconButton.highlightTexture:SetPoint("CENTER")
+                    iconButton:SetHighlightTexture(iconButton.highlightTexture, "ADD")
+
+                    iconButton.pushedTexture = iconButton:CreateTexture(format("%sPushedTexture", parent), "OVERLAY", nil, 1)
+                    iconButton.pushedTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
+                    iconButton.pushedTexture:SetSize(36, 36)
+                    iconButton.pushedTexture:SetPoint("CENTER")
+                    iconButton:SetPushedTexture(iconButton.pushedTexture)
+
+                    --iconButton:SetScript("OnEnter", button.onEnter)
+                    iconButton:SetScript("OnClick", button.onClick)
+                    --[[iconButton:SetScript("OnLeave", function()
+                        GameTooltip:Hide()
+                    end)]]
+
+                    iconButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
+
+                    return iconButton
+                end,
                 SecureButton = function(button)
                     local secureButton = CreateFrame("Button", button.name, button.parent, "SecureActionButtonTemplate")
                     secureButton:ClearAllPoints()

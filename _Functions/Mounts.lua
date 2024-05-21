@@ -1,5 +1,6 @@
 local addonName, addon = ...
 
+-- Get the mount type name from Data\Mounts.lua.
 addon.GetMountTypeNameByID = function(mountTypeID)
     if addon.MountTypes[mountTypeID] then
         return addon.MountTypes[mountTypeID]
@@ -43,6 +44,8 @@ addon.CategorizeMountByID = function(mountID)
                         unitFactionGroupID = 1
                     elseif unitFactionGroupID == "Horde" then
                         unitFactionGroupID = 0
+                    else -- This is a neutral mount.
+                        unitFactionGroupID = nil
                     end
                     local factionID = select(9, mountInfo)
                     if factionID == nil or factionID == unitFactionGroupID then
