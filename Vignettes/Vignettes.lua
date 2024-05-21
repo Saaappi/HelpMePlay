@@ -97,8 +97,8 @@ addon.CreateFauxPopup = function(frame, name, quality, GUID, label)
         btn:RegisterForClicks("AnyUp", "AnyDown")
     end)
 
-    -- Play a sound.
-	PlaySound(SOUNDKIT.MAP_PING, "Master")
+    -- Play a sound. (HunterHorn)
+	PlaySound(28625, "Master")
 end
 
 addon.ProcessVignette = function(vignetteGUID)
@@ -125,8 +125,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- If the GUID is valid and it hasn't been seen, then
         -- process it.
         local vignetteGUID = ...
-        if vignetteGUID and (not processedVignettes[vignetteGUID]) then
-            processedVignettes[vignetteGUID] = true
+        local spawnUID = addon.SplitString(vignetteGUID, "-", 7)
+        if (vignetteGUID and spawnUID) and (not processedVignettes[spawnUID]) then
+            processedVignettes[spawnUID] = true
             addon.ProcessVignette(vignetteGUID)
         end
     elseif event == "NAME_PLATE_UNIT_ADDED" then
@@ -137,9 +138,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local unitClassification = UnitClassification(...)
         if unitClassification == "rare" or unitClassification == "rareelite" then
             local GUID = UnitGUID(...)
-            local creatureType = addon.SplitString(GUID, "-", 1)
-            if (GUID and creatureType == "Creature") and (not processedRares[GUID]) then
-                processedRares[GUID] = true
+            local spawnUID = addon.SplitString(GUID, "-", 7)
+            if (GUID and spawnUID) and (not processedRares[spawnUID]) and (not processedVignettes[spawnUID]) then
+                processedRares[spawnUID] = true
                 SetRaidTarget(..., 7)
                 HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
                 HelpMePlayAlertSystem:AddAlert(UnitName(...), Enum.ItemQuality.Epic, GUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
