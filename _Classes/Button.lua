@@ -122,11 +122,25 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     iconButton.pushedTexture:SetPoint("CENTER")
                     iconButton:SetPushedTexture(iconButton.pushedTexture)
 
-                    --iconButton:SetScript("OnEnter", button.onEnter)
+                    if not iconButton.buttonName and button.useFontString then
+                        iconButton.buttonName = iconButton:CreateFontString(format("%sButtonName", parent), "ARTWORK", "GameFontNormal")
+                        iconButton.buttonName:SetPoint("RIGHT", iconButton.border, "LEFT", -2, 0)
+                        iconButton.buttonName:SetMaxLines(2)
+                        iconButton.buttonName:SetText(format("|cffFFFFFF%s|r", button.fontStringText))
+                        iconButton.buttonName:SetJustifyH("RIGHT")
+                        iconButton.buttonName:SetWordWrap(true)
+                    end
+
+                    iconButton:SetScript("OnEnter", function()
+                        GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
+                        GameTooltip:SetText(button.tooltipHeader)
+                        GameTooltip:AddLine(button.tooltipText, 1, 1, 1, true)
+                        GameTooltip:Show()
+                    end)
                     iconButton:SetScript("OnClick", button.onClick)
-                    --[[iconButton:SetScript("OnLeave", function()
+                    iconButton:SetScript("OnLeave", function()
                         GameTooltip:Hide()
-                    end)]]
+                    end)
 
                     iconButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
 
