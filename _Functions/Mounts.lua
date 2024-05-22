@@ -123,6 +123,9 @@ addon.Mount = function()
     if IsMounted() and (not IsFlying()) then
         Dismount()
         return
+    elseif IsMounted() then
+        Dismount()
+        return
     end
 
     -- Get some information about the player's inventory. We'll use these
