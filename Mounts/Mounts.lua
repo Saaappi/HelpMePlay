@@ -24,7 +24,7 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
             texture = 2143075,
             tooltipHeader = "Categorize Mounts",
             tooltipText = format("Categorize all of your known mounts. Mounts will be summoned based on your current location, player level, and other character attributes.\n\n" ..
-            "Current Keybind: %s", GetBindingKey("HELPMEPLAY_MOUNTUP")),
+            "Current Keybind: %s", GetBindingKey("HELPMEPLAY_MOUNTUP") or "Not Set"),
             useFontString = true,
             fontStringText = "Categorize Mounts",
             onClick = function()
