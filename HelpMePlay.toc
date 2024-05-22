@@ -1,7 +1,7 @@
 ## Author: LightskyGG
 ## Interface: 100207
 ## Title: HelpMePlay
-## Version: 3.0.0B6.5
+## Version: 3.0.0B6.6
 ## IconTexture: 236681
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
@@ -32,6 +32,7 @@ Settings\NewCharacterConfiguration.lua
 Settings\Settings_QuestMobs.lua
 
 # Classes
+_Classes\Tooltip.lua
 _Classes\Button.lua
 _Classes\Frame.lua
 _Classes\DropDown.lua

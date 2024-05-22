@@ -1,6 +1,42 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+addon.New = function(elementName, ...)
+    if elementName == "BasicButton" then
+    elseif elementName == "CheckButton" then
+        local name, parent, anchor, relativeAnchor, xOffset, yOffset, tooltipHeader, tooltipText, savedVariable = ...
+
+        -- Create the check button.
+        local checkButton = CreateFrame("CheckButton", name, parent, "SettingsCheckBoxTemplate")
+        checkButton:ClearAllPoints()
+        checkButton:SetPoint(anchor, parent, relativeAnchor, xOffset, yOffset)
+
+        -- Create a fontstring to rest next to the button.
+        checkButton.fontString = checkButton:CreateFontString(checkButton:GetName() .. "Text", "OVERLAY", "GameTooltipText")
+        checkButton.fontString:SetPoint("LEFT", checkButton, "RIGHT", 5, 0)
+        checkButton.fontString:SetText(tooltipHeader)
+
+        -- Create the OnClick, OnEnter, and OnLeave handlers.
+        checkButton:SetScript("OnClick", function()
+            HelpMePlayDB[savedVariable] = checkButton:GetChecked()
+        end)
+        checkButton:SetScript("OnEnter", function(self)
+            addon.Tooltip_OnEnter(self, tooltipHeader, tooltipText)
+        end)
+        checkButton:SetScript("OnLeave", function()
+            GameTooltip:Hide()
+            addon.Tooltip_OnLeave()
+        end)
+
+        -- Set the checked status of the new check button.
+        checkButton:SetChecked(HelpMePlayDB[savedVariable])
+
+        -- Return the check button back to the caller in case we
+        -- want to manipulate it at the calling code.
+        return checkButton
+    end
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then

@@ -12,7 +12,7 @@ local heirloomButton
 --local routeBuilderButton
 
 -- Check Buttons
-local skipCutscenesCB
+--local skipCutscenesCB
 local adventureMapsCB
 local questsCB
 local allQuestsCB
@@ -90,7 +90,20 @@ C_Timer.After(5, function()
          outdatedVersionHB:Hide()
     end
 
-    skipCutscenesCB = {
+    local skipCutscenesCB = addon.New(
+        "CheckButton",
+        addonName .. "SkipCutscenesCB",
+        Panel,
+        "TOPLEFT",
+        "TOPLEFT",
+        15,
+        -60,
+        "Skip Cutscenes",
+        "Toggle skipping cutscenes and in-game movies.",
+        "SkipCutscenes"
+    )
+
+    --[[skipCutscenesCB = {
         name = addonName .. "SkipCutscenesCB",
         parent = Panel,
         anchor = "TOPLEFT",
@@ -105,7 +118,7 @@ C_Timer.After(5, function()
     }
     setmetatable(skipCutscenesCB, { __index = HelpMePlay.Button })
     skipCutscenesCB = skipCutscenesCB:CheckButton()
-    skipCutscenesCB:SetChecked(HelpMePlayDB["SkipCutscenes"])
+    skipCutscenesCB:SetChecked(HelpMePlayDB["SkipCutscenes"])]]
 
     adventureMapsCB = {
         name = addonName .. "AdventureMapsCB",
