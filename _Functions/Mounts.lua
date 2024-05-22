@@ -25,7 +25,7 @@ end
 
 addon.GetFreeInventorySpace = function(numFreeSlots, numTotalSlots, inventoryThreshold)
     local spaceUsed = (numFreeSlots / numTotalSlots) * 100
-    if (100 - spaceUsed) <= inventoryThreshold then
+    if (100 - spaceUsed) >= (100 - inventoryThreshold) then
         return true
     end
     return false
@@ -136,7 +136,7 @@ addon.Mount = function()
         numFreeSlots = numFreeSlots + C_Container.GetContainerNumFreeSlots(bagID)
     end
 
-    if addon.playerLevel <= 10 and IsOutdoors() then
+    if addon.playerLevel < 10 and IsOutdoors() then
         -- If the player is outdoors and is less than level 10, then
         -- use the chauffered chopper mount based on their faction.
         if UnitFactionGroup("player") == "Alliance" then
@@ -176,6 +176,8 @@ addon.Mount = function()
             C_MountJournal.SummonByID(mountID)
         end
     elseif addon.GetFreeInventorySpace(numFreeSlots, numTotalSlots, 20) or addon.GetPlayerDurability(70) then
+        print(addon.GetFreeInventorySpace(numFreeSlots, numTotalSlots, 20))
+        print(addon.GetPlayerDurability(70))
         -- If the player's available bag space is less than or equal
         -- to 20%, then use a vendor mount.
         --

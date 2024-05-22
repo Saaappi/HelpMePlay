@@ -1,16 +1,7 @@
 New Features:
-- Players can find a new icon in their Character Frame next to "Gear Manager" to collect all unknown and appropriate appearances from their inventory.
-- Players can now enable "Chat Icons" in the settings to show item and collection status icons directly in the chat frame.
-- Players can now toggle the ability to ignore daily quests (similar to ignoring repeatable quests).
-- Added keybind support for quickly deleting cursor items. This is VERY helpful in Remix. :)
-- Added keybind support for quickly abandoning quests by the quest or by the zone.
-- Added keybind support for selecting a random mount. (In order for this to work, open your Mount Journal and click the "Categorize Mounts" button.)
 
 Enhancements:
-- The Deposit Keep feature for guild banks now also works in reverse; if your funds are below your threshold, then visiting a guild bank will withdraw instead. (Keep Me Safe still applies for withdraws.)
-- The World Event queue button will now display your selected roles in its tooltip.
+- The chauffer mount is no longer used at level 10 (only below it).
 
 Fixes:
-- Fixed an issue that allowed the icon on the rare popup to use the icon from previous popups.
-- Fixed an issue that allowed the rare popup to appear more than once for the same rare.
-- Fixed an issue with the Close button on the Talent Importer utility.
+- Fixed an issue with vendor mounts being unintentionally selected for use.
