@@ -208,7 +208,7 @@ addon.Mount = function()
                 end
             end
         end
-    elseif (IsAdvancedFlyableArea() and addon.playerLevel >= 60) and IsOutdoors() and (not IsShiftKeyDown()) then
+    elseif IsAdvancedFlyableArea() and IsOutdoors() and (not IsShiftKeyDown()) then
         -- Use a Dragonriding (Skyriding) mount.
         C_MountJournal.SummonByID(addon.GetRandomMountByType("Dynamic"))
     elseif (IsFlyableArea() and addon.playerLevel >= 30) and IsOutdoors() then
