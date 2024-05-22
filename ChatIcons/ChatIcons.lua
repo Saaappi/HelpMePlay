@@ -40,8 +40,8 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, 
                         end
                     end
                     collectedTexture = format("%s\\KNOWN", iconPath)
+                    return format("\124T%s:12\124t %s \124T%s:12\124t", texture, itemLink, collectedTexture)
                 end
-                return format("\124T%s:12\124t %s \124T%s:12\124t", texture, itemLink, collectedTexture)
             end
         end
         return format("\124T%s:12\124t %s", texture, itemLink)
