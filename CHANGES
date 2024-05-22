@@ -13,3 +13,4 @@ Enhancements:
 Fixes:
 - Fixed an issue that allowed the icon on the rare popup to use the icon from previous popups.
 - Fixed an issue that allowed the rare popup to appear more than once for the same rare.
+- Fixed an issue with the Close button on the Talent Importer utility.
