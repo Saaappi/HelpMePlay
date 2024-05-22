@@ -123,8 +123,7 @@ addon.Mount = function()
     if IsMounted() and (not IsFlying()) then
         Dismount()
         return
-    elseif IsMounted() then
-        Dismount()
+    elseif IsMounted() and IsFlying() then
         return
     end
 
