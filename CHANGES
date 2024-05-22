@@ -4,6 +4,7 @@ New Features:
 - Players can now toggle the ability to ignore daily quests (similar to ignoring repeatable quests).
 - Added keybind support for quickly deleting cursor items. This is VERY helpful in Remix. :)
 - Added keybind support for quickly abandoning quests by the quest or by the zone.
+- Added keybind support for selecting a random mount. (In order for this to work, open your Mount Journal and click the "Categorize Mounts" button.)
 
 Enhancements:
 - The Deposit Keep feature for guild banks now also works in reverse; if your funds are below your threshold, then visiting a guild bank will withdraw instead. (Keep Me Safe still applies for withdraws.)

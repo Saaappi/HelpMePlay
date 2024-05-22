@@ -219,14 +219,24 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             -- If the Mounts table is nil, then initialize it.
             if HelpMePlayDB["Mounts"] == nil then
                 HelpMePlayDB["Mounts"] = {}
-                HelpMePlayDB["Ground"] = {}
-                HelpMePlayDB["Aquatic"] = {}
-                HelpMePlayDB["Flying"] = {}
-                HelpMePlayDB["Dynamic"] = {}
-                HelpMePlayDB["AQ"] = {}
-                HelpMePlayDB["Vashjir"] = {}
-                HelpMePlayDB["Unused"] = {}
+                HelpMePlayDB["Mounts"]["Ground"] = {}
+                HelpMePlayDB["Mounts"]["Aquatic"] = {}
+                HelpMePlayDB["Mounts"]["Flying"] = {}
+                HelpMePlayDB["Mounts"]["Dynamic"] = {}
+                HelpMePlayDB["Mounts"]["AQ"] = {}
+                HelpMePlayDB["Mounts"]["Vashjir"] = {}
+                HelpMePlayDB["Mounts"]["Unused"] = {}
             end
+
+            -- Delete the old, unused saved variables.
+            HelpMePlayDB["MinimapIconEnabled"] = nil
+            HelpMePlayDB["Junker"] = nil
+            HelpMePlayDB["MerchantItems"] = nil
+            HelpMePlayDB["PlayerTalents"] = nil
+            HelpMePlayDB["Enabled"] = nil
+            HelpMePlayDB["NONE"] = nil
+            HelpMePlayDB["IgnoredCreatures"] = nil
+            HelpMePlayDB["TheMawEnabled"] = nil
 
             -- Unload the event for performance.
             eventHandler:UnregisterEvent("ADDON_LOADED")

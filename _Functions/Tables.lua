@@ -4,9 +4,12 @@ local addonName, addon = ...
 -- merge them into one table.
 addon.MergeTables = function(...)
     local mergedTable = {}
-    for _, tbl in ipairs(...) do
-        for k, v in pairs(tbl) do
-            mergedTable[k] = v
+    for i = 1, select("#", ...) do
+        local tbl = select(i, ...)
+        if (#tbl > 0) then
+            for k, v in pairs(tbl) do
+                mergedTable[k] = v
+            end
         end
     end
     return mergedTable

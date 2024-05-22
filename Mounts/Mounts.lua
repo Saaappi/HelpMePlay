@@ -28,7 +28,10 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
             fontStringText = "Categorize Mounts",
             onClick = function()
                 if not UnitAffectingCombat("player") then
-                    print("HELLO WORLD!")
+                    local mounts = C_MountJournal.GetMountIDs()
+                    for _, mountID in ipairs(mounts) do
+                        addon.CategorizeMountByID(mountID)
+                    end
                 end
             end,
         }

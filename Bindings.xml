@@ -1,6 +1,9 @@
 <Bindings>
 	<Binding name="HELPMEPLAY_DUMMY" header="HELPMEPLAY">
 	</Binding>
+	<Binding name="HELPMEPLAY_MOUNTUP" category="HelpMePlay">
+		HelpMePlayKeybind(GetBindingKey("HELPMEPLAY_MOUNTUP"))
+	</Binding>
 	<Binding name="HELPMEPLAY_DELETECURSORITEM" category="HelpMePlay">
 		HelpMePlayKeybind(GetBindingKey("HELPMEPLAY_DELETECURSORITEM"))
 	</Binding>

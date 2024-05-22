@@ -122,7 +122,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     iconButton.pushedTexture:SetPoint("CENTER")
                     iconButton:SetPushedTexture(iconButton.pushedTexture)
 
-                    if not iconButton.buttonName and button.useFontString then
+                    if (not iconButton.buttonName) and button.useFontString then
                         iconButton.buttonName = iconButton:CreateFontString(format("%sButtonName", parent), "ARTWORK", "GameFontNormal")
                         iconButton.buttonName:SetPoint("RIGHT", iconButton.border, "LEFT", -2, 0)
                         iconButton.buttonName:SetMaxLines(2)

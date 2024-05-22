@@ -1,6 +1,7 @@
 local addonName, addon = ...
 
 BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
+BINDING_NAME_HELPMEPLAY_MOUNTUP = "Mount Up"
 BINDING_NAME_HELPMEPLAY_DELETECURSORITEM = "Delete Cursor Item"
 BINDING_NAME_HELPMEPLAY_QUICKQUESTABANDON = "Quick Quest Abandon"
 
@@ -11,7 +12,9 @@ local function AbandonQuestByID(questID)
 end
 
 function HelpMePlayKeybind(key)
-    if key == GetBindingKey("HELPMEPLAY_DELETECURSORITEM") then
+    if key == GetBindingKey("HELPMEPLAY_MOUNTUP") then
+        addon.Mount()
+    elseif key == GetBindingKey("HELPMEPLAY_DELETECURSORITEM") then
         DeleteCursorItem()
     elseif key == GetBindingKey("HELPMEPLAY_QUICKQUESTABANDON") then
         local focus = GetMouseFocus() -- This changes to GetMouseFoci() in 11.0
