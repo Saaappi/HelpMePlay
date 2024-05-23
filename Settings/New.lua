@@ -14,14 +14,22 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         local function GetValue()
                             return HelpMePlayDB[savedVariable]
                         end
-        
+
                         local function SetValue(value)
                             HelpMePlayDB[savedVariable] = value
                         end
-        
+
                         local setting = Settings.RegisterProxySetting(category, savedVariable, HelpMePlayDB, Settings.VarType.Boolean, name, defaultValue, GetValue, SetValue)
                         Settings.CreateCheckBox(category, setting, tooltipText)
                     end
+                elseif elementName == "CVarCheckButton" then
+                    local name, category, defaultValue, tooltipText, savedVariable = ...
+
+                    local _, initializer = Settings.SetupCVarCheckBox(category, savedVariable, name, tooltipText)
+	local function EnableRaidFramesDisplayOnlyHealerPowerBarsSetting()
+		return raidFramesDisplayPowerBarsSetting:GetValue();
+	end
+	raidFramesDisplayOnlyHealerPowerBarsInitializer:SetParentInitializer(raidFramesDisplayPowerBarsInitializer, EnableRaidFramesDisplayOnlyHealerPowerBarsSetting);
                 --[[elseif elementName == "CheckButton" then
                     local name, parent, position, tooltipHeader, tooltipText, savedVariable, onClick = ...
         

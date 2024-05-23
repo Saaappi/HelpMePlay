@@ -15,6 +15,11 @@ local QUEST_AUTOMATION = "Quest Automation"
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
 Settings.RegisterAddOnCategory(category)
 
+-- Initialize a section for the addon's version and author text.
+local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
+local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
+layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
+
 -- Initialize a section for general automation.
 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_AUTOMATION))
 
