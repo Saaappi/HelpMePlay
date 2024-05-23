@@ -29,7 +29,6 @@ Settings\New.lua
 Settings\TalentImporter.lua
 Settings\Heirloom.lua
 Settings\Settings.lua
-Settings\Settings_DynamicFlight.lua
 Settings\NewCharacterConfiguration.lua
 Settings\Settings_QuestMobs.lua
 

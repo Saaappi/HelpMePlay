@@ -177,7 +177,7 @@ addon.Settings = {
             Type = "Slider",
             Name = "Trainer Protection Value",
             TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
-            addon.RedText("Use /hmp set TrainerProtectionValue N, where N is any number between 0 and 1,000 to manually set the value."),
+            addon.RedText("Use /hmp set TrainerProtectionValue N, where N is any number between 0 and 1,000 to manually set the value if you don't want to use the slider."),
             Options = {
                 minValue = 0,
                 maxValue = 1000,
@@ -198,7 +198,7 @@ addon.Settings = {
             Name = "Deposit Keep Amount",
             TooltipText = "Enter the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
             "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
-            addon.RedText("Use /hmp set DepositKeepAmount N, where N is any number between 0 and 9,999,999 to manually set the value."),
+            addon.RedText("Use /hmp set DepositKeepAmount N, where N is any number between 0 and 9,999,999 to manually set the value if you don't want to use the slider."),
             Options = {
                 minValue = 0,
                 maxValue = 9999999,
