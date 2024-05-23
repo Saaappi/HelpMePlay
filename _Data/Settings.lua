@@ -130,6 +130,20 @@ addon.Settings = {
                 TooltipText = "Toggle to ignore daily quests.",
                 SavedVariable = "IgnoreDailyQuests",
             },
+            {
+                Name = "Party Play",
+                DefaultValue = false,
+                TooltipText = "Toggle to make playing with friends a little easier.\n\n" ..
+                addon.RedText("Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
+                SavedVariable = "UsePartyPlay",
+            },
+            {
+                Name = "Purchase Quest Items",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically purchase quest items from merchants.\n\n" ..
+                addon.RedText(NOT_AVAILABLE_FOR_USE),
+                SavedVariable = "PurchaseQuestItems",
+            },
         }
         --[[
         {
@@ -152,26 +166,6 @@ addon.Settings = {
                     questsCheckButton:SetChecked(HelpMePlayDB["AcceptAndCompleteQuests"])
                 end
             end,
-        },
-        {
-            Name = addonName .. "PartyPlayCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "GossipCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Party Play",
-            Tooltip = "Toggle to make playing with friends a little easier.\n\n" ..
-            addon.RedText("Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
-            SavedVariable = "UsePartyPlay",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "PurchaseQuestItemsCheckButton",
-            Parent = addon.Panel,
-            Position = { "LEFT", addonName .. "SkipCutscenesCheckButton", "RIGHT", 225, 0 },
-            Label = "Purchase Quest Items",
-            Tooltip = "Toggle to automatically purchase quest items from merchants.\n\n" ..
-            addon.RedText(NOT_AVAILABLE_FOR_USE),
-            SavedVariable = "ShouldRepair",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
         },]]
     }
 }
