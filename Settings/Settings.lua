@@ -43,9 +43,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.General) do
                     if checkButton.Type == "CheckButton" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.SavedVariable)
                     elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
                     end
                 end
 
@@ -62,9 +62,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.Quest) do
                     if checkButton.Type == "CheckButton" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.SavedVariable)
                     elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
                     end
                 end
 
@@ -81,9 +81,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.Merchant) do
                     if checkButton.Type == "CheckButton" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.SavedVariable)
                     elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
                     end
                 end
             end)
@@ -116,33 +116,6 @@ local depositKeepAmountValueEB
 }]]
 
 C_Timer.After(5, function()
-    --[[trainerProtectionValueEB = {
-        name = addonName .. "TrainerProtectionValueEB",
-        parent = questRewardsDropDown,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 20,
-        oY = -40,
-        width = 100,
-        height = 10,
-        title = "Trainer Protection Value",
-        maxLetters = 4,
-        tooltipHeader = "Trainer Protection Value",
-        tooltipText = "Enter the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
-        "Enter 0 if you don't want the addon to train for you.\n\n" ..
-        "|cffFF0000NOTE:|r You can enter up to 9,999.",
-        onEnterPressed = function(self)
-            if tonumber(self:GetText(), 10) then
-                HelpMePlayDB["TrainerProtectionValue"] = tonumber(self:GetText(), 10) * 10000
-            end
-            self:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["TrainerProtectionValue"]))
-            self:ClearFocus()
-        end,
-    }
-    setmetatable(trainerProtectionValueEB, { __index = HelpMePlay.Frame })
-    trainerProtectionValueEB = trainerProtectionValueEB:EditBox()]]
-    --trainerProtectionValueEB:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["TrainerProtectionValue"]))
-
     --[[depositKeepAmountValueEB = {
         name = addonName .. "DepositKeepAmountValueEB",
         parent = trainerProtectionValueEB,
