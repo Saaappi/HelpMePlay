@@ -89,6 +89,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["ShowChatIcons"] == nil then
                 HelpMePlayDB["ShowChatIcons"] = false
             end
+            if HelpMePlayDB["OpenHolidayItems"] == nil then
+                HelpMePlayDB["OpenHolidayItems"] = false
+            end
             if HelpMePlayDB["ChromieTimeExpansionID"] == nil then
                 HelpMePlayDB["ChromieTimeExpansionID"] = 0
             end

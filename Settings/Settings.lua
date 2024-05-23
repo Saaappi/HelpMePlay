@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local eventHandler = CreateFrame("Frame")
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 -- Compare's elements of a table, and then sorts them
@@ -16,20 +17,35 @@ Settings.RegisterAddOnCategory(category)
 -- Initialize a section for general automation.
 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_AUTOMATION))
 
-------------------------
--- GENERAL AUTOMATION --
-------------------------
--------------------
--- CHECK BUTTONS --
--------------------
--- Sort the table before we iterate through it.
-table.sort(addon.Settings.CheckButtons.General, Compare)
+eventHandler:RegisterEvent("ADDON_LOADED")
+eventHandler:SetScript("OnEvent", function(self, event, ...)
+    if event == "ADDON_LOADED" then
+        local addonLoaded = ...
+        if addonLoaded == addonName then
+            C_Timer.After(1, function()
+                ------------------------
+                -- GENERAL AUTOMATION --
+                ------------------------
+                -------------------
+                -- CHECK BUTTONS --
+                -------------------
+                -- Sort the table before we iterate through it.
+                table.sort(addon.Settings.CheckButtons.General, Compare)
 
--- Iterate through the now-sorted table and add them to
--- the addon's category.
-for _, checkButton in ipairs(addon.Settings.CheckButtons.General) do
-    addon.New("CheckButton", checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
-end
+                -- Iterate through the now-sorted table and add them to
+                -- the addon's category.
+                for _, checkButton in ipairs(addon.Settings.CheckButtons.General) do
+                    addon.New("CheckButton", checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                end
+            end)
+
+            -- Unregister the event for performance.
+            eventHandler:UnregisterEvent("ADDON_LOADED")
+        end
+    end
+end)
+
+
 
 -- Font Strings
 --local addonAuthor
