@@ -40,12 +40,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- CHECK BUTTONS --
                 -------------------
                 -- Sort the table before we iterate through it.
-                table.sort(addon.Settings.CheckButtons.General, Compare)
+                table.sort(addon.Settings.General, Compare)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.CheckButtons.General) do
-                    addon.New("CheckButton", checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                    addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
                 end
 
                 -- Initialize a section for quest automation.
@@ -58,12 +58,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- CHECK BUTTONS --
                 -------------------
                 -- Sort the table before we iterate through it.
-                table.sort(addon.Settings.CheckButtons.Quest, Compare)
+                table.sort(addon.Settings.Quest, Compare)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.CheckButtons.Quest) do
-                    addon.New("CheckButton", checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                    addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
                 end
             end)
 
