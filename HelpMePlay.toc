@@ -14,6 +14,7 @@ _Lib\Embeds.xml
 
 # Data
 _Data\Constants.lua
+_Data\Settings.lua
 _Data\Map_Data.lua
 _Data\Quests.lua
 _Data\Talent_Data.lua

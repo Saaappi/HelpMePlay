@@ -2,37 +2,14 @@ local addonName, addon = ...
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 -- Font Strings
-local addonAuthor
-local addonVersion
+--local addonAuthor
+--local addonVersion
 
 -- Basic Buttons
 local openIssueButton
 local talentImporterButton
 local heirloomButton
 --local routeBuilderButton
-
--- Check Buttons
---local skipCutscenesCB
-local adventureMapsCB
-local questsCB
-local allQuestsCB
-local ignoreRepeatableQuestsCB
-local ignoreDailyQuestsCB
-local emotesCB
-local muteTalkingHeadCB
-local gossipCB
-local partyPlayCB
-local readyChecksCB
-local roleChecksCB
-local repairsCB
-local purchaseQuestItemsCB
-local dynamicFlightCB
-local worldEventQueueCB
-local openHolidayItemsCB
-local warModeCB
-local rareScanCB
-local chatIconsCB
-local keepMeSafeCB
 
 -- Dropdowns
 local chromieTimeDropDown
@@ -43,27 +20,22 @@ local trainerProtectionValueEB
 local depositKeepAmountValueEB
 
 -- Help Buttons
-local outdatedVersionHB
-
-local Panel = CreateFrame("Frame", addonName .. "SettingsPanel", SettingsPanel)
-Panel:Hide()
-Panel["name"] = addonName
-InterfaceOptions_AddCategory(Panel)
+--local outdatedVersionHB
 
 -- This is the date of the NEXT update. If the player's
 -- installed version of the addon is older than the date
 -- below, then the user hasn't updated their addon.
-local nextUpdate = {
+--[[local nextUpdate = {
     ["monthDay"] = 1,
     ["weekday"] = 1,
     ["month"] = 1,
     ["minute"] = 0,
     ["hour"] = 0,
     ["year"] = 1980
-}
+}]]
 
 C_Timer.After(5, function()
-    addonAuthor = Panel:CreateFontString(addonName .. "Author", nil, "GameTooltipText")
+    --[[addonAuthor = Panel:CreateFontString(addonName .. "Author", nil, "GameTooltipText")
     addonAuthor:SetPoint("TOPLEFT", 15, -10)
     addonAuthor:SetText("|cffFFD100Author:|r " .. C_AddOns.GetAddOnMetadata(addonName, "Author"))
     
@@ -88,381 +60,21 @@ C_Timer.After(5, function()
          outdatedVersionHB:Show()
     else
          outdatedVersionHB:Hide()
+    end]]
+
+    -------------------
+    -- CHECK BUTTONS --
+    -------------------
+    for _, checkButton in ipairs(addon.Settings.CheckButtons) do
+        addon.New("CheckButton", checkButton.Name, checkButton.Parent, checkButton.Position, checkButton.Label, checkButton.Tooltip, checkButton.SavedVariable, checkButton.OnClick)
     end
 
-    local skipCutscenesCB = addon.New(
-        "CheckButton",
-        addonName .. "SkipCutscenesCB",
-        Panel,
-        "TOPLEFT",
-        "TOPLEFT",
-        15,
-        -60,
-        "Skip Cutscenes",
-        "Toggle skipping cutscenes and in-game movies.",
-        "SkipCutscenes"
-    )
-
-    --[[skipCutscenesCB = {
-        name = addonName .. "SkipCutscenesCB",
-        parent = Panel,
-        anchor = "TOPLEFT",
-        relativeAnchor = "TOPLEFT",
-        oX = 15,
-        oY = -60,
-        tooltipHeader = "Skip Cutscenes",
-        tooltipText = "Toggle skipping cutscenes and in-game movies.",
-        onClick = function()
-            HelpMePlayDB["SkipCutscenes"] = skipCutscenesCB:GetChecked()
-        end,
-    }
-    setmetatable(skipCutscenesCB, { __index = HelpMePlay.Button })
-    skipCutscenesCB = skipCutscenesCB:CheckButton()
-    skipCutscenesCB:SetChecked(HelpMePlayDB["SkipCutscenes"])]]
-
-    adventureMapsCB = {
-        name = addonName .. "AdventureMapsCB",
-        parent = skipCutscenesCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Adventure Maps",
-        tooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
-        "|cffFF0000NOTE:|r The current support is only for the adventure map in The Waking Shores.",
-        onClick = function()
-            HelpMePlayDB["UseAdventureMaps"] = adventureMapsCB:GetChecked()
-        end,
-    }
-    setmetatable(adventureMapsCB, { __index = HelpMePlay.Button })
-    adventureMapsCB = adventureMapsCB:CheckButton()
-    adventureMapsCB:SetChecked(HelpMePlayDB["UseAdventureMaps"])
-
-    questsCB = {
-        name = addonName .. "QuestsCB",
-        parent = adventureMapsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Quests",
-        tooltipText = "Toggle the acceptance and completion of guide quests, as well as the selection of quest rewards.\n\n" ..
-        "|cffFF0000This setting is mutually exclusive with All Quests.|r",
-        onClick = function()
-            HelpMePlayDB["AcceptAndCompleteQuests"] = questsCB:GetChecked()
-        end,
-    }
-    setmetatable(questsCB, { __index = HelpMePlay.Button })
-    questsCB = questsCB:CheckButton()
-    questsCB:SetChecked(HelpMePlayDB["AcceptAndCompleteQuests"])
-
-    allQuestsCB = {
-        name = addonName .. "AllQuestsCB",
-        parent = questsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 15,
-        oY = -5,
-        tooltipHeader = "All Quests",
-        tooltipText = "Toggle the acceptance and completion of all quests, as well as the selection of quest rewards.\n\n" ..
-        "|cffFF0000This setting is mutually exclusive with Quests.|r",
-        onClick = function()
-            HelpMePlayDB["AcceptAndCompleteAllQuests"] = allQuestsCB:GetChecked()
-            if allQuestsCB:GetChecked() then
-                questsCB:SetEnabled(false)
-                HelpMePlayDB["AcceptAndCompleteQuests"] = false
-                questsCB:SetChecked(HelpMePlayDB["AcceptAndCompleteQuests"])
-            else
-                questsCB:SetEnabled(true)
-                HelpMePlayDB["AcceptAndCompleteQuests"] = true
-                questsCB:SetChecked(HelpMePlayDB["AcceptAndCompleteQuests"])
-            end
-        end,
-    }
-    setmetatable(allQuestsCB, { __index = HelpMePlay.Button })
-    allQuestsCB = allQuestsCB:CheckButton()
-    allQuestsCB:SetChecked(HelpMePlayDB["AcceptAndCompleteAllQuests"])
-
-    ignoreRepeatableQuestsCB = {
-        name = addonName .. "IgnoreRepeatableQuestsCB",
-        parent = allQuestsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Ignore Repeatable Quests",
-        tooltipText = "Toggle to ignore repeatable quests.",
-        onClick = function()
-            HelpMePlayDB["IgnoreRepeatableQuests"] = ignoreRepeatableQuestsCB:GetChecked()
-        end,
-    }
-    setmetatable(ignoreRepeatableQuestsCB, { __index = HelpMePlay.Button })
-    ignoreRepeatableQuestsCB = ignoreRepeatableQuestsCB:CheckButton()
-    ignoreRepeatableQuestsCB:SetChecked(HelpMePlayDB["IgnoreRepeatableQuests"])
-
-    ignoreDailyQuestsCB = {
-        name = addonName .. "IgnoreDailyQuestsCB",
-        parent = ignoreRepeatableQuestsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Ignore Daily Quests",
-        tooltipText = "Toggle to ignore daily quests.",
-        onClick = function()
-            HelpMePlayDB["IgnoreDailyQuests"] = ignoreDailyQuestsCB:GetChecked()
-        end,
-    }
-    setmetatable(ignoreDailyQuestsCB, { __index = HelpMePlay.Button })
-    ignoreDailyQuestsCB = ignoreDailyQuestsCB:CheckButton()
-    ignoreDailyQuestsCB:SetChecked(HelpMePlayDB["IgnoreDailyQuests"])
-
-    emotesCB = {
-        name = addonName .. "EmotesCB",
-        parent = ignoreDailyQuestsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = -15,
-        oY = -5,
-        tooltipHeader = "Emotes",
-        tooltipText = "Toggle to automatically emote at appropriate NPCs.",
-        onClick = function()
-            HelpMePlayDB["UseEmotes"] = emotesCB:GetChecked()
-        end,
-    }
-    setmetatable(emotesCB, { __index = HelpMePlay.Button })
-    emotesCB = emotesCB:CheckButton()
-    emotesCB:SetChecked(HelpMePlayDB["UseEmotes"])
-
-    muteTalkingHeadCB = {
-        name = addonName .. "MuteTalkingHeadCB",
-        parent = emotesCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Mute Talking Head",
-        tooltipText = "Toggle to hide and prevent the talking head popup.",
-        onClick = function()
-            HelpMePlayDB["MuteTalkingHead"] = muteTalkingHeadCB:GetChecked()
-        end,
-    }
-    setmetatable(muteTalkingHeadCB, { __index = HelpMePlay.Button })
-    muteTalkingHeadCB = muteTalkingHeadCB:CheckButton()
-    muteTalkingHeadCB:SetChecked(HelpMePlayDB["MuteTalkingHead"])
-
-    gossipCB = {
-        name = addonName .. "GossipCB",
-        parent = muteTalkingHeadCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Gossip",
-        tooltipText = "Toggle the automatic selection of NPC gossips.\n\n" ..
-        "|cffFF0000NOTE:|r Only gossips that are present in the addon's code are automatically selected, not all of them.",
-        onClick = function()
-            HelpMePlayDB["AcceptGossip"] = gossipCB:GetChecked()
-        end,
-    }
-    setmetatable(gossipCB, { __index = HelpMePlay.Button })
-    gossipCB = gossipCB:CheckButton()
-    gossipCB:SetChecked(HelpMePlayDB["AcceptGossip"])
-
-    partyPlayCB = {
-        name = addonName .. "GossipCB",
-        parent = gossipCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Party Play",
-        tooltipText = "Toggle to make playing with friends a little easier.\n\n" ..
-        "|cffFF0000NOTE:|r Party Play, by default, will only auto share quests with party members. Announcements have been removed.",
-        onClick = function()
-            HelpMePlayDB["UsePartyPlay"] = partyPlayCB:GetChecked()
-        end,
-    }
-    setmetatable(partyPlayCB, { __index = HelpMePlay.Button })
-    partyPlayCB = partyPlayCB:CheckButton()
-    partyPlayCB:SetChecked(HelpMePlayDB["UsePartyPlay"])
-
-    readyChecksCB = {
-        name = addonName .. "ReadyChecksCB",
-        parent = partyPlayCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Ready Checks",
-        tooltipText = "Toggle to automatically accept ready checks.",
-        onClick = function()
-            HelpMePlayDB["AcceptReadyChecks"] = readyChecksCB:GetChecked()
-        end,
-    }
-    setmetatable(readyChecksCB, { __index = HelpMePlay.Button })
-    readyChecksCB = readyChecksCB:CheckButton()
-    readyChecksCB:SetChecked(HelpMePlayDB["AcceptReadyChecks"])
-
-    roleChecksCB = {
-        name = addonName .. "RoleChecksCB",
-        parent = readyChecksCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Role Checks",
-        tooltipText = "Toggle to automatically accept role checks.",
-        onClick = function()
-            HelpMePlayDB["AcceptRoleChecks"] = roleChecksCB:GetChecked()
-        end,
-    }
-    setmetatable(roleChecksCB, { __index = HelpMePlay.Button })
-    roleChecksCB = roleChecksCB:CheckButton()
-    roleChecksCB:SetChecked(HelpMePlayDB["AcceptRoleChecks"])
-
-    repairsCB = {
-        name = addonName .. "RepairsCB",
-        parent = roleChecksCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Repairs",
-        tooltipText = "Toggle to automatically repair at merchants.",
-        onClick = function()
-            HelpMePlayDB["ShouldRepair"] = repairsCB:GetChecked()
-        end,
-    }
-    setmetatable(repairsCB, { __index = HelpMePlay.Button })
-    repairsCB = repairsCB:CheckButton()
-    repairsCB:SetChecked(HelpMePlayDB["ShouldRepair"])
-
-    purchaseQuestItemsCB = {
-        name = addonName .. "PurchaseQuestItemsCB",
-        parent = skipCutscenesCB,
-        anchor = "LEFT",
-        relativeAnchor = "RIGHT",
-        oX = 225,
-        oY = 0,
-        tooltipHeader = "Purchase Quest Items",
-        tooltipText = "Toggle to automatically purchase quest items from merchants.",
-        onClick = function()
-            HelpMePlayDB["PurchaseQuestItems"] = purchaseQuestItemsCB:GetChecked()
-        end,
-    }
-    setmetatable(purchaseQuestItemsCB, { __index = HelpMePlay.Button })
-    purchaseQuestItemsCB = purchaseQuestItemsCB:CheckButton()
-    purchaseQuestItemsCB:SetChecked(HelpMePlayDB["PurchaseQuestItems"])
-
-    dynamicFlightCB = {
-        name = addonName .. "DynamicFlightCB",
-        parent = purchaseQuestItemsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Dynamic Flight",
-        tooltipText = "Toggle to add a button to learn Dynamic Flight (Dragonriding) talents.",
-        onClick = function()
-            HelpMePlayDB["UseDynamicFlightButton"] = dynamicFlightCB:GetChecked()
-        end,
-    }
-    setmetatable(dynamicFlightCB, { __index = HelpMePlay.Button })
-    dynamicFlightCB = dynamicFlightCB:CheckButton()
-    dynamicFlightCB:SetChecked(HelpMePlayDB["UseDynamicFlightButton"])
-
-    worldEventQueueCB = {
-        name = addonName .. "WorldEventQueueCB",
-        parent = dynamicFlightCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "World Event Queue",
-        tooltipText = "Toggle to add a button to the top middle of your screen. This button can be used to queue into active world events.\n\n" ..
-        "|cffFF0000NOTE:|r This button will appear conditionally.",
-        onClick = function()
-            HelpMePlayDB["UseWorldEventQueue"] = worldEventQueueCB:GetChecked()
-        end,
-    }
-    setmetatable(worldEventQueueCB, { __index = HelpMePlay.Button })
-    worldEventQueueCB = worldEventQueueCB:CheckButton()
-    worldEventQueueCB:SetChecked(HelpMePlayDB["UseWorldEventQueue"])
-
-    openHolidayItemsCB = {
-        name = addonName .. "OpenHolidayItemsCB",
-        parent = worldEventQueueCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Open Holiday Items",
-        tooltipText = "Toggle to automatically open holiday items when you loot them.\n\n" ..
-        "These are items like the |T133661:0|t |cffA335EE[Loot-Filled Pumpkin]|r.",
-        onClick = function()
-            HelpMePlayDB["OpenHolidayItems"] = openHolidayItemsCB:GetChecked()
-        end,
-    }
-    setmetatable(openHolidayItemsCB, { __index = HelpMePlay.Button })
-    openHolidayItemsCB = openHolidayItemsCB:CheckButton()
-    openHolidayItemsCB:SetChecked(HelpMePlayDB["OpenHolidayItems"])
-
-    warModeCB = {
-        name = addonName .. "WarModeCB",
-        parent = openHolidayItemsCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "War Mode",
-        tooltipText = format("Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
-        "|cffFF0000NOTE:|r This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"]),
-        onClick = function()
-            HelpMePlayDB["UseWarMode"] = warModeCB:GetChecked()
-        end,
-    }
-    setmetatable(warModeCB, { __index = HelpMePlay.Button })
-    warModeCB = warModeCB:CheckButton()
-    warModeCB:SetChecked(HelpMePlayDB["UseWarMode"])
-
-    rareScanCB = {
-        name = addonName .. "RareScanCB",
-        parent = warModeCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Rare Scan",
-        tooltipText = "Toggle if you wish to receive a popup notification and sound for nearby rares.",
-        onClick = function()
-            HelpMePlayDB["RareScan"] = rareScanCB:GetChecked()
-        end,
-    }
-    setmetatable(rareScanCB, { __index = HelpMePlay.Button })
-    rareScanCB = rareScanCB:CheckButton()
-    rareScanCB:SetChecked(HelpMePlayDB["RareScan"])
-
-    chatIconsCB = {
-        name = addonName .. "ChatIconsCB",
-        parent = rareScanCB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -5,
-        tooltipHeader = "Chat Icons",
-        tooltipText = "Toggle to show item and collection status (when appropriate) icons in the chat frame.",
-        onClick = function()
-            HelpMePlayDB["ShowChatIcons"] = chatIconsCB:GetChecked()
-        end,
-    }
-    setmetatable(chatIconsCB, { __index = HelpMePlay.Button })
-    chatIconsCB = chatIconsCB:CheckButton()
-    chatIconsCB:SetChecked(HelpMePlayDB["ShowChatIcons"])
-
+    --------------------
+    -- DROPDOWN MENUS --
+    --------------------
     chromieTimeDropDown = {
         name = addonName .. "ChromieTimeDropDown",
-        parent = dynamicFlightCB,
+        parent = addonName .. "SkyridingCheckButton",
         anchor = "LEFT",
         relativeAnchor = "RIGHT",
         oX = 175,
@@ -683,7 +295,7 @@ C_Timer.After(5, function()
     depositKeepAmountValueEB = depositKeepAmountValueEB:EditBox()
     depositKeepAmountValueEB:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["DepositKeepAmount"]))
 
-    keepMeSafeCB = {
+    --[[keepMeSafeCB = {
         name = addonName .. "KeepMeSafeCB",
         parent = depositKeepAmountValueEB,
         anchor = "TOPLEFT",
@@ -698,15 +310,15 @@ C_Timer.After(5, function()
     }
     setmetatable(keepMeSafeCB, { __index = HelpMePlay.Button })
     keepMeSafeCB = keepMeSafeCB:CheckButton()
-    keepMeSafeCB:SetChecked(HelpMePlayDB["DepositKeepMeSafe"])
+    keepMeSafeCB:SetChecked(HelpMePlayDB["DepositKeepMeSafe"])]]
 
     talentImporterButton = {
         name = addonName .. "TalentImporterButton",
-        parent = Panel,
-        anchor = "BOTTOMLEFT",
+        parent = addonName .. "RepairsCheckButton",
+        anchor = "TOPLEFT",
         relativeAnchor = "BOTTOMLEFT",
-        oX = 10,
-        oY = 40,
+        oX = 0,
+        oY = -20,
         width = 125,
         height = 25,
         text = "Talent Importer",
@@ -770,7 +382,7 @@ C_Timer.After(5, function()
     end)
     routeBuilderButton:SetEnabled(false)]]
 
-    openIssueButton = {
+    --[[openIssueButton = {
         name = addonName .. "OpenIssueButton",
         parent = Panel,
         anchor = "BOTTOMRIGHT",
@@ -808,5 +420,5 @@ C_Timer.After(5, function()
         end,
     }
     setmetatable(openIssueButton, { __index = HelpMePlay.Button })
-    openIssueButton = openIssueButton:BaseButton()
+    openIssueButton = openIssueButton:BaseButton()]]
 end)

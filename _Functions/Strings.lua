@@ -14,3 +14,12 @@ addon.SplitString = function(str, separator, nth)
     end
     return strings[nth]
 end
+
+-- If the string is longer than 15 characters, then truncate
+-- it.
+addon.TruncateString = function(str)
+    if str:len() <= 15 then
+		return str
+	end
+    return str:sub(1, 15) .. "..."
+end
