@@ -1,5 +1,12 @@
 local addonName, addon = ...
 
+local function SetValue(variable, value)
+    if tonumber(value, 10) then
+        value = tonumber(value, 10)
+        HelpMePlayDB[variable] = value
+    end
+end
+
 SLASH_HelpMePlay1 = "/hmp"
 SLASH_HelpMePlay2 = "/helpmeplay"
 SlashCmdList["HelpMePlay"] = function(cmd)
@@ -12,10 +19,9 @@ SlashCmdList["HelpMePlay"] = function(cmd)
         end
     elseif command == "set" then
         if subcommand == "TrainerProtectionValue" then
-            if tonumber(arg1) then
-                local value = tonumber(arg1, 10)
-                HelpMePlayDB[subcommand] = value
-            end
+            SetValue(subcommand, arg1)
+        elseif subcommand == "DepositKeepAmount" then
+            SetValue(subcommand, arg1)
         end
     else
         HelpMePlay.Print("Unknown command detected.")

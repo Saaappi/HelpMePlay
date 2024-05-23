@@ -10,6 +10,7 @@ end
 local GENERAL_SECTION = "General"
 local QUEST_SECTION = "Quest"
 local MERCHANT_SECTION = "Merchants & Trainers"
+local GUILDBANK_SECTION = "Guild Bank"
 
 -- Register the addon to the Settings panel as a category.
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
@@ -41,11 +42,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
-                for _, checkButton in ipairs(addon.Settings.General) do
-                    if checkButton.Type == "CheckButton" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.SavedVariable)
-                    elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                for _, setting in ipairs(addon.Settings.General) do
+                    if setting.Type == "CheckButton" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
+                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
                     end
                 end
 
@@ -60,11 +61,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
-                for _, checkButton in ipairs(addon.Settings.Quest) do
-                    if checkButton.Type == "CheckButton" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.SavedVariable)
-                    elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                for _, setting in ipairs(addon.Settings.Quest) do
+                    if setting.Type == "CheckButton" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
+                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
                     end
                 end
 
@@ -79,11 +80,30 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
-                for _, checkButton in ipairs(addon.Settings.Merchant) do
-                    if checkButton.Type == "CheckButton" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.SavedVariable)
-                    elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
-                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                for _, setting in ipairs(addon.Settings.Merchant) do
+                    if setting.Type == "CheckButton" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
+                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
+                    end
+                end
+
+                --------------------------
+                -- GUILD BANK SECTION ----
+                --------------------------
+                -- Initialize a section for quest automation.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GUILDBANK_SECTION))
+
+                -- Sort the table before we iterate through it.
+                table.sort(addon.Settings.GuildBank, Compare)
+
+                -- Iterate through the now-sorted table and add them to
+                -- the addon's category.
+                for _, setting in ipairs(addon.Settings.GuildBank) do
+                    if setting.Type == "CheckButton" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
+                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
                     end
                 end
             end)
@@ -100,9 +120,6 @@ local talentImporterButton
 local heirloomButton
 --local routeBuilderButton
 
--- Edit Boxes
-local depositKeepAmountValueEB
-
 -- This is the date of the NEXT update. If the player's
 -- installed version of the addon is older than the date
 -- below, then the user hasn't updated their addon.
@@ -116,49 +133,6 @@ local depositKeepAmountValueEB
 }]]
 
 C_Timer.After(5, function()
-    --[[depositKeepAmountValueEB = {
-        name = addonName .. "DepositKeepAmountValueEB",
-        parent = trainerProtectionValueEB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -40,
-        width = 100,
-        height = 10,
-        title = "Deposit Keep Amount",
-        maxLetters = 7,
-        tooltipHeader = "Deposit Keep Amount",
-        tooltipText = "Enter the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-        "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.",
-        onEnterPressed = function(self)
-            if tonumber(self:GetText(), 10) then
-                HelpMePlayDB["DepositKeepAmount"] = tonumber(self:GetText(), 10) * 10000
-            end
-            self:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["DepositKeepAmount"]))
-            self:ClearFocus()
-        end,
-    }
-    setmetatable(depositKeepAmountValueEB, { __index = HelpMePlay.Frame })
-    depositKeepAmountValueEB = depositKeepAmountValueEB:EditBox()]]
-    --depositKeepAmountValueEB:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["DepositKeepAmount"]))
-
-    --[[keepMeSafeCB = {
-        name = addonName .. "KeepMeSafeCB",
-        parent = depositKeepAmountValueEB,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = -5,
-        oY = -10,
-        tooltipHeader = "Keep Me Safe",
-        tooltipText = "Toggle to add a popup for approval before the addon is allowed to deposit into the guild bank.",
-        onClick = function()
-            HelpMePlayDB["DepositKeepMeSafe"] = keepMeSafeCB:GetChecked()
-        end,
-    }
-    setmetatable(keepMeSafeCB, { __index = HelpMePlay.Button })
-    keepMeSafeCB = keepMeSafeCB:CheckButton()
-    keepMeSafeCB:SetChecked(HelpMePlayDB["DepositKeepMeSafe"])]]
-
     --[[talentImporterButton = {
         name = addonName .. "TalentImporterButton",
         parent = addonName .. "RepairsCheckButton",

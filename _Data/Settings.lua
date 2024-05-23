@@ -185,4 +185,24 @@ addon.Settings = {
             SavedVariable = "TrainerProtectionValue",
         },
     },
+    GuildBank = {
+        {
+            Type = "CheckButton",
+            Name = "Keep Me Safe",
+            TooltipText = "Toggle to add a popup for approval before the addon is allowed to deposit into the guild bank.",
+            SavedVariable = "DepositKeepMeSafe",
+        },
+        {
+            Type = "Slider",
+            Name = "Deposit Keep Amount",
+            TooltipText = "Enter the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
+            "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.",
+            Options = {
+                minValue = 0,
+                maxValue = 9999999,
+                step = 10000,
+            },
+            SavedVariable = "TrainerProtectionValue",
+        },
+    }
 }
