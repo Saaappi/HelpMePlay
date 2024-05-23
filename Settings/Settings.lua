@@ -1,6 +1,36 @@
 local addonName, addon = ...
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
+-- Compare's elements of a table, and then sorts them
+-- alphabetically by the Name attribute.
+local function Compare(a, b)
+    return a.Name < b.Name
+end
+
+local GENERAL_AUTOMATION = "General Automation"
+
+-- Register the addon to the Settings panel as a category.
+local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
+Settings.RegisterAddOnCategory(category)
+
+-- Initialize a section for general automation.
+layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_AUTOMATION))
+
+------------------------
+-- GENERAL AUTOMATION --
+------------------------
+-------------------
+-- CHECK BUTTONS --
+-------------------
+-- Sort the table before we iterate through it.
+table.sort(addon.Settings.CheckButtons.General, Compare)
+
+-- Iterate through the now-sorted table and add them to
+-- the addon's category.
+for _, checkButton in ipairs(addon.Settings.CheckButtons.General) do
+    addon.New("CheckButton", checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+end
+
 -- Font Strings
 --local addonAuthor
 --local addonVersion
@@ -62,19 +92,9 @@ C_Timer.After(5, function()
          outdatedVersionHB:Hide()
     end]]
 
-    -------------------
-    -- CHECK BUTTONS --
-    -------------------
-    for _, checkButton in ipairs(addon.Settings.CheckButtons) do
-        addon.New("CheckButton", checkButton.Name, checkButton.Parent, checkButton.Position, checkButton.Label, checkButton.Tooltip, checkButton.SavedVariable, checkButton.OnClick)
-    end
-
     --------------------
     -- DROPDOWN MENUS --
     --------------------
-    for i = 1, 40 do
-        addon.New("DropDown", "DEMO", "Age"..i, "Pick the age.", { 10, 20, 30 })
-    end
     --[[chromieTimeDropDown = {
         name = addonName .. "ChromieTimeDropDown",
         parent = addonName .. "SkyridingCheckButton",

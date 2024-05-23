@@ -7,32 +7,103 @@ addon.RedText = function(str)
     return format("|cffFF0000%s|r", str)
 end
 
-addon.Panel = CreateFrame("Frame", addonName .. "SettingsPanel", SettingsPanel)
+--[[addon.Panel = CreateFrame("Frame", addonName .. "SettingsPanel", SettingsPanel)
 addon.Panel:Hide()
 addon.Panel.name = addonName
-InterfaceOptions_AddCategory(addon.Panel)
+InterfaceOptions_AddCategory(addon.Panel)]]
 
 addon.Settings = {
     CheckButtons = {
-        {
-            Name = addonName .. "SkipCutscenesCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addon.Panel, "TOPLEFT", 15, -60 },
-            Label = "Skip Cutscenes",
-            Tooltip = "Toggle skipping cutscenes and in-game movies.",
-            SavedVariable = "SkipCutscenes",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
+        General = {
+            {
+                Name = "Emotes",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically emote at appropriate NPCs.",
+                SavedVariable = "UseEmotes",
+            },
+            {
+                Name = "Gossip",
+                DefaultValue = false,
+                TooltipText = "Toggle the automatic selection of NPC gossips.\n\n" ..
+                addon.RedText(NOT_AVAILABLE_FOR_USE),
+                SavedVariable = "AcceptGossip",
+            },
+            {
+                Name = "Mute Talking Head",
+                DefaultValue = false,
+                TooltipText = "Toggle to hide and prevent the talking head popup.",
+                SavedVariable = "MuteTalkingHead",
+            },
+            {
+                Name = "Ready Checks",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically accept ready checks.",
+                SavedVariable = "AcceptReadyChecks",
+            },
+            {
+                Name = "Repairs",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically repair at merchants.",
+                SavedVariable = "ShouldRepair",
+            },
+            {
+                Name = "Skip Cutscenes",
+                DefaultValue = false,
+                TooltipText = "Toggle skipping cutscenes and in-game movies.",
+                SavedVariable = "SkipCutscenes",
+            },
+            {
+                Name = "Role Checks",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically accept role checks.",
+                SavedVariable = "AcceptRoleChecks",
+            },
+            {
+                Name = "Skyriding",
+                DefaultValue = false,
+                TooltipText = "Toggle to add a button to the Skyriding UI to quickly learn its traits.",
+                SavedVariable = "UseDynamicFlightButton",
+            },
+            {
+                Name = "War Mode",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
+                addon.RedText(format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"])),
+                SavedVariable = "UseWarMode",
+            },
+            {
+                Name = "Rare Scan",
+                DefaultValue = false,
+                TooltipText = "Toggle if you wish to receive a popup notification and sound for nearby rares.",
+                SavedVariable = "RareScan",
+            },
+            {
+                Name = "Event Queue",
+                DefaultValue = false,
+                TooltipText = "Toggle to add a button to the top middle of your screen. This button can be used to quickly queue into ongoing events.",
+                SavedVariable = "UseWorldEventQueue",
+            },
+            {
+                Name = "Open Holiday Items",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically open holiday items when you loot them.",
+                SavedVariable = "OpenHolidayItems",
+            },
+            {
+                Name = "Chat Icons",
+                DefaultValue = false,
+                TooltipText = "Toggle to show item and collection status (when appropriate) icons in the chat frame.",
+                SavedVariable = "ShowChatIcons",
+            },
         },
-        {
-            Name = addonName .. "AdventureMapsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "SkipCutscenesCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Adventure Maps",
-            Tooltip = "Toggle to automatically accept quests from adventure maps.\n\n" ..
+        --[[{
+            Name = "Adventure Maps",
+            DefaultValue = false,
+            TooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
             addon.RedText("The current support is only for the adventure map in The Waking Shores."),
             SavedVariable = "UseAdventureMaps",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
+        },]]
+        --[[
         {
             Name = addonName .. "QuestsCheckButton",
             Parent = addon.Panel,
@@ -84,43 +155,6 @@ addon.Settings = {
             OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
         },
         {
-            Name = addonName .. "EmotesCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "IgnoreDailyQuestsCheckButton", "BOTTOMLEFT", -15, -5 },
-            Label = "Emotes",
-            Tooltip = "Toggle to automatically emote at appropriate NPCs.",
-            SavedVariable = "UseEmotes",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "MuteTalkingHeadCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "EmotesCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Mute Talking Head",
-            Tooltip = "Toggle to automatically emote at appropriate NPCs.",
-            SavedVariable = "UseEmotes",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "MuteTalkingHeadCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "EmotesCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Mute Talking Head",
-            Tooltip = "Toggle to hide and prevent the talking head popup.",
-            SavedVariable = "UseEmotes",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "GossipCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "MuteTalkingHeadCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Gossip",
-            Tooltip = "Toggle the automatic selection of NPC gossips.\n\n" ..
-            addon.RedText(NOT_AVAILABLE_FOR_USE),
-            SavedVariable = "UseEmotes",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
             Name = addonName .. "PartyPlayCheckButton",
             Parent = addon.Panel,
             Position = { "TOPLEFT", addonName .. "GossipCheckButton", "BOTTOMLEFT", 0, -5 },
@@ -128,33 +162,6 @@ addon.Settings = {
             Tooltip = "Toggle to make playing with friends a little easier.\n\n" ..
             addon.RedText("Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
             SavedVariable = "UsePartyPlay",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "ReadyChecksCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "PartyPlayCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Ready Checks",
-            Tooltip = "Toggle to automatically accept ready checks.",
-            SavedVariable = "AcceptReadyChecks",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "RoleChecksCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "ReadyChecksCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Role Checks",
-            Tooltip = "Toggle to automatically accept role checks.",
-            SavedVariable = "AcceptRoleChecks",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "RepairsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "RoleChecksCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Repairs",
-            Tooltip = "Toggle to automatically repair at merchants.",
-            SavedVariable = "ShouldRepair",
             OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
         },
         {
@@ -166,61 +173,6 @@ addon.Settings = {
             addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "ShouldRepair",
             OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "SkyridingCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "PurchaseQuestItemsCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Skyriding",
-            Tooltip = "Toggle to add a button to the Skyriding UI to quickly learn its traits.",
-            SavedVariable = "UseDynamicFlightButton",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "EventQueueCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "SkyridingCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Event Queue",
-            Tooltip = "Toggle to add a button to the top middle of your screen. This button can be used to quickly queue into ongoing events.",
-            SavedVariable = "UseWorldEventQueue",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "OpenHolidayItemsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "EventQueueCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Open Holiday Items",
-            Tooltip = "Toggle to automatically open holiday items when you loot them.",
-            SavedVariable = "OpenHolidayItems",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "WarModeCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "OpenHolidayItemsCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "War Mode",
-            Tooltip = "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
-            addon.RedText(format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"])),
-            SavedVariable = "UseWarMode",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "RareScanCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "WarModeCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Rare Scan",
-            Tooltip = "Toggle if you wish to receive a popup notification and sound for nearby rares.",
-            SavedVariable = "RareScan",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "ChatIconsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "RareScanCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Chat Icons",
-            Tooltip = "Toggle to show item and collection status (when appropriate) icons in the chat frame.",
-            SavedVariable = "ShowChatIcons",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
+        },]]
     }
 }

@@ -25,6 +25,7 @@ _Data\Heirloom.lua
 _Data\Mounts.lua
 
 # Settings
+Settings\New.lua
 Settings\TalentImporter.lua
 Settings\Heirloom.lua
 Settings\Settings.lua
