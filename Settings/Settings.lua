@@ -9,6 +9,7 @@ local function Compare(a, b)
 end
 
 local GENERAL_AUTOMATION = "General Automation"
+local QUEST_AUTOMATION = "Quest Automation"
 
 -- Register the addon to the Settings panel as a category.
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
@@ -35,6 +36,24 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.CheckButtons.General) do
+                    addon.New("CheckButton", checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                end
+
+                -- Initialize a section for quest automation.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUEST_AUTOMATION))
+
+                ------------------------
+                -- QUEST AUTOMATION ----
+                ------------------------
+                -------------------
+                -- CHECK BUTTONS --
+                -------------------
+                -- Sort the table before we iterate through it.
+                table.sort(addon.Settings.CheckButtons.Quest, Compare)
+
+                -- Iterate through the now-sorted table and add them to
+                -- the addon's category.
+                for _, checkButton in ipairs(addon.Settings.CheckButtons.Quest) do
                     addon.New("CheckButton", checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
                 end
             end)

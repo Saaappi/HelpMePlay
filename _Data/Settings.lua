@@ -96,31 +96,48 @@ addon.Settings = {
                 SavedVariable = "ShowChatIcons",
             },
         },
-        --[[{
-            Name = "Adventure Maps",
-            DefaultValue = false,
-            TooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
-            addon.RedText("The current support is only for the adventure map in The Waking Shores."),
-            SavedVariable = "UseAdventureMaps",
-        },]]
+        Quest = {
+            {
+                Name = "Adventure Maps",
+                DefaultValue = false,
+                TooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
+                addon.RedText("The current support is only for the adventure map in The Waking Shores."),
+                SavedVariable = "UseAdventureMaps",
+            },
+            {
+                Name = "Accept and Complete Guide Quests",
+                DefaultValue = false,
+                TooltipText = "Toggle the acceptance and completion of guide quests, as well as the selection of quest rewards.\n\n" ..
+                addon.RedText("This setting is mutually exclusive with All Quests."),
+                SavedVariable = "AcceptAndCompleteQuests",
+            },
+            {
+                Name = "Accept and Complete All Quests",
+                DefaultValue = false,
+                TooltipText = "Toggle the acceptance and completion of all quests, as well as the selection of quest rewards.\n\n" ..
+                addon.RedText("This setting is mutually exclusive with Quests."),
+                SavedVariable = "AcceptAndCompleteAllQuests",
+            },
+            {
+                Name = "Ignore Repeatable Quests",
+                DefaultValue = false,
+                TooltipText = "Toggle to ignore repeatable quests.",
+                SavedVariable = "IgnoreRepeatableQuests",
+            },
+            {
+                Name = "Ignore Daily Quests",
+                DefaultValue = false,
+                TooltipText = "Toggle to ignore daily quests.",
+                SavedVariable = "IgnoreDailyQuests",
+            },
+        }
         --[[
-        {
-            Name = addonName .. "QuestsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "AdventureMapsCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Quests",
-            Tooltip = "Toggle the acceptance and completion of guide quests, as well as the selection of quest rewards.\n\n" ..
-            addon.RedText("This setting is mutually exclusive with All Quests."),
-            SavedVariable = "AcceptAndCompleteQuests",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
         {
             Name = addonName .. "AllQuestsCheckButton",
             Parent = addon.Panel,
             Position = { "TOPLEFT", addonName .. "QuestsCheckButton", "BOTTOMLEFT", 15, -5 },
             Label = "All Quests",
-            Tooltip = "Toggle the acceptance and completion of all quests, as well as the selection of quest rewards.\n\n" ..
-            addon.RedText("This setting is mutually exclusive with Quests."),
+            Tooltip = 
             SavedVariable = "AcceptAndCompleteAllQuests",
             OnClick = function(self)
                 local questsCheckButton = addonName .. "QuestsCheckButton"
@@ -135,24 +152,6 @@ addon.Settings = {
                     questsCheckButton:SetChecked(HelpMePlayDB["AcceptAndCompleteQuests"])
                 end
             end,
-        },
-        {
-            Name = addonName .. "IgnoreRepeatableQuestsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "AllQuestsCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Ignore Repeatable Quests",
-            Tooltip = "Toggle to ignore repeatable quests.",
-            SavedVariable = "IgnoreRepeatableQuests",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
-        },
-        {
-            Name = addonName .. "IgnoreDailyQuestsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "IgnoreRepeatableQuestsCheckButton", "BOTTOMLEFT", 0, -5 },
-            Label = "Ignore Daily Quests",
-            Tooltip = "Toggle to ignore daily quests.",
-            SavedVariable = "IgnoreDailyQuests",
-            OnClick = function(self) HelpMePlayDB[self.SavedVariable] = self:GetChecked() end,
         },
         {
             Name = addonName .. "PartyPlayCheckButton",
