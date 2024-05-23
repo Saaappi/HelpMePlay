@@ -180,5 +180,18 @@ addon.Settings = {
             },
             SavedVariable = "ChromieTimeExpansionID",
         },
+        {
+            Type = "DropDown",
+            Name = "Quest Rewards",
+            DefaultValue = 0,
+            TooltipText = format("Select how quest rewards should be chosen.\n\n" ..
+            "If Item Level is selected, then chosen quest rewards are automatically equipped by %s.", addonName),
+            Options = {
+                { 1, "Item Level" },
+                { 2, "Sell Price" },
+                { 0, NONE },
+            },
+            SavedVariable = "QuestRewardSelectionTypeID",
+        },
     },
 }
