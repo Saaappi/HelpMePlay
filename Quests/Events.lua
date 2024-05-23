@@ -6,13 +6,16 @@ local function QUEST_COMPLETE()
         local questID = GetQuestID()
         local mapID = C_Map.GetBestMapForUnit("player")
         if questID and mapID then
-            if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+            if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                HelpMePlay.CompleteQuest()
+            end
+            --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                 if HelpMePlayDB["GuideQuests"][mapID][questID] then
                     HelpMePlay.CompleteQuest()
                 end
             elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
                 HelpMePlay.CompleteQuest()
-            end
+            end]]
         end
     else
         C_Timer.After(1, QUEST_COMPLETE)
@@ -27,7 +30,14 @@ local function QUEST_DETAIL()
         else
             local mapID = C_Map.GetBestMapForUnit("player")
             if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                    if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
+                    elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
+                    else
+                        AcceptQuest()
+                    end
+                end
+                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                     if HelpMePlayDB["GuideQuests"][mapID][questID] then
                         AcceptQuest()
                     end
@@ -37,7 +47,7 @@ local function QUEST_DETAIL()
                     else
                         AcceptQuest()
                     end
-                end
+                end]]
             end
         end
     else
@@ -60,13 +70,16 @@ local function QUEST_GREETING()
             local isComplete = select(2, GetActiveTitle(i))
             local mapID = C_Map.GetBestMapForUnit("player")
             if questID and isComplete and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                    SelectActiveQuest(i)
+                end
+                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                     if HelpMePlayDB["GuideQuests"][mapID][questID] then
                         SelectActiveQuest(i)
                     end
                 elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
                     SelectActiveQuest(i)
-                end
+                end]]
             end
         end
 
@@ -74,7 +87,15 @@ local function QUEST_GREETING()
             local questID = select(5, GetAvailableQuestInfo(i))
             local mapID = C_Map.GetBestMapForUnit("player")
             if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                    if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
+                    elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
+                    else
+                        SelectAvailableQuest(i)
+                        AcceptQuest()
+                    end
+                end
+                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                     if HelpMePlayDB["GuideQuests"][mapID][questID] then
                         SelectAvailableQuest(i)
                         AcceptQuest()
@@ -86,7 +107,7 @@ local function QUEST_GREETING()
                         SelectAvailableQuest(i)
                         AcceptQuest()
                     end
-                end
+                end]]
             end
         end
     else
@@ -100,7 +121,13 @@ local function QUEST_PROGRESS()
             local questID = GetQuestID()
             local mapID = C_Map.GetBestMapForUnit("player")
             if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+                        QuestFrameCompleteButton:Click()
+                        HelpMePlay.CompleteQuest()
+                    end)
+                end
+                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                     if HelpMePlayDB["GuideQuests"][mapID][questID] then
                         C_Timer.After(addon.Constants["TIMER_DELAY"], function()
                             QuestFrameCompleteButton:Click()
@@ -112,7 +139,7 @@ local function QUEST_PROGRESS()
                         QuestFrameCompleteButton:Click()
                         HelpMePlay.CompleteQuest()
                     end)
-                end
+                end]]
             end
         end
     else

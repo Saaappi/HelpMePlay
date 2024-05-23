@@ -119,20 +119,18 @@ addon.Settings = {
         },
         {
             Type = "CheckButton",
-            Name = "Accept and Complete Guide Quests",
+            Name = "Accept and Complete Quests",
             DefaultValue = false,
-            TooltipText = "Toggle the acceptance and completion of guide quests, as well as the selection of quest rewards.\n\n" ..
-            addon.RedText("This setting is mutually exclusive with All Quests."),
+            TooltipText = "Toggle the acceptance and completion of quests, as well as the selection of quest rewards.",
             SavedVariable = "AcceptAndCompleteQuests",
         },
-        {
+        --[[{
             Type = "CheckButton",
             Name = "Accept and Complete All Quests",
             DefaultValue = false,
-            TooltipText = "Toggle the acceptance and completion of all quests, as well as the selection of quest rewards.\n\n" ..
-            addon.RedText("This setting is mutually exclusive with Quests."),
+            TooltipText = "Toggle the acceptance and completion of all quests, as well as the selection of quest rewards.",
             SavedVariable = "AcceptAndCompleteAllQuests",
-        },
+        },]]
         {
             Type = "CheckButton",
             Name = "Ignore Repeatable Quests",
