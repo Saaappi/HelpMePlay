@@ -25,15 +25,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 elseif elementName == "CheckButton" then
                     local name, category, tooltipText, savedVariable = ...
                     do
-                        local function GetValue()
-                            Settings.GetValue(savedVariable)
-                        end
-
                         local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Boolean, HelpMePlayDB[savedVariable])
                         Settings.CreateCheckBox(category, setting, tooltipText)
                         Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
-
-                        GetValue()
                     end
                 elseif elementName == "DropDown" then
                     local name, category, tooltipText, options, savedVariable = ...
