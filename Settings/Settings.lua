@@ -72,7 +72,10 @@ C_Timer.After(5, function()
     --------------------
     -- DROPDOWN MENUS --
     --------------------
-    chromieTimeDropDown = {
+    for i = 1, 40 do
+        addon.New("DropDown", "DEMO", "Age"..i, "Pick the age.", { 10, 20, 30 })
+    end
+    --[[chromieTimeDropDown = {
         name = addonName .. "ChromieTimeDropDown",
         parent = addonName .. "SkyridingCheckButton",
         anchor = "LEFT",
@@ -189,10 +192,10 @@ C_Timer.After(5, function()
         },
     }
     setmetatable(chromieTimeDropDown, { __index = HelpMePlay.DropDown })
-    chromieTimeDropDown = chromieTimeDropDown:DropDown()
-    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[HelpMePlayDB["ChromieTimeExpansionID"]])
+    chromieTimeDropDown = chromieTimeDropDown:DropDown()]]
+    --LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[HelpMePlayDB["ChromieTimeExpansionID"]])
 
-    questRewardsDropDown = {
+    --[[questRewardsDropDown = {
         name = addonName .. "QuestRewardsDropDown",
         parent = chromieTimeDropDown,
         anchor = "TOPLEFT",
@@ -239,10 +242,10 @@ C_Timer.After(5, function()
         },
     }
     setmetatable(questRewardsDropDown, { __index = HelpMePlay.DropDown })
-    questRewardsDropDown = questRewardsDropDown:DropDown()
-    LibDD:UIDropDownMenu_SetText(questRewardsDropDown, addon.QUEST_REWARDS_TYPES[HelpMePlayDB["QuestRewardSelectionTypeID"]])
+    questRewardsDropDown = questRewardsDropDown:DropDown()]]
+    --LibDD:UIDropDownMenu_SetText(questRewardsDropDown, addon.QUEST_REWARDS_TYPES[HelpMePlayDB["QuestRewardSelectionTypeID"]])
 
-    trainerProtectionValueEB = {
+    --[[trainerProtectionValueEB = {
         name = addonName .. "TrainerProtectionValueEB",
         parent = questRewardsDropDown,
         anchor = "TOPLEFT",
@@ -266,10 +269,10 @@ C_Timer.After(5, function()
         end,
     }
     setmetatable(trainerProtectionValueEB, { __index = HelpMePlay.Frame })
-    trainerProtectionValueEB = trainerProtectionValueEB:EditBox()
-    trainerProtectionValueEB:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["TrainerProtectionValue"]))
+    trainerProtectionValueEB = trainerProtectionValueEB:EditBox()]]
+    --trainerProtectionValueEB:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["TrainerProtectionValue"]))
 
-    depositKeepAmountValueEB = {
+    --[[depositKeepAmountValueEB = {
         name = addonName .. "DepositKeepAmountValueEB",
         parent = trainerProtectionValueEB,
         anchor = "TOPLEFT",
@@ -292,8 +295,8 @@ C_Timer.After(5, function()
         end,
     }
     setmetatable(depositKeepAmountValueEB, { __index = HelpMePlay.Frame })
-    depositKeepAmountValueEB = depositKeepAmountValueEB:EditBox()
-    depositKeepAmountValueEB:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["DepositKeepAmount"]))
+    depositKeepAmountValueEB = depositKeepAmountValueEB:EditBox()]]
+    --depositKeepAmountValueEB:SetText(C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB["DepositKeepAmount"]))
 
     --[[keepMeSafeCB = {
         name = addonName .. "KeepMeSafeCB",
@@ -312,7 +315,7 @@ C_Timer.After(5, function()
     keepMeSafeCB = keepMeSafeCB:CheckButton()
     keepMeSafeCB:SetChecked(HelpMePlayDB["DepositKeepMeSafe"])]]
 
-    talentImporterButton = {
+    --[[talentImporterButton = {
         name = addonName .. "TalentImporterButton",
         parent = addonName .. "RepairsCheckButton",
         anchor = "TOPLEFT",
@@ -356,7 +359,7 @@ C_Timer.After(5, function()
             HideUIPanel(SettingsPanel)
             addon.OpenHeirloomSelector()
         end
-    end)
+    end)]]
 
     --[[routeBuilderButton = {
         name = addonName .. "RouteBuilderButton",

@@ -1,6 +1,11 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+local age = 0
+
+local category, layout = Settings.RegisterVerticalLayoutCategory("Settings")
+Settings.RegisterAddOnCategory(category)
+
 addon.New = function(elementName, ...)
     if elementName == "BasicButton" then
     elseif elementName == "CheckButton" then
@@ -32,6 +37,28 @@ addon.New = function(elementName, ...)
         -- Return the check button back to the caller in case we
         -- want to manipulate it at the calling code.
         return checkButton
+    elseif elementName == "DropDown" then
+        local savedVariable, name, tooltipText, options = ...
+
+        local function GetValue()
+			return age
+		end
+		
+		local function SetValue(value)
+			age = value
+            print(age)
+		end
+
+        local function GetOptions()
+            local container = Settings.CreateControlTextContainer()
+            for index, option in ipairs(options) do
+                container:Add(index, option)
+            end
+            return container:GetData()
+        end
+	    local setting = Settings.RegisterProxySetting(category, "AGE", HelpMePlayDB,
+			Settings.VarType.Number, name, 0, GetValue, SetValue)
+		Settings.CreateDropDown(category, setting, GetOptions, tooltipText)
     end
 end
 
