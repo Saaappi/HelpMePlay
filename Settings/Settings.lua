@@ -36,9 +36,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 ------------------------
                 -- GENERAL AUTOMATION --
                 ------------------------
-                -------------------
-                -- CHECK BUTTONS --
-                -------------------
                 -- Sort the table before we iterate through it.
                 table.sort(addon.Settings.General, Compare)
 
@@ -54,16 +51,17 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 ------------------------
                 -- QUEST AUTOMATION ----
                 ------------------------
-                -------------------
-                -- CHECK BUTTONS --
-                -------------------
                 -- Sort the table before we iterate through it.
                 table.sort(addon.Settings.Quest, Compare)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.Quest) do
-                    addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                    if checkButton.Type == "CheckButton" then
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                    elseif checkButton.Type == "DropDown" then
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                    end
                 end
             end)
 
@@ -139,126 +137,6 @@ C_Timer.After(5, function()
     --------------------
     -- DROPDOWN MENUS --
     --------------------
-    --[[chromieTimeDropDown = {
-        name = addonName .. "ChromieTimeDropDown",
-        parent = addonName .. "SkyridingCheckButton",
-        anchor = "LEFT",
-        relativeAnchor = "RIGHT",
-        oX = 175,
-        oY = 0,
-        width = 150,
-        height = 38,
-        title = "Chromie Time",
-        tooltipHeader = "Chromie Time",
-        tooltipText = "Select the expansion to use when speaking with Chromie in Orgrimmar or Stormwind City.",
-        options = {
-            {
-                ["text"] = "Dragonflight",
-                ["expansionID"] = 16,
-                ["disabled"] = true,
-                ["func"] = function()
-                    local value = 16
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME8,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 14
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME7,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 15
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME6,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 10
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME5,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 9
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME4,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 8
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME3,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 5
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME2,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 7
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = EXPANSION_NAME1,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 6
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            },
-            {
-                ["text"] = NONE,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local value = 0
-                    HelpMePlayDB["ChromieTimeExpansionID"] = value
-                    LibDD:UIDropDownMenu_SetSelectedValue(chromieTimeDropDown, value, value)
-                    LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[value])
-                end,
-            }
-        },
-    }
-    setmetatable(chromieTimeDropDown, { __index = HelpMePlay.DropDown })
-    chromieTimeDropDown = chromieTimeDropDown:DropDown()]]
-    --LibDD:UIDropDownMenu_SetText(chromieTimeDropDown, addon.CHROMIE_TIME_IDS[HelpMePlayDB["ChromieTimeExpansionID"]])
-
     --[[questRewardsDropDown = {
         name = addonName .. "QuestRewardsDropDown",
         parent = chromieTimeDropDown,

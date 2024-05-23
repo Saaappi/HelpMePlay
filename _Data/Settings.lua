@@ -161,27 +161,24 @@ addon.Settings = {
             addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "PurchaseQuestItems",
         },
-    },
-        --[[
         {
-            Name = addonName .. "AllQuestsCheckButton",
-            Parent = addon.Panel,
-            Position = { "TOPLEFT", addonName .. "QuestsCheckButton", "BOTTOMLEFT", 15, -5 },
-            Label = "All Quests",
-            Tooltip = 
-            SavedVariable = "AcceptAndCompleteAllQuests",
-            OnClick = function(self)
-                local questsCheckButton = addonName .. "QuestsCheckButton"
-                HelpMePlayDB[self.SavedVariable] = self:GetChecked()
-                if self:GetChecked() then
-                    questsCheckButton:SetEnabled(false)
-                    HelpMePlayDB["AcceptAndCompleteQuests"] = false
-                    questsCheckButton:SetChecked(HelpMePlayDB["AcceptAndCompleteQuests"])
-                else
-                    questsCheckButton:SetEnabled(true)
-                    HelpMePlayDB["AcceptAndCompleteQuests"] = true
-                    questsCheckButton:SetChecked(HelpMePlayDB["AcceptAndCompleteQuests"])
-                end
-            end,
-        },]]
+            Type = "DropDown",
+            Name = "Chromie Time",
+            DefaultValue = 0,
+            TooltipText = "Select the expansion to use when speaking with Chromie in Orgrimmar or Stormwind City.",
+            Options = {
+                --{ 16, "Dragonflight" }, -- Dragonflight isn't supported yet (not until The War Within).
+                { 14, EXPANSION_NAME8 },
+                { 15, EXPANSION_NAME7 },
+                { 10, EXPANSION_NAME6 },
+                { 9, EXPANSION_NAME5 },
+                { 8, EXPANSION_NAME4 },
+                { 5, EXPANSION_NAME3 },
+                { 7, EXPANSION_NAME2 },
+                { 6, EXPANSION_NAME1 },
+                { 0, NONE },
+            },
+            SavedVariable = "ChromieTimeExpansionID",
+        },
+    },
 }
