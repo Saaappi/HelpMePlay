@@ -8,12 +8,16 @@ local function Compare(a, b)
     return a.Name < b.Name
 end
 
-local GENERAL_AUTOMATION = "General Automation"
-local QUEST_AUTOMATION = "Quest Automation"
+local GENERAL_SECTION = "General"
+local QUEST_SECTION = "Quest"
 
 -- Register the addon to the Settings panel as a category.
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
 Settings.RegisterAddOnCategory(category)
+
+-- Add the variable to the namespace, so we can use it to
+-- open the settings in a slash command.
+addon.category = category
 
 -- Initialize a section for the addon's version and author text.
 local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
@@ -21,7 +25,7 @@ local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
 
 -- Initialize a section for general automation.
-layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_AUTOMATION))
+layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_SECTION))
 
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
@@ -45,7 +49,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
 
                 -- Initialize a section for quest automation.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUEST_AUTOMATION))
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUEST_SECTION))
 
                 ------------------------
                 -- QUEST AUTOMATION ----

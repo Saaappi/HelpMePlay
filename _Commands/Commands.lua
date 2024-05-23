@@ -5,10 +5,8 @@ SLASH_HelpMePlay2 = "/helpmeplay"
 SlashCmdList["HelpMePlay"] = function(cmd)
 	local command, subcommand, arg1 = string.split(" ", cmd)
 	if not command or command == "" then
-		InterfaceOptionsFrame_OpenToCategory(addonName)
-    elseif command == "help" then
-        HelpMePlay.Print("This command hasn't been implemented yet.")
+        Settings.OpenToCategory(addon.category:GetID())
     else
-        HelpMePlay.Print("Unknown command detected. Use |cffFFD100help|r for assistance.")
+        HelpMePlay.Print("Unknown command detected.")
 	end
 end
