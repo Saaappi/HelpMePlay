@@ -101,7 +101,6 @@ local heirloomButton
 --local routeBuilderButton
 
 -- Edit Boxes
-local trainerProtectionValueEB
 local depositKeepAmountValueEB
 
 -- This is the date of the NEXT update. If the player's

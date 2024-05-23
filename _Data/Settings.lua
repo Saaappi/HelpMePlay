@@ -17,14 +17,12 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Emotes",
-            DefaultValue = false,
             TooltipText = "Toggle to automatically emote at appropriate NPCs.",
             SavedVariable = "UseEmotes",
         },
         {
             Type = "CheckButton",
             Name = "Gossip",
-            DefaultValue = false,
             TooltipText = "Toggle the automatic selection of NPC gossips.\n\n" ..
             addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "AcceptGossip",
@@ -32,42 +30,36 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Mute Talking Head",
-            DefaultValue = false,
             TooltipText = "Toggle to hide and prevent the talking head popup.",
             SavedVariable = "MuteTalkingHead",
         },
         {
             Type = "CheckButton",
             Name = "Ready Checks",
-            DefaultValue = false,
             TooltipText = "Toggle to automatically accept ready checks.",
             SavedVariable = "AcceptReadyChecks",
         },
         {
             Type = "CheckButton",
             Name = "Skip Cutscenes",
-            DefaultValue = false,
             TooltipText = "Toggle skipping cutscenes and in-game movies.",
             SavedVariable = "SkipCutscenes",
         },
         {
             Type = "CheckButton",
             Name = "Role Checks",
-            DefaultValue = false,
             TooltipText = "Toggle to automatically accept role checks.",
             SavedVariable = "AcceptRoleChecks",
         },
         {
             Type = "CheckButton",
             Name = "Skyriding",
-            DefaultValue = false,
             TooltipText = "Toggle to add a button to the Skyriding UI to quickly learn its traits.",
             SavedVariable = "UseDynamicFlightButton",
         },
         {
             Type = "CheckButton",
             Name = "War Mode",
-            DefaultValue = false,
             TooltipText = "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
             addon.RedText(format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"])),
             SavedVariable = "UseWarMode",
@@ -75,28 +67,24 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Rare Scan",
-            DefaultValue = false,
             TooltipText = "Toggle if you wish to receive a popup notification and sound for nearby rares.",
             SavedVariable = "RareScan",
         },
         {
             Type = "CheckButton",
             Name = "Event Queue",
-            DefaultValue = false,
             TooltipText = "Toggle to add a button to the top middle of your screen. This button can be used to quickly queue into ongoing events.",
             SavedVariable = "UseWorldEventQueue",
         },
         {
             Type = "CheckButton",
             Name = "Open Holiday Items",
-            DefaultValue = false,
             TooltipText = "Toggle to automatically open holiday items when you loot them.",
             SavedVariable = "OpenHolidayItems",
         },
         {
             Type = "CheckButton",
             Name = "Chat Icons",
-            DefaultValue = false,
             TooltipText = "Toggle to show item and collection status (when appropriate) icons in the chat frame.",
             SavedVariable = "ShowChatIcons",
         },
@@ -105,7 +93,6 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Adventure Maps",
-            DefaultValue = false,
             TooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
             addon.RedText("The current support is only for the adventure map in The Waking Shores."),
             SavedVariable = "UseAdventureMaps",
@@ -113,35 +100,30 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Accept and Complete Quests",
-            DefaultValue = false,
             TooltipText = "Toggle the acceptance and completion of quests, as well as the selection of quest rewards.",
             SavedVariable = "AcceptAndCompleteQuests",
         },
         --[[{
             Type = "CheckButton",
             Name = "Accept and Complete All Quests",
-            DefaultValue = false,
             TooltipText = "Toggle the acceptance and completion of all quests, as well as the selection of quest rewards.",
             SavedVariable = "AcceptAndCompleteAllQuests",
         },]]
         {
             Type = "CheckButton",
             Name = "Ignore Repeatable Quests",
-            DefaultValue = false,
             TooltipText = "Toggle to ignore repeatable quests.",
             SavedVariable = "IgnoreRepeatableQuests",
         },
         {
             Type = "CheckButton",
             Name = "Ignore Daily Quests",
-            DefaultValue = false,
             TooltipText = "Toggle to ignore daily quests.",
             SavedVariable = "IgnoreDailyQuests",
         },
         {
             Type = "CheckButton",
             Name = "Party Play",
-            DefaultValue = false,
             TooltipText = "Toggle to make playing with friends a little easier.\n\n" ..
             addon.RedText("Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
             SavedVariable = "UsePartyPlay",
@@ -149,7 +131,6 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Purchase Quest Items",
-            DefaultValue = false,
             TooltipText = "Toggle to automatically purchase quest items from merchants.\n\n" ..
             addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "PurchaseQuestItems",
@@ -157,7 +138,6 @@ addon.Settings = {
         {
             Type = "DropDown",
             Name = "Chromie Time",
-            DefaultValue = 0,
             TooltipText = "Select the expansion to use when speaking with Chromie in Orgrimmar or Stormwind City.",
             Options = {
                 --{ 16, "Dragonflight" }, -- Dragonflight isn't supported yet (not until The War Within).
@@ -176,7 +156,6 @@ addon.Settings = {
         {
             Type = "DropDown",
             Name = "Quest Rewards",
-            DefaultValue = 0,
             TooltipText = format("Select how quest rewards should be chosen.\n\n" ..
             "If Item Level is selected, then chosen quest rewards are automatically equipped by %s.", addonName),
             Options = {
@@ -191,19 +170,17 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Repairs",
-            DefaultValue = false,
             TooltipText = "Toggle to allow automatic repair.",
             SavedVariable = "ShouldRepair",
         },
         {
             Type = "Slider",
             Name = "Trainer Protection Value",
-            DefaultValue = 0,
             TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.",
             Options = {
                 minValue = 0,
-                maxValue = 20,
-                step = 1,
+                maxValue = 1000,
+                step = 10,
             },
             SavedVariable = "TrainerProtectionValue",
         },

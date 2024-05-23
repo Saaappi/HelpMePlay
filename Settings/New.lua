@@ -1,6 +1,11 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+local function OnSettingChanged(_, setting, value)
+    local variable = setting:GetVariable()
+    HelpMePlayDB[variable] = value
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
@@ -9,60 +14,43 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             addon.New = function(elementName, ...)
                 if elementName == "BasicButton" then
                 elseif elementName == "CheckButton" then
-                    local name, category, defaultValue, tooltipText, savedVariable = ...
+                    local name, category, tooltipText, savedVariable = ...
                     do
                         local function GetValue()
-                            return HelpMePlayDB[savedVariable]
+                            Settings.GetValue(savedVariable)
                         end
 
-                        local function SetValue(value)
-                            if savedVariable == "AcceptAndCompleteAllQuests" and value then
-                                HelpMePlayDB["AcceptAndCompleteQuests"] = not value
-                            elseif savedVariable == "AcceptAndCompleteQuests" and value then
-                                HelpMePlayDB["AcceptAndCompleteAllQuests"] = not value
-                            end
-                            HelpMePlayDB[savedVariable] = value
-                        end
-
-                        local setting = Settings.RegisterProxySetting(category, savedVariable, HelpMePlayDB, Settings.VarType.Boolean, name, defaultValue, GetValue, SetValue)
+                        local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Boolean, HelpMePlayDB[savedVariable])
                         Settings.CreateCheckBox(category, setting, tooltipText)
+                        Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
+
+                        GetValue()
                     end
                 elseif elementName == "DropDown" then
-                    local name, category, defaultValue, tooltipText, options, savedVariable = ...
-
-                    local function GetValue()
-                        return HelpMePlayDB[savedVariable]
-                    end
-
-                    local function SetValue(value)
-                        HelpMePlayDB[savedVariable] = value
-                    end
+                    local name, category, tooltipText, options, savedVariable = ...
 
                     local function GetOptions()
                         local container = Settings.CreateControlTextContainer()
-                        for index, option in ipairs(options) do
+                        for _, option in ipairs(options) do
                             container:Add(option[1], option[2])
                         end
                         return container:GetData()
                     end
-                    local setting = Settings.RegisterProxySetting(category, savedVariable, HelpMePlayDB, Settings.VarType.Number, name, defaultValue, GetValue, SetValue)
+                    local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
                     Settings.CreateDropDown(category, setting, GetOptions, tooltipText)
+                    Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
                 elseif elementName == "Slider" then
-                    local name, category, defaultValue, tooltipText, options, savedVariable = ...
+                    local name, category, tooltipText, options, savedVariable = ...
 
                     local function GetValue()
                         return tonumber(HelpMePlayDB[savedVariable], 10)
                     end
 
-                    local function SetValue(value)
-                        HelpMePlayDB[savedVariable] = tonumber(value, 10)
-                    end
-
-                    local setting = Settings.RegisterProxySetting(category, savedVariable, HelpMePlayDB, Settings.VarType.Number, name, defaultValue, GetValue, SetValue)
-
-                    local opt = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.step);
-                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetFormatter1to10(options.minValue, options.maxValue))
+                    local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
+                    local opt = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.step)
+                    opt:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
                     Settings.CreateSlider(category, setting, opt, tooltipText)
+                    Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
                 end
             end
 
