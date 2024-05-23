@@ -231,6 +231,13 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 HelpMePlayDB["Mounts"]["Unused"] = {}
             end
 
+            -- Due to the nature of how Trainer Protection Value
+            -- works going forward, let's make the adjustment to
+            -- the player's value if they chose something over 20.
+            if HelpMePlayDB["TrainerProtectionValue"] > 20 then
+                HelpMePlayDB["TrainerProtectionValue"] = 20
+            end
+
             -- Delete the old, unused saved variables.
             HelpMePlayDB["MinimapIconEnabled"] = nil
             HelpMePlayDB["Junker"] = nil

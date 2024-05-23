@@ -47,6 +47,22 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
                     local setting = Settings.RegisterProxySetting(category, savedVariable, HelpMePlayDB, Settings.VarType.Number, name, defaultValue, GetValue, SetValue)
                     Settings.CreateDropDown(category, setting, GetOptions, tooltipText)
+                elseif elementName == "Slider" then
+                    local name, category, defaultValue, tooltipText, options, savedVariable = ...
+
+                    local function GetValue()
+                        return tonumber(HelpMePlayDB[savedVariable], 10)
+                    end
+
+                    local function SetValue(value)
+                        HelpMePlayDB[savedVariable] = tonumber(value, 10)
+                    end
+
+                    local setting = Settings.RegisterProxySetting(category, savedVariable, HelpMePlayDB, Settings.VarType.Number, name, defaultValue, GetValue, SetValue)
+
+                    local opt = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.step);
+                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetFormatter1to10(options.minValue, options.maxValue))
+                    Settings.CreateSlider(category, setting, opt, tooltipText)
                 end
             end
 

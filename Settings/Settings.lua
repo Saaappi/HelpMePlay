@@ -1,6 +1,5 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
-local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
 -- Compare's elements of a table, and then sorts them
 -- alphabetically by the Name attribute.
@@ -10,6 +9,7 @@ end
 
 local GENERAL_SECTION = "General"
 local QUEST_SECTION = "Quest"
+local MERCHANT_SECTION = "Merchants & Trainers"
 
 -- Register the addon to the Settings panel as a category.
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
@@ -34,7 +34,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if addonLoaded == addonName then
             C_Timer.After(1, function()
                 ------------------------
-                -- GENERAL AUTOMATION --
+                -- GENERAL SECTION -----
                 ------------------------
                 -- Sort the table before we iterate through it.
                 table.sort(addon.Settings.General, Compare)
@@ -42,15 +42,19 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, checkButton in ipairs(addon.Settings.General) do
-                    addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                    if checkButton.Type == "CheckButton" then
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                    elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                    end
                 end
 
+                ------------------------
+                -- QUEST SECTION -------
+                ------------------------
                 -- Initialize a section for quest automation.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUEST_SECTION))
 
-                ------------------------
-                -- QUEST AUTOMATION ----
-                ------------------------
                 -- Sort the table before we iterate through it.
                 table.sort(addon.Settings.Quest, Compare)
 
@@ -59,7 +63,26 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 for _, checkButton in ipairs(addon.Settings.Quest) do
                     if checkButton.Type == "CheckButton" then
                         addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
-                    elseif checkButton.Type == "DropDown" then
+                    elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
+                    end
+                end
+
+                ------------------------
+                -- MERCHANT SECTION ----
+                ------------------------
+                -- Initialize a section for quest automation.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(MERCHANT_SECTION))
+
+                -- Sort the table before we iterate through it.
+                table.sort(addon.Settings.Merchant, Compare)
+
+                -- Iterate through the now-sorted table and add them to
+                -- the addon's category.
+                for _, checkButton in ipairs(addon.Settings.Merchant) do
+                    if checkButton.Type == "CheckButton" then
+                        addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
+                    elseif checkButton.Type == "DropDown" or checkButton.Type == "Slider" then
                         addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.Options, checkButton.SavedVariable)
                     end
                 end
@@ -71,28 +94,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     end
 end)
 
-
-
--- Font Strings
---local addonAuthor
---local addonVersion
-
 -- Basic Buttons
 local openIssueButton
 local talentImporterButton
 local heirloomButton
 --local routeBuilderButton
 
--- Dropdowns
-local chromieTimeDropDown
-local questRewardsDropDown
-
 -- Edit Boxes
 local trainerProtectionValueEB
 local depositKeepAmountValueEB
-
--- Help Buttons
---local outdatedVersionHB
 
 -- This is the date of the NEXT update. If the player's
 -- installed version of the addon is older than the date
@@ -107,36 +117,6 @@ local depositKeepAmountValueEB
 }]]
 
 C_Timer.After(5, function()
-    --[[addonAuthor = Panel:CreateFontString(addonName .. "Author", nil, "GameTooltipText")
-    addonAuthor:SetPoint("TOPLEFT", 15, -10)
-    addonAuthor:SetText("|cffFFD100Author:|r " .. C_AddOns.GetAddOnMetadata(addonName, "Author"))
-    
-    addonVersion = Panel:CreateFontString(addonName .. "Version", nil, "GameTooltipText")
-    addonVersion:SetPoint("TOPLEFT", addonAuthor, "BOTTOMLEFT", 0, -5)
-    addonVersion:SetText("|cffFFD100Version:|r " .. C_AddOns.GetAddOnMetadata(addonName, "Version"))
-
-    outdatedVersionHB = {
-        name = addonName .. "OutdatedVersionHB",
-        parent = Panel,
-        anchor = "TOPLEFT",
-        relativeAnchor = "TOPLEFT",
-        oX = -5,
-        oY = -25,
-        width = 16,
-        height = 16,
-        tooltipText = C_AddOns.GetAddOnMetadata(addonName, "Version") .. " is an outdated version. You should check CurseForge for an update.",
-    }
-    setmetatable(outdatedVersionHB, { __index = HelpMePlay.Button })
-    outdatedVersionHB = outdatedVersionHB:HelpButton()
-    if C_DateAndTime.CompareCalendarTime(C_DateAndTime.GetCurrentCalendarTime(), nextUpdate) == -1 then
-         outdatedVersionHB:Show()
-    else
-         outdatedVersionHB:Hide()
-    end]]
-
-    --------------------
-    -- DROPDOWN MENUS --
-    --------------------
     --[[trainerProtectionValueEB = {
         name = addonName .. "TrainerProtectionValueEB",
         parent = questRewardsDropDown,

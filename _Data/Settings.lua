@@ -45,13 +45,6 @@ addon.Settings = {
         },
         {
             Type = "CheckButton",
-            Name = "Repairs",
-            DefaultValue = false,
-            TooltipText = "Toggle to automatically repair at merchants.",
-            SavedVariable = "ShouldRepair",
-        },
-        {
-            Type = "CheckButton",
             Name = "Skip Cutscenes",
             DefaultValue = false,
             TooltipText = "Toggle skipping cutscenes and in-game movies.",
@@ -192,6 +185,27 @@ addon.Settings = {
                 { 0, NONE },
             },
             SavedVariable = "QuestRewardSelectionTypeID",
+        },
+    },
+    Merchant = {
+        {
+            Type = "CheckButton",
+            Name = "Repairs",
+            DefaultValue = false,
+            TooltipText = "Toggle to allow automatic repair.",
+            SavedVariable = "ShouldRepair",
+        },
+        {
+            Type = "Slider",
+            Name = "Trainer Protection Value",
+            DefaultValue = 0,
+            TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.",
+            Options = {
+                minValue = 0,
+                maxValue = 20,
+                step = 1,
+            },
+            SavedVariable = "TrainerProtectionValue",
         },
     },
 }
