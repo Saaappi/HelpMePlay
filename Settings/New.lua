@@ -4,6 +4,15 @@ local eventHandler = CreateFrame("Frame")
 local function OnSettingChanged(_, setting, value)
     local variable = setting:GetVariable()
     HelpMePlayDB[variable] = value
+
+    -- Handler for the Quest Mobs icon/position.
+    if variable == "QuestMobsIconID" then
+        if value == 1 or value == 2 then
+            addon.UpdateQuestMobsIcon()
+        elseif value == 3 then
+            print("A")
+        end
+    end
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")

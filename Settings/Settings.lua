@@ -11,6 +11,7 @@ local GENERAL_SECTION = "General"
 local QUEST_SECTION = "Quest"
 local MERCHANT_SECTION = "Merchants & Trainers"
 local GUILDBANK_SECTION = "Guild Bank"
+local QUESTMOBS_SECTION = "Quest Mobs"
 
 -- Register the addon to the Settings panel as a category.
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
@@ -25,7 +26,7 @@ local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
 local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
 
--- Initialize a section for general automation.
+-- Initialize a section for general stuff.
 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_SECTION))
 
 eventHandler:RegisterEvent("ADDON_LOADED")
@@ -53,7 +54,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 ------------------------
                 -- QUEST SECTION -------
                 ------------------------
-                -- Initialize a section for quest automation.
+                -- Initialize a section for quests.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUEST_SECTION))
 
                 -- Sort the table before we iterate through it.
@@ -72,7 +73,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 ------------------------
                 -- MERCHANT SECTION ----
                 ------------------------
-                -- Initialize a section for quest automation.
+                -- Initialize a section for merchants.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(MERCHANT_SECTION))
 
                 -- Sort the table before we iterate through it.
@@ -91,7 +92,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 --------------------------
                 -- GUILD BANK SECTION ----
                 --------------------------
-                -- Initialize a section for quest automation.
+                -- Initialize a section for guild banks.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GUILDBANK_SECTION))
 
                 -- Sort the table before we iterate through it.
@@ -100,6 +101,25 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.GuildBank) do
+                    if setting.Type == "CheckButton" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
+                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
+                    end
+                end
+
+                --------------------------
+                -- QUEST MOBS SECTION ----
+                --------------------------
+                -- Initialize a section for quest automation.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUESTMOBS_SECTION))
+
+                -- Sort the table before we iterate through it.
+                table.sort(addon.Settings.QuestMobs, Compare)
+
+                -- Iterate through the now-sorted table and add them to
+                -- the addon's category.
+                for _, setting in ipairs(addon.Settings.QuestMobs) do
                     if setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then

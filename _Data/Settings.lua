@@ -196,7 +196,7 @@ addon.Settings = {
         {
             Type = "Slider",
             Name = "Deposit Keep Amount",
-            TooltipText = "Enter the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
+            TooltipText = "Use the slider to set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
             "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
             addon.RedText("Use /hmp set DepositKeepAmount N, where N is any number between 0 and 9,999,999 to manually set the value if you don't want to use the slider."),
             Options = {
@@ -205,6 +205,54 @@ addon.Settings = {
                 step = 10000,
             },
             SavedVariable = "DepositKeepAmount",
+        },
+    },
+    QuestMobs = {
+        {
+            Type = "DropDown",
+            Name = "Quest Mobs Icon",
+            TooltipText = "Select the icon that should appear on the nameplate of NPCs related to active quest(s).",
+            Options = {
+                { 1, "Quest" },
+                { 2, "Treasure Goblin" },
+                { 3, "Custom" },
+                { 0, NONE },
+            },
+            SavedVariable = "QuestMobsIconID",
+        },
+        {
+            Type = "DropDown",
+            Name = "Quest Mobs Icon Position",
+            TooltipText = "Select the position the icon should appear on the nameplate.",
+            Options = {
+                { 1, "Quest" },
+                { 2, "Treasure Goblin" },
+                { 3, "Custom" },
+                { 0, NONE },
+            },
+            SavedVariable = "QuestMobsIconPositionID",
+        },
+        {
+            Type = "Slider",
+            Name = "X Offset",
+            TooltipText = "Use the slider to set the icon's X offset.",
+            Options = {
+                minValue = -25,
+                maxValue = 25,
+                step = 1,
+            },
+            SavedVariable = "QuestMobsIconXOffset",
+        },
+        {
+            Type = "Slider",
+            Name = "Y Offset",
+            TooltipText = "Use the slider to set the icon's Y offset.",
+            Options = {
+                minValue = -25,
+                maxValue = 25,
+                step = 1,
+            },
+            SavedVariable = "QuestMobsIconYOffset",
         },
     }
 }
