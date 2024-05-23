@@ -44,7 +44,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
-                for _, checkButton in ipairs(addon.Settings.CheckButtons.General) do
+                for _, checkButton in ipairs(addon.Settings.General) do
                     addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
                 end
 
@@ -62,7 +62,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
-                for _, checkButton in ipairs(addon.Settings.CheckButtons.Quest) do
+                for _, checkButton in ipairs(addon.Settings.Quest) do
                     addon.New(checkButton.Type, checkButton.Name, category, checkButton.DefaultValue, checkButton.TooltipText, checkButton.SavedVariable)
                 end
             end)
