@@ -202,7 +202,7 @@ addon.Settings = {
                 maxValue = 9999999,
                 step = 10000,
             },
-            SavedVariable = "TrainerProtectionValue",
+            SavedVariable = "DepositKeepAmount",
         },
     }
 }
