@@ -18,7 +18,7 @@ _Data\Settings.lua
 _Data\Map_Data.lua
 _Data\Quests.lua
 _Data\Talent_Data.lua
-_Data\QuestMobs.lua
+#_Data\QuestMobs.lua
 _Data\WorldEvents_Data.lua
 _Data\TalentImporter.lua
 _Data\Heirloom.lua
@@ -30,7 +30,7 @@ Settings\TalentImporter.lua
 Settings\Heirloom.lua
 Settings\Settings.lua
 Settings\NewCharacterConfiguration.lua
-Settings\Settings_QuestMobs.lua
+#Settings\Settings_QuestMobs.lua
 
 # Classes
 _Classes\Tooltip.lua
