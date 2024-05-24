@@ -10,8 +10,34 @@ local function OnSettingChanged(_, setting, value)
         if value == 1 or value == 2 then
             addon.UpdateQuestMobsIcon()
         elseif value == 3 then
-            print("A")
+            StaticPopupDialogs["HELPMEPLAY_QUESTMOBS_CUSTOM_ICON"] = {
+                text = "Please enter the texture ID for your custom icon. The texture ID can be found in the URL at |cffFFD100https://www.wowhead.com/icons/|r.\n\n" ..
+                "Search for an icon, click it, then take the number after |cffFFD100icon=|r in the URL.",
+                button1 = YES,
+                button2 = NO,
+                OnAccept = function(self)
+                    local input = self.editBox:GetText()
+                    if tonumber(input, 10) then
+                        HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input, 10)
+                        addon.UpdateQuestMobsIcon()
+                    else
+                        HelpMePlay.Print("Input was invalid.")
+                    end
+                end,
+                timeout = 0,
+                showAlert = false,
+                whileDead = false,
+                hideOnEscape = true,
+                hasEditBox = true,
+                enterClicksFirstButton = false,
+                preferredIndex = 3,
+            }
+            StaticPopup_Show("HELPMEPLAY_QUESTMOBS_CUSTOM_ICON")
         end
+    elseif variable == "QuestMobsIconPositionID" then
+        addon.UpdateQuestMobsIconPosition()
+    elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
+        addon.UpdateQuestMobsIconPosition()
     end
 end
 
