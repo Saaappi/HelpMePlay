@@ -7,10 +7,21 @@ addon.RedText = function(str)
     return format("|cffFF0000%s|r", str)
 end
 
---[[addon.Panel = CreateFrame("Frame", addonName .. "SettingsPanel", SettingsPanel)
-addon.Panel:Hide()
-addon.Panel.name = addonName
-InterfaceOptions_AddCategory(addon.Panel)]]
+-- Get all the player's Edit Mode layouts and return them
+-- so the dropdown menu can populate its options with
+-- the player's layouts.
+local function GetEditModeLayouts()
+    local layouts = {
+        { 1, "Modern" },
+        { 2, "Classic" },
+    }
+    local customLayouts = C_EditMode.GetLayouts()
+    for index, layout in ipairs(customLayouts.layouts) do
+        table.insert(layouts, (index + 2), { (index + 2), layout.layoutName })
+    end
+
+    return layouts
+end
 
 addon.Settings = {
     General = {
@@ -257,6 +268,99 @@ addon.Settings = {
                 step = 1,
             },
             SavedVariable = "QuestMobsIconYOffset",
+        },
+    },
+    NewCharacter = {
+        {
+            Type = "CheckButton",
+            Name = "Action Bar 2",
+            TooltipText = "",
+            SavedVariable = "NCC_ActionBar2",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Action Bar 3",
+            TooltipText = "",
+            SavedVariable = "NCC_ActionBar3",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Action Bar 4",
+            TooltipText = "",
+            SavedVariable = "NCC_ActionBar4",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Action Bar 5",
+            TooltipText = "",
+            SavedVariable = "NCC_ActionBar5",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Action Bar 6",
+            TooltipText = "",
+            SavedVariable = "NCC_ActionBar6",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Action Bar 7",
+            TooltipText = "",
+            SavedVariable = "NCC_ActionBar7",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Action Bar 8",
+            TooltipText = "",
+            SavedVariable = "NCC_ActionBar8",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Clear All Tracking",
+            TooltipText = "Toggle to clear all tracking options from the minimap. De-toggle to keep the default tracking options enabled.",
+            SavedVariable = "ClearAllTracking",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Auto Loot",
+            TooltipText = "Toggle to enable Auto Loot. De-toggle to disable Auto Loot.",
+            SavedVariable = "AutoLoot",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Disable Tutorials",
+            TooltipText = "Toggle to disable the tutorial popups. De-toggle if you wish to see the tutorial popups.",
+            SavedVariable = "DisableTutorials",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Auto Push Spells",
+            TooltipText = "Toggle to automatically push spells to your action bars. De-toggle if you don't want spells to automatically push to your action bars.",
+            SavedVariable = "AutoPushSpells",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Class Color Frames",
+            TooltipText = "Toggle to make the PvP and raid frames use class colors instead of health. De-toggle to keep health as the defining color.",
+            SavedVariable = "ClassColorFrames",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Loot Under Mouse",
+            TooltipText = "Toggle to make the loot window appear under your mouse. De-toggle to make the loot window appear near the top-left corner.",
+            SavedVariable = "LootUnderMouse",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Disable Dialog",
+            TooltipText = "Toggle to silence dialog. De-toggle to enable dialog.",
+            SavedVariable = "DisableDialog",
+        },
+        {
+            Type = "DropDown",
+            Name = "Edit Mode",
+            TooltipText = "Select the default layout you would like all your new characters to use.",
+            Options = GetEditModeLayouts(),
+            SavedVariable = "NCC_EditModeLayoutID",
         },
     }
 }

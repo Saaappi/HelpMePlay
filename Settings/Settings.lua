@@ -12,6 +12,7 @@ local QUEST_SECTION = "Quest"
 local MERCHANT_SECTION = "Merchants & Trainers"
 local GUILDBANK_SECTION = "Guild Bank"
 local QUESTMOBS_SECTION = "Quest Mobs"
+local NEW_CHARACTER_SECTION = "New Character Configuration"
 
 -- Register the addon to the Settings panel as a category.
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
@@ -111,7 +112,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 --------------------------
                 -- QUEST MOBS SECTION ----
                 --------------------------
-                -- Initialize a section for quest automation.
+                -- Initialize a section for quest mobs.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUESTMOBS_SECTION))
 
                 -- Sort the table before we iterate through it.
@@ -120,6 +121,25 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.QuestMobs) do
+                    if setting.Type == "CheckButton" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
+                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
+                    end
+                end
+
+                -------------------------------------------
+                -- NEW CHARACTER CONFIGURATION SECTION ----
+                -------------------------------------------
+                -- Initialize a section for new character configuration.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(NEW_CHARACTER_SECTION))
+
+                -- Sort the table before we iterate through it.
+                table.sort(addon.Settings.NewCharacter, Compare)
+
+                -- Iterate through the now-sorted table and add them to
+                -- the addon's category.
+                for _, setting in ipairs(addon.Settings.NewCharacter) do
                     if setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then

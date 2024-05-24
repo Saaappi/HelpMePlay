@@ -1,71 +1,10 @@
 local addonName, addon = ...
 local LibDD = LibStub:GetLibrary("LibUIDropDownMenu-4.0")
 
--- Font Strings
-local actionBarsSectionFont
-local cVarsSectionFont
-
--- Check Buttons
-local clearAllTrackingCB
-local autoLootCB
-local disableTutorialsCB
-local autoPushSpellsCB
-local classColorFramesCB
-local lootWindowUnderMouseCB
-local disableDialogCB
-
--- DropDowns
-local editModeDropDown
-
 local Panel = CreateFrame("Frame", addonName .. "NewCharacterConfigurationPanel")
 Panel.name = "New Character Config"
 Panel.parent = _G[addonName .. "SettingsPanel"].name
 InterfaceOptions_AddCategory(Panel)
-
--- Get all the player's Edit Mode layouts and return them
--- so the dropdown menu can populate its options with
--- the player's layouts.
-local function GetLayouts()
-    local layouts = {
-        {
-            ["text"] = "Modern",
-            ["disabled"] = false,
-            ["func"] = function()
-                local layoutID = 1
-                HelpMePlayDB["NCC_EditModeLayoutID"] = layoutID
-                LibDD:UIDropDownMenu_SetSelectedValue(editModeDropDown, layoutID, layoutID)
-                LibDD:UIDropDownMenu_SetText(editModeDropDown, "Modern")
-            end,
-        },
-        {
-            ["text"] = "Classic",
-            ["disabled"] = false,
-            ["func"] = function()
-                local layoutID = 2
-                HelpMePlayDB["NCC_EditModeLayoutID"] = layoutID
-                LibDD:UIDropDownMenu_SetSelectedValue(editModeDropDown, layoutID, layoutID)
-                LibDD:UIDropDownMenu_SetText(editModeDropDown, "Classic")
-            end,
-        },
-    }
-    local gameLayouts = C_EditMode.GetLayouts()
-    for index, layout in ipairs(gameLayouts.layouts) do
-        table.insert(layouts, (index + 2),
-            {
-                ["text"] = layout.layoutName,
-                ["disabled"] = false,
-                ["func"] = function()
-                    local layoutID = index + 2
-                    HelpMePlayDB["NCC_EditModeLayoutID"] = layoutID
-                    LibDD:UIDropDownMenu_SetSelectedValue(editModeDropDown, layoutID, layoutID)
-                    LibDD:UIDropDownMenu_SetText(editModeDropDown, layout.layoutName)
-                end,
-            }
-        )
-    end
-
-    return layouts
-end
 
 C_Timer.After(5, function()
     -- Create an enable button. If it's enabled, then the new character
@@ -96,13 +35,13 @@ C_Timer.After(5, function()
     nccEnabledCB:SetChecked(HelpMePlayDB["NCCEnabled"])
 
     -- Action Bars Section Title
-    actionBarsSectionFont = Panel:CreateFontString(addonName .. "ActionBars", nil, "GameTooltipText")
+    --[[actionBarsSectionFont = Panel:CreateFontString(addonName .. "ActionBars", nil, "GameTooltipText")
     actionBarsSectionFont:SetPoint("TOPLEFT", 15, -10)
-    actionBarsSectionFont:SetText("Action Bars")
+    actionBarsSectionFont:SetText("Action Bars")]]
 
     -- Using a loop, create 7 check buttons, each corresponding to
     -- the action bar toggles in the settings.
-    for i = 2, 8 do
+    --[[for i = 2, 8 do
         local actionBarCheckButton = CreateFrame("CheckButton", (addonName .. "ActionBarButtonCB" .. i), Panel, "SettingsCheckBoxTemplate")
         if i == 2 then
             actionBarCheckButton:SetPoint("TOPLEFT", Panel, "TOPLEFT", 15, -30)
@@ -128,16 +67,16 @@ C_Timer.After(5, function()
         end)
 
         actionBarCheckButton:SetChecked(HelpMePlayDB["NCC_ActionBar" .. i])
-    end
+    end]]
 
     -- CVars Section Title
-    cVarsSectionFont = Panel:CreateFontString(addonName .. "CVars", nil, "GameTooltipText")
+    --[[cVarsSectionFont = Panel:CreateFontString(addonName .. "CVars", nil, "GameTooltipText")
     cVarsSectionFont:SetPoint("TOPLEFT", _G[addonName .. "ActionBarButtonCB" .. 8], "BOTTOMLEFT", 0, -20)
-    cVarsSectionFont:SetText("CVars")
+    cVarsSectionFont:SetText("CVars")]]
 
     -- This check button toggles automation to clear the minimap of all
     -- tracking options.
-    clearAllTrackingCB = {
+    --[[clearAllTrackingCB = {
         name = addonName .. "ClearAllTrackingCB",
         parent = _G[addonName .. "ActionBarButtonCB" .. 8],
         anchor = "TOPLEFT",
@@ -152,10 +91,10 @@ C_Timer.After(5, function()
     }
     setmetatable(clearAllTrackingCB, { __index = HelpMePlay.Button })
     clearAllTrackingCB = clearAllTrackingCB:CheckButton()
-    clearAllTrackingCB:SetChecked(HelpMePlayDB["ClearAllTracking"])
+    clearAllTrackingCB:SetChecked(HelpMePlayDB["ClearAllTracking"])]]
 
     -- This check button toggles Auto Loot on.
-    autoLootCB = {
+    --[[autoLootCB = {
         name = addonName .. "AutoLootCB",
         parent = clearAllTrackingCB,
         anchor = "TOPLEFT",
@@ -170,10 +109,10 @@ C_Timer.After(5, function()
     }
     setmetatable(autoLootCB, { __index = HelpMePlay.Button })
     autoLootCB = autoLootCB:CheckButton()
-    autoLootCB:SetChecked(HelpMePlayDB["AutoLoot"])
+    autoLootCB:SetChecked(HelpMePlayDB["AutoLoot"])]]
 
     -- This check button will prevent the tutorial popups.
-    disableTutorialsCB = {
+    --[[disableTutorialsCB = {
         name = addonName .. "DisableTutorialsCB",
         parent = autoLootCB,
         anchor = "TOPLEFT",
@@ -188,11 +127,11 @@ C_Timer.After(5, function()
     }
     setmetatable(disableTutorialsCB, { __index = HelpMePlay.Button })
     disableTutorialsCB = disableTutorialsCB:CheckButton()
-    disableTutorialsCB:SetChecked(HelpMePlayDB["DisableTutorials"])
+    disableTutorialsCB:SetChecked(HelpMePlayDB["DisableTutorials"])]]
 
     -- This check button will prevent new spells from being pushed
     -- to the action bars automatically.
-    autoPushSpellsCB = {
+    --[[autoPushSpellsCB = {
         name = addonName .. "AutoPushSpellsCB",
         parent = disableTutorialsCB,
         anchor = "TOPLEFT",
@@ -207,11 +146,11 @@ C_Timer.After(5, function()
     }
     setmetatable(autoPushSpellsCB, { __index = HelpMePlay.Button })
     autoPushSpellsCB = autoPushSpellsCB:CheckButton()
-    autoPushSpellsCB:SetChecked(HelpMePlayDB["AutoPushSpells"])
+    autoPushSpellsCB:SetChecked(HelpMePlayDB["AutoPushSpells"])]]
 
     -- This check button will make the PvP and PvE frames use class
     -- colors.
-    classColorFramesCB = {
+    --[[classColorFramesCB = {
         name = addonName .. "ClassColorFramesCB",
         parent = autoPushSpellsCB,
         anchor = "TOPLEFT",
@@ -226,11 +165,11 @@ C_Timer.After(5, function()
     }
     setmetatable(classColorFramesCB, { __index = HelpMePlay.Button })
     classColorFramesCB = classColorFramesCB:CheckButton()
-    classColorFramesCB:SetChecked(HelpMePlayDB["ClassColorFrames"])
+    classColorFramesCB:SetChecked(HelpMePlayDB["ClassColorFrames"])]]
 
     -- This check button will make the loot window appear under the
     -- mouse.
-    lootWindowUnderMouseCB = {
+    --[[lootWindowUnderMouseCB = {
         name = addonName .. "LootWindowUnderMouseCB",
         parent = classColorFramesCB,
         anchor = "TOPLEFT",
@@ -245,10 +184,10 @@ C_Timer.After(5, function()
     }
     setmetatable(lootWindowUnderMouseCB, { __index = HelpMePlay.Button })
     lootWindowUnderMouseCB = lootWindowUnderMouseCB:CheckButton()
-    lootWindowUnderMouseCB:SetChecked(HelpMePlayDB["LootUnderMouse"])
+    lootWindowUnderMouseCB:SetChecked(HelpMePlayDB["LootUnderMouse"])]]
 
     -- This check button grants the ability to toggle dialog.
-    disableDialogCB = {
+    --[[disableDialogCB = {
         name = addonName .. "DisableDialogCB",
         parent = lootWindowUnderMouseCB,
         anchor = "TOPLEFT",
@@ -263,11 +202,11 @@ C_Timer.After(5, function()
     }
     setmetatable(disableDialogCB, { __index = HelpMePlay.Button })
     disableDialogCB = disableDialogCB:CheckButton()
-    disableDialogCB:SetChecked(HelpMePlayDB["DisableDialog"])
+    disableDialogCB:SetChecked(HelpMePlayDB["DisableDialog"])]]
 
     -- This dropdown will allow players to define the Edit Mode
     -- layout they wish to use on all their characters.
-    editModeDropDown = {
+    --[[editModeDropDown = {
         name = addonName .. "EditModeDropDown",
         parent = _G[addonName .. "ActionBarButtonCB" .. 2],
         anchor = "LEFT",
@@ -282,6 +221,6 @@ C_Timer.After(5, function()
         options = GetLayouts(),
     }
     setmetatable(editModeDropDown, { __index = HelpMePlay.DropDown })
-    editModeDropDown = editModeDropDown:DropDown()
-    LibDD:UIDropDownMenu_SetText(editModeDropDown, GetLayouts()[HelpMePlayDB["NCC_EditModeLayoutID"]].text)
+    editModeDropDown = editModeDropDown:DropDown()]]
+    --LibDD:UIDropDownMenu_SetText(editModeDropDown, GetLayouts()[HelpMePlayDB["NCC_EditModeLayoutID"]].text)
 end)
