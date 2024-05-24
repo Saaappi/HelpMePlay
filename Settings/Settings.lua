@@ -13,6 +13,7 @@ local MERCHANT_SECTION = "Merchants & Trainers"
 local GUILDBANK_SECTION = "Guild Bank"
 local QUESTMOBS_SECTION = "Quest Mobs"
 local NEW_CHARACTER_SECTION = "New Character Configuration"
+local UTILITIES_SECTION = "Utilities"
 
 -- Register the addon to the Settings panel as a category.
 local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
@@ -21,6 +22,7 @@ Settings.RegisterAddOnCategory(category)
 -- Add the variable to the namespace, so we can use it to
 -- open the settings in a slash command.
 addon.category = category
+addon.layout = layout
 
 -- Initialize a section for the addon's version and author text.
 local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
@@ -45,7 +47,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.General) do
-                    if setting.Type == "CheckButton" then
+                    if setting.Type == "BasicButton" then
+                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
+                    elseif setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
@@ -64,7 +68,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.Quest) do
-                    if setting.Type == "CheckButton" then
+                    if setting.Type == "BasicButton" then
+                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
+                    elseif setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
@@ -83,7 +89,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.Merchant) do
-                    if setting.Type == "CheckButton" then
+                    if setting.Type == "BasicButton" then
+                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
+                    elseif setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
@@ -102,7 +110,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.GuildBank) do
-                    if setting.Type == "CheckButton" then
+                    if setting.Type == "BasicButton" then
+                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
+                    elseif setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
@@ -121,7 +131,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.QuestMobs) do
-                    if setting.Type == "CheckButton" then
+                    if setting.Type == "BasicButton" then
+                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
+                    elseif setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
@@ -140,7 +152,30 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Iterate through the now-sorted table and add them to
                 -- the addon's category.
                 for _, setting in ipairs(addon.Settings.NewCharacter) do
-                    if setting.Type == "CheckButton" then
+                    if setting.Type == "BasicButton" then
+                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
+                    elseif setting.Type == "CheckButton" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
+                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
+                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
+                    end
+                end
+
+                -------------------------
+                -- UTILITIES SECTION ----
+                -------------------------
+                -- Initialize a section for utilities.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(UTILITIES_SECTION))
+
+                -- Sort the table before we iterate through it.
+                table.sort(addon.Settings.Utilities, Compare)
+
+                -- Iterate through the now-sorted table and add them to
+                -- the addon's category.
+                for _, setting in ipairs(addon.Settings.Utilities) do
+                    if setting.Type == "BasicButton" then
+                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
+                    elseif setting.Type == "CheckButton" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
@@ -155,7 +190,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 end)
 
 -- Basic Buttons
-local openIssueButton
 local talentImporterButton
 local heirloomButton
 --local routeBuilderButton
@@ -218,68 +252,4 @@ C_Timer.After(5, function()
             addon.OpenHeirloomSelector()
         end
     end)]]
-
-    --[[routeBuilderButton = {
-        name = addonName .. "RouteBuilderButton",
-        parent = heirloomButton,
-        anchor = "LEFT",
-        relativeAnchor = "RIGHT",
-        oX = 10,
-        oY = 0,
-        width = 125,
-        height = 25,
-        text = "Route Builder",
-        tooltipHeader = "Route Builder",
-        tooltipText = "Click to open the Route Builder utility.",
-        onClick = nil,
-    }
-    setmetatable(routeBuilderButton, { __index = HelpMePlay.Button })
-    routeBuilderButton = routeBuilderButton:BaseButton()
-    routeBuilderButton:SetScript("OnClick", function(self, button)
-        if button == "LeftButton" then
-            --HideUIPanel(SettingsPanel)
-            --addon.OpenTalentImporter()
-        end
-    end)
-    routeBuilderButton:SetEnabled(false)]]
-
-    --[[openIssueButton = {
-        name = addonName .. "OpenIssueButton",
-        parent = Panel,
-        anchor = "BOTTOMRIGHT",
-        relativeAnchor = "BOTTOMRIGHT",
-        oX = -10,
-        oY = 10,
-        width = 125,
-        height = 25,
-        text = "Open Issue",
-        tooltipHeader = "Open Issue",
-        tooltipText = "Click to get the Github issue page.",
-        onClick = function()
-            local popup = {
-                name = "HELPMEPLAY_OPEN_ISSUE",
-                text = "Hey! Thanks for being willing to open an issue. You rock! |T648207:16|t",
-                button1Text = "Close",
-                onShow = function(self)
-                    local function HidePopup(self) self:GetParent():Hide() end
-                    self.editBox:SetScript("OnKeyUp", function(self, key)
-                        if IsControlKeyDown() and key == "C" then HidePopup(self) end
-                    end)
-                    self.editBox:SetText("https://github.com/Saaappi/HelpMePlay/issues/new")
-                    self.editBox:HighlightText()
-                end,
-                showAlert = false,
-                whileDead = false,
-                hideOnEscape = true,
-                hasEditBox = true,
-                enterClicksFirstButton = true,
-                preferredIndex = 3,
-            }
-            setmetatable(popup, { __index = HelpMePlay.Frame })
-            popup = popup:Popup()
-            StaticPopup_Show(popup.name)
-        end,
-    }
-    setmetatable(openIssueButton, { __index = HelpMePlay.Button })
-    openIssueButton = openIssueButton:BaseButton()]]
 end)

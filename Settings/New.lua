@@ -48,6 +48,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if addonLoaded == addonName then
             addon.New = function(elementName, ...)
                 if elementName == "BasicButton" then
+                    local name, buttonText, clickHandler, tooltipText, addSearchTags = ...
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, addSearchTags)
+                    addon.layout:AddInitializer(initializer)
                 elseif elementName == "CheckButton" then
                     local name, category, tooltipText, savedVariable = ...
                     do
