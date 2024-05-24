@@ -30,7 +30,6 @@ Settings\TalentImporter.lua
 Settings\Heirloom.lua
 Settings\Settings.lua
 Settings\NewCharacterConfiguration.lua
-#Settings\Settings_QuestMobs.lua
 
 # Classes
 _Classes\Tooltip.lua
