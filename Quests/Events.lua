@@ -185,7 +185,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             local availableQuests = C_GossipInfo.GetAvailableQuests()
             if activeQuests and mapID then
                 for _, quest in ipairs(activeQuests) do
-                    if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                    if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+                            if quest.isComplete then
+                                C_GossipInfo.SelectActiveQuest(quest.questID)
+                                HelpMePlay.CompleteQuest()
+                            end
+                        end)
+                    end
+                    --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                         if HelpMePlayDB["GuideQuests"][mapID][quest.questID] then
                             if quest.isComplete then
                                 C_GossipInfo.SelectActiveQuest(quest.questID)
@@ -197,7 +205,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             C_GossipInfo.SelectActiveQuest(quest.questID)
                             HelpMePlay.CompleteQuest()
                         end
-                    end
+                    end]]
                 end
             end
             if availableQuests and mapID then
@@ -207,7 +215,13 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
                         -- We do nothing here because the player chose to ignore daily quests.
                     else
-                        if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
+                        if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                            C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+                                C_GossipInfo.SelectAvailableQuest(quest.questID)
+                                AcceptQuest()
+                            end)
+                        end
+                        --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
                             if HelpMePlayDB["GuideQuests"][mapID][quest.questID] then
                                 C_GossipInfo.SelectAvailableQuest(quest.questID)
                                 AcceptQuest()
@@ -215,7 +229,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
                             C_GossipInfo.SelectAvailableQuest(quest.questID)
                             AcceptQuest()
-                        end
+                        end]]
                     end
                 end
             end
