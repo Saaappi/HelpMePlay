@@ -189,11 +189,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     end
 end)
 
--- Basic Buttons
-local talentImporterButton
-local heirloomButton
---local routeBuilderButton
-
 -- This is the date of the NEXT update. If the player's
 -- installed version of the addon is older than the date
 -- below, then the user hasn't updated their addon.
@@ -205,51 +200,3 @@ local heirloomButton
     ["hour"] = 0,
     ["year"] = 1980
 }]]
-
-C_Timer.After(5, function()
-    --[[talentImporterButton = {
-        name = addonName .. "TalentImporterButton",
-        parent = addonName .. "RepairsCheckButton",
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -20,
-        width = 125,
-        height = 25,
-        text = "Talent Importer",
-        tooltipHeader = "Talent Importer",
-        tooltipText = "Click to open the Talent Importer utility.",
-        onClick = nil,
-    }
-    setmetatable(talentImporterButton, { __index = HelpMePlay.Button })
-    talentImporterButton = talentImporterButton:BaseButton()
-    talentImporterButton:SetScript("OnClick", function(self, button)
-        if button == "LeftButton" then
-            HideUIPanel(SettingsPanel)
-            addon.OpenTalentImporter()
-        end
-    end)
-
-    heirloomButton = {
-        name = addonName .. "HeirloomButton",
-        parent = talentImporterButton,
-        anchor = "TOPLEFT",
-        relativeAnchor = "BOTTOMLEFT",
-        oX = 0,
-        oY = -10,
-        width = 125,
-        height = 25,
-        text = "Heirlooms",
-        tooltipHeader = "Heirlooms",
-        tooltipText = "Click to open the Heirloom selection utility.",
-        onClick = nil,
-    }
-    setmetatable(heirloomButton, { __index = HelpMePlay.Button })
-    heirloomButton = heirloomButton:BaseButton()
-    heirloomButton:SetScript("OnClick", function(self, button)
-        if button == "LeftButton" then
-            HideUIPanel(SettingsPanel)
-            addon.OpenHeirloomSelector()
-        end
-    end)]]
-end)
