@@ -109,7 +109,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                             else
                                                 -- This is for every other reward that doesn't adhere to a dual wield class/spec.
                                                 -- Weapons of all varieties are still handled here, just not for dual wield classes/specs.
-                                                if itemLevelForInventoryItem < equippedItems[inventorySlotID] then
+                                                if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
                                                     C_Container.UseContainerItem(bagID, slotID)
                                                     numScrappableItems = numScrappableItems + 1
                                                 end
@@ -121,7 +121,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                         end
                                     else
                                         -- This is where all the armor items are processed.
-                                        if itemLevelForInventoryItem < equippedItems[inventorySlotID] then
+                                        if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
                                             C_Container.UseContainerItem(bagID, slotID)
                                             numScrappableItems = numScrappableItems + 1
                                         end
