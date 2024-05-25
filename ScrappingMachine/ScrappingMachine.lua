@@ -44,6 +44,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     equippedItems[10] = GetInventoryItemLink("player", 10) or 0     -- Hands
                     equippedItems[16] = GetInventoryItemLink("player", 16) or 0     -- Main Hand Weapon
                     equippedItems[17] = GetInventoryItemLink("player", 17) or 0     -- Off Hand Weapon (Holdable)
+                    equippedItems[20] = GetInventoryItemLink("player", 5) or 0      -- Robe (Chest)
 
                     -- Convert the equipped items into their item levels.
                     for inventorySlotID, value in pairs(equippedItems) do
@@ -121,9 +122,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                         end
                                     else
                                         -- This is where all the armor items are processed.
-                                        if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
-                                            C_Container.UseContainerItem(bagID, slotID)
-                                            numScrappableItems = numScrappableItems + 1
+                                        if equippedItems[inventorySlotID] then
+                                            if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
+                                                C_Container.UseContainerItem(bagID, slotID)
+                                                numScrappableItems = numScrappableItems + 1
+                                            end
                                         end
                                     end
                                 end
