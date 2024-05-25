@@ -1,4 +1,5 @@
 New Features:
+- A new button can be found on the Unraveling Sands in Remix, which will automatically fill the sands with unwanted items. The addon will not scrap items that are higher item level than what you have equipped. Additionally, it won't scrap Prismatic gems. Weapons that aren't applicable to your current specialization are automatically considered scrappable regardless of its item level.
 
 Enhancements:
 - Renamed "Open Holiday Items" to "Open Containers" and added Cache of Infinite Treasure to the list of supported items.

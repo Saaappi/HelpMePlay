@@ -101,5 +101,8 @@ ChatIcons\ChatIcons.lua
 # Mounts
 Mounts\Mounts.lua
 
+# Scrapping Machine
+ScrappingMachine\ScrappingMachine.lua
+
 # Commands
 _Commands\Commands.lua
