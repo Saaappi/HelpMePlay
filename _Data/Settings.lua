@@ -89,8 +89,8 @@ addon.Settings = {
         },
         {
             Type = "CheckButton",
-            Name = "Open Holiday Items",
-            TooltipText = "Toggle to automatically open holiday items when you loot them.",
+            Name = "Open Containers",
+            TooltipText = "Toggle to automatically open (supported) container items when you loot them.",
             SavedVariable = "OpenHolidayItems",
         },
         {
