@@ -1,10 +1,9 @@
 New Features:
 
 Enhancements:
-- The chauffer mount is no longer used at level 10 (only below it).
+- Cache of Infinite Treasure are now automatically opened when Open Holiday Items is enabled.
 
 Removals:
 - The Dragonriding choice nodes are no longer configurable.
 
 Fixes:
-- Fixed an issue with vendor mounts being unintentionally selected for use.
