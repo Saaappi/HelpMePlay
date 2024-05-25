@@ -172,7 +172,7 @@ addon.OpenHeirloomSelector = function()
                             local isHeirloomValid = IsHeirloomValidForClassID(button.classID, itemSubClassID)
                             if isHeirloomValid then
                                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(heirloomItemID))
-                                if heirloomMaxLevel > addon.playerLevel then
+                                if heirloomMaxLevel and heirloomMaxLevel > addon.playerLevel then
                                     local itemLink = C_Heirloom.GetHeirloomLink(heirloomItemID)
                                     if type(inventoryType) == "table" then
                                         for i = 1, 2 do
