@@ -84,9 +84,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                     if classID == 2 then
                                         local isItemValid = addon.IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
                                         if isItemValid then
-                                            -- Get the actual inventory slot ID because sometimes it can be different.
-                                            inventorySlotID = addon.InventoryType[inventorySlotID] or 0
-
                                             -- Set these variables to 0 to start.
                                             local start, finish = 0, 0
                                             if canDualWield then
