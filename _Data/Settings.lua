@@ -28,7 +28,8 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Emotes",
-            TooltipText = "Toggle to automatically emote at appropriate NPCs.",
+            TooltipText = "Toggle to automatically emote at appropriate NPCs.\n\n" ..
+            addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "UseEmotes",
         },
         {
@@ -142,8 +143,7 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Purchase Quest Items",
-            TooltipText = "Toggle to automatically purchase quest items from merchants.\n\n" ..
-            addon.RedText(NOT_AVAILABLE_FOR_USE),
+            TooltipText = "Toggle to automatically purchase quest items from merchants.",
             SavedVariable = "PurchaseQuestItems",
         },
         {

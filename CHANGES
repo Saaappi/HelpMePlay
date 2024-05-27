@@ -3,6 +3,7 @@ New Features:
 
 Enhancements:
 - Renamed "Open Holiday Items" to "Open Containers" and added Cache of Infinite Treasure to the list of supported items.
+- "Purchase Quest Items" is now usable.
 
 Removals:
 - The Dragonriding choice nodes are no longer configurable.

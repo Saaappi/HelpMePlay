@@ -233,19 +233,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
                 end
             end
-        elseif type == 5 then -- Merchant
-            if HelpMePlayDB["PurchaseQuestItems"] == false then return end
-
-			C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                for index = 1, GetMerchantNumItems() do
-                    local itemID = GetMerchantItemID(index)
-                    if itemID then
-                        if HelpMePlayDB["GuideQuestItems"][itemID] then
-                            BuyMerchantItem(index, HelpMePlayDB["GuideQuestItems"][itemID].quantity)
-                        end
-                    end
-                end
-			end)
         elseif type == 45 then -- Chromie Time
             if HelpMePlayDB["ChromieTimeExpansionID"] == 0 or addon.playerLevel >= addon.Constants["CHROMIE_TIME_MAX_LEVEL"] then return end
 
