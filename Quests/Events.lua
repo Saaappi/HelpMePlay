@@ -1,6 +1,49 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+local function QUEST_GOSSIP()
+    if not IsShiftKeyDown() then
+        local GUID = UnitGUID("target")
+        local mapID = C_Map.GetBestMapForUnit("player")
+        if GUID then
+            local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
+            if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
+        end
+        local activeQuests = C_GossipInfo.GetActiveQuests()
+        local availableQuests = C_GossipInfo.GetAvailableQuests()
+        if activeQuests and mapID then
+            for _, quest in ipairs(activeQuests) do
+                if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+                        if quest.isComplete then
+                            C_GossipInfo.SelectActiveQuest(quest.questID)
+                            HelpMePlay.CompleteQuest()
+                        end
+                    end)
+                end
+            end
+        end
+        if availableQuests and mapID then
+            for _, quest in ipairs(availableQuests) do
+                if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
+                    -- We do nothing here because the player chose to ignore repeatable quests.
+                elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
+                    -- We do nothing here because the player chose to ignore daily quests.
+                else
+                    if HelpMePlayDB["AcceptAndCompleteQuests"] then
+                        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+                            C_GossipInfo.SelectAvailableQuest(quest.questID)
+                            AcceptQuest()
+                        end)
+                    end
+                end
+            end
+        end
+    else
+        C_Timer.After(1, QUEST_GOSSIP)
+    end
+end
+
 local function QUEST_COMPLETE()
     if not IsShiftKeyDown() then
         local questID = GetQuestID()
@@ -9,13 +52,6 @@ local function QUEST_COMPLETE()
             if HelpMePlayDB["AcceptAndCompleteQuests"] then
                 HelpMePlay.CompleteQuest()
             end
-            --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                    HelpMePlay.CompleteQuest()
-                end
-            elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                HelpMePlay.CompleteQuest()
-            end]]
         end
     else
         C_Timer.After(1, QUEST_COMPLETE)
@@ -37,17 +73,6 @@ local function QUEST_DETAIL()
                         AcceptQuest()
                     end
                 end
-                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        AcceptQuest()
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
-                    elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
-                    else
-                        AcceptQuest()
-                    end
-                end]]
             end
         end
     else
@@ -73,13 +98,6 @@ local function QUEST_GREETING()
                 if HelpMePlayDB["AcceptAndCompleteQuests"] then
                     SelectActiveQuest(i)
                 end
-                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        SelectActiveQuest(i)
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    SelectActiveQuest(i)
-                end]]
             end
         end
 
@@ -95,19 +113,6 @@ local function QUEST_GREETING()
                         AcceptQuest()
                     end
                 end
-                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        SelectAvailableQuest(i)
-                        AcceptQuest()
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
-                    elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
-                    else
-                        SelectAvailableQuest(i)
-                        AcceptQuest()
-                    end
-                end]]
             end
         end
     else
@@ -127,19 +132,6 @@ local function QUEST_PROGRESS()
                         HelpMePlay.CompleteQuest()
                     end)
                 end
-                --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                    if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                            QuestFrameCompleteButton:Click()
-                            HelpMePlay.CompleteQuest()
-                        end)
-                    end
-                elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                        QuestFrameCompleteButton:Click()
-                        HelpMePlay.CompleteQuest()
-                    end)
-                end]]
             end
         end
     else
@@ -175,64 +167,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if type == 3 then
             if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
-            local GUID = UnitGUID("target")
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if GUID then
-                local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
-                if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
-            end
-            local activeQuests = C_GossipInfo.GetActiveQuests()
-            local availableQuests = C_GossipInfo.GetAvailableQuests()
-            if activeQuests and mapID then
-                for _, quest in ipairs(activeQuests) do
-                    if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                            if quest.isComplete then
-                                C_GossipInfo.SelectActiveQuest(quest.questID)
-                                HelpMePlay.CompleteQuest()
-                            end
-                        end)
-                    end
-                    --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                        if HelpMePlayDB["GuideQuests"][mapID][quest.questID] then
-                            if quest.isComplete then
-                                C_GossipInfo.SelectActiveQuest(quest.questID)
-                                HelpMePlay.CompleteQuest()
-                            end
-                        end
-                    elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                        if quest.isComplete then
-                            C_GossipInfo.SelectActiveQuest(quest.questID)
-                            HelpMePlay.CompleteQuest()
-                        end
-                    end]]
-                end
-            end
-            if availableQuests and mapID then
-                for _, quest in ipairs(availableQuests) do
-                    if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
-                        -- We do nothing here because the player chose to ignore repeatable quests.
-                    elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
-                        -- We do nothing here because the player chose to ignore daily quests.
-                    else
-                        if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                            C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                                C_GossipInfo.SelectAvailableQuest(quest.questID)
-                                AcceptQuest()
-                            end)
-                        end
-                        --[[if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                            if HelpMePlayDB["GuideQuests"][mapID][quest.questID] then
-                                C_GossipInfo.SelectAvailableQuest(quest.questID)
-                                AcceptQuest()
-                            end
-                        elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
-                            C_GossipInfo.SelectAvailableQuest(quest.questID)
-                            AcceptQuest()
-                        end]]
-                    end
-                end
-            end
+            QUEST_GOSSIP()
         elseif type == 45 then -- Chromie Time
             if HelpMePlayDB["ChromieTimeExpansionID"] == 0 or addon.playerLevel >= addon.Constants["CHROMIE_TIME_MAX_LEVEL"] then return end
 

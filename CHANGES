@@ -10,3 +10,4 @@ Removals:
 - The Dragonriding choice nodes are no longer configurable.
 
 Fixes:
+- Quests in a list should now respect a pause while the player is holding their SHIFT key.
