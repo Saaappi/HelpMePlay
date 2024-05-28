@@ -44,7 +44,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     equippedItems[10] = GetInventoryItemLink("player", 10) or 0     -- Hands
                     equippedItems[13] = GetInventoryItemLink("player", 16) or 0     -- One-Handed Weapon
                     equippedItems[16] = GetInventoryItemLink("player", 16) or 0     -- Main Hand Weapon
-                    equippedItems[17] = GetInventoryItemLink("player", 17) or 0     -- Off Hand Weapon (Holdable)
+                    equippedItems[17] = GetInventoryItemLink("player", 16) or 0     -- Two-Handed Weapon
                     equippedItems[20] = GetInventoryItemLink("player", 5) or 0      -- Robe (Chest)
 
                     -- Convert the equipped items into their item levels.

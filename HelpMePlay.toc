@@ -102,8 +102,8 @@ ChatIcons\ChatIcons.lua
 # Mounts
 Mounts\Mounts.lua
 
-# Scrapping Machine
-ScrappingMachine\ScrappingMachine.lua
+# Remix: Mists of Pandaria
+Remix\ScrappingMachine.lua
 
 # Commands
 _Commands\Commands.lua
