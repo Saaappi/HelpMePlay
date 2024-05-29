@@ -1,15 +1,5 @@
 local addonName, addon = ...
 
-addon.HolidayItems = {
-    [21746] = true,     -- Lucky Red Envelope
-    [37586] = true,     -- Handful of Treats
-    [54537] = true,     -- Heart-Shaped Box
-    [117392] = true,    -- Loot-Filled Pumpkin
-    [117393] = true,    -- Keg-Shaped Treasure Chest
-    [211279] = true,    -- Cache of Infinite Treasure (Remix: Mists of Pandaria)
-    [216874] = true,    -- Loot-Filled Basket
-}
-
 addon.WorldEvents = {
     [559] = {
         ["name"] = format("Timewalking: %s", EXPANSION_NAME1),

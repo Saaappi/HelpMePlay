@@ -1,0 +1,8 @@
+## Author: LightskyGG
+## Interface: 100207
+## Title: LibHelpMePlay
+## Version: 1.0.0
+## IconTexture: 236681
+
+Main.lua
+Data\Containers.lua

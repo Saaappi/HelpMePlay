@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 
 eventHandler:RegisterEvent("BAG_UPDATE")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
@@ -13,7 +14,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local itemLink = C_Container.GetContainerItemLink(bagID, slotID)
                     if itemLink then
                         local itemID = C_Item.GetItemInfoInstant(itemLink)
-                        if addon.HolidayItems[itemID] then
+                        if LHMP:IsItemContainer(itemID) then
                             C_Container.UseContainerItem(bagID, slotID)
                         end
                     end

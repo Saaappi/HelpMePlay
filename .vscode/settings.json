@@ -7795,5 +7795,9 @@
         "CreateSettingsButtonInitializer",
         "ScrappingMachineFrameCloseButton",
         "PlayerGetTimerunningSeasonID"
+    ],
+    "Lua.diagnostics.disable": [
+        "inject-field",
+        "undefined-field"
     ]
 }

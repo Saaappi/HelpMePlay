@@ -1,4 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
 	<script file="LibStub\LibStub.lua"/>
+	<Include file="LibHelpMePlay\Embeds.xml"/>
 	<Include file="LibUIDropDownMenu\LibUIDropDownMenu.xml"/>
 </Ui>

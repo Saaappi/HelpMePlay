@@ -81,7 +81,7 @@ Talents\PlayerTalents.lua
 
 # World Events
 WorldEvents\WorldEventsQueue.lua
-WorldEvents\OpenHolidayItems.lua
+WorldEvents\OpenContainers.lua
 
 # Guild Bank
 GuildBank\GuildBank.lua
