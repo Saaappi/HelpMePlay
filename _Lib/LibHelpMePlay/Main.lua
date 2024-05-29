@@ -9,9 +9,16 @@ local LHMP, oldversion = LibStub:NewLibrary(MAJOR, MINOR)
 if not LHMP then return end
 
 function LHMP:IsItemContainer(itemID)
-    -- Ensure the supplied itemID is valid.
     if not LHMP.Containers[itemID] then return false end
-
-    -- Return true if the itemID is a supported container.
     return true
+end
+
+function LHMP:IsEventQueueable(eventID)
+    if not LHMP.WorldEvents[eventID] then return false end
+    return true
+end
+
+function LHMP:GetWorldEvent(eventID)
+    if not LHMP.WorldEvents[eventID] then return false end
+    return LHMP.WorldEvents[eventID]
 end

@@ -18,7 +18,6 @@ _Data\Settings.lua
 _Data\Map_Data.lua
 _Data\Quests.lua
 _Data\Talent_Data.lua
-_Data\WorldEvents_Data.lua
 _Data\TalentImporter.lua
 _Data\Heirloom.lua
 _Data\Mounts.lua

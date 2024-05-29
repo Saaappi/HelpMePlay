@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 local worldEventQueueButton
 local leftChevron
 local rightChevron
@@ -55,10 +56,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local events = addon.GetActiveEvents(currentDate)
         if next(events) ~= nil then
             for _, evt in ipairs(events) do
-                if addon.WorldEvents[evt.eventID] then
-                    local isWorldEventValid = HelpMePlay.EvalConditions(addon.WorldEvents[evt.eventID].conditions)
+                if LHMP:IsEventQueueable(evt.eventID) then
+                    local worldEvent = LHMP:GetWorldEvent(evt.eventID)
+                    local isWorldEventValid = HelpMePlay.EvalConditions(worldEvent.conditions)
                     if isWorldEventValid then
-                        activeEvents[evt.eventID] = addon.WorldEvents[evt.eventID]
+                        activeEvents[evt.eventID] = worldEvent
                     end
                 end
             end

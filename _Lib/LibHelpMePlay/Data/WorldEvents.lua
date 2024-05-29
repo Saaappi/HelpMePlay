@@ -1,6 +1,7 @@
-local addonName, addon = ...
+local LHMP = LibStub("LibHelpMePlay")
+if not LHMP then return end
 
-addon.WorldEvents = {
+LHMP.WorldEvents = {
     [559] = {
         ["name"] = format("Timewalking: %s", EXPANSION_NAME1),
         ["atlas"] = nil,

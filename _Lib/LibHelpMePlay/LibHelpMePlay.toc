@@ -6,3 +6,4 @@
 
 Main.lua
 Data\Containers.lua
+Data\WorldEvents.lua
