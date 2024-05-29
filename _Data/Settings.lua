@@ -25,7 +25,7 @@ end
 
 addon.Settings = {
     General = {
-        {
+        --[[{
             Type = "CheckButton",
             Name = "Emotes",
             TooltipText = "Toggle to automatically emote at appropriate NPCs.\n\n" ..
@@ -38,7 +38,7 @@ addon.Settings = {
             TooltipText = "Toggle the automatic selection of NPC gossips.\n\n" ..
             addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "AcceptGossip",
-        },
+        },]]
         {
             Type = "CheckButton",
             Name = "Mute Talking Head",
@@ -140,12 +140,12 @@ addon.Settings = {
             addon.RedText("Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
             SavedVariable = "UsePartyPlay",
         },
-        {
+        --[[{
             Type = "CheckButton",
             Name = "Purchase Quest Items",
             TooltipText = "Toggle to automatically purchase quest items from merchants.",
             SavedVariable = "PurchaseQuestItems",
-        },
+        },]]
         {
             Type = "DropDown",
             Name = "Chromie Time",
