@@ -70,7 +70,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             function HelpMePlay.EvalConditions(conditions)
                 local numConditions = #conditions
                 for _, condition in ipairs(conditions) do
-                    local cond = condition:match("(%w+_%w+)")
+                    local cond = condition:match("([%w_]+)")
                     if cond == "NONE" then
                         numConditions = numConditions - 1
                     elseif cond == "QUEST_ACTIVE" or cond == "QUEST_INACTIVE" or cond == "QUEST_COMPLETE" or cond == "QUEST_INCOMPLETE" then
@@ -79,47 +79,104 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if numConditionsMet == 0 then
                             numConditions = numConditions - 1
                         end
+                    elseif cond == "QUEST_OBJECTIVES_COMPLETE" or cond == "QUEST_OBJECTIVES_INCOMPLETE" then
+                        local string = condition:match("= (.+)")
+                        local quests = {}
+                        for questID in string:gmatch("%d%d+") do
+                            table.insert(quests, tonumber(questID))
+                        end
+                        local conjunction = string:match("%s(OR|AND)%s"); print(conjunction)
+                        local numQuests = #quests
+                        if conjunction == "AND" then
+                            for questID, objectiveIndex in string:gmatch("(%d+),(%w+)") do
+                                print(objectiveIndex)
+                                if tonumber(objectiveIndex) then
+                                    objectiveIndex = tonumber(objectiveIndex)
+                                end
+                                local objectives = C_QuestLog.GetQuestObjectives(questID)
+                                if cond == "QUEST_OBJECTIVES_COMPLETE" then
+                                    if objectiveIndex == "*" then
+                                        for _, objective in ipairs(objectives) do
+                                            if objective.finished then
+                                                numQuests = numQuests - 1
+                                            end
+                                        end
+                                        if numQuests == 0 then
+                                            numConditions = numConditions - 1
+                                        end
+                                    else
+                                        for _, objective in ipairs(objectives) do
+                                            if objective.finished then
+                                                numQuests = numQuests - 1
+                                            end
+                                        end
+                                        if numQuests == 0 then
+                                            numConditions = numConditions - 1
+                                        end
+                                    end
+                                elseif cond == "QUEST_OBJECTIVES_INCOMPLETE" then
+                                    if objectiveIndex == "*" then
+                                        for _, objective in ipairs(objectives) do
+                                            if not objective.finished then
+                                                numQuests = numQuests - 1
+                                            end
+                                        end
+                                        if numQuests == 0 then
+                                            numConditions = numConditions - 1
+                                        end
+                                    else
+                                        for _, objective in ipairs(objectives) do
+                                            if not objective.finished then
+                                                numQuests = numQuests - 1
+                                            end
+                                        end
+                                        if numQuests == 0 then
+                                            numConditions = numConditions - 1
+                                        end
+                                    end
+                                end
+                            end
+                        else
+                            for questID, objectiveIndex in string:gmatch("(%d+),(%w+)") do
+                                if tonumber(objectiveIndex) then
+                                    objectiveIndex = tonumber(objectiveIndex)
+                                end
+                                local objectives = C_QuestLog.GetQuestObjectives(questID)
+                                if cond == "QUEST_OBJECTIVES_COMPLETE" then
+                                    if objectiveIndex == "*" then
+                                        for _, objective in ipairs(objectives) do
+                                            if objective.finished then
+                                                numConditions = numConditions - 1
+                                                break
+                                            end
+                                        end
+                                    else
+                                        if objectives[objectiveIndex].finished then
+                                            numConditions = numConditions - 1
+                                            break
+                                        end
+                                    end
+                                elseif cond == "QUEST_OBJECTIVES_INCOMPLETE" then
+                                    if objectiveIndex == "*" then
+                                        for _, objective in ipairs(objectives) do
+                                            if not objective.finished then
+                                                numConditions = numConditions - 1
+                                                break
+                                            end
+                                        end
+                                    else
+                                        if not objectives[objectiveIndex].finished then
+                                            numConditions = numConditions - 1
+                                        end
+                                    end
+                                end
+                            end
+                        end
                     --[[local operator, operand = condition:match("([%w_]+)%s*=%s*([%w_,]+)")
                     if tonumber(operand) then
                         operand = tonumber(operand, 10)
                     end
-                    if operator == "QUEST_OBJECTIVE_COMPLETE" then
-                        operand = tostring(operand)
-                        local questID, index = string.split(",", operand); questID = tonumber(questID, 10); index = tonumber(index, 10)
-                        local objectives = C_QuestLog.GetQuestObjectives(questID)
-                        if objectives[index].finished then
-                            numConditions = numConditions - 1
-                        end
-                    elseif operator == "QUEST_OBJECTIVE_INCOMPLETE" then
-                        operand = tostring(operand)
-                        local questID, index = string.split(",", operand); questID = tonumber(questID, 10); index = tonumber(index, 10)
-                        local objectives = C_QuestLog.GetQuestObjectives(questID)
-                        if not objectives[index].finished then
-                            numConditions = numConditions - 1
-                        end
-                    elseif operator == "QUEST_OBJECTIVES_COMPLETE" then
-                        local numObjectives = C_QuestLog.GetNumQuestObjectives(operand)
-                        local objectives = C_QuestLog.GetQuestObjectives(operand)
-                        for _, objective in ipairs(objectives) do
-                            if objective.finished then
-                                numObjectives = numObjectives - 1
-                            end
-                        end
-                        if numObjectives == 0 then
-                            numConditions = numConditions - 1
-                        end
-                    elseif operator == "QUEST_OBJECTIVES_INCOMPLETE" then
-                        local numObjectives = C_QuestLog.GetNumQuestObjectives(operand)
-                        local objectives = C_QuestLog.GetQuestObjectives(operand)
-                        for _, objective in ipairs(objectives) do
-                            if not objective.finished then
-                                numObjectives = numObjectives - 1
-                            end
-                        end
-                        if numObjectives == 0 then
-                            numConditions = numConditions - 1
-                        end
-                    elseif operator == "LEVEL_LOWER" then
+                    if operator == "LEVEL_LOWER" then
                         if UnitLevel("player") < operand then
                             numConditions = numConditions - 1
                         end
