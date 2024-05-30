@@ -59,4 +59,13 @@ LHMP.Gossips = {
             }
         }
     },
+    [62771] = {
+        {
+            ID = 40853,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 31084",
+            }
+        }
+    },
 }
