@@ -10,7 +10,7 @@ LHMP.Gossips = {
             ID = 35586,
             CanConfirm = false,
             Conditions = {
-                "LEVEL_LOWER = 30",
+                "NONE = NONE",
             }
         }
     },
@@ -19,7 +19,7 @@ LHMP.Gossips = {
             ID = 35587,
             CanConfirm = false,
             Conditions = {
-                "LEVEL_LOWER = 30",
+                "NONE = NONE",
             }
         }
     },
