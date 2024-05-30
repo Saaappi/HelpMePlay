@@ -20,10 +20,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 C_GossipInfo.SelectOption(gossip.ID)
                                 if gossip.CanConfirm then
                                     StaticPopup1Button1:Click("LeftButton")
-                                    return
                                 end
                             end
                         end
+                        return
                     end
 
                     -- Debug Mode output to help identify missing gossips.

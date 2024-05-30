@@ -7,7 +7,42 @@ eventHandler:SetScript("OnEvent", function(self, event, addonLoaded)
         function HelpMePlay.EvalConditions(conditions)
             local numConditions = #conditions
             for _, condition in ipairs(conditions) do
-                local operator, operand = condition:match("([%w_]+)%s*=%s*([%w_,]+)")
+                local cond, string = condition:match("^(%S+)%s*=%s*%d+%s*(%s*(AND|OR)%s*%d+%s*)*$")
+                if cond == "NONE" then
+                    numConditions = numConditions - 1
+                elseif cond == "QUEST_ACTIVE" then
+                    local quests = {}
+                    for questID in string:gmatch("%d+") do
+                        table.insert(quests, tonumber(questID))
+                    end
+
+                    print(string)
+
+                    local conjunction = string:match("%s(OR|AND)%s"); print(conjunction)
+                    local numQuests = #quests; print(numQuests)
+                    if conjunction == "AND" then
+                        -- If all the quests are active, then return true.
+                        for _, questID in ipairs(quests) do
+                            if C_QuestLog.IsOnQuest(questID) then
+                                numQuests = numQuests - 1
+                            end
+                            if numQuests == 0 then
+                                numConditions = numConditions - 1
+                                break
+                            end
+                        end
+                        print(numConditions)
+                    else
+                        -- If any of the quests are active, then return true.
+                        for _, questID in ipairs(quests) do
+                            if C_QuestLog.IsOnQuest(questID) then
+                                numConditions = numConditions - 1
+                                break
+                            end
+                        end
+                    end
+                end
+                --[[local operator, operand = condition:match("([%w_]+)%s*=%s*([%w_,]+)")
                 if tonumber(operand) then
                     operand = tonumber(operand, 10)
                 end
@@ -120,7 +155,7 @@ eventHandler:SetScript("OnEvent", function(self, event, addonLoaded)
                     if not isEnlisted then
                         numConditions = numConditions - 1
                     end
-                end
+                end]]
             end
             if numConditions == 0 then
                 return true

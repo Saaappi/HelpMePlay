@@ -17,9 +17,10 @@ LHMP.Gossips = {
     [62538] = {
         {
             ID = 35587,
-            CanConfirm = false,
+            CanConfirm = true,
             Conditions = {
-                "NONE = NONE",
+                "QUEST_ACTIVE = 31661 AND 31008",
+                --"QUEST_ACTIVE = 31007 OR 31660 OR 31175",
             }
         }
     },
