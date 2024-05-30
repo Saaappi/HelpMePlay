@@ -31,14 +31,14 @@ addon.Settings = {
             TooltipText = "Toggle to automatically emote at appropriate NPCs.\n\n" ..
             addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "UseEmotes",
-        },
+        },]]
         {
             Type = "CheckButton",
             Name = "Gossip",
             TooltipText = "Toggle the automatic selection of NPC gossips.\n\n" ..
             addon.RedText(NOT_AVAILABLE_FOR_USE),
             SavedVariable = "AcceptGossip",
-        },]]
+        },
         {
             Type = "CheckButton",
             Name = "Mute Talking Head",
@@ -99,6 +99,12 @@ addon.Settings = {
             Name = "Chat Icons",
             TooltipText = "Toggle to show item and collection status (when appropriate) icons in the chat frame.",
             SavedVariable = "ShowChatIcons",
+        },
+        {
+            Type = "CheckButton",
+            Name = "Debug Mode",
+            TooltipText = "Toggle to get debug information printed to the chat frame.",
+            SavedVariable = "DebugModeEnabled",
         },
     },
     Quest = {

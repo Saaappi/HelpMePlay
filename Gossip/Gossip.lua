@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 
 eventHandler:RegisterEvent("GOSSIP_SHOW")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
@@ -7,20 +8,30 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if HelpMePlayDB["AcceptGossip"] == false then return end
 
         C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-            local mapID = C_Map.GetBestMapForUnit("player")
             local options = C_GossipInfo.GetOptions()
-            if mapID and options then
-                if HelpMePlayDB["GuideGossips"][mapID] then
-                    for _, option in ipairs(options) do
-                        if HelpMePlayDB["GuideGossips"][mapID][option.gossipOptionID] then
-                            local isGossipAllowed = HelpMePlay.EvalConditions(HelpMePlayDB["GuideGossips"][mapID][option.gossipOptionID].conditions)
-                            if isGossipAllowed then
-                                C_GossipInfo.SelectOption(option.gossipOptionID)
-                                if HelpMePlayDB["GuideGossips"][mapID][option.gossipOptionID].canConfirm then
+            if options then
+                local npcID = addon.SplitString(UnitGUID("target"), "-", 6)
+                if npcID then
+                    if LHMP:IsGossipSupportedForNPC(npcID) then
+                        local gossips = LHMP:GetGossipsForNPCByID(npcID)
+                        for _, gossip in ipairs(gossips) do
+                            local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
+                            if isAllowed then
+                                C_GossipInfo.SelectOption(gossip.ID)
+                                if gossip.CanConfirm then
                                     StaticPopup1Button1:Click("LeftButton")
                                     return
                                 end
                             end
+                        end
+                    end
+
+                    -- Debug Mode output to help identify missing gossips.
+                    if HelpMePlayDB["DebugModeEnabled"] then
+                        print("{DEBUG} Unsupported gossip detected.")
+                        HelpMePlay.Print(npcID)
+                        for _, option in ipairs(options) do
+                            print(format("|cffFFD100%d|r: %s,", option.gossipOptionID, option.name))
                         end
                     end
                 end

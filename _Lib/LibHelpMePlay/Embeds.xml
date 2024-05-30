@@ -1,5 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
     <Script file="Main.lua"/>
+    <Script file="Data\Gossips.lua"/>
 	<Script file="Data\Containers.lua"/>
     <Script file="Data\WorldEvents.lua"/>
 </Ui>
