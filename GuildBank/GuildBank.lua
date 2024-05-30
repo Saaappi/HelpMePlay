@@ -3,22 +3,14 @@ local eventHandler = CreateFrame("Frame")
 
 -- Initiates a deposit action to the guild bank if the player's current money exceeds a certain threshold,
 -- or withdraws from the guild bank if the player's money is below the threshold.
-local function ManageGuildBankFunds()
+local function ManageGuildBankFunds(transactionType, amount)
     C_Timer.After(addon.Constants["TIMER_DELAY"] + 0.4, function()
-        local currentMoney = GetMoney()
-
-        -- Determine if the player's money is above or below the threshold.
-        -- If above, then deposit. If below, then withdraw.
-        if currentMoney > HelpMePlayDB["DepositKeepAmount"] then
-            local deposit = currentMoney - HelpMePlayDB["DepositKeepAmount"]
-            DepositGuildBankMoney(deposit)
-            HelpMePlay.Print("Deposited " .. C_CurrencyInfo.GetCoinTextureString(deposit))
+        if transactionType == "DEPOSIT" then
+            DepositGuildBankMoney(amount)
+            HelpMePlay.Print(format("Deposited %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
         else
-            local guildBankMoney = GetGuildBankMoney()
-            if guildBankMoney > HelpMePlayDB["DepositKeepAmount"] then
-                local withdrawAmount = HelpMePlayDB["DepositKeepAmount"] - currentMoney
-                WithdrawGuildBankMoney(withdrawAmount)
-            end
+            WithdrawGuildBankMoney(amount)
+            HelpMePlay.Print(format("Withdrew %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
         end
     end)
 end
@@ -29,18 +21,17 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if HelpMePlayDB["DepositKeepAmount"] > 0 then
             local type = ...
             if type == 10 then
+                local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"] * 10000)
                 if HelpMePlayDB["DepositKeepMeSafe"] then
-                    local popup
-                    local transactionAmount = GetMoney() - HelpMePlayDB["DepositKeepAmount"]
                     if transactionAmount > 0 then
-                        popup = {
-                            name = "HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE",
+                        StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
                             text = format("You're about to deposit %s to |cffFFD100%s|r. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), (GetGuildInfo("player"))),
                             button1 = ACCEPT,
                             button2 = CANCEL,
-                            onAccept = function()
-                                ManageGuildBankFunds()
+                            OnAccept = function()
+                                ManageGuildBankFunds("DEPOSIT", transactionAmount)
                             end,
+                            timeout = 0,
                             showAlert = false,
                             whileDead = false,
                             hideOnEscape = true,
@@ -48,20 +39,19 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             enterClicksFirstButton = false,
                             preferredIndex = 3,
                         }
-                        setmetatable(popup, { __index = HelpMePlay.Frame })
-                        popup = popup:Popup()
-                        StaticPopup_Show(popup.name)
+                        StaticPopup_Show("HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE")
                     else
                         transactionAmount = transactionAmount * -1
-                        if transactionAmount < 0 then
-                            popup = {
-                                name = "HELPMEPLAY_WITHDRAW_KEEP_ME_SAFE",
+                        print(transactionAmount)
+                        if transactionAmount > 0 then
+                            StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
                                 text = format("You're about to withdraw %s from |cffFFD100%s|r. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), (GetGuildInfo("player"))),
                                 button1 = ACCEPT,
                                 button2 = CANCEL,
-                                onAccept = function()
-                                    ManageGuildBankFunds()
+                                OnAccept = function()
+                                    ManageGuildBankFunds("WITHDRAW", transactionAmount)
                                 end,
+                                timeout = 0,
                                 showAlert = false,
                                 whileDead = false,
                                 hideOnEscape = true,
@@ -69,13 +59,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 enterClicksFirstButton = false,
                                 preferredIndex = 3,
                             }
-                            setmetatable(popup, { __index = HelpMePlay.Frame })
-                            popup = popup:Popup()
-                            StaticPopup_Show(popup.name)
+                            StaticPopup_Show("HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE")
                         end
                     end
                 else
-                    ManageGuildBankFunds()
+                    if transactionAmount > 0 then
+                        ManageGuildBankFunds("DEPOSIT", transactionAmount)
+                    else
+                        transactionAmount = transactionAmount * -1
+                        ManageGuildBankFunds("WITHDRAW", transactionAmount)
+                    end
                 end
             end
         end
