@@ -10,3 +10,5 @@ Removals:
 
 Fixes:
 - Quests in a list should now respect a pause while the player is holding their SHIFT key.
+- The automatic withdrawal function for the Guild Bank module should now work as intended.
+- The amount of gold reported in the Keep Me Safe popup should now accurately reflect the amount for the transaction.

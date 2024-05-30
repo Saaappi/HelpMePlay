@@ -42,7 +42,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         StaticPopup_Show("HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE")
                     else
                         transactionAmount = transactionAmount * -1
-                        print(transactionAmount)
                         if transactionAmount > 0 then
                             StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
                                 text = format("You're about to withdraw %s from |cffFFD100%s|r. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), (GetGuildInfo("player"))),
