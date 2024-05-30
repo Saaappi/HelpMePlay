@@ -32,4 +32,31 @@ LHMP.Gossips = {
             }
         }
     },
+    [62667] = {
+        {
+            ID = 35828,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 31129",
+            }
+        }
+    },
+    [62845] = {
+        {
+            ID = 35823,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 31129",
+            }
+        }
+    },
+    [62666] = {
+        {
+            ID = 35825,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 31129",
+            }
+        }
+    },
 }
