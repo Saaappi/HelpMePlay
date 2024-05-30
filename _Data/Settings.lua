@@ -100,12 +100,6 @@ addon.Settings = {
             TooltipText = "Toggle to show item and collection status (when appropriate) icons in the chat frame.",
             SavedVariable = "ShowChatIcons",
         },
-        {
-            Type = "CheckButton",
-            Name = "Debug Mode",
-            TooltipText = "Toggle to get debug information printed to the chat frame.",
-            SavedVariable = "DebugModeEnabled",
-        },
     },
     Quest = {
         {

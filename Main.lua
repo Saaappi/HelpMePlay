@@ -167,9 +167,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["NCC_EditModeLayoutID"] == nil then
                 HelpMePlayDB["NCC_EditModeLayoutID"] = 1
             end
-            if HelpMePlayDB["DebugModeEnabled"] == nil then
-                HelpMePlayDB["DebugModeEnabled"] = false
-            end
 
             -- If the Guide Quests table is nil, then initialize it.
             if HelpMePlayDB["GuideQuests"] == nil then

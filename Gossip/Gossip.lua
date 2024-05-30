@@ -27,15 +27,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             end
                             return
                         end
-
-                        -- Debug Mode output to help identify missing gossips.
-                        if HelpMePlayDB["DebugModeEnabled"] then
-                            print("{DEBUG} Unsupported gossip detected.")
-                            HelpMePlay.Print(npcID)
-                            for _, option in ipairs(options) do
-                                print(format("|cffFFD100%d|r: %s,", option.gossipOptionID, option.name))
-                            end
-                        end
                     end
                 end
             end
