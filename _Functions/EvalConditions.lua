@@ -10,7 +10,6 @@ local function CheckQuests(cond, string, numConditions)
     local conjunction = string:match("%s(OR|AND)%s")
     local numQuests = #quests
     if conjunction == "AND" then
-        -- If all the quests are active, then return true.
         for _, questID in ipairs(quests) do
             if cond == "QUEST_ACTIVE" then
                 if C_QuestLog.IsOnQuest(questID) then
@@ -35,7 +34,6 @@ local function CheckQuests(cond, string, numConditions)
             end
         end
     else
-        -- If any of the quests are active, then return true.
         for _, questID in ipairs(quests) do
             if cond == "QUEST_ACTIVE" then
                 if C_QuestLog.IsOnQuest(questID) then
@@ -60,6 +58,7 @@ local function CheckQuests(cond, string, numConditions)
             end
         end
     end
+    return numConditions
 end
 
 local function CheckLevel(string, condition)
