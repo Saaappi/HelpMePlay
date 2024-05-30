@@ -1,6 +1,49 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+local function CheckActiveQuests(cond, string, numConditions)
+    local quests = {}
+    for questID in string:gmatch("%d+") do
+        table.insert(quests, tonumber(questID))
+    end
+
+    local conjunction = string:match("%s(OR|AND)%s")
+    local numQuests = #quests
+    if conjunction == "AND" then
+        -- If all the quests are active, then return true.
+        for _, questID in ipairs(quests) do
+            if cond == "QUEST_ACTIVE" then
+                if C_QuestLog.IsOnQuest(questID) then
+                    numQuests = numQuests - 1
+                end
+            elseif cond == "QUEST_INACTIVE" then
+                if not C_QuestLog.IsOnQuest(questID) then
+                    numQuests = numQuests - 1
+                end
+            end
+            if numQuests == 0 then
+                numConditions = numConditions - 1
+                break
+            end
+        end
+    else
+        -- If any of the quests are active, then return true.
+        for _, questID in ipairs(quests) do
+            if cond == "QUEST_ACTIVE" then
+                if C_QuestLog.IsOnQuest(questID) then
+                    numConditions = numConditions - 1
+                    break
+                end
+            elseif cond == "QUEST_INACTIVE" then
+                if not C_QuestLog.IsOnQuest(questID) then
+                    numConditions = numConditions - 1
+                    break
+                end
+            end
+        end
+    end
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
@@ -9,10 +52,17 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             function HelpMePlay.EvalConditions(conditions)
                 local numConditions = #conditions
                 for _, condition in ipairs(conditions) do
-                    local cond, string = condition:match("(%w+_%w+) = (.+)")
+                    local cond = condition:match("(%w+_%w+)")
                     if cond == "NONE" then
                         numConditions = numConditions - 1
-                    elseif cond == "QUEST_ACTIVE" then
+                    elseif cond == "QUEST_ACTIVE" or cond == "QUEST_INACTIVE" then
+                        local string = condition:match("= (.+)")
+                        local numConditionsMet = CheckActiveQuests(cond, string, numConditions)
+                        if numConditionsMet == 0 then
+                            numConditions = numConditions - 1
+                        end
+                    elseif cond == "QUEST_COMPLETE" then
+                        local string = condition:match("= (.+)")
                         local quests = {}
                         for questID in string:gmatch("%d+") do
                             table.insert(quests, tonumber(questID))
@@ -23,7 +73,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if conjunction == "AND" then
                             -- If all the quests are active, then return true.
                             for _, questID in ipairs(quests) do
-                                if C_QuestLog.IsOnQuest(questID) then
+                                if not C_QuestLog.IsOnQuest(questID) then
                                     numQuests = numQuests - 1
                                 end
                                 if numQuests == 0 then
@@ -31,11 +81,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                     break
                                 end
                             end
-                            print(numConditions)
                         else
                             -- If any of the quests are active, then return true.
                             for _, questID in ipairs(quests) do
-                                if C_QuestLog.IsOnQuest(questID) then
+                                if not C_QuestLog.IsOnQuest(questID) then
                                     numConditions = numConditions - 1
                                     break
                                 end
@@ -46,17 +95,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     if tonumber(operand) then
                         operand = tonumber(operand, 10)
                     end
-                    if operator == "NONE" then
-                        numConditions = numConditions - 1
-                    elseif operator == "QUEST_ACTIVE" then
-                        if C_QuestLog.IsOnQuest(operand) then
-                            numConditions = numConditions - 1
-                        end
-                    elseif operator == "QUEST_INACTIVE" then
-                        if not C_QuestLog.IsOnQuest(operand) then
-                            numConditions = numConditions - 1
-                        end
-                    elseif operator == "QUEST_COMPLETE" then
+                    if operator == "QUEST_COMPLETE" then
                         if C_QuestLog.IsQuestFlaggedCompleted(operand) then
                             numConditions = numConditions - 1
                         end
