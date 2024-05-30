@@ -17,11 +17,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         for _, gossip in ipairs(gossips) do
                             local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
                             if isAllowed then
-                                --[[C_GossipInfo.SelectOption(gossip.ID)
+                                C_GossipInfo.SelectOption(gossip.ID)
                                 if gossip.CanConfirm then
                                     StaticPopup1Button1:Click("LeftButton")
-                                end]]
-                                print("B")
+                                end
                             end
                         end
                         return
