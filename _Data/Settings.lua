@@ -1,5 +1,6 @@
 ---@diagnostic disable: undefined-global
 local addonName, addon = ...
+local LHMP = LibStub("LibHelpMePlay")
 local NOT_AVAILABLE_FOR_USE = "This setting is currently unavailable."
 
 -- Returns red text.
@@ -393,15 +394,6 @@ addon.Settings = {
             TooltipText = "Click to get the Github issue page.",
             AddSearchTags = true,
         },
-        --[[{
-            Type = "BasicButton",
-            Name = "",
-            ButtonText = "Route Builder",
-            ClickHandler = function()
-            end,
-            TooltipText = "Click to open the Route Builder utility.",
-            AddSearchTags = true,
-        },]]
         {
             Type = "BasicButton",
             Name = "",
@@ -426,6 +418,35 @@ addon.Settings = {
                 end
             end,
             TooltipText = "Click to open the Heirloom selection utility.",
+            AddSearchTags = true,
+        },
+        {
+            Type = "BasicButton",
+            Name = "",
+            ButtonText = "New Character (Random)",
+            ClickHandler = function(_, button)
+                if button == "LeftButton" then
+                    local raceID = LHMP:GetRandomRaceID()
+                    if raceID then
+                        local factionID = LHMP:GetRaceFactionByID(raceID)
+                        local race = C_CreatureInfo.GetRaceInfo(raceID)
+                        if race then
+                            local classID = LHMP:GetRandomClassByRaceID(raceID)
+                            if classID then
+                                local class = C_CreatureInfo.GetClassInfo(classID)
+                                if class then
+                                    if factionID and factionID == 0 then
+                                        HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, "X", class.className))
+                                    elseif factionID and factionID == 1 then
+                                        HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, "X", class.className))
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end,
+            TooltipText = "Don't know what to create next? Click to randomly generate a race, class, and specialization combination for your next character!",
             AddSearchTags = true,
         },
     }

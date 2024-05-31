@@ -7,4 +7,5 @@
 Main.lua
 Data\Gossips.lua
 Data\Containers.lua
+Data\Players.lua
 Data\WorldEvents.lua

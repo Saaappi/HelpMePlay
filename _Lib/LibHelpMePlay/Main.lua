@@ -39,3 +39,29 @@ function LHMP:GetWorldEvent(eventID)
     if not LHMP.WorldEvents[eventID] then return false end
     return LHMP.WorldEvents[eventID]
 end
+
+-------------------
+-- NEW CHARACTER --
+-------------------
+function LHMP:GetRaceFactionByID(raceID)
+    if not LHMP.RaceFactions[raceID] then return false end
+    return LHMP.RaceFactions[raceID]
+end
+function LHMP:GetRandomRaceID()
+    local keys = {}
+    for key, _ in pairs(LHMP.RaceClassCombinations) do
+        table.insert(keys, key)
+    end
+    local randomKey = keys[math.random(1, #keys)]
+    return randomKey
+end
+function LHMP:GetRandomClassByRaceID(raceID)
+    if not LHMP.RaceClassCombinations[raceID] then return false end
+
+    local numClassCombos = #LHMP.RaceClassCombinations[raceID]
+    local randomIndex = math.random(1, numClassCombos)
+    return LHMP.RaceClassCombinations[raceID][randomIndex]
+end
+function LHMP:GetRandomSpecIDByClassID(classID)
+
+end
