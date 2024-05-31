@@ -3,11 +3,6 @@ local addonName, addon = ...
 local LHMP = LibStub("LibHelpMePlay")
 local NOT_AVAILABLE_FOR_USE = "This setting is currently unavailable."
 
--- Returns red text.
-addon.RedText = function(str)
-    return format("|cffFF0000%s|r", str)
-end
-
 -- Get all the player's Edit Mode layouts and return them
 -- so the dropdown menu can populate its options with
 -- the player's layouts.
@@ -30,14 +25,14 @@ addon.Settings = {
             Type = "CheckButton",
             Name = "Emotes",
             TooltipText = "Toggle to automatically emote at appropriate NPCs.\n\n" ..
-            addon.RedText(NOT_AVAILABLE_FOR_USE),
+            addon.ColorText("RED", NOT_AVAILABLE_FOR_USE),
             SavedVariable = "UseEmotes",
         },]]
         {
             Type = "CheckButton",
             Name = "Gossip",
             TooltipText = "Toggle the automatic selection of NPC gossips.\n\n" ..
-            addon.RedText(NOT_AVAILABLE_FOR_USE),
+            addon.ColorText("RED", NOT_AVAILABLE_FOR_USE),
             SavedVariable = "AcceptGossip",
         },
         {
@@ -74,7 +69,7 @@ addon.Settings = {
             Type = "CheckButton",
             Name = "War Mode",
             TooltipText = "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
-            addon.RedText(format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"])),
+            addon.ColorText("RED", format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"])),
             SavedVariable = "UseWarMode",
         },
         {
@@ -107,7 +102,7 @@ addon.Settings = {
             Type = "CheckButton",
             Name = "Adventure Maps",
             TooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
-            addon.RedText("The current support is only for the adventure map in The Waking Shores."),
+            addon.ColorText("RED", "The current support is only for the adventure map in The Waking Shores."),
             SavedVariable = "UseAdventureMaps",
         },
         {
@@ -138,7 +133,7 @@ addon.Settings = {
             Type = "CheckButton",
             Name = "Party Play",
             TooltipText = "Toggle to make playing with friends a little easier.\n\n" ..
-            addon.RedText("Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
+            addon.ColorText("RED", "Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
             SavedVariable = "UsePartyPlay",
         },
         --[[{
