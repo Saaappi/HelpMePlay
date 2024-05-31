@@ -40,9 +40,9 @@ function LHMP:GetWorldEvent(eventID)
     return LHMP.WorldEvents[eventID]
 end
 
--------------------
--- NEW CHARACTER --
--------------------
+----------------------------
+-- NEW CHARACTER (RANDOM) --
+----------------------------
 function LHMP:GetRaceFactionByID(raceID)
     if not LHMP.RaceFactions[raceID] then return false end
     return LHMP.RaceFactions[raceID]
@@ -63,5 +63,8 @@ function LHMP:GetRandomClassByRaceID(raceID)
     return LHMP.RaceClassCombinations[raceID][randomIndex]
 end
 function LHMP:GetRandomSpecIDByClassID(classID)
-
+    local numSpecs = GetNumSpecializationsForClassID(classID)
+    local specIndex = math.random(1, numSpecs)
+    local specName = select(2, GetSpecializationInfoForClassID(classID, specIndex))
+    return specName
 end

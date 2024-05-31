@@ -434,11 +434,12 @@ addon.Settings = {
                             local classID = LHMP:GetRandomClassByRaceID(raceID)
                             if classID then
                                 local class = C_CreatureInfo.GetClassInfo(classID)
+                                local specName = LHMP:GetRandomSpecIDByClassID(classID)
                                 if class then
                                     if factionID and factionID == 0 then
-                                        HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, "X", class.className))
+                                        HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
                                     elseif factionID and factionID == 1 then
-                                        HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, "X", class.className))
+                                        HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
                                     end
                                 end
                             end
