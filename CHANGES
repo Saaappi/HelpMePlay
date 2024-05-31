@@ -6,6 +6,9 @@ Enhancements:
 - The addon's settings menu has received a visual update. In addition to the visual, all of the addon's settings are now searchable.
 - Renamed "Open Holiday Items" to "Open Containers" and added the Cache of Infinite Treasure (the cache rewarded from quests in Remix) to the list of supported items.
 
+Gossip:
+- Added support for most gossips in the Dread Wastes.
+
 Removals:
 - The Dragonriding choice nodes are no longer configurable.
 
