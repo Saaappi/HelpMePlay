@@ -1,5 +1,6 @@
 New Features:
 - A new button can be found on the Unraveling Sands in Remix, which will automatically fill the sands with unwanted items. The addon will not scrap items that are higher item level than what you have equipped. Additionally, it won't scrap Prismatic gems. Weapons that aren't applicable to your current specialization are automatically considered scrappable regardless of its item level.
+- Added the "Randomize Adventurer" button to the Utilities section of the settings. Why settle for just one identity crisis when you can have a new one every click? Now introducing roulette to your character creation – will you be a gnome warrior specializing in interpretive dance? Or perhaps an orc rogue with an inexplicable fondness for knitting scarves? Try it out now!
 
 Enhancements:
 - The addon's settings menu has received a visual update. In addition to the visual, all of the addon's settings are now searchable.

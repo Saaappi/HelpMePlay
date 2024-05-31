@@ -423,7 +423,7 @@ addon.Settings = {
         {
             Type = "BasicButton",
             Name = "",
-            ButtonText = "New Character (Random)",
+            ButtonText = "Randomize Adventurer",
             ClickHandler = function(_, button)
                 if button == "LeftButton" then
                     local raceID = LHMP:GetRandomRaceID()
