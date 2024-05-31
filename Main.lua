@@ -234,7 +234,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             -- Due to the nature of how Trainer Protection Value
             -- works going forward, let's make the adjustment to
             -- the player's value if they chose something over 1000.
-            if HelpMePlayDB["TrainerProtectionValue"] > 1000 then
+            --
+            -- We need the division because the value is represented
+            -- in copper.
+            if (HelpMePlayDB["TrainerProtectionValue"] / 10000) > 1000 then
                 HelpMePlayDB["TrainerProtectionValue"] = 1000
             end
 

@@ -187,7 +187,7 @@ addon.Settings = {
             Options = {
                 minValue = 0,
                 maxValue = 1000,
-                step = 10,
+                step = 100,
             },
             SavedVariable = "TrainerProtectionValue",
         },
@@ -237,7 +237,7 @@ addon.Settings = {
             Options = {
                 minValue = 0,
                 maxValue = 10000000,
-                step = 1000,
+                step = 10000,
             },
             SavedVariable = "DepositKeepAmount",
         },
@@ -248,7 +248,7 @@ addon.Settings = {
             ClickHandler = function(_, button)
                 if button == "LeftButton" then
                     StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_AMOUNT_MANUAL"] = {
-                        text = "Enter an amount of money to keep on hand. This value will be represented in gold.",
+                        text = "Enter an amount of money to keep on hand.",
                         button1 = ACCEPT,
                         button2 = CANCEL,
                         OnAccept = function(self)

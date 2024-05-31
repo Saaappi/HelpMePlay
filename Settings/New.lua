@@ -36,7 +36,6 @@ local function OnSettingChanged(_, setting, value)
         end
     elseif variable == "DepositKeepAmount" or variable == "TrainerProtectionValue" then
         HelpMePlayDB[variable] = value * 10000
-        print(HelpMePlayDB[variable])
     elseif variable == "QuestMobsIconPositionID" then
         addon.UpdateQuestMobsIconPosition()
     elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
@@ -88,7 +87,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                     local function GetValue()
                         if savedVariable == "DepositKeepAmount" or savedVariable == "TrainerProtectionValue" then
-                            return tonumber(HelpMePlayDB[savedVariable], 10) / 10000
+                            return C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB[savedVariable])
                         end
                         return tonumber(HelpMePlayDB[savedVariable], 10)
                     end

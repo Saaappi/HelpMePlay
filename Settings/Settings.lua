@@ -116,8 +116,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
                     elseif setting.Type == "DropDown" or setting.Type == "Slider" then
                         addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
-                    elseif setting.Type == "Slider" then
-                        
                     end
                 end
 
