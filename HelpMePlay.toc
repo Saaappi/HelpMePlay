@@ -8,6 +8,7 @@
 
 # Main
 Main.lua
+Color.lua
 
 # Libraries
 _Lib\Embeds.xml
@@ -45,7 +46,7 @@ _Functions\Quests.lua
 _Functions\Trainers.lua
 _Functions\WorldEvents.lua
 _Functions\Mounts.lua
-_Functions\Color.lua
+
 
 # Keybinds
 _Keybinds\Keybinds.lua
