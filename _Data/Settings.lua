@@ -3,19 +3,12 @@ local addonName, addon = ...
 local LHMP = LibStub("LibHelpMePlay")
 local NOT_AVAILABLE_FOR_USE = "This setting is currently unavailable."
 
--- Get all the player's Edit Mode layouts and return them
--- so the dropdown menu can populate its options with
--- the player's layouts.
 local function GetEditModeLayouts()
-    local layouts = {
-        { 1, "Modern" },
-        { 2, "Classic" },
-    }
+    local layouts={{1,"Modern"},{2,"Classic"}}
     local customLayouts = C_EditMode.GetLayouts()
     for index, layout in ipairs(customLayouts.layouts) do
         table.insert(layouts, (index + 2), { (index + 2), layout.layoutName })
     end
-
     return layouts
 end
 
