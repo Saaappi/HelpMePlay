@@ -59,7 +59,7 @@ local function CreateHeirloom(classID)
 end
 
 addon.CreateHeirloomButton = function(classID)
-    if addon.playerLevel <= 10 and (not HelpMePlayDB_Character["UsedHeirloomButton"]) then
+    if addon.playerLevel <= 10 and (not HelpMePlayDB_Character["UsedHeirloomButton"]) and (PlayerGetTimerunningSeasonID() ~= 1) then
         if not heirloomButton and (#HelpMePlayDB["Heirlooms"][classID] > 0) then
             heirloomButton = CreateFrame("Button", addonName .. "HeirloomSecureButton", UIParent, "SecureActionButtonTemplate")
             heirloomButton:ClearAllPoints()
