@@ -188,14 +188,43 @@ addon.Settings = {
         {
             Type = "Slider",
             Name = "Trainer Protection Value",
-            TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
-            addon.RedText("Use /hmp set TrainerProtectionValue N, where N is any number between 0 and 1,000 to manually set the value if you don't want to use the slider."),
+            TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.",
             Options = {
                 minValue = 0,
                 maxValue = 1000,
                 step = 10,
             },
             SavedVariable = "TrainerProtectionValue",
+        },
+        {
+            Type = "BasicButton",
+            Name = "Trainer Protection Value (Manual)",
+            ButtonText = "Click Me",
+            ClickHandler = function(_, button)
+                if button == "LeftButton" then
+                    StaticPopupDialogs["HELPMEPLAY_TRAINER_PROTECTION_VALUE_MANUAL"] = {
+                        text = "Enter the amount of money you must possess before the addon will automatically train for you.",
+                        button1 = ACCEPT,
+                        button2 = CANCEL,
+                        OnAccept = function(self)
+                            if tonumber(self.editBox:GetText()) then
+                                local value = tonumber(self.editBox:GetText(), 10)
+                                HelpMePlayDB["TrainerProtectionValue"] = value * 10000
+                            end
+                        end,
+                        timeout = 0,
+                        showAlert = false,
+                        whileDead = false,
+                        hideOnEscape = true,
+                        hasEditBox = true,
+                        enterClicksFirstButton = true,
+                        preferredIndex = 3,
+                    }
+                    StaticPopup_Show("HELPMEPLAY_TRAINER_PROTECTION_VALUE_MANUAL")
+                end
+            end,
+            TooltipText = "The slider moves in increments of 10. Click here to set a custom amount of money.",
+            AddSearchTags = true,
         },
     },
     GuildBank = {
@@ -209,14 +238,43 @@ addon.Settings = {
             Type = "Slider",
             Name = "Deposit Keep Amount",
             TooltipText = "Use the slider to set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-            "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
-            addon.RedText("Use /hmp set DepositKeepAmount N, where N is any number between 0 and 9,999,999 to manually set the value if you don't want to use the slider."),
+            "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.",
             Options = {
                 minValue = 0,
-                maxValue = 9999999,
-                step = 10000,
+                maxValue = 10000000,
+                step = 1000,
             },
             SavedVariable = "DepositKeepAmount",
+        },
+        {
+            Type = "BasicButton",
+            Name = "Deposit Keep Amount (Manual)",
+            ButtonText = "Click Me",
+            ClickHandler = function(_, button)
+                if button == "LeftButton" then
+                    StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_AMOUNT_MANUAL"] = {
+                        text = "Enter an amount of money to keep on hand. This value will be represented in gold.",
+                        button1 = ACCEPT,
+                        button2 = CANCEL,
+                        OnAccept = function(self)
+                            if tonumber(self.editBox:GetText()) then
+                                local value = tonumber(self.editBox:GetText(), 10)
+                                HelpMePlayDB["DepositKeepAmount"] = value * 10000
+                            end
+                        end,
+                        timeout = 0,
+                        showAlert = false,
+                        whileDead = false,
+                        hideOnEscape = true,
+                        hasEditBox = true,
+                        enterClicksFirstButton = true,
+                        preferredIndex = 3,
+                    }
+                    StaticPopup_Show("HELPMEPLAY_DEPOSIT_KEEP_AMOUNT_MANUAL")
+                end
+            end,
+            TooltipText = "The slider moves in increments of 1,000. Click here to set a custom amount of money.",
+            AddSearchTags = true,
         },
     },
     QuestMobs = {

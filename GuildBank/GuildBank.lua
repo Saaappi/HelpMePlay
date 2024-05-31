@@ -21,11 +21,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if HelpMePlayDB["DepositKeepAmount"] > 0 then
             local type = ...
             if type == 10 then
-                local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"] * 10000)
+                local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"])
                 if HelpMePlayDB["DepositKeepMeSafe"] then
                     if transactionAmount > 0 then
                         StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
-                            text = format("You're about to deposit %s to |cffFFD100%s|r. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), (GetGuildInfo("player"))),
+                            text = format("You're about to deposit %s to %s. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), addon.ColorText("ARTIFACT", (GetGuildInfo("player")))),
                             button1 = ACCEPT,
                             button2 = CANCEL,
                             OnAccept = function()
@@ -44,7 +44,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         transactionAmount = transactionAmount * -1
                         if transactionAmount > 0 then
                             StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
-                                text = format("You're about to withdraw %s from |cffFFD100%s|r. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), (GetGuildInfo("player"))),
+                                text = format("You're about to withdraw %s from %s. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), addon.ColorText("ARTIFACT", (GetGuildInfo("player")))),
                                 button1 = ACCEPT,
                                 button2 = CANCEL,
                                 OnAccept = function()

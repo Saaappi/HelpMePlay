@@ -17,12 +17,6 @@ SlashCmdList["HelpMePlay"] = function(cmd)
         else
             HelpMePlay.Print("The settings cannot be opened in combat.")
         end
-    elseif command == "set" then
-        if subcommand == "TrainerProtectionValue" then
-            SetValue(subcommand, arg1)
-        elseif subcommand == "DepositKeepAmount" then
-            SetValue(subcommand, arg1)
-        end
     else
         HelpMePlay.Print("Unknown command detected.")
 	end

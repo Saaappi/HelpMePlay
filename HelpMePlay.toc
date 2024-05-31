@@ -1,7 +1,7 @@
 ## Author: LightskyGG
 ## Interface: 100207
 ## Title: HelpMePlay
-## Version: 3.0.0B7
+## Version: 3.0.0B7.5
 ## IconTexture: 236681
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
@@ -45,6 +45,7 @@ _Functions\Quests.lua
 _Functions\Trainers.lua
 _Functions\WorldEvents.lua
 _Functions\Mounts.lua
+_Functions\Color.lua
 
 # Keybinds
 _Keybinds\Keybinds.lua

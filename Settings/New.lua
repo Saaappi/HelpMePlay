@@ -34,11 +34,22 @@ local function OnSettingChanged(_, setting, value)
             }
             StaticPopup_Show("HELPMEPLAY_QUESTMOBS_CUSTOM_ICON")
         end
+    elseif variable == "DepositKeepAmount" or variable == "TrainerProtectionValue" then
+        HelpMePlayDB[variable] = value * 10000
+        print(HelpMePlayDB[variable])
     elseif variable == "QuestMobsIconPositionID" then
         addon.UpdateQuestMobsIconPosition()
     elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
         addon.UpdateQuestMobsIconPosition()
     end
+end
+
+local function CreateSliderOptions(minValue, maxValue, rate)
+    local options = CreateFromMixins(SettingsSliderOptionsMixin)
+    options.minValue = minValue
+    options.maxValue = maxValue
+    options.steps = rate
+    return options
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")
@@ -76,11 +87,14 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local name, category, tooltipText, options, savedVariable = ...
 
                     local function GetValue()
+                        if savedVariable == "DepositKeepAmount" or savedVariable == "TrainerProtectionValue" then
+                            return tonumber(HelpMePlayDB[savedVariable], 10) / 10000
+                        end
                         return tonumber(HelpMePlayDB[savedVariable], 10)
                     end
 
                     local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
-                    local opt = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.step)
+                    local opt = CreateSliderOptions(options.minValue, options.maxValue, options.step)
                     opt:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
                     Settings.CreateSlider(category, setting, opt, tooltipText)
                     Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)

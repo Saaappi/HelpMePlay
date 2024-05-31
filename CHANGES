@@ -1,18 +1,11 @@
 New Features:
-- A new button can be found on the Unraveling Sands in Remix, which will automatically fill the sands with unwanted items. The addon will not scrap items that are higher item level than what you have equipped. Additionally, it won't scrap Prismatic gems. Weapons that aren't applicable to your current specialization are automatically considered scrappable regardless of its item level.
-- Added the "Randomize Adventurer" button to the Utilities section of the settings. Why settle for just one identity crisis when you can have a new one every click? Now introducing roulette to your character creation – will you be a gnome warrior specializing in interpretive dance? Or perhaps an orc rogue with an inexplicable fondness for knitting scarves? Try it out now!
 
 Enhancements:
-- The addon's settings menu has received a visual update. In addition to the visual, all of the addon's settings are now searchable.
-- Renamed "Open Holiday Items" to "Open Containers" and added the Cache of Infinite Treasure (the cache rewarded from quests in Remix) to the list of supported items.
 
 Gossip:
-- Added support for most gossips in the Dread Wastes.
 
 Removals:
-- The Dragonriding choice nodes are no longer configurable.
+- Removed the "set" command. The Deposit Keep Amount and Trainer Protection variables can now be set manually from within the settings menu.
 
 Fixes:
-- Quests in a list should now respect a pause while the player is holding their SHIFT key.
-- The automatic withdrawal function for the Guild Bank module should now work as intended.
-- The amount of gold reported in the Keep Me Safe popup should now accurately reflect the amount for the transaction.
+- All sliders in the settings should now increment by their designated intervals.
