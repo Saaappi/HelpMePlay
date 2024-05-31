@@ -29,8 +29,9 @@ local function OnSettingChanged(_, setting, value)
                 whileDead = false,
                 hideOnEscape = true,
                 hasEditBox = true,
-                enterClicksFirstButton = false,
-                preferredIndex = 3,
+                exclusive = true,
+                enterClicksFirstButton = true,
+                preferredIndex = STATICPOPUP_NUMDIALOGS,
             }
             StaticPopup_Show("HELPMEPLAY_QUESTMOBS_CUSTOM_ICON")
         end

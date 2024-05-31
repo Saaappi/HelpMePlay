@@ -212,21 +212,20 @@ addon.Settings = {
                             self.editBox:SetScript("OnKeyUp", function(self, key)
                                 if key == "ESCAPE" then HidePopup(self) end
                                 if key == "ENTER" then
-                                    if tonumber(self.editBox:GetText()) then
-                                        local value = tonumber(self.editBox:GetText(), 10)
+                                    if tonumber(self:GetText()) then
+                                        local value = tonumber(self:GetText(), 10)
                                         HelpMePlayDB["TrainerProtectionValue"] = value * 10000
-                                        HidePopup(self)
                                     end
+                                    HidePopup(self)
                                 end
                             end)
                         end,
                         timeout = 0,
                         showAlert = false,
                         whileDead = false,
-                        hideOnEscape = true,
                         hasEditBox = true,
-                        enterClicksFirstButton = true,
-                        preferredIndex = 3,
+                        exclusive = true,
+                        preferredIndex = STATICPOPUP_NUMDIALOGS,
                     }
                     StaticPopup_Show("HELPMEPLAY_TRAINER_PROTECTION_VALUE_MANUAL")
                 end
@@ -275,21 +274,20 @@ addon.Settings = {
                             self.editBox:SetScript("OnKeyUp", function(self, key)
                                 if key == "ESCAPE" then HidePopup(self) end
                                 if key == "ENTER" then
-                                    if tonumber(self.editBox:GetText()) then
-                                        local value = tonumber(self.editBox:GetText(), 10)
+                                    if tonumber(self:GetText()) then
+                                        local value = tonumber(self:GetText(), 10)
                                         HelpMePlayDB["DepositKeepAmount"] = value * 10000
-                                        HidePopup(self)
                                     end
+                                    HidePopup(self)
                                 end
                             end)
                         end,
                         timeout = 0,
                         showAlert = false,
                         whileDead = false,
-                        hideOnEscape = false,
                         hasEditBox = true,
-                        enterClicksFirstButton = false,
-                        preferredIndex = 3,
+                        exclusive = true,
+                        preferredIndex = STATICPOPUP_NUMDIALOGS,
                     }
                     StaticPopup_Show("HELPMEPLAY_DEPOSIT_KEEP_AMOUNT_MANUAL")
                 end
