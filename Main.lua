@@ -281,6 +281,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             addon.playerLevel = UnitLevel("player")
             addon.playerSpecID = PlayerUtil.GetCurrentSpecID()
             addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
+            addon.playerGUID = UnitGUID("player")
 
             -- Unload the event for performance.
             eventHandler:UnregisterEvent("PLAYER_LOGIN")
