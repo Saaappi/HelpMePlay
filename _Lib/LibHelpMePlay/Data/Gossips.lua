@@ -222,6 +222,27 @@ LHMP.Gossips = {
                 "QUEST_ACTIVE = 32382",
             }
         },
+        {
+            ID = 41242,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32193",
+            }
+        },
+        {
+            ID = 41241,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32315",
+            }
+        },
+        {
+            ID = 41240,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32370",
+            }
+        },
     },
     [68108] = {
         {
