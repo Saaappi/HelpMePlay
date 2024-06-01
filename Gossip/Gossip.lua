@@ -65,7 +65,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             local options = C_GossipInfo.GetOptions()
                             if options then
                                 for _, option in ipairs(options) do
-                                    print(format("%s: %s", addon.ColorText("GOLD", option.gossipOptionID), option.name))
+                                    print(format("%s: %s", addon.ColorText("UNCOMMON", option.gossipOptionID), option.name))
                                 end
                             end
                         end

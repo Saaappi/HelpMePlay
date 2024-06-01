@@ -231,7 +231,7 @@ addon.Settings = {
         {
             Type = "CheckButton",
             Name = "Keep Me Safe",
-            TooltipText = "Toggle to add a popup for approval before the addon is allowed to deposit into the guild bank.",
+            TooltipText = "Toggle to add a popup for approval before the addon is allowed to conduct transactions at a guild bank.",
             SavedVariable = "DepositKeepMeSafe",
         },
         {
