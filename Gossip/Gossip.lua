@@ -51,22 +51,20 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     useFontString = false,
                     fontStringText = "",
                     onClick = function()
-                        if not UnitAffectingCombat("player") then
-                            -- NPC ID
-                            local GUID = UnitGUID("target")
-                            if GUID then
-                                local npcID = addon.SplitString(GUID, "-", 6)
-                                print(npcID)
-                            else
-                                print(0) -- This is for gossips associated to non-NPCs.
-                            end
+                        -- NPC ID
+                        local GUID = UnitGUID("target")
+                        if GUID then
+                            local npcID = addon.SplitString(GUID, "-", 6)
+                            print(npcID)
+                        else
+                            print(0) -- This is for gossips associated to non-NPCs.
+                        end
 
-                            -- Gossips
-                            local options = C_GossipInfo.GetOptions()
-                            if options then
-                                for _, option in ipairs(options) do
-                                    print(format("%s: %s", addon.ColorText("UNCOMMON", option.gossipOptionID), option.name))
-                                end
+                        -- Gossips
+                        local options = C_GossipInfo.GetOptions()
+                        if options then
+                            for _, option in ipairs(options) do
+                                print(format("%s: %s", addon.ColorText("UNCOMMON", option.gossipOptionID), option.name))
                             end
                         end
                     end,
@@ -88,13 +86,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     useFontString = false,
                     fontStringText = "",
                     onClick = function()
-                        if not UnitAffectingCombat("player") then
-                            local numEntries = C_QuestLog.GetNumQuestLogEntries()
-                            for i = 1, numEntries do
-                                local info = C_QuestLog.GetInfo(i)
-                                if info and (not info.isHeader) then
-                                    print(format("%s: %s", addon.ColorText("GOLD", info.questID), info.title))
-                                end
+                        local numEntries = C_QuestLog.GetNumQuestLogEntries()
+                        for i = 1, numEntries do
+                            local info = C_QuestLog.GetInfo(i)
+                            if info and (not info.isHeader) then
+                                print(format("%s: %s", addon.ColorText("GOLD", info.questID), info.title))
                             end
                         end
                     end,

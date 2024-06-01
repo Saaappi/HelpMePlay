@@ -4,7 +4,7 @@ Enhancements:
 - The Deposit Keep Amount and Trainer Protection slider values are now displayed as gold.
 
 Gossip:
-- Added support for the entire Operation: Shieldwall campaign.
+- For Alliance, added support for the entire Operation: Shieldwall and Kirin Tor Offensive campaigns.
 
 Removals:
 - Removed the "set" command. The Deposit Keep Amount and Trainer Protection variables can now be set manually from within the settings menu.
