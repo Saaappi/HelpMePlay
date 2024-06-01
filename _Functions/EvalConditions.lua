@@ -275,6 +275,24 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if not isEnlisted then
                             numConditions = numConditions - 1
                         end
+                    elseif cond == "HAS_ITEM" then
+                        local itemID = condition:match("= (.+)")
+                        if itemID and tonumber(itemID) then
+                            local breakParentLoop = false
+                            for bagID = 0, 4 do
+                                for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
+                                    local containerItemID = C_Container.GetContainerItemID(bagID, slotID)
+                                    if containerItemID then
+                                        if containerItemID == tonumber(itemID) then
+                                            numConditions = numConditions - 1
+                                            breakParentLoop = true
+                                            break
+                                        end
+                                    end
+                                end
+                                if breakParentLoop then break end
+                            end
+                        end
                     end
                 end
                 if numConditions == 0 then
