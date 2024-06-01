@@ -257,6 +257,13 @@ LHMP.Gossips = {
                 "QUEST_ACTIVE = 32355",
             }
         },
+        {
+            ID = 41236,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32400",
+            }
+        },
     },
     [68108] = {
         {
@@ -305,6 +312,40 @@ LHMP.Gossips = {
             CanConfirm = false,
             Conditions = {
                 "QUEST_ACTIVE = 32423",
+            }
+        },
+    },
+    [68004] = {
+        {
+            ID = 41051,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32321",
+            }
+        },
+        {
+            ID = 41925,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32321",
+            }
+        },
+    },
+    [68130] = {
+        {
+            ID = 41837,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32334",
+            }
+        },
+    },
+    [68545] = {
+        {
+            ID = 40881,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 32336",
             }
         },
     },
