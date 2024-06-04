@@ -445,4 +445,65 @@ LHMP.Gossips = {
             }
         },
     },
+    [54763] = {
+        {
+            ID = 39167,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29579",
+            }
+        },
+    },
+    [54914] = {
+        {
+            ID = 39493,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29620",
+            }
+        },
+        {
+            ID = 40364,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29620",
+            }
+        },
+    },
+    [54944] = {
+        {
+            ID = 40241,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29632",
+            }
+        },
+    },
+    [54924] = {
+        {
+            ID = 40594,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29633",
+            }
+        },
+    },
+    [54925] = {
+        {
+            ID = 40595,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29634",
+            }
+        },
+    },
+    [54926] = {
+        {
+            ID = 40337,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29635",
+            }
+        },
+    },
 }

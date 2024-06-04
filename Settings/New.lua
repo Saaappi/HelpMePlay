@@ -1,9 +1,15 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
-local function OnSettingChanged(_, setting, value)
-    local variable = setting:GetVariable()
+addon.OnSettingChanged = function(_, setting, value)
+    local variable
+    if type(setting) ~= "string" then
+        variable = setting:GetVariable()
+    else
+        variable = setting
+    end
     HelpMePlayDB[variable] = value
+    print(variable)
 
     -- Handler for the Quest Mobs icon/position.
     if variable == "QuestMobsIconID" then
@@ -68,7 +74,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     do
                         local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Boolean, HelpMePlayDB[savedVariable])
                         Settings.CreateCheckBox(category, setting, tooltipText)
-                        Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
+                        Settings.SetOnValueChangedCallback(savedVariable, addon.OnSettingChanged)
                     end
                 elseif elementName == "DropDown" then
                     local name, category, tooltipText, options, savedVariable = ...
@@ -82,7 +88,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
                     local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
                     Settings.CreateDropDown(category, setting, GetOptions, tooltipText)
-                    Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
+                    Settings.SetOnValueChangedCallback(savedVariable, addon.OnSettingChanged)
                 elseif elementName == "Slider" then
                     local name, category, tooltipText, options, savedVariable = ...
 
@@ -97,7 +103,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local opt = CreateSliderOptions(options.minValue, options.maxValue, options.step)
                     opt:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
                     Settings.CreateSlider(category, setting, opt, tooltipText)
-                    Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
+                    Settings.SetOnValueChangedCallback(savedVariable, addon.OnSettingChanged)
                 end
             end
 
