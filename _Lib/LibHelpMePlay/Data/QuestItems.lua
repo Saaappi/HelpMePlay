@@ -10,5 +10,14 @@ LHMP.QuestMerchants={
                 "QUEST_ACTIVE = 29627",
             }
         }
+    },
+    [54981] = {
+        {
+            Index = 1,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 29627",
+            }
+        }
     }
 }
