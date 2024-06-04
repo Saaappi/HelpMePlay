@@ -7,6 +7,7 @@ LHMP.QuestMerchants = {
             Index = 1,
             Quantity = 3,
             Conditions = {
+                "QUEST_ACTIVE = 29627",
                 "QUEST_OBJECTIVES_INCOMPLETE = 29627,3",
             }
         }
@@ -16,6 +17,7 @@ LHMP.QuestMerchants = {
             Index = 1,
             Quantity = 1,
             Conditions = {
+                "QUEST_ACTIVE = 29627",
                 "QUEST_OBJECTIVES_INCOMPLETE = 29627,2",
             }
         }
