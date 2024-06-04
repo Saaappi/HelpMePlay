@@ -40,6 +40,14 @@ function LHMP:GetWorldEvent(eventID)
     return LHMP.WorldEvents[eventID]
 end
 
+---------------
+-- MERCHANTS --
+---------------
+function LHMP:GetItemsForMerchant(npcID)
+    if not LHMP.QuestMerchants[npcID] then return false end
+    return LHMP.QuestMerchants[npcID]
+end
+
 ----------------------------
 -- NEW CHARACTER (RANDOM) --
 ----------------------------
