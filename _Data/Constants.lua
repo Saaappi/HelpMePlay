@@ -1,6 +1,7 @@
 local addonName, addon = ...
 
 addon.Constants = {
+    ["AUTHOR_BATTLETAG"] = "Lightsky#11682",
     ["PLAYER_MAX_LEVEL"] = GetMaxLevelForPlayerExpansion(),
     ["TIMER_DELAY"] = 0.1,
 }

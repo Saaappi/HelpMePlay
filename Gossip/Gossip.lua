@@ -36,7 +36,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         -- If the gossip from is visible, then add a button that can be used to
         -- quickly retrieve the NPC's ID, as well as the listed options.
-        if GossipFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(addon.playerGUID).battleTag == "Lightsky#11682" then
+        if GossipFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(addon.playerGUID).battleTag == addon.Constants["AUTHOR_BATTLETAG"] then
             if not gossipButton then
                 gossipButton = {
                     name = addonName .. "GossipInfoButton",
