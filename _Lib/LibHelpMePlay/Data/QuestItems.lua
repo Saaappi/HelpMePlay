@@ -1,7 +1,7 @@
 local LHMP = LibStub("LibHelpMePlay")
 if not LHMP then return end
 
-LHMP.QuestMerchants={
+LHMP.QuestMerchants = {
     [54982] = {
         {
             Index = 1,
