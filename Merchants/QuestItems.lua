@@ -52,7 +52,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             for i = 1, GetMerchantNumItems() do
                                 local name = GetMerchantItemInfo(i)
                                 if name then
-                                    print(format("%d: %s", addon.ColorText("UNCOMMON", i), name))
+                                    print(format("%s: %s", addon.ColorText("UNCOMMON", i), name))
                                 end
                             end
                         end,
