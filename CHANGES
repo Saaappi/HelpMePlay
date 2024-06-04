@@ -2,8 +2,8 @@ New Features:
 
 Enhancements:
 - Added the Bronze caches to the list of supported containers.
-
-Gossip:
+- Added full quest-related gossip support for The Jade Forest. (This includes all Alliance and Neutral gossips.)
+- Added full quest-related merchant support for The Jade Forest.
 
 Removals:
 
