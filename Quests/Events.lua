@@ -169,7 +169,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             local numSlots = (C_Container.GetContainerNumSlots(bagID) - C_Container.GetContainerNumFreeSlots(bagID))
             for slotID = 1, numSlots do
                 local questInfo = C_Container.GetContainerItemQuestInfo(bagID, slotID)
-                if questInfo and questInfo.questID then
+                if questInfo and questInfo.questID and (not questInfo.isActive) then
                     C_Container.UseContainerItem(bagID, slotID)
                 end
             end
