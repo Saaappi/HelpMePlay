@@ -140,7 +140,7 @@ local function QUEST_PROGRESS()
 end
 
 eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
-eventHandler:RegisterEvent("ITEM_PUSH")
+eventHandler:RegisterEvent("BAG_UPDATE")
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:RegisterEvent("QUEST_ACCEPTED")
 eventHandler:RegisterEvent("QUEST_AUTOCOMPLETE")
@@ -162,14 +162,14 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
         end
     end
-    if event == "ITEM_PUSH" then
+    if event == "BAG_UPDATE" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
         for bagID = 0, 4 do
             local numSlots = (C_Container.GetContainerNumSlots(bagID) - C_Container.GetContainerNumFreeSlots(bagID))
             for slotID = 1, numSlots do
                 local questInfo = C_Container.GetContainerItemQuestInfo(bagID, slotID)
-                if questInfo.questID then
+                if questInfo and questInfo.questID then
                     C_Container.UseContainerItem(bagID, slotID)
                 end
             end
