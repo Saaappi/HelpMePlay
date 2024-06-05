@@ -111,8 +111,11 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                         -- This is for every other reward that doesn't adhere to a dual wield class/spec,
                         -- rings, or trinkets. Weapons of all varieties are still handled here, just not
                         -- for dual wield classes/specs.
+                        --
+                        -- The variable name here "inventorySlotID", when it's a table doesn't make a lot
+                        -- of sense. I should probably change it, or maybe only change it when it's a table...
                         if type(inventorySlotID) == "table" then
-                            for _, slotID in ipairs(addon.InventoryType[inventorySlotID]) do
+                            for _, slotID in ipairs(inventorySlotID) do
                                 if rewardItemLevel > equippedItems[slotID] then
                                     bestRewardItemLink = itemLink
                                     bestRewardIndex = index
