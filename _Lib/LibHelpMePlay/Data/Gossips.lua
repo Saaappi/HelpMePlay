@@ -506,4 +506,13 @@ LHMP.Gossips = {
             }
         },
     },
+    [56133] = {
+        {
+            ID = 40440,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29919",
+            }
+        },
+    },
 }
