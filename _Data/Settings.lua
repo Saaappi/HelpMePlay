@@ -104,12 +104,6 @@ addon.Settings = {
             TooltipText = "Toggle the acceptance and completion of quests, as well as the selection of quest rewards.",
             SavedVariable = "AcceptAndCompleteQuests",
         },
-        --[[{
-            Type = "CheckButton",
-            Name = "Accept and Complete All Quests",
-            TooltipText = "Toggle the acceptance and completion of all quests, as well as the selection of quest rewards.",
-            SavedVariable = "AcceptAndCompleteAllQuests",
-        },]]
         {
             Type = "CheckButton",
             Name = "Ignore Repeatable Quests",
@@ -129,12 +123,12 @@ addon.Settings = {
             addon.ColorText("RED", "Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
             SavedVariable = "UsePartyPlay",
         },
-        --[[{
+        {
             Type = "CheckButton",
             Name = "Purchase Quest Items",
             TooltipText = "Toggle to automatically purchase quest items from merchants.",
             SavedVariable = "PurchaseQuestItems",
-        },]]
+        },
         {
             Type = "DropDown",
             Name = "Chromie Time",
