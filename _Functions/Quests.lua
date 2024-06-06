@@ -112,11 +112,15 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                         -- rings, or trinkets. Weapons of all varieties are still handled here, just not
                         -- for dual wield classes/specs.
                         --
+                        -- The consideration for whether or not the second weapon slot (17) is 0 is important
+                        -- because this section of code is for classes that don't dual wield. Therefore, slot
+                        -- 17 doesn't apply.
+                        --
                         -- The variable name here "inventorySlotID", when it's a table doesn't make a lot
                         -- of sense. I should probably change it, or maybe only change it when it's a table...
                         if type(inventorySlotID) == "table" then
                             for _, slotID in ipairs(inventorySlotID) do
-                                if rewardItemLevel > equippedItems[slotID] then
+                                if rewardItemLevel > equippedItems[slotID] and (equippedItems[slotID] ~= 0) then
                                     bestRewardItemLink = itemLink
                                     bestRewardIndex = index
                                     destSlot = slotID
