@@ -116,19 +116,34 @@ local function QUEST_GREETING()
     end
 end
 
+local function QUEST_LOG_UPDATE()
+    -- Check for quest popups whenever the quest log is updated.
+    if GetNumAutoQuestPopUps() > 0 then
+        if not UnitIsDeadOrGhost("player") then
+            -- This is apparently intrusive?
+            local questID, questType = GetAutoQuestPopUp(1)
+            if questType == "OFFER" then
+                ShowQuestOffer(questID)
+            elseif questType == "COMPLETE" then
+                ShowQuestComplete(questID)
+            end
+
+            -- Remove the quest popup since the game doesn't handle this organically...
+            RemoveAutoQuestPopUp(questID)
+        else
+            -- You cannot accept quests while dead.
+            C_Timer.After(1, QUEST_LOG_UPDATE)
+        end
+    end
+end
+
 local function QUEST_PROGRESS()
     if not IsShiftKeyDown() then
-        if IsQuestCompletable() then
-            local questID = GetQuestID()
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                        QuestFrameCompleteButton:Click()
-                        HelpMePlay.CompleteQuest()
-                    end)
-                end
-            end
+        if not IsQuestCompletable() then return end
+
+        if HelpMePlayDB["AcceptAndCompleteQuests"] then
+            CompleteQuest()
+            HelpMePlay.CompleteQuest()
         end
     else
         C_Timer.After(1, QUEST_PROGRESS)
@@ -136,18 +151,20 @@ local function QUEST_PROGRESS()
 end
 
 eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
-eventHandler:RegisterEvent("BAG_UPDATE")
+--eventHandler:RegisterEvent("BAG_UPDATE")
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:RegisterEvent("QUEST_ACCEPTED")
 eventHandler:RegisterEvent("QUEST_AUTOCOMPLETE")
 eventHandler:RegisterEvent("QUEST_COMPLETE")
 eventHandler:RegisterEvent("QUEST_DETAIL")
 eventHandler:RegisterEvent("QUEST_GREETING")
+eventHandler:RegisterEvent("QUEST_LOG_UPDATE")
 eventHandler:RegisterEvent("QUEST_PROGRESS")
 eventHandler:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADVENTURE_MAP_OPEN" then
         if HelpMePlayDB["UseAdventureMaps"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         local adventureMapID = C_AdventureMap.GetMapID()
         if adventureMapID then
@@ -158,8 +175,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
         end
     end
-    if event == "BAG_UPDATE" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+    --[[if event == "BAG_UPDATE" then
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         for bagID = 0, 4 do
             local numSlots = (C_Container.GetContainerNumSlots(bagID) - C_Container.GetContainerNumFreeSlots(bagID))
@@ -170,11 +187,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
             end
         end
-    end
+    end]]
     if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
         local type = ...
         if type == 3 then
-            if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+            if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
             QUEST_GOSSIP()
         elseif type == 45 then -- Chromie Time
@@ -188,7 +205,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
     if event == "QUEST_ACCEPTED" then
         -- Automatically hides the quest popup when one is accepted.
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         local questID = ...
         if questID then
@@ -204,7 +221,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
     if event == "QUEST_AUTOCOMPLETE" then
         -- Automatically hides the quest popup when one is completed.
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         local questID = ...
         local mapID = C_Map.GetBestMapForUnit("player")
@@ -220,25 +237,36 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     end
 
     if event == "QUEST_COMPLETE" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         QUEST_COMPLETE()
     end
 
     if event == "QUEST_DETAIL" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         QUEST_DETAIL()
     end
 
     if event == "QUEST_GREETING" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         QUEST_GREETING()
     end
 
+    if event == "QUEST_LOG_UPDATE" then
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
+        if WorldMapFrame:IsShown() then return end
+
+        QUEST_LOG_UPDATE()
+
+        -- check for quest popups whenever the quest log is updated, which also happens on login, and
+        -- when the player loots an item that starts a quest
+        
+    end
+
     if event == "QUEST_PROGRESS" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         QUEST_PROGRESS()
     end
