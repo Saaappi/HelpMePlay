@@ -89,35 +89,33 @@ end
 
 local function QUEST_GREETING()
     if not IsShiftKeyDown() then
-        local GUID = UnitGUID("target")
+        -- I'm not sure I need to ignore quest givers. I'll disable for now and
+        -- discuss it with Kraken's community.
+        --[[local GUID = UnitGUID("target")
         if GUID then
             local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
             if npcID then
                 if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
             end
-        end
+        end]]
 
-        for i = 1, GetNumActiveQuests() do
-            local questID = GetActiveQuestID(i)
-            local isComplete = select(2, GetActiveTitle(i))
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and isComplete and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                    SelectActiveQuest(i)
+        if HelpMePlayDB["AcceptAndCompleteQuests"] then
+            -- Let's deal with active and complete quests first.
+            for index = 1, GetNumActiveQuests() do
+                local isComplete = select(2, GetActiveTitle(index))
+                if isComplete and (not C_QuestLog.IsWorldQuest(GetActiveQuestID(index))) then
+                    SelectActiveQuest(index)
                 end
             end
-        end
 
-        for i = 1, GetNumAvailableQuests() do
-            local questID = select(5, GetAvailableQuestInfo(i))
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and mapID then
-                if HelpMePlayDB["AcceptAndCompleteQuests"] then
+            -- Accept available quests now.
+            for index = 1, GetNumAvailableQuests() do
+                local questID = select(5, GetAvailableQuestInfo(index))
+                if questID then
                     if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
                     elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
                     else
-                        SelectAvailableQuest(i)
-                        AcceptQuest()
+                        SelectAvailableQuest(index)
                     end
                 end
             end
