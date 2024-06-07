@@ -237,9 +237,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             --
             -- We need the division because the value is represented
             -- in copper.
-            if (HelpMePlayDB["TrainerProtectionValue"] / 10000) > 1000 then
+            --[[if (HelpMePlayDB["TrainerProtectionValue"] / 10000) > 1000 then
                 HelpMePlayDB["TrainerProtectionValue"] = 1000
-            end
+            end]]
 
             -- Delete the old, unused saved variables.
             HelpMePlayDB["MinimapIconEnabled"] = nil

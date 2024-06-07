@@ -12,6 +12,28 @@ local function GetEditModeLayouts()
     return layouts
 end
 
+local function SetValue(setting, value)
+    if setting.pendingValue ~= nil then
+		return
+	end
+
+	local currentValue = setting:GetValue()
+	local equivalentValue = ApproximatelyEqual(currentValue, value)
+	if equivalentValue then return end
+
+	local originalValue = setting.originalValue;
+	local newValue = setting:SetValueInternal(value)
+
+	if (originalValue == nil) and not equivalentValue then
+		originalValue = currentValue
+		setting.originalValue = currentValue
+	elseif ApproximatelyEqual(originalValue, newValue) then
+		setting.originalValue = nil
+	end
+
+	SettingsCallbackRegistry:TriggerEvent(setting:GetVariable(), setting, newValue, currentValue, originalValue)
+end
+
 addon.Settings = {
     General = {
         --[[{
@@ -190,8 +212,15 @@ addon.Settings = {
                         button2 = CANCEL,
                         OnAccept = function(self)
                             if tonumber(self.editBox:GetText()) then
-                                local value = tonumber(self.editBox:GetText(), 10)
-                                HelpMePlayDB["TrainerProtectionValue"] = value * 10000
+                                local value = tonumber(self.editBox:GetText()); value = value * 10000
+                                for _, setting in next, addon.sliderSettings do
+                                    if setting:GetName() == "Trainer Protection Value" then
+                                        local variable = setting:GetVariable()
+                                        HelpMePlayDB[variable] = value
+                                        SetValue(setting, value/10000)
+                                        break
+                                    end
+                                end
                             end
                         end,
                         OnShow = function(self)
@@ -200,8 +229,15 @@ addon.Settings = {
                                 if key == "ESCAPE" then HidePopup(self) end
                                 if key == "ENTER" then
                                     if tonumber(self:GetText()) then
-                                        local value = tonumber(self:GetText(), 10)
-                                        HelpMePlayDB["TrainerProtectionValue"] = value * 10000
+                                        local value = tonumber(self:GetText()); value = value * 10000
+                                        for _, setting in next, addon.sliderSettings do
+                                            if setting:GetName() == "Trainer Protection Value" then
+                                                local variable = setting:GetVariable()
+                                                HelpMePlayDB[variable] = value
+                                                SetValue(setting, value/10000)
+                                                break
+                                            end
+                                        end
                                     end
                                     HidePopup(self)
                                 end
@@ -252,7 +288,7 @@ addon.Settings = {
                         button2 = CANCEL,
                         OnAccept = function(self)
                             if tonumber(self.editBox:GetText()) then
-                                local value = tonumber(self.editBox:GetText(), 10)
+                                local value = tonumber(self.editBox:GetText())
                                 HelpMePlayDB["DepositKeepAmount"] = value * 10000
                             end
                         end,
@@ -262,7 +298,7 @@ addon.Settings = {
                                 if key == "ESCAPE" then HidePopup(self) end
                                 if key == "ENTER" then
                                     if tonumber(self:GetText()) then
-                                        local value = tonumber(self:GetText(), 10)
+                                        local value = tonumber(self:GetText())
                                         HelpMePlayDB["DepositKeepAmount"] = value * 10000
                                     end
                                     HidePopup(self)

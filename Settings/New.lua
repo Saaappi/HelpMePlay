@@ -22,8 +22,8 @@ local function OnSettingChanged(_, setting, value)
                 button2 = NO,
                 OnAccept = function(self)
                     local input = self.editBox:GetText()
-                    if tonumber(input, 10) then
-                        HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input, 10)
+                    if tonumber(input) then
+                        HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
                         addon.UpdateQuestMobsIcon()
                     else
                         HelpMePlay.Print("Input was invalid.")
@@ -95,14 +95,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         if savedVariable == "DepositKeepAmount" or savedVariable == "TrainerProtectionValue" then
                             return C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB[savedVariable])
                         end
-                        return tonumber(HelpMePlayDB[savedVariable], 10)
+                        return tonumber(HelpMePlayDB[savedVariable])
                     end
 
+                    if not addon.sliderSettings then addon.sliderSettings = {} end
                     local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
                     local opt = CreateSliderOptions(options.minValue, options.maxValue, options.step)
                     opt:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
                     Settings.CreateSlider(category, setting, opt, tooltipText)
                     Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
+                    table.insert(addon.sliderSettings, setting)
                 end
             end
 
