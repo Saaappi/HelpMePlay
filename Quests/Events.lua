@@ -3,39 +3,30 @@ local eventHandler = CreateFrame("Frame")
 
 local function QUEST_GOSSIP()
     if not IsShiftKeyDown() then
-        local GUID = UnitGUID("target")
+        -- I'm not sure I need to ignore quest givers. I'll disable for now and
+        -- discuss it with Kraken's community.
+        --[[local GUID = UnitGUID("target")
         local mapID = C_Map.GetBestMapForUnit("player")
         if GUID then
             local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
             if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
-        end
-        local activeQuests = C_GossipInfo.GetActiveQuests()
-        local availableQuests = C_GossipInfo.GetAvailableQuests()
-        if activeQuests and mapID then
-            for _, quest in ipairs(activeQuests) do
-                if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                        if quest.isComplete then
-                            C_GossipInfo.SelectActiveQuest(quest.questID)
-                            HelpMePlay.CompleteQuest()
-                        end
-                    end)
+        end]]
+
+        if HelpMePlayDB["AcceptAndCompleteQuests"] then
+            -- Let's deal with completed quests first.
+            for _, quest in next, C_GossipInfo.GetActiveQuests() do
+                if quest.isComplete and (not C_QuestLog.IsWorldQuest(quest.questID)) then
+                    C_GossipInfo.SelectActiveQuest(quest.questID)
+                    HelpMePlay.CompleteQuest()
                 end
             end
-        end
-        if availableQuests and mapID then
-            for _, quest in ipairs(availableQuests) do
+
+            -- Accept all available quests now.
+            for _, quest in next, C_GossipInfo.GetAvailableQuests() do
                 if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
-                    -- We do nothing here because the player chose to ignore repeatable quests.
                 elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
-                    -- We do nothing here because the player chose to ignore daily quests.
                 else
-                    if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-                            C_GossipInfo.SelectAvailableQuest(quest.questID)
-                            AcceptQuest()
-                        end)
-                    end
+                    C_GossipInfo.SelectAvailableQuest(quest.questID)
                 end
             end
         end
