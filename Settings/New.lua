@@ -46,6 +46,8 @@ local function OnSettingChanged(_, setting, value)
         addon.UpdateQuestMobsIconPosition()
     elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
         addon.UpdateQuestMobsIconPosition()
+    elseif variable == "UseWorldEventQueue" then
+        addon.CreateEventQueueButton()
     end
 end
 
