@@ -59,13 +59,20 @@ local function QUEST_COMPLETE()
 end
 
 local function QUEST_DETAIL()
-    local questID = GetQuestID()
     if not IsShiftKeyDown() then
-        if QuestGetAutoAccept() then
-            CloseQuest()
+        if QuestIsFromAreaTrigger() then
+            -- This type of quest is triggered when the player enters a specific
+            -- area. It's presented in a way like the player has a choice, but
+            -- they don't. Just accept the quest.
+            AcceptQuest()
+        elseif QuestGetAutoAccept() then
+            -- This type of quest is auto accepted. It's presented like the player
+            -- has a choice in the matter, but they really don't. In such case,
+            -- we'll acknowledge the auto accept quest so the window is closed.
+            AcknowledgeAutoAcceptQuest()
         else
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if questID and mapID then
+            local questID = GetQuestID()
+            if questID then
                 if HelpMePlayDB["AcceptAndCompleteQuests"] then
                     if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
                     elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then

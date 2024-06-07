@@ -10,3 +10,4 @@ Removals:
 
 Fixes:
 - Fixed a rare bug where an error could be thrown for weapon comparison in legacy content while Item Level is selected for Quest Rewards.
+- Quest popups should once again feel acknowledged and be removed from the player's screen.
