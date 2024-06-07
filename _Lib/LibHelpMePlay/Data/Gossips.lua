@@ -595,4 +595,97 @@ LHMP.Gossips = {
             }
         },
     },
+    [57123] = {
+        {
+            ID = 40362,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+    },
+    [57124] = {
+        {
+            ID = 40362,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+    },
+    [57126] = {
+        {
+            ID = 40473,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+    },
+    [57127] = {
+        {
+            ID = 40261,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+    },
+    [57121] = {
+        {
+            ID = 40474,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+    },
+    [57122] = {
+        {
+            ID = 40508,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+    },
+    [57120] = {
+        {
+            ID = 40360,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+        {
+            ID = 40361,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29982",
+            }
+        },
+    },
+    [56714] = {
+        {
+            ID = 41438,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29984",
+            }
+        },
+        {
+            ID = 41439,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29987",
+            }
+        },
+        {
+            ID = 41440,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29989",
+            }
+        },
+    },
 }

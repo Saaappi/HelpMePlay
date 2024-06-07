@@ -127,7 +127,7 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                                 end
                             end
                         else
-                            if rewardItemLevel > equippedItems[inventorySlotID] then
+                            if rewardItemLevel > equippedItems[inventorySlotID] and (equippedItems[inventorySlotID] ~= 0) then
                                 bestRewardItemLink = itemLink
                                 bestRewardIndex = index
                                 destSlot = inventorySlotID
