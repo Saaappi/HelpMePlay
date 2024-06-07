@@ -12,6 +12,7 @@ local currentEventIndex = 1
 local function RefreshEvents()
     if next(activeEvents) == nil then
         worldEventQueueButton:Hide()
+        return
     end
 
     for _, event in pairs(activeEvents) do
@@ -42,16 +43,18 @@ local function SetWorldEventQueueButtonToEvent(event)
 end
 
 local function GetEvents()
+    activeEvents = {}
     local currentDate = C_DateAndTime.GetCurrentCalendarTime()
-    local events = addon.GetActiveEvents(currentDate)
-    if next(events) ~= nil then
-        for _, evt in ipairs(events) do
-            if LHMP:IsEventQueueable(evt.eventID) then
-                local worldEvent = LHMP:GetWorldEvent(evt.eventID)
-                local isWorldEventValid = HelpMePlay.EvalConditions(worldEvent.conditions)
-                if isWorldEventValid then
-                    activeEvents[evt.eventID] = worldEvent
-                end
+    local events = addon.GetActiveEventsFromCalendar(currentDate)
+    local faction = UnitFactionGroup("player")
+    if faction == "Alliance" then faction = "1" else faction = "0" end
+
+    for _, event in next, events do
+        if LHMP:IsEventQueueable(event.eventID) then
+            local worldEvent = LHMP:GetWorldEvent(event.eventID)
+            local isEventQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted(worldEvent.faction[tonumber(faction)])
+            if not isEventQuestCompleted then
+                activeEvents[event.eventID] = worldEvent
             end
         end
     end
@@ -65,7 +68,9 @@ addon.CreateEventQueueButton = function()
         return
     end
 
-    GetEvents()
+    if activeEvents == {} then
+        GetEvents()
+    end
 
     if not worldEventQueueButton then
         if next(activeEvents) ~= nil then
@@ -150,11 +155,14 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then
             -- Unregister the event for performance.
             eventHandler:UnregisterEvent("PLAYER_LOGIN")
-
             return
         end
 
+        -- Get the events from the calendar, filter in only those that we consider
+        -- queueable, then put them in a table.
         GetEvents()
+
+        -- Create the button on the screen the player can click.
         addon.CreateEventQueueButton()
 
         -- Unregister the event for performance.
@@ -163,13 +171,17 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
-        local questID = ...
-        for eventID, evt in pairs(activeEvents) do
-            if evt.questIDForVisibility == questID then
-                activeEvents[eventID] = nil
-                break
+
+        if activeEvents ~= {} then
+            for eventID, evt in next, activeEvents do
+                for _, questID in next, evt.faction do
+                    if C_QuestLog.IsQuestFlaggedCompleted(questID) then
+                        activeEvents[eventID] = nil
+                        break
+                    end
+                end
             end
+            RefreshEvents()
         end
-        RefreshEvents()
     end
 end)
