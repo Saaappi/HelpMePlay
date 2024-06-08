@@ -4,12 +4,15 @@ local LHMP = LibStub("LibHelpMePlay")
 local worldEventQueueButton
 local leftChevron
 local rightChevron
-local activeEvents = {}
+local activeEvents
 local currentEventIndex = 1
 
 -- This function is used to update (refresh) the button when the player
 -- completes an active event.
 local function RefreshEvents()
+    local currentDate = C_DateAndTime.GetCurrentCalendarTime()
+    activeEvents = addon.GetActiveEventsFromCalendar(currentDate)
+
     if next(activeEvents) == nil then
         if worldEventQueueButton then
             worldEventQueueButton:Hide()
@@ -18,7 +21,7 @@ local function RefreshEvents()
     end
 
     if worldEventQueueButton then
-        for _, event in pairs(activeEvents) do
+        for _, event in next, activeEvents do
             if event.atlas then
                 worldEventQueueButton.icon:SetAtlas(event.atlas)
             else
@@ -46,24 +49,6 @@ local function SetWorldEventQueueButtonToEvent(event)
     worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
 end
 
-local function GetEvents()
-    local currentDate = C_DateAndTime.GetCurrentCalendarTime()
-    local events = addon.GetActiveEventsFromCalendar(currentDate)
-    local faction = UnitFactionGroup("player")
-    if faction == "Alliance" then faction = "1" else faction = "0" end
-
-    for _, event in next, events do
-        if LHMP:IsEventQueueable(event.eventID) then
-            local worldEvent = LHMP:GetWorldEvent(event.eventID)
-            local isEventQuestCompleted = C_QuestLog.IsQuestFlaggedCompleted(worldEvent.faction[tonumber(faction)])
-            if not isEventQuestCompleted then
-                activeEvents[event.eventID] = worldEvent
-            end
-        end
-    end
-    RefreshEvents()
-end
-
 addon.CreateEventQueueButton = function()
     if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then
         if worldEventQueueButton then
@@ -72,12 +57,8 @@ addon.CreateEventQueueButton = function()
         return
     end
 
-    -- Get the events from the calendar, filter in only those that we consider
-    -- queueable, then put them in a table.
-    GetEvents()
-
     if not worldEventQueueButton then
-        if next(activeEvents) ~= nil then
+        --if next(activeEvents) ~= nil then
             worldEventQueueButton = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
             worldEventQueueButton:RegisterForClicks("LeftButtonUp")
 
@@ -125,17 +106,12 @@ addon.CreateEventQueueButton = function()
                 end
             end
 
-            worldEventQueueButton:SetScript("OnClick", function()
-                LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, worldEventQueueButton.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
+            worldEventQueueButton:SetScript("OnClick", function(self)
+                LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
             end)
             worldEventQueueButton:SetScript("OnEnter", function(self)
                 GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
                 GameTooltip:SetText(self.name)
-                local _, isTank, isHealer, isDamage = GetLFGRoles()
-                GameTooltip:AddLine(format("\nSelected Role(s):\n" ..
-                "Tank: |cffFFFFFF%s|r\n" ..
-                "Healer: |cffFFFFFF%s|r\n" ..
-                "Damage: |cffFFFFFF%s|r", tostring(isTank), tostring(isHealer), tostring(isDamage)))
                 GameTooltip:Show()
             end)
             worldEventQueueButton:SetScript("OnLeave", function()
@@ -144,11 +120,8 @@ addon.CreateEventQueueButton = function()
 
             worldEventQueueButton:SetPoint("TOP", worldEventQueueButton:GetParent(), "TOP", 0, -20)
             worldEventQueueButton:Show()
-        else
-            if worldEventQueueButton then
-                worldEventQueueButton:Hide()
-            end
-        end
+        --else
+        --end
     else
         if not worldEventQueueButton:IsVisible() then
             worldEventQueueButton:Show()
@@ -165,13 +138,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
 
-        -- Create the button on the screen the player can click.
+        -- If there are events, then create the button.
         addon.CreateEventQueueButton()
     end
 
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
-        activeEvents = {}
-        addon.CreateEventQueueButton()
+        RefreshEvents()
     end
 end)

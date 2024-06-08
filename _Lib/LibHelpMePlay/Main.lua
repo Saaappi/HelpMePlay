@@ -9,6 +9,13 @@ local LHMP, oldversion = LibStub:NewLibrary(MAJOR, MINOR)
 if not LHMP then return end
 
 -------------
+-- GENERAL --
+-------------
+function LHMP:GetUnlocalizedUnitFaction(unit)
+    return UnitFactionGroup(unit)
+end
+
+-------------
 -- GOSSIPS --
 -------------
 function LHMP:IsGossipSupportedForNPC(npcID)
@@ -33,7 +40,14 @@ end
 ------------------
 function LHMP:IsEventQueueable(eventID)
     if not LHMP.WorldEvents[eventID] then return false end
-    return true
+
+    local faction = LHMP:GetUnlocalizedUnitFaction("player")
+    local conditionString = LHMP.WorldEvents[eventID]["conditions"][faction]
+    local questID = conditionString:match("= (.+)")
+    if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
+        return true
+    end
+    return false
 end
 function LHMP:GetWorldEvent(eventID)
     if not LHMP.WorldEvents[eventID] then return false end

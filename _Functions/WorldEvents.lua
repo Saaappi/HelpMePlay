@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local LHMP = LibStub("LibHelpMePlay")
 
 addon.GetActiveEventsFromCalendar = function(currentDate)
     local events = {}
@@ -6,7 +7,10 @@ addon.GetActiveEventsFromCalendar = function(currentDate)
     if numEvents > 0 then
         for index = 1, numEvents do
             local event = C_Calendar.GetDayEvent(0, currentDate.monthDay, index)
-            table.insert(events, event)
+            if event and LHMP:IsEventQueueable(event.eventID) then
+                local worldEvent = LHMP:GetWorldEvent(event.eventID)
+                events[event.eventID] = worldEvent
+            end
         end
     end
     return events
