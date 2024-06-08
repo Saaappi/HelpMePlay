@@ -11,19 +11,23 @@ local currentEventIndex = 1
 -- completes an active event.
 local function RefreshEvents()
     if next(activeEvents) == nil then
-        worldEventQueueButton:Hide()
+        if worldEventQueueButton then
+            worldEventQueueButton:Hide()
+        end
         return
     end
 
-    for _, event in pairs(activeEvents) do
-        if event.atlas then
-            worldEventQueueButton.icon:SetAtlas(event.atlas)
-        else
-            worldEventQueueButton.icon:SetTexture(event.texture)
+    if worldEventQueueButton then
+        for _, event in pairs(activeEvents) do
+            if event.atlas then
+                worldEventQueueButton.icon:SetAtlas(event.atlas)
+            else
+                worldEventQueueButton.icon:SetTexture(event.texture)
+            end
+            worldEventQueueButton.name = event.name
+            worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
+            break
         end
-        worldEventQueueButton.name = event.name
-        worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
-        break
     end
 end
 
@@ -43,7 +47,6 @@ local function SetWorldEventQueueButtonToEvent(event)
 end
 
 local function GetEvents()
-    activeEvents = {}
     local currentDate = C_DateAndTime.GetCurrentCalendarTime()
     local events = addon.GetActiveEventsFromCalendar(currentDate)
     local faction = UnitFactionGroup("player")
@@ -58,6 +61,7 @@ local function GetEvents()
             end
         end
     end
+    RefreshEvents()
 end
 
 addon.CreateEventQueueButton = function()
@@ -68,9 +72,9 @@ addon.CreateEventQueueButton = function()
         return
     end
 
-    if activeEvents == {} then
-        GetEvents()
-    end
+    -- Get the events from the calendar, filter in only those that we consider
+    -- queueable, then put them in a table.
+    GetEvents()
 
     if not worldEventQueueButton then
         if next(activeEvents) ~= nil then
@@ -152,36 +156,17 @@ eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("QUEST_TURNED_IN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_LOGIN" then
-        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then
-            -- Unregister the event for performance.
-            eventHandler:UnregisterEvent("PLAYER_LOGIN")
-            return
-        end
+        -- Unregister the event for performance.
+        eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
-        -- Get the events from the calendar, filter in only those that we consider
-        -- queueable, then put them in a table.
-        GetEvents()
+        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
 
         -- Create the button on the screen the player can click.
         addon.CreateEventQueueButton()
-
-        -- Unregister the event for performance.
-        eventHandler:UnregisterEvent("PLAYER_LOGIN")
     end
 
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
-
-        if activeEvents ~= {} then
-            for eventID, evt in next, activeEvents do
-                for _, questID in next, evt.faction do
-                    if C_QuestLog.IsQuestFlaggedCompleted(questID) then
-                        activeEvents[eventID] = nil
-                        break
-                    end
-                end
-            end
-            RefreshEvents()
-        end
+        activeEvents = {}
     end
 end)
