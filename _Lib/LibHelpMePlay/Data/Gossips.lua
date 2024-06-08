@@ -15,7 +15,9 @@ LHMP.GossipTextLookupByNPC = {
 }
 
 LHMP.Gossips = {
-    [0] = {},
+    [0] = {
+        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}},
+    },
     [62202] = {{ID = 35586, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31006"}}},
     [62538] = {{ID = 35587, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 31007"}}},
     [63876] = {{ID = 28603, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31091"}}},

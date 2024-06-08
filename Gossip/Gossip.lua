@@ -39,6 +39,21 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             return
                         end
                     end
+                else
+                    for _, option in next, options do
+                        for _, gossip in next, LHMP.Gossips[0] do
+                            if gossip.ID == option.gossipOptionID then
+                                local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
+                                if isAllowed then
+                                    C_GossipInfo.SelectOption(gossip.ID)
+                                    if gossip.CanConfirm then
+                                        StaticPopup1Button1:Click("LeftButton")
+                                    end
+                                    return
+                                end
+                            end
+                        end
+                    end
                 end
             end
         end)
