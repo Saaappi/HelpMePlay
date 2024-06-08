@@ -6,7 +6,9 @@ assert(LibStub, MAJOR .. " requires LibStub")
 
 -- Initialization.
 local LHMP, oldversion = LibStub:NewLibrary(MAJOR, MINOR)
-if not LHMP then return end
+if not LHMP then
+    return false
+end
 
 -------------
 -- GENERAL --
@@ -19,11 +21,15 @@ end
 -- GOSSIPS --
 -------------
 function LHMP:IsGossipSupportedForNPC(npcID)
-    if not LHMP.Gossips[npcID] then return false end
+    if not LHMP.Gossips[npcID] then
+        return false
+    end
     return true
 end
 function LHMP:GetGossipsForNPCByID(npcID)
-    if not LHMP.Gossips[npcID] then return false end
+    if not LHMP.Gossips[npcID] then
+        return false
+    end
     return LHMP.Gossips[npcID]
 end
 
@@ -31,7 +37,9 @@ end
 -- CONTAINERS --
 ----------------
 function LHMP:IsItemContainer(itemID)
-    if not LHMP.Containers[itemID] then return false end
+    if not LHMP.Containers[itemID] then
+        return false
+    end
     return true
 end
 
@@ -39,7 +47,9 @@ end
 -- WORLD EVENTS --
 ------------------
 function LHMP:IsEventQueueable(eventID)
-    if not LHMP.WorldEvents[eventID] then return false end
+    if not LHMP.WorldEvents[eventID] then
+        return false
+    end
 
     local faction = LHMP:GetUnlocalizedUnitFaction("player")
     local conditionString = LHMP.WorldEvents[eventID]["conditions"][faction]
@@ -50,7 +60,9 @@ function LHMP:IsEventQueueable(eventID)
     return false
 end
 function LHMP:GetWorldEvent(eventID)
-    if not LHMP.WorldEvents[eventID] then return false end
+    if not LHMP.WorldEvents[eventID] then
+        return false
+    end
     return LHMP.WorldEvents[eventID]
 end
 
@@ -58,7 +70,9 @@ end
 -- MERCHANTS --
 ---------------
 function LHMP:GetItemsForMerchant(npcID)
-    if not LHMP.QuestMerchants[npcID] then return false end
+    if not LHMP.QuestMerchants[npcID] then
+        return false
+    end
     return LHMP.QuestMerchants[npcID]
 end
 
@@ -66,7 +80,9 @@ end
 -- NEW CHARACTER (RANDOM) --
 ----------------------------
 function LHMP:GetRaceFactionByID(raceID)
-    if not LHMP.RaceFactions[raceID] then return false end
+    if not LHMP.RaceFactions[raceID] then
+        return false
+    end
     return LHMP.RaceFactions[raceID]
 end
 function LHMP:GetRandomRaceID()
@@ -78,7 +94,9 @@ function LHMP:GetRandomRaceID()
     return randomKey
 end
 function LHMP:GetRandomClassByRaceID(raceID)
-    if not LHMP.RaceClassCombinations[raceID] then return false end
+    if not LHMP.RaceClassCombinations[raceID] then
+        return false
+    end
 
     local numClassCombos = #LHMP.RaceClassCombinations[raceID]
     local randomIndex = math.random(1, numClassCombos)
