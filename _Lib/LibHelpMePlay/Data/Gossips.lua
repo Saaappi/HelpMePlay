@@ -3,6 +3,10 @@ if not LHMP then
     return false
 end
 
+-- This table is currently only used for the NPCs involved in the
+-- "A Perfect Match" quest in Pearlfin Village in The Jade Forest.
+--
+-- It may get used elsewhere later on.
 LHMP.GossipTextLookupByNPC = {
     [54959] = {40054},
     [56585] = {40057},
