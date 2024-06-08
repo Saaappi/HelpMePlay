@@ -58,70 +58,67 @@ addon.CreateEventQueueButton = function()
     end
 
     if not worldEventQueueButton then
-        --if next(activeEvents) ~= nil then
-            worldEventQueueButton = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
-            worldEventQueueButton:RegisterForClicks("LeftButtonUp")
+        worldEventQueueButton = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
+        worldEventQueueButton:RegisterForClicks("LeftButtonUp")
 
-            RefreshEvents()
+        RefreshEvents()
 
-            -- There are multiple events active, so let's make the chevron
-            -- buttons so the player can toggle between the active events.
-            if (#activeEvents > 1) then
-                if not leftChevron then
-                    leftChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
-                    leftChevron:SetSize(20, 20)
-                    leftChevron:SetPoint("TOPLEFT", worldEventQueueButton, "BOTTOMLEFT", 2, -5)
-                    leftChevron.texture = leftChevron:CreateTexture()
-                    leftChevron.texture:SetPoint("CENTER")
-                    leftChevron.texture:SetAtlas("uitools-icon-chevron-left", true)
+        -- There are multiple events active, so let's make the chevron
+        -- buttons so the player can toggle between the active events.
+        if (#activeEvents > 1) then
+            if not leftChevron then
+                leftChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
+                leftChevron:SetSize(20, 20)
+                leftChevron:SetPoint("TOPLEFT", worldEventQueueButton, "BOTTOMLEFT", 2, -5)
+                leftChevron.texture = leftChevron:CreateTexture()
+                leftChevron.texture:SetPoint("CENTER")
+                leftChevron.texture:SetAtlas("uitools-icon-chevron-left", true)
 
-                    leftChevron:SetNormalTexture(leftChevron.texture)
+                leftChevron:SetNormalTexture(leftChevron.texture)
 
-                    leftChevron:SetScript("OnClick", function()
-                        if currentEventIndex == 1 then
-                            currentEventIndex = #activeEvents
-                        else
-                            currentEventIndex = currentEventIndex - 1
-                        end
-                        SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
-                    end)
+                leftChevron:SetScript("OnClick", function()
+                    if currentEventIndex == 1 then
+                        currentEventIndex = #activeEvents
+                    else
+                        currentEventIndex = currentEventIndex - 1
+                    end
+                    SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
+                end)
 
-                    rightChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
-                    rightChevron:SetSize(20, 20)
-                    rightChevron:SetPoint("TOPRIGHT", worldEventQueueButton, "BOTTOMRIGHT", -2, -5)
-                    rightChevron.texture = rightChevron:CreateTexture()
-                    rightChevron.texture:SetPoint("CENTER")
-                    rightChevron.texture:SetAtlas("uitools-icon-chevron-right", true)
+                rightChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
+                rightChevron:SetSize(20, 20)
+                rightChevron:SetPoint("TOPRIGHT", worldEventQueueButton, "BOTTOMRIGHT", -2, -5)
+                rightChevron.texture = rightChevron:CreateTexture()
+                rightChevron.texture:SetPoint("CENTER")
+                rightChevron.texture:SetAtlas("uitools-icon-chevron-right", true)
 
-                    rightChevron:SetNormalTexture(rightChevron.texture)
+                rightChevron:SetNormalTexture(rightChevron.texture)
 
-                    rightChevron:SetScript("OnClick", function()
-                        if currentEventIndex == (#activeEvents) then
-                            currentEventIndex = 1
-                        else
-                            currentEventIndex = currentEventIndex + 1
-                        end
-                        SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
-                    end)
-                end
+                rightChevron:SetScript("OnClick", function()
+                    if currentEventIndex == (#activeEvents) then
+                        currentEventIndex = 1
+                    else
+                        currentEventIndex = currentEventIndex + 1
+                    end
+                    SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
+                end)
             end
+        end
 
-            worldEventQueueButton:SetScript("OnClick", function(self)
-                LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
-            end)
-            worldEventQueueButton:SetScript("OnEnter", function(self)
-                GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
-                GameTooltip:SetText(self.name)
-                GameTooltip:Show()
-            end)
-            worldEventQueueButton:SetScript("OnLeave", function()
-                GameTooltip:Hide()
-            end)
+        worldEventQueueButton:SetScript("OnClick", function(self)
+            LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
+        end)
+        worldEventQueueButton:SetScript("OnEnter", function(self)
+            GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
+            GameTooltip:SetText(self.name)
+            GameTooltip:Show()
+        end)
+        worldEventQueueButton:SetScript("OnLeave", function()
+            GameTooltip:Hide()
+        end)
 
-            worldEventQueueButton:SetPoint("TOP", worldEventQueueButton:GetParent(), "TOP", 0, -20)
-            worldEventQueueButton:Show()
-        --else
-        --end
+        worldEventQueueButton:SetPoint("TOP", worldEventQueueButton:GetParent(), "TOP", 0, -20)
+        worldEventQueueButton:Show()
     else
         if not worldEventQueueButton:IsVisible() then
             worldEventQueueButton:Show()
