@@ -31,7 +31,7 @@ local function SetValue(setting, value)
 		setting.originalValue = nil
 	end
 
-	SettingsCallbackRegistry:TriggerEvent(setting:GetVariable(), setting, newValue, currentValue, originalValue)
+	C_Timer.After(0.25, function() SettingsCallbackRegistry:TriggerEvent(setting:GetVariable(), setting, newValue, currentValue, originalValue) end)
 end
 
 addon.Settings = {
