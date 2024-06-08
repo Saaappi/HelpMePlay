@@ -26,6 +26,12 @@ function LHMP:IsGossipSupportedForNPC(npcID)
     end
     return true
 end
+function LHMP:IsGossipTextNPC(npcID)
+    if not LHMP.GossipTextLookupByNPC[npcID] then
+        return false
+    end
+    return true
+end
 function LHMP:GetGossipsForNPCByID(npcID)
     if not LHMP.Gossips[npcID] then
         return false

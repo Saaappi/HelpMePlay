@@ -3,6 +3,13 @@ if not LHMP then
     return false
 end
 
+LHMP.GossipTextLookupByNPC = {
+    [54959] = 40054,
+    [56585] = 40057,
+    [56591] = 40056,
+    [56592] = 40154,
+}
+
 LHMP.Gossips = {
     [0] = {},
     [62202] = {{ID = 35586, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31006"}}},

@@ -16,7 +16,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 if GUID then
                     local npcID = addon.SplitString(GUID, "-", 6)
                     if npcID then
-                        if LHMP:IsGossipSupportedForNPC(npcID) then
+                        if LHMP:IsGossipTextNPC(npcID) then
+                            C_GossipInfo.SelectOption(LHMP.GossipTextLookupByNPC[npcID])
+                        elseif LHMP:IsGossipSupportedForNPC(npcID) then
                             local gossips = LHMP:GetGossipsForNPCByID(npcID)
                             for _, gossip in ipairs(gossips) do
                                 local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
