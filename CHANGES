@@ -3,8 +3,8 @@ New Features:
 Enhancements:
 - Added the Bronze caches to the list of supported containers.
 - Looted items that begin a quest should now have their quests accepted.
-- Added full quest-related gossip support for The Jade Forest and the Valley of the Four Winds.
-- Added full quest-related merchant support for The Jade Forest.
+- Added quest-related gossip support for all Pandaria zones.
+- Added quest-related merchant support for all Pandaria zones.
 - The Event Queue button can now be shown and hidden without reloading the UI.
 
 Removals:
