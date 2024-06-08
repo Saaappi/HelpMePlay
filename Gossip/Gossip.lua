@@ -17,7 +17,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local npcID = addon.SplitString(GUID, "-", 6)
                     if npcID then
                         if LHMP:IsGossipTextNPC(npcID) then
-                            C_GossipInfo.SelectOption(LHMP.GossipTextLookupByNPC[npcID])
+                            local gossips = LHMP.GossipTextLookupByNPC[npcID]
+                            for _, option in next, options do
+                                for _, gossipID in next, gossips do
+                                    if gossipID == option.gossipOptionID then
+                                        C_GossipInfo.SelectOption(gossipID)
+                                    end
+                                end
+                            end
+                            
                         elseif LHMP:IsGossipSupportedForNPC(npcID) then
                             local gossips = LHMP:GetGossipsForNPCByID(npcID)
                             for _, gossip in ipairs(gossips) do
