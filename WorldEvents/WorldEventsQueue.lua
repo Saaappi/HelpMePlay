@@ -144,6 +144,10 @@ addon.CreateEventQueueButton = function()
 
             worldEventQueueButton:SetPoint("TOP", worldEventQueueButton:GetParent(), "TOP", 0, -20)
             worldEventQueueButton:Show()
+        else
+            if worldEventQueueButton then
+                worldEventQueueButton:Hide()
+            end
         end
     else
         if not worldEventQueueButton:IsVisible() then
@@ -168,5 +172,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
         activeEvents = {}
+        addon.CreateEventQueueButton()
     end
 end)
