@@ -697,4 +697,40 @@ LHMP.Gossips = {
             }
         },
     },
+    [59058] = {
+        {
+            ID = 40616,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29883",
+            }
+        },
+    },
+    [54960] = {
+        {
+            ID = 40442,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29883",
+            }
+        },
+    },
+    [56690] = {
+        {
+            ID = 40617,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29883",
+            }
+        },
+    },
+    [56693] = {
+        {
+            ID = 40427,
+            CanConfirm = false,
+            Conditions = {
+                "QUEST_ACTIVE = 29883",
+            }
+        },
+    },
 }

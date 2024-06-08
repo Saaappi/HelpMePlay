@@ -46,7 +46,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if addonLoaded == addonName then
             function HelpMePlay.EvalConditions(conditions)
                 local warModeAuras = { 269083, 282559 }
-                local numConditions = #conditions; print(numConditions)
+                local numConditions = #conditions
                 for _, condition in ipairs(conditions) do
                     local cond = condition:match("([%w_]+)")
                     if cond == "NONE" then
@@ -68,7 +68,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         end
                     elseif cond == "QUEST_INCOMPLETE" then
                         local questID = condition:match("= (.+)")
-                        print(questID)
                         print(C_QuestLog.IsQuestFlaggedCompleted(questID))
                         if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
                             numConditions = numConditions - 1
