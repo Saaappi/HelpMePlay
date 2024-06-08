@@ -3,7 +3,7 @@ if not LHMP then return end
 
 LHMP.WorldEvents = {
     [559] = {
-        ["name"] = format("Timewalking: %s", EXPANSION_NAME1),
+        ["name"] = EXPANSION_NAME1,
         ["atlas"] = nil,
         ["dungeonQueueID"] = 744,
         ["texture"] = 630783,
@@ -13,7 +13,7 @@ LHMP.WorldEvents = {
         }
     },
     [562] = {
-        ["name"] = format("Timewalking: %s", EXPANSION_NAME2),
+        ["name"] = EXPANSION_NAME2,
         ["atlas"] = nil,
         ["dungeonQueueID"] = 995,
         ["texture"] = 630787,
@@ -23,7 +23,7 @@ LHMP.WorldEvents = {
         }
     },
     [587] = {
-        ["name"] = format("Timewalking: %s", EXPANSION_NAME3),
+        ["name"] = EXPANSION_NAME3,
         ["atlas"] = nil,
         ["dungeonQueueID"] = 1146,
         ["texture"] = 630784,
@@ -33,7 +33,7 @@ LHMP.WorldEvents = {
         }
     },
     [643] = {
-        ["name"] = format("Timewalking: %s", EXPANSION_NAME4),
+        ["name"] = EXPANSION_NAME4,
         ["atlas"] = nil,
         ["dungeonQueueID"] = 1453,
         ["texture"] = 630786,
@@ -43,7 +43,7 @@ LHMP.WorldEvents = {
         }
     },
     [1056] = {
-        ["name"] = format("Timewalking: %s", EXPANSION_NAME5),
+        ["name"] = EXPANSION_NAME5,
         ["atlas"] = nil,
         ["dungeonQueueID"] = 1971,
         ["texture"] = 2838050,
@@ -53,7 +53,7 @@ LHMP.WorldEvents = {
         }
     },
     [1263] = {
-        ["name"] = format("Timewalking: %s", EXPANSION_NAME6),
+        ["name"] = EXPANSION_NAME6,
         ["atlas"] = nil,
         ["dungeonQueueID"] = 2274,
         ["texture"] = 1408999,
@@ -63,7 +63,7 @@ LHMP.WorldEvents = {
         }
     },
     [423] = {
-        ["name"] = "Love is in the Air",
+        ["name"] = "",
         ["atlas"] = nil,
         ["dungeonQueueID"] = 288,
         ["texture"] = 135450,
@@ -73,7 +73,7 @@ LHMP.WorldEvents = {
         }
     },
     [341] = {
-        ["name"] = "Midsummer Fire Festival",
+        ["name"] = "",
         ["atlas"] = nil,
         ["dungeonQueueID"] = 286,
         ["texture"] = 135269,
@@ -83,7 +83,7 @@ LHMP.WorldEvents = {
         }
     },
     [372] = {
-        ["name"] = "Brewfest",
+        ["name"] = "",
         ["atlas"] = nil,
         ["dungeonQueueID"] = 287,
         ["texture"] = 132621,
@@ -93,7 +93,7 @@ LHMP.WorldEvents = {
         }
     },
     [324] = {
-        ["name"] = "Hallow's End",
+        ["name"] = "",
         ["atlas"] = nil,
         ["dungeonQueueID"] = 285,
         ["texture"] = 133661,
