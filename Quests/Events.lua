@@ -151,7 +151,7 @@ local function QUEST_PROGRESS()
 end
 
 eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
---eventHandler:RegisterEvent("BAG_UPDATE")
+eventHandler:RegisterEvent("BAG_UPDATE")
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:RegisterEvent("QUEST_ACCEPTED")
 eventHandler:RegisterEvent("QUEST_AUTOCOMPLETE")
@@ -175,7 +175,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
         end
     end
-    --[[if event == "BAG_UPDATE" then
+    if event == "BAG_UPDATE" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         for bagID = 0, 4 do
@@ -187,7 +187,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
             end
         end
-    end]]
+    end
     if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
         local type = ...
         if type == 3 then

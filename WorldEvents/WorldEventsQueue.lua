@@ -124,6 +124,10 @@ addon.CreateEventQueueButton = function()
             worldEventQueueButton:Show()
         end
     end
+
+    if (#activeEvents == 0) then
+        worldEventQueueButton:Hide()
+    end
 end
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")
