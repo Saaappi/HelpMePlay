@@ -88,7 +88,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         local options = C_GossipInfo.GetOptions()
                         if options then
                             for _, option in ipairs(options) do
-                                print(format("%s: %s", addon.ColorText("UNCOMMON", option.gossipOptionID), option.name))
+                                print(format("%s: %s", LHMP:ColorText("UNCOMMON", option.gossipOptionID), option.name))
                             end
                         end
                     end,
@@ -114,7 +114,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         for i = 1, numEntries do
                             local info = C_QuestLog.GetInfo(i)
                             if info and (not info.isHeader) and info.isOnMap then
-                                print(format("%s: %s", addon.ColorText("GOLD", info.questID), info.title))
+                                print(format("%s: %s", LHMP:ColorText("GOLD", info.questID), info.title))
                             end
                         end
                     end,

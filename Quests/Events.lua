@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 
 local function QUEST_GOSSIP()
     if not IsShiftKeyDown() then
@@ -259,26 +260,29 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if WorldMapFrame:IsShown() then return end
 
         QUEST_LOG_UPDATE()
-
-        -- check for quest popups whenever the quest log is updated, which also happens on login, and
-        -- when the player loots an item that starts a quest
-        
     end
 
     if event == "QUEST_PROGRESS" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then
+            return false
+        end
 
         QUEST_PROGRESS()
     end
 
     if event == "UPDATE_MOUSEOVER_UNIT" then
-        if HelpMePlayDB["UseEmotes"] == false then return end
+        if HelpMePlayDB["UseEmotes"] == false then
+            return false
+        end
 
         local GUID = UnitGUID("mouseover")
 		if GUID then
-			local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
-			if npcID and addon.Emotes[npcID] then
-				DoEmote(addon.Emotes[npcID], "mouseover")
+			local npcID = LHMP:SplitString(GUID, "-", 6)
+			if npcID then
+                if LHMP:IsEmoteSupportedForNPC(npcID) then
+                    local emote = LHMP:GetEmoteForNPC(npcID)
+                    DoEmote(emote, "mouseover")
+                end
 			end
 		end
     end

@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 
 -- Initiates a deposit action to the guild bank if the player's current money exceeds a certain threshold,
 -- or withdraws from the guild bank if the player's money is below the threshold.
@@ -25,7 +26,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 if HelpMePlayDB["DepositKeepMeSafe"] then
                     if transactionAmount > 0 then
                         StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
-                            text = format("You're about to deposit %s to %s. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), addon.ColorText("ARTIFACT", (GetGuildInfo("player")))),
+                            text = format("You're about to deposit %s to %s. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), LHMP:ColorText("ARTIFACT", (GetGuildInfo("player")))),
                             button1 = ACCEPT,
                             button2 = CANCEL,
                             OnAccept = function()
@@ -44,7 +45,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         transactionAmount = transactionAmount * -1
                         if transactionAmount > 0 then
                             StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
-                                text = format("You're about to withdraw %s from %s. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), addon.ColorText("ARTIFACT", (GetGuildInfo("player")))),
+                                text = format("You're about to withdraw %s from %s. Do you want to continue?", C_CurrencyInfo.GetCoinTextureString(transactionAmount), LHMP:ColorText("ARTIFACT", (GetGuildInfo("player")))),
                                 button1 = ACCEPT,
                                 button2 = CANCEL,
                                 OnAccept = function()

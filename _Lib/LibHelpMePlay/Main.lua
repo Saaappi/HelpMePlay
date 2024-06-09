@@ -18,6 +18,35 @@ function LHMP:GetUnlocalizedUnitFaction(unit)
 end
 
 -------------
+-- STRINGS --
+-------------
+function LHMP:ColorText(color, text)
+    color = string.upper(color)
+    if LHMP.Colors[color] then
+        return format("|cff%s%s|r", LHMP.Colors[color], text)
+    end
+    return ""
+end
+function LHMP:SplitString(str, separator, nth)
+    local strings = {}
+    local pattern = ("([^%s]+)"):format(separator)
+    for string in str:gmatch(pattern) do
+        table.insert(strings, string)
+    end
+
+    if tonumber(strings[nth]) then
+        return tonumber(strings[nth])
+    end
+    return strings[nth]
+end
+function LHMP:Truncate(str)
+    if str:len() <= 15 then
+		return str
+	end
+    return str:sub(1, 15) .. "..."
+end
+
+-------------
 -- GOSSIPS --
 -------------
 function LHMP:IsGossipSupportedForNPC(npcID)
@@ -37,6 +66,22 @@ function LHMP:GetGossipsForNPCByID(npcID)
         return false
     end
     return LHMP.Gossips[npcID]
+end
+
+------------
+-- EMOTES --
+------------
+function LHMP:IsEmoteSupportedForNPC(npcID)
+    if not LHMP.Emotes[npcID] then
+        return false
+    end
+    return true
+end
+function LHMP:GetEmoteForNPC(npcID)
+    if not LHMP.Emotes[npcID] then
+        return false
+    end
+    return LHMP.Emotes[npcID]
 end
 
 ----------------

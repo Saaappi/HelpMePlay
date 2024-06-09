@@ -5,7 +5,9 @@
 ## IconTexture: 236681
 
 Main.lua
+Data\Colors.lua
 Data\Gossips.lua
+Data\Emotes.lua
 Data\Containers.lua
 Data\Players.lua
 Data\WorldEvents.lua

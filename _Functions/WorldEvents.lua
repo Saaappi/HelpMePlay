@@ -10,7 +10,7 @@ addon.GetActiveEventsFromCalendar = function(currentDate)
             if event and LHMP:IsEventQueueable(event.eventID) then
                 local worldEvent = LHMP:GetWorldEvent(event.eventID)
                 events[event.eventID] = worldEvent
-                events[event.eventID].name = format("%s %s %s", addon.ColorText("COMMON", event.title), addon.ColorText("COMMON", "-"), addon.ColorText("COMMON", worldEvent.name))
+                events[event.eventID].name = format("%s %s %s", LHMP:ColorText("COMMON", event.title), LHMP:ColorText("COMMON", "-"), LHMP:ColorText("COMMON", worldEvent.name))
             end
         end
     end

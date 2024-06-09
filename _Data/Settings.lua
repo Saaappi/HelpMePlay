@@ -82,7 +82,7 @@ addon.Settings = {
             Type = "CheckButton",
             Name = "War Mode",
             TooltipText = "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
-            addon.ColorText("RED", format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"])),
+            LHMP:ColorText("RED", format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"])),
             SavedVariable = "UseWarMode",
         },
         {
@@ -115,7 +115,7 @@ addon.Settings = {
             Type = "CheckButton",
             Name = "Adventure Maps",
             TooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
-            addon.ColorText("RED", "The current support is only for the adventure map in The Waking Shores."),
+            LHMP:ColorText("RED", "The current support is only for the adventure map in The Waking Shores."),
             SavedVariable = "UseAdventureMaps",
         },
         {
@@ -140,7 +140,7 @@ addon.Settings = {
             Type = "CheckButton",
             Name = "Party Play",
             TooltipText = "Toggle to make playing with friends a little easier.\n\n" ..
-            addon.ColorText("RED", "Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
+            LHMP:ColorText("RED", "Party Play, by default, will only auto share quests with party members. Announcements have been removed."),
             SavedVariable = "UsePartyPlay",
         },
         {
