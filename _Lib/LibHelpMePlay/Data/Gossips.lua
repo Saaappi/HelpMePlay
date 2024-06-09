@@ -158,4 +158,21 @@ LHMP.Gossips = {
     [59151] = {{ID = 41038, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30178"}}},
     [55597] = {{ID = 39799, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30347"}}},
     [58547] = {{ID = 40208, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30269"}}},
+    [59653] = {{ID = 39489, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30273"}}},
+    [58976] = {{ID = 40353, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30359"}}},
+    [59857] = {{ID = 39267, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30627"}}},
+    [61566] = {{ID = 35732, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30967"}}},
+    [60973] = {{ID = 38108, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30480"}}},
+    [63754] = {{ID = 41284, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30512"}}},
+    [63542] = {{ID = 41467, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30512"}}},
+    [60189] = {{ID = 37051, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30682"}}},
+    [60190] = {{ID = 37052, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30682"}}},
+    [60187] = {{ID = 35293, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30682"}}},
+    [59818] = {
+        {ID = 33656, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30601"}},
+        {ID = 33655, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30601"}}
+    },
+    [60795] = {{ID = 40517, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30829"}}},
+    [61382] = {{ID = 30224, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30935"}}},
+    [61380] = {{ID = 30226, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30935"}}}
 }
