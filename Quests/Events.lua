@@ -164,8 +164,12 @@ eventHandler:RegisterEvent("QUEST_PROGRESS")
 eventHandler:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADVENTURE_MAP_OPEN" then
-        if HelpMePlayDB["UseAdventureMaps"] == false then return end
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
+        if HelpMePlayDB["UseAdventureMaps"] == false then
+            return false
+        end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then
+            return false
+        end
 
         local adventureMapID = C_AdventureMap.GetMapID()
         if adventureMapID then
@@ -177,7 +181,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end
     end
     if event == "BAG_UPDATE" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then
+            return false
+        end
 
         for bagID = 0, 4 do
             local numSlots = (C_Container.GetContainerNumSlots(bagID) - C_Container.GetContainerNumFreeSlots(bagID))
