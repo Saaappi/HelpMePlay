@@ -8,7 +8,6 @@
 
 # Main
 Main.lua
-Color.lua
 
 # Libraries
 _Lib\Embeds.xml
@@ -39,7 +38,6 @@ _Classes\Slider.lua
 # Functions
 _Functions\EvalConditions.lua
 _Functions\Print.lua
-_Functions\Strings.lua
 _Functions\Tables.lua
 _Functions\QuestMobs.lua
 _Functions\Quests.lua

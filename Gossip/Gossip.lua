@@ -14,7 +14,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if options then
                 local GUID = UnitGUID("target")
                 if GUID then
-                    local npcID = addon.SplitString(GUID, "-", 6)
+                    local npcID = LHMP:SplitString(GUID, "-", 6)
                     if npcID then
                         if LHMP:IsGossipTextNPC(npcID) then
                             local gossips = LHMP.GossipTextLookupByNPC[npcID]
@@ -78,7 +78,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         -- NPC ID
                         local GUID = UnitGUID("target")
                         if GUID then
-                            local npcID = addon.SplitString(GUID, "-", 6)
+                            local npcID = LHMP:SplitString(GUID, "-", 6)
                             print(npcID)
                         else
                             print(0) -- This is for gossips associated to non-NPCs.

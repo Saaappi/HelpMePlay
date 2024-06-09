@@ -12,7 +12,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if type == 5 then
             local GUID = UnitGUID("target")
             if GUID then
-                local npcID = addon.SplitString(GUID, "-", 6)
+                local npcID = LHMP:SplitString(GUID, "-", 6)
                 if npcID then
                     local items = LHMP:GetItemsForMerchant(npcID)
                     if items then
@@ -44,7 +44,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             -- NPC ID
                             local GUID = UnitGUID("target")
                             if GUID then
-                                local npcID = addon.SplitString(GUID, "-", 6)
+                                local npcID = LHMP:SplitString(GUID, "-", 6)
                                 print(npcID)
                             end
 

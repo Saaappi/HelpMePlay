@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 local DressUpModelFrame
 local HelpMePlayAlertSystem
 local processedRares = {}
@@ -21,13 +22,13 @@ local function GetCreatureDisplayByGUID(GUID)
 
     -- Get the creature type, and depending on its type, the process is
     -- slightly different to get the creatureID.
-    local creatureType = addon.SplitString(GUID, "-", 1)
+    local creatureType = LHMP:SplitString(GUID, "-", 1)
     if creatureType and creatureType == "Creature" then
-        creatureID = addon.SplitString(GUID, "-", 6)
+        creatureID = LHMP:SplitString(GUID, "-", 6)
     elseif creatureType and creatureType == "Vignette" then
         local vignetteInfo = C_VignetteInfo.GetVignetteInfo(GUID)
         if vignetteInfo then
-            creatureID = addon.SplitString(vignetteInfo.objectGUID, "-", 6)
+            creatureID = LHMP:SplitString(vignetteInfo.objectGUID, "-", 6)
         end
     end
 
@@ -125,7 +126,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- If the GUID is valid and it hasn't been seen, then
         -- process it.
         local vignetteGUID = ...
-        local spawnUID = addon.SplitString(vignetteGUID, "-", 7)
+        local spawnUID = LHMP:SplitString(vignetteGUID, "-", 7)
         if (vignetteGUID and spawnUID) and (not processedVignettes[spawnUID]) then
             processedVignettes[spawnUID] = true
             addon.ProcessVignette(vignetteGUID)
@@ -138,7 +139,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local unitClassification = UnitClassification(...)
         if unitClassification == "rare" or unitClassification == "rareelite" then
             local GUID = UnitGUID(...)
-            local spawnUID = addon.SplitString(GUID, "-", 7)
+            local spawnUID = LHMP:SplitString(GUID, "-", 7)
             if (GUID and spawnUID) and (not processedRares[spawnUID]) and (not processedVignettes[spawnUID]) then
                 processedRares[spawnUID] = true
                 SetRaidTarget(..., 7)
