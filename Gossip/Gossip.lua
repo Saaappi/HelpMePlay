@@ -9,54 +9,52 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "GOSSIP_SHOW" then
         if HelpMePlayDB["AcceptGossip"] == false then return end
 
-        C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-            local options = C_GossipInfo.GetOptions()
-            if options then
-                local GUID = UnitGUID("target")
-                if GUID then
-                    local npcID = LHMP:SplitString(GUID, "-", 6)
-                    if npcID then
-                        if LHMP:IsGossipTextNPC(npcID) then
-                            local gossips = LHMP.GossipTextLookupByNPC[npcID]
-                            for _, option in next, options do
-                                for _, gossipID in next, gossips do
-                                    if gossipID == option.gossipOptionID then
-                                        C_GossipInfo.SelectOption(gossipID)
-                                    end
+        local options = C_GossipInfo.GetOptions()
+        if options then
+            local GUID = UnitGUID("target")
+            if GUID then
+                local npcID = LHMP:SplitString(GUID, "-", 6)
+                if npcID then
+                    if LHMP:IsGossipTextNPC(npcID) then
+                        local gossips = LHMP.GossipTextLookupByNPC[npcID]
+                        for _, option in next, options do
+                            for _, gossipID in next, gossips do
+                                if gossipID == option.gossipOptionID then
+                                    C_GossipInfo.SelectOption(gossipID)
                                 end
                             end
-                        elseif LHMP:IsGossipSupportedForNPC(npcID) then
-                            local gossips = LHMP:GetGossipsForNPCByID(npcID)
-                            for _, gossip in ipairs(gossips) do
-                                local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
-                                if isAllowed then
-                                    C_GossipInfo.SelectOption(gossip.ID)
-                                    if gossip.CanConfirm then
-                                        StaticPopup1Button1:Click("LeftButton")
-                                    end
-                                end
-                            end
-                            return
                         end
-                    end
-                else
-                    for _, option in next, options do
-                        for _, gossip in next, LHMP.Gossips[0] do
-                            if gossip.ID == option.gossipOptionID then
-                                local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
-                                if isAllowed then
-                                    C_GossipInfo.SelectOption(gossip.ID)
-                                    if gossip.CanConfirm then
-                                        StaticPopup1Button1:Click("LeftButton")
-                                    end
-                                    return
+                    elseif LHMP:IsGossipSupportedForNPC(npcID) then
+                        local gossips = LHMP:GetGossipsForNPCByID(npcID)
+                        for _, gossip in ipairs(gossips) do
+                            local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
+                            if isAllowed then
+                                C_GossipInfo.SelectOption(gossip.ID)
+                                if gossip.CanConfirm then
+                                    StaticPopup1Button1:Click("LeftButton")
                                 end
+                            end
+                        end
+                        return
+                    end
+                end
+            else
+                for _, option in next, options do
+                    for _, gossip in next, LHMP.Gossips[0] do
+                        if gossip.ID == option.gossipOptionID then
+                            local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
+                            if isAllowed then
+                                C_GossipInfo.SelectOption(gossip.ID)
+                                if gossip.CanConfirm then
+                                    StaticPopup1Button1:Click("LeftButton")
+                                end
+                                return
                             end
                         end
                     end
                 end
             end
-        end)
+        end
 
         -- If the gossip from is visible, then add a button that can be used to
         -- quickly retrieve the NPC's ID, as well as the listed options.

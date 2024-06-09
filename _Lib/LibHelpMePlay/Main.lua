@@ -1,3 +1,4 @@
+---@diagnostic disable: deprecated
 local addonName, addon = ...
 
 -- Set the major and minor version.
@@ -36,6 +37,8 @@ function LHMP:SplitString(str, separator, nth)
 
     if tonumber(strings[nth]) then
         return tonumber(strings[nth])
+    elseif nth == "*" then
+        return unpack(strings)
     end
     return strings[nth]
 end

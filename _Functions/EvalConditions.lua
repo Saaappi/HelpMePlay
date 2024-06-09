@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 
 local function CheckLevel(string, condition)
     local level = string:match("= (.+)")
@@ -74,7 +75,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         end
                     elseif cond == "QUEST_OBJECTIVE_COMPLETE" then
                         local string = condition:match("= (.+)")
-                        local questID, objectiveIndex = string:gmatch("(%d+),(%w+)")
+                        local questID, objectiveIndex = LHMP:SplitString(string, ",", "*")
                         if C_QuestLog.IsOnQuest(questID) then
                             local objectives = C_QuestLog.GetQuestObjectives(questID)
                             if objectives[objectiveIndex].finished then
@@ -83,7 +84,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         end
                     elseif cond == "QUEST_OBJECTIVE_INCOMPLETE" then
                         local string = condition:match("= (.+)")
-                        local questID, objectiveIndex = string:gmatch("(%d+),(%w+)")
+                        local questID, objectiveIndex = LHMP:SplitString(string, ",", "*")
                         if C_QuestLog.IsOnQuest(questID) then
                             local objectives = C_QuestLog.GetQuestObjectives(questID)
                             if not objectives[objectiveIndex].finished then
