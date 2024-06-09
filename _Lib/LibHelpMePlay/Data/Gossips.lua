@@ -178,5 +178,11 @@ LHMP.Gossips = {
     [61417] = {{ID = 38585, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30944"}}},
     [61381] = {{ID = 38591, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30944"}}},
     [62629] = {{ID = 40352, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30946"}}},
-    [60587] = {{ID = 34810, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30747"}}}
+    [60587] = {{ID = 34810, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30747"}}},
+    [61512] = {{ID = 29681, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30724"}}},
+    [61454] = {{ID = 30541, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30994"}}},
+    [61819] = {
+        {ID = 29128, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30993"}},
+        {ID = 29129, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30993"}}
+    }
 }
