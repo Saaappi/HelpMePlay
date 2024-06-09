@@ -36,18 +36,16 @@ end
 
 addon.Settings = {
     General = {
-        --[[{
+        {
             Type = "CheckButton",
             Name = "Emotes",
-            TooltipText = "Toggle to automatically emote at appropriate NPCs.\n\n" ..
-            addon.ColorText("RED", NOT_AVAILABLE_FOR_USE),
+            TooltipText = "Automatically use the appropriate emote against quest-related non-player characters.",
             SavedVariable = "UseEmotes",
-        },]]
+        },
         {
             Type = "CheckButton",
             Name = "Gossip",
-            TooltipText = "Toggle the automatic selection of NPC gossips.\n\n" ..
-            addon.ColorText("RED", NOT_AVAILABLE_FOR_USE),
+            TooltipText = "Automatically select the appropriate quest-related gossip options from non-player characters.",
             SavedVariable = "AcceptGossip",
         },
         {
