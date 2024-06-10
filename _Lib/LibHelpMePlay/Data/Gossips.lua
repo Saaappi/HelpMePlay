@@ -212,5 +212,5 @@ LHMP.Gossips = {
         {ID = 42524, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}
     },
     [71358] = {{ID = 42205, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}},
-    [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343"}}}
+    [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}}
 }

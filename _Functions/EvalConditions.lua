@@ -78,7 +78,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         local questID, objectiveIndex = LHMP:SplitString(string, ",", "*")
                         if C_QuestLog.IsOnQuest(questID) then
                             local objectives = C_QuestLog.GetQuestObjectives(questID)
-                            if objectives[objectiveIndex].finished then
+                            if objectives and objectives[tonumber(objectiveIndex)].finished then
                                 numConditions = numConditions - 1
                             end
                         end
@@ -87,7 +87,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         local questID, objectiveIndex = LHMP:SplitString(string, ",", "*")
                         if C_QuestLog.IsOnQuest(questID) then
                             local objectives = C_QuestLog.GetQuestObjectives(questID)
-                            if not objectives[objectiveIndex].finished then
+                            if objectives and (not objectives[tonumber(objectiveIndex)].finished) then
                                 numConditions = numConditions - 1
                             end
                         end
