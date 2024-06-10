@@ -1,10 +1,9 @@
 New Features:
 
 Enhancements:
-- Added the Bronze caches to the list of supported containers.
+- Added support for all Bronze containers.
 - Looted items that begin a quest should now have their quests accepted.
-- Added quest-related gossip support for all Pandaria zones.
-- Added quest-related merchant support for all Pandaria zones.
+- Added quest-related gossip and merchant support for all Pandaria campaigns.
 - The Event Queue button can now be shown and hidden without reloading the UI.
 
 Removals:
