@@ -415,19 +415,90 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Initialize a section for quest mobs.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUESTMOBS_SECTION))
 
-                -- Sort the table before we iterate through it.
-                table.sort(addon.Settings.QuestMobs, Compare)
+                -- Quest Mobs Icon
+                do
+                    local variable = "QuestMobsIconID"
+                    local name = "Quest Mobs Icon"
+                    local tooltipText = "Select the icon that should appear on the nameplate of NPCs related to active quest(s)."
 
-                -- Iterate through the now-sorted table and add them to
-                -- the addon's category.
-                for _, setting in ipairs(addon.Settings.QuestMobs) do
-                    if setting.Type == "BasicButton" then
-                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
-                    elseif setting.Type == "CheckButton" then
-                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
-                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
-                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
+                    local function GetOptions()
+                        local container = CreateControlTextContainer()
+                        container:Add(1, "Quest")
+                        container:Add(2, "Treasure Goblin")
+                        container:Add(3, "Custom")
+                        container:Add(0, NONE)
+                        return container:GetData()
                     end
+
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateDropDown(category, setting, GetOptions, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Quest Mobs Icon Position
+                do
+                    local variable = "QuestMobsIconPositionID"
+                    local name = "Quest Mobs Icon Position"
+                    local tooltipText = "Select the position the icon should appear on the nameplate."
+
+                    local function GetOptions()
+                        local container = CreateControlTextContainer()
+                        container:Add(1, "LEFT")
+                        container:Add(2, "TOPLEFT")
+                        container:Add(3, "TOP")
+                        container:Add(4, "TOPRIGHT")
+                        container:Add(5, "RIGHT")
+                        container:Add(6, "BOTTOMRIGHT")
+                        container:Add(7, "BOTTOM")
+                        container:Add(8, "BOTTOMLEFT")
+                        return container:GetData()
+                    end
+
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateDropDown(category, setting, GetOptions, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Quest Mobs Icon X Offset
+                do
+                    local variable = "QuestMobsIconXOffset"
+                    local name = "X Offset"
+                    local tooltipText = "Use the slider to set the icon's X offset."
+                    local minValue = -25
+                    local maxValue = 25
+                    local step = 1
+
+                    local function GetValue()
+                        return HelpMePlayDB[variable]
+                    end
+
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    local options = Settings.CreateSliderOptions(minValue, maxValue, step)
+                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
+                    CreateSlider(category, setting, options, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                    setting:SetValue(HelpMePlayDB[variable])
+                end
+
+                -- Quest Mobs Icon Y Offset
+                do
+                    local variable = "QuestMobsIconYOffset"
+                    local name = "Y Offset"
+                    local tooltipText = "Use the slider to set the icon's Y offset."
+                    local minValue = -25
+                    local maxValue = 25
+                    local step = 1
+
+                    local function GetValue()
+                        return HelpMePlayDB[variable]
+                    end
+
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    local options = Settings.CreateSliderOptions(minValue, maxValue, step)
+                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
+                    CreateSlider(category, setting, options, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                    setting:SetValue(HelpMePlayDB[variable])
                 end
 
                 -------------------------------------------
@@ -436,19 +507,180 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Initialize a section for new character configuration.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(NEW_CHARACTER_SECTION))
 
-                -- Sort the table before we iterate through it.
-                table.sort(addon.Settings.NewCharacter, Compare)
+                -- Action Bar 2
+                do
+                    local barID = 2
+                    local variable = "NCC_ActionBar" .. barID
+                    local name = "Action Bar " .. barID
+                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
 
-                -- Iterate through the now-sorted table and add them to
-                -- the addon's category.
-                for _, setting in ipairs(addon.Settings.NewCharacter) do
-                    if setting.Type == "BasicButton" then
-                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
-                    elseif setting.Type == "CheckButton" then
-                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
-                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
-                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
+                -- Action Bar 3
+                do
+                    local barID = 3
+                    local variable = "NCC_ActionBar" .. barID
+                    local name = "Action Bar " .. barID
+                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Action Bar 4
+                do
+                    local barID = 4
+                    local variable = "NCC_ActionBar" .. barID
+                    local name = "Action Bar " .. barID
+                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Action Bar 5
+                do
+                    local barID = 5
+                    local variable = "NCC_ActionBar" .. barID
+                    local name = "Action Bar " .. barID
+                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Action Bar 6
+                do
+                    local barID = 6
+                    local variable = "NCC_ActionBar" .. barID
+                    local name = "Action Bar " .. barID
+                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Action Bar 7
+                do
+                    local barID = 7
+                    local variable = "NCC_ActionBar" .. barID
+                    local name = "Action Bar " .. barID
+                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Action Bar 8
+                do
+                    local barID = 8
+                    local variable = "NCC_ActionBar" .. barID
+                    local name = "Action Bar " .. barID
+                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Clear All Tracking
+                do
+                    local variable = "ClearAllTracking"
+                    local name = "Clear All Tracking"
+                    local tooltipText = "Toggle to clear all tracking options from the minimap on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Auto Loot
+                do
+                    local variable = "AutoLoot"
+                    local name = "Auto Loot"
+                    local tooltipText = "Toggle to enable Auto Loot on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Disable Tutorials
+                do
+                    local variable = "DisableTutorials"
+                    local name = "Disable Tutorials"
+                    local tooltipText = "Toggle to disable tutorial popups on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Auto Push Spells
+                do
+                    local variable = "AutoPushSpells"
+                    local name = "Auto Push Spells"
+                    local tooltipText = "Toggle to disable new spells from being automatically added to your action bar on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Class Color Frames
+                do
+                    local variable = "ClassColorFrames"
+                    local name = "Class Color Frames"
+                    local tooltipText = "Toggle to color the party and raid frames by class color on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Loot Under Mouse
+                do
+                    local variable = "LootUnderMouse"
+                    local name = "Loot Under Mouse"
+                    local tooltipText = "Toggle to keep the loot window under your mouse on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Disable Dialog
+                do
+                    local variable = "DisableDialog"
+                    local name = "Disable Dialog"
+                    local tooltipText = "Toggle to silence dialog on each new character."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Edit Mode
+                do
+                    local variable = "NCC_EditModeLayoutID"
+                    local name = "Edit Mode"
+                    local tooltipText = "Select the default edit mode layout you would like to use on each new character."
+
+                    local function GetEditModeLayouts()
+                        local layouts={{1,"Modern"},{2,"Classic"}}
+                        local customLayouts = C_EditMode.GetLayouts()
+                        for index, design in ipairs(customLayouts.layouts) do
+                            table.insert(layouts, (index + 2), { (index + 2), design.layoutName })
+                        end
+                        return layouts
                     end
+
+                    local function GetOptions()
+                        local container = CreateControlTextContainer()
+                        local layouts = GetEditModeLayouts()
+                        for _, design in next, layouts do
+                            container:Add(design[1], design[2])
+                        end
+                        return container:GetData()
+                    end
+
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateDropDown(category, setting, GetOptions, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
                 -------------------------
