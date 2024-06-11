@@ -48,14 +48,6 @@ local function OnSettingChanged(_, setting, value)
     end
 end
 
-local function CreateSliderOptions(minValue, maxValue, rate)
-    local options = CreateFromMixins(SettingsSliderOptionsMixin)
-    options.minValue = minValue
-    options.maxValue = maxValue
-    options.steps = rate
-    return options
-end
-
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
@@ -98,7 +90,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
 
                     local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
-                    local opt = CreateSliderOptions(options.minValue, options.maxValue, options.step)
+                    local opt = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.step)
                     opt:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
                     Settings.CreateSlider(category, setting, opt, tooltipText)
                     Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)

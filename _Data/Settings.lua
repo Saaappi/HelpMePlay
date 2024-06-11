@@ -158,47 +158,6 @@ addon.Settings = {
             SavedVariable = "QuestRewardSelectionTypeID",
         },
     },
-    Merchant = {
-        {
-            Type = "CheckButton",
-            Name = "Repairs",
-            TooltipText = "Toggle to allow automatic repair.",
-            SavedVariable = "ShouldRepair",
-        },
-        {
-            Type = "Slider",
-            Name = "Trainer Protection Value",
-            TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
-            "This slider moves in increments of 10.",
-            Options = {
-                minValue = 0,
-                maxValue = 1000,
-                step = 100,
-            },
-            SavedVariable = "TrainerProtectionValue",
-        },
-    },
-    GuildBank = {
-        {
-            Type = "CheckButton",
-            Name = "Keep Me Safe",
-            TooltipText = "Toggle to add a popup for approval before the addon is allowed to conduct transactions at a guild bank.",
-            SavedVariable = "DepositKeepMeSafe",
-        },
-        {
-            Type = "Slider",
-            Name = "Deposit Keep Amount",
-            TooltipText = "Use the slider to set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-            "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
-            "This slider moves in increments of 10.",
-            Options = {
-                minValue = 0,
-                maxValue = 1000,
-                step = 100,
-            },
-            SavedVariable = "DepositKeepAmount",
-        },
-    },
     QuestMobs = {
         {
             Type = "DropDown",

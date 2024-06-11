@@ -7,7 +7,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 		local type = ...
 		if type == 5 then -- Merchant
 			if CanMerchantRepair() then
-                if HelpMePlayDB["ShouldRepair"] == false then return end
+                if HelpMePlayDB["shouldAutomaticRepair"] == false then return end
 
 			    local repairCost = GetRepairAllCost()
                 if repairCost then

@@ -61,8 +61,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["TrainerProtectionValue"] == nil then
                 HelpMePlayDB["TrainerProtectionValue"] = 0
             end
-            if HelpMePlayDB["ShouldRepair"] == nil then
-                HelpMePlayDB["ShouldRepair"] = false
+            if HelpMePlayDB["shouldAutomaticRepair"] == nil then
+                HelpMePlayDB["shouldAutomaticRepair"] = false
             end
             if HelpMePlayDB["PurchaseQuestItems"] == nil then
                 HelpMePlayDB["PurchaseQuestItems"] = false
@@ -230,6 +230,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             HelpMePlayDB["DynamicFlightTrait1"] = nil
             HelpMePlayDB["DynamicFlightTrait2"] = nil
             HelpMePlayDB["AGE"] = nil
+            HelpMePlayDB["ShouldRepair"] = nil
             if HelpMePlayDB["OpenHolidayItems"] then
                 HelpMePlayDB["OpenContainers"] = HelpMePlayDB["OpenHolidayItems"]
                 HelpMePlayDB["OpenHolidayItems"] = nil
