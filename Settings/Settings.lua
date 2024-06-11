@@ -689,19 +689,101 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 -- Initialize a section for utilities.
                 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(UTILITIES_SECTION))
 
-                -- Sort the table before we iterate through it.
-                table.sort(addon.Settings.Utilities, Compare)
-
-                -- Iterate through the now-sorted table and add them to
-                -- the addon's category.
-                for _, setting in ipairs(addon.Settings.Utilities) do
-                    if setting.Type == "BasicButton" then
-                        addon.New(setting.Type, setting.Name, setting.ButtonText, setting.ClickHandler, setting.TooltipText, setting.AddSearchTags)
-                    elseif setting.Type == "CheckButton" then
-                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.SavedVariable)
-                    elseif setting.Type == "DropDown" or setting.Type == "Slider" then
-                        addon.New(setting.Type, setting.Name, category, setting.TooltipText, setting.Options, setting.SavedVariable)
+                -- Open Issue Button
+                do
+                    local name = ""
+                    local buttonText = "Open Issue"
+                    local tooltipText = "Click to get the Github issue page."
+                    local clickHandler = function()
+                        StaticPopupDialogs["HELPMEPLAY_OPEN_ISSUE"] = {
+                            text = "Hey! Thanks for being willing to open an issue. You rock! |T648207:16|t",
+                            button1 = CLOSE,
+                            OnShow = function(self)
+                                local function HidePopup(self) self:GetParent():Hide() end
+                                self.editBox:SetScript("OnKeyUp", function(self, key)
+                                    if IsControlKeyDown() and key == "C" then HidePopup(self) end
+                                end)
+                                self.editBox:SetText("https://github.com/Saaappi/HelpMePlay/issues/new")
+                                self.editBox:HighlightText()
+                            end,
+                            timeout = 0,
+                            showAlert = false,
+                            whileDead = false,
+                            hideOnEscape = true,
+                            hasEditBox = true,
+                            enterClicksFirstButton = true,
+                            preferredIndex = 3,
+                        }
+                        StaticPopup_Show("HELPMEPLAY_OPEN_ISSUE")
                     end
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+                    addon.layout:AddInitializer(initializer)
+                end
+
+                -- Talent Importer
+                do
+                    local name = ""
+                    local buttonText = "Talent Importer"
+                    local tooltipText = "Click to open the Talent Importer utility."
+                    local clickHandler = function(_, button)
+                        if button == "LeftButton" then
+                            HideUIPanel(SettingsPanel)
+                            addon.OpenTalentImporter()
+                        end
+                    end
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+                    addon.layout:AddInitializer(initializer)
+                end
+
+                -- Heirlooms
+                --[[do
+                    local name = ""
+                    local buttonText = "Talent Importer"
+                    local tooltipText = "Click to open the Talent Importer utility."
+                    local clickHandler = function(_, button)
+                        if button == "LeftButton" then
+                            HideUIPanel(SettingsPanel)
+                            addon.OpenTalentImporter()
+                        end
+                    end
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+                    addon.layout:AddInitializer(initializer)
+                end]]
+
+                -- Randomize Adventurer
+                do
+                    local name = ""
+                    local buttonText = "Randomize Adventurer"
+                    local tooltipText = "Don't know what to create next? Click to randomly generate a race, class, and specialization combination for your next character!"
+                    local clickHandler = function(_, button)
+                        if button == "LeftButton" then
+                            local raceID = LHMP:GetRandomRaceID()
+                            if raceID then
+                                local factionID = LHMP:GetRaceFactionByID(raceID)
+                                local race = C_CreatureInfo.GetRaceInfo(raceID)
+                                if race then
+                                    local classID = LHMP:GetRandomClassByRaceID(raceID)
+                                    if classID then
+                                        local class = C_CreatureInfo.GetClassInfo(classID)
+                                        local specName = LHMP:GetRandomSpecIDByClassID(classID)
+                                        if class then
+                                            if factionID and factionID == 0 then
+                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
+                                            elseif factionID and factionID == 1 then
+                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+                    addon.layout:AddInitializer(initializer)
                 end
             end)
 
@@ -710,15 +792,3 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end
     end
 end)
-
--- This is the date of the NEXT update. If the player's
--- installed version of the addon is older than the date
--- below, then the user hasn't updated their addon.
---[[local nextUpdate = {
-    ["monthDay"] = 1,
-    ["weekday"] = 1,
-    ["month"] = 1,
-    ["minute"] = 0,
-    ["hour"] = 0,
-    ["year"] = 1980
-}]]
