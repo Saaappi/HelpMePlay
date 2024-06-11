@@ -7,13 +7,25 @@ local rightChevron
 local activeEvents
 local currentEventIndex = 1
 
+local function GetActiveEventsFromCalendarByDate(date)
+    local events = {}
+    local numEvents = C_Calendar.GetNumDayEvents(0, date.monthDay)
+    if numEvents > 0 then
+        for index = 1, numEvents do
+            local event = C_Calendar.GetDayEvent(0, date.monthDay, index)
+            if event and LHMP:IsEventQueueable(event.eventID) then
+                local worldEvent = LHMP:GetWorldEvent(event.eventID)
+                table.insert(events, { name = format("%s %s %s", LHMP:ColorText("COMMON", event.title), LHMP:ColorText("COMMON", "-"), LHMP:ColorText("COMMON", worldEvent.name)), dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture, conditions = worldEvent.conditions })
+            end
+        end
+    end
+    return events
+end
+
 -- This function is used to update (refresh) the button when the player
 -- completes an active event.
 local function RefreshEvents()
-    local currentDate = C_DateAndTime.GetCurrentCalendarTime()
-    activeEvents = addon.GetActiveEventsFromCalendar(currentDate)
-
-    if next(activeEvents) == nil then
+    if activeEvents == nil or activeEvents == {} then
         if worldEventQueueButton then
             worldEventQueueButton:Hide()
         end
@@ -22,8 +34,8 @@ local function RefreshEvents()
 
     if worldEventQueueButton then
         for _, event in next, activeEvents do
-            if event.atlas then
-                worldEventQueueButton.icon:SetAtlas(event.atlas)
+            if type(event.texture) == "string" then
+                worldEventQueueButton.icon:SetAtlas(event.texture)
             else
                 worldEventQueueButton.icon:SetTexture(event.texture)
             end
@@ -40,8 +52,8 @@ end
 -- This allows the player to select the event they're interested in rather
 -- than being forced to participate in an event they may not want to do.
 local function SetWorldEventQueueButtonToEvent(event)
-    if event.atlas then
-        worldEventQueueButton.icon:SetAtlas(event.atlas)
+    if type(event.texture) == "string" then
+        worldEventQueueButton.icon:SetAtlas(event.texture)
     else
         worldEventQueueButton.icon:SetTexture(event.texture)
     end
@@ -57,11 +69,12 @@ addon.CreateEventQueueButton = function()
         return
     end
 
+    local currentDate = C_DateAndTime.GetCurrentCalendarTime()
+    activeEvents = GetActiveEventsFromCalendarByDate(currentDate)
+
     if not worldEventQueueButton then
         worldEventQueueButton = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
         worldEventQueueButton:RegisterForClicks("LeftButtonUp")
-
-        RefreshEvents()
 
         -- There are multiple events active, so let's make the chevron
         -- buttons so the player can toggle between the active events.
@@ -103,6 +116,8 @@ addon.CreateEventQueueButton = function()
                     SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
                 end)
             end
+        else
+            SetWorldEventQueueButtonToEvent(activeEvents[1])
         end
 
         worldEventQueueButton:SetScript("OnClick", function(self)
@@ -124,10 +139,6 @@ addon.CreateEventQueueButton = function()
             worldEventQueueButton:Show()
         end
     end
-
-    if (#activeEvents == 0) then
-        worldEventQueueButton:Hide()
-    end
 end
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")
@@ -145,6 +156,19 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
+
+        local questID = ...
+        if questID then
+            local faction = UnitFactionGroup("player")
+            for index, evt in next, activeEvents do
+                local string = evt.conditions[faction]
+                local conditionQuest = string:match("= (.+)")
+                if conditionQuest == questID then
+                    activeEvents[index] = nil
+                end
+            end
+        end
+
         RefreshEvents()
     end
 end)

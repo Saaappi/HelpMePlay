@@ -40,7 +40,6 @@ _Functions\Tables.lua
 _Functions\QuestMobs.lua
 _Functions\Quests.lua
 _Functions\Trainers.lua
-_Functions\WorldEvents.lua
 _Functions\Mounts.lua
 
 
