@@ -757,7 +757,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 do
                     local name = ""
                     local buttonText = "Randomize Adventurer"
-                    local tooltipText = "Don't know what to create next? Click to randomly generate a race, class, and specialization combination for your next character!"
+                    local tooltipText = "Don't know what to create next? Click to randomly generate a race, class, and specialization combination for your next adventurer!"
                     local clickHandler = function(_, button)
                         if button == "LeftButton" then
                             local raceID = LHMP:GetRandomRaceID()
