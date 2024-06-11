@@ -42,7 +42,6 @@ _Functions\Quests.lua
 _Functions\Trainers.lua
 _Functions\Mounts.lua
 
-
 # Keybinds
 _Keybinds\Keybinds.lua
 
@@ -75,9 +74,11 @@ Merchants\QuestItems.lua
 Talents\DynamicFlight.lua
 Talents\PlayerTalents.lua
 
+# Inventory
+Inventory\OpenContainers.lua
+
 # World Events
 WorldEvents\WorldEventsQueue.lua
-WorldEvents\OpenContainers.lua
 
 # Guild Bank
 GuildBank\GuildBank.lua
