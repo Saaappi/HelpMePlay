@@ -59,41 +59,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, addSearchTags)
                     addon.layout:AddInitializer(initializer)
-                elseif elementName == "CheckButton" then
-                    local name, category, tooltipText, savedVariable = ...
-                    do
-                        local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Boolean, HelpMePlayDB[savedVariable])
-                        Settings.CreateCheckBox(category, setting, tooltipText)
-                        Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
-                    end
-                elseif elementName == "DropDown" then
-                    local name, category, tooltipText, options, savedVariable = ...
-
-                    local function GetOptions()
-                        local container = Settings.CreateControlTextContainer()
-                        for _, option in ipairs(options) do
-                            container:Add(option[1], option[2])
-                        end
-                        return container:GetData()
-                    end
-                    local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
-                    Settings.CreateDropDown(category, setting, GetOptions, tooltipText)
-                    Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
-                elseif elementName == "Slider" then
-                    local name, category, tooltipText, options, savedVariable = ...
-
-                    local function GetValue()
-                        if savedVariable == "DepositKeepAmount" or savedVariable == "TrainerProtectionValue" then
-                            return C_CurrencyInfo.GetCoinTextureString(HelpMePlayDB[savedVariable])
-                        end
-                        return tonumber(HelpMePlayDB[savedVariable])
-                    end
-
-                    local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
-                    local opt = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.step)
-                    opt:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
-                    Settings.CreateSlider(category, setting, opt, tooltipText)
-                    Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
                 end
             end
 
