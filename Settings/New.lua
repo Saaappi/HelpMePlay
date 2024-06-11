@@ -2,13 +2,8 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
 local function OnSettingChanged(_, setting, value)
-    local variable
-    if type(setting) ~= "string" then
-        variable = setting:GetVariable()
-    else
-        variable = setting
-    end
-    HelpMePlayDB[variable] = value
+    -- Get the variable name from the setting.
+    local variable = setting:GetVariable()
 
     -- Handler for the Quest Mobs icon/position.
     if variable == "QuestMobsIconID" then
@@ -48,6 +43,8 @@ local function OnSettingChanged(_, setting, value)
         addon.UpdateQuestMobsIconPosition()
     elseif variable == "UseWorldEventQueue" then
         addon.CreateEventQueueButton()
+    else
+        HelpMePlayDB[variable] = value
     end
 end
 
@@ -100,13 +97,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         return tonumber(HelpMePlayDB[savedVariable])
                     end
 
-                    if not addon.sliderSettings then addon.sliderSettings = {} end
                     local setting = Settings.RegisterAddOnSetting(category, name, savedVariable, Settings.VarType.Number, HelpMePlayDB[savedVariable])
                     local opt = CreateSliderOptions(options.minValue, options.maxValue, options.step)
                     opt:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
                     Settings.CreateSlider(category, setting, opt, tooltipText)
                     Settings.SetOnValueChangedCallback(savedVariable, OnSettingChanged)
-                    table.insert(addon.sliderSettings, setting)
                 end
             end
 

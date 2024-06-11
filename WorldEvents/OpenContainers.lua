@@ -5,7 +5,7 @@ local LHMP = LibStub("LibHelpMePlay")
 eventHandler:RegisterEvent("BAG_UPDATE")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "BAG_UPDATE" then
-        if HelpMePlayDB["OpenHolidayItems"] == false then return end
+        if HelpMePlayDB["OpenContainers"] == false then return end
 
         local autoLootState = C_CVar.GetCVar("autoLootDefault")
         if autoLootState == "1" then

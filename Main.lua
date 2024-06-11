@@ -5,7 +5,6 @@ eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:RegisterEvent("PLAYER_LEVEL_CHANGED")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
-eventHandler:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
         local addonLoaded = ...
@@ -89,8 +88,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["ShowChatIcons"] == nil then
                 HelpMePlayDB["ShowChatIcons"] = false
             end
-            if HelpMePlayDB["OpenHolidayItems"] == nil then
-                HelpMePlayDB["OpenHolidayItems"] = false
+            if HelpMePlayDB["OpenContainers"] == nil then
+                HelpMePlayDB["OpenContainers"] = false
             end
             if HelpMePlayDB["ChromieTimeExpansionID"] == nil then
                 HelpMePlayDB["ChromieTimeExpansionID"] = 0
@@ -168,21 +167,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 HelpMePlayDB["NCC_EditModeLayoutID"] = 1
             end
 
-            -- If the Guide Quests table is nil, then initialize it.
-            if HelpMePlayDB["GuideQuests"] == nil then
-                HelpMePlayDB["GuideQuests"] = {}
-            end
-
-            -- If the Guide Gossips table is nil, then initialize it.
-            if HelpMePlayDB["GuideGossips"] == nil then
-                HelpMePlayDB["GuideGossips"]= {}
-            end
-
-            -- If the Guide Quest Items table is nil, then initialize it.
-            if HelpMePlayDB["GuideQuestItems"] == nil then
-                HelpMePlayDB["GuideQuestItems"] = {}
-            end
-
             -- If the Class Talents table is nil, then initialize it.
             if HelpMePlayDB["ClassTalents"] == nil then
                 HelpMePlayDB["ClassTalents"] = {}
@@ -231,16 +215,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 HelpMePlayDB["Mounts"]["Unused"] = {}
             end
 
-            -- Due to the nature of how Trainer Protection Value
-            -- works going forward, let's make the adjustment to
-            -- the player's value if they chose something over 1000.
-            --
-            -- We need the division because the value is represented
-            -- in copper.
-            --[[if (HelpMePlayDB["TrainerProtectionValue"] / 10000) > 1000 then
-                HelpMePlayDB["TrainerProtectionValue"] = 1000
-            end]]
-
             -- Delete the old, unused saved variables.
             HelpMePlayDB["MinimapIconEnabled"] = nil
             HelpMePlayDB["Junker"] = nil
@@ -250,6 +224,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             HelpMePlayDB["NONE"] = nil
             HelpMePlayDB["IgnoredCreatures"] = nil
             HelpMePlayDB["TheMawEnabled"] = nil
+            HelpMePlayDB["GuideQuests"] = nil
+            HelpMePlayDB["GuideQuestItems"] = nil
+            HelpMePlayDB["GuideGossips"] = nil
+            HelpMePlayDB["DynamicFlightTrait1"] = nil
+            HelpMePlayDB["DynamicFlightTrait2"] = nil
+            HelpMePlayDB["AGE"] = nil
+            if HelpMePlayDB["OpenHolidayItems"] then
+                HelpMePlayDB["OpenContainers"] = HelpMePlayDB["OpenHolidayItems"]
+                HelpMePlayDB["OpenHolidayItems"] = nil
+            end
 
             -- Unload the event for performance.
             eventHandler:UnregisterEvent("ADDON_LOADED")
@@ -262,20 +246,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end
     end
     if event == "PLAYER_LOGIN" then
-        -- This mapID will be referenced in numerous locations in the code. It's important it's
-        -- available on login.
         C_Timer.After(addon.Constants["TIMER_DELAY"] + 0.4, function()
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if mapID then
-                addon.mapID = mapID
-                if not HelpMePlayDB["GuideQuests"][mapID] then
-                    HelpMePlayDB["GuideQuests"][mapID] = {}
-                end
-                if not HelpMePlayDB["GuideGossips"][mapID] then
-                    HelpMePlayDB["GuideGossips"][mapID] = {}
-                end
-            end
-
             addon.playerClassName, addon.playerClassFileName, addon.playerClassID = UnitClass("player")
             addon.playerClassColor = C_ClassColor.GetClassColor(addon.playerClassFileName)
             addon.playerLevel = UnitLevel("player")
@@ -290,21 +261,5 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_SPECIALIZATION_CHANGED" then
         addon.playerSpecID = PlayerUtil.GetCurrentSpecID()
         addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
-    end
-    if event == "ZONE_CHANGED_NEW_AREA" then
-        -- The same case as above during PLAYER_LOGIN; the mapID variable will be referenced in
-        -- numerous locations in the code. It's important it's available after a zone change.
-        C_Timer.After(addon.Constants["TIMER_DELAY"] + 0.4, function()
-            local mapID = C_Map.GetBestMapForUnit("player")
-            if mapID then
-                addon.mapID = mapID
-                if not HelpMePlayDB["GuideQuests"][mapID] then
-                    HelpMePlayDB["GuideQuests"][mapID] = {}
-                end
-                if not HelpMePlayDB["GuideGossips"][mapID] then
-                    HelpMePlayDB["GuideGossips"][mapID] = {}
-                end
-            end
-        end)
     end
 end)

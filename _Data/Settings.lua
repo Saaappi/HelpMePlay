@@ -12,28 +12,6 @@ local function GetEditModeLayouts()
     return layouts
 end
 
-local function SetValue(setting, value)
-    if setting.pendingValue ~= nil then
-		return
-	end
-
-	local currentValue = setting:GetValue()
-	local equivalentValue = ApproximatelyEqual(currentValue, value)
-	if equivalentValue then return end
-
-	local originalValue = setting.originalValue;
-	local newValue = setting:SetValueInternal(value)
-
-	if (originalValue == nil) and not equivalentValue then
-		originalValue = currentValue
-		setting.originalValue = currentValue
-	elseif ApproximatelyEqual(originalValue, newValue) then
-		setting.originalValue = nil
-	end
-
-	C_Timer.After(0.25, function() SettingsCallbackRegistry:TriggerEvent(setting:GetVariable(), setting, newValue, currentValue, originalValue) end)
-end
-
 addon.Settings = {
     General = {
         {
@@ -190,69 +168,14 @@ addon.Settings = {
         {
             Type = "Slider",
             Name = "Trainer Protection Value",
-            TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.",
+            TooltipText = "Use the slider to set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
+            "This slider moves in increments of 10.",
             Options = {
                 minValue = 0,
                 maxValue = 1000,
                 step = 100,
             },
             SavedVariable = "TrainerProtectionValue",
-        },
-        {
-            Type = "BasicButton",
-            Name = "Trainer Protection Value (Manual)",
-            ButtonText = "Click Me",
-            ClickHandler = function(_, button)
-                if button == "LeftButton" then
-                    StaticPopupDialogs["HELPMEPLAY_TRAINER_PROTECTION_VALUE_MANUAL"] = {
-                        text = "Enter the amount of money you must possess before the addon will automatically train for you.",
-                        button1 = ACCEPT,
-                        button2 = CANCEL,
-                        OnAccept = function(self)
-                            if tonumber(self.editBox:GetText()) then
-                                local value = tonumber(self.editBox:GetText()); value = value * 10000
-                                for _, setting in next, addon.sliderSettings do
-                                    if setting:GetName() == "Trainer Protection Value" then
-                                        local variable = setting:GetVariable()
-                                        HelpMePlayDB[variable] = value
-                                        SetValue(setting, value/10000)
-                                        break
-                                    end
-                                end
-                            end
-                        end,
-                        OnShow = function(self)
-                            local function HidePopup(self) self:GetParent():Hide() end
-                            self.editBox:SetScript("OnKeyUp", function(self, key)
-                                if key == "ESCAPE" then HidePopup(self) end
-                                if key == "ENTER" then
-                                    if tonumber(self:GetText()) then
-                                        local value = tonumber(self:GetText()); value = value * 10000
-                                        for _, setting in next, addon.sliderSettings do
-                                            if setting:GetName() == "Trainer Protection Value" then
-                                                local variable = setting:GetVariable()
-                                                HelpMePlayDB[variable] = value
-                                                SetValue(setting, value/10000)
-                                                break
-                                            end
-                                        end
-                                    end
-                                    HidePopup(self)
-                                end
-                            end)
-                        end,
-                        timeout = 0,
-                        showAlert = false,
-                        whileDead = false,
-                        hasEditBox = true,
-                        exclusive = true,
-                        preferredIndex = STATICPOPUP_NUMDIALOGS,
-                    }
-                    StaticPopup_Show("HELPMEPLAY_TRAINER_PROTECTION_VALUE_MANUAL")
-                end
-            end,
-            TooltipText = "The slider moves in increments of 10. Click here to set a custom amount of money.",
-            AddSearchTags = true,
         },
     },
     GuildBank = {
@@ -266,55 +189,14 @@ addon.Settings = {
             Type = "Slider",
             Name = "Deposit Keep Amount",
             TooltipText = "Use the slider to set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-            "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.",
+            "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
+            "This slider moves in increments of 10.",
             Options = {
                 minValue = 0,
-                maxValue = 10000000,
-                step = 10000,
+                maxValue = 1000,
+                step = 100,
             },
             SavedVariable = "DepositKeepAmount",
-        },
-        {
-            Type = "BasicButton",
-            Name = "Deposit Keep Amount (Manual)",
-            ButtonText = "Click Me",
-            ClickHandler = function(_, button)
-                if button == "LeftButton" then
-                    StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_AMOUNT_MANUAL"] = {
-                        text = "Enter an amount of money to keep on hand.",
-                        button1 = ACCEPT,
-                        button2 = CANCEL,
-                        OnAccept = function(self)
-                            if tonumber(self.editBox:GetText()) then
-                                local value = tonumber(self.editBox:GetText())
-                                HelpMePlayDB["DepositKeepAmount"] = value * 10000
-                            end
-                        end,
-                        OnShow = function(self)
-                            local function HidePopup(self) self:GetParent():Hide() end
-                            self.editBox:SetScript("OnKeyUp", function(self, key)
-                                if key == "ESCAPE" then HidePopup(self) end
-                                if key == "ENTER" then
-                                    if tonumber(self:GetText()) then
-                                        local value = tonumber(self:GetText())
-                                        HelpMePlayDB["DepositKeepAmount"] = value * 10000
-                                    end
-                                    HidePopup(self)
-                                end
-                            end)
-                        end,
-                        timeout = 0,
-                        showAlert = false,
-                        whileDead = false,
-                        hasEditBox = true,
-                        exclusive = true,
-                        preferredIndex = STATICPOPUP_NUMDIALOGS,
-                    }
-                    StaticPopup_Show("HELPMEPLAY_DEPOSIT_KEEP_AMOUNT_MANUAL")
-                end
-            end,
-            TooltipText = "The slider moves in increments of 1,000. Click here to set a custom amount of money.",
-            AddSearchTags = true,
         },
     },
     QuestMobs = {
