@@ -116,8 +116,12 @@ addon.CreateEventQueueButton = function()
                     SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
                 end)
             end
-        else
+        elseif (#activeEvents == 1) then
             SetWorldEventQueueButtonToEvent(activeEvents[1])
+        else
+            -- There aren't any events, so hide the button and return.
+            worldEventQueueButton:Hide()
+            return
         end
 
         worldEventQueueButton:SetScript("OnClick", function(self)
