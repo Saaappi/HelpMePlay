@@ -14,6 +14,9 @@ local function OnSettingChanged(_, setting, value)
     -- Get the variable name from the setting.
     local variable = setting:GetVariable()
 
+    -- Set the variable to the value.
+    HelpMePlayDB[variable] = value
+
     -- Handler for the Quest Mobs icon/position.
     if variable == "QuestMobsIconID" then
         if value == 1 or value == 2 then
@@ -52,8 +55,6 @@ local function OnSettingChanged(_, setting, value)
         addon.UpdateQuestMobsIconPosition()
     elseif variable == "UseWorldEventQueue" then
         addon.CreateEventQueueButton()
-    else
-        HelpMePlayDB[variable] = value
     end
 end
 

@@ -3,7 +3,7 @@ if not LHMP then return end
 
 LHMP.WorldEvents = {
     [559] = {
-        ["name"] = EXPANSION_NAME1,
+        ["name"] = "",
         ["dungeonQueueID"] = 744,
         ["texture"] = 630783,
         ["conditions"] = {
@@ -12,7 +12,7 @@ LHMP.WorldEvents = {
         }
     },
     [562] = {
-        ["name"] = EXPANSION_NAME2,
+        ["name"] = "",
         ["dungeonQueueID"] = 995,
         ["texture"] = 630787,
         ["conditions"] = {
@@ -21,7 +21,7 @@ LHMP.WorldEvents = {
         }
     },
     [587] = {
-        ["name"] = EXPANSION_NAME3,
+        ["name"] = "",
         ["dungeonQueueID"] = 1146,
         ["texture"] = 630784,
         ["conditions"] = {
@@ -31,7 +31,7 @@ LHMP.WorldEvents = {
         }
     },
     [643] = {
-        ["name"] = EXPANSION_NAME4,
+        ["name"] = "",
         ["dungeonQueueID"] = 1453,
         ["texture"] = 630786,
         ["conditions"] = {
@@ -40,7 +40,7 @@ LHMP.WorldEvents = {
         }
     },
     [1056] = {
-        ["name"] = EXPANSION_NAME5,
+        ["name"] = "",
         ["dungeonQueueID"] = 1971,
         ["texture"] = 2838050,
         ["conditions"] = {
@@ -49,7 +49,7 @@ LHMP.WorldEvents = {
         }
     },
     [1263] = {
-        ["name"] = EXPANSION_NAME6,
+        ["name"] = "",
         ["dungeonQueueID"] = 2274,
         ["texture"] = 1408999,
         ["conditions"] = {

@@ -15,7 +15,7 @@ local function GetActiveEventsFromCalendarByDate(date)
             local event = C_Calendar.GetDayEvent(0, date.monthDay, index)
             if event and LHMP:IsEventQueueable(event.eventID) then
                 local worldEvent = LHMP:GetWorldEvent(event.eventID)
-                table.insert(events, { name = format("%s %s %s", LHMP:ColorText("COMMON", event.title), LHMP:ColorText("COMMON", "-"), LHMP:ColorText("COMMON", worldEvent.name)), dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture, conditions = worldEvent.conditions })
+                table.insert(events, { name = LHMP:ColorText("COMMON", event.title), dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture, conditions = worldEvent.conditions })
             end
         end
     end
