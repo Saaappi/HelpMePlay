@@ -3,4 +3,6 @@ if not LHMP then
     return false
 end
 
-LHMP.Emotes = {}
+LHMP.Emotes = {
+    [153580] = "WAVE"
+}

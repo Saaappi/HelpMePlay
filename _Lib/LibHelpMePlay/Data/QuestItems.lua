@@ -31,5 +31,15 @@ LHMP.QuestMerchants = {
                 "QUEST_OBJECTIVE_INCOMPLETE = 33343,1",
             }
         }
+    },
+    [156800] = {
+        {
+            Index = 1,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 55194",
+                "QUEST_OBJECTIVE_INCOMPLETE = 55194,1",
+            }
+        }
     }
 }

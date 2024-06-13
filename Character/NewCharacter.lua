@@ -80,6 +80,10 @@ addon.NewCharacter = function()
                     -- Set the player's Edit Mode layout.
                     C_EditMode.SetActiveLayout(HelpMePlayDB["NCC_EditModeLayoutID"])
 
+                    -- Set the button as used and hide it.
+                    HelpMePlayDB_Character["UsedNewCharacterButton"] = true
+                    newCharacterButton:Hide()
+
                     -- Use a popup the player can use to reload the UI and save
                     -- these changes.
                     local popup = {
@@ -88,12 +92,7 @@ addon.NewCharacter = function()
                         button1 = ACCEPT,
                         button2 = CANCEL,
                         onAccept = function(self, data)
-                            -- Set the button as used and hide it.
-                            HelpMePlayDB_Character["UsedNewCharacterButton"] = true
-                            newCharacterButton:Hide()
-
-                            -- Reload the UI.
-                            C_UI.Reload()
+                            C_Timer.After(0.25, C_UI.Reload)
                         end,
                         showAlert = false,
                         whileDead = false,
