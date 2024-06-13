@@ -1,4 +1,15 @@
 local addonName, addon = ...
+local mounts = {}
+
+addon.RefreshMountsByType = function(type)
+    if mounts[type] == nil then
+        mounts[type] = {}
+    end
+
+    for mountID in pairs(HelpMePlayDB["Mounts"][type]) do
+        table.insert(mounts[type], mountID)
+    end
+end
 
 addon.GetPlayerDurability = function(durabilityThreshold)
     local slots = { 1, 3, 5, 6, 7, 8, 9, 10, 16, 17 }
@@ -101,12 +112,24 @@ end
 
 -- Gets a random mount based on the given type.
 addon.GetRandomMountByType = function(type)
-    local mountIDs = {}
-    for mountID in pairs(HelpMePlayDB["Mounts"][type]) do
-        table.insert(mountIDs, mountID)
+
+    -- If we ran out of mounts for a given type, then
+    -- refresh the mounts for that type.
+    if mounts[type] == nil or (#mounts[type] == 0) then
+        addon.RefreshMountsByType(type)
     end
 
-    return mountIDs[math.random(1, #mountIDs)]
+    -- Get a random index from the mounts table, then get the
+    -- mountID at that index.
+    if mounts[type] then
+        local index = math.random(1, #mounts[type])
+        local mountID = mounts[type][index]
+
+        -- Remove the mount from the original table.
+        table.remove(mounts[type], index)
+
+        return mountID
+    end
 end
 
 addon.IsMountCollected = function(mountID)
@@ -176,8 +199,6 @@ addon.Mount = function()
             C_MountJournal.SummonByID(mountID)
         end
     elseif addon.GetFreeInventorySpace(numFreeSlots, numTotalSlots, 20) or addon.GetPlayerDurability(70) then
-        print(addon.GetFreeInventorySpace(numFreeSlots, numTotalSlots, 20))
-        print(addon.GetPlayerDurability(70))
         -- If the player's available bag space is less than or equal
         -- to 20%, then use a vendor mount.
         --

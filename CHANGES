@@ -1,10 +1,1 @@
-New Features:
-
-- Added support for opening Bronze caches on Remix.
-- Added support to accept quests from items that begin one.
-- Added quest-related gossip and merchant support for every Pandaria campaign. (Horde still needs some love here...)
-- The Event Queue button can now be shown and hidden without reloading the UI.
-- Fixed a rare bug where an error could be thrown for weapon comparison in legacy content while Item Level is selected for Quest Rewards.
-- Quest popups should once again feel acknowledged and be removed from the player's screen.
-- Temporarily disabled the Heirloom button in the settings. (I have a plan...)
-- Removed the "Click Me" buttons for manually setting the Trainer Protection Value and Deposit Keep Amount.
+- Mounts used in a session are now memorized, and won't be summoned again until all mounts in the same category have been used.

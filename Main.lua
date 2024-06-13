@@ -255,6 +255,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
             addon.playerGUID = UnitGUID("player")
 
+            -- Get the player's mounts so we can use them.
+            addon.RefreshMountsByType("Ground")
+            addon.RefreshMountsByType("Flying")
+            addon.RefreshMountsByType("Dynamic")
+            addon.RefreshMountsByType("Aquatic")
+            addon.RefreshMountsByType("AQ")
+            addon.RefreshMountsByType("Vashjir")
+            addon.RefreshMountsByType("Unused")
+
             -- Unload the event for performance.
             eventHandler:UnregisterEvent("PLAYER_LOGIN")
         end)
