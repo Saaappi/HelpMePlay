@@ -105,6 +105,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
-        C_Timer.After(1, function() addon.CreateHeirloomButton(addon.playerClassID) end)
+        --C_Timer.After(1, function() addon.CreateHeirloomButton(addon.playerClassID) end)
     end
 end)

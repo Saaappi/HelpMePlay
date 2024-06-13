@@ -153,28 +153,28 @@ eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
         C_Timer.After(1, function()
+            -- Unregister the event for performance.
+	        eventHandler:UnregisterEvent("PLAYER_LOGIN")
+
             if IsNewCharacter() then
                 addon.NewCharacter()
             end
+
+            -- If the player is on Exile's Reach, then we need to use
+            -- a workaround to keep the tutorials and auto push spells
+            -- CVars in check if/when the UI is reloaded.
+            if C_Map.GetBestMapForUnit("player") == 1409 or C_Map.GetBestMapForUnit("player") == 1726 then
+                if HelpMePlayDB["DisableTutorials"] then
+                    C_CVar.SetCVar("showTutorials", 0)
+                else
+                    C_CVar.SetCVar("showTutorials", 1)
+                end
+                if HelpMePlayDB["AutoPushSpells"] then
+                    C_CVar.SetCVar("AutoPushSpellToActionBar", 1)
+                else
+                    C_CVar.SetCVar("AutoPushSpellToActionBar", 0)
+                end
+            end
         end)
 	end
-
-    -- If the player is on Exile's Reach, then we need to use
-    -- a workaround to keep the tutorials and auto push spells
-    -- CVars in check if/when the UI is reloaded.
-    if C_Map.GetBestMapForUnit("player") == 1409 then
-        if HelpMePlayDB["DisableTutorials"] then
-            C_CVar.SetCVar("showTutorials", 0)
-        else
-            C_CVar.SetCVar("showTutorials", 1)
-        end
-        if HelpMePlayDB["AutoPushSpells"] then
-            C_CVar.SetCVar("AutoPushSpellToActionBar", 1)
-        else
-            C_CVar.SetCVar("AutoPushSpellToActionBar", 0)
-        end
-    end
-
-    -- Unregister the event for performance.
-	eventHandler:UnregisterEvent("PLAYER_LOGIN")
 end)
