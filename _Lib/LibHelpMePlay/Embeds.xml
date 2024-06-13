@@ -7,4 +7,5 @@
     <Script file="Data\Players.lua"/>
     <Script file="Data\WorldEvents.lua"/>
     <Script file="Data\QuestItems.lua"/>
+    <Script file="Data\Quests.lua"/>
 </Ui>

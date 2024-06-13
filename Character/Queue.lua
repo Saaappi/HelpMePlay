@@ -3,7 +3,7 @@ local eventHandler = CreateFrame("Frame")
 local queueButton
 
 local QUEST_TO_DUNGEON = {
-    [55992] = {texture = 236695, lfgDungeonID = 2043}
+    [55992] = {texture = 236695, lfgDungeonID = 2043, lfgDescription = "Queue for Darkmaul Citadel."}
 }
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")
@@ -24,7 +24,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end)
         queueButton:SetScript("OnEnter", function(self)
             GameTooltip:SetOwner(self, "ANCHOR_BOTTOMRIGHT")
-            GameTooltip:SetText("Click to queue.")
+            GameTooltip:SetText(self.lfgDescription)
             GameTooltip:Show()
         end)
         queueButton:SetScript("OnLeave", function()
@@ -39,6 +39,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if questID then
             if QUEST_TO_DUNGEON[questID] then
                 queueButton.lfgDungeonID = QUEST_TO_DUNGEON[questID].lfgDungeonID
+                queueButton.lfgDescription = QUEST_TO_DUNGEON[questID].lfgDescription
                 queueButton.icon:SetTexture(QUEST_TO_DUNGEON[questID].texture)
                 queueButton:Show()
             end

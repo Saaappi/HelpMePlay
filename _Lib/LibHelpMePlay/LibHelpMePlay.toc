@@ -12,3 +12,4 @@ Data\Containers.lua
 Data\Players.lua
 Data\WorldEvents.lua
 Data\QuestItems.lua
+Data\Quests.lua

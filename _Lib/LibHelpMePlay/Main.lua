@@ -87,6 +87,16 @@ function LHMP:GetEmoteForNPC(npcID)
     return LHMP.Emotes[npcID]
 end
 
+------------
+-- QUESTS --
+------------
+function LHMP:IsQuestIgnored(questID)
+    if not LHMP.IgnoredQuests[questID] then
+        return false
+    end
+    return true
+end
+
 ----------------
 -- CONTAINERS --
 ----------------

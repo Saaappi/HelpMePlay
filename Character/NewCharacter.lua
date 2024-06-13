@@ -2,8 +2,36 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local newCharacterButton
 
+local function IsNCCEnabled()
+    local variables = {
+        "NCC_ActionBar2",
+        "NCC_ActionBar3",
+        "NCC_ActionBar4",
+        "NCC_ActionBar5",
+        "NCC_ActionBar6",
+        "NCC_ActionBar7",
+        "NCC_ActionBar8",
+        "ClearAllTracking",
+        "AutoLoot",
+        "DisableTutorials",
+        "AutoPushSpells",
+        "ClassColorFrames",
+        "LootUnderMouse",
+        "DisableDialog"
+    }
+    for _, variable in next, variables do
+        if HelpMePlayDB[variable] then
+            return true
+        end
+    end
+    if HelpMePlayDB["NCC_EditModeLayoutID"] > 2 then
+        return true
+    end
+    return false
+end
+
 addon.NewCharacter = function()
-    if UnitLevel("player") <= 10 and HelpMePlayDB["NCCEnabled"] then
+    if UnitLevel("player") <= 10 and IsNCCEnabled() then
         if HelpMePlayDB_Character["UsedNewCharacterButton"] == false or HelpMePlayDB_Character["UsedNewCharacterButton"] == nil then
             newCharacterButton = {
                 name = addonName .. "NewCharacterButton",

@@ -13,14 +13,6 @@ addon.AdventureMaps = {
     },
 }
 
--- TODO: Can this be removed? Do I need this table
--- if players will have Route Builder eventually?
-addon.Emotes = {}
-
--- TODO: Can this be removed? Do I need this table
--- if players will have Route Builder eventually?
-addon.IgnoredQuestGivers = {}
-
 -- These are the options in the Chromie Time
 -- dropdown.
 addon.CHROMIE_TIME_IDS = {

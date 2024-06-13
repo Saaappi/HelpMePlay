@@ -27,6 +27,7 @@ local function QUEST_GOSSIP()
                 if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
                 elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
                 else
+                    if LHMP:IsQuestIgnored(quest.questID) then return false end
                     C_GossipInfo.SelectAvailableQuest(quest.questID)
                 end
             end
