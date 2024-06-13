@@ -1,5 +1,6 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 local newCharacterButton
 
 local function IsNewCharacter()
@@ -54,7 +55,7 @@ addon.NewCharacter = function()
             height = 25,
             text = "Configure New Character",
             tooltipHeader = "Configure New Character",
-            tooltipText = format("Click to configure new character settings for %s. These settings can be configured under |cffFFD100New Character Config|r in the addon's settings.", UnitName("player")),
+            tooltipText = format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", UnitName("player"), LHMP:ColorText("GOLD", "New Character Configuration")),
             onClick = function()
                 -- Action Bars
                 SetActionBarToggles(
@@ -146,6 +147,17 @@ addon.NewCharacter = function()
         setmetatable(newCharacterButton, { __index = HelpMePlay.Button })
         newCharacterButton = newCharacterButton:BaseButton()
     end
+end
+
+eventHandler:RegisterEvent("PLAYER_LOGIN")
+eventHandler:SetScript("OnEvent", function(self, event, ...)
+	if event == "PLAYER_LOGIN" then
+        C_Timer.After(1, function()
+            if IsNewCharacter() then
+                addon.NewCharacter()
+            end
+        end)
+	end
 
     -- If the player is on Exile's Reach, then we need to use
     -- a workaround to keep the tutorials and auto push spells
@@ -162,17 +174,6 @@ addon.NewCharacter = function()
             C_CVar.SetCVar("AutoPushSpellToActionBar", 0)
         end
     end
-end
-
-eventHandler:RegisterEvent("PLAYER_LOGIN")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
-	if event == "PLAYER_LOGIN" then
-        C_Timer.After(1, function()
-            if IsNewCharacter() then
-                addon.NewCharacter()
-            end
-        end)
-	end
 
     -- Unregister the event for performance.
 	eventHandler:UnregisterEvent("PLAYER_LOGIN")
