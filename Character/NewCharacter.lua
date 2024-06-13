@@ -130,7 +130,7 @@ addon.NewCharacter = function()
                     button1 = ACCEPT,
                     button2 = CANCEL,
                     onAccept = function(self, data)
-                        C_Timer.After(0.25, C_UI.Reload)
+                        C_UI.Reload()
                     end,
                     showAlert = false,
                     whileDead = false,
@@ -167,9 +167,11 @@ end
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
-        if IsNewCharacter() then
-            addon.NewCharacter()
-        end
+        C_Timer.After(1, function()
+            if IsNewCharacter() then
+                addon.NewCharacter()
+            end
+        end)
 	end
 
     -- Unregister the event for performance.
