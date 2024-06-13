@@ -84,6 +84,7 @@ WorldEvents\WorldEventsQueue.lua
 GuildBank\GuildBank.lua
 
 # Character
+Character\Queue.lua
 Character\NewCharacter.lua
 Character\Heirloom.lua
 
