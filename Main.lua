@@ -112,15 +112,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["QuestMobsIconYOffset"] == nil then
                 HelpMePlayDB["QuestMobsIconYOffset"] = 0
             end
-            if HelpMePlayDB["DynamicFlightTrait1"] == nil then
-                HelpMePlayDB["DynamicFlightTrait1"] = { ["spellID"] = 384824, ["nodeID"] = 64065, ["entryID"] = 82385 }
-            end
-            if HelpMePlayDB["DynamicFlightTrait2"] == nil then
-                HelpMePlayDB["DynamicFlightTrait2"] = { ["spellID"] = 381871, ["nodeID"] = 64062, ["entryID"] = 82381 }
-            end
-            if HelpMePlayDB["NCCEnabled"] == nil then
-                HelpMePlayDB["NCCEnabled"] = false
-            end
             if HelpMePlayDB["NCC_ActionBar2"] == nil then
                 HelpMePlayDB["NCC_ActionBar2"] = false
             end
@@ -165,6 +156,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
             if HelpMePlayDB["NCC_EditModeLayoutID"] == nil then
                 HelpMePlayDB["NCC_EditModeLayoutID"] = 1
+            end
+
+            -- If the Characters table is nil, then initialize it.
+            if HelpMePlayDB["Characters"] == nil then
+                HelpMePlayDB["Characters"] = {}
             end
 
             -- If the Class Talents table is nil, then initialize it.
@@ -229,6 +225,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             HelpMePlayDB["GuideGossips"] = nil
             HelpMePlayDB["DynamicFlightTrait1"] = nil
             HelpMePlayDB["DynamicFlightTrait2"] = nil
+            HelpMePlayDB["NCCEnabled"] = nil
             HelpMePlayDB["AGE"] = nil
             HelpMePlayDB["ShouldRepair"] = nil
             if HelpMePlayDB["OpenHolidayItems"] then

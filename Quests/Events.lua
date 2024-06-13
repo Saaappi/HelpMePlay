@@ -40,8 +40,7 @@ end
 local function QUEST_COMPLETE()
     if not IsShiftKeyDown() then
         local questID = GetQuestID()
-        local mapID = C_Map.GetBestMapForUnit("player")
-        if questID and mapID then
+        if questID then
             if HelpMePlayDB["AcceptAndCompleteQuests"] then
                 HelpMePlay.CompleteQuest()
             end
@@ -70,6 +69,7 @@ local function QUEST_DETAIL()
                     if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
                     elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
                     else
+                        if LHMP:IsQuestIgnored(questID) then return false end
                         AcceptQuest()
                     end
                 end
@@ -108,6 +108,7 @@ local function QUEST_GREETING()
                     if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
                     elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
                     else
+                        if LHMP:IsQuestIgnored(questID) then return false end
                         SelectAvailableQuest(index)
                     end
                 end
