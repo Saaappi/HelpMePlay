@@ -163,7 +163,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             -- If the player is on Exile's Reach, then we need to use
             -- a workaround to keep the tutorials and auto push spells
             -- CVars in check if/when the UI is reloaded.
-            if C_Map.GetBestMapForUnit("player") == 1409 or C_Map.GetBestMapForUnit("player") == 1726 then
+            if C_Map.GetBestMapForUnit("player") == 1409 or C_Map.GetBestMapForUnit("player") == 1726 or C_Map.GetBestMapForUnit("player") == 1727 then
                 if HelpMePlayDB["DisableTutorials"] then
                     C_CVar.SetCVar("showTutorials", 0)
                 else

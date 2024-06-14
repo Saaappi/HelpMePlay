@@ -5,7 +5,7 @@ local index = 1
 
 -- Automatically equip the heirlooms as they're created for
 -- a complete automated experience.
-local function EquipHeirloom(itemLink, slot)
+--[[local function EquipHeirloom(itemLink, slot)
     -- In case the player enters combat after creating an heirloom
     -- but before this function is called, then trigger a timer.
     if UnitAffectingCombat("player") then C_Timer.After(1, function() EquipHeirloom(itemLink) end) end
@@ -28,9 +28,9 @@ local function EquipHeirloom(itemLink, slot)
             end
         end
     end
-end
+end]]
 
-local function CreateHeirloom(classID)
+--[[local function CreateHeirloom(classID)
     -- Set the flag that the heirloom button was used for the current character.
     if HelpMePlayDB_Character["UsedHeirloomButton"] == nil or HelpMePlayDB_Character["UsedHeirloomButton"] == false then
         HelpMePlayDB_Character["UsedHeirloomButton"] = true
@@ -56,9 +56,9 @@ local function CreateHeirloom(classID)
         heirloomButton.texture:SetTexture(C_Item.GetItemIconByID(HelpMePlayDB["Heirlooms"][classID][index].itemLink))
         GameTooltip:SetHyperlink(HelpMePlayDB["Heirlooms"][classID][index].itemLink)
     end)
-end
+end]]
 
-addon.CreateHeirloomButton = function(classID)
+--[[addon.CreateHeirloomButton = function(classID)
     if addon.playerLevel <= 10 and (not HelpMePlayDB_Character["UsedHeirloomButton"]) and (PlayerGetTimerunningSeasonID() ~= 1) then
         if not heirloomButton and (#HelpMePlayDB["Heirlooms"][classID] > 0) then
             heirloomButton = CreateFrame("Button", addonName .. "HeirloomSecureButton", UIParent, "SecureActionButtonTemplate")
@@ -97,9 +97,9 @@ addon.CreateHeirloomButton = function(classID)
             end)
         end
     end
-end
+end]]
 
-eventHandler:RegisterEvent("PLAYER_LOGIN")
+--[[eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_LOGIN" then
         -- Unregister the event for performance.
@@ -107,4 +107,4 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         --C_Timer.After(1, function() addon.CreateHeirloomButton(addon.playerClassID) end)
     end
-end)
+end)]]
