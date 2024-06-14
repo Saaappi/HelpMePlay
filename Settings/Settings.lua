@@ -684,6 +684,25 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
+                -- Reset New Character Configuration Button
+                do
+                    local name = ""
+                    local buttonText = "Reset Configuration"
+                    local tooltipText = "Click to wipe the current character as a 'new character' and re-execute the New Character configuration."
+                    local clickHandler = function()
+                        for index, GUID in next, HelpMePlayDB["Characters"] do
+                            if GUID == addon.playerGUID then
+                                table.remove(HelpMePlayDB["Characters"], index)
+                                break
+                            end
+                        end
+                        addon.NewCharacter(true)
+                    end
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+                    addon.layout:AddInitializer(initializer)
+                end
+
                 -------------------------
                 -- UTILITIES SECTION ----
                 -------------------------

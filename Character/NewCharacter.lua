@@ -42,8 +42,8 @@ local function IsNCCEnabled()
     return false
 end
 
-addon.NewCharacter = function()
-    if UnitLevel("player") <= 10 and IsNCCEnabled() then
+addon.NewCharacter = function(skipLevelCheck)
+    if (UnitLevel("player") <= 10 and IsNCCEnabled()) or (skipLevelCheck and IsNCCEnabled()) then
         newCharacterButton = {
             name = addonName .. "NewCharacterButton",
             parent = UIParent,
@@ -157,7 +157,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 	        eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
             if IsNewCharacter() then
-                addon.NewCharacter()
+                addon.NewCharacter(false)
             end
 
             -- If the player is on Exile's Reach, then we need to use
