@@ -1,4 +1,7 @@
 local addonName, addon = ...
+local iconSize = 12
+local iconType1 = "UI-HUD-UnitFrame-Target-PortraitOn-Boss-Quest"
+local iconType2 = "BuildanAbomination-32x32"
 
 addon.QUEST_MOBS_ICON_TYPES = {
     [1] = "Quest",
@@ -49,10 +52,10 @@ addon.UpdateQuestMobsIcon = function()
                                 if HelpMePlayDB["QuestMobsIconID"] == 0 then
                                     nameplate[addonName .. "QuestMobsIcon"]:Hide()
                                 elseif HelpMePlayDB["QuestMobsIconID"] == 1 then
-                                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas("QuestNormal")
+                                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType1)
                                     nameplate[addonName .. "QuestMobsIcon"]:Show()
                                 elseif HelpMePlayDB["QuestMobsIconID"] == 2 then
-                                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas("BuildanAbomination-32x32")
+                                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType2)
                                     nameplate[addonName .. "QuestMobsIcon"]:Show()
                                 else
                                     nameplate[addonName .. "QuestMobsIcon"]:SetTexture(HelpMePlayDB["QuestMobsCustomIcon"])
@@ -95,21 +98,6 @@ addon.IsNameplateUnitRelatedToActiveQuest = function(unit)
         if isUnitRelatedToActiveQuest then
             return true
         end
-        --[[local tooltipData = C_TooltipInfo.GetUnit(unit)
-        if tooltipData then
-            for index = 1, #tooltipData.lines do
-                local line = tooltipData.lines[index]
-                if line then
-                    local numComplete, numRequired = line.leftText:match("(%d)/(%d+)")
-                    if numComplete and numRequired then
-                        numComplete, numRequired = tonumber(numComplete), tonumber(numRequired)
-                        if numComplete ~= numRequired then
-                            return true
-                        end
-                    end
-                end
-            end
-        end]]
     end
     return false
 end
@@ -124,23 +112,23 @@ addon.UpdateNamePlate = function(nameplate)
                 local position = addon.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
                 nameplate[addonName .. "QuestMobsIcon"] = icon
                 icon:ClearAllPoints()
-                icon:SetSize(16, 16)
+                icon:SetSize(iconSize, iconSize)
                 icon:SetPoint(addon.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
-                if HelpMePlayDB["QuestMobsIconID"] == 1 then -- Quest
-                    icon:SetAtlas("QuestNormal")
-                elseif HelpMePlayDB["QuestMobsIconID"] == 2 then -- Treasure Goblin
-                    icon:SetAtlas("BuildanAbomination-32x32")
-                elseif HelpMePlayDB["QuestMobsIconID"] == 3 then -- Custom
+                if HelpMePlayDB["QuestMobsIconID"] == 1 then
+                    icon:SetAtlas(iconType1)
+                elseif HelpMePlayDB["QuestMobsIconID"] == 2 then
+                    icon:SetAtlas(iconType2)
+                elseif HelpMePlayDB["QuestMobsIconID"] == 3 then
                     icon:SetTexture(HelpMePlayDB["QuestMobsCustomIcon"])
                 end
             else
                 local position = addon.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
                 nameplate[addonName .. "QuestMobsIcon"]:SetPoint(addon.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
-                if HelpMePlayDB["QuestMobsIconID"] == 1 then -- Quest
-                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas("QuestNormal")
-                elseif HelpMePlayDB["QuestMobsIconID"] == 2 then -- Treasure Goblin
-                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas("BuildanAbomination-32x32")
-                elseif HelpMePlayDB["QuestMobsIconID"] == 3 then -- Custom
+                if HelpMePlayDB["QuestMobsIconID"] == 1 then
+                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType1)
+                elseif HelpMePlayDB["QuestMobsIconID"] == 2 then
+                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType2)
+                elseif HelpMePlayDB["QuestMobsIconID"] == 3 then
                     nameplate[addonName .. "QuestMobsIcon"]:SetTexture(HelpMePlayDB["QuestMobsCustomIcon"])
                 end
                 nameplate[addonName .. "QuestMobsIcon"]:Show()
