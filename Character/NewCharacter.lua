@@ -55,7 +55,7 @@ addon.NewCharacter = function()
             height = 25,
             text = "Configure New Character",
             tooltipHeader = "Configure New Character",
-            tooltipText = format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", UnitName("player"), LHMP:ColorText("GOLD", "New Character Configuration")),
+            tooltipText = format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", LHMP:ColorText(UnitClass("player"), UnitName("player")), LHMP:ColorText("GOLD", "New Character Configuration")),
             onClick = function()
                 -- Action Bars
                 SetActionBarToggles(

@@ -25,6 +25,11 @@ function LHMP:ColorText(color, text)
     color = string.upper(color)
     if LHMP.Colors[color] then
         return format("|cff%s%s|r", LHMP.Colors[color], text)
+    else
+        -- A class color was given instead.
+        local className = color
+        local classColor = C_ClassColor.GetClassColor(className):GenerateHexColor()
+        return format("|c%s%s|r", classColor, text)
     end
     return ""
 end
