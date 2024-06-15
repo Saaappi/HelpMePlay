@@ -5,12 +5,12 @@ local buttonSize = 32
 local usableButton
 local itemQueue = {}
 
-local function MakeButton(anchorPoint, parent, relativeAnchorPoint, anchorX, anchorY)
+local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
     if not usableButton then
         usableButton = CreateFrame("Button", addonName .. "UsablesSecureButton", parent, "SecureActionButtonTemplate")
         usableButton:ClearAllPoints()
         usableButton:SetSize(buttonSize, buttonSize)
-        usableButton:SetPoint(anchorPoint, parent, relativeAnchorPoint, anchorX, anchorY)
+        usableButton:SetPoint(anchor, parent, relativeAnchor, xOff, yOff)
 
         usableButton.texture = usableButton:CreateTexture()
         usableButton.texture:SetTexture(626190)
@@ -32,6 +32,7 @@ local function MakeButton(anchorPoint, parent, relativeAnchorPoint, anchorX, anc
         usableButton:SetScript("PreClick", function(self, button, isDown)
             if not isDown then
                 if next(itemQueue) == nil then
+                    OpenAllBags()
                     for bagID = 0, 4 do
                         for slotID = C_Container.GetContainerNumSlots(bagID), 1, -1 do
                             local itemID = C_Container.GetContainerItemID(bagID, slotID)
@@ -78,14 +79,15 @@ local function MakeButton(anchorPoint, parent, relativeAnchorPoint, anchorX, anc
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")
-eventHandler:RegisterEvent("CVAR_UPDATE")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
         local addonLoaded = ...
         if addonLoaded == addonName then
             if PlayerGetTimerunningSeasonID() == 1 then
                 if C_AddOns.IsAddOnLoaded("Baganator") then
-                    --
+                    hooksecurefunc(Baganator.CallbackRegistry, "TriggerEvent", function()
+                        MakeButton("TOPRIGHT", Baganator_SingleViewBackpackViewFrame, "TOPLEFT", -10, -125)
+                    end)
                 else
                     if C_CVar.GetCVar("combinedBags") == "1" then
                         EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
@@ -101,14 +103,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
             -- Unregister the event for performance.
             eventHandler:UnregisterEvent("ADDON_LOADED")
-        end
-    end
-    if event == "CVAR_UPDATE" then
-        local cvar = ...
-        if cvar == "combinedBags" then
-            if usableButton then
-               usableButton = nil
-            end
         end
     end
 end)
