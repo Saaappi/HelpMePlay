@@ -78,25 +78,37 @@ local function MakeButton(anchorPoint, parent, relativeAnchorPoint, anchorX, anc
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")
-eventHandler:SetScript("OnEvent", function(self, event, addonLoaded)
-    if addonLoaded == addonName then
-        if PlayerGetTimerunningSeasonID() == 1 then
-            if C_AddOns.IsAddOnLoaded("Baganator") then
-                --
-            else
-                if C_CVar.GetCVar("combinedBags") == "1" then
-                    EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
-                        MakeButton("TOPRIGHT", ContainerFrameCombinedBags, "TOPLEFT", -10, -125)
-                    end)
+eventHandler:RegisterEvent("CVAR_UPDATE")
+eventHandler:SetScript("OnEvent", function(self, event, ...)
+    if event == "ADDON_LOADED" then
+        local addonLoaded = ...
+        if addonLoaded == addonName then
+            if PlayerGetTimerunningSeasonID() == 1 then
+                if C_AddOns.IsAddOnLoaded("Baganator") then
+                    --
                 else
-                    EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
-                        MakeButton("BOTTOMLEFT", ContainerFrame1, "BOTTOMRIGHT", 10, 0)
-                    end)
+                    if C_CVar.GetCVar("combinedBags") == "1" then
+                        EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
+                            MakeButton("TOPRIGHT", ContainerFrameCombinedBags, "TOPLEFT", -10, -125)
+                        end)
+                    else
+                        EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
+                            MakeButton("BOTTOMLEFT", ContainerFrame1, "BOTTOMRIGHT", 10, 0)
+                        end)
+                    end
                 end
             end
-        end
 
-        -- Unregister the event for performance.
-        eventHandler:UnregisterEvent("ADDON_LOADED")
+            -- Unregister the event for performance.
+            eventHandler:UnregisterEvent("ADDON_LOADED")
+        end
+    end
+    if event == "CVAR_UPDATE" then
+        local cvar = ...
+        if cvar == "combinedBags" then
+            if usableButton then
+               usableButton = nil
+            end
+        end
     end
 end)
