@@ -177,3 +177,19 @@ function LHMP:GetRandomSpecIDByClassID(classID)
     local specName = select(2, GetSpecializationInfoForClassID(classID, specIndex))
     return specName
 end
+
+-----------
+-- REMIX --
+-----------
+function LHMP:IsRemixItem(itemID)
+    if not LHMP.RemixItems[itemID] then
+        return false
+    end
+    return true
+end
+function LHMP:GetRemixMinItemCount(itemID)
+    if LHMP.RemixItems[itemID] then
+        return LHMP.RemixItems[itemID]
+    end
+    return 0
+end

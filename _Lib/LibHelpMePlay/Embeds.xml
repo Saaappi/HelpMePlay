@@ -8,4 +8,5 @@
     <Script file="Data\WorldEvents.lua"/>
     <Script file="Data\QuestItems.lua"/>
     <Script file="Data\Quests.lua"/>
+    <Script file="Data\Remix.lua"/>
 </Ui>

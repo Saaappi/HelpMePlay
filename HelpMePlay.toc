@@ -102,6 +102,7 @@ Mounts\Mounts.lua
 
 # Remix: Mists of Pandaria
 Remix\ScrappingMachine.lua
+Remix\Usables.lua
 
 # Commands
 _Commands\Commands.lua
