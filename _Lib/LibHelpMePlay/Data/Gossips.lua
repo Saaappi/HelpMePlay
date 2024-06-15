@@ -47,6 +47,8 @@ LHMP.Gossips = {
         {ID = 52643, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59958"}}
     },
     [167598] = {{ID = 54297, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59978"}}},
+    [167663] = {{ID = 52784, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59984"}}},
+    [168431] = {{ID = 51745, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     [62202] = {
         {
             ID = 35586,
