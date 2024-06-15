@@ -5,12 +5,12 @@ local buttonSize = 32
 local usableButton
 local itemQueue = {}
 
-local function MakeButton(parent, anchorX, anchorY)
+local function MakeButton(anchorPoint, parent, relativeAnchorPoint, anchorX, anchorY)
     if not usableButton then
         usableButton = CreateFrame("Button", addonName .. "UsablesSecureButton", parent, "SecureActionButtonTemplate")
         usableButton:ClearAllPoints()
         usableButton:SetSize(buttonSize, buttonSize)
-        usableButton:SetPoint("TOPRIGHT", parent, "TOPLEFT", anchorX, anchorY)
+        usableButton:SetPoint(anchorPoint, parent, relativeAnchorPoint, anchorX, anchorY)
 
         usableButton.texture = usableButton:CreateTexture()
         usableButton.texture:SetTexture(626190)
@@ -84,9 +84,15 @@ eventHandler:SetScript("OnEvent", function(self, event, addonLoaded)
             if C_AddOns.IsAddOnLoaded("Baganator") then
                 --
             else
-                EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
-                    MakeButton(ContainerFrameCombinedBags, -10, -125)
-                end)
+                if C_CVar.GetCVar("combinedBags") == "1" then
+                    EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
+                        MakeButton("TOPRIGHT", ContainerFrameCombinedBags, "TOPLEFT", -10, -125)
+                    end)
+                else
+                    EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
+                        MakeButton("BOTTOMLEFT", ContainerFrame1, "BOTTOMRIGHT", 10, 0)
+                    end)
+                end
             end
         end
 
