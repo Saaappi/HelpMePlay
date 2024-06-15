@@ -5,12 +5,12 @@ local buttonSize = 32
 local usableButton
 local itemQueue = {}
 
-local function MakeButton(parent)
+local function MakeButton(parent, anchorX, anchorY)
     if not usableButton then
         usableButton = CreateFrame("Button", addonName .. "UsablesSecureButton", parent, "SecureActionButtonTemplate")
         usableButton:ClearAllPoints()
         usableButton:SetSize(buttonSize, buttonSize)
-        usableButton:SetPoint("TOPRIGHT", parent, "TOPLEFT", -10, -75)
+        usableButton:SetPoint("TOPRIGHT", parent, "TOPLEFT", anchorX, anchorY)
 
         usableButton.texture = usableButton:CreateTexture()
         usableButton.texture:SetTexture(626190)
@@ -84,7 +84,7 @@ eventHandler:SetScript("OnEvent", function(self, event, addonLoaded)
                 --
             else
                 EventRegistry:RegisterCallback("ContainerFrame.OpenBag", function()
-                    MakeButton(ContainerFrameCombinedBags)
+                    MakeButton(ContainerFrameCombinedBags, -10, -125)
                 end)
             end
         end
