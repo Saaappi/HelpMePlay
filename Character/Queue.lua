@@ -3,7 +3,8 @@ local eventHandler = CreateFrame("Frame")
 local queueButton
 
 local QUEST_TO_DUNGEON = {
-    [55992] = {texture = 236695, lfgDungeonID = 2043, lfgDescription = "Queue for Darkmaul Citadel."}
+    [59984] = {texture = 3567434, lfgDungeonID = 2043, lfgDescription = "Queue for Darkmaul Citadel."},
+    [55992] = {texture = 3567434, lfgDungeonID = 2043, lfgDescription = "Queue for Darkmaul Citadel."}
 }
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")

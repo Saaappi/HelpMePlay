@@ -1,4 +1,5 @@
 - Mounts used in a session are now memorized, and won't be summoned again until all mounts in the same category have been used.
+- Added gossip and quest merchant support for Exile's Reach for both factions and all classes.
 - Players can now reset character configuration by clicking the button in the settings. This will allow you to re-execute New Character configuration for existing characters when you make changes.
 - The heirloom button has been temporarily disabled.
 - Fixed a bug that kept the "Configure New Character" button on screen for more than one use.
