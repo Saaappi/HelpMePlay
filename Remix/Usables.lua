@@ -24,7 +24,6 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
                         if itemID and itemLink then
                             local minCount = LHMP:GetRemixMinItemCount(itemID)
                             if LHMP:IsRemixItem(itemID) and (C_Item.GetItemCount(itemID) >= minCount) and minCount > 0 then
-                                --table.insert(itemQueue, { itemLink = itemLink, ID = itemID })
                                 btn.icon:SetTexture(C_Item.GetItemIconByID(itemLink))
                                 btn:SetAttribute("type1", "item")
                                 btn:SetAttribute("item", itemLink)
