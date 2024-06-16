@@ -7798,6 +7798,7 @@
     ],
     "Lua.diagnostics.disable": [
         "inject-field",
-        "undefined-field"
+        "undefined-field",
+        "undefined-global"
     ]
 }

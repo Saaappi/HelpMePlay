@@ -251,6 +251,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             addon.playerSpecID = PlayerUtil.GetCurrentSpecID()
             addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
             addon.playerGUID = UnitGUID("player")
+            addon.playerFullName = Syndicator.API.GetCurrentCharacter()
 
             -- Get the player's mounts so we can use them.
             addon.RefreshMountsByType("Ground")

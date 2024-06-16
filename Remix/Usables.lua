@@ -1,35 +1,42 @@
+---@diagnostic disable: undefined-global
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local btn
+local btnBaseTexture = 4549269
 local itemQueue = {}
 
 local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
     if not btn then
-        btn = CreateFrame("Button", addonName .. "RemixSecureButton", parent, "SecureActionButtonTemplate, ActionButtonTemplate")
-        btn:ClearAllPoints()
+        btn = CreateFrame("Button", addonName .. "RemixCombineSecureButton", parent, "SecureActionButtonTemplate, ActionButtonTemplate")
         btn:SetPoint(anchor, parent, relativeAnchor, xOff, yOff)
 
-        btn.icon:SetTexture(626190)
+        btn.icon:SetTexture(btnBaseTexture)
 
         btn:RegisterForClicks("AnyUp", "AnyDown")
         btn:SetMouseClickEnabled(true)
 
         btn:SetScript("PreClick", function(self, button, isDown)
             if not isDown and not UnitAffectingCombat("player") then
-                for bagID = 0, 4 do
-                    for slotID = C_Container.GetContainerNumSlots(bagID), 1, -1 do
-                        local itemID = C_Container.GetContainerItemID(bagID, slotID)
-                        local itemLink = C_Container.GetContainerItemLink(bagID, slotID)
-                        if itemID and itemLink then
-                            local minCount = LHMP:GetRemixMinItemCount(itemID)
-                            if LHMP:IsRemixItem(itemID) and (C_Item.GetItemCount(itemID) >= minCount) and minCount > 0 then
-                                btn.icon:SetTexture(C_Item.GetItemIconByID(itemLink))
-                                btn:SetAttribute("type1", "item")
-                                btn:SetAttribute("item", itemLink)
+                local character = Syndicator.API.GetByCharacterFullName(addon.playerFullName)
+                for _, bag in next, character.bags do
+                    for _, item in next, bag do
+                        if item and item.itemLink then
+                            local minCount = LHMP:GetRemixMinItemCount(item.itemID)
+                            if LHMP:IsRemixItem(item.itemID) and (item.itemCount >= minCount) and minCount > 0 then
+                                table.insert(itemQueue, item.itemLink)
                             end
                         end
                     end
+                end
+            end
+        end)
+        btn:SetScript("PostClick", function(self, button, isDown)
+            if not isDown and not UnitAffectingCombat("player") then
+                for index = #itemQueue, 1, -1 do
+                    btn:SetAttribute("type1", "item")
+                    btn:SetAttribute("item", itemQueue[index])
+                    table.remove(itemQueue, index)
                 end
             end
         end)
@@ -45,19 +52,23 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
     end
 end
 
-eventHandler:RegisterEvent("ADDON_LOADED")
+eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
-    if event == "ADDON_LOADED" then
-        local addonLoaded = ...
-        if addonLoaded == addonName then
+    if event == "PLAYER_LOGIN" then
+        C_Timer.After(1, function()
             if PlayerGetTimerunningSeasonID() == 1 then
-                EventRegistry:RegisterCallback("CharacterFrame.Show", function()
-                    MakeButton("TOPLEFT", CharacterFrame, "TOPRIGHT", 10, 0)
-                end)
+                if C_AddOns.IsAddOnLoaded("Baganator") then
+                    if BAGANATOR_CONFIG["view_type"] == "single" then
+                        Baganator_SingleViewBackpackViewFrame:HookScript("OnShow", function() MakeButton("TOPRIGHT", Baganator_SingleViewBackpackViewFrame, "TOPLEFT", -5, 0) end)
+                    else
+                        Baganator_CategoryViewBackpackViewFrame:HookScript("OnShow", function() MakeButton("TOPRIGHT", Baganator_CategoryViewBackpackViewFrame, "TOPLEFT", -5, 0) end)
+                    end
+                end
             end
 
             -- Unregister the event for performance.
-            eventHandler:UnregisterEvent("ADDON_LOADED")
-        end
+            eventHandler:UnregisterEvent("PLAYER_LOGIN")
+        end)
     end
 end)
+
