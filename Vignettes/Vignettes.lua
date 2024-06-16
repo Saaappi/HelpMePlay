@@ -14,7 +14,7 @@ local function GetCreatureDisplayByGUID(GUID)
 
     -- If the DressUpModelFrame doesn't exist, then let's create it.
     if not DressUpModelFrame then
-        DressUpModelFrame = CreateFrame("DressUpModel", nil, UIParent)
+        DressUpModelFrame = CreateFrame("PlayerModel", nil, UIParent, "ModelWithControlsTemplate")
         DressUpModelFrame:SetPoint("TOPRIGHT", 0, 0)
         DressUpModelFrame:SetSize(1, 1)
         DressUpModelFrame:Hide()
@@ -33,6 +33,7 @@ local function GetCreatureDisplayByGUID(GUID)
     end
 
     if creatureID ~= 0 then
+        DressUpModelFrame:SetCreature(creatureID)
         DressUpModelFrame:SetCreature(creatureID)
         local displayID = DressUpModelFrame:GetDisplayInfo()
         if displayID and displayID ~= 0 then
@@ -93,8 +94,8 @@ addon.CreateFauxPopup = function(frame, name, quality, GUID, label)
         btn:SetAlpha(0)
         btn:EnableMouse(true)
         btn:SetMouseClickEnabled(true)
-        btn:SetAttribute("type", "macro")
-        btn:SetAttribute("macrotext1", format("/cleartarget\n/targetexact %s", name))
+        btn:SetAttribute("type1", "macro")
+        btn:SetAttribute("macrotext1", format("/targetexact %s", name))
         btn:RegisterForClicks("AnyUp", "AnyDown")
     end)
 
@@ -137,7 +138,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- Get the unit's classification; if it's rare or rare elite, then
         -- inform the player.
         local unitClassification = UnitClassification(...)
-        if unitClassification == "rare" or unitClassification == "rareelite" then
+        if (unitClassification == "rare" or unitClassification == "rareelite") and not UnitIsFriend(..., "player") then
             local GUID = UnitGUID(...)
             local spawnUID = LHMP:SplitString(GUID, "-", 7)
             if (GUID and spawnUID) and (not processedRares[spawnUID]) and (not processedVignettes[spawnUID]) then
