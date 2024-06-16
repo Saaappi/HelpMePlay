@@ -57,11 +57,19 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_LOGIN" then
         C_Timer.After(1, function()
             if PlayerGetTimerunningSeasonID() == 1 then
+                -- BAGANATOR --
                 if C_AddOns.IsAddOnLoaded("Baganator") then
                     if BAGANATOR_CONFIG["view_type"] == "single" then
                         Baganator_SingleViewBackpackViewFrame:HookScript("OnShow", function() MakeButton("TOPRIGHT", Baganator_SingleViewBackpackViewFrame, "TOPLEFT", -5, 0) end)
                     else
                         Baganator_CategoryViewBackpackViewFrame:HookScript("OnShow", function() MakeButton("TOPRIGHT", Baganator_CategoryViewBackpackViewFrame, "TOPLEFT", -5, 0) end)
+                    end
+                -- BASE UI --
+                else
+                    if C_CVar.GetCVar("combinedBags") == "1" then
+                        EventRegistry:RegisterCallback("ContainerFrame.OpenAllBags", function() MakeButton("TOPRIGHT", ContainerFrameCombinedBags, "TOPLEFT", -10, 0) end)
+                    else
+                        EventRegistry:RegisterCallback("ContainerFrame.OpenAllBags", function() MakeButton("TOPRIGHT", ContainerFrame5, "TOPLEFT", -10, 0) end)
                     end
                 end
             end
