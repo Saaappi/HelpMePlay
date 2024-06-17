@@ -276,6 +276,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
+                -- Player Choice
+                do
+                    local variable = "UsePlayerChoice"
+                    local name = "Player Choice"
+                    local tooltipText = "Toggle to allow the addon to decide quest-related player choices on your behalf."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
                 -- Party Play
                 do
                     local variable = "UsePartyPlay"

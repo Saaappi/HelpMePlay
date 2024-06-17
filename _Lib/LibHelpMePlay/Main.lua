@@ -155,6 +155,16 @@ function LHMP:GetItemsForMerchant(npcID)
     return LHMP.QuestMerchants[npcID]
 end
 
+-------------------
+-- PLAYER CHOICE --
+-------------------
+function LHMP:GetPlayerChoiceByID(playerChoiceID)
+    if not LHMP.PlayerChoices[playerChoiceID] then
+        return nil
+    end
+    return LHMP.PlayerChoices[playerChoiceID]
+end
+
 ----------------------------
 -- NEW CHARACTER (RANDOM) --
 ----------------------------

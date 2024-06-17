@@ -155,6 +155,7 @@ end
 
 eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
 eventHandler:RegisterEvent("BAG_UPDATE")
+eventHandler:RegisterEvent("PLAYER_CHOICE_UPDATE")
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:RegisterEvent("QUEST_ACCEPTED")
 eventHandler:RegisterEvent("QUEST_AUTOCOMPLETE")
@@ -194,6 +195,20 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 if questInfo and questInfo.questID and (not questInfo.isActive) then
                     C_Container.UseContainerItem(bagID, slotID)
                 end
+            end
+        end
+    end
+    if event == "PLAYER_CHOICE_UPDATE" then
+        if HelpMePlayDB["UsePlayerChoice"] == false then
+            return false
+        end
+
+        local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
+        if choiceInfo then
+            local playerChoice = LHMP:GetPlayerChoiceByID(choiceInfo.choiceID)
+            if playerChoice then
+                C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[playerChoice].buttons[playerChoice].id)
+                HideUIPanel(PlayerChoiceFrame)
             end
         end
     end

@@ -1,4 +1,5 @@
 - Mounts used in a session are now memorized, and won't be summoned again until all mounts in the same category have been used.
+- Added automation to handle player choice. Like most features in the addon, you can toggle the functionality in the settings.
 - Added a button that can be used to combine gems and use threads on Remix.
   - Author's Note: _This button currently only supports Baganator and the base UI. If you would like your addon to be supported, please open an issue._
 - Added full support for Exile's Reach for both factions and all classes.

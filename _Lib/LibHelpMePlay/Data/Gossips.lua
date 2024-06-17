@@ -266,7 +266,23 @@ LHMP.Gossips = {
         {ID = 42524, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}
     },
     [71358] = {{ID = 42205, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}},
-    [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}}
+    [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}},
     -- Demon Hunters
+    [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
+    [99915] = {
+        {ID = 45048, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 38765"}},
+        {ID = 45101, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 38765"}}
+    },
+    [93693] = {{ID = 44410, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 38813"}}},
+    [94435] = {{ID = 44865, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 38813"}}},
+    [90247] = {{ID = 42930, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 38813"}}},
+    [96436] = {{ID = 45064, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39262"}}},
+    [96655] = {{ID = 44405, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39516"}}},
+    [93127] = {{ID = 44408, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39516"}}},
+    [99045] = {{ID = 44442, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39516"}}},
+    [96420] = {{ID = 44440, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39516"}}},
+    [96652] = {{ID = 44661, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39516"}}},
+    [96653] = {{ID = 44646, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39663"}}},
+    [97644] = {{ID = 44913, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40373"}}},
     -- Evokers
 }

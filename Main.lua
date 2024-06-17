@@ -52,6 +52,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["UsePartyPlay"] == nil then
                 HelpMePlayDB["UsePartyPlay"] = false
             end
+            if HelpMePlayDB["UsePlayerChoice"] == nil then
+                HelpMePlayDB["UsePlayerChoice"] = false
+            end
             if HelpMePlayDB["AcceptReadyChecks"] == nil then
                 HelpMePlayDB["AcceptReadyChecks"] = false
             end
