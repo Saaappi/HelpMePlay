@@ -28,8 +28,10 @@ function LHMP:ColorText(color, text)
     else
         -- A class color was given instead.
         local className = color
-        local classColor = C_ClassColor.GetClassColor(className):GenerateHexColor()
-        return format("|c%s%s|r", classColor, text)
+        if C_ClassColor.GetClassColor(className) then
+            local classColor = C_ClassColor.GetClassColor(className):GenerateHexColor()
+            return format("|c%s%s|r", classColor, text)
+        end
     end
     return ""
 end
