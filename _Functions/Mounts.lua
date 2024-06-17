@@ -1,4 +1,5 @@
 local addonName, addon = ...
+local LHMP = LibStub("LibHelpMePlay")
 local mounts = {}
 
 addon.RefreshMountsByType = function(type)
@@ -159,7 +160,7 @@ addon.Mount = function()
         numFreeSlots = numFreeSlots + C_Container.GetContainerNumFreeSlots(bagID)
     end
 
-    if addon.playerLevel < 10 and IsOutdoors() then
+    if addon.playerLevel < 10 and IsOutdoors() and (not LHMP:IsPlayerHeroClass(addon.playerClassID)) then
         -- If the player is outdoors and is less than level 10, then
         -- use the chauffered chopper mount based on their faction.
         if UnitFactionGroup("player") == "Alliance" then

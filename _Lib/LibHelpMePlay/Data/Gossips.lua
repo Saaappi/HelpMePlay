@@ -15,9 +15,11 @@ LHMP.GossipTextLookupByNPC = {
 }
 
 LHMP.Gossips = {
+    -- Non-NPC Gossips
     [0] = {
         {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}}
     },
+    -- Exile's Reach
     [153211] = {{ID = 49526, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55763"}}},
     [162998] = {
         {ID = 51269, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58923"}},
@@ -66,6 +68,10 @@ LHMP.Gossips = {
     },
     [167537] = {{ID = 52640, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59956"}}},
     [167478] = {{ID = 52639, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59970"}}},
+    -- Death Knights
+    [28406] = {{ID = 37188, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12733"}}},
+    [29173] = {{ID = 36227, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12801"}}},
+    -- Pandaria
     [62202] = {
         {
             ID = 35586,
@@ -261,4 +267,6 @@ LHMP.Gossips = {
     },
     [71358] = {{ID = 42205, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}},
     [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}}
+    -- Demon Hunters
+    -- Evokers
 }

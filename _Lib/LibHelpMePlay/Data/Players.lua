@@ -58,3 +58,5 @@ LHMP.RaceClassCombinations = {
     [52] = {13},
     [70] = {13}
 }
+
+LHMP.HeroClasses = {6,12,13}

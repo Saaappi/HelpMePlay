@@ -1,10 +1,12 @@
 - Mounts used in a session are now memorized, and won't be summoned again until all mounts in the same category have been used.
 - Added a button that can be used to combine gems and use threads on Remix.
   - Author's Note: _This button currently only supports Baganator and the base UI. If you would like your addon to be supported, please open an issue._
-- Added gossip and quest merchant support for Exile's Reach for both factions and all classes.
+- Added full support for Exile's Reach for both factions and all classes.
+- Added full support for all Hero Class introduction experiences.
 - Players can now reset character configuration by clicking the button in the settings. This will allow you to re-execute New Character configuration for existing characters when you make changes.
 - The heirloom button has been temporarily disabled.
 - Fixed a bug that kept the "Configure New Character" button on screen for more than one use.
 - Fixed a bug that prevented the "Configure New Character" button from showing if the player re-used the name of a previous character that used the button.
 - Fixed a bug that caused the "Configure New Character" button from not appearing on alternate accounts that didn't have it enabled. (The button is now shown conditionally based on whether or not you have any of the NCC options enabled.)
 - Fixed a bug where the wrong display would be used for rare popups.
+- Fixed a bug that caused Death Knights and Demon Hunters to use the Chauffer mount prior to level 10.

@@ -17,6 +17,14 @@ end
 function LHMP:GetUnlocalizedUnitFaction(unit)
     return UnitFactionGroup(unit)
 end
+function LHMP:IsPlayerHeroClass(classID)
+    for _, heroClassID in next, LHMP.HeroClasses do
+        if heroClassID == classID then
+            return true
+        end
+    end
+    return false
+end
 
 -------------
 -- STRINGS --
