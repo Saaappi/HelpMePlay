@@ -9,5 +9,6 @@
 - Fixed a bug that kept the "Configure New Character" button on screen for more than one use.
 - Fixed a bug that prevented the "Configure New Character" button from showing if the player re-used the name of a previous character that used the button.
 - Fixed a bug that caused the "Configure New Character" button from not appearing on alternate accounts that didn't have it enabled. (The button is now shown conditionally based on whether or not you have any of the NCC options enabled.)
+- Fixed a bug that prevented the New Character button from appearing for Evokers.
 - Fixed a bug where the wrong display would be used for rare popups.
 - Fixed a bug that caused Death Knights and Demon Hunters to use the Chauffer mount prior to level 10.

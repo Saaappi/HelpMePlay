@@ -706,7 +706,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 break
                             end
                         end
-                        addon.NewCharacter(true)
+                        addon.NewCharacter()
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)

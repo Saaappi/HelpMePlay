@@ -4,7 +4,7 @@ local LHMP = LibStub("LibHelpMePlay")
 local newCharacterButton
 
 local function IsNewCharacter()
-    if addon.playerLevel <= 10 then
+    if addon.playerLevel <= 10 or (addon.playerClassID == 13 and addon.playerLevel == 58) then
         for _, GUID in next, HelpMePlayDB["Characters"] do
             if GUID == addon.playerGUID then
                 return false
@@ -42,8 +42,8 @@ local function IsNCCEnabled()
     return false
 end
 
-addon.NewCharacter = function(skipLevelCheck)
-    if (UnitLevel("player") <= 10 and IsNCCEnabled()) or (skipLevelCheck and IsNCCEnabled()) then
+addon.NewCharacter = function()
+    if IsNCCEnabled() then
         newCharacterButton = {
             name = addonName .. "NewCharacterButton",
             parent = UIParent,
@@ -157,7 +157,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 	        eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
             if IsNewCharacter() then
-                addon.NewCharacter(false)
+                addon.NewCharacter()
             end
 
             -- If the player is on Exile's Reach, then we need to use
