@@ -85,6 +85,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["UseWarMode"] == nil then
                 HelpMePlayDB["UseWarMode"] = false
             end
+            if HelpMePlayDB["UseHeirloomAutomation"] == nil then
+                HelpMePlayDB["UseHeirloomAutomation"] = false
+            end
             if HelpMePlayDB["RareScan"] == nil then
                 HelpMePlayDB["RareScan"] = false
             end

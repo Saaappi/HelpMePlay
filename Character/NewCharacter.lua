@@ -3,17 +3,6 @@ local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local newCharacterButton
 
-local function IsNewCharacter()
-    if addon.playerLevel <= 10 or (addon.playerClassID == 13 and addon.playerLevel == 58) then
-        for _, GUID in next, HelpMePlayDB["Characters"] do
-            if GUID == addon.playerGUID then
-                return false
-            end
-        end
-        return true
-    end
-end
-
 local function IsNCCEnabled()
     local variables = {
         "NCC_ActionBar2",
@@ -156,9 +145,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             -- Unregister the event for performance.
 	        eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
-            if IsNewCharacter() then
-                addon.NewCharacter()
-            end
+            C_Timer.After(1, function()
+                if LHMP:IsNewCharacter(addon.playerLevel, addon.playerClassID, addon.playerGUID, HelpMePlayDB["Characters"]) then
+                    addon.NewCharacter()
+                end
+            end)
 
             -- If the player is on Exile's Reach, then we need to use
             -- a workaround to keep the tutorials and auto push spells

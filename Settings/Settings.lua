@@ -138,6 +138,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
+                -- Heirlooms
+                do
+                    local variable = "UseHeirloomAutomation"
+                    local name = "Heirlooms"
+                    local tooltipText = "Toggle to allow the addon to show the heirloom button on new characters."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
                 -- Mute Talking Head
                 do
                     local variable = "MuteTalkingHead"
@@ -707,6 +717,21 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             end
                         end
                         addon.NewCharacter()
+                    end
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+                    addon.layout:AddInitializer(initializer)
+                end
+
+                -- Reset Heirlooms Button
+                do
+                    local name = ""
+                    local buttonText = "Reset Heirlooms"
+                    local tooltipText = "Click to wipe heirlooms for the current class and specialization.\n\n" ..
+                    LHMP:ColorText("RED", "This will force a UI reload.")
+                    local clickHandler = function()
+                        HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID] = nil
+                        C_UI.Reload()
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)

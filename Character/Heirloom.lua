@@ -3,16 +3,35 @@ local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local heirloomButton
 local index = 1
+local numMaxHeirlooms = 12
 
-local function CreateHeirloom(itemID)
-    -- Set the flag that the heirloom button was used for the current character.
-    --[[if HelpMePlayDB_Character["UsedHeirloomButton"] == nil or HelpMePlayDB_Character["UsedHeirloomButton"] == false then
-        HelpMePlayDB_Character["UsedHeirloomButton"] = true
-    end]]
+local slotCounts = {
+    [1] = 1,
+    [2] = 1,
+    [3] = 1,
+    [5] = 1,
+    [7] = 1,
+    [11] = 2,
+    [12] = 2,
+    [13] = 2,
+    [14] = 1,
+    [16] = 1,
+    [17] = 2,
+}
+
+local function GetTypeCount(typeID)
+    local count = 0
+    for _, heirloom in next, HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID] do
+        local inventoryTypeID = C_Item.GetItemInventoryTypeByID(heirloom.itemID)
+        if inventoryTypeID == typeID then
+            count = count + 1
+        end
+    end
+    return count
 end
 
 addon.CreateHeirloomButton = function()
-    if addon.playerLevel <= 10 and (not HelpMePlayDB_Character["UsedHeirloomButton"]) and (PlayerGetTimerunningSeasonID() ~= 1) then
+    if PlayerGetTimerunningSeasonID() ~= 1 then
         if not heirloomButton and (LHMP:GetTableSize(HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID]) > 0) then
             -- Create the secure button...obviously.
             heirloomButton = addon.CreateSecureButton({
@@ -33,7 +52,7 @@ addon.CreateHeirloomButton = function()
                 -- This code is fired after Blizzard executes their secure button
                 -- code.
                 if not isDown then
-                    if index <= LHMP:GetTableSize(HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID]) then
+                    if index <= numMaxHeirlooms then
                         -- Create the heirloom.
                         C_Heirloom.CreateHeirloom(HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID][index].itemID)
 
@@ -41,6 +60,10 @@ addon.CreateHeirloomButton = function()
                         index = index + 1
 
                         if HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID][index] then
+                            if HelpMePlayDB_Character["UsedHeirloomButton"] == nil or HelpMePlayDB_Character["UsedHeirloomButton"] == false then
+                                HelpMePlayDB_Character["UsedHeirloomButton"] = true
+                            end
+
                             -- Set the attributes of the secure button.
                             heirloomButton:SetAttribute("type", "item")
                             heirloomButton:SetAttribute("item", HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID][index].itemLink)
@@ -50,6 +73,10 @@ addon.CreateHeirloomButton = function()
 
                             -- Set the button's item link.
                             GameTooltip:SetHyperlink(HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID][index].itemLink)
+
+                            if index == (numMaxHeirlooms + 1) then
+                                heirloomButton:Hide()
+                            end
                         else
                             heirloomButton:Hide()
                         end
@@ -76,17 +103,19 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
-        C_Timer.After(1, function() addon.CreateHeirloomButton() end)
+        C_Timer.After(1, function()
+            if LHMP:IsNewCharacter(addon.playerLevel, addon.playerClassID, addon.playerGUID, HelpMePlayDB["Characters"]) and HelpMePlayDB["UseHeirloomAutomation"] then
+                C_Timer.After(1, function() addon.CreateHeirloomButton() end)
+            end
+        end)
     end
     if event == "TRADE_SKILL_ITEM_CRAFTED_RESULT" then
         local data = ...
         if data then
             if C_Heirloom.IsItemHeirloom(data.itemID) then
-                local numHeirlooms = LHMP:GetTableSize(HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID])
-                if numHeirlooms and numHeirlooms <= 12 then
-                    print("A")
-                    -- If the player hasn't filled up their heirloom table for a given specialization, then
-                    -- allow the item to be added to the end of the table.
+                local inventoryTypeID = C_Item.GetItemInventoryTypeByID(data.itemID)
+                local numType = GetTypeCount(inventoryTypeID)
+                if numType < slotCounts[inventoryTypeID] then
                     table.insert(HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID], {itemLink = data.hyperlink, itemID = data.itemID})
                 end
             end

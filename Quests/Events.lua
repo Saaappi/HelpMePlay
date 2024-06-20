@@ -248,13 +248,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         local questID = ...
-        local mapID = C_Map.GetBestMapForUnit("player")
-        if questID and mapID then
-            if HelpMePlayDB["AcceptAndCompleteQuests"] and HelpMePlayDB["GuideQuests"][mapID] then
-                if HelpMePlayDB["GuideQuests"][mapID][questID] then
-                    ShowQuestComplete(questID)
-                end
-            elseif HelpMePlayDB["AcceptAndCompleteAllQuests"] then
+        if questID then
+            if HelpMePlayDB["AcceptAndCompleteQuests"] then
                 ShowQuestComplete(questID)
             end
         end

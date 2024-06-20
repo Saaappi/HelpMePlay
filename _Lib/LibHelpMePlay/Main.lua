@@ -25,6 +25,16 @@ function LHMP:IsPlayerHeroClass(classID)
     end
     return false
 end
+function LHMP:IsNewCharacter(playerLevel, playerClassID, playerGUID, characters)
+    if playerLevel <= 10 or (playerClassID == 13 and playerLevel == 58) then
+        for _, GUID in next, characters do
+            if GUID == playerGUID then
+                return false
+            end
+        end
+        return true
+    end
+end
 
 -------------
 -- STRINGS --
