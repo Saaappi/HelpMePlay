@@ -23,7 +23,6 @@ _Data\Mounts.lua
 
 # Settings
 Settings\TalentImporter.lua
-Settings\Heirloom.lua
 Settings\Settings.lua
 
 # Classes
