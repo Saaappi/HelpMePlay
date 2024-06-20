@@ -64,6 +64,17 @@ function LHMP:Truncate(str)
     return str:sub(1, 15) .. "..."
 end
 
+------------
+-- TABLES --
+------------
+function LHMP:GetTableSize(tbl)
+    local count = 0
+    for i in next, tbl do
+        count = count + 1
+    end
+    return count or 0
+end
+
 -------------
 -- GOSSIPS --
 -------------

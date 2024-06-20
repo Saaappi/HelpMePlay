@@ -184,22 +184,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 HelpMePlayDB["ClassTalents"][13] = {}
             end
 
-            -- If the Heirloom class tables are nil, then initialize them.
+            -- If the Heirloom table is nil, then initialize it.
             if HelpMePlayDB["Heirlooms"] == nil then
                 HelpMePlayDB["Heirlooms"] = {}
-                HelpMePlayDB["Heirlooms"][1] = {}
-                HelpMePlayDB["Heirlooms"][2] = {}
-                HelpMePlayDB["Heirlooms"][3] = {}
-                HelpMePlayDB["Heirlooms"][4] = {}
-                HelpMePlayDB["Heirlooms"][5] = {}
-                HelpMePlayDB["Heirlooms"][6] = {}
-                HelpMePlayDB["Heirlooms"][7] = {}
-                HelpMePlayDB["Heirlooms"][8] = {}
-                HelpMePlayDB["Heirlooms"][9] = {}
-                HelpMePlayDB["Heirlooms"][10] = {}
-                HelpMePlayDB["Heirlooms"][11] = {}
-                HelpMePlayDB["Heirlooms"][12] = {}
-                HelpMePlayDB["Heirlooms"][13] = {}
             end
 
             -- If the Mounts table is nil, then initialize it.
@@ -264,6 +251,18 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             addon.RefreshMountsByType("AQ")
             addon.RefreshMountsByType("Vashjir")
             addon.RefreshMountsByType("Unused")
+
+            -- If the class an for the current character
+            -- doesn't have an heirloom table, then create one.
+            if HelpMePlayDB["Heirlooms"][addon.playerClassID] == nil then
+                HelpMePlayDB["Heirlooms"][addon.playerClassID] = {}
+            end
+
+            -- If the spec for the class of the current character
+            -- doesn't have an heirloom table, then create one.
+            if HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID] == nil then
+                HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID] = {}
+            end
 
             -- Unload the event for performance.
             eventHandler:UnregisterEvent("PLAYER_LOGIN")

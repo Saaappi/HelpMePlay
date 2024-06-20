@@ -1,6 +1,27 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+addon.CreateSecureButton = function(btn)
+    -- Create the button using a couple templates.
+    local secureButton = CreateFrame("Button", btn.name, btn.parent, "SecureActionButtonTemplate, ActionButtonTemplate")
+
+    -- Set the button's point.
+    secureButton:SetPoint(btn.anchor, btn.parent, btn.relativeAnchor, btn.xOff, btn.yOff)
+
+    -- Set the button's icon.
+    if type(btn.icon) == "string" then
+        secureButton.icon:SetAtlas(btn.icon)
+    else
+        secureButton.icon:SetTexture(btn.icon)
+    end
+
+    -- Register the button for clicks.
+    secureButton:RegisterForClicks("AnyUp", "AnyDown")
+    secureButton:SetMouseClickEnabled(true)
+
+    return secureButton
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
