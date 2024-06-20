@@ -287,4 +287,8 @@ LHMP.Gossips = {
     [100429] = {{ID = 45043, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 44463"}}},
     -- Evokers
     [182317] = {{ID = 54978, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65060"}}},
+    [184165] = {{ID = 51921, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65071"}}},
+    [182258] = {{ID = 55597, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65701"}}},
+    [182610] = {{ID = 51849, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65100"}}},
+    [182611] = {{ID = 51850, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65100"}}},
 }

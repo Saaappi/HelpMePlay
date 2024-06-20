@@ -61,4 +61,4 @@ LHMP.RaceClassCombinations = {
 
 LHMP.HeroClasses = {6,12,13}
 
-LHMP.PlayerChoices = {[234] = 1}
+LHMP.PlayerChoices = {[234]=1,[688]=1}
