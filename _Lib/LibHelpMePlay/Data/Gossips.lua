@@ -71,6 +71,10 @@ LHMP.Gossips = {
     -- Death Knights
     [28406] = {{ID = 37188, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12733"}}},
     [29173] = {{ID = 36227, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12801"}}},
+    -- Pandaria: Alliance Intro
+    -- Pandaria: Horde Intro
+    [3310] = {{ID = 30402, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31853", "QUEST_OBJECTIVE_INCOMPLETE = 31853,1", "LEVEL_LOWER = 30"}}},
+    [55054] = {{ID = 41023, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29690"}}},
     -- Pandaria
     [62202] = {
         {
@@ -267,6 +271,7 @@ LHMP.Gossips = {
     },
     [71358] = {{ID = 42205, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}},
     [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}},
+    [55141] = {{ID = 39490, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29694"}}},
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {
