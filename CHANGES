@@ -1,3 +1,5 @@
-- Heirloom automation has been reinstated in a new way.
-  - Author's Note: _You must enable Heirlooms under the **General** section of the settings. You must teach the addon which heirlooms it should use for new characters. The way to teach the addon is by creating heirlooms. The addon will remember your choices for each class and specialization._ 
+- Heirloom automation has been reimplemented.
+  - Author's Note: _You must enable Heirlooms under the **General** section of the settings. You must teach the addon which heirlooms it should use for new characters. The way to teach the addon is by creating heirlooms. The addon will remember your choices for each class and specialization._
+- Midsummer received a new icon for the Event Queue button.
+- Fixed a bug that allowed the Event Queue button to remain on screen when completing the daily attempt against Frost Lord Ahune.
 - Fixed a bug that caused a nil error to be thrown.

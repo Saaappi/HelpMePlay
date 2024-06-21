@@ -145,6 +145,7 @@ addon.CreateEventQueueButton = function()
     end
 end
 
+eventHandler:RegisterEvent("LFG_COMPLETION_REWARD")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("QUEST_TURNED_IN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)

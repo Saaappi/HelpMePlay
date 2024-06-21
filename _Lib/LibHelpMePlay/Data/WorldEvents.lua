@@ -68,10 +68,10 @@ LHMP.WorldEvents = {
     [341] = {
         ["name"] = "",
         ["dungeonQueueID"] = 286,
-        ["texture"] = 135269,
+        ["texture"] = 368565,
         ["conditions"] = {
-            ["Alliance"] = "QUEST_ACTIVE = 11976",
-            ["Horde"] = "QUEST_ACTIVE = 11976"
+            ["Alliance"] = "QUEST_ACTIVE = 83134",
+            ["Horde"] = "QUEST_ACTIVE = 83134"
         }
     },
     [372] = {
