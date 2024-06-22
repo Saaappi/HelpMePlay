@@ -18,24 +18,6 @@ local function UseRemixItemByItemLocation(itemLocation)
     return false
 end
 
---[[local function GetRemixItemCount(itemLocation)
-    if itemLocation then
-        local containerItemInfo = C_Container_GetContainerItemInfo(itemLocation.bagID, itemLocation.slotIndex)
-        if containerItemInfo then
-            return C_Item_GetItemCount(containerItemInfo.itemID)
-        end
-    end
-    return 0
-end]]
-
---[[local function PlayerHasItemCount(itemID, currentAmount)
-    local minAmount = LHMP:GetRemixItemMinCount(itemID)
-    if currentAmount >= minAmount then
-        return true
-    end
-    return false
-end]]
-
 local function GetNextRemixItemIDByItemLocation(itemLocation)
     if itemLocation then
         local containerItemInfo = C_Container_GetContainerItemInfo(itemLocation.bagID, itemLocation.slotIndex)
@@ -82,17 +64,7 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
                 if (not isDown) and (not UnitAffectingCombat("player")) then
                     local itemLocation = GetNextRemixItemLocation()
                     if itemLocation ~= 0 then
-                        --local itemCount = GetRemixItemCount(itemLocation)
-                        --if itemCount > 0 then
-                            --local itemID = GetNextRemixItemIDByItemLocation(itemLocation)
-                            --if itemID ~= 0 then
-                                --if PlayerHasItemCount(itemID, itemCount) then
-                                --print(itemLocation.bagID .. itemLocation.slotIndex)
-                                --print(itemCount)
                         UseRemixItemByItemLocation(itemLocation)
-                                --end
-                            --end
-                        --end
                     end
                 end
             end
