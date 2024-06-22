@@ -71,6 +71,9 @@ LHMP.Gossips = {
     -- Death Knights
     [28406] = {{ID = 37188, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12733"}}},
     [29173] = {{ID = 36227, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12801"}}},
+    -- Pandaria: Remix
+    [216591] = {{ID = 120607, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79432"}}},
+    [217538] = {{ID = 120604, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79440"}}},
     -- Pandaria: Alliance Intro
     -- Pandaria: Horde Intro
     [3310] = {{ID = 30402, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31853", "QUEST_OBJECTIVE_INCOMPLETE = 31853,1", "LEVEL_LOWER = 30"}}},

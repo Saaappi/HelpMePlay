@@ -1,18 +1,16 @@
-## Author: LightskyGG
-## Interface: 100207
+## Interface: 100207, 110000
 ## Title: HelpMePlay
 ## Version: 3.0.0B8.2
-## IconTexture: 236681
+## Author: LightskyGG
+## OptionalDeps: Syndicator
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
+## IconTexture: 236681
 
-# Main
 Main.lua
 
-# Libraries
 _Lib\Embeds.xml
 
-# Data
 _Data\Constants.lua
 _Data\Map_Data.lua
 _Data\Quests.lua
@@ -21,18 +19,15 @@ _Data\TalentImporter.lua
 _Data\Heirloom.lua
 _Data\Mounts.lua
 
-# Settings
 Settings\TalentImporter.lua
 Settings\Settings.lua
 
-# Classes
 _Classes\Tooltip.lua
 _Classes\Button.lua
 _Classes\Frame.lua
 _Classes\DropDown.lua
 _Classes\Slider.lua
 
-# Functions
 _Functions\EvalConditions.lua
 _Functions\Print.lua
 _Functions\Tables.lua
@@ -41,67 +36,48 @@ _Functions\Quests.lua
 _Functions\Trainers.lua
 _Functions\Mounts.lua
 
-# Keybinds
 _Keybinds\Keybinds.lua
 
-# Cutscenes
 Cutscenes\Cutscenes.lua
 
-# Quests
 Quests\Events.lua
 Quests\QuestMobs.lua
 Quests\WarMode.lua
 
-# Gossip
 Gossip\Gossip.lua
 
-# Party Play
 PartyPlay\PartyPlay.lua
 
-# Ready Checks
 ReadyChecks\ReadyChecks.lua
 
-# Role Checks
 RoleChecks\RoleChecks.lua
 
-# Merchants & Trainers
 Merchants\Repair.lua
 Merchants\Trainers.lua
 Merchants\QuestItems.lua
 
-# Talents
 Talents\DynamicFlight.lua
 Talents\PlayerTalents.lua
 
-# Inventory
 Inventory\OpenContainers.lua
 
-# World Events
 WorldEvents\WorldEventsQueue.lua
 
-# Guild Bank
 GuildBank\GuildBank.lua
 
-# Character
 Character\Queue.lua
 Character\NewCharacter.lua
 Character\Heirloom.lua
 
-# Vignettes
 Vignettes\Vignettes.lua
 
-# Wardrobe
 Wardrobe\Wardrobe.lua
 
-# Chat Icons
 ChatIcons\ChatIcons.lua
 
-# Mounts
 Mounts\Mounts.lua
 
-# Remix: Mists of Pandaria
 Remix\ScrappingMachine.lua
 Remix\Usables.lua
 
-# Commands
 _Commands\Commands.lua
