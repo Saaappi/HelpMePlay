@@ -228,7 +228,7 @@ function LHMP:IsRemixItem(itemID)
     end
     return true
 end
-function LHMP:GetRemixMinItemCount(itemID)
+function LHMP:GetRemixItemMinCount(itemID)
     if LHMP.RemixItems[itemID] then
         return LHMP.RemixItems[itemID]
     end
