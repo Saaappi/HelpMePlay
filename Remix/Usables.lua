@@ -1,5 +1,5 @@
 -- local variables for API functions. any changes to the line below will be lost on re-generation
-local C_AddOns_IsAddOnLoaded, C_CVar_GetCVar, C_Timer_After, CreateFrame, HelpMePlay_Print, LibStub, format, UnitAffectingCombat, PlayerGetTimerunningSeasonID = C.AddOns_IsAddOnLoaded, C.CVar_GetCVar, C.Timer_After, CreateFrame, HelpMePlay.Print, LibStub, format, UnitAffectingCombat, PlayerGetTimerunningSeasonID
+local C_AddOns_IsAddOnLoaded, C_Container_GetContainerItemInfo, C_Container_GetContainerNumSlots, C_CVar_GetCVar, C_Timer_After, CreateFrame, LibStub, format, UnitAffectingCombat, GetItemCount, PlayerGetTimerunningSeasonID = C_AddOns.IsAddOnLoaded, C_Container.GetContainerItemInfo, C_Container.GetContainerNumSlots, C_CVar.GetCVar, C_Timer.After, CreateFrame, LibStub, format, UnitAffectingCombat, GetItemCount, PlayerGetTimerunningSeasonID
 
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
@@ -15,32 +15,28 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 			relativeAnchor = relativeAnchor,
 			xOff = xOff,
 			yOff = yOff,
-			icon = 4549269
+			icon = 626190
 		})
 
-		btn:SetScript("PreClick", function(self, button, isDown)
-		if not isDown and not UnitAffectingCombat("player") then
-			if C_AddOns_IsAddOnLoaded("Syndicator") then
-				local character = Syndicator.API.GetByCharacterFullName(addon.playerFullName)
-				for _, bag in next, character.bags do
-					for _, item in next, bag do
-						if item and item.itemLink then
-							if LHMP:IsRemixItem(item.itemID) then
-								btn:SetAttribute("type1", "item")
-								btn:SetAttribute("item", item.itemLink)
-							end
-						end
+		btn:SetScript("PostClick", function(self, button, isDown)
+		if (not isDown) and (not UnitAffectingCombat("player")) then
+			for bag = 0, 4 do
+				for slot = C_Container_GetContainerNumSlots(bag), 1, -1 do
+					local item = C_Container_GetContainerItemInfo(bag, slot)
+					if item then
+                        if LHMP:IsRemixItem(item.itemID) then
+                            btn:SetAttribute("type1", "item")
+                            btn:SetAttribute("item", item.hyperlink)
+                        end
 					end
 				end
-			else
-				HelpMePlay_Print("Syndicator is not installed or loaded.")
 			end
 		end
 		end)
 		btn:SetScript("OnEnter", function(self)
 		GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
 		GameTooltip:SetText("Remix: Mists of Pandaria")
-		GameTooltip:AddLine("Click to combine gems and add threads to your Cloak of Infinite Potential.", 1, 1, 1, true)
+		GameTooltip:AddLine("\nClick to combine gems and add threads to your Cloak of Infinite Potential.", nil, nil, nil, true)
 		GameTooltip:Show()
 		end)
 		btn:SetScript("OnLeave", function()

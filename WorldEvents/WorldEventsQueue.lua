@@ -152,14 +152,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
-        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
+        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return false end
+        if PlayerGetTimerunningSeasonID() == 1 then return false end
 
         -- If there are events, then create the button.
         addon.CreateEventQueueButton()
     end
 
     if event == "QUEST_TURNED_IN" then
-        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return end
+        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return false end
 
         local questID = ...
         if questID then

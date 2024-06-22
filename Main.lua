@@ -5,7 +5,6 @@ eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:RegisterEvent("PLAYER_LEVEL_CHANGED")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
-eventHandler:RegisterEvent("QUEST_TURNED_IN")
 eventHandler:SetScript(
     "OnEvent",
     function(self, event, ...)
@@ -282,12 +281,6 @@ eventHandler:SetScript(
         if event == "PLAYER_SPECIALIZATION_CHANGED" then
             addon.playerSpecID = PlayerUtil.GetCurrentSpecID()
             addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
-        end
-        if event == "QUEST_TURNED_IN" then
-            local questID = ...
-            if questID then
-                HelpMePlay.Print(format("Quest Completed: %d", questID))
-            end
         end
     end
 )

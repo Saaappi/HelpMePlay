@@ -13,6 +13,7 @@
 ### Deprecated
 - N/A
 ### Removed
-- N/A
+- Removed the Syndicator addon dependency.
 ### Fixed
 - Squashed a bug that was throwing a Lua error.
+- Squashed a bug that allowed the Event Queue button to show for Timerunners.
