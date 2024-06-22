@@ -5,7 +5,6 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local btn
-local lastBagUsed, lastSlotUsed
 
 local function UseRemixItemByItemLocation(itemLocation)
     if itemLocation then
@@ -16,16 +15,6 @@ local function UseRemixItemByItemLocation(itemLocation)
         end
     end
     return false
-end
-
-local function GetNextRemixItemIDByItemLocation(itemLocation)
-    if itemLocation then
-        local containerItemInfo = C_Container_GetContainerItemInfo(itemLocation.bagID, itemLocation.slotIndex)
-        if containerItemInfo then
-            return containerItemInfo.itemID
-        end
-    end
-    return 0
 end
 
 local function GetNextRemixItemLocation()
