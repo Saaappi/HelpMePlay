@@ -17,3 +17,4 @@
 ### Fixed
 - Squashed a bug that was throwing a Lua error.
 - Squashed a bug that allowed the Event Queue button to show for Timerunners.
+- Squashed a bug that caused the Remix button to get stuck on a gem after combining the available amount for that gem.

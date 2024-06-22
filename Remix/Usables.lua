@@ -1,17 +1,25 @@
 -- local variables for API functions. any changes to the line below will be lost on re-generation
-local C_AddOns_IsAddOnLoaded, C_Item_GetItemInfoInstant, C_Item_GetItemID, C_Item_GetItemLink, C_Container_GetContainerItemInfo, C_Container_GetContainerNumSlots, C_CVar_GetCVar, C_Timer_After, CreateFrame, LibStub, format, UnitAffectingCombat, C_Item_GetItemCount, PlayerGetTimerunningSeasonID = C_AddOns.IsAddOnLoaded, C_Item.GetItemInfoInstant, C_Item.GetItemID, C_Item.GetItemLink, C_Container.GetContainerItemInfo, C_Container.GetContainerNumSlots, C_CVar.GetCVar, C_Timer.After, CreateFrame, LibStub, format, UnitAffectingCombat, C_Item.GetItemCount, PlayerGetTimerunningSeasonID
+local C_AddOns_IsAddOnLoaded, C_Item_DoesItemExist, C_Container_GetContainerNumSlots, C_CVar_GetCVar, C_Timer_After, CreateFrame, LibStub, format, UnitAffectingCombat, C_Item_GetItemCount, PlayerGetTimerunningSeasonID = C_AddOns.IsAddOnLoaded, C_Item.DoesItemExist, C_Container.GetContainerNumSlots, C_CVar.GetCVar, C_Timer.After, CreateFrame, LibStub, format, UnitAffectingCombat, C_Item.GetItemCount, PlayerGetTimerunningSeasonID
 
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local btn
 
+local function ClearAttributes()
+	btn:SetAttribute("type", nil)
+	btn:SetAttribute("item", nil)
+	return true
+end
+
 local function UseRemixItemByItemLocation(itemLocation)
+	ClearAttributes()
     if itemLocation then
         local bagItem = Item:CreateFromBagAndSlot(itemLocation.bagID, itemLocation.slotIndex)
         if bagItem then
-            btn:SetAttribute("type", "item")
-            btn:SetAttribute("item", bagItem:GetItemLink())
+			btn:SetAttribute("type", "item")
+			btn:SetAttribute("item", bagItem:GetItemLink())
+			return true
         end
     end
     return false
@@ -23,7 +31,7 @@ local function GetNextRemixItemLocation()
             local bagItem = Item:CreateFromBagAndSlot(bag, slot)
             if not bagItem:IsItemEmpty() then
                 local itemID = bagItem:GetItemID()
-                if LHMP:IsRemixItem(itemID) then
+                if LHMP:IsRemixItem(itemID) --[[and C_Item_DoesItemExist(bagItem:GetItemLocation())]] then
                     local minAmount = LHMP:GetRemixItemMinCount(itemID)
                     if C_Item_GetItemCount(itemID) >= minAmount then
                         return bagItem:GetItemLocation()
@@ -50,12 +58,14 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 		btn:SetScript(
             "PostClick",
             function(_, _, isDown)
-                if (not isDown) and (not UnitAffectingCombat("player")) then
-                    local itemLocation = GetNextRemixItemLocation()
-                    if itemLocation ~= 0 then
-                        UseRemixItemByItemLocation(itemLocation)
-                    end
-                end
+				--C_Timer_After(1, function()
+					if (not isDown) and (not UnitAffectingCombat("player")) then
+						local itemLocation = GetNextRemixItemLocation()
+						if itemLocation ~= 0 then
+							UseRemixItemByItemLocation(itemLocation)
+						end
+					end
+				--end)
             end
         )
 		btn:SetScript("OnEnter", function(self)
