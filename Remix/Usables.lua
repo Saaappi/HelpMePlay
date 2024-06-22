@@ -9,7 +9,7 @@ local btn
 local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 	if not btn then
 		btn = addon.CreateSecureButton({
-			name = format("%s%s", addonName, "RemixCombineSecureButton"),
+			name = format("%s%s", addonName, "RemixUseItemButton"),
 			parent = parent,
 			anchor = anchor,
 			relativeAnchor = relativeAnchor,
