@@ -2,7 +2,6 @@
 ## Title: HelpMePlay
 ## Version: 3.0.0B8.2
 ## Author: LightskyGG
-## OptionalDeps: Syndicator
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
 ## IconTexture: 236681

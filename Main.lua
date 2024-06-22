@@ -251,9 +251,6 @@ function(self, event, ...)
 			addon.playerSpecID = PlayerUtil_GetCurrentSpecID()
 			addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
 			addon.playerGUID = UnitGUID("player")
-			if C_AddOns_IsAddOnLoaded("Syndicator") then
-				addon.playerFullName = Syndicator.API.GetCurrentCharacter()
-			end
 
 			-- Get the player's mounts so we can use them.
 			addon.RefreshMountsByType("Ground")
