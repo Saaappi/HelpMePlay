@@ -1,22 +1,22 @@
 -- local variables for API functions. any changes to the line below will be lost on re-generation
-local C_AddOns_IsAddOnLoaded, C_CVar_GetCVar, C_Timer_After, CreateFrame, HelpMePlay_Print, LibStub, table_insert, table_remove, UnitAffectingCombat, PlayerGetTimerunningSeasonID = C_AddOns.IsAddOnLoaded, C_CVar.GetCVar, C_Timer.After, CreateFrame, HelpMePlay.Print, LibStub, table.insert, table.remove, UnitAffectingCombat, PlayerGetTimerunningSeasonID
+local C_AddOns_IsAddOnLoaded, C_CVar_GetCVar, C_Timer_After, CreateFrame, HelpMePlay_Print, LibStub, format, UnitAffectingCombat, PlayerGetTimerunningSeasonID = C.AddOns_IsAddOnLoaded, C.CVar_GetCVar, C.Timer_After, CreateFrame, HelpMePlay.Print, LibStub, format, UnitAffectingCombat, PlayerGetTimerunningSeasonID
 
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local btn
-local btnBaseTexture = 4549269
-local itemQueue = {}
 
 local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 	if not btn then
-		btn = CreateFrame("Button", addonName .. "RemixCombineSecureButton", parent, "SecureActionButtonTemplate, ActionButtonTemplate")
-		btn:SetPoint(anchor, parent, relativeAnchor, xOff, yOff)
-
-		btn.icon:SetTexture(btnBaseTexture)
-
-		btn:RegisterForClicks("AnyUp", "AnyDown")
-		btn:SetMouseClickEnabled(true)
+		btn = addon.CreateSecureButton({
+			name = format("%s%s", addonName, "RemixCombineSecureButton"),
+			parent = parent,
+			anchor = anchor,
+			relativeAnchor = relativeAnchor,
+			xOff = xOff,
+			yOff = yOff,
+			icon = 4549269
+		})
 
 		btn:SetScript("PreClick", function(self, button, isDown)
 		if not isDown and not UnitAffectingCombat("player") then
@@ -25,24 +25,15 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 				for _, bag in next, character.bags do
 					for _, item in next, bag do
 						if item and item.itemLink then
-							local minCount = LHMP:GetRemixMinItemCount(item.itemID)
-							if LHMP:IsRemixItem(item.itemID) and (item.itemCount >= minCount) and minCount > 0 then
-								table_insert(itemQueue, item.itemLink)
+							if LHMP:IsRemixItem(item.itemID) then
+								btn:SetAttribute("type1", "item")
+								btn:SetAttribute("item", item.itemLink)
 							end
 						end
 					end
 				end
 			else
 				HelpMePlay_Print("Syndicator is not installed or loaded.")
-			end
-		end
-		end)
-		btn:SetScript("PostClick", function(self, button, isDown)
-		if not isDown and not UnitAffectingCombat("player") then
-			for index = #itemQueue, 1, -1 do
-				btn:SetAttribute("type1", "item")
-				btn:SetAttribute("item", itemQueue[index])
-				table_remove(itemQueue, index)
 			end
 		end
 		end)
