@@ -11,7 +11,7 @@
   - _**Author's Note:** The icon will appear for every character until one of them has defeated Frost Lord Ahune and opened their satchel. The icon is hidden for every character thereafter until daily reset._
 - ToC update for Patch 11.0 (10.2.7 is still supported.)
 ### Deprecated
-- N/A
+- Deprecated a couple internal classes used to create dropdown menus and sliders.
 ### Removed
 - Removed the Syndicator addon dependency.
 ### Fixed

@@ -141,15 +141,9 @@ function(self, event, ...)
 					end
 				end
 				end)
-				button:SetScript("OnEnter", function()
-				GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-				GameTooltip:AddLine("Click to automatically fill the scrap machine with unwanted items.\n\n" ..
-				"It's a great idea to always double check the addon's decision!", 1, 1, 1, true)
-				GameTooltip:Show()
-				end)
-				button:SetScript("OnLeave", function()
-				GameTooltip:Hide()
-				end)
+				button:SetScript("OnEnter", function(self) addon.Tooltip_OnEnter(self, "Scrapping Machine", "\nClick to automatically fill the scrap machine with unwanted items.\n\n" ..
+				"It's a great idea to always double check the addon's decision!") end)
+				button:SetScript("OnLeave", addon.Tooltip_OnLeave)
 			end
 
 			-- Set the button's position.

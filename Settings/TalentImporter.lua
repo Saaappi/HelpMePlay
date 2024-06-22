@@ -243,9 +243,7 @@ addon.OpenTalentImporter = function()
                 GameTooltip:SetText(btn.className, btn.classColor.r, btn.classColor.g, btn.classColor.b)
                 GameTooltip:Show()
             end)
-            button:SetScript("OnLeave", function()
-                GameTooltip:Hide()
-            end)
+            button:SetScript("OnLeave", addon.Tooltip_OnLeave)
 
             -- Set the class button positions.
             if index == 1 then

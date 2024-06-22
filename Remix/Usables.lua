@@ -68,15 +68,8 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 				--end)
             end
         )
-		btn:SetScript("OnEnter", function(self)
-		GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-		GameTooltip:SetText("Remix: Mists of Pandaria")
-		GameTooltip:AddLine("\nClick to combine gems and add threads to your Cloak of Infinite Potential.", nil, nil, nil, true)
-		GameTooltip:Show()
-		end)
-		btn:SetScript("OnLeave", function()
-		GameTooltip:Hide()
-		end)
+		btn:SetScript("OnEnter", function(self) addon.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", "\nClick to combine gems and add threads to your Cloak of Infinite Potential.") end)
+		btn:SetScript("OnLeave", addon.Tooltip_OnLeave)
 	end
 end
 

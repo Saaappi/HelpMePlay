@@ -89,9 +89,7 @@ addon.CreateHeirloomButton = function()
                 GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
                 GameTooltip:SetHyperlink(HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID][index].itemLink)
             end)
-            heirloomButton:SetScript("OnLeave", function()
-                GameTooltip:Hide()
-            end)
+            heirloomButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
         end
     end
 end
