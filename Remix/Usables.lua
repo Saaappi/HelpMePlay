@@ -4,43 +4,40 @@ local C_AddOns_IsAddOnLoaded, C_Item_DoesItemExist, C_Container_GetContainerNumS
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
+local itemQueue = {}
 local btn
 
-local function ClearAttributes()
-	btn:SetAttribute("type", nil)
-	btn:SetAttribute("item", nil)
-	return true
-end
-
-local function UseRemixItemByItemLocation(itemLocation)
-	ClearAttributes()
-    if itemLocation then
-        local bagItem = Item:CreateFromBagAndSlot(itemLocation.bagID, itemLocation.slotIndex)
-        if bagItem then
-			btn:SetAttribute("type", "item")
-			btn:SetAttribute("item", bagItem:GetItemLink())
+local function IsItemLinkInTable(itemLink)
+	for _, link in next, itemQueue do
+		if link == itemLink then
 			return true
-        end
-    end
-    return false
+		end
+	end
+	return false
 end
 
-local function GetNextRemixItemLocation()
-    for bag = 0, 4 do
-        for slot = C_Container_GetContainerNumSlots(bag), 1, -1 do
-            local bagItem = Item:CreateFromBagAndSlot(bag, slot)
-            if not bagItem:IsItemEmpty() then
-                local itemID = bagItem:GetItemID()
-                if LHMP:IsRemixItem(itemID) --[[and C_Item_DoesItemExist(bagItem:GetItemLocation())]] then
-                    local minAmount = LHMP:GetRemixItemMinCount(itemID)
-                    if C_Item_GetItemCount(itemID) >= minAmount then
-                        return bagItem:GetItemLocation()
-                    end
-                end
-            end
-        end
-    end
-    return 0
+local function GetAllRemixItemsFromInventory()
+	for bag = 0, 4 do
+		for slot = C_Container_GetContainerNumSlots(bag), 1, -1 do
+			local item = Item:CreateFromBagAndSlot(bag, slot)
+			if not item:IsItemEmpty() then
+				item:ContinueOnItemLoad(function()
+					local id = item:GetItemID()
+					if LHMP:IsRemixItem(id) then
+						local minAmountRequired = LHMP:GetRemixItemMinCount(id)
+						local itemCount = C_Item.GetItemCount(id)
+						if minAmountRequired <= itemCount then
+							local itemLink = item:GetItemLink()
+							if not IsItemLinkInTable(itemLink) then
+								table.insert(itemQueue, itemLink)
+							end
+						end
+					end
+				end)
+			end
+		end
+	end
+	return true
 end
 
 local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
@@ -56,27 +53,33 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 		})
 
 		btn:SetScript(
-            "PostClick",
+            "PreClick",
             function(_, _, isDown)
-				--C_Timer_After(1, function()
-					if (not isDown) and (not UnitAffectingCombat("player")) then
-						local itemLocation = GetNextRemixItemLocation()
-						if itemLocation ~= 0 then
-							UseRemixItemByItemLocation(itemLocation)
-						end
+				if not isDown then
+					for index, itemLink in next, itemQueue do
+						btn:SetAttribute("type", "item")
+						btn:SetAttribute("item", itemLink)
+						table.remove(itemQueue, index)
+						break
 					end
-				--end)
+				end
             end
         )
-		btn:SetScript("OnEnter", function(self) addon.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", "\nClick to combine gems and add threads to your Cloak of Infinite Potential.") end)
+		btn:SetScript("OnEnter", function(self)
+			addon.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", "\nClick to combine gems and add threads to your Cloak of Infinite Potential.")
+		end)
 		btn:SetScript("OnLeave", addon.Tooltip_OnLeave)
 	end
 end
 
+eventHandler:RegisterEvent("BAG_UPDATE")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript(
 "OnEvent",
 function(self, event, ...)
+	if event == "BAG_UPDATE" then
+		GetAllRemixItemsFromInventory()
+	end
 	if event == "PLAYER_LOGIN" then
 		C_Timer_After(
 		1,
@@ -84,9 +87,13 @@ function(self, event, ...)
 			if PlayerGetTimerunningSeasonID() == 1 then
 				if C_AddOns_IsAddOnLoaded("Baganator") then -- Baganator
 					if BAGANATOR_CONFIG["view_type"] == "single" then
-						Baganator_SingleViewBackpackViewFrame:HookScript("OnShow", function() MakeButton("TOPRIGHT", Baganator_SingleViewBackpackViewFrame, "TOPLEFT", -5, 0) end)
+						Baganator_SingleViewBackpackViewFrame:HookScript("OnShow", function()
+							MakeButton("TOPRIGHT", Baganator_SingleViewBackpackViewFrame, "TOPLEFT", -5, 0)
+						end)
 					else
-						Baganator_CategoryViewBackpackViewFrame:HookScript("OnShow", function() MakeButton("TOPRIGHT", Baganator_CategoryViewBackpackViewFrame, "TOPLEFT", -5, 0) end)
+						Baganator_CategoryViewBackpackViewFrame:HookScript("OnShow", function()
+							MakeButton("TOPRIGHT", Baganator_CategoryViewBackpackViewFrame, "TOPLEFT", -5, 0)
+						end)
 					end
 				else -- Base UI
 					if C_CVar_GetCVar("combinedBags") == "1" then
