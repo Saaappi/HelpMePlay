@@ -222,7 +222,7 @@ end
 -----------
 -- REMIX --
 -----------
-function LHMP:IsRemixItem(itemID)
+--[[function LHMP:IsRemixItem(itemID)
     if not LHMP.RemixItems[itemID] then
         return false
     end
@@ -233,4 +233,4 @@ function LHMP:GetRemixItemMinCount(itemID)
         return LHMP.RemixItems[itemID]
     end
     return 0
-end
+end]]
