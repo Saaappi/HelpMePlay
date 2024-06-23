@@ -42,7 +42,32 @@ local function QUEST_COMPLETE()
         local questID = GetQuestID()
         if questID then
             if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                HelpMePlay.CompleteQuest()
+                local continue = false
+                -- We want to check the type of quest rewards the player
+                -- is granted. If none of them are armor or a weapon,
+                -- we don't want to do anything.
+                --
+                -- This is to cover quests such as Shards of Ahune from
+                -- the Midsummer holiday and Argent Tournament dailies.
+                local numQuestChoices = GetNumQuestChoices()
+                if numQuestChoices > 1 then
+                    for rewardIndex = 1, numQuestChoices do
+                        local itemLink = GetQuestItemLink("choice", rewardIndex)
+                        if itemLink then
+                            local equipLoc = select(4, C_Item.GetItemInfoInstant(itemLink))
+                            local type = LHMP:SplitString(equipLoc, "_", 2)
+                            if type == "NON" or type == "SHIRT" or type == "TABARD" then
+                                HelpMePlay.Print("There's at least one non-armor or weapon choice to make. To respect your player agency, HelpMePlay will not proceed; please complete the quest manually.")
+                                return false
+                            else
+                                continue = true
+                            end
+                        end
+                    end
+                end
+                if continue then
+                    HelpMePlay.CompleteQuest()
+                end
             end
         end
     else
