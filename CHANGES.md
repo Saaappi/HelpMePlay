@@ -9,8 +9,7 @@
 - The icon for Midsummer Fire Festival has been updated.
 - The condition for showing the Midsummer Fire Festival event is now an account-wide quest.
   - _**Author's Note:** The icon will appear for every character until one of them has defeated Frost Lord Ahune and opened their satchel. The icon is hidden for every character thereafter until daily reset._
-- Quests with non-armor or weapon rewards will no longer be completed.
-  - _**Author's Note:** This includes quests like the Argent Tournament dailies and Shards of Ahune from the Midsummer holiday. This is to respect the opportunity for the player to make the decisions on their own, and for the addon to not pillage their chance at specific rewards._
+- The addon will now always choose the **Champion's Purse** from Argent Tournament dailies.
 - ToC update for Patch 11.0 (10.2.7 is still supported.)
 ### Deprecated
 - Deprecated a couple internal classes used to create dropdown menus and sliders.
