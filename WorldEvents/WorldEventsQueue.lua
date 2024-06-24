@@ -139,9 +139,28 @@ addon.CreateEventQueueButton = function()
     end
 end
 
+--eventHandler:RegisterEvent("LFG_COMPLETION_REWARD")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("QUEST_TURNED_IN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
+    --[[if event == "LFG_COMPLETION_REWARD" then
+        local exitParentLoop = false
+        local faction = UnitFactionGroup("player")
+        for _, id in next, C_QuestLog.GetAllCompletedQuestIDs() do
+            for index, evt in next, activeEvents do
+                local string = evt.conditions[faction]
+                local questID = string:match("= (.+)")
+                if id == questID then
+                    activeEvents[index] = nil
+                    exitParentLoop = true
+                    break
+                end
+            end
+            if exitParentLoop then
+                break
+            end
+        end
+    end]]
     if event == "PLAYER_LOGIN" then
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
@@ -150,9 +169,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if PlayerGetTimerunningSeasonID() == 1 then return false end
 
         -- If there are events, then create the button.
-        addon.CreateEventQueueButton()
+        C_Timer.After(1, function() addon.CreateEventQueueButton() end)
     end
-
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return false end
         if not activeEvents or activeEvents == {} then return false end
