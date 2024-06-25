@@ -150,12 +150,12 @@ function LHMP:IsEventQueueable(eventID)
     if not LHMP.WorldEvents[eventID] then
         return false
     end
-
+    return true
+    --[[ DEPRECATED - 2024/06/24
     local questID = LHMP.WorldEvents[eventID].questID
     if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
         return true
-    end
-    return false
+    end]]
 end
 function LHMP:GetWorldEvent(eventID)
     if not LHMP.WorldEvents[eventID] then
