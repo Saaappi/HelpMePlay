@@ -28,3 +28,4 @@
 - The Remix gem/thread button should no longer get stuck on gems with an insufficient count in the inventory.
 - The Remix gem/thread button should no longer not do anything on its first click.
   - _**Author's Note:** If you don't have sufficient gems or threads in your inventory, then the button won't do anything._
+- Fixed an error thrown when two or more events are active and the player hovers the World Event queue button.

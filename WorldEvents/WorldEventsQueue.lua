@@ -116,6 +116,7 @@ addon.CreateEventQueueButton = function()
                     end
                     SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
                 end)
+                SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
             end
         elseif (#activeEvents == 1) then
             SetWorldEventQueueButtonToEvent(activeEvents[1])
