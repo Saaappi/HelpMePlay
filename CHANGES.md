@@ -16,6 +16,7 @@
 - The icon for Midsummer Fire Festival has been updated.
 - The **Champion's Purse** from Argent Tournament dailies will now _always_ be selected.
   - _**Author's Note:** This can't be changed. If forcing this item to be selected becomes a problem, please open an issue._
+- Cinematics will no longer skip in Silverpine Forest.
 - ToC bump in preparation for _The War Within_'s pre-patch.
 ### Deprecated
 - Deprecated a couple internal classes used to create UI widgets.
