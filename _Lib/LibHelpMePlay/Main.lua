@@ -151,9 +151,7 @@ function LHMP:IsEventQueueable(eventID)
         return false
     end
 
-    local faction = LHMP:GetUnlocalizedUnitFaction("player")
-    local conditionString = LHMP.WorldEvents[eventID]["conditions"][faction]
-    local questID = conditionString:match("= (.+)")
+    local questID = LHMP.WorldEvents[eventID].questID
     if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
         return true
     end
@@ -218,19 +216,3 @@ function LHMP:GetRandomSpecIDByClassID(classID)
     local specName = select(2, GetSpecializationInfoForClassID(classID, specIndex))
     return specName
 end
-
------------
--- REMIX --
------------
---[[function LHMP:IsRemixItem(itemID)
-    if not LHMP.RemixItems[itemID] then
-        return false
-    end
-    return true
-end
-function LHMP:GetRemixItemMinCount(itemID)
-    if LHMP.RemixItems[itemID] then
-        return LHMP.RemixItems[itemID]
-    end
-    return 0
-end]]

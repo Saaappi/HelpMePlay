@@ -139,28 +139,34 @@ addon.CreateEventQueueButton = function()
     end
 end
 
---eventHandler:RegisterEvent("LFG_COMPLETION_REWARD")
+eventHandler:RegisterEvent("LFG_COMPLETION_REWARD")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("QUEST_TURNED_IN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
-    --[[if event == "LFG_COMPLETION_REWARD" then
+    if event == "LFG_COMPLETION_REWARD" then
+        local numRewards = select(10, GetLFGCompletionReward())
+        if not numRewards or numRewards == 0 then return false end
+
         local exitParentLoop = false
         local faction = UnitFactionGroup("player")
-        for _, id in next, C_QuestLog.GetAllCompletedQuestIDs() do
-            for index, evt in next, activeEvents do
-                local string = evt.conditions[faction]
-                local questID = string:match("= (.+)")
-                if id == questID then
-                    activeEvents[index] = nil
-                    exitParentLoop = true
+        for i = 1, numRewards do
+            local id, objectType = select(7, GetLFGCompletionRewardItem(i))
+            if id and objectType == "item" then
+                for index, evt in next, activeEvents do
+                    local string = evt.conditions[faction]
+                    local itemID = string:match("= (.+)")
+                    if id == itemID then
+                        activeEvents[index] = nil
+                        exitParentLoop = true
+                        break
+                    end
+                end
+                if exitParentLoop then
                     break
                 end
             end
-            if exitParentLoop then
-                break
-            end
         end
-    end]]
+    end
     if event == "PLAYER_LOGIN" then
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
@@ -180,9 +186,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             local faction = UnitFactionGroup("player")
             for index, evt in next, activeEvents do
                 local string = evt.conditions[faction]
-                local conditionQuest = string:match("= (.+)")
+                local conditionQuest = evt.questID
                 if conditionQuest == questID then
                     activeEvents[index] = nil
+                    break
                 end
             end
         end

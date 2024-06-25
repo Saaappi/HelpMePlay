@@ -9,7 +9,8 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 40168",
             ["Horde"] = "QUEST_ACTIVE = 40168"
-        }
+        },
+        ["questID"] = 0
     },
     [562] = {
         ["name"] = "",
@@ -18,7 +19,8 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 40173",
             ["Horde"] = "QUEST_ACTIVE = 40173"
-        }
+        },
+        ["questID"] = 0
     },
     [587] = {
         ["name"] = "",
@@ -27,7 +29,8 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 40787",
             ["Horde"] = "QUEST_ACTIVE = 40786"
-        }
+        },
+        ["questID"] = 0
     },
     [643] = {
         ["name"] = "",
@@ -36,7 +39,8 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 45563",
             ["Horde"] = "QUEST_ACTIVE = 45563"
-        }
+        },
+        ["questID"] = 0
     },
     [1056] = {
         ["name"] = "",
@@ -45,7 +49,8 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 55499",
             ["Horde"] = "QUEST_ACTIVE = 55499"
-        }
+        },
+        ["questID"] = 0
     },
     [1263] = {
         ["name"] = "",
@@ -54,7 +59,8 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 64710",
             ["Horde"] = "QUEST_ACTIVE = 64710"
-        }
+        },
+        ["questID"] = 0
     },
     [423] = {
         ["name"] = "",
@@ -63,16 +69,18 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 79104",
             ["Horde"] = "QUEST_ACTIVE = 79104"
-        }
+        },
+        ["questID"] = 0
     },
     [341] = {
         ["name"] = "",
         ["dungeonQueueID"] = 286,
         ["texture"] = 368565,
         ["conditions"] = {
-            ["Alliance"] = "QUEST_ACTIVE = 83134",
-            ["Horde"] = "QUEST_ACTIVE = 83134"
-        }
+            ["Alliance"] = "HAS_ITEM = 117394",
+            ["Horde"] = "HAS_ITEM = 117394"
+        },
+        ["questID"] = 83134
     },
     [372] = {
         ["name"] = "",
@@ -81,7 +89,8 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 77775",
             ["Horde"] = "QUEST_ACTIVE = 77775"
-        }
+        },
+        ["questID"] = 0
     },
     [324] = {
         ["name"] = "",
@@ -90,6 +99,7 @@ LHMP.WorldEvents = {
         ["conditions"] = {
             ["Alliance"] = "QUEST_ACTIVE = 78474",
             ["Horde"] = "QUEST_ACTIVE = 78474"
-        }
+        },
+        ["questID"] = 0
     }
 }
