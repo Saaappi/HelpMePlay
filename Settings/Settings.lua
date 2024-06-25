@@ -256,6 +256,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
+                -- Always Compare Items
+                do
+                    local variable = "AlwaysCompareItems"
+                    local name = "Always Compare Items"
+                    local tooltipText = "Toggle if you wish to have the item comparison tooltips always visible when you hover an item."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
                 ------------------------
                 -- QUEST SECTION -------
                 ------------------------

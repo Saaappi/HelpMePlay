@@ -96,6 +96,9 @@ function(self, event, ...)
 			if HelpMePlayDB["UseWarMode"] == nil then
 				HelpMePlayDB["UseWarMode"] = false
 			end
+			if HelpMePlayDB["AlwaysCompareItems"] == nil then
+				HelpMePlayDB["AlwaysCompareItems"] = true
+			end
 			if HelpMePlayDB["UseHeirloomAutomation"] == nil then
 				HelpMePlayDB["UseHeirloomAutomation"] = false
 			end
@@ -295,3 +298,12 @@ function(self, event, ...)
 	end
 end
 )
+
+-- Blizzard Hooks
+-- The alwaysCompareItems cvar isn't working, so this is a workaround
+-- until Blizzard fixes it.
+hooksecurefunc(TooltipComparisonManager, "CompareItem", function()
+	if not HelpMePlayDB["AlwaysCompareItems"] and not IsShiftKeyDown() then
+		GameTooltip_HideShoppingTooltips(GameTooltip)
+	end
+end)
