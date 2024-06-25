@@ -24,6 +24,7 @@ end
 
 -- This function is used to update (refresh) the button when the player
 -- completes an active event.
+--[[ DEPRECATED - 2024/06/24
 local function RefreshEvents()
     if activeEvents == nil or activeEvents == {} then
         if worldEventQueueButton then
@@ -44,7 +45,7 @@ local function RefreshEvents()
             break
         end
     end
-end
+end]]
 
 -- This function is used to update the button to the next event in the
 -- table based on the chevron the player clicked (left or right).
@@ -139,35 +140,9 @@ addon.CreateEventQueueButton = function()
     end
 end
 
-eventHandler:RegisterEvent("LFG_COMPLETION_REWARD")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
-eventHandler:RegisterEvent("QUEST_TURNED_IN")
+--eventHandler:RegisterEvent("QUEST_TURNED_IN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
-    if event == "LFG_COMPLETION_REWARD" then
-        local numRewards = select(10, GetLFGCompletionReward())
-        if not numRewards or numRewards == 0 then return false end
-
-        local exitParentLoop = false
-        for i = 1, numRewards do
-            local id, objectType = select(7, GetLFGCompletionRewardItem(i))
-            if id and objectType == "item" then
-                for index, evt in ipairs(activeEvents) do
-                    local conditionType, value = evt.conditions[1].conditionType, evt.conditions[1].value
-                    local isTrue = LHMP:ValidatePlayerCondition(conditionType, value)
-                    if isTrue then
-                        activeEvents[index] = nil
-                        exitParentLoop = true
-                        break
-                    end
-                end
-                if exitParentLoop then
-                    break
-                end
-            end
-        end
-
-        RefreshEvents()
-    end
     if event == "PLAYER_LOGIN" then
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
@@ -178,6 +153,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- If there are events, then create the button.
         C_Timer.After(1, function() addon.CreateEventQueueButton() end)
     end
+    --[[ DEPRECATED - 2024/06/24
     if event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return false end
         if not activeEvents or activeEvents == {} then return false end
@@ -193,5 +169,5 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end
 
         RefreshEvents()
-    end
+    end]]
 end)
