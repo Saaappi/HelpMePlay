@@ -77,10 +77,9 @@ LHMP.WorldEvents = {
         ["dungeonQueueID"] = 286,
         ["texture"] = 368565,
         ["conditions"] = {
-            ["Alliance"] = "HAS_ITEM = 117394",
-            ["Horde"] = "HAS_ITEM = 117394"
+            {conditionType = "ACQUIRED_ITEM", value = 117394}
         },
-        ["questID"] = 83134
+        ["questID"] = 0--83134
     },
     [372] = {
         ["name"] = "",

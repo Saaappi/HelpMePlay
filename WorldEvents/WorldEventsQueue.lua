@@ -148,14 +148,13 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if not numRewards or numRewards == 0 then return false end
 
         local exitParentLoop = false
-        local faction = UnitFactionGroup("player")
         for i = 1, numRewards do
             local id, objectType = select(7, GetLFGCompletionRewardItem(i))
             if id and objectType == "item" then
-                for index, evt in next, activeEvents do
-                    local string = evt.conditions[faction]
-                    local itemID = string:match("= (.+)")
-                    if id == itemID then
+                for index, evt in ipairs(activeEvents) do
+                    local conditionType, value = evt.conditions[1].conditionType, evt.conditions[1].value
+                    local isTrue = LHMP:ValidatePlayerCondition(conditionType, value)
+                    if isTrue then
                         activeEvents[index] = nil
                         exitParentLoop = true
                         break
@@ -166,6 +165,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
             end
         end
+
+        RefreshEvents()
     end
     if event == "PLAYER_LOGIN" then
         -- Unregister the event for performance.
@@ -183,11 +184,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         local questID = ...
         if questID then
-            local faction = UnitFactionGroup("player")
             for index, evt in next, activeEvents do
-                local string = evt.conditions[faction]
-                local conditionQuest = evt.questID
-                if conditionQuest == questID then
+                if evt.questID == questID then
                     activeEvents[index] = nil
                     break
                 end
