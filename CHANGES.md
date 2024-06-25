@@ -4,6 +4,7 @@
 - Gossip support to skip the quests on Timeless Isle for Timerunners.
 - Gossip support for the Pandaria introduction experience for Horde.
 - Players can now untoggle **Always Compare Items** in the settings if they don't want the item comparison tooltip to automatically show when hovering an item.
+  - _**Author's Note:** Blizzard appears to have broken the **alwaysCompareItems** cvar. This is a workaround._
 ### Changed or Updated
 - Heirloom automation has been reimplemented.
   - _**Author's Note:** You must enable Heirlooms under the **General** section of the settings. You must teach the addon which heirlooms it should use for new characters by creating them once. The addon will remember your choices for each class and specialization._
