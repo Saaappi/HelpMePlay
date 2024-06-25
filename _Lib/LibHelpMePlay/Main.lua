@@ -223,6 +223,7 @@ end
 -- Currently, I only use this system for the World Event queue
 -- automation. I'm not sure I'll convert the entire addon to use
 -- it.
+--[[ DEPRECATED - 2024/06/24
 function LHMP:ValidatePlayerCondition(condition, value)
     if condition == "ACQUIRED_ITEM" then
         for bag = 4, 0, -1 do
@@ -238,4 +239,4 @@ function LHMP:ValidatePlayerCondition(condition, value)
         end
         return false
     end
-end
+end]]
