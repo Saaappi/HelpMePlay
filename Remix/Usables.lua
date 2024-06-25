@@ -20,6 +20,27 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 			icon = 626190
 		})
 
+		if HelpMePlayDB.Positions["RemixUseItemButton"] then
+			btn:SetPoint(unpack(HelpMePlayDB.Positions["RemixUseItemButton"]))
+		else
+			btn:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+		end
+
+		-- Make the frame movable.
+		btn:SetMovable(true)
+		btn:EnableMouse(true)
+		btn:RegisterForDrag("LeftButton")
+		btn:SetScript("OnDragStart", function(self)
+			self:StartMoving()
+		end)
+		btn:SetScript("OnDragStop", function(self)
+			-- Once the frame stops moving, get the position data so we
+			-- can open the frame at that position next time.
+			self:StopMovingOrSizing()
+			local point, _, relativePoint, x, y = self:GetPoint()
+			HelpMePlayDB.Positions["RemixUseItemButton"] = { point, "UIParent", relativePoint, x, y }
+		end)
+
 		btn:SetAttribute("type", "macro")
 		local macrotext = "/use item:" .. table.concat(remixItems, "\n/use item:")
 		btn:SetAttribute("macrotext", macrotext)
@@ -29,10 +50,11 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 		end)
 
 		btn:SetScript("OnEnter", function(self)
-			addon.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", "Click to combine gems and add threads to your Cloak of Infinite Potential.")
+			addon.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", "Click to combine gems and add threads to your Cloak of Infinite Potential.\n\nClick and hold to drag.")
 		end)
 		btn:SetScript("OnLeave", addon.Tooltip_OnLeave)
 	end
+	btn:Show()
 end
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")
@@ -43,8 +65,9 @@ function(self, event, ...)
 		C_Timer_After(
 		1,
 		function()
-			if PlayerGetTimerunningSeasonID() == 1 then
-				if C_AddOns_IsAddOnLoaded("Baganator") then -- Baganator
+			if PlayerGetTimerunningSeasonID() == 1 and HelpMePlayDB["ShowRemixUsablesButton"] then
+				MakeButton("CENTER", UIParent, "CENTER", 0, 0)
+				--[[if C_AddOns_IsAddOnLoaded("Baganator") then -- Baganator
 					if BAGANATOR_CONFIG["view_type"] == "single" then
 						Baganator_SingleViewBackpackViewFrame:HookScript("OnShow", function()
 							MakeButton("TOPRIGHT", Baganator_SingleViewBackpackViewFrame, "TOPLEFT", -5, 0)
@@ -60,7 +83,7 @@ function(self, event, ...)
 					else
 						EventRegistry:RegisterCallback("ContainerFrame.OpenAllBags", function() MakeButton("TOPRIGHT", ContainerFrame5, "TOPLEFT", -10, 0) end)
 					end
-				end
+				end]]
 			end
 
 			-- Unregister the event for performance.

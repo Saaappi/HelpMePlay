@@ -27,6 +27,12 @@ function(self, event, ...)
 			end
 
 			-- Set the default values for addon settings.
+			if HelpMePlayDB["ShowRemixUsablesButton"] == nil then
+				HelpMePlayDB["ShowRemixUsablesButton"] = false
+			end
+			if HelpMePlayDB["ShowRemixScrapButton"] == nil then
+				HelpMePlayDB["ShowRemixScrapButton"] = false
+			end
 			if HelpMePlayDB["SkipCutscenes"] == nil then
 				HelpMePlayDB["SkipCutscenes"] = false
 			end
@@ -167,6 +173,11 @@ function(self, event, ...)
 			end
 			if HelpMePlayDB["NCC_EditModeLayoutID"] == nil then
 				HelpMePlayDB["NCC_EditModeLayoutID"] = 1
+			end
+
+			-- If the Positions table is nil, then initialize it.
+			if HelpMePlayDB["Positions"] == nil then
+				HelpMePlayDB["Positions"] = {}
 			end
 
 			-- If the Characters table is nil, then initialize it.

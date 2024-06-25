@@ -64,6 +64,7 @@ local function Compare(a, b)
     return a.Name < b.Name
 end
 
+local REMIX_SECTION = "Remix: Mists of Pandaria"
 local GENERAL_SECTION = "General"
 local QUEST_SECTION = "Quest"
 local MERCHANT_SECTION = "Merchants & Trainers"
@@ -92,6 +93,32 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local addonLoaded = ...
         if addonLoaded == addonName then
             C_Timer.After(1, function()
+                ----------------------
+                -- REMIX SECTION -----
+                ----------------------
+                -- Initialize a section for remix stuff.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
+
+                -- Usables Button
+                do
+                    local variable = "ShowRemixUsablesButton"
+                    local name = "Usables Button"
+                    local tooltipText = "Toggle to show the usables button. This button can be used to combine gems and add threads to your cloak."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Scrap Button
+                do
+                    local variable = "ShowRemixScrapButton"
+                    local name = "Scrap Button"
+                    local tooltipText = "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
                 ------------------------
                 -- GENERAL SECTION -----
                 ------------------------
