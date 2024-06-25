@@ -13,7 +13,7 @@ eventHandler:SetScript(
 function(self, event, ...)
 	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		local type = ...
-		if type == 40 and PlayerGetTimerunningSeasonID() == 1 then
+		if type == 40 and PlayerGetTimerunningSeasonID() == 1 and HelpMePlayDB["ShowRemixScrapButton"] then
 			-- When the Scrapping Machine frame is shown, if the button
 			-- hasn't been created, then create it.
 			if not button then
