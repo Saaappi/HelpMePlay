@@ -6,3 +6,4 @@
 ### Removed
 ### Fixed
 - The ready check window should no longer remain on screen when **Ready Checks** is enabled.
+- Opening the Collections Journal on a max Remix character will no longer throw an error.
