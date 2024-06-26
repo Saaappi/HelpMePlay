@@ -2,6 +2,7 @@
 
 ### Added
 ### Changed or Updated
+- Players can now use SHIFT+Right Click to scrap all armor and weapons regardless of the item level.
 ### Deprecated
 ### Removed
 ### Fixed

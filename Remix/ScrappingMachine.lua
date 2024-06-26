@@ -32,7 +32,7 @@ function(self, event, ...)
 				button = button:ActionButton()
 
 				-- Create the script handlers for the button.
-				button:SetScript("OnClick", function()
+				button:SetScript("OnClick", function(_, btn)
 					-- We'll use this to break from the loop later.
 					local numScrappableItems = 0
 
@@ -73,78 +73,90 @@ function(self, event, ...)
 					-- for armor and weapons.
 					for bagID = 0, 4 do
 						for slotID = 1, C_Container_GetContainerNumSlots(bagID) do
-							local itemLink = C_Container_GetContainerItemLink(bagID, slotID)
-							if itemLink then
-								-- Get the actual inventory slot ID because sometimes it can be different.
-								local inventorySlotID = C_Item_GetItemInventoryTypeByID(itemLink)
+							if btn == "RightButton" and IsShiftKeyDown() then
+								local item = Item:CreateFromBagAndSlot(bagID, slotID)
+								if not item:IsItemEmpty() then
+									local inventoryType = item:GetInventoryType()
+									if inventoryType ~= 0 then
+										C_Container.UseContainerItem(bagID, slotID)
+										numScrappableItems = numScrappableItems + 1
+									end
+								end
+								if numScrappableItems == 9 then return true end
+							else
+								local itemLink = C_Container_GetContainerItemLink(bagID, slotID)
+								if itemLink then
+									-- Get the actual inventory slot ID because sometimes it can be different.
+									local inventorySlotID = C_Item_GetItemInventoryTypeByID(itemLink)
 
-								-- Get the item's true item level.
-								local itemLevelForInventoryItem = C_Item_GetDetailedItemLevelInfo(itemLink) or 0
+									-- Get the item's true item level.
+									local itemLevelForInventoryItem = C_Item_GetDetailedItemLevelInfo(itemLink) or 0
 
-								-- Get the item's equip location and classIDs. If it's armor or a weapon,
-								-- then continue.
-								local classID, subClassID = select(6, C_Item_GetItemInfoInstant(itemLink))
-								if classID == 2 or classID == 4 then
-									-- If it's a weapon, let's check if it's valid for the player's current
-									-- specialization.
-									if classID == 2 then
-										local isItemValid = addon.IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
-										if isItemValid then
-											-- Set these variables to 0 to start.
-											local start, finish = 0, 0
-											if canDualWield then
-												-- The player can dual wield, so let's determine if the item is better
-												-- than what the player has equipped. If the item is better than the first
-												-- item, then we'll break as checking the second weapon is irrelevant.
-												local isItemBetter = false
-												start, finish = 16, 17
-												for slot = start, finish do
-													if itemLevelForInventoryItem > equippedItems[slot] then
-														isItemBetter = true
-														break
+									-- Get the item's equip location and classIDs. If it's armor or a weapon,
+									-- then continue.
+									local classID, subClassID = select(6, C_Item_GetItemInfoInstant(itemLink))
+									if classID == 2 or classID == 4 then
+										-- If it's a weapon, let's check if it's valid for the player's current
+										-- specialization.
+										if classID == 2 then
+											local isItemValid = addon.IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
+											if isItemValid then
+												-- Set these variables to 0 to start.
+												local start, finish = 0, 0
+												if canDualWield then
+													-- The player can dual wield, so let's determine if the item is better
+													-- than what the player has equipped. If the item is better than the first
+													-- item, then we'll break as checking the second weapon is irrelevant.
+													local isItemBetter = false
+													start, finish = 16, 17
+													for slot = start, finish do
+														if itemLevelForInventoryItem > equippedItems[slot] then
+															isItemBetter = true
+															break
+														end
+													end
+
+													-- If the item isn't better than what the player has equipped, then
+													-- we can add it to the scrapping machine.
+													if not isItemBetter then
+														C_Container_UseContainerItem(bagID, slotID)
+														numScrappableItems = numScrappableItems + 1
+													end
+												else
+													-- This is for every other reward that doesn't adhere to a dual wield class/spec.
+													-- Weapons of all varieties are still handled here, just not for dual wield classes/specs.
+													if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
+														C_Container_UseContainerItem(bagID, slotID)
+														numScrappableItems = numScrappableItems + 1
 													end
 												end
-
-												-- If the item isn't better than what the player has equipped, then
-												-- we can add it to the scrapping machine.
-												if not isItemBetter then
-													C_Container_UseContainerItem(bagID, slotID)
-													numScrappableItems = numScrappableItems + 1
-												end
 											else
-												-- This is for every other reward that doesn't adhere to a dual wield class/spec.
-												-- Weapons of all varieties are still handled here, just not for dual wield classes/specs.
+												-- It's not valid, so add it to the scrapping machine.
+												C_Container_UseContainerItem(bagID, slotID)
+												numScrappableItems = numScrappableItems + 1
+											end
+										else
+											-- This is where all the armor items are processed.
+											if equippedItems[inventorySlotID] then
 												if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
 													C_Container_UseContainerItem(bagID, slotID)
 													numScrappableItems = numScrappableItems + 1
 												end
 											end
-										else
-											-- It's not valid, so add it to the scrapping machine.
-											C_Container_UseContainerItem(bagID, slotID)
-											numScrappableItems = numScrappableItems + 1
-										end
-									else
-										-- This is where all the armor items are processed.
-										if equippedItems[inventorySlotID] then
-											if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
-												C_Container_UseContainerItem(bagID, slotID)
-												numScrappableItems = numScrappableItems + 1
-											end
 										end
 									end
-								end
 
-								-- There can only be 9 items in the scrapper at a time. If we reach 9, then
-								-- we should break from the loop.
-								if numScrappableItems == 9 then return true end
+									-- There can only be 9 items in the scrapper at a time. If we reach 9, then
+									-- we should break from the loop.
+									if numScrappableItems == 9 then return true end
+								end
 							end
 						end
 					end
 				end)
 				button:SetScript("OnEnter", function(self)
 					addon.Tooltip_OnEnter(self, "Scrapping Machine", "Click to automatically fill the scrap machine with unwanted items.\n\n" ..
-					"It's a great idea to always double check the addon's decision!")
+					"Use left click to scrap items worse than those you have equipped. Use SHIFT and right click to scrap all armor items regardless of their item level.\n\n" .. "It's a great idea to always double check the addon's decision!")
 				end)
 				button:SetScript("OnLeave", addon.Tooltip_OnLeave)
 			end
