@@ -7,7 +7,7 @@
   - _**Author's Note:** Blizzard appears to have broken the **alwaysCompareItems** cvar. This is a workaround._
 ### Changed or Updated
 - Heirloom automation has been reimplemented.
-  - _**Author's Note:** You must enable Heirlooms under the **General** section of the settings. You must teach the addon which heirlooms it should use for new characters by creating them once. The addon will remember your choices for each class and specialization._
+  - _**Author's Note:** The system has been redesigned. Players must now create all their heirlooms by hand, but they can use a new button anchored to the Collections Journal to quickly equip them all._
 - The World Event queue button is no longer shown or hidden by condition.
   - _**Author's Note:** In a recent update, I made it possible to toggle the button from the settings. Given the ongoing complexity of detecting player state, and a design decision, I think it best that the button remain visible while the player has the setting enabled. If a player wishes to use the button repeatedly to queue Timewalking dungeons, they should have the ability to do so._
 - The button used in Remix to combine gems and add threads to the Cloak of Infinite Potential has been redesigned.

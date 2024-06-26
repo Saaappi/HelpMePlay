@@ -165,16 +165,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
-                -- Heirlooms
-                do
-                    local variable = "UseHeirloomAutomation"
-                    local name = "Heirlooms"
-                    local tooltipText = "Toggle to allow the addon to show the heirloom button on new characters."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
                 -- Mute Talking Head
                 do
                     local variable = "MuteTalkingHead"

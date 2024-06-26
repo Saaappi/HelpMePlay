@@ -240,6 +240,10 @@ function(self, event, ...)
 			HelpMePlayDB["NCCEnabled"] = nil
 			HelpMePlayDB["AGE"] = nil
 			HelpMePlayDB["ShouldRepair"] = nil
+			HelpMePlayDB["UseHeirloomAutomation"] = nil
+			if HelpMePlayDB["Heirlooms"] then
+				HelpMePlayDB["Heirlooms"] = nil
+			end
 			if HelpMePlayDB["OpenHolidayItems"] then
 				HelpMePlayDB["OpenContainers"] = HelpMePlayDB["OpenHolidayItems"]
 				HelpMePlayDB["OpenHolidayItems"] = nil
@@ -274,18 +278,6 @@ function(self, event, ...)
 			addon.RefreshMountsByType("AQ")
 			addon.RefreshMountsByType("Vashjir")
 			addon.RefreshMountsByType("Unused")
-
-			-- If the class an for the current character
-			-- doesn't have an heirloom table, then create one.
-			if HelpMePlayDB["Heirlooms"][addon.playerClassID] == nil then
-				HelpMePlayDB["Heirlooms"][addon.playerClassID] = {}
-			end
-
-			-- If the spec for the class of the current character
-			-- doesn't have an heirloom table, then create one.
-			if HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID] == nil then
-				HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID] = {}
-			end
 
 			-- Unload the event for performance.
 			eventHandler:UnregisterEvent("PLAYER_LOGIN")
