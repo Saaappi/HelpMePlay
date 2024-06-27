@@ -22,31 +22,6 @@ local function GetActiveEventsFromCalendarByDate(date)
     return events
 end
 
--- This function is used to update (refresh) the button when the player
--- completes an active event.
---[[ DEPRECATED - 2024/06/24
-local function RefreshEvents()
-    if activeEvents == nil or activeEvents == {} then
-        if worldEventQueueButton then
-            worldEventQueueButton:Hide()
-        end
-        return
-    end
-
-    if worldEventQueueButton then
-        for _, event in next, activeEvents do
-            if type(event.texture) == "string" then
-                worldEventQueueButton.icon:SetAtlas(event.texture)
-            else
-                worldEventQueueButton.icon:SetTexture(event.texture)
-            end
-            worldEventQueueButton.name = event.name
-            worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
-            break
-        end
-    end
-end]]
-
 -- This function is used to update the button to the next event in the
 -- table based on the chevron the player clicked (left or right).
 --
@@ -161,7 +136,6 @@ addon.CreateEventQueueButton = function()
 end
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")
---eventHandler:RegisterEvent("QUEST_TURNED_IN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_LOGIN" then
         -- Unregister the event for performance.
@@ -173,21 +147,4 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- If there are events, then create the button.
         C_Timer.After(1, function() addon.CreateEventQueueButton() end)
     end
-    --[[ DEPRECATED - 2024/06/24
-    if event == "QUEST_TURNED_IN" then
-        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return false end
-        if not activeEvents or activeEvents == {} then return false end
-
-        local questID = ...
-        if questID then
-            for index, evt in next, activeEvents do
-                if evt.questID == questID then
-                    activeEvents[index] = nil
-                    break
-                end
-            end
-        end
-
-        RefreshEvents()
-    end]]
 end)
