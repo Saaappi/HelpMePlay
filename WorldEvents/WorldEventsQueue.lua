@@ -81,14 +81,13 @@ addon.CreateEventQueueButton = function()
         -- buttons so the player can toggle between the active events.
         if (#activeEvents > 1) then
             if not leftChevron then
-                leftChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
+                leftChevron = CreateFrame("Button", nil, worldEventQueueButton)
                 leftChevron:SetSize(20, 20)
-                leftChevron:SetPoint("TOPLEFT", worldEventQueueButton, "BOTTOMLEFT", 2, -5)
+                leftChevron:SetPoint("RIGHT", worldEventQueueButton, "LEFT", -2, 0)
                 leftChevron.texture = leftChevron:CreateTexture()
-                leftChevron.texture:SetPoint("CENTER")
-                leftChevron.texture:SetAtlas("uitools-icon-chevron-left", true)
-
+                leftChevron.texture:SetAtlas("common-icon-backarrow")
                 leftChevron:SetNormalTexture(leftChevron.texture)
+                leftChevron:SetHighlightAtlas("common-icon-backarrow", "ADD")
 
                 leftChevron:SetScript("OnClick", function()
                     if currentEventIndex == 1 then
@@ -98,15 +97,24 @@ addon.CreateEventQueueButton = function()
                     end
                     SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
                 end)
+                leftChevron:SetScript("OnEnter", function(self)
+                    local previewIndex = 0
+                    if currentEventIndex == 1 then
+                        previewIndex = #activeEvents
+                    else
+                        previewIndex = currentEventIndex - 1
+                    end
+                    addon.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
+                end)
+                leftChevron:SetScript("OnLeave", addon.Tooltip_OnLeave)
 
-                rightChevron = CreateFrame("Button", nil, worldEventQueueButton, "UIPanelButtonTemplate")
+                rightChevron = CreateFrame("Button", nil, worldEventQueueButton)
                 rightChevron:SetSize(20, 20)
-                rightChevron:SetPoint("TOPRIGHT", worldEventQueueButton, "BOTTOMRIGHT", -2, -5)
+                rightChevron:SetPoint("LEFT", worldEventQueueButton, "RIGHT", 2, 0)
                 rightChevron.texture = rightChevron:CreateTexture()
-                rightChevron.texture:SetPoint("CENTER")
-                rightChevron.texture:SetAtlas("uitools-icon-chevron-right", true)
-
+                rightChevron.texture:SetAtlas("common-icon-forwardarrow")
                 rightChevron:SetNormalTexture(rightChevron.texture)
+                rightChevron:SetHighlightAtlas("common-icon-forwardarrow", "ADD")
 
                 rightChevron:SetScript("OnClick", function()
                     if currentEventIndex == (#activeEvents) then
@@ -116,6 +124,17 @@ addon.CreateEventQueueButton = function()
                     end
                     SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
                 end)
+                rightChevron:SetScript("OnEnter", function(self)
+                    local previewIndex = 0
+                    if currentEventIndex == (#activeEvents) then
+                        previewIndex = 1
+                    else
+                        previewIndex = currentEventIndex + 1
+                    end
+                    addon.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
+                end)
+                rightChevron:SetScript("OnLeave", addon.Tooltip_OnLeave)
+
                 SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
             end
         elseif (#activeEvents == 1) then
