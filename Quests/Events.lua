@@ -38,7 +38,7 @@ local function QUEST_GOSSIP()
 end
 
 local function QUEST_COMPLETE()
-    if not IsShiftKeyDown() then
+    if not IsShiftKeyDown() and not InCombatLockdown() then
         local questID = GetQuestID()
         if questID then
             if HelpMePlayDB["AcceptAndCompleteQuests"] then

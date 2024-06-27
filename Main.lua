@@ -34,10 +34,24 @@ local function ClearOldSavedVariables()
 	end
 end
 
+local function GetBestMapForPlayer(id)
+	local mapID = id or C_Map.GetBestMapForUnit("player")
+	if mapID then
+		local mapInfo = C_Map.GetMapInfo(mapID)
+		if mapInfo and mapInfo.mapType == 3 then
+			addon.playerMapID = mapID
+		elseif mapInfo and mapInfo.mapType > 3 then
+			GetBestMapForPlayer(mapInfo.parentMapID)
+		end
+	end
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:RegisterEvent("PLAYER_LEVEL_CHANGED")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
+eventHandler:RegisterEvent("ZONE_CHANGED")
+eventHandler:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 eventHandler:SetScript(
 "OnEvent",
 function(self, event, ...)
@@ -276,6 +290,7 @@ function(self, event, ...)
 			addon.playerSpecID = PlayerUtil_GetCurrentSpecID()
 			addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
 			addon.playerGUID = UnitGUID("player")
+			addon.playerMapID = C_Map.GetBestMapForUnit("player")
 
 			-- Get the player's mounts so we can use them.
 			addon.RefreshMountsByType("Ground")
@@ -294,6 +309,9 @@ function(self, event, ...)
 	if event == "PLAYER_SPECIALIZATION_CHANGED" then
 		addon.playerSpecID = PlayerUtil_GetCurrentSpecID()
 		addon.playerSpecName = select(2, GetSpecializationInfoByID(addon.playerSpecID))
+	end
+	if event == "ZONE_CHANGED" or event == "ZONE_CHANGED_NEW_AREA" then
+		GetBestMapForPlayer(nil)
 	end
 end
 )

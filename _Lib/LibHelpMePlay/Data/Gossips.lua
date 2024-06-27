@@ -17,7 +17,11 @@ LHMP.GossipTextLookupByNPC = {
 LHMP.Gossips = {
     -- Non-NPC Gossips
     [0] = {
-        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}}
+        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}},
+        {ID = 40006, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 39082, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 39808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
     },
     -- Exile's Reach
     [153211] = {{ID = 49526, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55763"}}},
@@ -275,6 +279,11 @@ LHMP.Gossips = {
     [71358] = {{ID = 42205, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}},
     [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}},
     [55141] = {{ID = 39490, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29694"}}},
+    [55162] = {{ID = 39687, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29694"}}},
+    [55146] = {{ID = 39686, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29694"}}},
+    [55170] = {{ID = 39688, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29694"}}},
+    [67090] = {{ID = 41782, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31778"}}},
+    [65974] = {{ID = 41756, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31778"}}},
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {

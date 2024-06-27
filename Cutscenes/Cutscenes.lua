@@ -1,30 +1,31 @@
 local addonName, addon = ...
 
-local function IsProtectedCutsceneMap(mapID)
-	for _, id in ipairs(addon.NoCutsceneSkipMaps) do
-		if id == mapID then
-			return true
+local function IsCutsceneProtected(mapID)
+	if addon.NoCutsceneSkipMaps[mapID] then
+		local questIDs = addon.NoCutsceneSkipMaps[mapID].Conditions
+		if next(questIDs) ~= nil then
+			for _, questID in next, addon.NoCutsceneSkipMaps[mapID].Conditions do
+				if C_QuestLog.IsOnQuest(questID) then
+					return true
+				end
+			end
 		end
+		return false
 	end
-	return false
 end
 
 CinematicFrame:HookScript("OnShow", function(self, ...)
     if HelpMePlayDB["SkipCutscenes"] == false then return false end
 
-	if not IsProtectedCutsceneMap(addon.mapID) then
-		C_Timer.After(addon.Constants["TIMER_DELAY"], CinematicFrame_CancelCinematic)
+	if not IsCutsceneProtected(addon.playerMapID) then
+		CinematicFrame_CancelCinematic()
 	end
 end)
 
 hooksecurefunc("MovieFrame_PlayMovie", function(self, movieID)
     if HelpMePlayDB["SkipCutscenes"] == false then return false end
 
-	if not IsProtectedCutsceneMap(addon.mapID) then
-		C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-			self:StopMovie(movieID)
-			self:Hide()
-			GameMovieFinished()
-		end)
+	if not IsCutsceneProtected(addon.playerMapID) then
+		MovieFrame:Hide()
 	end
 end)
