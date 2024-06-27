@@ -58,12 +58,6 @@ local function OnSettingChanged(_, setting, value)
     end
 end
 
--- Compare's elements of a table, and then sorts them
--- alphabetically by the Name attribute.
-local function Compare(a, b)
-    return a.Name < b.Name
-end
-
 local REMIX_SECTION = "Remix: Mists of Pandaria"
 local GENERAL_SECTION = "General"
 local QUEST_SECTION = "Quest"
@@ -93,6 +87,37 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local addonLoaded = ...
         if addonLoaded == addonName then
             C_Timer.After(1, function()
+                -- Toggle All Button
+                do
+                    local name = ""
+                    local buttonText = "Toggle All"
+                    local tooltipText = "Click to toggle all settings off. Click again to restore the settings to their previous state."
+                    local clickHandler = function()
+                        if next(HelpMePlayDB["TempSettings"]) == nil then
+                            for key, value in next, HelpMePlayDB do
+                                if type(HelpMePlayDB[key]) == "boolean" then
+                                    HelpMePlayDB["TempSettings"][key] = value
+                                    Settings.SetValue(key, false)
+                                elseif key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
+                                    HelpMePlayDB["TempSettings"][key] = value / 10000
+                                    Settings.SetValue(key, 0)
+                                elseif type(HelpMePlayDB[key]) == "number" then
+                                    HelpMePlayDB["TempSettings"][key] = value
+                                    Settings.SetValue(key, 0)
+                                end
+                            end
+                        else
+                            for key, value in next, HelpMePlayDB["TempSettings"] do
+                                Settings.SetValue(key, value)
+                            end
+                            HelpMePlayDB["TempSettings"] = {}
+                        end
+                    end
+
+                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+                    addon.layout:AddInitializer(initializer)
+                end
+
                 ----------------------
                 -- REMIX SECTION -----
                 ----------------------
@@ -499,6 +524,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         container:Add(6, "BOTTOMRIGHT")
                         container:Add(7, "BOTTOM")
                         container:Add(8, "BOTTOMLEFT")
+                        container:Add(0, NONE)
                         return container:GetData()
                     end
 

@@ -4,6 +4,36 @@ local C_AddOns_IsAddOnLoaded, C_ClassColor_GetClassColor, C_Timer_After, CreateF
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
+local function ClearOldSavedVariables()
+	local variables = {
+		"MinimapIconEnabled",
+		"AcceptAndCompleteAllQuests",
+		"DebugModeEnabled",
+		"Junker",
+		"MerchantItems",
+		"Enabled",
+		"PlayerTalents",
+		"NONE",
+		"IgnoredCreatures",
+		"TheMawEnabled",
+		"GuideQuests",
+		"GuideQuestItems",
+		"GuideGossips",
+		"DynamicFlightTrait1",
+		"DynamicFlightTrait2",
+		"NCCEnabled",
+		"AGE",
+		"ShouldRepair",
+		"UseHeirloomAutomation",
+		"Heirlooms",
+		"OpenHolidayItems"
+	}
+
+	for _, variable in next, variables do
+		HelpMePlayDB[variable] = nil
+	end
+end
+
 eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:RegisterEvent("PLAYER_LEVEL_CHANGED")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
@@ -41,9 +71,6 @@ function(self, event, ...)
 			end
 			if HelpMePlayDB["AcceptAndCompleteQuests"] == nil then
 				HelpMePlayDB["AcceptAndCompleteQuests"] = false
-			end
-			if HelpMePlayDB["AcceptAndCompleteAllQuests"] == nil then
-				HelpMePlayDB["AcceptAndCompleteAllQuests"] = false
 			end
 			if HelpMePlayDB["IgnoreRepeatableQuests"] == nil then
 				HelpMePlayDB["IgnoreRepeatableQuests"] = false
@@ -206,9 +233,12 @@ function(self, event, ...)
 				HelpMePlayDB["ClassTalents"][13] = {}
 			end
 
-			-- If the Heirloom table is nil, then initialize it.
-			if HelpMePlayDB["Heirlooms"] == nil then
-				HelpMePlayDB["Heirlooms"] = {}
+			-- TempSettings is used to support the Toggle All button
+			-- in the settings. This allows the player to toggle off
+			-- all settings, effectively disabling the addon, without
+			-- reloading the UI.
+			if HelpMePlayDB["TempSettings"] == nil then
+				HelpMePlayDB["TempSettings"] = {}
 			end
 
 			-- If the Mounts table is nil, then initialize it.
@@ -223,31 +253,8 @@ function(self, event, ...)
 				HelpMePlayDB["Mounts"]["Unused"] = {}
 			end
 
-			-- Delete the old, unused saved variables.
-			HelpMePlayDB["MinimapIconEnabled"] = nil
-			HelpMePlayDB["Junker"] = nil
-			HelpMePlayDB["MerchantItems"] = nil
-			HelpMePlayDB["PlayerTalents"] = nil
-			HelpMePlayDB["Enabled"] = nil
-			HelpMePlayDB["NONE"] = nil
-			HelpMePlayDB["IgnoredCreatures"] = nil
-			HelpMePlayDB["TheMawEnabled"] = nil
-			HelpMePlayDB["GuideQuests"] = nil
-			HelpMePlayDB["GuideQuestItems"] = nil
-			HelpMePlayDB["GuideGossips"] = nil
-			HelpMePlayDB["DynamicFlightTrait1"] = nil
-			HelpMePlayDB["DynamicFlightTrait2"] = nil
-			HelpMePlayDB["NCCEnabled"] = nil
-			HelpMePlayDB["AGE"] = nil
-			HelpMePlayDB["ShouldRepair"] = nil
-			HelpMePlayDB["UseHeirloomAutomation"] = nil
-			if HelpMePlayDB["Heirlooms"] then
-				HelpMePlayDB["Heirlooms"] = nil
-			end
-			if HelpMePlayDB["OpenHolidayItems"] then
-				HelpMePlayDB["OpenContainers"] = HelpMePlayDB["OpenHolidayItems"]
-				HelpMePlayDB["OpenHolidayItems"] = nil
-			end
+			-- Remove old saved variables.
+			ClearOldSavedVariables()
 
 			-- Unload the event for performance.
 			eventHandler:UnregisterEvent("ADDON_LOADED")

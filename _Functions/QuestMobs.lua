@@ -46,24 +46,30 @@ addon.UpdateQuestMobsIcon = function()
                 if unit and (not UnitIsPlayer(unit)) then
                     local nameplate = C_NamePlate.GetNamePlateForUnit(unit)
                     if nameplate then
-                        if nameplate[addonName .. "QuestMobsIcon"] then
-                            local isUnitRelatedToActiveQuest = addon.IsNameplateUnitRelatedToActiveQuest(nameplate.namePlateUnitToken)
-                            if isUnitRelatedToActiveQuest then
-                                if HelpMePlayDB["QuestMobsIconID"] == 0 then
-                                    nameplate[addonName .. "QuestMobsIcon"]:Hide()
-                                elseif HelpMePlayDB["QuestMobsIconID"] == 1 then
-                                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType1)
-                                    nameplate[addonName .. "QuestMobsIcon"]:Show()
-                                elseif HelpMePlayDB["QuestMobsIconID"] == 2 then
-                                    nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType2)
-                                    nameplate[addonName .. "QuestMobsIcon"]:Show()
-                                else
-                                    nameplate[addonName .. "QuestMobsIcon"]:SetTexture(HelpMePlayDB["QuestMobsCustomIcon"])
-                                    nameplate[addonName .. "QuestMobsIcon"]:Show()
-                                end
+                        if HelpMePlayDB["QuestMobsIconID"] == 0 or HelpMePlayDB["QuestMobsIconPositionID"] == 0 then
+                            if nameplate[addonName .. "QuestMobsIcon"] then
+                                nameplate[addonName .. "QuestMobsIcon"]:Hide()
                             end
                         else
-                            addon.UpdateNamePlate(nameplate)
+                            if nameplate[addonName .. "QuestMobsIcon"] then
+                                local isUnitRelatedToActiveQuest = addon.IsNameplateUnitRelatedToActiveQuest(nameplate.namePlateUnitToken)
+                                if isUnitRelatedToActiveQuest then
+                                    if HelpMePlayDB["QuestMobsIconID"] == 0 then
+                                        nameplate[addonName .. "QuestMobsIcon"]:Hide()
+                                    elseif HelpMePlayDB["QuestMobsIconID"] == 1 then
+                                        nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType1)
+                                        nameplate[addonName .. "QuestMobsIcon"]:Show()
+                                    elseif HelpMePlayDB["QuestMobsIconID"] == 2 then
+                                        nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType2)
+                                        nameplate[addonName .. "QuestMobsIcon"]:Show()
+                                    else
+                                        nameplate[addonName .. "QuestMobsIcon"]:SetTexture(HelpMePlayDB["QuestMobsCustomIcon"])
+                                        nameplate[addonName .. "QuestMobsIcon"]:Show()
+                                    end
+                                end
+                            else
+                                addon.UpdateNamePlate(nameplate)
+                            end
                         end
                     end
                 end
@@ -80,10 +86,18 @@ addon.UpdateQuestMobsIconPosition = function()
             if unit and (not UnitIsPlayer(unit)) then
                 local nameplate = C_NamePlate.GetNamePlateForUnit(unit)
                 if nameplate then
-                    if nameplate[addonName .. "QuestMobsIcon"] then
-                        nameplate[addonName .. "QuestMobsIcon"]:ClearAllPoints()
-                        local position = addon.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
-                        nameplate[addonName .. "QuestMobsIcon"]:SetPoint(addon.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
+                    if HelpMePlayDB["QuestMobsIconID"] == 0 or HelpMePlayDB["QuestMobsIconPositionID"] == 0 then
+                        if nameplate[addonName .. "QuestMobsIcon"] then
+                            nameplate[addonName .. "QuestMobsIcon"]:Hide()
+                        end
+                    else
+                        if nameplate[addonName .. "QuestMobsIcon"] then
+                            nameplate[addonName .. "QuestMobsIcon"]:ClearAllPoints()
+                            local position = addon.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
+                            if position then
+                                nameplate[addonName .. "QuestMobsIcon"]:SetPoint(addon.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
+                            end
+                        end
                     end
                 end
             end
@@ -104,6 +118,12 @@ end
 
 -- Adds or removes the Quest Mobs icon from the nameplate.
 addon.UpdateNamePlate = function(nameplate)
+    if HelpMePlayDB["QuestMobsIconID"] == 0 or HelpMePlayDB["QuestMobsIconPositionID"] == 0 then
+        if nameplate[addonName .. "QuestMobsIcon"] then
+            nameplate[addonName .. "QuestMobsIcon"]:Hide()
+        end
+        return true
+    end
     local isUnitRelatedToActiveQuest = addon.IsNameplateUnitRelatedToActiveQuest(nameplate.namePlateUnitToken)
     C_Timer.After(addon.Constants["TIMER_DELAY"], function()
         if isUnitRelatedToActiveQuest then
