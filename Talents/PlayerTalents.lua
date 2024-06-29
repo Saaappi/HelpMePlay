@@ -104,7 +104,7 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
                 -- Check if the imported string is from the current patch. If it's
                 -- not, then we need to return an error and the player must import
                 -- a new string.
-                if not string.find(HelpMePlayDB["ClassTalents"][classID][specID].importDate, (GetBuildInfo())) then
+                if not string.find(HelpMePlayDB["ClassTalents"][classID][specID].importPatch, (GetBuildInfo())) then
                     ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
                     return false
                 end
@@ -141,4 +141,8 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
     }
     setmetatable(classTalentsButton, { __index = HelpMePlay.Button })
     classTalentsButton = classTalentsButton:IconButtonSelfTooltip()
+
+    if C_AddOns.IsAddOnLoaded("ZygorGuidesViewer") then
+        classTalentsButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -50, 0)
+    end
 end)
