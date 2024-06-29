@@ -209,7 +209,10 @@ LHMP.Gossips = {
     [56690] = {{ID = 40617, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29883"}}},
     [56693] = {{ID = 40427, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29883"}}},
     [55343] = {{ID = 40098, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29733"}}},
-    [55381] = {{ID = 40113, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29726"}}},
+    [55381] = {
+        {ID = 40113, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29726"}},
+        {ID = 40114, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29730"}}
+    },
     [56434] = {{ID = 40503, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29901"}}},
     [56737] = {{ID = 41374, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29922"}}},
     [55267] = {{ID = 39304, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29716"}}},
@@ -286,6 +289,9 @@ LHMP.Gossips = {
     [65974] = {{ID = 41756, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31778"}}},
     [56340] = {{ID = 40184, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
     [56336] = {{ID = 40464, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
+    [56478] = {{ID = 40187, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
+    [56477] = {{ID = 40186, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
+    [55688] = {{ID = 39795, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29823"}}},
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {
