@@ -77,9 +77,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         local GUID = UnitGUID("target")
                         if GUID then
                             local npcID = LHMP:SplitString(GUID, "-", 6)
-                            print(npcID)
+                            print(format("%d - %s", npcID, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
                         else
-                            print(0) -- This is for gossips associated to non-NPCs.
+                            print(format("%d - %s", 0, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()))) -- This is for gossips associated to non-NPCs.
                         end
 
                         -- Gossips
