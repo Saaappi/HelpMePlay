@@ -3,7 +3,12 @@ local button
 
 EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID)
     if PlayerGetTimerunningSeasonID() == 1 then return false end
-    if _G["CollectionsJournalTab" .. tabID]:GetText() ~= "Heirlooms" then return false end
+    if _G["CollectionsJournalTab" .. tabID]:GetText() ~= HEIRLOOMS then
+        if button then
+            button:Hide()
+        end
+        return false
+    end
 
     if not button and tabID == 4 then
         button = addon.CreateSecureButton({

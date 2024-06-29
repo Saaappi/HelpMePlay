@@ -19,3 +19,4 @@
   - _**Author's Note:** This was unlikely to ever occur prior to B8.3, but with the introduction of the **Toggle All** button it would manifest itself in average play._
 - Quests will no longer be completed while in combat.
 - Current talent loadouts should no longer report that they're outdated.
+- The Heirloom button should no longer appear for other tabs of the Collections Journal.
