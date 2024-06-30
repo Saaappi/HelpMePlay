@@ -113,9 +113,10 @@ local function GetRandomMountByType(type)
         -- on the opposing faction, then the opposite faction will attempt to
         -- use faction-specific mounts. This should eliminate the error and
         -- prevent the need of clicking the keybind a second time.
-        if mount and (mount.faction == nil or mount.faction == addon.playerFactionID) then
-            return mount.mountID
-        end
+        if mount.faction ~= nil and mount.faction ~= addon.playerFactionID then return 0 end
+
+        -- Return the mount ID
+        return mount.mountID
     end
 end
 
@@ -221,6 +222,9 @@ addon.Mount = function()
     elseif (IsFlyableArea() and addon.playerLevel >= 30) and IsOutdoors() then -- Static Flying Mounts
         C_MountJournal.SummonByID(GetRandomMountByType("Flying"))
     else -- Ground Mounts
-        C_MountJournal.SummonByID(GetRandomMountByType("Ground"))
+        local mountID = GetRandomMountByType("Ground")
+        if mountID ~= 0 then
+            C_MountJournal.SummonByID(mountID)
+        end
     end
 end
