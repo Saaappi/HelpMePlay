@@ -151,11 +151,6 @@ function LHMP:IsEventQueueable(eventID)
         return false
     end
     return true
-    --[[ DEPRECATED - 2024/06/24
-    local questID = LHMP.WorldEvents[eventID].questID
-    if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
-        return true
-    end]]
 end
 function LHMP:GetWorldEvent(eventID)
     if not LHMP.WorldEvents[eventID] then
@@ -216,27 +211,3 @@ function LHMP:GetRandomSpecIDByClassID(classID)
     local specName = select(2, GetSpecializationInfoForClassID(classID, specIndex))
     return specName
 end
-
------------------------------
--- PLAYER CONDITION SYSTEM --
------------------------------
--- Currently, I only use this system for the World Event queue
--- automation. I'm not sure I'll convert the entire addon to use
--- it.
---[[ DEPRECATED - 2024/06/24
-function LHMP:ValidatePlayerCondition(condition, value)
-    if condition == "ACQUIRED_ITEM" then
-        for bag = 4, 0, -1 do
-            for slot = C_Container.GetContainerNumSlots(bag), 1, -1 do
-                local item = Item:CreateFromBagAndSlot(bag, slot)
-                if not item:IsItemEmpty() then
-                    local itemID = item:GetItemID()
-                    if itemID == value then
-                        return true
-                    end
-                end
-            end
-        end
-        return false
-    end
-end]]
