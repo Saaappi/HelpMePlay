@@ -126,7 +126,7 @@ end
 local function GetRandomMountByType(type)
     -- If we ran out of mounts for a given type, then
     -- refresh the mounts for that type.
-    if mounts[type] == nil or (#mounts[type] == 0) then
+    if mounts[type] == nil or (#mounts[type] < 10) then
         addon.RefreshMountsByType(type)
     end
 
