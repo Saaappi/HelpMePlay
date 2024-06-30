@@ -8,7 +8,9 @@ addon.RefreshMountsByType = function(type)
     end
 
     for _, mount in pairs(HelpMePlayDB["Mounts"][type]) do
-        table.insert(mounts[type], mount)
+        if mount.faction == nil or mount.faction == addon.playerFactionID then
+            table.insert(mounts[type], mount)
+        end
     end
 end
 
@@ -109,11 +111,7 @@ local function GetRandomMountByType(type)
         -- Remove the mount from the original table.
         table.remove(mounts[type], index)
 
-        -- Let's deal with a faction check. If the player categorizes mounts
-        -- on the opposing faction, then the opposite faction will attempt to
-        -- use faction-specific mounts. This should eliminate the error and
-        -- prevent the need of clicking the keybind a second time.
-        if mount.faction ~= nil and mount.faction ~= addon.playerFactionID then return 0 end
+        print(mount.mountID)
 
         -- Return the mount ID
         return mount.mountID
