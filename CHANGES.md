@@ -20,6 +20,8 @@
 - Quests will no longer be completed while in combat.
 - Current talent loadouts should no longer report that they're outdated.
 - The Heirloom button should no longer appear for other tabs of the Collections Journal.
-- Mounts of the opposing faction should no longer be used on the current faction.
-- Fixed the missing 241 mount type.
-- The addon will no longer attempt to mount while the player is in combat or actively moving.
+- Fixed a missing mount type for Ahn'Qiraj.
+  - _**Author's Note:** These mounts should now be categorized appropriately and summoned in the raid._
+- Mounts of the opposing faction should no longer be summoned on the current faction.
+- Mounts the player cannot use (e.g. Engineering mounts on a non-engineer) should no longer be summoned.
+- Mount automation can no longer be used while in combat or while moving.

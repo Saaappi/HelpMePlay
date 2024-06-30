@@ -2,6 +2,24 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local button
 
+local function ResetAllMounts()
+    -- Wipe out the mount tables.
+    for _, mounts in ipairs(HelpMePlayDB["Mounts"]) do
+        mounts = {}
+    end
+
+    -- Categorize the mounts.
+    local mounts = C_MountJournal.GetMountIDs()
+    for _, mountID in ipairs(mounts) do
+        addon.CategorizeMountByID(mountID)
+    end
+
+    -- Refresh the mounts.
+    for mountType in ipairs(HelpMePlayDB["Mounts"]) do
+        addon.RefreshMountsByType(mountType)
+    end
+end
+
 eventHandler:RegisterEvent("NEW_MOUNT_ADDED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "NEW_MOUNT_ADDED" then
@@ -28,21 +46,17 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
             useFontString = true,
             fontStringText = "Categorize Mounts",
             onClick = function()
-                if not InCombatLockdown() then
+                if not InCombatLockdown() and not IsPlayerMoving() then
                     -- Reset the mount tables.
-                    HelpMePlayDB["Mounts"]["Ground"] = {}
+                    --[[HelpMePlayDB["Mounts"]["Ground"] = {}
                     HelpMePlayDB["Mounts"]["Aquatic"] = {}
                     HelpMePlayDB["Mounts"]["Flying"] = {}
                     HelpMePlayDB["Mounts"]["Dynamic"] = {}
                     HelpMePlayDB["Mounts"]["AQ"] = {}
                     HelpMePlayDB["Mounts"]["Vashjir"] = {}
-                    HelpMePlayDB["Mounts"]["Unused"] = {}
+                    HelpMePlayDB["Mounts"]["Unused"] = {}]]
 
-                    -- Categorize the mounts.
-                    local mounts = C_MountJournal.GetMountIDs()
-                    for _, mountID in ipairs(mounts) do
-                        addon.CategorizeMountByID(mountID)
-                    end
+                    ResetAllMounts()
                 end
             end,
         }

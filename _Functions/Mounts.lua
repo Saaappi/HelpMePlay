@@ -8,7 +8,7 @@ addon.RefreshMountsByType = function(type)
     end
 
     for _, mount in pairs(HelpMePlayDB["Mounts"][type]) do
-        if mount.faction == nil or mount.faction == addon.playerFactionID then
+        if (mount.faction == nil or mount.faction == addon.playerFactionID) and (not mount.shouldHideOnChar) then
             table.insert(mounts[type], mount)
         end
     end
@@ -85,7 +85,7 @@ addon.CategorizeMountByID = function(mountID)
         if mountTypeID then
             local mountTypeName = GetMountTypeNameByID(mountTypeID)
             if mountTypeName ~= "UNK" then
-                table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID, faction = factionID})
+                table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID, faction = factionID, shouldHideOnChar = shouldHideOnChar})
             else
                 HelpMePlay.Print(format(addon.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
             end
