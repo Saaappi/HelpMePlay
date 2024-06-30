@@ -7,12 +7,12 @@ addon.RefreshMountsByType = function(type)
         mounts[type] = {}
     end
 
-    for mountID in pairs(HelpMePlayDB["Mounts"][type]) do
-        table.insert(mounts[type], mountID)
+    for _, mount in pairs(HelpMePlayDB["Mounts"][type]) do
+        table.insert(mounts[type], mount)
     end
 end
 
-addon.GetPlayerDurability = function(durabilityThreshold)
+local function GetPlayerDurability(threshold)
     local slots = { 1, 3, 5, 6, 7, 8, 9, 10, 16, 17 }
     local totalCurrentDurability = 0
     local totalMaxDurability = 0
@@ -28,23 +28,24 @@ addon.GetPlayerDurability = function(durabilityThreshold)
     end
     if totalCurrentDurability > 0 and totalMaxDurability > 0 then
         local durability = (totalCurrentDurability / totalMaxDurability) * 100
-        if durability <= durabilityThreshold then
+        if durability <= threshold then
             return true
         end
     end
     return false
 end
 
-addon.GetFreeInventorySpace = function(numFreeSlots, numTotalSlots, inventoryThreshold)
+local function GetFreeInventorySpacePercentage(numFreeSlots, numTotalSlots, threshold)
     local spaceUsed = (numFreeSlots / numTotalSlots) * 100
-    if (100 - spaceUsed) >= (100 - inventoryThreshold) then
+    if (100 - spaceUsed) >= (100 - threshold) then
         return true
     end
     return false
 end
 
+
 -- Get the mount type name from Data\Mounts.lua.
-addon.GetMountTypeNameByID = function(mountTypeID)
+local function GetMountTypeNameByID(mountTypeID)
     if addon.MountTypes[mountTypeID] then
         return addon.MountTypes[mountTypeID]
     end
@@ -53,6 +54,7 @@ end
 
 -- This function is used to determine if a mount was
 -- previously categorized.
+--[[ DEPRECATED - 2024/06/29
 addon.IsMountCategorized = function(mountID)
     local mergedTable = addon.MergeTables(
         HelpMePlayDB["Mounts"]["Ground"],
@@ -70,18 +72,28 @@ addon.IsMountCategorized = function(mountID)
         end
     end
     return false
-end
+end]]
 
 -- If the mount hasn't been categorized, then let's categorize
 -- it.
 addon.CategorizeMountByID = function(mountID)
-    local isMountCategorized = addon.IsMountCategorized(mountID)
-    if not isMountCategorized then
-        local mountInfo = { C_MountJournal.GetMountInfoByID(mountID) }
-        if mountInfo then
-            local isCollected = select(11, unpack(mountInfo))
+    --local isMountCategorized = addon.IsMountCategorized(mountID)
+    --if not isMountCategorized then
+        local name, spellID, icon, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, factionID, shouldHideOnChar, isCollected, _, isForDragonriding = C_MountJournal.GetMountInfoByID(mountID)
+        if isCollected then
+            local creatureDisplayInfoID, description, source, isSelfMount, mountTypeID, uiModelSceneID, animID, spellVisualKitID, disablePlayerMountPreview = C_MountJournal.GetMountInfoExtraByID(mountID)
+            if mountTypeID then
+                local mountTypeName = GetMountTypeNameByID(mountTypeID)
+                if mountTypeName ~= "UNK" then
+                    table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID, faction = factionID})
+                else
+                    HelpMePlay.Print(format(addon.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
+                end
+            end
+        end
+        return false
+        --[[if mountInfo then
             if isCollected then
-                local isUsable = select(5, unpack(mountInfo))
                 if isUsable then
                     local unitFactionGroupID = UnitFactionGroup("player")
                     if unitFactionGroupID == "Alliance" then
@@ -91,29 +103,27 @@ addon.CategorizeMountByID = function(mountID)
                     else -- This is a neutral mount.
                         unitFactionGroupID = nil
                     end
-                    local factionID = select(9, unpack(mountInfo))
                     if factionID == nil or factionID == unitFactionGroupID then
                         local mountTypeID = select(5, C_MountJournal.GetMountInfoExtraByID(mountID))
                         if mountTypeID then
-                            local mountTypeName = addon.GetMountTypeNameByID(mountTypeID)
+                            local mountTypeName = GetMountTypeNameByID(mountTypeID)
                             if mountTypeName ~= "UNK" then
                                 local mountName = select(1, unpack(mountInfo))
                                 HelpMePlayDB["Mounts"][mountTypeName][mountID] = mountName
                             else
-                                HelpMePlay.Print(format("{DEBUG} {%d} Mount type is unknown. Please screenshot this message and report it on Github.", mountTypeID))
+                                
                             end
                         end
                     end
                 end
             end
-        end
-    end
-    return false
+        end]]
+    --end
+    --return false
 end
 
 -- Gets a random mount based on the given type.
-addon.GetRandomMountByType = function(type)
-
+local function GetRandomMountByType(type)
     -- If we ran out of mounts for a given type, then
     -- refresh the mounts for that type.
     if mounts[type] == nil or (#mounts[type] == 0) then
@@ -124,16 +134,22 @@ addon.GetRandomMountByType = function(type)
     -- mountID at that index.
     if mounts[type] then
         local index = math.random(1, #mounts[type])
-        local mountID = mounts[type][index]
+        local mount = mounts[type][index]
 
         -- Remove the mount from the original table.
         table.remove(mounts[type], index)
 
-        return mountID
+        -- Let's deal with a faction check. If the player categorizes mounts
+        -- on the opposing faction, then the opposite faction will attempt to
+        -- use faction-specific mounts. This should eliminate the error and
+        -- prevent the need of clicking the keybind a second time.
+        if mount and (mount.faction == nil or mount.faction == addon.playerFactionID) then
+            return mount.mountID
+        end
     end
 end
 
-addon.IsMountCollected = function(mountID)
+local function IsMountCollected(mountID)
     local isCollected = select(11, C_MountJournal.GetMountInfoByID(mountID))
     if isCollected then
         return true
@@ -160,21 +176,19 @@ addon.Mount = function()
         numFreeSlots = numFreeSlots + C_Container.GetContainerNumFreeSlots(bagID)
     end
 
-    if addon.playerLevel < 10 and IsOutdoors() and (not LHMP:IsPlayerHeroClass(addon.playerClassID)) then
-        -- If the player is outdoors and is less than level 10, then
-        -- use the chauffered chopper mount based on their faction.
+    if addon.playerLevel < 10 and IsOutdoors() and (not LHMP:IsPlayerHeroClass(addon.playerClassID)) then -- Chauffer Mount
         if UnitFactionGroup("player") == "Alliance" then
-            if addon.IsMountCollected(679) then
-                C_MountJournal.SummonByID(679)
+            local mountID = 679
+            if IsMountCollected(mountID) then
+                C_MountJournal.SummonByID(mountID)
             end
         elseif UnitFactionGroup("player") == "Horde" then
-            if addon.IsMountCollected(678) then
-                C_MountJournal.SummonByID(678)
+            local mountID = 678
+            if IsMountCollected(mountID) then
+                C_MountJournal.SummonByID(mountID)
             end
-        else
-            HelpMePlay.Print("{DEBUG} Faction not supported for mount use. Please screenshot this message and report it on Github.")
         end
-    elseif IsSubmerged() and IsOutdoors() then
+    elseif IsSubmerged() and IsOutdoors() then -- Aquatic Mounts
         -- If the player is submerged/swimming and they're outdoors,
         -- then summon an aquatic mount.
         --
@@ -183,30 +197,30 @@ addon.Mount = function()
         -- aquatic mount.
         if addon.SpecialMaps[addon.mapID] then
             local mountID = addon.SpecialMaps[addon.mapID][1]
-            if addon.IsMountCollected(mountID) then
+            if IsMountCollected(mountID) then
                 C_MountJournal.SummonByID(mountID)
             else
-                C_MountJournal.SummonByID(addon.GetRandomMountByType("Aquatic"))
+                C_MountJournal.SummonByID(GetRandomMountByType("Aquatic"))
             end
         else
-            C_MountJournal.SummonByID(addon.GetRandomMountByType("Aquatic"))
+            C_MountJournal.SummonByID(GetRandomMountByType("Aquatic"))
         end
-    elseif addon.SpecialMaps[addon.mapID] and IsOutdoors() then
+    elseif addon.SpecialMaps[addon.mapID] and IsOutdoors() then -- Ahn'Qiraj Mounts
         -- If the player is in a special map, such as Ahn'Qiraj,
         -- then use a random mount from the list.
         local randomNum = random(1, #addon.SpecialMaps[addon.mapID])
         local mountID = addon.SpecialMaps[addon.mapID][randomNum]
-        if addon.IsMountCollected(mountID) then
+        if IsMountCollected(mountID) then
             C_MountJournal.SummonByID(mountID)
         end
-    elseif addon.GetFreeInventorySpace(numFreeSlots, numTotalSlots, 20) or addon.GetPlayerDurability(70) then
+    elseif GetFreeInventorySpacePercentage(numFreeSlots, numTotalSlots, 20) or GetPlayerDurability(70) then -- Inventory Mounts (to repair/vendor)
         -- If the player's available bag space is less than or equal
         -- to 20%, then use a vendor mount.
         --
         -- If the player's durability is less than or equal to 70%,
         -- then use a vendor mount.
         local mountID = 460
-        if addon.IsMountCollected(mountID) then
+        if IsMountCollected(mountID) then
             C_MountJournal.SummonByID(mountID)
         else
             if UnitFactionGroup("player") == "Alliance" then
@@ -214,7 +228,7 @@ addon.Mount = function()
             else
                 mountID = 284
             end
-            if addon.IsMountCollected(mountID) then
+            if IsMountCollected(mountID) then
                 C_MountJournal.SummonByID(mountID)
             else
                 -- The player doesn't have the Traveler's Tundra Mammoth
@@ -224,22 +238,19 @@ addon.Mount = function()
                 -- Pick a random mount to use instead based on the player's
                 -- level.
                 if addon.playerLevel >= 10 and addon.playerLevel < 30 then
-                    C_MountJournal.SummonByID(addon.GetRandomMountByType("Ground"))
+                    C_MountJournal.SummonByID(GetRandomMountByType("Ground"))
                 elseif addon.playerLevel >= 30 and addon.playerLevel < 60 then
-                    C_MountJournal.SummonByID(addon.GetRandomMountByType("Flying"))
+                    C_MountJournal.SummonByID(GetRandomMountByType("Flying"))
                 else
-                    C_MountJournal.SummonByID(addon.GetRandomMountByType("Dynamic"))
+                    C_MountJournal.SummonByID(GetRandomMountByType("Dynamic"))
                 end
             end
         end
-    elseif IsAdvancedFlyableArea() and IsOutdoors() and (not IsShiftKeyDown()) then
-        -- Use a Dragonriding (Skyriding) mount.
-        C_MountJournal.SummonByID(addon.GetRandomMountByType("Dynamic"))
-    elseif (IsFlyableArea() and addon.playerLevel >= 30) and IsOutdoors() then
-        -- Use a normal flying mount.
-        C_MountJournal.SummonByID(addon.GetRandomMountByType("Flying"))
-    else
-        -- Use a ground mount.
-        C_MountJournal.SummonByID(addon.GetRandomMountByType("Ground"))
+    elseif IsAdvancedFlyableArea() and IsOutdoors() and (not IsShiftKeyDown()) then -- Skyriding Mounts
+        C_MountJournal.SummonByID(GetRandomMountByType("Dynamic"))
+    elseif (IsFlyableArea() and addon.playerLevel >= 30) and IsOutdoors() then -- Static Flying Mounts
+        C_MountJournal.SummonByID(GetRandomMountByType("Flying"))
+    else -- Ground Mounts
+        C_MountJournal.SummonByID(GetRandomMountByType("Ground"))
     end
 end

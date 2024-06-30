@@ -28,7 +28,17 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
             useFontString = true,
             fontStringText = "Categorize Mounts",
             onClick = function()
-                if not UnitAffectingCombat("player") then
+                if not InCombatLockdown() then
+                    -- Reset the mount tables.
+                    HelpMePlayDB["Mounts"]["Ground"] = {}
+                    HelpMePlayDB["Mounts"]["Aquatic"] = {}
+                    HelpMePlayDB["Mounts"]["Flying"] = {}
+                    HelpMePlayDB["Mounts"]["Dynamic"] = {}
+                    HelpMePlayDB["Mounts"]["AQ"] = {}
+                    HelpMePlayDB["Mounts"]["Vashjir"] = {}
+                    HelpMePlayDB["Mounts"]["Unused"] = {}
+
+                    -- Categorize the mounts.
                     local mounts = C_MountJournal.GetMountIDs()
                     for _, mountID in ipairs(mounts) do
                         addon.CategorizeMountByID(mountID)

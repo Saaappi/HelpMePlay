@@ -292,6 +292,13 @@ function(self, event, ...)
 			addon.playerGUID = UnitGUID("player")
 			addon.playerMapID = C_Map.GetBestMapForUnit("player")
 
+			local faction = UnitFactionGroup("player")
+			if faction == "Alliance" then
+				addon.playerFactionID = 1
+			elseif faction == "Horde" then
+				addon.playerFactionID = 0
+			end
+
 			-- Get the player's mounts so we can use them.
 			addon.RefreshMountsByType("Ground")
 			addon.RefreshMountsByType("Flying")

@@ -20,3 +20,5 @@
 - Quests will no longer be completed while in combat.
 - Current talent loadouts should no longer report that they're outdated.
 - The Heirloom button should no longer appear for other tabs of the Collections Journal.
+- Mounts of the opposing faction should no longer be used on the current faction.
+- Fixed the missing 241 mount type.

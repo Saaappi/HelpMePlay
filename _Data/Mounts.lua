@@ -13,6 +13,7 @@ addon.SpecialMaps = {
 addon.MountTypes = {
     [230] = "Ground",
     [231] = "Aquatic",
+    [241] = "AQ",
     [242] = "Flying",
     [247] = "Flying",
     [248] = "Flying",
