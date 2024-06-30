@@ -77,49 +77,19 @@ end]]
 -- If the mount hasn't been categorized, then let's categorize
 -- it.
 addon.CategorizeMountByID = function(mountID)
-    --local isMountCategorized = addon.IsMountCategorized(mountID)
-    --if not isMountCategorized then
-        local name, spellID, icon, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, factionID, shouldHideOnChar, isCollected, _, isForDragonriding = C_MountJournal.GetMountInfoByID(mountID)
-        if isCollected then
-            local creatureDisplayInfoID, description, source, isSelfMount, mountTypeID, uiModelSceneID, animID, spellVisualKitID, disablePlayerMountPreview = C_MountJournal.GetMountInfoExtraByID(mountID)
-            if mountTypeID then
-                local mountTypeName = GetMountTypeNameByID(mountTypeID)
-                if mountTypeName ~= "UNK" then
-                    table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID, faction = factionID})
-                else
-                    HelpMePlay.Print(format(addon.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
-                end
+    local name, spellID, icon, isActive, isUsable, sourceType, isFavorite, isFactionSpecific, factionID, shouldHideOnChar, isCollected, _, isForDragonriding = C_MountJournal.GetMountInfoByID(mountID)
+    if isCollected then
+        local creatureDisplayInfoID, description, source, isSelfMount, mountTypeID, uiModelSceneID, animID, spellVisualKitID, disablePlayerMountPreview = C_MountJournal.GetMountInfoExtraByID(mountID)
+        if mountTypeID then
+            local mountTypeName = GetMountTypeNameByID(mountTypeID)
+            if mountTypeName ~= "UNK" then
+                table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID, faction = factionID})
+            else
+                HelpMePlay.Print(format(addon.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
             end
         end
-        return false
-        --[[if mountInfo then
-            if isCollected then
-                if isUsable then
-                    local unitFactionGroupID = UnitFactionGroup("player")
-                    if unitFactionGroupID == "Alliance" then
-                        unitFactionGroupID = 1
-                    elseif unitFactionGroupID == "Horde" then
-                        unitFactionGroupID = 0
-                    else -- This is a neutral mount.
-                        unitFactionGroupID = nil
-                    end
-                    if factionID == nil or factionID == unitFactionGroupID then
-                        local mountTypeID = select(5, C_MountJournal.GetMountInfoExtraByID(mountID))
-                        if mountTypeID then
-                            local mountTypeName = GetMountTypeNameByID(mountTypeID)
-                            if mountTypeName ~= "UNK" then
-                                local mountName = select(1, unpack(mountInfo))
-                                HelpMePlayDB["Mounts"][mountTypeName][mountID] = mountName
-                            else
-                                
-                            end
-                        end
-                    end
-                end
-            end
-        end]]
-    --end
-    --return false
+    end
+    return false
 end
 
 -- Gets a random mount based on the given type.
