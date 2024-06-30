@@ -3,6 +3,7 @@
 ### Added
 - Added a new **Toggle All** button to the top of the settings. This button can be used to quickly toggle all settings off and on.
 - Added Jade Forest campaign gossips for Horde.
+- Added the Satchel of Chilled Goods to the list of supported containers.
 ### Changed or Updated
 - The chevron icons for the World Event queue button have received a visual and functionality update.
   - _**Author's Note:** The chevrons no longer have the button frame beneath them, they now have a glow on hover, and will display the next event in the table for their direction, respectively._

@@ -137,10 +137,12 @@ end
 -- CONTAINERS --
 ----------------
 function LHMP:IsItemContainer(itemID)
-    if not LHMP.Containers[itemID] then
-        return false
+    for _, id in next, LHMP.Containers do
+        if id == itemID then
+            return true
+        end
     end
-    return true
+    return false
 end
 
 ------------------
