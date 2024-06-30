@@ -128,7 +128,7 @@ end
 
 addon.Mount = function()
     -- Check if the player is in combat.
-    if InCombatLockdown() then return false end
+    if InCombatLockdown() or IsPlayerMoving() then return false end
 
     -- If the player is already mounted, then dismount them and return.
     -- This will save me from creating a keybind for dismount.
