@@ -111,8 +111,6 @@ local function GetRandomMountByType(type)
         -- Remove the mount from the original table.
         table.remove(mounts[type], index)
 
-        print(mount.mountID)
-
         -- Return the mount ID
         return mount.mountID
     end
