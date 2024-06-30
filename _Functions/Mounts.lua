@@ -135,6 +135,7 @@ addon.Mount = function()
     -- that yet, then return.
     if not HelpMePlayDB["HasRecategorizedMounts"] then
         HelpMePlay.Print(addon.ErrorMessages["HAS_NOT_RECATEGORIZED_MOUNTS"])
+        return false
     end
 
     -- If the player is already mounted, then dismount them and return.
