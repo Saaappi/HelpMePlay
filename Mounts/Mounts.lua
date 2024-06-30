@@ -56,6 +56,10 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
                     HelpMePlayDB["Mounts"]["Vashjir"] = {}
                     HelpMePlayDB["Mounts"]["Unused"] = {}]]
 
+                    -- TODO: Remove this before official launch.
+                    if not HelpMePlayDB["HasRecategorizedMounts"] then
+                        HelpMePlayDB["HasRecategorizedMounts"] = true
+                    end
                     ResetAllMounts()
                 end
             end,

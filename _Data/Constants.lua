@@ -7,7 +7,8 @@ addon.Constants = {
 }
 
 addon.ErrorMessages = {
-    ["MOUNT_TYPE_UNKNOWN"] = "{%d} Mount type is unknown. Please screenshot this message and report it on Github."
+    ["MOUNT_TYPE_UNKNOWN"] = "{%d} Mount type is unknown. Please screenshot this message and report it on Github.",
+    ["HAS_NOT_RECATEGORIZED_MOUNTS"] = "The Mount automation has received a substantial rework. You must use the Categorize Mounts button again before this feature will work."
 }
 
 -- It's not possible to do forward references in Lua during table creation.

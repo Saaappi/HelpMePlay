@@ -130,6 +130,13 @@ addon.Mount = function()
     -- Check if the player is in combat.
     if InCombatLockdown() or IsPlayerMoving() then return false end
 
+    -- The mount automation received a rework and the player must
+    -- manually recategorize their mounts. If they haven't done
+    -- that yet, then return.
+    if not HelpMePlayDB["HasRecategorizedMounts"] then
+        HelpMePlay.Print(addon.ErrorMessages["HAS_NOT_RECATEGORIZED_MOUNTS"])
+    end
+
     -- If the player is already mounted, then dismount them and return.
     -- This will save me from creating a keybind for dismount.
     if IsMounted() and (not IsFlying()) then
