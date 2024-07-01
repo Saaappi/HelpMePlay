@@ -30,7 +30,6 @@ _Functions\Print.lua
 _Functions\Tables.lua
 _Functions\QuestMobs.lua
 _Functions\Quests.lua
-_Functions\Trainers.lua
 _Functions\Mounts.lua
 
 _Keybinds\Keybinds.lua
