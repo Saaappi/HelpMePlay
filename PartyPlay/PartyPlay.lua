@@ -1,6 +1,5 @@
-local addonName, addon = ...
+local _, addon = ...
 local eventHandler = CreateFrame("Frame")
-local tooltip = CreateFrame("GameTooltip", "HelpMePlayScannerTooltip", UIParent, "GameTooltipTemplate")
 
 local addonPrefix = "HMP"
 local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonPrefix)

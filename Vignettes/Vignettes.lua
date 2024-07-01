@@ -43,7 +43,7 @@ local function GetCreatureDisplayByGUID(GUID)
     return 0
 end
 
-addon.CreateFauxPopup = function(frame, name, quality, GUID, label)
+local function CreateFauxPopup(frame, name, quality, GUID, label)
     -- Get the creature's display ID.
     local displayID = GetCreatureDisplayByGUID(GUID)
 
@@ -112,7 +112,7 @@ addon.ProcessVignette = function(vignetteGUID)
         if vignetteInfo.type == 0 and (not vignetteInfo.onMinimap) then return end
         local name, atlasName = vignetteInfo.name, vignetteInfo.atlasName
         if atlasName == "VignetteKill" then
-            HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
+            HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", CreateFauxPopup)
             HelpMePlayAlertSystem:AddAlert(name, Enum.ItemQuality.Rare, vignetteGUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
         end
     end
@@ -144,7 +144,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if (GUID and spawnUID) and (not processedRares[spawnUID]) and (not processedVignettes[spawnUID]) then
                 processedRares[spawnUID] = true
                 SetRaidTarget(..., 7)
-                HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", addon.CreateFauxPopup)
+                HelpMePlayAlertSystem = AlertFrame:AddQueuedAlertFrameSubSystem("NewCosmeticAlertFrameTemplate", CreateFauxPopup)
                 HelpMePlayAlertSystem:AddAlert(UnitName(...), Enum.ItemQuality.Epic, GUID, CreateAtlasMarkup("VignetteKill") .. " Rare Detected")
             end
         end

@@ -1,11 +1,7 @@
--- local variables for API functions. any changes to the line below will be lost on re-generation
-local C_Container_GetContainerItemLink, C_Container_GetContainerNumSlots, C_Container_UseContainerItem, C_Item_GetDetailedItemLevelInfo, C_Item_GetItemInfoInstant, C_Item_GetItemInventoryTypeByID, CreateFrame, PlayerGetTimerunningSeasonID, setmetatable, GetInventoryItemLink, pairs, ipairs, select = C_Container.GetContainerItemLink, C_Container.GetContainerNumSlots, C_Container.UseContainerItem, C_Item.GetDetailedItemLevelInfo, C_Item.GetItemInfoInstant, C_Item.GetItemInventoryTypeByID, CreateFrame, PlayerGetTimerunningSeasonID, setmetatable, GetInventoryItemLink, pairs, ipairs, select
-
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local button
 local canDualWield = false
-local itemQueue = {}
 
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:SetScript(
@@ -50,7 +46,7 @@ function(self, event, ...)
 					-- Convert the equipped items into their item levels.
 					for inventorySlotID, value in pairs(equippedItems) do
 						if value ~= 0 then
-							local actualItemLevel = C_Item_GetDetailedItemLevelInfo(value) or 0
+							local actualItemLevel = C_Item.GetDetailedItemLevelInfo(value) or 0
 							equippedItems[inventorySlotID] = actualItemLevel
 						end
 					end
@@ -66,7 +62,7 @@ function(self, event, ...)
 					-- Iterate through the player's inventory. We're looking
 					-- for armor and weapons.
 					for bagID = 0, 4 do
-						for slotID = 1, C_Container_GetContainerNumSlots(bagID) do
+						for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
 							if btn == "RightButton" and IsShiftKeyDown() then
 								local item = Item:CreateFromBagAndSlot(bagID, slotID)
 								if not item:IsItemEmpty() then
@@ -78,17 +74,17 @@ function(self, event, ...)
 								end
 								if numScrappableItems == 9 then return true end
 							else
-								local itemLink = C_Container_GetContainerItemLink(bagID, slotID)
+								local itemLink = C_Container.GetContainerItemLink(bagID, slotID)
 								if itemLink then
 									-- Get the actual inventory slot ID because sometimes it can be different.
-									local inventorySlotID = C_Item_GetItemInventoryTypeByID(itemLink)
+									local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
 
 									-- Get the item's true item level.
-									local itemLevelForInventoryItem = C_Item_GetDetailedItemLevelInfo(itemLink) or 0
+									local itemLevelForInventoryItem = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
 
 									-- Get the item's equip location and classIDs. If it's armor or a weapon,
 									-- then continue.
-									local classID, subClassID = select(6, C_Item_GetItemInfoInstant(itemLink))
+									local classID, subClassID = select(6, C_Item.GetItemInfoInstant(itemLink))
 									if classID == 2 or classID == 4 then
 										-- If it's a weapon, let's check if it's valid for the player's current
 										-- specialization.
@@ -113,27 +109,27 @@ function(self, event, ...)
 													-- If the item isn't better than what the player has equipped, then
 													-- we can add it to the scrapping machine.
 													if not isItemBetter then
-														C_Container_UseContainerItem(bagID, slotID)
+														C_Container.UseContainerItem(bagID, slotID)
 														numScrappableItems = numScrappableItems + 1
 													end
 												else
 													-- This is for every other reward that doesn't adhere to a dual wield class/spec.
 													-- Weapons of all varieties are still handled here, just not for dual wield classes/specs.
 													if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
-														C_Container_UseContainerItem(bagID, slotID)
+														C_Container.UseContainerItem(bagID, slotID)
 														numScrappableItems = numScrappableItems + 1
 													end
 												end
 											else
 												-- It's not valid, so add it to the scrapping machine.
-												C_Container_UseContainerItem(bagID, slotID)
+												C_Container.UseContainerItem(bagID, slotID)
 												numScrappableItems = numScrappableItems + 1
 											end
 										else
 											-- This is where all the armor items are processed.
 											if equippedItems[inventorySlotID] then
 												if itemLevelForInventoryItem <= equippedItems[inventorySlotID] then
-													C_Container_UseContainerItem(bagID, slotID)
+													C_Container.UseContainerItem(bagID, slotID)
 													numScrappableItems = numScrappableItems + 1
 												end
 											end

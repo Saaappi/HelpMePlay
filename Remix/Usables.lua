@@ -1,6 +1,3 @@
--- local variables for API functions. any changes to the line below will be lost on re-generation
-local C_AddOns_IsAddOnLoaded, C_Item_DoesItemExist, C_Container_GetContainerNumSlots, C_CVar_GetCVar, C_Timer_After, CreateFrame, LibStub, format, UnitAffectingCombat, C_Item_GetItemCount, PlayerGetTimerunningSeasonID = C_AddOns.IsAddOnLoaded, C_Item.DoesItemExist, C_Container.GetContainerNumSlots, C_CVar.GetCVar, C_Timer.After, CreateFrame, LibStub, format, UnitAffectingCombat, C_Item.GetItemCount, PlayerGetTimerunningSeasonID
-
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
@@ -52,9 +49,7 @@ eventHandler:SetScript(
 "OnEvent",
 function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
-		C_Timer_After(
-		1,
-		function()
+		C_Timer.After(1, function()
 			if PlayerGetTimerunningSeasonID() == 1 and HelpMePlayDB["ShowRemixUsablesButton"] then
 				MakeButton("CENTER", UIParent, "CENTER", 0, 0)
 				--[[if C_AddOns_IsAddOnLoaded("Baganator") then -- Baganator
@@ -78,8 +73,7 @@ function(self, event, ...)
 
 			-- Unregister the event for performance.
 			eventHandler:UnregisterEvent("PLAYER_LOGIN")
-		end
-		)
+		end)
 	end
 end
 )
