@@ -60,65 +60,69 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- quickly retrieve the NPC's ID, as well as the listed options.
         if GossipFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(addon.playerGUID).battleTag == addon.Constants["AUTHOR_BATTLETAG"] then
             if not gossipButton then
-                gossipButton = {
-                    name = addonName .. "GossipInfoButton",
-                    anchor = "TOPLEFT",
-                    relativeAnchor = "TOPRIGHT",
-                    oX = 10,
-                    oY = 0,
+                gossipButton = addon.CreateWidget("IconButton", {
+                    name = format("%sGossipInfoButton", addonName),
+                    width = 32,
+                    height = 32,
                     parent = GossipFrame,
                     texture = 2056011,
-                    tooltipHeader = "Get Gossip Information",
-                    tooltipText = "Get gossip information for the current NPC.",
                     useFontString = false,
-                    fontStringText = "",
-                    onClick = function()
-                        -- NPC ID
-                        local GUID = UnitGUID("target")
-                        if GUID then
-                            local npcID = LHMP:SplitString(GUID, "-", 6)
-                            print(format("%d - %s", npcID, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
-                        else
-                            print(format("%d - %s", 0, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()))) -- This is for gossips associated to non-NPCs.
-                        end
+                    fontStringText = ""
+                })
 
-                        -- Gossips
-                        local options = C_GossipInfo.GetOptions()
-                        if options then
-                            for _, option in ipairs(options) do
-                                print(format("%s: %s", LHMP:ColorText("UNCOMMON", option.gossipOptionID), option.name))
-                            end
+                gossipButton:ClearAllPoints()
+                gossipButton:SetPoint("TOPLEFT", GossipFrame, "TOPRIGHT", 10, 0)
+
+                gossipButton:SetScript("OnClick", function()
+                    -- NPC ID
+                    local GUID = UnitGUID("target")
+                    if GUID then
+                        local npcID = LHMP:SplitString(GUID, "-", 6)
+                        print(format("%d - %s", npcID, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
+                    else
+                        print(format("%d - %s", 0, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()))) -- This is for gossips associated to non-NPCs.
+                    end
+
+                    -- Gossips
+                    local options = C_GossipInfo.GetOptions()
+                    if options then
+                        for _, option in ipairs(options) do
+                            print(format("%s: %s", LHMP:ColorText("UNCOMMON", option.gossipOptionID), option.name))
                         end
-                    end,
-                }
-                setmetatable(gossipButton, { __index = HelpMePlay.Button })
-                gossipButton = gossipButton:IconButtonWithBorder()
+                    end
+                end)
+                gossipButton:SetScript("OnEnter", function(self)
+                    addon.Tooltip_OnEnter(self, "Gossip", "Get gossip options for the current NPC.")
+                end)
+                gossipButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
             end
             if not questsButton then
-                questsButton = {
-                    name = addonName .. "QuestsButton",
-                    anchor = "TOP",
-                    relativeAnchor = "BOTTOM",
-                    oX = 0,
-                    oY = -5,
+                questsButton = addon.CreateWidget("IconButton", {
+                    name = format("%sActiveQuestsInfoButton", addonName),
+                    width = 32,
+                    height = 32,
                     parent = gossipButton,
                     texture = 236668,
-                    tooltipHeader = "Get Quests",
-                    tooltipText = "Get a list of your active quests.",
                     useFontString = false,
-                    fontStringText = "",
-                    onClick = function()
-                        local numEntries = C_QuestLog.GetNumQuestLogEntries()
-                        for i = 1, numEntries do
-                            local info = C_QuestLog.GetInfo(i)
-                            if info and (not info.isHeader) and info.isOnMap then
-                                print(format("%s: %s", LHMP:ColorText("GOLD", info.questID), info.title))
-                            end
+                    fontStringText = ""
+                })
+
+                questsButton:ClearAllPoints()
+                questsButton:SetPoint("TOP", gossipButton, "BOTTOM", 0, -5)
+
+                questsButton:SetScript("OnClick", function()
+                    local numEntries = C_QuestLog.GetNumQuestLogEntries()
+                    for i = 1, numEntries do
+                        local info = C_QuestLog.GetInfo(i)
+                        if info and (not info.isHeader) and info.isOnMap then
+                            print(format("%s: %s", LHMP:ColorText("GOLD", info.questID), info.title))
                         end
-                    end,
-                }
-                setmetatable(questsButton, { __index = HelpMePlay.Button })
-                questsButton = questsButton:IconButtonWithBorder()
+                    end
+                end)
+                questsButton:SetScript("OnEnter", function(self)
+                    addon.Tooltip_OnEnter(self, "Quests", "Get a list of your active quests in the current zone.")
+                end)
+                questsButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
             end
         end
     end

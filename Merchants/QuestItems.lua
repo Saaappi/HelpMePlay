@@ -28,37 +28,39 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
             if MerchantFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(addon.playerGUID).battleTag == addon.Constants["AUTHOR_BATTLETAG"] then
                 if not merchantButton then
-                    merchantButton = {
+                    merchantButton = addon.CreateWidget("IconButton", {
                         name = addonName .. "MerchantInfoButton",
-                        anchor = "TOPLEFT",
-                        relativeAnchor = "TOPRIGHT",
-                        oX = 10,
-                        oY = 0,
+                        width = 32,
+                        height = 32,
                         parent = MerchantFrame,
                         texture = 133786,
-                        tooltipHeader = "Get Merchant Information",
-                        tooltipText = "Get information about this merchant.",
                         useFontString = false,
-                        fontStringText = "",
-                        onClick = function()
-                            -- NPC ID
-                            local GUID = UnitGUID("target")
-                            if GUID then
-                                local npcID = LHMP:SplitString(GUID, "-", 6)
-                                print(npcID)
-                            end
+                        fontStringText = ""
+                    })
 
-                            -- Wares
-                            for i = 1, GetMerchantNumItems() do
-                                local name = GetMerchantItemInfo(i)
-                                if name then
-                                    print(format("%s: %s", LHMP:ColorText("UNCOMMON", i), name))
-                                end
+                    merchantButton:ClearAllPoints()
+                    merchantButton:SetPoint("TOPLEFT", MerchantFrame, "TOPRIGHT", 10, 0)
+
+                    merchantButton:SetScript("OnClick", function()
+                        -- NPC ID
+                        local GUID = UnitGUID("target")
+                        if GUID then
+                            local npcID = LHMP:SplitString(GUID, "-", 6)
+                            print(npcID)
+                        end
+
+                        -- Wares
+                        for i = 1, GetMerchantNumItems() do
+                            local name = GetMerchantItemInfo(i)
+                            if name then
+                                print(format("%s: %s", LHMP:ColorText("UNCOMMON", i), name))
                             end
-                        end,
-                    }
-                    setmetatable(merchantButton, { __index = HelpMePlay.Button })
-                    merchantButton = merchantButton:IconButtonWithBorder()
+                        end
+                    end)
+                    merchantButton:SetScript("OnEnter", function(self)
+                        addon.Tooltip_OnEnter(self, "Merchant", "Get a list of the current merchant's wares.")
+                    end)
+                    merchantButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
                 end
             end
         end

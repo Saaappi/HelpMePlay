@@ -83,8 +83,13 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
         xOff = -20,
         yOff = 0,
         width = 24,
-        height = 24
+        height = 24,
+        useFontString = false,
+        fontStringText = ""
     })
+
+    classTalentsButton:ClearAllPoints()
+    classTalentsButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -20, 0)
 
     classTalentsButton:SetScript("OnClick", function()
         if HelpMePlayDB["ClassTalents"][classID][specID] then

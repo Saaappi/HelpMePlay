@@ -33,8 +33,13 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
             xOff = 0,
             yOff = -15,
             width = 24,
-            height = 24
+            height = 24,
+            useFontString = false,
+            fontStringText = ""
         })
+
+        dynamicFlightTalentsButton:ClearAllPoints()
+        dynamicFlightTalentsButton:SetPoint("TOPRIGHT", GenericTraitFrame.Currency, "BOTTOMRIGHT", 0, -15)
 
         dynamicFlightTalentsButton:SetScript("OnClick", PurchaseTalents)
         dynamicFlightTalentsButton:SetScript("OnEnter", function(self)

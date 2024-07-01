@@ -18,7 +18,6 @@ addon.CreateWidget = function(widgetType, widgetData)
     end]]
     if widgetType == "IconButton" then
         local iconButton = CreateFrame("Button", widgetData.name, widgetData.parent)
-        iconButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.xOff, widgetData.yOff)
         iconButton:SetSize(widgetData.width, widgetData.height)
         iconButton:RegisterForClicks("LeftButtonUp")
 
@@ -31,19 +30,19 @@ addon.CreateWidget = function(widgetType, widgetData)
         iconButton.blackCover:SetColorTexture(0, 0, 0, 0.6)
 
         iconButton.border = iconButton:CreateTexture(format("%sBorder", parent), "OVERLAY")
-        iconButton.border:SetSize(42, 42)
+        iconButton.border:SetSize(widgetData.width + 10, widgetData.height + 10)
         iconButton.border:SetPoint("CENTER")
         iconButton.border:SetAtlas("Forge-ColorSwatchHighlight", false)
 
         iconButton.highlightTexture = iconButton:CreateTexture(format("%sHighlightTexture", parent), "OVERLAY", nil, 1)
         iconButton.highlightTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
-        iconButton.highlightTexture:SetSize(38, 38)
+        iconButton.highlightTexture:SetSize(widgetData.width + 6, widgetData.height + 6)
         iconButton.highlightTexture:SetPoint("CENTER")
         iconButton:SetHighlightTexture(iconButton.highlightTexture, "ADD")
 
         iconButton.pushedTexture = iconButton:CreateTexture(format("%sPushedTexture", parent), "OVERLAY", nil, 1)
         iconButton.pushedTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
-        iconButton.pushedTexture:SetSize(36, 36)
+        iconButton.pushedTexture:SetSize(widgetData.width + 4, widgetData.height + 4)
         iconButton.pushedTexture:SetPoint("CENTER")
         iconButton:SetPushedTexture(iconButton.pushedTexture)
 
@@ -101,6 +100,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local addonLoaded = ...
         if addonLoaded == addonName then
             HelpMePlay.Button = {
+                --[[ DEPRECATED - 2024/07/01
                 IconButtonSelfTooltip = function(button)
                     local iconButton = CreateFrame("Button", button.name, button.parent, "UIPanelButtonTemplate")
                     iconButton:SetSize(button.width, button.height)
@@ -129,7 +129,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     iconButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
 
                     return iconButton
-                end,
+                end,]]
                 CheckButton = function(button)
                     local checkButton = CreateFrame("CheckButton", button.name, button.parent, "SettingsCheckBoxTemplate")
                     checkButton:ClearAllPoints()
@@ -152,6 +152,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                     return checkButton
                 end,
+                --[[ DEPRECATED - 2024/07/01
                 HelpButton = function(button)
                     local helpButton = CreateFrame("Button", button.name, button.parent, "UIPanelButtonTemplate")
                     helpButton:SetSize(button.width, button.height)
@@ -172,7 +173,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     helpButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
 
                     return helpButton
-                end,
+                end,]]
                 ActionButton = function(button)
                     local actionButton = CreateFrame("Button", button.name, button.parent, "ActionButtonTemplate")
                     actionButton.ID = button.ID
