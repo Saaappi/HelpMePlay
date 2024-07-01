@@ -1,6 +1,12 @@
 local _, addon = ...
 
 addon.CreateWidget = function(widgetType, widgetData)
+    if widgetType == "ActionButton" then
+        local actionButton = CreateFrame("Button", widgetData.name, widgetData.parent, "ActionButtonTemplate")
+        actionButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+        return actionButton
+    end
     if widgetType == "BasicButton" then
         local basicButton = CreateFrame("Button", widgetData.name, widgetData.parent, "UIPanelButtonTemplate")
         basicButton:SetSize(widgetData.width, widgetData.height)
@@ -9,15 +15,6 @@ addon.CreateWidget = function(widgetType, widgetData)
         basicButton:SetText(widgetData.text)
 
         return basicButton
-    end
-    if widgetType == "ActionButton" then
-        local actionButton = CreateFrame("Button", widgetData.name, widgetData.parent, "ActionButtonTemplate")
-        actionButton.ID = widgetData.ID
-        actionButton.classID = widgetData.classID
-        actionButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-        actionButton.icon:SetAtlas(widgetData.atlas)
-
-        return actionButton
     end
     if widgetType == "IconButton" then
         local iconButton = CreateFrame("Button", widgetData.name, widgetData.parent)

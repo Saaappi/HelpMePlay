@@ -103,11 +103,12 @@ addon.OpenTalentImporter = function()
         for index, btn in ipairs(addon.classButtons) do
             local button = addon.CreateWidget("ActionButton", {
                 name = btn.name,
-                parent = frame,
-                ID = btn.id,
-                classID = btn.classID,
-                atlas = btn.atlas
+                parent = frame
             })
+
+            button.ID = btn.id
+            button.classID = btn.classID
+            button.icon:SetAtlas(btn.atlas)
 
             button:SetScript("OnClick", function()
                 -- Resize the frame to accommodate the edit boxes.

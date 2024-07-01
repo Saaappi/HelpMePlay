@@ -19,10 +19,7 @@ function(self, event, ...)
 			if not button then
 				button = addon.CreateWidget("ActionButton", {
 					name = format("%sScrappingMachineButton", addonName),
-					parent = ScrappingMachineFrame,
-					ID = nil,
-					classID = nil,
-					icon = nil,
+					parent = ScrappingMachineFrame
 				})
 
 				button:ClearAllPoints()
