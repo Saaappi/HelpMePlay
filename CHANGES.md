@@ -4,6 +4,7 @@
 - Added a new **Toggle All** button to the top of the settings. This button can be used to quickly toggle all settings off and on.
 - Added Jade Forest campaign gossips for Horde.
 - Added missing gossips in The Jade Forest for both factions.
+- Added a missing gossip in the Valley of the Four Winds for both factions.
 - Added the Satchel of Chilled Goods to Containers.
 ### Changed or Updated
 - The chevron icons for the World Event queue button have received a visual and functionality update.

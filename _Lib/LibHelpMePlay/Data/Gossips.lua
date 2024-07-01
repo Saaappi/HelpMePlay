@@ -299,6 +299,11 @@ LHMP.Gossips = {
     [56840] = {{ID = 40301, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
     [64207] = {{ID = 28426, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30485", "LEVEL_LOWER = 30"}}},
     [59899] = {{ID = 29679, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30648", "LEVEL_LOWER = 30"}}},
+    [56192] = {
+        {ID = 40435, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
+        {ID = 40431, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
+        {ID = 40430, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}}
+    },
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {
