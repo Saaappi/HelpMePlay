@@ -1,23 +1,16 @@
 local addonName, addon = ...
 
-local function SetValue(variable, value)
-    if tonumber(value, 10) then
-        value = tonumber(value, 10)
-        HelpMePlayDB[variable] = value
-    end
-end
-
 SLASH_HelpMePlay1 = "/hmp"
 SLASH_HelpMePlay2 = "/helpmeplay"
 SlashCmdList["HelpMePlay"] = function(cmd)
 	local command, subcommand, arg1 = string.split(" ", cmd)
 	if not command or command == "" then
-        if not UnitAffectingCombat("player") then
+        if not InCombatLockdown() then
             Settings.OpenToCategory(addon.category:GetID())
         else
-            HelpMePlay.Print("The settings cannot be opened in combat.")
+            HelpMePlay.Print(addon.ErrorMessages["IN_COMBAT_LOCKDOWN"])
         end
     else
-        HelpMePlay.Print("Unknown command detected.")
+        HelpMePlay.Print(addon.ErrorMessages["COMMAND_NOT_FOUND"])
 	end
 end

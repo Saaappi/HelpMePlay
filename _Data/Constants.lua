@@ -7,6 +7,8 @@ addon.Constants = {
 }
 
 addon.ErrorMessages = {
+    ["COMMAND_NOT_FOUND"] = "Your entry is an unknown command.",
+    ["IN_COMBAT_LOCKDOWN"] = "This action is not permitted while in combat.",
     ["MOUNT_TYPE_UNKNOWN"] = "{%d} Mount type is unknown. Please screenshot this message and report it on Github.",
     ["HAS_NOT_RECATEGORIZED_MOUNTS"] = "The Mount automation has received a substantial rework. You must use the Categorize Mounts button before this feature will work."
 }
