@@ -24,8 +24,8 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
     if HelpMePlayDB["UseDynamicFlightButton"] == false then return end
 
 	if GenericTraitFrame.Header.Title:GetText() == "Dragonriding" then
-        dynamicFlightTalentsButton = {
-            name = addonName .. "DynamicFlightTalentsButton",
+        dynamicFlightTalentsButton = addon.CreateWidget("IconButton", {
+            name = format("%sDynamicFlightTalentsButton", addonName),
             texture = 4728198,
             parent = GenericTraitFrame.Currency,
             anchor = "TOPRIGHT",
@@ -33,13 +33,14 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
             oX = 0,
             oY = -15,
             width = 24,
-            height = 24,
-            tooltipHeader = "Dynamic Flight Talents",
-            tooltipText = "Click to automatically learn your Dynamic Flight talents.",
-            onClick = function() PurchaseTalents() end,
-        }
-        setmetatable(dynamicFlightTalentsButton, { __index = HelpMePlay.Button })
-        dynamicFlightTalentsButton = dynamicFlightTalentsButton:IconButton()
+            height = 24
+        })
+
+        dynamicFlightTalentsButton:SetScript("OnClick", PurchaseTalents())
+        dynamicFlightTalentsButton:SetScript("OnEnter", function(self)
+            addon.Tooltip_OnEnter(self, "Dynamic Flight Talents", "Click to automatically learn your Dynamic Flight talents.")
+        end)
+        dynamicFlightTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave())
 	end
 end)
 

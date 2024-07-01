@@ -2,6 +2,63 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
 addon.CreateWidget = function(widgetType, widgetData)
+    --[[ DEPRECATED - 2024/06/30
+    if widgetType == "BasicButton" then
+        local basicButton = CreateFrame("Button", widgetData.name, widgetData.parent, "UIPanelButtonTemplate")
+        basicButton:SetSize(widgetData.width, widgetData.height)
+        basicButton:RegisterForClicks("LeftButtonUp")
+
+        basicButton:SetText(widgetData.text)
+
+        basicButton:SetScript("OnClick", widgetData.onClick)
+
+        basicButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.oX, widgetData.oY)
+
+        return basicButton
+    end]]
+    if widgetType == "IconButton" then
+        local iconButton = CreateFrame("Button", widgetData.name, widgetData.parent, "SecureFrameTemplate")
+        iconButton:SetSize(34, 34)
+        iconButton:RegisterForClicks("LeftButtonUp")
+
+        local parent = iconButton:GetName()
+        iconButton.icon = iconButton:CreateTexture(format("%sIconTexture", parent), "ARTWORK")
+        iconButton.icon:SetTexture(widgetData.texture)
+        iconButton.icon:SetAllPoints()
+
+        iconButton.blackCover = iconButton:CreateTexture(format("%sBlackCover", parent), "OVERLAY")
+        iconButton.blackCover:SetColorTexture(0, 0, 0, 0.6)
+
+        iconButton.border = iconButton:CreateTexture(format("%sBorder", parent), "OVERLAY")
+        iconButton.border:SetSize(42, 42)
+        iconButton.border:SetPoint("CENTER")
+        iconButton.border:SetAtlas("Forge-ColorSwatchHighlight", false)
+
+        iconButton.highlightTexture = iconButton:CreateTexture(format("%sHighlightTexture", parent), "OVERLAY", nil, 1)
+        iconButton.highlightTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
+        iconButton.highlightTexture:SetSize(38, 38)
+        iconButton.highlightTexture:SetPoint("CENTER")
+        iconButton:SetHighlightTexture(iconButton.highlightTexture, "ADD")
+
+        iconButton.pushedTexture = iconButton:CreateTexture(format("%sPushedTexture", parent), "OVERLAY", nil, 1)
+        iconButton.pushedTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
+        iconButton.pushedTexture:SetSize(36, 36)
+        iconButton.pushedTexture:SetPoint("CENTER")
+        iconButton:SetPushedTexture(iconButton.pushedTexture)
+
+        if (not iconButton.buttonName) and widgetData.useFontString then
+            iconButton.buttonName = iconButton:CreateFontString(format("%sButtonName", parent), "ARTWORK", "GameFontNormal")
+            iconButton.buttonName:SetPoint("RIGHT", iconButton.border, "LEFT", -2, 0)
+            iconButton.buttonName:SetMaxLines(2)
+            iconButton.buttonName:SetText(format("|cffFFFFFF%s|r", button.fontStringText))
+            iconButton.buttonName:SetJustifyH("RIGHT")
+            iconButton.buttonName:SetWordWrap(true)
+        end
+
+        iconButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.oX, widgetData.oY)
+
+        return iconButton
+    end
     if widgetType == "SecureButton" then
         -- Create the button and set its position.
         local secureButton = CreateFrame("Button", widgetData.name, widgetData.parent, "SecureActionButtonTemplate, ActionButtonTemplate")
@@ -45,62 +102,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local addonLoaded = ...
         if addonLoaded == addonName then
             HelpMePlay.Button = {
-                BaseButton = function(button)
-                    local basicButton = CreateFrame("Button", button.name, button.parent, "UIPanelButtonTemplate")
-                    basicButton:SetSize(button.width, button.height)
-                    basicButton:RegisterForClicks("LeftButtonUp")
-
-                    basicButton:SetText(button.text)
-
-                    basicButton:SetScript("OnClick", button.onClick)
-                    basicButton:SetScript("OnEnter", function()
-                        GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-                        GameTooltip:SetText(button.tooltipHeader)
-                        GameTooltip:AddLine("|cffFFFFFF" .. button.tooltipText .. "|r", 1, 1, 1, true)
-                        GameTooltip:Show()
-                    end)
-                    basicButton:SetScript("OnLeave", function()
-                        GameTooltip:Hide()
-                    end)
-
-                    basicButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
-
-                    return basicButton
-                end,
-                IconButton = function(button)
-                    local iconButton = CreateFrame("Button", button.name, button.parent, "UIPanelButtonTemplate")
-                    iconButton:SetSize(button.width, button.height)
-                    iconButton:RegisterForClicks("LeftButtonUp")
-
-                    iconButton["texture"] = iconButton:CreateTexture()
-                    iconButton["texture"]:SetTexture(button.texture)
-                    iconButton["texture"]:SetAllPoints()
-
-                    iconButton["highlightTexture"] = iconButton:CreateTexture()
-                    iconButton["highlightTexture"]:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-                    iconButton["highlightTexture"]:SetSize(button.width, button.height)
-                    iconButton:SetHighlightTexture(iconButton["highlightTexture"], "ADD")
-
-                    iconButton["pushedTexture"] = iconButton:CreateTexture()
-                    iconButton["pushedTexture"]:SetTexture("Interface\\Buttons\\UI-Quickslot-Depress")
-                    iconButton["pushedTexture"]:SetSize(button.width, button.height)
-                    iconButton:SetPushedTexture(iconButton["pushedTexture"])
-
-                    iconButton:SetScript("OnClick", button.onClick)
-                    iconButton:SetScript("OnEnter", function()
-                        GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-                        GameTooltip:SetText(button.tooltipHeader)
-                        GameTooltip:AddLine(button.tooltipText, 1, 1, 1, true)
-                        GameTooltip:Show()
-                    end)
-                    iconButton:SetScript("OnLeave", function()
-                        GameTooltip:Hide()
-                    end)
-
-                    iconButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
-
-                    return iconButton
-                end,
                 IconButtonSelfTooltip = function(button)
                     local iconButton = CreateFrame("Button", button.name, button.parent, "UIPanelButtonTemplate")
                     iconButton:SetSize(button.width, button.height)
@@ -121,60 +122,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     iconButton:SetPushedTexture(iconButton["pushedTexture"])
 
                     iconButton:SetScript("OnEnter", button.onEnter)
-                    iconButton:SetScript("OnClick", button.onClick)
-                    iconButton:SetScript("OnLeave", function()
-                        GameTooltip:Hide()
-                    end)
-
-                    iconButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
-
-                    return iconButton
-                end,
-                IconButtonWithBorder = function(button)
-                    local iconButton = CreateFrame("Button", button.name, button.parent, "SecureFrameTemplate")
-                    iconButton:SetSize(34, 34)
-                    iconButton:RegisterForClicks("LeftButtonUp")
-
-                    local parent = iconButton:GetName()
-                    iconButton.texture = iconButton:CreateTexture(format("%sIconTexture", parent), "ARTWORK")
-                    iconButton.texture:SetTexture(button.texture)
-                    iconButton.texture:SetAllPoints()
-
-                    iconButton.blackCover = iconButton:CreateTexture(format("%sBlackCover", parent), "OVERLAY")
-                    iconButton.blackCover:SetColorTexture(0, 0, 0, 0.6)
-
-                    iconButton.border = iconButton:CreateTexture(format("%sBorder", parent), "OVERLAY")
-                    iconButton.border:SetSize(42, 42)
-                    iconButton.border:SetPoint("CENTER")
-                    iconButton.border:SetAtlas("Forge-ColorSwatchHighlight", false)
-
-                    iconButton.highlightTexture = iconButton:CreateTexture(format("%sHighlightTexture", parent), "OVERLAY", nil, 1)
-                    iconButton.highlightTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
-                    iconButton.highlightTexture:SetSize(38, 38)
-                    iconButton.highlightTexture:SetPoint("CENTER")
-                    iconButton:SetHighlightTexture(iconButton.highlightTexture, "ADD")
-
-                    iconButton.pushedTexture = iconButton:CreateTexture(format("%sPushedTexture", parent), "OVERLAY", nil, 1)
-                    iconButton.pushedTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
-                    iconButton.pushedTexture:SetSize(36, 36)
-                    iconButton.pushedTexture:SetPoint("CENTER")
-                    iconButton:SetPushedTexture(iconButton.pushedTexture)
-
-                    if (not iconButton.buttonName) and button.useFontString then
-                        iconButton.buttonName = iconButton:CreateFontString(format("%sButtonName", parent), "ARTWORK", "GameFontNormal")
-                        iconButton.buttonName:SetPoint("RIGHT", iconButton.border, "LEFT", -2, 0)
-                        iconButton.buttonName:SetMaxLines(2)
-                        iconButton.buttonName:SetText(format("|cffFFFFFF%s|r", button.fontStringText))
-                        iconButton.buttonName:SetJustifyH("RIGHT")
-                        iconButton.buttonName:SetWordWrap(true)
-                    end
-
-                    iconButton:SetScript("OnEnter", function()
-                        GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-                        GameTooltip:SetText(button.tooltipHeader)
-                        GameTooltip:AddLine(button.tooltipText, 1, 1, 1, true)
-                        GameTooltip:Show()
-                    end)
                     iconButton:SetScript("OnClick", button.onClick)
                     iconButton:SetScript("OnLeave", function()
                         GameTooltip:Hide()

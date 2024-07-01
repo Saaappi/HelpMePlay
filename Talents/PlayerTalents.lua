@@ -74,8 +74,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 end)
 
 EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
-    classTalentsButton = {
-        name = addonName .. "ClassTalentsButton",
+    classTalentsButton = addon.CreateWidget("IconButton", {
+        name = format("%sClassTalentsButton", addonName),
         texture = 132222,
         parent = ClassTalentFrame.TalentsTab.ApplyButton,
         anchor = "RIGHT",
@@ -83,64 +83,64 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
         oX = -20,
         oY = 0,
         width = 24,
-        height = 24,
-        onEnter = function()
-            GameTooltip:SetOwner(classTalentsButton, "ANCHOR_CURSOR_RIGHT")
-            GameTooltip:SetText("Class Talents")
-            if HelpMePlayDB["ClassTalents"][classID][specID] and (HelpMePlayDB["ClassTalents"][classID][specID].importString ~= nil and HelpMePlayDB["ClassTalents"][classID][specID].importString ~= "") then
-                GameTooltip:AddLine(format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
-                addon.playerClassColor:GenerateHexColor(),
-                addon.playerSpecName,
-                addon.playerClassName,
-                HelpMePlayDB["ClassTalents"][classID][specID].importDate,
-                HelpMePlayDB["ClassTalents"][classID][specID].importPatch), 1, 1, 1, true)
-            else
-                GameTooltip:AddLine("|cff56585DYour current specialization is unsupported.|r")
+        height = 24
+    })
+
+    classTalentsButton:SetScript("OnClick", function()
+        if HelpMePlayDB["ClassTalents"][classID][specID] then
+            -- Check if the imported string is from the current patch. If it's
+            -- not, then we need to return an error and the player must import
+            -- a new string.
+            if not string.find(HelpMePlayDB["ClassTalents"][classID][specID].importPatch, (GetBuildInfo())) then
+                ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
+                return false
             end
-            GameTooltip:Show()
-        end,
-        onClick = function()
-            if HelpMePlayDB["ClassTalents"][classID][specID] then
-                -- Check if the imported string is from the current patch. If it's
-                -- not, then we need to return an error and the player must import
-                -- a new string.
-                if not string.find(HelpMePlayDB["ClassTalents"][classID][specID].importPatch, (GetBuildInfo())) then
-                    ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
-                    return false
-                end
 
-                -- Use Blizzard's ExportUtil to make an import data stream from the
-                -- exported string found online.
-                local importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB["ClassTalents"][classID][specID].importString)
+            -- Use Blizzard's ExportUtil to make an import data stream from the
+            -- exported string found online.
+            local importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB["ClassTalents"][classID][specID].importString)
 
-                -- Using the new import data stream, determine the specID that is
-                -- associated to the data stream. If it doesn't match the current
-                -- class and specialization, then it can't be used.
-                local loadoutSpecID = select(3, ClassTalentImportExportMixin:ReadLoadoutHeader(importStream))
-                if loadoutSpecID ~= PlayerUtil.GetCurrentSpecID() then
-                    ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
-                    return false
-                end
-
-                -- Get the configID for the player's current specialization. This
-                -- has nothing to do with an individual loadout's configID.
-                local activeConfigID = C_ClassTalents.GetActiveConfigID()
-                if not activeConfigID then return end
-
-                -- Get the current tree's info.
-                local treeID = C_ClassTalents.GetTraitTreeForSpec(specID)
-
-                local loadoutContent = ClassTalentImportExportMixin:ReadLoadoutContent(importStream, treeID)
-                local loadoutEntryInfo = ClassTalentImportExportMixin:ConvertToImportLoadoutEntryInfo(activeConfigID, treeID, loadoutContent)
-
-                Import(activeConfigID, loadoutEntryInfo, treeID)
-
-                return true
+            -- Using the new import data stream, determine the specID that is
+            -- associated to the data stream. If it doesn't match the current
+            -- class and specialization, then it can't be used.
+            local loadoutSpecID = select(3, ClassTalentImportExportMixin:ReadLoadoutHeader(importStream))
+            if loadoutSpecID ~= PlayerUtil.GetCurrentSpecID() then
+                ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
+                return false
             end
+
+            -- Get the configID for the player's current specialization. This
+            -- has nothing to do with an individual loadout's configID.
+            local activeConfigID = C_ClassTalents.GetActiveConfigID()
+            if not activeConfigID then return end
+
+            -- Get the current tree's info.
+            local treeID = C_ClassTalents.GetTraitTreeForSpec(specID)
+
+            local loadoutContent = ClassTalentImportExportMixin:ReadLoadoutContent(importStream, treeID)
+            local loadoutEntryInfo = ClassTalentImportExportMixin:ConvertToImportLoadoutEntryInfo(activeConfigID, treeID, loadoutContent)
+
+            Import(activeConfigID, loadoutEntryInfo, treeID)
+
+            return true
         end
-    }
-    setmetatable(classTalentsButton, { __index = HelpMePlay.Button })
-    classTalentsButton = classTalentsButton:IconButtonSelfTooltip()
+    end)
+    classTalentsButton:SetScript("OnEnter", function(self)
+        GameTooltip:SetOwner(classTalentsButton, "ANCHOR_CURSOR_RIGHT")
+        GameTooltip:SetText("Class Talents")
+        if HelpMePlayDB["ClassTalents"][classID][specID] and (HelpMePlayDB["ClassTalents"][classID][specID].importString ~= nil and HelpMePlayDB["ClassTalents"][classID][specID].importString ~= "") then
+            GameTooltip:AddLine(format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
+            addon.playerClassColor:GenerateHexColor(),
+            addon.playerSpecName,
+            addon.playerClassName,
+            HelpMePlayDB["ClassTalents"][classID][specID].importDate,
+            HelpMePlayDB["ClassTalents"][classID][specID].importPatch), 1, 1, 1, true)
+        else
+            GameTooltip:AddLine("|cff56585DYour current specialization is unsupported.|r")
+        end
+        GameTooltip:Show()
+    end)
+    classTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave())
 
     if C_AddOns.IsAddOnLoaded("ZygorGuidesViewer") then
         classTalentsButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -50, 0)
