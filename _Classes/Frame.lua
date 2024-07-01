@@ -28,33 +28,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     frame:Hide()
 
                     return frame
-                end,
-                EditBox = function(myEditBox)
-                    local editBox = CreateFrame("EditBox", myEditBox.name, myEditBox.parent, "InputBoxTemplate")
-                    editBox:SetAutoFocus(false)
-                    editBox:SetSize(myEditBox.width, myEditBox.height)
-                    editBox:SetFontObject("ChatFontNormal")
-                    editBox:SetMaxLetters(myEditBox.maxLetters)
-
-                    editBox["title"] = editBox:CreateFontString(nil, "OVERLAY", "GameTooltipText")
-                    editBox["title"]:SetPoint("BOTTOMLEFT", editBox["title"]:GetParent(), "TOPLEFT", 0, 10)
-                    editBox["title"]:SetText(myEditBox.title)
-
-                    editBox:SetScript("OnEnterPressed", myEditBox.onEnterPressed)
-                    editBox:SetScript("OnEnter", function()
-                        GameTooltip:SetOwner(self, "ANCHOR_CURSOR_RIGHT")
-                        GameTooltip:SetText(myEditBox.tooltipHeader)
-                        GameTooltip:AddLine(myEditBox.tooltipText, 1, 1, 1, true)
-                        GameTooltip:Show()
-                    end)
-                    editBox:SetScript("OnLeave", function()
-                        GameTooltip:Hide()
-                    end)
-
-                    editBox:SetPoint(myEditBox.anchor, myEditBox.parent, myEditBox.relativeAnchor, myEditBox.oX, myEditBox.oY)
-
-                    return editBox
-                end,
+                end
             }
         end
 
