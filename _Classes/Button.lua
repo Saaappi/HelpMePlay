@@ -1,42 +1,42 @@
 local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 
-addon.CreateSecureButton = function(btn)
-    -- Create the button using a couple templates.
-    local secureButton = CreateFrame("Button", btn.name, btn.parent, "SecureActionButtonTemplate, ActionButtonTemplate")
+addon.CreateWidget = function(widgetType, widgetData)
+    if widgetType == "SecureButton" then
+        -- Create the button and set its position.
+        local secureButton = CreateFrame("Button", widgetData.name, widgetData.parent, "SecureActionButtonTemplate, ActionButtonTemplate")
+        secureButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.xOff, widgetData.yOff)
 
-    -- Set the button's point.
-    secureButton:SetPoint(btn.anchor, btn.parent, btn.relativeAnchor, btn.xOff, btn.yOff)
+        -- Texture stuff.
+        if type(widgetData.icon) == "string" then
+            secureButton.icon:SetAtlas(btn.icon)
+        else
+            secureButton.icon:SetTexture(btn.icon)
+        end
 
-    -- Set the button's icon.
-    if type(btn.icon) == "string" then
-        secureButton.icon:SetAtlas(btn.icon)
-    else
-        secureButton.icon:SetTexture(btn.icon)
+        -- Button registration.
+        secureButton:RegisterForClicks("AnyUp")
+        secureButton:SetMouseClickEnabled(true)
+
+        -- Make the frame movable.
+        if widgetData.isMovable then
+            secureButton:SetMovable(true)
+            secureButton:EnableMouse(true)
+            secureButton:RegisterForDrag("LeftButton")
+            secureButton:SetScript("OnDragStart", function(self)
+                self:StartMoving()
+            end)
+            secureButton:SetScript("OnDragStop", function(self)
+                -- Once the frame stops moving, get the position data so we
+                -- can open the frame at that position next time.
+                self:StopMovingOrSizing()
+                local anchor, parent, relativeAnchor, x, y = self:GetPoint()
+                HelpMePlayDB.Positions[widgetData.saveName] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+            end)
+        end
+
+        return secureButton
     end
-
-    -- Register the button for clicks.
-    secureButton:RegisterForClicks("AnyUp")
-    secureButton:SetMouseClickEnabled(true)
-
-    -- Make the frame movable.
-    if btn.isMovable then
-        secureButton:SetMovable(true)
-        secureButton:EnableMouse(true)
-        secureButton:RegisterForDrag("LeftButton")
-        secureButton:SetScript("OnDragStart", function(self)
-            self:StartMoving()
-        end)
-        secureButton:SetScript("OnDragStop", function(self)
-            -- Once the frame stops moving, get the position data so we
-            -- can open the frame at that position next time.
-            self:StopMovingOrSizing()
-            local anchor, parent, relativeAnchor, x, y = self:GetPoint()
-            HelpMePlayDB.Positions[btn.saveName] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
-        end)
-    end
-
-    return secureButton
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")

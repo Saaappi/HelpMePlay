@@ -10,7 +10,7 @@ local lastTime
 
 local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 	if not btn then
-		btn = addon.CreateSecureButton({
+		btn = addon.CreateWidget("SecureButton", {
 			name = format("%s%s", addonName, "RemixUseItemButton"),
 			parent = parent,
 			anchor = anchor,

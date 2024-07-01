@@ -11,7 +11,7 @@ EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID
     end
 
     if not button and tabID == 4 then
-        button = addon.CreateSecureButton({
+        button = addon.CreateWidget("SecureButton", {
             name = format("%s%s", addonName, "EquipHeirloomsButton"),
             parent = CollectionsJournal,
             anchor = "TOPLEFT",
