@@ -128,6 +128,9 @@ addon.CreateEventQueueButton = function()
         end)
         worldEventQueueButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
 
+        -- Clear all anchors from the button.
+        worldEventQueueButton:ClearAllPoints()
+
         -- Make the World Event queue button movable.
         worldEventQueueButton:SetMovable(true)
         worldEventQueueButton:EnableMouse(true)
