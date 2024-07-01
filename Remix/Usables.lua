@@ -2,56 +2,56 @@ local addonName, addon = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local remixItems = {210681, 210714, 210715, 210716, 210717, 210718, 211106, 211107, 211123, 211124, 216639, 216640, 216641, 216643, 216644, 219273, 220367, 220368, 220370, 220371, 220372, 220374, 226142, 226143, 226144, 226145, 210984, 217722, 219282, 219264, 219275, 219276, 219274, 219277, 219280, 210982, 219281, 210983, 219262, 219278, 219258, 219279, 219256, 219269, 219267, 210990, 210985, 219266, 219263, 210989, 219272, 219257, 219259, 219260, 219271, 219268, 210987, 210986, 219265, 219261, 219270}
-local btn
+local button
 local lastTime
 
-local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
-	if not btn then
-		btn = addon.CreateWidget("SecureButton", {
+addon.CreateRemixUsablesButton = function()
+	if not button then
+		button = addon.CreateWidget("SecureButton", {
 			name = format("%s%s", addonName, "RemixUseItemButton"),
-			parent = parent,
-			anchor = anchor,
-			relativeAnchor = relativeAnchor,
-			xOff = xOff,
-			yOff = yOff,
+			width = 32,
+			height = 32,
 			icon = 626190,
 			isMovable = true,
 			saveName = "RemixUseItemButton"
 		})
 
-		btn:ClearAllPoints()
-
+		button:ClearAllPoints()
 		if HelpMePlayDB.Positions["RemixUseItemButton"] then
 			local pos = HelpMePlayDB.Positions["RemixUseItemButton"]
-			btn:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
+			button:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
 		else
-			btn:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+			button:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 		end
 
-		btn:SetAttribute("type", "macro")
+		button:SetAttribute("type", "macro")
 		local macrotext = "/use item:" .. table.concat(remixItems, "\n/use item:")
-		btn:SetAttribute("macrotext", macrotext)
+		button:SetAttribute("macrotext", macrotext)
 
-		btn:SetScript("PreClick", function()
+		button:SetScript("PreClick", function()
 			lastTime = GetTime()
 		end)
 
-		btn:SetScript("OnEnter", function(self)
+		button:SetScript("OnEnter", function(self)
 			addon.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", "Click to combine gems and add threads to your Cloak of Infinite Potential.\n\nClick and hold to drag.")
 		end)
-		btn:SetScript("OnLeave", addon.Tooltip_OnLeave)
+		button:SetScript("OnLeave", addon.Tooltip_OnLeave)
 	end
-	btn:Show()
+
+	if HelpMePlayDB["ShowRemixUsablesButton"] then
+		button:Show()
+		print(button.icon:GetSize())
+	else
+		button:Hide()
+	end
 end
 
 eventHandler:RegisterEvent("PLAYER_LOGIN")
-eventHandler:SetScript(
-"OnEvent",
-function(self, event, ...)
+eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
 		C_Timer.After(1, function()
 			if PlayerGetTimerunningSeasonID() == 1 and HelpMePlayDB["ShowRemixUsablesButton"] then
-				MakeButton("CENTER", UIParent, "CENTER", 0, 0)
+				addon.CreateRemixUsablesButton()
 				--[[if C_AddOns_IsAddOnLoaded("Baganator") then -- Baganator
 					if BAGANATOR_CONFIG["view_type"] == "single" then
 						Baganator_SingleViewBackpackViewFrame:HookScript("OnShow", function()

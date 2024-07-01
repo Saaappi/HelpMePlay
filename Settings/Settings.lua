@@ -51,6 +51,10 @@ local function OnSettingChanged(_, setting, value)
         addon.UpdateQuestMobsIconPosition()
     elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
         addon.UpdateQuestMobsIconPosition()
+    elseif variable == "ShowRemixScrapButton" then
+        addon.CreateRemixScrapButton()
+    elseif variable == "ShowRemixUsablesButton" then
+        addon.CreateRemixUsablesButton()
     elseif variable == "UseWorldEventQueue" then
         addon.CreateEventQueueButton()
     end

@@ -58,9 +58,9 @@ addon.CreateWidget = function(widgetType, widgetData)
         return iconButton
     end
     if widgetType == "SecureButton" then
-        -- Create the button and set its position.
+        -- Create the button.
         local secureButton = CreateFrame("Button", widgetData.name, widgetData.parent, "SecureActionButtonTemplate, ActionButtonTemplate")
-        secureButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.xOff, widgetData.yOff)
+        --secureButton:SetSize(widgetData.width, widgetData.height)
 
         -- Texture stuff.
         if type(widgetData.icon) == "string" then
@@ -68,6 +68,16 @@ addon.CreateWidget = function(widgetType, widgetData)
         else
             secureButton.icon:SetTexture(widgetData.icon)
         end
+
+        local size = 32
+        --secureButton:SetSize(size, size)
+        secureButton.icon:SetSize(size, size)
+        secureButton.NormalTexture:SetSize(size-4, size-4)
+		secureButton.HighlightTexture:SetSize(size, size)
+		secureButton.IconMask:SetSize(size, size)
+        --secureButton.IconMask:SetAllPoints(secureButton)
+		--secureButton.PushedTexture:SetSize(size+1, size)
+        --secureButton.PushedTexture:SetAllPoints(secureButton)
 
         -- Button registration.
         secureButton:RegisterForClicks("AnyUp")
