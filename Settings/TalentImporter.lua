@@ -68,14 +68,12 @@ addon.OpenTalentImporter = function()
     -- If the frame already exists, then it's being reopened, so reset
     -- its height back to the base value.
     if not frame then
-        frame = {
+        frame = addon.CreateFrame("Portrait", {
             name = addonName .. "TalentImporterFrame",
             parent = UIParent,
             width = frameBaseWidth,
             height = frameBaseHeight,
-        }
-        setmetatable(frame, { __index = HelpMePlay.Frame })
-        frame = frame:PortraitFrame()
+        })
     else
         frame:SetHeight(frameBaseHeight)
     end
