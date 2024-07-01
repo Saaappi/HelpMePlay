@@ -15,6 +15,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if GUID then
                 local npcID = LHMP:SplitString(GUID, "-", 6)
                 if npcID then
+                    --[[ DEPRECATED - 2024/06/30
                     if LHMP:IsGossipTextNPC(npcID) then
                         local gossips = LHMP.GossipTextLookupByNPC[npcID]
                         for _, option in next, options do
@@ -24,7 +25,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 end
                             end
                         end
-                    elseif LHMP:IsGossipSupportedForNPC(npcID) then
+                        ]]
+                    if LHMP:IsGossipSupportedForNPC(npcID) then
                         local gossips = LHMP:GetGossipsForNPCByID(npcID)
                         for _, gossip in ipairs(gossips) do
                             local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
@@ -35,7 +37,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 end
                             end
                         end
-                        return
                     end
                 end
             else
@@ -48,7 +49,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 if gossip.CanConfirm then
                                     StaticPopup1Button1:Click("LeftButton")
                                 end
-                                return
                             end
                         end
                     end

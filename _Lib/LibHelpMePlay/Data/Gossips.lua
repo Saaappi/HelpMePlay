@@ -3,17 +3,6 @@ if not LHMP then
     return false
 end
 
--- This table is currently only used for the NPCs involved in the
--- "A Perfect Match" quest in Pearlfin Village in The Jade Forest.
---
--- It may get used elsewhere later on.
-LHMP.GossipTextLookupByNPC = {
-    [54959] = {40054},
-    [56585] = {40057},
-    [56591] = {40056, 40060},
-    [56592] = {40154}
-}
-
 LHMP.Gossips = {
     -- Non-NPC Gossips
     [0] = {
@@ -224,9 +213,11 @@ LHMP.Gossips = {
     [59401] = {{ID = 40697, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
     [59397] = {{ID = 39805, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
     [59392] = {
+        {ID = 39631, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495", "QUEST_OBJECTIVE_INCOMPLETE = 30495,4", "LEVEL_LOWER = 30"}},
         {ID = 39632, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}},
         {ID = 39633, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29932"}}
     },
+    [59400] = {{ID = 39806, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
     [57242] = {{ID = 40586, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29932"}}},
     [59572] = {{ID = 39293, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30568"}}},
     [59563] = {{ID = 39488, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30568"}}},
@@ -294,6 +285,13 @@ LHMP.Gossips = {
     [55688] = {{ID = 39795, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29823"}}},
     [56525] = {{ID = 40650, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29967"}}},
     [60952] = {{ID = 34466, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30015", "LEVEL_LOWER = 30"}}},
+    [54959] = {{ID = 40054, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
+    [56585] = {{ID = 40057, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
+    [56592] = {{ID = 40154, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
+    [56591] = {
+        {ID = 40056, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}},
+        {ID = 40060, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}
+    },
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {
