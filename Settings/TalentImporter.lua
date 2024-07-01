@@ -101,15 +101,13 @@ addon.OpenTalentImporter = function()
     -- Create the class icon buttons if they don't exist.
     if not _G[addon.classButtons[1].name] then
         for index, btn in ipairs(addon.classButtons) do
-            local button = {
+            local button = addon.CreateWidget("ActionButton", {
                 name = btn.name,
                 parent = frame,
                 ID = btn.id,
                 classID = btn.classID,
                 atlas = btn.atlas
-            }
-            setmetatable(button, { __index = HelpMePlay.Button })
-            button = button:ActionButton()
+            })
 
             button:SetScript("OnClick", function()
                 -- Resize the frame to accommodate the edit boxes.
@@ -210,22 +208,17 @@ addon.OpenTalentImporter = function()
                     -- Create the back button. This back button just resets the frame,
                     -- so not entirely necessary but I think it's nice. :)
                     if not backButton then
-                        backButton = {
-                            name = addonName .. "TalentImporterBackButton",
+                        backButton = addon.CreateWidget("BasicButton", {
+                            name = format("%sTalentImporterBackButton", addonName),
                             parent = frame,
-                            anchor = "BOTTOMRIGHT",
-                            relativeAnchor = "BOTTOMRIGHT",
-                            oX = -10,
-                            oY = 10,
                             width = 80,
                             height = 25,
                             text = "Back",
-                            tooltipHeader = "",
-                            tooltipText = "",
-                            onClick = nil,
-                        }
-                        setmetatable(backButton, { __index = HelpMePlay.Button })
-                        backButton = backButton:BaseButton()
+                        })
+
+                        backButton:ClearAllPoints()
+                        backButton:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -10, 10)
+
                         backButton:SetScript("OnClick", function(self)
                             frame:SetHeight(frameBaseHeight)
                             HideEditBoxes()

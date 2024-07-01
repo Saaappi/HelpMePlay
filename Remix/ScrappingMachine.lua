@@ -17,19 +17,16 @@ function(self, event, ...)
 			-- When the Scrapping Machine frame is shown, if the button
 			-- hasn't been created, then create it.
 			if not button then
-				button = {
-					name = addonName .. "ScrappingMachineButton",
+				button = addon.CreateWidget("ActionButton", {
+					name = format("%sScrappingMachineButton", addonName),
 					parent = ScrappingMachineFrame,
-					anchor = "TOPLEFT",
-					relativeAnchor = "TOPRIGHT",
-					oX = 10,
-					oY = 0,
 					ID = nil,
 					classID = nil,
 					icon = nil,
-				}
-				setmetatable(button, { __index = HelpMePlay.Button })
-				button = button:ActionButton()
+				})
+
+				button:ClearAllPoints()
+				button:SetPoint("TOPLEFT", ScrappingMachineFrame, "TOPRIGHT", 10, 0)
 
 				-- Create the script handlers for the button.
 				button:SetScript("OnClick", function(_, btn)

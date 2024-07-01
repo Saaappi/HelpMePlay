@@ -1,8 +1,6 @@
-local addonName, addon = ...
-local eventHandler = CreateFrame("Frame")
+local _, addon = ...
 
 addon.CreateWidget = function(widgetType, widgetData)
-    --[[ DEPRECATED - 2024/06/30
     if widgetType == "BasicButton" then
         local basicButton = CreateFrame("Button", widgetData.name, widgetData.parent, "UIPanelButtonTemplate")
         basicButton:SetSize(widgetData.width, widgetData.height)
@@ -10,12 +8,17 @@ addon.CreateWidget = function(widgetType, widgetData)
 
         basicButton:SetText(widgetData.text)
 
-        basicButton:SetScript("OnClick", widgetData.onClick)
-
-        basicButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.oX, widgetData.oY)
-
         return basicButton
-    end]]
+    end
+    if widgetType == "ActionButton" then
+        local actionButton = CreateFrame("Button", widgetData.name, widgetData.parent, "ActionButtonTemplate")
+        actionButton.ID = widgetData.ID
+        actionButton.classID = widgetData.classID
+        actionButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+        actionButton.icon:SetAtlas(widgetData.atlas)
+
+        return actionButton
+    end
     if widgetType == "IconButton" then
         local iconButton = CreateFrame("Button", widgetData.name, widgetData.parent)
         iconButton:SetSize(widgetData.width, widgetData.height)
@@ -93,26 +96,3 @@ addon.CreateWidget = function(widgetType, widgetData)
         return secureButton
     end
 end
-
-eventHandler:RegisterEvent("ADDON_LOADED")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
-    if event == "ADDON_LOADED" then
-        local addonLoaded = ...
-        if addonLoaded == addonName then
-            HelpMePlay.Button = {
-                ActionButton = function(button)
-                    local actionButton = CreateFrame("Button", button.name, button.parent, "ActionButtonTemplate")
-                    actionButton.ID = button.ID
-                    actionButton.classID = button.classID
-                    actionButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-                    actionButton.icon:SetAtlas(button.atlas)
-
-                    return actionButton
-                end,
-            }
-        end
-
-        -- Unload the event for performance.
-        eventHandler:UnregisterEvent("ADDON_LOADED")
-    end
-end)

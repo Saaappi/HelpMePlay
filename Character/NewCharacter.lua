@@ -33,104 +33,104 @@ end
 
 addon.NewCharacter = function()
     if IsNCCEnabled() then
-        newCharacterButton = {
-            name = addonName .. "NewCharacterButton",
+        newCharacterButton = addon.CreateWidget("BasicButton", {
+            name = format("%sNewCharacterButton", addonName),
             parent = UIParent,
-            anchor = "CENTER",
-            relativeAnchor = "CENTER",
-            oX = 0,
-            oY = 150,
             width = 170,
             height = 25,
             text = "Configure New Character",
-            tooltipHeader = "Configure New Character",
-            tooltipText = format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", LHMP:ColorText(select(2, UnitClass("player")), UnitName("player")), LHMP:ColorText("GOLD", "New Character Configuration")),
-            onClick = function()
-                -- Action Bars
-                SetActionBarToggles(
-                    HelpMePlayDB["NCC_ActionBar2"],
-                    HelpMePlayDB["NCC_ActionBar3"],
-                    HelpMePlayDB["NCC_ActionBar4"],
-                    HelpMePlayDB["NCC_ActionBar5"],
-                    HelpMePlayDB["NCC_ActionBar6"],
-                    HelpMePlayDB["NCC_ActionBar7"],
-                    HelpMePlayDB["NCC_ActionBar8"]
-                )
+        })
 
-                -- Minimap Tracking
-                if HelpMePlayDB["ClearAllTracking"] then
-                    C_Minimap.ClearAllTracking()
-                end
+        newCharacterButton:ClearAllPoints()
+        newCharacterButton:SetPoint("CENTER", UIParent, "CENTER", 0, 150)
 
-                -- Auto Loot
-                if HelpMePlayDB["AutoLoot"] then
-                    C_CVar.SetCVar("autoLootDefault", 1)
-                else
-                    C_CVar.SetCVar("autoLootDefault", 0)
-                end
+        newCharacterButton:SetScript("OnClick", function()
+            -- Action Bars
+            SetActionBarToggles(
+                HelpMePlayDB["NCC_ActionBar2"],
+                HelpMePlayDB["NCC_ActionBar3"],
+                HelpMePlayDB["NCC_ActionBar4"],
+                HelpMePlayDB["NCC_ActionBar5"],
+                HelpMePlayDB["NCC_ActionBar6"],
+                HelpMePlayDB["NCC_ActionBar7"],
+                HelpMePlayDB["NCC_ActionBar8"]
+            )
 
-                -- Disable Tutorials
-                if HelpMePlayDB["DisableTutorials"] then
-                    C_CVar.SetCVar("showTutorials", 0)
-                else
-                    C_CVar.SetCVar("showTutorials", 1)
-                end
+            -- Minimap Tracking
+            if HelpMePlayDB["ClearAllTracking"] then
+                C_Minimap.ClearAllTracking()
+            end
 
-                -- Auto Push Spells
-                if HelpMePlayDB["AutoPushSpells"] then
-                    C_CVar.SetCVar("AutoPushSpellToActionBar", 1)
-                else
-                    C_CVar.SetCVar("AutoPushSpellToActionBar", 0)
-                end
+            -- Auto Loot
+            if HelpMePlayDB["AutoLoot"] then
+                C_CVar.SetCVar("autoLootDefault", 1)
+            else
+                C_CVar.SetCVar("autoLootDefault", 0)
+            end
 
-                -- Class Color Frames
-                if HelpMePlayDB["ClassColorFrames"] then
-                    C_CVar.SetCVar("pvpFramesDisplayClassColor", 1)
-                    C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
-                else
-                    C_CVar.SetCVar("pvpFramesDisplayClassColor", 0)
-                    C_CVar.SetCVar("raidFramesDisplayClassColor", 0)
-                end
+            -- Disable Tutorials
+            if HelpMePlayDB["DisableTutorials"] then
+                C_CVar.SetCVar("showTutorials", 0)
+            else
+                C_CVar.SetCVar("showTutorials", 1)
+            end
 
-                -- Loot Window Under Mouse
-                if HelpMePlayDB["LootUnderMouse"] then
-                    C_CVar.SetCVar("lootUnderMouse", 1)
-                else
-                    C_CVar.SetCVar("lootUnderMouse", 0)
-                end
+            -- Auto Push Spells
+            if HelpMePlayDB["AutoPushSpells"] then
+                C_CVar.SetCVar("AutoPushSpellToActionBar", 1)
+            else
+                C_CVar.SetCVar("AutoPushSpellToActionBar", 0)
+            end
 
-                if HelpMePlayDB["DisableDialog"] then
-                    C_CVar.SetCVar("Sound_EnableDialog", 0)
-                else
-                    C_CVar.SetCVar("Sound_EnableDialog", 1)
-                end
+            -- Class Color Frames
+            if HelpMePlayDB["ClassColorFrames"] then
+                C_CVar.SetCVar("pvpFramesDisplayClassColor", 1)
+                C_CVar.SetCVar("raidFramesDisplayClassColor", 1)
+            else
+                C_CVar.SetCVar("pvpFramesDisplayClassColor", 0)
+                C_CVar.SetCVar("raidFramesDisplayClassColor", 0)
+            end
 
-                -- Set the player's Edit Mode layout.
-                C_EditMode.SetActiveLayout(HelpMePlayDB["NCC_EditModeLayoutID"])
+            -- Loot Window Under Mouse
+            if HelpMePlayDB["LootUnderMouse"] then
+                C_CVar.SetCVar("lootUnderMouse", 1)
+            else
+                C_CVar.SetCVar("lootUnderMouse", 0)
+            end
 
-                -- Set the button as used and hide it.
-                table.insert(HelpMePlayDB["Characters"], addon.playerGUID)
-                newCharacterButton:Hide()
+            if HelpMePlayDB["DisableDialog"] then
+                C_CVar.SetCVar("Sound_EnableDialog", 0)
+            else
+                C_CVar.SetCVar("Sound_EnableDialog", 1)
+            end
 
-                -- Use a popup the player can use to reload the UI and save
-                -- these changes.
-                StaticPopupDialogs["HMP_NEW_CHARACTER_CONFIG_RELOAD_UI"] = {
-                    text = "New character configuration completed. Would you like to reload now?",
-                    button1 = YES,
-                    button2 = NO,
-                    explicitAcknowledge = true,
-                    OnAccept = function()
-                        C_UI.Reload()
-                    end,
-                    OnCancel = function()
-                    end,
-                    preferredIndex = 3
-                }
-                StaticPopup_Show("HMP_NEW_CHARACTER_CONFIG_RELOAD_UI")
-            end,
-        }
-        setmetatable(newCharacterButton, { __index = HelpMePlay.Button })
-        newCharacterButton = newCharacterButton:BaseButton()
+            -- Set the player's Edit Mode layout.
+            C_EditMode.SetActiveLayout(HelpMePlayDB["NCC_EditModeLayoutID"])
+
+            -- Set the button as used and hide it.
+            table.insert(HelpMePlayDB["Characters"], addon.playerGUID)
+            newCharacterButton:Hide()
+
+            -- Use a popup the player can use to reload the UI and save
+            -- these changes.
+            StaticPopupDialogs["HMP_NEW_CHARACTER_CONFIG_RELOAD_UI"] = {
+                text = "New character configuration completed. Would you like to reload now?",
+                button1 = YES,
+                button2 = NO,
+                explicitAcknowledge = true,
+                OnAccept = function()
+                    C_UI.Reload()
+                end,
+                OnCancel = function()
+                end,
+                preferredIndex = 3
+            }
+            StaticPopup_Show("HMP_NEW_CHARACTER_CONFIG_RELOAD_UI")
+        end)
+        newCharacterButton:SetScript("OnEnter", function(self)
+            addon.Tooltip_OnEnter(self, "Configure New Character", format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", LHMP:ColorText(select(2, UnitClass("player")), UnitName("player")), LHMP:ColorText("GOLD", "New Character Configuration")))
+        end)
+        newCharacterButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
     end
 end
 
