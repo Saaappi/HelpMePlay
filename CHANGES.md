@@ -3,6 +3,7 @@
 ### Added
 - Added a new **Toggle All** button to the top of the settings. This button can be used to quickly toggle all settings off and on.
 - Added Jade Forest campaign gossips for Horde.
+- Added missing gossips in The Jade Forest for both factions.
 - Added the Satchel of Chilled Goods to Containers.
 ### Changed or Updated
 - The chevron icons for the World Event queue button have received a visual and functionality update.
@@ -26,4 +27,3 @@
 - Mounts of the opposing faction should no longer be summoned on the current faction.
 - Mounts the player cannot use (e.g. Engineering mounts on a non-engineer) should no longer be summoned.
 - Mount automation can no longer be used while in combat or while moving.
-- During "A Love's Labor" in The Jade Forest, players will now automatically take the kite to the top of the statue if they're less than level 30 (can't fly on their own).
