@@ -58,9 +58,6 @@ function(self, event, ...)
 	if event == "ADDON_LOADED" then
 		local addonLoaded = ...
 		if addonLoaded == addonName then
-			-- Create an empty global table for all the addon's functions.
-			HelpMePlay = {}
-
 			-- If the account/character saved variable tables are nil, then
 			-- initialize them.
 			if HelpMePlayDB == nil then
