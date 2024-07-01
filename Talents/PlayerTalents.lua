@@ -80,8 +80,8 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
         parent = ClassTalentFrame.TalentsTab.ApplyButton,
         anchor = "RIGHT",
         relativeAnchor = "LEFT",
-        oX = -20,
-        oY = 0,
+        xOff = -20,
+        yOff = 0,
         width = 24,
         height = 24
     })
@@ -140,7 +140,7 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
         end
         GameTooltip:Show()
     end)
-    classTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave())
+    classTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
 
     if C_AddOns.IsAddOnLoaded("ZygorGuidesViewer") then
         classTalentsButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -50, 0)

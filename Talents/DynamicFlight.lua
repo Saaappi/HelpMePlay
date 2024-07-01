@@ -30,17 +30,17 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
             parent = GenericTraitFrame.Currency,
             anchor = "TOPRIGHT",
             relativeAnchor = "BOTTOMRIGHT",
-            oX = 0,
-            oY = -15,
+            xOff = 0,
+            yOff = -15,
             width = 24,
             height = 24
         })
 
-        dynamicFlightTalentsButton:SetScript("OnClick", PurchaseTalents())
+        dynamicFlightTalentsButton:SetScript("OnClick", PurchaseTalents)
         dynamicFlightTalentsButton:SetScript("OnEnter", function(self)
-            addon.Tooltip_OnEnter(self, "Dynamic Flight Talents", "Click to automatically learn your Dynamic Flight talents.")
+            addon.Tooltip_OnEnter(self, "Skyriding", "Click to learn your Skyriding talents.")
         end)
-        dynamicFlightTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave())
+        dynamicFlightTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
 	end
 end)
 

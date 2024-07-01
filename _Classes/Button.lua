@@ -17,12 +17,13 @@ addon.CreateWidget = function(widgetType, widgetData)
         return basicButton
     end]]
     if widgetType == "IconButton" then
-        local iconButton = CreateFrame("Button", widgetData.name, widgetData.parent, "SecureFrameTemplate")
-        iconButton:SetSize(34, 34)
+        local iconButton = CreateFrame("Button", widgetData.name, widgetData.parent)
+        iconButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.xOff, widgetData.yOff)
+        iconButton:SetSize(widgetData.width, widgetData.height)
         iconButton:RegisterForClicks("LeftButtonUp")
 
         local parent = iconButton:GetName()
-        iconButton.icon = iconButton:CreateTexture(format("%sIconTexture", parent), "ARTWORK")
+        iconButton.icon = iconButton:CreateTexture(format("%sIcon", parent), "ARTWORK")
         iconButton.icon:SetTexture(widgetData.texture)
         iconButton.icon:SetAllPoints()
 
@@ -50,12 +51,10 @@ addon.CreateWidget = function(widgetType, widgetData)
             iconButton.buttonName = iconButton:CreateFontString(format("%sButtonName", parent), "ARTWORK", "GameFontNormal")
             iconButton.buttonName:SetPoint("RIGHT", iconButton.border, "LEFT", -2, 0)
             iconButton.buttonName:SetMaxLines(2)
-            iconButton.buttonName:SetText(format("|cffFFFFFF%s|r", button.fontStringText))
+            iconButton.buttonName:SetText(format("|cffFFFFFF%s|r", widgetData.fontStringText))
             iconButton.buttonName:SetJustifyH("RIGHT")
             iconButton.buttonName:SetWordWrap(true)
         end
-
-        iconButton:SetPoint(widgetData.anchor, widgetData.parent, widgetData.relativeAnchor, widgetData.oX, widgetData.oY)
 
         return iconButton
     end
