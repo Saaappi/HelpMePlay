@@ -16,8 +16,25 @@ addon.CreateSecureButton = function(btn)
     end
 
     -- Register the button for clicks.
-    secureButton:RegisterForClicks("AnyUp", "AnyDown")
+    secureButton:RegisterForClicks("AnyUp")
     secureButton:SetMouseClickEnabled(true)
+
+    -- Make the frame movable.
+    if btn.isMovable then
+        secureButton:SetMovable(true)
+        secureButton:EnableMouse(true)
+        secureButton:RegisterForDrag("LeftButton")
+        secureButton:SetScript("OnDragStart", function(self)
+            self:StartMoving()
+        end)
+        secureButton:SetScript("OnDragStop", function(self)
+            -- Once the frame stops moving, get the position data so we
+            -- can open the frame at that position next time.
+            self:StopMovingOrSizing()
+            local anchor, parent, relativeAnchor, x, y = self:GetPoint()
+            HelpMePlayDB.Positions[btn.saveName] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+        end)
+    end
 
     return secureButton
 end

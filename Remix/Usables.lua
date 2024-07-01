@@ -17,29 +17,19 @@ local function MakeButton(anchor, parent, relativeAnchor, xOff, yOff)
 			relativeAnchor = relativeAnchor,
 			xOff = xOff,
 			yOff = yOff,
-			icon = 626190
+			icon = 626190,
+			isMovable = true,
+			saveName = "RemixUseItemButton"
 		})
 
+		btn:ClearAllPoints()
+
 		if HelpMePlayDB.Positions["RemixUseItemButton"] then
-			btn:SetPoint(unpack(HelpMePlayDB.Positions["RemixUseItemButton"]))
+			local pos = HelpMePlayDB.Positions["RemixUseItemButton"]
+			btn:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
 		else
 			btn:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 		end
-
-		-- Make the frame movable.
-		btn:SetMovable(true)
-		btn:EnableMouse(true)
-		btn:RegisterForDrag("LeftButton")
-		btn:SetScript("OnDragStart", function(self)
-			self:StartMoving()
-		end)
-		btn:SetScript("OnDragStop", function(self)
-			-- Once the frame stops moving, get the position data so we
-			-- can open the frame at that position next time.
-			self:StopMovingOrSizing()
-			local point, _, relativePoint, x, y = self:GetPoint()
-			HelpMePlayDB.Positions["RemixUseItemButton"] = { point, "UIParent", relativePoint, x, y }
-		end)
 
 		btn:SetAttribute("type", "macro")
 		local macrotext = "/use item:" .. table.concat(remixItems, "\n/use item:")
