@@ -9,9 +9,9 @@ addon.CreateWidget = function(widgetType, widgetData)
 
         -- Texture stuff.
         if type(widgetData.icon) == "string" then
-            secureButton.icon:SetAtlas(btn.icon)
+            secureButton.icon:SetAtlas(widgetData.icon)
         else
-            secureButton.icon:SetTexture(btn.icon)
+            secureButton.icon:SetTexture(widgetData.icon)
         end
 
         -- Button registration.
