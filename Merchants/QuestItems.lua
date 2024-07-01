@@ -17,7 +17,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local items = LHMP:GetItemsForMerchant(npcID)
                     if items then
                         for _, item in ipairs(items) do
-                            local isAllowed = HelpMePlay.EvalConditions(item.Conditions)
+                            local isAllowed = addon.EvaluateConditions(item.Conditions)
                             if isAllowed then
                                 BuyMerchantItem(item.Index, item.Quantity)
                             end

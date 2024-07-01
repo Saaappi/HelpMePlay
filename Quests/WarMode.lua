@@ -24,7 +24,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "ZONE_CHANGED_NEW_AREA" then
 	    if HelpMePlayDB["UseWarMode"] == false then return end
 		if UnitLevel("player") < addon.Constants["CHROMIE_TIME_MAX_LEVEL"] then
-            local isEnlisted = HelpMePlay.EvalConditions({"WAR_MODE_INACTIVE"})
+            local isEnlisted = addon.EvaluateConditions({"WAR_MODE_INACTIVE"})
 			if isEnlisted then
 				eventHandler:UnregisterEvent("PLAYER_LOGIN")
 				eventHandler:UnregisterEvent("ZONE_CHANGED_NEW_AREA")

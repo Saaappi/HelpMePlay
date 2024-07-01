@@ -12,7 +12,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			    local repairCost = GetRepairAllCost()
                 if repairCost then
                     if GetMoney() > repairCost and repairCost > 0 then
-                        HelpMePlay.Print("Repaired for " .. C_CurrencyInfo.GetCoinTextureString(repairCost))
+                        addon.Print("Repaired for " .. C_CurrencyInfo.GetCoinTextureString(repairCost))
                         RepairAllItems(false)
                     end
                 end

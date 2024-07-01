@@ -8,10 +8,10 @@ local function ManageGuildBankFunds(transactionType, amount)
     C_Timer.After(addon.Constants["TIMER_DELAY"] + 0.4, function()
         if transactionType == "DEPOSIT" then
             DepositGuildBankMoney(amount)
-            HelpMePlay.Print(format("Deposited %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
+            addon.Print(format("Deposited %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
         else
             WithdrawGuildBankMoney(amount)
-            HelpMePlay.Print(format("Withdrew %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
+            addon.Print(format("Withdrew %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
         end
     end)
 end

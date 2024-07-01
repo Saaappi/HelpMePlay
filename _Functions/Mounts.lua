@@ -64,7 +64,7 @@ addon.CategorizeMountByID = function(mountID)
                 local isUsable = C_MountJournal.GetMountUsabilityByID(mountID, false)
                 table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID})
             else
-                HelpMePlay.Print(format(addon.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
+                addon.Print(format(addon.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
             end
         end
     end
@@ -129,7 +129,7 @@ addon.Mount = function()
     -- manually recategorize their mounts. If they haven't done
     -- that yet, then return.
     if not HelpMePlayDB["HasRecategorizedMounts"] then
-        HelpMePlay.Print(addon.ErrorMessages["HAS_NOT_RECATEGORIZED_MOUNTS"])
+        addon.Print(addon.ErrorMessages["HAS_NOT_RECATEGORIZED_MOUNTS"])
         return false
     end
 

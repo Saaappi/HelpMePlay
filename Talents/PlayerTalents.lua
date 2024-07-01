@@ -36,7 +36,7 @@ local function PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID
             wasSuccessful = C_Traits.SetSelection(activeConfigID, talent.nodeID, talent.selectionEntryID)
         end
         if wasSuccessful then
-            HelpMePlay.Print(format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
+            addon.Print(format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
             wasSuccessful = false
         end
     end

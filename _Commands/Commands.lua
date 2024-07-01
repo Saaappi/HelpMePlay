@@ -8,9 +8,9 @@ SlashCmdList["HelpMePlay"] = function(cmd)
         if not InCombatLockdown() then
             Settings.OpenToCategory(addon.category:GetID())
         else
-            HelpMePlay.Print(addon.ErrorMessages["IN_COMBAT_LOCKDOWN"])
+            addon.Print(addon.ErrorMessages["IN_COMBAT_LOCKDOWN"])
         end
     else
-        HelpMePlay.Print(addon.ErrorMessages["COMMAND_NOT_FOUND"])
+        addon.Print(addon.ErrorMessages["COMMAND_NOT_FOUND"])
 	end
 end

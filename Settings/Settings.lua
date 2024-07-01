@@ -33,7 +33,7 @@ local function OnSettingChanged(_, setting, value)
                         HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
                         addon.UpdateQuestMobsIcon()
                     else
-                        HelpMePlay.Print("Input was invalid.")
+                        addon.Print("Input was invalid.")
                     end
                 end,
                 timeout = 0,
@@ -879,9 +879,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                         local specName = LHMP:GetRandomSpecIDByClassID(classID)
                                         if class then
                                             if factionID and factionID == 0 then
-                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
+                                                addon.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
                                             elseif factionID and factionID == 1 then
-                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
+                                                addon.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
                                             end
                                         end
                                     end

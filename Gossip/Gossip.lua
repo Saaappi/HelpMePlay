@@ -29,7 +29,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     if LHMP:IsGossipSupportedForNPC(npcID) then
                         local gossips = LHMP:GetGossipsForNPCByID(npcID)
                         for _, gossip in ipairs(gossips) do
-                            local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
+                            local isAllowed = addon.EvaluateConditions(gossip.Conditions)
                             if isAllowed then
                                 C_GossipInfo.SelectOption(gossip.ID)
                                 if gossip.CanConfirm then
@@ -43,7 +43,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 for _, option in next, options do
                     for _, gossip in next, LHMP.Gossips[0] do
                         if gossip.ID == option.gossipOptionID then
-                            local isAllowed = HelpMePlay.EvalConditions(gossip.Conditions)
+                            local isAllowed = addon.EvaluateConditions(gossip.Conditions)
                             if isAllowed then
                                 C_GossipInfo.SelectOption(gossip.ID)
                                 if gossip.CanConfirm then

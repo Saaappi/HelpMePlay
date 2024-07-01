@@ -184,35 +184,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                     return iconButton
                 end,
-                SecureButton = function(button)
-                    local secureButton = CreateFrame("Button", button.name, button.parent, "SecureActionButtonTemplate")
-                    secureButton:ClearAllPoints()
-                    secureButton:SetSize(button.width, button.height)
-                    secureButton:SetPoint(button.anchor, button.parent, button.relativeAnchor, button.oX, button.oY)
-
-                    secureButton["texture"] = secureButton:CreateTexture()
-                    secureButton["texture"]:SetTexture(button.texture)
-                    secureButton["texture"]:SetAllPoints()
-
-                    secureButton["highlightTexture"] = secureButton:CreateTexture()
-                    secureButton["highlightTexture"]:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
-                    secureButton["highlightTexture"]:SetSize(button.width, button.height)
-                    secureButton:SetHighlightTexture(secureButton["highlightTexture"], "ADD")
-
-                    secureButton["pushedTexture"] = secureButton:CreateTexture()
-                    secureButton["pushedTexture"]:SetTexture("Interface\\Buttons\\UI-Quickslot-Depress")
-                    secureButton["pushedTexture"]:SetSize(button.width, button.height)
-                    secureButton:SetPushedTexture(secureButton["pushedTexture"])
-
-                    secureButton:RegisterForClicks("AnyUp", "AnyDown")
-                    secureButton:SetMouseClickEnabled(true)
-                    secureButton:SetAttribute("type", button.attribute)
-                    secureButton:SetAttribute(button.attribute, button.attributeValue)
-
-                    secureButton:SetScript("PostClick", button.postClick)
-
-                    return secureButton
-                end,
                 CheckButton = function(button)
                     local checkButton = CreateFrame("CheckButton", button.name, button.parent, "SettingsCheckBoxTemplate")
                     checkButton:ClearAllPoints()
