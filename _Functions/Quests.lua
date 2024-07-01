@@ -11,7 +11,7 @@ local function CheckForQuestReward(itemLink, destSlot)
 
     -- In case the player enters combat after completing the quest
     -- but before this function is called, then trigger a timer.
-    if UnitAffectingCombat("player") then C_Timer.After(1, function() CheckForQuestReward(itemLink) end) end
+    if InCombatLockdown() then C_Timer.After(1, function() CheckForQuestReward(itemLink) end) end
 
     -- Get the provided item link's ID. This is necessary for comparison
     -- to items in the inventory. For some reason item link comparison is
@@ -171,7 +171,7 @@ addon.CompleteQuest = function()
     C_Timer.After(0.1, function()
         -- Check if the player is in combat. This will cause some trouble if they
         -- are, so let's deal with it now.
-        if UnitAffectingCombat("player") then C_Timer.After(1, addon.CompleteQuest) end
+        if InCombatLockdown() then C_Timer.After(1, addon.CompleteQuest) end
 
         -- Determine if the player can dual wield. The specialization IDs
         -- are stored in Data\Quests.lua.

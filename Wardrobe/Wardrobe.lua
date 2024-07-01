@@ -4,7 +4,7 @@ local transmogrificationButton
 local transmogrificationSlotIDs = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
 
 local function EquipOriginalItems(equippedItems)
-	if not UnitAffectingCombat("player") then
+	if not InCombatLockdown() then
 		C_Timer.After(1, function()
 			for _, item in ipairs(equippedItems) do
 				local itemLocation = ItemLocation:CreateFromEquipmentSlot(item.id)
@@ -22,7 +22,7 @@ local function EquipOriginalItems(equippedItems)
 end
 
 local function LearnTransmog(equippedItems)
-	if not UnitAffectingCombat("player") then
+	if not InCombatLockdown() then
 		for bagID = 0, NUM_BAG_SLOTS do
 			for slotID = C_Container.GetContainerNumSlots(bagID), 1, -1 do
 				local itemLocation = ItemLocation:CreateFromBagAndSlot(bagID, slotID)
@@ -54,7 +54,7 @@ local function LearnTransmog(equippedItems)
 end
 
 local function Main()
-    if not UnitAffectingCombat("player") then
+    if not InCombatLockdown() then
         local equippedItems = {}
         for _, slotID in ipairs(transmogrificationSlotIDs) do
             if type(slotID) == "table" then
