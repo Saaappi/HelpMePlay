@@ -2,7 +2,7 @@
 
 ### Added
 ### Changed or Updated
-- The World Event queue button is now movable. [Resolves #84]
+- The World Event queue button is now movable. [Resolved #84]
 ### Deprecated
 ### Removed
 ### Fixed
