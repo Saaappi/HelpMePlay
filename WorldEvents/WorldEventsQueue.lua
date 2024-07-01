@@ -15,7 +15,7 @@ local function GetActiveEventsFromCalendarByDate(date)
             local event = C_Calendar.GetDayEvent(0, date.monthDay, index)
             if event and LHMP:IsEventQueueable(event.eventID) then
                 local worldEvent = LHMP:GetWorldEvent(event.eventID)
-                table.insert(events, { name = LHMP:ColorText("COMMON", event.title), dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture, conditions = worldEvent.conditions })
+                table.insert(events, { name = event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture, conditions = worldEvent.conditions })
             end
         end
     end
@@ -123,10 +123,32 @@ addon.CreateEventQueueButton = function()
         worldEventQueueButton:SetScript("OnClick", function(self)
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
-        worldEventQueueButton:SetScript("OnEnter", function(self) addon.Tooltip_OnEnter(self, self.name, "") end)
+        worldEventQueueButton:SetScript("OnEnter", function(self)
+            addon.Tooltip_OnEnter(self, self.name, "\nClick and hold to drag.")
+        end)
         worldEventQueueButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
 
-        worldEventQueueButton:SetPoint("TOP", worldEventQueueButton:GetParent(), "TOP", 0, -20)
+        -- Make the World Event queue button movable.
+        worldEventQueueButton:SetMovable(true)
+        worldEventQueueButton:EnableMouse(true)
+        worldEventQueueButton:RegisterForDrag("LeftButton")
+        worldEventQueueButton:SetScript("OnDragStart", function(self)
+            self:StartMoving()
+        end)
+        worldEventQueueButton:SetScript("OnDragStop", function(self)
+            self:StopMovingOrSizing()
+            local anchor, parent, relativeAnchor, x, y = self:GetPoint()
+            HelpMePlayDB.Positions["WorldEventQueueButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+        end)
+
+        -- If the player has moved the queue button, then set its position to
+        -- their location. Otherwise, default to the top center of the screen.
+        if HelpMePlayDB.Positions["WorldEventQueueButton"] then
+            local pos = HelpMePlayDB.Positions["WorldEventQueueButton"]
+            worldEventQueueButton:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
+        else
+            worldEventQueueButton:SetPoint("TOP", worldEventQueueButton:GetParent(), "TOP", 0, -20)
+        end
         worldEventQueueButton:Show()
     else
         if not worldEventQueueButton:IsVisible() then
