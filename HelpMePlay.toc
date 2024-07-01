@@ -25,7 +25,7 @@ _Classes\Tooltip.lua
 _Classes\Button.lua
 _Classes\Frame.lua
 
-_Functions\EvalConditions.lua
+_Functions\EvaluateConditions.lua
 _Functions\Print.lua
 _Functions\Tables.lua
 _Functions\QuestMobs.lua
