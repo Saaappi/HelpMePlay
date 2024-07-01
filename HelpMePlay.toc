@@ -24,8 +24,6 @@ Settings\Settings.lua
 _Classes\Tooltip.lua
 _Classes\Button.lua
 _Classes\Frame.lua
-#_Classes\DropDown.lua
-#_Classes\Slider.lua
 
 _Functions\EvalConditions.lua
 _Functions\Print.lua
