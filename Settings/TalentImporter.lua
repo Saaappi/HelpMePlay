@@ -69,7 +69,7 @@ addon.OpenTalentImporter = function()
     -- its height back to the base value.
     if not frame then
         frame = addon.CreateFrame("Portrait", {
-            name = addonName .. "TalentImporterFrame",
+            name = format("%sTalentImporterFrame", addonName),
             parent = UIParent,
             width = frameBaseWidth,
             height = frameBaseHeight,
