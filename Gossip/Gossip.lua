@@ -25,7 +25,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 end
                             end
                         end
-                        ]]
+                    end
+                    ]]
                     if LHMP:IsGossipSupportedForNPC(npcID) then
                         local gossips = LHMP:GetGossipsForNPCByID(npcID)
                         for _, gossip in ipairs(gossips) do
