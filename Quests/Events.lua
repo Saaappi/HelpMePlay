@@ -4,21 +4,12 @@ local LHMP = LibStub("LibHelpMePlay")
 
 local function QUEST_GOSSIP()
     if not IsShiftKeyDown() then
-        -- I'm not sure I need to ignore quest givers. I'll disable for now and
-        -- discuss it with Kraken's community.
-        --[[local GUID = UnitGUID("target")
-        local mapID = C_Map.GetBestMapForUnit("player")
-        if GUID then
-            local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
-            if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
-        end]]
-
         if HelpMePlayDB["AcceptAndCompleteQuests"] then
             -- Let's deal with completed quests first.
             for _, quest in next, C_GossipInfo.GetActiveQuests() do
                 if quest.isComplete and (not C_QuestLog.IsWorldQuest(quest.questID)) then
                     C_GossipInfo.SelectActiveQuest(quest.questID)
-                    HelpMePlay.CompleteQuest()
+                    addon.CompleteQuest()
                 end
             end
 
@@ -55,7 +46,7 @@ local function QUEST_COMPLETE()
                         end
                     end
                 end
-                HelpMePlay.CompleteQuest()
+                addon.CompleteQuest()
             end
         end
     else
@@ -95,16 +86,6 @@ end
 
 local function QUEST_GREETING()
     if not IsShiftKeyDown() then
-        -- I'm not sure I need to ignore quest givers. I'll disable for now and
-        -- discuss it with Kraken's community.
-        --[[local GUID = UnitGUID("target")
-        if GUID then
-            local npcID = select(6, string.split("-", GUID)); npcID = tonumber(npcID)
-            if npcID then
-                if HelpMePlay.IsQuestGiverIgnored(npcID) then return end
-            end
-        end]]
-
         if HelpMePlayDB["AcceptAndCompleteQuests"] then
             -- Let's deal with active and complete quests first.
             for index = 1, GetNumActiveQuests() do
@@ -159,7 +140,7 @@ local function QUEST_PROGRESS()
 
         if HelpMePlayDB["AcceptAndCompleteQuests"] then
             CompleteQuest()
-            HelpMePlay.CompleteQuest()
+            addon.CompleteQuest()
         end
     else
         C_Timer.After(1, QUEST_PROGRESS)
