@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local _, addon = ...
 
 BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
 BINDING_NAME_HELPMEPLAY_MOUNTUP = "Mount Up"
@@ -25,12 +25,12 @@ function HelpMePlayKeybind(key)
                     -- This is a header that has quests beneath it. As such,
                     -- let's give the player a popup to choose if they want to
                     -- abandon all the quests in the zone.
-                    local popup = {
-                        name = "HELPMEPLAY_QUICKQUESTABANDON_CONFIRM",
+                    StaticPopupDialogs["HMP_QUICK_QUEST_ABANDON_CONFIRMATION"] = {
                         text = format("You're about to abandon all quests within |cffFFD100%s|r. Do you want to continue?", focus:GetText()),
-                        button1 = ACCEPT,
-                        button2 = CANCEL,
-                        onAccept = function()
+                        button1 = YES,
+                        button2 = NO,
+                        explicitAcknowledge = true,
+                        OnAccept = function()
                             local startingIndex = focus.questLogIndex + 1
                             local endingIndex = C_QuestLog.GetNumQuestLogEntries()
                             for i = startingIndex, endingIndex do
@@ -44,16 +44,11 @@ function HelpMePlayKeybind(key)
                                 end
                             end
                         end,
-                        showAlert = false,
-                        whileDead = false,
-                        hideOnEscape = true,
-                        hasEditBox = false,
-                        enterClicksFirstButton = false,
-                        preferredIndex = 3,
+                        OnCancel = function()
+                        end,
+                        preferredIndex = 3
                     }
-                    setmetatable(popup, { __index = HelpMePlay.Frame })
-                    popup = popup:Popup()
-                    StaticPopup_Show(popup.name)
+                    StaticPopup_Show("HMP_QUICK_QUEST_ABANDON_CONFIRMATION")
                 else
                     AbandonQuestByID(focusedIndexInfo.questID)
                 end

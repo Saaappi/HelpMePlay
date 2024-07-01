@@ -114,23 +114,19 @@ addon.NewCharacter = function()
 
                 -- Use a popup the player can use to reload the UI and save
                 -- these changes.
-                local popup = {
-                    name = "HELPMEPLAY_NCC_RELOAD_UI",
+                StaticPopupDialogs["HMP_NEW_CHARACTER_CONFIG_RELOAD_UI"] = {
                     text = "New character configuration completed. Would you like to reload now?",
-                    button1 = ACCEPT,
-                    button2 = CANCEL,
-                    onAccept = function(self, data)
+                    button1 = YES,
+                    button2 = NO,
+                    explicitAcknowledge = true,
+                    OnAccept = function()
                         C_UI.Reload()
                     end,
-                    showAlert = false,
-                    whileDead = false,
-                    hideOnEscape = true,
-                    enterClicksFirstButton = false,
-                    preferredIndex = 3,
+                    OnCancel = function()
+                    end,
+                    preferredIndex = 3
                 }
-                setmetatable(popup, { __index = HelpMePlay.Frame })
-                popup = popup:Popup()
-                StaticPopup_Show(popup.name)
+                StaticPopup_Show("HMP_NEW_CHARACTER_CONFIG_RELOAD_UI")
             end,
         }
         setmetatable(newCharacterButton, { __index = HelpMePlay.Button })

@@ -55,28 +55,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                     return editBox
                 end,
-                Popup = function(myPopup)
-                    local popup = StaticPopupDialogs[myPopup.name]
-                    if not popup then
-                        popup = {
-                            name = myPopup.name,
-                            text = myPopup.text,
-                            button1 = myPopup.button1,
-                            button2 = myPopup.button2,
-                            OnAccept = myPopup.onAccept,
-                            OnShow = myPopup.onShow,
-                            OnCancel = myPopup.onCancel,
-                            showAlert = myPopup.showAlert,
-                            whileDead = myPopup.whileDead,
-                            hideOnEscape = myPopup.hideOnEscape,
-                            hasEditBox = myPopup.hasEditBox,
-                            enterClicksFirstButton = myPopup.enterClicksFirstButton,
-                            preferredIndex = 3
-                        }
-                    end
-                    StaticPopupDialogs[myPopup.name] = popup
-                    return popup
-                end
             }
         end
 
