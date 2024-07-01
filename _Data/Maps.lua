@@ -5,7 +5,10 @@ addon.NoCutsceneSkipMaps = {
         ["Conditions"] = {}
     },
     [371] = {
-        ["Conditions"] = {29827},
+        ["Conditions"] = {
+            29827,
+            30000
+        },
     },
     [1169] = {
         ["Conditions"] = {}
