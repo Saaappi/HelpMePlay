@@ -98,10 +98,41 @@ addon.NewCharacter = function()
                 C_CVar.SetCVar("lootUnderMouse", 0)
             end
 
+            -- Disable Dialog
             if HelpMePlayDB["DisableDialog"] then
                 C_CVar.SetCVar("Sound_EnableDialog", 0)
             else
                 C_CVar.SetCVar("Sound_EnableDialog", 1)
+            end
+
+            -- Create Whisper Window
+            if HelpMePlayDB["CreateWhisperWindow"] then
+                -- The new Whispers window.
+                local window = FCF_OpenNewWindow("Whispers")
+                ChatFrame_RemoveAllMessageGroups(window)
+                ChatFrame_RemoveAllChannels(window)
+                ChatFrame_AddMessageGroup(window, "BN_WHISPER")
+                ChatFrame_AddMessageGroup(window, "WHISPER")
+
+                -- The General window.
+                ChatFrame_RemoveMessageGroup(ChatFrame1, "BN_WHISPER")
+                ChatFrame_RemoveMessageGroup(ChatFrame1, "WHISPER")
+            end
+
+            -- Create Loot Window
+            if HelpMePlayDB["CreateLootWindow"] then
+                -- The new Loot window.
+                local window = FCF_OpenNewWindow("Loot")
+                ChatFrame_RemoveAllMessageGroups(window)
+                ChatFrame_RemoveAllChannels(window)
+                ChatFrame_AddMessageGroup(window, "CURRENCY")
+                ChatFrame_AddMessageGroup(window, "LOOT")
+                ChatFrame_AddMessageGroup(window, "MONEY")
+
+                -- The General window.
+                ChatFrame_RemoveMessageGroup(ChatFrame1, "CURRENCY")
+                ChatFrame_RemoveMessageGroup(ChatFrame1, "LOOT")
+                ChatFrame_RemoveMessageGroup(ChatFrame1, "MONEY")
             end
 
             -- Set the player's Edit Mode layout.

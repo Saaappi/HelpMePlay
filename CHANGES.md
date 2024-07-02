@@ -1,6 +1,8 @@
 ## Version 3.0.0B8.4 - 2024/07/01
 
 ### Added
+- Added **Create Whisper Window** and **Create Loot Window** under the **New Character Configuration** section.
+  - _**Author's Note:** These settings are used to quickly create a Whispers and Loot window on new characters for players that prefer to have their whisper and loot events separate from the General chat tab._
 ### Changed or Updated
 - The World Event queue button is now movable. [Resolved #84]
 - Heirlooms that are at the same level as the player will no longer be equipped.

@@ -212,6 +212,12 @@ function(self, event, ...)
 			if HelpMePlayDB["DisableDialog"] == nil then
 				HelpMePlayDB["DisableDialog"] = false
 			end
+			if HelpMePlayDB["CreateWhisperWindow"] == nil then
+				HelpMePlayDB["CreateWhisperWindow"] = false
+			end
+			if HelpMePlayDB["CreateLootWindow"] == nil then
+				HelpMePlayDB["CreateLootWindow"] = false
+			end
 			if HelpMePlayDB["NCC_EditModeLayoutID"] == nil then
 				HelpMePlayDB["NCC_EditModeLayoutID"] = 1
 			end

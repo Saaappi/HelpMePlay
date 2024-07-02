@@ -730,6 +730,26 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
+                -- Create Whisper Window
+                do
+                    local variable = "CreateWhisperWindow"
+                    local name = "Create Whisper Window"
+                    local tooltipText = "Toggle to create a new window on your chat frame for Whispers and Blizzard Whispers."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Create Loot Window
+                do
+                    local variable = "CreateLootWindow"
+                    local name = "Create Loot Window"
+                    local tooltipText = "Toggle to create a new window on your chat frame for loot events."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
                 -- Edit Mode
                 do
                     local variable = "NCC_EditModeLayoutID"
