@@ -15,7 +15,7 @@ EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID
         button = addon.CreateWidget("SecureButton", {
             name = format("%s%s", addonName, "EquipHeirloomsButton"),
             scale = 0.65,
-            icon = 133071,
+            icon = 1805932,
             isMovable = false,
             saveName = ""
         })
