@@ -43,6 +43,14 @@ addon.CreateRemixUsablesButton = function()
 
 		button:SetScript("PreClick", function()
 			lastTime = GetTime()
+
+			-- Equip the cloak if it's not equipped.
+			if not GetInventoryItemLink("player", 15) then
+				local hasItem = C_Item.GetItemCount(210333, false)
+				if hasItem > 0 then
+					C_Item.EquipItemByName(210333, 15)
+				end
+			end
 		end)
 
 		button:SetScript("OnEnter", function(self)
