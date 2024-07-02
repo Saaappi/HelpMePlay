@@ -3,7 +3,7 @@ local button
 
 EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID)
     if PlayerGetTimerunningSeasonID() == 1 then return false end
-    if addon.PlayerLevel == addon.Constants["MAX_PLAYER_LEVEL"] then return false end
+    if addon.playerLevel == addon.Constants["MAX_PLAYER_LEVEL"] then return false end
 
     if _G["CollectionsJournalTab" .. tabID]:GetText() ~= HEIRLOOMS then
         if button then
