@@ -1,6 +1,6 @@
 ## Interface: 100207, 110000
 ## Title: HelpMePlay
-## Version: 3.0.0B8.5
+## Version: 3.0.0B8.4.1
 ## Author: LightskyGG
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character

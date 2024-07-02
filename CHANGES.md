@@ -1,4 +1,4 @@
-## Version 3.0.0B8.5 - 2024/07/MM
+## Version 3.0.0B8.4.1 - 2024/07/02
 
 ### Added
 ### Changed or Updated
@@ -6,4 +6,5 @@
 ### Deprecated
 ### Removed
 ### Fixed
-- Fixed a bug that prevented the Remix gem/thread button from using the items.
+- Fixed a bug that prevented the Remix gem/thread button from working as intended.
+- Fixed a bug that threw an error for the Heirloom button being unavailable in the Collections Journal.

@@ -51,6 +51,6 @@ EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID
     elseif tabID == 4 then
         button:Show()
     else
-        button:Hide()
+        if button then button:Hide() end
     end
 end)
