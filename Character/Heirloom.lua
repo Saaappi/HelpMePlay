@@ -15,12 +15,10 @@ EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID
     if not button and tabID == 4 then
         button = addon.CreateWidget("SecureButton", {
             name = format("%s%s", addonName, "EquipHeirloomsButton"),
-            parent = CollectionsJournal,
-            anchor = "TOPLEFT",
-            relativeAnchor = "TOPRIGHT",
-            xOff = 10,
-            yOff = 0,
-            icon = 133071
+            scale = 1,
+            icon = 133071,
+            isMovable = false,
+            saveName = ""
         })
 
         button:SetScript("PreClick", function(_, _, isDown)

@@ -58,9 +58,9 @@ addon.CreateWidget = function(widgetType, widgetData)
         return iconButton
     end
     if widgetType == "SecureButton" then
-        -- Create the button.
+        -- Create the button and set its scale.
         local secureButton = CreateFrame("Button", widgetData.name, widgetData.parent, "SecureActionButtonTemplate, ActionButtonTemplate")
-        --secureButton:SetSize(widgetData.width, widgetData.height)
+        secureButton:SetScale(widgetData.scale)
 
         -- Texture stuff.
         if type(widgetData.icon) == "string" then
@@ -69,22 +69,13 @@ addon.CreateWidget = function(widgetType, widgetData)
             secureButton.icon:SetTexture(widgetData.icon)
         end
 
-        local size = 32
-        --secureButton:SetSize(size, size)
-        secureButton.icon:SetSize(size, size)
-        secureButton.NormalTexture:SetSize(size, size)
-		secureButton.HighlightTexture:SetSize(secureButton.NormalTexture:GetSize())
-		secureButton.IconMask:SetSize(size, size)
-        --secureButton.IconMask:SetAllPoints(secureButton)
-		--secureButton.PushedTexture:SetSize(size+1, size)
-        --secureButton.PushedTexture:SetAllPoints(secureButton)
-
         -- Button registration.
         secureButton:RegisterForClicks("AnyUp")
         secureButton:SetMouseClickEnabled(true)
 
         -- Make the frame movable.
         if widgetData.isMovable then
+            secureButton.saveName = widgetData.saveName
             secureButton:SetMovable(true)
             secureButton:EnableMouse(true)
             secureButton:RegisterForDrag("LeftButton")
@@ -95,11 +86,18 @@ addon.CreateWidget = function(widgetType, widgetData)
                 -- Once the frame stops moving, get the position data so we
                 -- can open the frame at that position next time.
                 self:StopMovingOrSizing()
-                local anchor, parent, relativeAnchor, x, y = self:GetPoint()
-                HelpMePlayDB.Positions[widgetData.saveName] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+                local anchor, parent, relativeAnchor, xOff, yOff = self:GetPoint()
+                HelpMePlayDB.Positions[widgetData.saveName] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, xOff = xOff, yOff = yOff}
             end)
         end
 
         return secureButton
+    end
+end
+
+addon.ResetWidgetPosition = function(saveName, position)
+    if HelpMePlayDB.Positions[saveName] then
+        HelpMePlayDB.Positions[saveName] = nil
+        widget:SetPoint(position.anchor, position.parent, position.relativeAnchor, position.xOff, position.yOff)
     end
 end
