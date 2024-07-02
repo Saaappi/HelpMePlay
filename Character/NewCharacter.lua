@@ -108,7 +108,7 @@ addon.NewCharacter = function()
             -- Create Whisper Window
             if HelpMePlayDB["CreateWhisperWindow"] then
                 -- The new Whispers window.
-                local window = FCF_OpenNewWindow("Whispers")
+                local window = FCF_OpenNewWindow(WHISPER)
                 ChatFrame_RemoveAllMessageGroups(window)
                 ChatFrame_RemoveAllChannels(window)
                 ChatFrame_AddMessageGroup(window, "BN_WHISPER")
@@ -117,6 +117,17 @@ addon.NewCharacter = function()
                 -- The General window.
                 ChatFrame_RemoveMessageGroup(ChatFrame1, "BN_WHISPER")
                 ChatFrame_RemoveMessageGroup(ChatFrame1, "WHISPER")
+            else
+                -- If the setting is disabled, then remove the Whisper window.
+                for index = 1, 10 do
+                    local window = _G["ChatFrame" .. index]
+                    if window.name == WHISPER then
+                        FCF_Close(window)
+                        break
+                    end
+                end
+                ChatFrame_AddMessageGroup(ChatFrame1, "BN_WHISPER")
+                ChatFrame_AddMessageGroup(ChatFrame1, "WHISPER")
             end
 
             -- Create Loot Window
@@ -133,6 +144,18 @@ addon.NewCharacter = function()
                 ChatFrame_RemoveMessageGroup(ChatFrame1, "CURRENCY")
                 ChatFrame_RemoveMessageGroup(ChatFrame1, "LOOT")
                 ChatFrame_RemoveMessageGroup(ChatFrame1, "MONEY")
+            else
+                -- If the setting is disabled, then remove the Loot window.
+                for index = 1, 10 do
+                    local window = _G["ChatFrame" .. index]
+                    if window.name == LOOT then
+                        FCF_Close(window)
+                        break
+                    end
+                end
+                ChatFrame_AddMessageGroup(ChatFrame1, "CURRENCY")
+                ChatFrame_AddMessageGroup(ChatFrame1, "LOOT")
+                ChatFrame_AddMessageGroup(ChatFrame1, "MONEY")
             end
 
             -- Set the player's Edit Mode layout.
