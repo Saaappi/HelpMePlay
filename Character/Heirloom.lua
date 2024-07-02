@@ -33,7 +33,7 @@ EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID
                             if C_Heirloom.IsItemHeirloom(itemID) then
                                 local itemLink = item:GetItemLink()
                                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
-                                if heirloomMaxLevel >= addon.playerLevel then
+                                if heirloomMaxLevel > addon.playerLevel then
                                     EquipItemByName(itemLink)
                                 end
                             end
