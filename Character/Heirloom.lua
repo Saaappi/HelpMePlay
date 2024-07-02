@@ -9,17 +9,19 @@ EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID
         if button then
             button:Hide()
         end
-        return false
     end
 
     if not button and tabID == 4 then
         button = addon.CreateWidget("SecureButton", {
             name = format("%s%s", addonName, "EquipHeirloomsButton"),
-            scale = 1,
+            scale = 0.65,
             icon = 133071,
             isMovable = false,
             saveName = ""
         })
+
+        button:ClearAllPoints()
+        button:SetPoint("TOPLEFT", CollectionsJournal, "TOPRIGHT", 10, 0)
 
         button:SetScript("PreClick", function(_, _, isDown)
             if not isDown then
@@ -41,7 +43,7 @@ EventRegistry:RegisterCallback("CollectionsJournal.TabSet", function(_, _, tabID
             end
         end)
         button:SetScript("OnEnter", function(self)
-            addon.Tooltip_OnEnter(self, "Equip Heirlooms", "Create heirlooms by clicking them in the nearby window.\n\nOnce all heirlooms have been created, click this button to equip them.")
+            addon.Tooltip_OnEnter(self, "Equip Heirlooms", "Create heirlooms by clicking them in the nearby window.\n\nOnce you've created the heirlooms, click this button to equip them all.\n\nHeirlooms that have been outleveled will NOT be equipped.")
         end)
         button:SetScript("OnLeave", addon.Tooltip_OnLeave)
 
