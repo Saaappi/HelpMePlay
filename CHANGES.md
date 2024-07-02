@@ -6,3 +6,4 @@
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixed a bug that prevented the Remix gem/thread button from using the items.

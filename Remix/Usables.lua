@@ -37,10 +37,6 @@ addon.CreateRemixUsablesButton = function()
 			button:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 		end
 
-		button:SetAttribute("type", "macro")
-		local macrotext = "/use item:" .. table.concat(remixItems, "\n/use item:")
-		button:SetAttribute("macrotext", macrotext)
-
 		button:SetScript("PreClick", function()
 			lastTime = GetTime()
 
@@ -52,6 +48,10 @@ addon.CreateRemixUsablesButton = function()
 				end
 			end
 		end)
+
+		button:SetAttribute("type", "macro")
+		local macrotext = "/use item:" .. table.concat(remixItems, "\n/use item:")
+		button:SetAttribute("macrotext", macrotext)
 
 		button:SetScript("OnEnter", function(self)
 			addon.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", "Click to combine gems and add threads to your Cloak of Infinite Potential.\n\nClick and hold to drag.")

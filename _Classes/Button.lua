@@ -70,7 +70,7 @@ addon.CreateWidget = function(widgetType, widgetData)
         end
 
         -- Button registration.
-        secureButton:RegisterForClicks("AnyUp")
+        secureButton:RegisterForClicks("AnyUp", "AnyDown")
         secureButton:SetMouseClickEnabled(true)
 
         -- Make the frame movable.
