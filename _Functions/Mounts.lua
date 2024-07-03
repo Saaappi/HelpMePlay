@@ -112,12 +112,14 @@ end
 local function SummonMountByType(type)
     local mountID = GetRandomMountByType(type)
     if mountID then
-        local isUsable = IsMountUsable(mountID)
-        if isUsable then
-            C_MountJournal.SummonByID(mountID)
-        else
-            SummonMountByType(type)
-        end
+        C_Timer.After(0.1, function()
+            local isUsable = IsMountUsable(mountID)
+            if isUsable then
+                C_MountJournal.SummonByID(mountID)
+            else
+                SummonMountByType(type)
+            end
+        end)
     end
 end
 

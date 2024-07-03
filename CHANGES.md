@@ -10,3 +10,4 @@
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixed an issue where the mount automation could sometimes cause a stack overflow.
