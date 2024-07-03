@@ -3,6 +3,7 @@
 ### Added
 - Added queue support for the **Trial of Style** event.
 - Added support to automatically open the Trial of Style prizes when _Open Containers_ is enabled.
+- Added a missing gossip on the Timeless Isle for Horde Timerunners.
 ### Changed or Updated
 - The Wardrobe button has received a visual and location update. It's not anchored off the Character Frame (and is no longer one of the ugly tabs).
 - The Wardrobe button can now be toggled using the _Wardrobe Button_ setting under the **Wardrobe** section in the settings.
