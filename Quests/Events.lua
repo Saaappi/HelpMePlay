@@ -182,12 +182,17 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             return false
         end
 
+        local exitParentLoop = false
         for bagID = 0, 4 do
-            local numSlots = (C_Container.GetContainerNumSlots(bagID) - C_Container.GetContainerNumFreeSlots(bagID))
-            for slotID = 1, numSlots do
+            for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
                 local questInfo = C_Container.GetContainerItemQuestInfo(bagID, slotID)
                 if questInfo and questInfo.questID and (not questInfo.isActive) then
+                    exitParentLoop = true
                     C_Container.UseContainerItem(bagID, slotID)
+                    break
+                end
+                if exitParentLoop then
+                    break
                 end
             end
         end
