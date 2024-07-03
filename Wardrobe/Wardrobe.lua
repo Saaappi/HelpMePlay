@@ -77,27 +77,36 @@ local function Main()
     end
 end
 
-EventRegistry:RegisterCallback("CharacterFrame.Show", function()
-    if not transmogrificationButton then
-        PaperDollSidebarTab3:SetPoint("BOTTOMRIGHT", -35, 0)
-        transmogrificationButton = CreateFrame("Button", addonName .. "PaperDollSidebarTab4", PaperDollSidebarTabs, "UIPanelButtonTemplate")
-        transmogrificationButton:SetAlpha(0)
-        transmogrificationButton:SetWidth(33)
-        transmogrificationButton:SetHeight(35)
-        transmogrificationButton:SetPoint("TOPLEFT", PaperDollSidebarTab3, "TOPRIGHT", 4, 0)
+addon.CreateWardrobeButton = function()
+	if not transmogrificationButton then
+		transmogrificationButton = addon.CreateWidget("ActionButton", {
+			name = format("%sWardrobeButton", addonName),
+			parent = CharacterFrame
+		})
 
-        local texture = CharacterFrame:CreateTexture(nil, "BACKGROUND")
-        texture:SetPoint("BOTTOMLEFT", PaperDollSidebarTab3, "BOTTOMRIGHT", 4, 0)
-        texture:SetSize(32, 34)
-        texture:SetTexture(1723993)
+		transmogrificationButton:ClearAllPoints()
+		transmogrificationButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", 10, 0)
 
-        local border = CharacterFrame:CreateTexture(nil, "BORDER")
-        border:SetPoint("CENTER", texture, "CENTER", 0, 0)
-        border:SetSize(33, 35)
-        border:SetAtlas("UI-Frame-IconBorder", false)
+		transmogrificationButton.icon:SetTexture(237016)
 
-        transmogrificationButton:SetScript("OnEnter", function(self) addon.Tooltip_OnEnter(self, "Wardrobe", "Click to learn all unknown and appropriate appearances in your inventory.") end)
-        transmogrificationButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
-        transmogrificationButton:SetScript("OnClick", function() Main() end)
+		transmogrificationButton:SetScript("OnClick", Main)
+		transmogrificationButton:SetScript("OnEnter", function(self)
+			addon.Tooltip_OnEnter(self, "Wardrobe", "Click to learn all unknown and appropriate appearances in your inventory.")
+		end)
+		transmogrificationButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+	else
+		if HelpMePlayDB["ShowWardrobeButton"] then
+			transmogrificationButton:Show()
+		else
+			if transmogrificationButton then
+				transmogrificationButton:Hide()
+			end
+		end
     end
+end
+
+EventRegistry:RegisterCallback("CharacterFrame.Show", function()
+	if HelpMePlayDB["ShowWardrobeButton"] then
+		addon.CreateWardrobeButton()
+	end
 end)

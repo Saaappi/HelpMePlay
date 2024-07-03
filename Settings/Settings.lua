@@ -55,17 +55,21 @@ local function OnSettingChanged(_, setting, value)
         addon.CreateRemixScrapButton()
     elseif variable == "ShowRemixUsablesButton" then
         addon.CreateRemixUsablesButton()
+    elseif variable == "ShowWardrobeButton" then
+        addon.CreateWardrobeButton()
     elseif variable == "UseWorldEventQueue" then
         addon.CreateEventQueueButton()
     end
 end
 
 local REMIX_SECTION = "Remix: Mists of Pandaria"
-local GENERAL_SECTION = "General"
+local GENERAL_SECTION = GENERAL
 local QUEST_SECTION = "Quest"
-local MERCHANT_SECTION = "Merchants & Trainers"
-local GUILDBANK_SECTION = "Guild Bank"
+local LFG_SECTION = "LFG"
+local MERCHANT_SECTION = MERCHANT
+local GUILDBANK_SECTION = GUILD_BANK
 local QUESTMOBS_SECTION = "Quest Mobs"
+local WARDROBE_SECTION = "Wardrobe"
 local NEW_CHARACTER_SECTION = "New Character Configuration"
 local UTILITIES_SECTION = "Utilities"
 
@@ -172,16 +176,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
-                -- Event Queue
-                do
-                    local variable = "UseWorldEventQueue"
-                    local name = "Event Queue"
-                    local tooltipText = "Toggle to add a button to the top middle of your screen. This button can be used to quickly queue into ongoing events."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
                 -- Gossip
                 do
                     local variable = "AcceptGossip"
@@ -217,26 +211,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local variable = "RareScan"
                     local name = "Rare Scan"
                     local tooltipText = "Toggle if you wish to receive a popup notification and sound for nearby rares."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Ready Checks
-                do
-                    local variable = "AcceptReadyChecks"
-                    local name = "Ready Checks"
-                    local tooltipText = "Toggle to automatically accept ready checks."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Role Checks
-                do
-                    local variable = "AcceptRoleChecks"
-                    local name = "Role Checks"
-                    local tooltipText = "Toggle to automatically accept role checks."
                     local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
                     CreateCheckbox(category, setting, tooltipText)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
@@ -404,6 +378,42 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                     local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
                     CreateDropDown(category, setting, GetOptions, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -------------------
+                -- LFG SECTION ----
+                -------------------
+                -- Initialize a section for LFG.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(LFG_SECTION))
+
+                -- Event Queue
+                do
+                    local variable = "UseWorldEventQueue"
+                    local name = "Event Queue"
+                    local tooltipText = "Toggle to add a button to the top middle of your screen. This button can be used to quickly queue into ongoing events."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Ready Checks
+                do
+                    local variable = "AcceptReadyChecks"
+                    local name = "Ready Checks"
+                    local tooltipText = "Toggle to automatically accept ready checks."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
+                end
+
+                -- Role Checks
+                do
+                    local variable = "AcceptRoleChecks"
+                    local name = "Role Checks"
+                    local tooltipText = "Toggle to automatically accept role checks."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
@@ -575,6 +585,22 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     CreateSlider(category, setting, options, tooltipText)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
                     setting:SetValue(HelpMePlayDB[variable])
+                end
+
+                ------------------------
+                -- WARDROBE SECTION ----
+                ------------------------
+                -- Initialize a section for wardrobe.
+                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(WARDROBE_SECTION))
+
+                -- Wardrobe Button
+                do
+                    local variable = "ShowWardrobeButton"
+                    local name = "Wardrobe Button"
+                    local tooltipText = "Toggle to show or hide the Wardrobe button."
+                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
+                    CreateCheckbox(category, setting, tooltipText)
+                    SetOnValueChangedCallback(variable, OnSettingChanged)
                 end
 
                 -------------------------------------------

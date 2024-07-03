@@ -74,6 +74,9 @@ function(self, event, ...)
 			if HelpMePlayDB["ShowRemixScrapButton"] == nil then
 				HelpMePlayDB["ShowRemixScrapButton"] = false
 			end
+			if HelpMePlayDB["ShowWardrobeButton"] == nil then
+				HelpMePlayDB["ShowWardrobeButton"] = false
+			end
 			if HelpMePlayDB["SkipCutscenes"] == nil then
 				HelpMePlayDB["SkipCutscenes"] = false
 			end
