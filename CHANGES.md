@@ -1,10 +1,9 @@
-## Version 3.0.0B8.4.1 - 2024/07/02
+## Version 3.0.0B8.5 - 2024/07/MM
 
 ### Added
+- Added queue support for the **Trial of Style** event.
+- Added support to automatically open the Trial of Style prizes when _Open Containers_ is enabled.
 ### Changed or Updated
-- Remix's gem/thread button will now equip the Cloak of Infinite Potential if it's not already equipped.
 ### Deprecated
 ### Removed
 ### Fixed
-- Fixed a bug that prevented the Remix gem/thread button from working as intended.
-- Fixed a bug that threw an error for the Heirloom button being unavailable in the Collections Journal.

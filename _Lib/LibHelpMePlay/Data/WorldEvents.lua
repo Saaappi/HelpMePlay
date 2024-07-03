@@ -51,5 +51,10 @@ LHMP.WorldEvents = {
         ["name"] = "",
         ["dungeonQueueID"] = 285,
         ["texture"] = 133661,
+    },
+    [691] = {
+        ["name"] = "",
+        ["dungeonQueueID"] = 1515,
+        ["texture"] = 1671631,
     }
 }
