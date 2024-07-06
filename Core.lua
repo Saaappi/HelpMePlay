@@ -18,13 +18,13 @@ function HelpMePlay.Print(text)
 end
 
 function HelpMePlay.Init()
-    print("A")
     HelpMePlay.RegisterSettings()
 end
 
 local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
+            HelpMePlay.LoadDynamicFlightTalents()
             HelpMePlay.Init()
             eventFrame:UnregisterEvent(event)
 		end

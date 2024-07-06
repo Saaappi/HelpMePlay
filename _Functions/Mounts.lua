@@ -1,3 +1,0 @@
-local addonName, HelpMePlay = ...
-local LHMP = LibStub("LibHelpMePlay")
-local mounts = {}

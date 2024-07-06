@@ -1,5 +1,4 @@
-local addonName, HelpMePlay = ...
-local eventHandler = CreateFrame("Frame")
+local _, HelpMePlay = ...
 
 HelpMePlay.LoadDynamicFlightTalents = function()
     HelpMePlay.DynamicFlightTalents = {
@@ -25,16 +24,3 @@ HelpMePlay.LoadDynamicFlightTalents = function()
         { ["nodeID"] = 64058, ["entryID"] = 82377 }, 	-- At Home Aloft
     }
 end
-
-eventHandler:RegisterEvent("ADDON_LOADED")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
-    if event == "ADDON_LOADED" then
-        local addonLoaded = ...
-        if addonLoaded == addonName then
-            HelpMePlay.LoadDynamicFlightTalents()
-
-            -- Unregister the event for performance.
-            eventHandler:UnregisterEvent("ADDON_LOADED")
-        end
-    end
-end)

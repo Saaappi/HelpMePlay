@@ -21,7 +21,6 @@
     <Script file="_Functions\Tables.lua" />
     <Script file="_Functions\QuestMobs.lua" />
     <Script file="_Functions\Quests.lua" />
-    <Script file="_Functions\Mounts.lua" />
 
     <Script file="_Keybinds\Keybinds.lua" />
 
