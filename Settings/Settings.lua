@@ -18,7 +18,7 @@ function HelpMePlay.RegisterSettings()
 
     -- Add the variable to the namespace, so we can use it to
     -- open the settings in a slash command.
-    HelpMePlay.SettingsCategory = category
+    HelpMePlay.SettingsCategoryID = category:GetID()
     HelpMePlay.SettingsLayout = layout
 
     HelpMePlay.AddSettingButton(
