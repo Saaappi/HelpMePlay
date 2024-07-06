@@ -16,9 +16,8 @@ function HelpMePlay.RegisterSettings()
     local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
     Settings.RegisterAddOnCategory(category)
 
-    -- Add the variable to the namespace, so we can use it to
-    -- open the settings in a slash command.
-    HelpMePlay.SettingsCategoryID = category:GetID()
+    HelpMePlay.SettingsCategory = category
+    HelpMePlay.SettingscategoryID = category:GetID()
     HelpMePlay.SettingsLayout = layout
 
     HelpMePlay.AddSettingButton(
@@ -738,7 +737,7 @@ end
 
 function HelpMePlay.AddSettingButton(controlLabel, buttonText, onClick, tooltip, addSearchTags)
     local button = CreateSettingsButtonInitializer(controlLabel, buttonText, onClick, tooltip, addSearchTags)
-    HelpMePlay.SettingsLayout:AddInitializer(button)
+    HelpMePlay.Settingslayout:AddInitializer(button)
 end
 
 function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)
@@ -769,11 +768,6 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     Settings.CreateSlider(category, setting, options, tooltip)
 
     return setting
-end
-
-function HelpMePlay.SettingsRegistration()
-    print("B")
-    SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
 end
 
 function HelpMePlay.Init()
@@ -900,5 +894,5 @@ function HelpMePlay.Init()
         }
     end
 
-    HelpMePlay.SettingsRegistration()
+    SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
 end

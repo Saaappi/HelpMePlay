@@ -1,6 +1,11 @@
 local addonName, HelpMePlay = ...
 local eventFrame = CreateFrame("Frame")
 
+local function IsPlayerAvailable()
+    if not IsPlayerInWorld() then C_Timer.After(0.5, IsPlayerAvailable) end
+    return true
+end
+
 function HelpMePlay.GetBestMapByMapID(uiMapID)
     local mapID = uiMapID or C_Map.GetBestMapForUnit("player")
     if mapID then
@@ -20,8 +25,17 @@ end
 local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
-            HelpMePlay.LoadDynamicFlightTalents()
-            HelpMePlay.Init()
+            if IsPlayerAvailable() then
+                C_Timer.After(10, function()
+                    local count = 0
+                    for k, v in next, HelpMePlay do
+                        print(k)
+                        count = count + 1
+                    end
+                    print(count)
+                end)
+                --HelpMePlay.Init()
+            end
             eventFrame:UnregisterEvent(event)
 		end
 	end

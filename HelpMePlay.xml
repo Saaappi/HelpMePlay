@@ -1,8 +1,6 @@
 <Ui>
     <Script file="Settings\Settings.lua" />
 
-    <Script file="Core.lua" />
-
     <Script file="_Data\Constants.lua" />
     <Script file="_Data\Maps.lua" />
     <Script file="_Data\Quests.lua" />
@@ -63,4 +61,6 @@
 
     <Script file="Remix\ScrappingMachine.lua" />
     <Script file="Remix\Usables.lua" />
+
+    <Script file="Core.lua" />
 </Ui>
