@@ -52,7 +52,7 @@ eventFrame:SetScript("OnEvent", OnEvent)
 SlashCmdList["HELPMEPLAY_SLASHCMD"] = function(cmd)
 	if not cmd or cmd == "" then
         if not InCombatLockdown() then
-            Settings.OpenToCategory(HelpMePlay.category:GetID())
+            Settings.OpenToCategory(HelpMePlay.Category:GetID())
         else
             HelpMePlay.Print(HelpMePlay.ErrorMessages["IN_COMBAT_LOCKDOWN"])
         end

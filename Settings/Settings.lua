@@ -27,7 +27,8 @@ function HelpMePlay.RegisterSettings()
 
     -- Add the variable to the namespace, so we can use it to
     -- open the settings in a slash command.
-    HelpMePlay.category = category
+    HelpMePlay.Category = category
+    HelpMePlay.Layout = layout
 
     -- Initialize a section for the addon's version and author text.
     local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
@@ -35,11 +36,10 @@ function HelpMePlay.RegisterSettings()
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
 
     -- Toggle All Button
-    do
-        local name = ""
-        local buttonText = "Toggle All"
-        local tooltipText = "Click to toggle all settings off. Click again to restore the settings to their previous state."
-        local clickHandler = function()
+    HelpMePlay.AddSettingButton(
+        "Toggle All",
+        "Toggle All",
+        function()
             if next(HelpMePlayDB["TempSettings"]) == nil then
                 for key, value in next, HelpMePlayDB do
                     if type(HelpMePlayDB[key]) == "boolean" then
@@ -59,11 +59,34 @@ function HelpMePlay.RegisterSettings()
                 end
                 HelpMePlayDB["TempSettings"] = {}
             end
-        end
+        end,
+        "Click to toggle all settings off. Click again to restore the settings to their previous state.",
+        true
+    )
 
-        local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-        HelpMePlay.layout:AddInitializer(initializer)
-    end
+    ----------------------
+    -- REMIX SECTION -----
+    ----------------------
+    -- Initialize a section for remix stuff.
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
+
+    -- Remix Usables Button
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Remix Usables Button",
+        "ShowRemixUsablesButton",
+        false,
+        HelpMePlayDB["ShowRemixUsablesButton"],
+        "Toggle to show the usables button. This button can be used to combine gems and add threads to your cloak."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Remix Scrap Button",
+        "ShowRemixScrapButton",
+        false,
+        HelpMePlayDB["ShowRemixScrapButton"],
+        "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
+    )
 end
 
 --[[eventHandler:RegisterEvent("ADDON_LOADED")
@@ -73,31 +96,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if addonLoaded == addonName then
             C_Timer.After(4, function()
 
-                ----------------------
-                -- REMIX SECTION -----
-                ----------------------
-                -- Initialize a section for remix stuff.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
-
-                -- Usables Button
-                do
-                    local variable = "ShowRemixUsablesButton"
-                    local name = "Usables Button"
-                    local tooltipText = "Toggle to show the usables button. This button can be used to combine gems and add threads to your cloak."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Scrap Button
-                do
-                    local variable = "ShowRemixScrapButton"
-                    local name = "Scrap Button"
-                    local tooltipText = "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
+                
+                
 
                 ------------------------
                 -- GENERAL SECTION -----
@@ -932,6 +932,11 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
     elseif variable == "UseWorldEventQueue" then
         HelpMePlay.CreateEventQueueButton()
     end
+end
+
+function HelpMePlay.AddSettingButton(name, buttonText, onClick, tooltip, addSearchTags)
+    local button = CreateSettingsButtonInitializer(name, buttonText, onClick, tooltip, addSearchTags)
+    HelpMePlay.Layout:AddInitializer(button)
 end
 
 function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)
