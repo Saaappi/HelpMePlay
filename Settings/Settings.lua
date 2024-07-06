@@ -317,7 +317,7 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["shouldAutomaticRepair"],
         "Toggle to allow or prevent the addon from using your character's funds for automatic repair."
     )
-    HelpMePlay.AddSettingSlider(
+    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
         category,
         "Trainer Protection Value",
         "TrainerProtectionValue",
@@ -332,48 +332,39 @@ function HelpMePlay.RegisterSettings()
         "Set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
         LHMP:ColorText("RED", "This slider steps in increments of 10.")
     )
+
+    --------------------------
+    -- GUILD BANK SECTION ----
+    --------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GUILDBANK_SECTION))
+
+    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
+        category,
+        "Deposit Keep Amount",
+        "DepositKeepAmount",
+        0,
+        HelpMePlayDB["DepositKeepAmount"],
+        0,
+        1000,
+        10,
+        function()
+            return HelpMePlayDB["DepositKeepAmount"] / 10000
+        end,
+        "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
+        "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
+        LHMP:ColorText("RED", "This slider moves in increments of 10.")
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Keep Me Safe",
+        "DepositKeepMeSafe",
+        false,
+        HelpMePlayDB["DepositKeepMeSafe"],
+        "Toggle to add approval to every monetary transaction the addon conducts at a guild bank."
+    )
 end
 
 --[[
-                --------------------------
-                -- GUILD BANK SECTION ----
-                --------------------------
-                -- Initialize a section for guild banks.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GUILDBANK_SECTION))
-
-                -- DEPOSIT KEEP AMOUNT
-                do
-                    local variable = "DepositKeepAmount"
-                    local name = "Deposit Keep Amount"
-                    local tooltipText = "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-                    "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
-                    "This slider moves in increments of 10."
-                    local minValue = 0
-                    local maxValue = 1000
-                    local step = 10
-
-                    local function GetValue()
-                        return HelpMePlayDB[variable] / 10000
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    local options = Settings.CreateSliderOptions(minValue, maxValue, step)
-                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
-                    CreateSlider(category, setting, options, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                    setting:SetValue(HelpMePlayDB[variable])
-                end
-
-                -- KEEP ME SAFE
-                do
-                    local variable = "DepositKeepMeSafe"
-                    local name = "Keep Me Safe"
-                    local tooltipText = "Toggle to add approval to every monetary transaction the addon conducts at a guild bank."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
                 --------------------------
                 -- QUEST MOBS SECTION ----
                 --------------------------
