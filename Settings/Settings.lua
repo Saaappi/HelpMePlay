@@ -769,11 +769,10 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     Settings.CreateSlider(category, setting, options, tooltip)
 
     return setting
-    --setting:SetValue(HelpMePlayDB[variable])
 end
 
 function HelpMePlay.SettingsRegistration()
-    print("A")
+    print("B")
     SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
 end
 

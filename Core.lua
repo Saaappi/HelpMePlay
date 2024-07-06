@@ -17,10 +17,6 @@ function HelpMePlay.Print(text)
     print(text)
 end
 
-function HelpMePlay.Init()
-    HelpMePlay.RegisterSettings()
-end
-
 local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
