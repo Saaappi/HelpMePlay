@@ -1,14 +1,14 @@
 local addonName, HelpMePlay = ...
 local eventFrame = CreateFrame("Frame")
 
-function HelpMePlay.GetBestMapForUnit(uiMapID)
+function HelpMePlay.GetBestMapByMapID(uiMapID)
     local mapID = uiMapID or C_Map.GetBestMapForUnit("player")
     if mapID then
         local info = C_Map.GetMapInfo(mapID)
         if info and info.mapType == 3 then
             HelpMePlay.playerMapID = mapID
         elseif info and info.mapType > 3 then
-            HelpMePlay.GetBestMapForUnit(info.parentMapID)
+            HelpMePlay.GetBestMapByMapID(info.parentMapID)
         end
     end
 end
@@ -42,7 +42,7 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.playerSpecID = PlayerUtil.GetCurrentSpecID()
         HelpMePlay.playerSpecName = select(2, GetSpecializationInfo(HelpMePlay.playerSpecID))
         HelpMePlay.playerGUID = UnitGUID("player")
-        HelpMePlay.playerMapID = HelpMePlay.GetBestMapForUnit(C_Map.GetBestMapForUnit("player"))
+        HelpMePlay.playerMapID = HelpMePlay.GetBestMapByMapID(C_Map.GetBestMapForUnit("player"))
 
         local faction = UnitFactionGroup("player")
         if faction == "Alliance" then
