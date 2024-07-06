@@ -781,54 +781,53 @@ end
 --end)]]
 
 function HelpMePlay.OnSettingChanged(_, setting, value)
-    -- Get the variable name from the setting.
-    local variable = setting:GetVariable()
+    local variableName = setting:GetVariable()
+    HelpMePlayDB[variableName] = value
 
-    -- Set the variable to the value.
-    HelpMePlayDB[variable] = value
+    local functions = {
+        QuestMobsIconID = function()
+            if value == 1 or value == 2 then
+                HelpMePlay.UpdateQuestMobsIcon()
+            elseif value == 3 then
+                StaticPopupDialogs["HMP_QUEST_MOBS_CUSTOM_ICON"] = {
+                    text = "Please enter the texture ID for your custom icon. The texture ID can be found in the URL at |cffFFD100https://www.wowhead.com/icons/|r.\n\n" ..
+                    "Search for an icon, click it, then take the number after |cffFFD100icon=|r in the URL.",
+                    button1 = YES,
+                    button2 = NO,
+                    explicitAcknowledge = true,
+                    hasEditBox = true,
+                    OnAccept = function(self)
+                        local input = self.editBox:GetText()
+                        if tonumber(input) then
+                            HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
+                            HelpMePlay.UpdateQuestMobsIcon()
+                        else
+                            HelpMePlay.Print("Input was invalid.")
+                        end
+                    end,
+                    OnCancel = function()
+                    end,
+                    preferredIndex = 3
+                }
+                StaticPopup_Show("HMP_QUEST_MOBS_CUSTOM_ICON")
+            end
+        end,
+        DepositKeepAmount = function() HelpMePlayDB[variableName] = value * 10000 end,
+        TrainerProtectionValue = function() HelpMePlayDB[variableName] = value * 10000 end,
+        QuestMobsIconPositionID = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
+        QuestMobsIconXOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
+        QuestMobsIconYOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
+        ShowRemixScrapButton = function() HelpMePlay.CreateRemixScrapButton() end,
+        ShowRemixUsablesButton = function() HelpMePlay.CreateRemixUsablesButton() end,
+        UseWorldEventQueue = function() HelpMePlay.CreateEventQueueButton() end,
+        ShowWardrobeButton = function() HelpMePlay.CreateWardrobeButton() end,
+    }
 
-    -- Handler for the Quest Mobs icon/position.
-    if variable == "QuestMobsIconID" then
-        if value == 1 or value == 2 then
-            HelpMePlay.UpdateQuestMobsIcon()
-        elseif value == 3 then
-            StaticPopup_Show("HELPMEPLAY_QUESTMOBS_CUSTOM_ICON")
-            StaticPopupDialogs["HMP_QUEST_MOBS_CUSTOM_ICON"] = {
-                text = "Please enter the texture ID for your custom icon. The texture ID can be found in the URL at |cffFFD100https://www.wowhead.com/icons/|r.\n\n" ..
-                "Search for an icon, click it, then take the number after |cffFFD100icon=|r in the URL.",
-                button1 = YES,
-                button2 = NO,
-                explicitAcknowledge = true,
-                hasEditBox = true,
-                OnAccept = function(self)
-                    local input = self.editBox:GetText()
-                    if tonumber(input) then
-                        HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
-                        HelpMePlay.UpdateQuestMobsIcon()
-                    else
-                        HelpMePlay.Print("Input was invalid.")
-                    end
-                end,
-                OnCancel = function()
-                end,
-                preferredIndex = 3
-            }
-            StaticPopup_Show("HMP_QUEST_MOBS_CUSTOM_ICON")
-        end
-    elseif variable == "DepositKeepAmount" or variable == "TrainerProtectionValue" then
-        HelpMePlayDB[variable] = value * 10000
-    elseif variable == "QuestMobsIconPositionID" then
-        HelpMePlay.UpdateQuestMobsIconPosition()
-    elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
-        HelpMePlay.UpdateQuestMobsIconPosition()
-    elseif variable == "ShowRemixScrapButton" then
-        HelpMePlay.CreateRemixScrapButton()
-    elseif variable == "ShowRemixUsablesButton" then
-        HelpMePlay.CreateRemixUsablesButton()
-    elseif variable == "ShowWardrobeButton" then
-        HelpMePlay.CreateWardrobeButton()
-    elseif variable == "UseWorldEventQueue" then
-        HelpMePlay.CreateEventQueueButton()
+    local func = functions[variableName]
+    if func then
+        func()
+    else
+        print(format("Unhandled setting change: %s", variableName))
     end
 end
 
