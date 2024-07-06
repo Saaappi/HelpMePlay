@@ -260,12 +260,3 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 	end
 end
 )
-
--- Blizzard Hooks
--- The alwaysCompareItems cvar isn't working, so this is a workaround
--- until Blizzard fixes it.
-hooksecurefunc(TooltipComparisonManager, "CompareItem", function()
-	if not HelpMePlayDB["AlwaysCompareItems"] and not IsShiftKeyDown() then
-		GameTooltip_HideShoppingTooltips(GameTooltip)
-	end
-end)

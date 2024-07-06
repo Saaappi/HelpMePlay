@@ -75,6 +75,15 @@ eventFrame:RegisterEvent("ZONE_CHANGED")
 eventFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 eventFrame:SetScript("OnEvent", OnEvent)
 
+-- Blizzard Hooks
+-- The alwaysCompareItems cvar isn't working, so this is a workaround
+-- until Blizzard fixes it.
+hooksecurefunc(TooltipComparisonManager, "CompareItem", function()
+	if not HelpMePlayDB["AlwaysCompareItems"] and not IsShiftKeyDown() then
+		GameTooltip_HideShoppingTooltips(GameTooltip)
+	end
+end)
+
 SlashCmdList["HELPMEPLAY_SLASHCMD"] = function(cmd)
 	if not cmd or cmd == "" then
         if not InCombatLockdown() then
