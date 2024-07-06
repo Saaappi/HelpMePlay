@@ -32,7 +32,6 @@ local function ClearOldSavedVariables()
 end
 
 eventHandler:RegisterEvent("ADDON_LOADED")
-eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
 		local addonLoaded = ...
@@ -258,22 +257,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			-- Unload the event for performance.
 			eventHandler:UnregisterEvent("ADDON_LOADED")
 		end
-	end
-	if event == "PLAYER_LOGIN" then
-		C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"] + 0.4, function()
-			-- Get the player's mounts so we can use them.
-			HelpMePlay.RefreshMountsByType("Ground")
-			HelpMePlay.RefreshMountsByType("Flying")
-			HelpMePlay.RefreshMountsByType("Dynamic")
-			HelpMePlay.RefreshMountsByType("Aquatic")
-			HelpMePlay.RefreshMountsByType("AQ")
-			HelpMePlay.RefreshMountsByType("Vashjir")
-			HelpMePlay.RefreshMountsByType("Unused")
-
-			-- Unload the event for performance.
-			eventHandler:UnregisterEvent("PLAYER_LOGIN")
-		end
-		)
 	end
 end
 )

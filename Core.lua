@@ -47,6 +47,15 @@ local function OnEvent(_, event, arg1, arg2)
         elseif faction == "Neutral" then
             HelpMePlay.playerFactionID = -1
         end
+
+        HelpMePlay.RefreshMountsByType("Ground")
+        HelpMePlay.RefreshMountsByType("Flying")
+        HelpMePlay.RefreshMountsByType("Dynamic")
+        HelpMePlay.RefreshMountsByType("Aquatic")
+        HelpMePlay.RefreshMountsByType("AQ")
+        HelpMePlay.RefreshMountsByType("Vashjir")
+        HelpMePlay.RefreshMountsByType("Unused")
+
         eventFrame:UnregisterEvent(event)
     end
     if event == "PLAYER_SPECIALIZATION_CHANGED" then
