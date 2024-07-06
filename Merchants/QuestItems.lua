@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local merchantButton
@@ -17,7 +17,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local items = LHMP:GetItemsForMerchant(npcID)
                     if items then
                         for _, item in ipairs(items) do
-                            local isAllowed = addon.EvaluateConditions(item.Conditions)
+                            local isAllowed = HelpMePlay.EvaluateConditions(item.Conditions)
                             if isAllowed then
                                 BuyMerchantItem(item.Index, item.Quantity)
                             end
@@ -26,9 +26,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
             end
 
-            if MerchantFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(addon.playerGUID).battleTag == addon.Constants["AUTHOR_BATTLETAG"] then
+            if MerchantFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(HelpMePlay.playerGUID).battleTag == HelpMePlay.Constants["AUTHOR_BATTLETAG"] then
                 if not merchantButton then
-                    merchantButton = addon.CreateWidget("IconButton", {
+                    merchantButton = HelpMePlay.CreateWidget("IconButton", {
                         name = addonName .. "MerchantInfoButton",
                         width = 32,
                         height = 32,
@@ -58,9 +58,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         end
                     end)
                     merchantButton:SetScript("OnEnter", function(self)
-                        addon.Tooltip_OnEnter(self, "Merchant", "Get a list of the current merchant's wares.")
+                        HelpMePlay.Tooltip_OnEnter(self, "Merchant", "Get a list of the current merchant's wares.")
                     end)
-                    merchantButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+                    merchantButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
                 end
             end
         end

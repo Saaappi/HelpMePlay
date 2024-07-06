@@ -1,4 +1,4 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
 local function CheckLevel(string, condition)
@@ -6,23 +6,23 @@ local function CheckLevel(string, condition)
     if level and tonumber(level) then
         level = tonumber(level)
         if condition == "<" then
-            if addon.playerLevel < level then
+            if HelpMePlay.playerLevel < level then
                 return true
             end
         elseif condition == "<=" then
-            if addon.playerLevel <= level then
+            if HelpMePlay.playerLevel <= level then
                 return true
             end
         elseif condition == "==" then
-            if addon.playerLevel == level then
+            if HelpMePlay.playerLevel == level then
                 return true
             end
         elseif condition == ">=" then
-            if addon.playerLevel >= level then
+            if HelpMePlay.playerLevel >= level then
                 return true
             end
         elseif condition == ">" then
-            if addon.playerLevel > level then
+            if HelpMePlay.playerLevel > level then
                 return true
             end
         end
@@ -31,7 +31,7 @@ local function CheckLevel(string, condition)
         if lowLevel and highLevel then
             lowLevel = tonumber(lowLevel)
             highLevel = tonumber(highLevel)
-            if addon.playerLevel >= lowLevel and addon.playerLevel <= highLevel then
+            if HelpMePlay.playerLevel >= lowLevel and HelpMePlay.playerLevel <= highLevel then
                 return true
             end
         end
@@ -39,7 +39,7 @@ local function CheckLevel(string, condition)
     return false
 end
 
-addon.EvaluateConditions = function(conditions)
+HelpMePlay.EvaluateConditions = function(conditions)
     local warModeAuras = { 269083, 282559 }
     local numConditions = #conditions
     for _, condition in ipairs(conditions) do

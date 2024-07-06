@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local transmogrificationButton
 
 local transmogrificationSlotIDs = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
@@ -28,7 +28,7 @@ local function LearnTransmog(equippedItems)
 				local itemLocation = ItemLocation:CreateFromBagAndSlot(bagID, slotID)
 				if itemLocation:IsValid() then
 					C_Item.RequestLoadItemData(itemLocation)
-					C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+					C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
 						local itemLink = C_Item.GetItemLink(itemLocation)
 						if itemLink then
 							local sourceID = C_Item.GetBaseItemTransmogInfo(itemLocation).appearanceID
@@ -77,9 +77,9 @@ local function Main()
     end
 end
 
-addon.CreateWardrobeButton = function()
+HelpMePlay.CreateWardrobeButton = function()
 	if not transmogrificationButton then
-		transmogrificationButton = addon.CreateWidget("ActionButton", {
+		transmogrificationButton = HelpMePlay.CreateWidget("ActionButton", {
 			name = format("%sWardrobeButton", addonName),
 			parent = CharacterFrame
 		})
@@ -91,9 +91,9 @@ addon.CreateWardrobeButton = function()
 
 		transmogrificationButton:SetScript("OnClick", Main)
 		transmogrificationButton:SetScript("OnEnter", function(self)
-			addon.Tooltip_OnEnter(self, "Wardrobe", "Click to learn all unknown and appropriate appearances in your inventory.")
+			HelpMePlay.Tooltip_OnEnter(self, "Wardrobe", "Click to learn all unknown and appropriate appearances in your inventory.")
 		end)
-		transmogrificationButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+		transmogrificationButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 	else
 		if HelpMePlayDB["ShowWardrobeButton"] then
 			transmogrificationButton:Show()
@@ -107,6 +107,6 @@ end
 
 EventRegistry:RegisterCallback("CharacterFrame.Show", function()
 	if HelpMePlayDB["ShowWardrobeButton"] then
-		addon.CreateWardrobeButton()
+		HelpMePlay.CreateWardrobeButton()
 	end
 end)

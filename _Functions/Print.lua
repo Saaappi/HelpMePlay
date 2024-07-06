@@ -1,7 +1,7 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
-addon.Print = function(text)
+HelpMePlay.Print = function(text)
     local str = format("%s: %s", LHMP:ColorText("LEGENDARY", addonName), text)
     print(str)
 end

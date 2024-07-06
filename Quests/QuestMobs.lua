@@ -1,4 +1,4 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 
 eventHandler:RegisterEvent("NAME_PLATE_UNIT_ADDED")
@@ -17,7 +17,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if nameplate then
             unit = nameplate.namePlateUnitToken
             if not UnitIsPlayer(unit) then
-                addon.UpdateNamePlate(nameplate)
+                HelpMePlay.UpdateNamePlate(nameplate)
             end
         end
     end
@@ -27,26 +27,26 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local unit = ...
         local nameplate = C_NamePlate.GetNamePlateForUnit(unit)
         if nameplate then
-            addon.UpdateNamePlate(nameplate)
+            HelpMePlay.UpdateNamePlate(nameplate)
         end
     end
     if event == "QUEST_ACCEPTED" then
         if HelpMePlayDB["QuestMobsIconID"] == 0 then return end
 
-        addon.UpdateQuestMobsIcon()
+        HelpMePlay.UpdateQuestMobsIcon()
     end
     if event == "QUEST_LOG_UPDATE" then
         if HelpMePlayDB["QuestMobsIconID"] == 0 then return end
 
         local nameplates = C_NamePlate.GetNamePlates()
         if nameplates then
-            C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+            C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
                 for index = 1, #nameplates do
                     local unit = nameplates[index].namePlateUnitToken
                     if unit and (not UnitIsPlayer(unit)) then
                         local nameplate = C_NamePlate.GetNamePlateForUnit(unit)
                         if nameplate then
-                            addon.UpdateNamePlate(nameplate)
+                            HelpMePlay.UpdateNamePlate(nameplate)
                         end
                     end
                 end
@@ -56,13 +56,13 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "QUEST_REMOVED" or event == "QUEST_TURNED_IN" then
         if HelpMePlayDB["QuestMobsIconID"] == 0 then return end
 
-        addon.UpdateQuestMobsIcon()
+        HelpMePlay.UpdateQuestMobsIcon()
     end
     if event == "UPDATE_MOUSEOVER_UNIT" then
         if not UnitIsPlayer("mouseover") then
             local nameplate = C_NamePlate.GetNamePlateForUnit("mouseover")
             if nameplate then
-                addon.UpdateNamePlate(nameplate)
+                HelpMePlay.UpdateNamePlate(nameplate)
             end
         end
     end

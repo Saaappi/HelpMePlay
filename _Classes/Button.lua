@@ -1,6 +1,6 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 
-addon.CreateWidget = function(widgetType, widgetData)
+HelpMePlay.CreateWidget = function(widgetType, widgetData)
     if widgetType == "ActionButton" then
         local actionButton = CreateFrame("Button", widgetData.name, widgetData.parent, "ActionButtonTemplate")
         actionButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
@@ -95,7 +95,7 @@ addon.CreateWidget = function(widgetType, widgetData)
     end
 end
 
-addon.ResetWidgetPosition = function(saveName, position)
+HelpMePlay.ResetWidgetPosition = function(saveName, position)
     if HelpMePlayDB.Positions[saveName] then
         HelpMePlayDB.Positions[saveName] = nil
         widget:SetPoint(position.anchor, position.parent, position.relativeAnchor, position.xOff, position.yOff)

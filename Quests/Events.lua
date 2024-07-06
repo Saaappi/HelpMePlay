@@ -1,4 +1,4 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 
@@ -9,7 +9,7 @@ local function QUEST_GOSSIP()
             for _, quest in next, C_GossipInfo.GetActiveQuests() do
                 if quest.isComplete and (not C_QuestLog.IsWorldQuest(quest.questID)) then
                     C_GossipInfo.SelectActiveQuest(quest.questID)
-                    addon.CompleteQuest()
+                    HelpMePlay.CompleteQuest()
                 end
             end
 
@@ -46,7 +46,7 @@ local function QUEST_COMPLETE()
                         end
                     end
                 end
-                addon.CompleteQuest()
+                HelpMePlay.CompleteQuest()
             end
         end
     else
@@ -140,7 +140,7 @@ local function QUEST_PROGRESS()
 
         if HelpMePlayDB["AcceptAndCompleteQuests"] then
             CompleteQuest()
-            addon.CompleteQuest()
+            HelpMePlay.CompleteQuest()
         end
     else
         C_Timer.After(1, QUEST_PROGRESS)
@@ -170,7 +170,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         local adventureMapID = C_AdventureMap.GetMapID()
         if adventureMapID then
-            for _, questID in ipairs(addon.AdventureMaps[adventureMapID]) do
+            for _, questID in ipairs(HelpMePlay.AdventureMaps[adventureMapID]) do
                 if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
                     C_AdventureMap.StartQuest(questID)
                 end
@@ -218,7 +218,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
             QUEST_GOSSIP()
         elseif type == 45 then -- Chromie Time
-            if HelpMePlayDB["ChromieTimeExpansionID"] == 0 or addon.playerLevel >= addon.Constants["CHROMIE_TIME_MAX_LEVEL"] then return end
+            if HelpMePlayDB["ChromieTimeExpansionID"] == 0 or HelpMePlay.playerLevel >= HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"] then return end
 
             if UnitChromieTimeID("player") ~= HelpMePlayDB["ChromieTimeExpansionID"] then
                 C_ChromieTime.SelectChromieTimeOption(HelpMePlayDB["ChromieTimeExpansionID"])
@@ -232,7 +232,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         local questID = ...
         if questID then
-            C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+            C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
                 local numPopups = GetNumAutoQuestPopUps()
                 if numPopups > 0 then
                     AcknowledgeAutoAcceptQuest()

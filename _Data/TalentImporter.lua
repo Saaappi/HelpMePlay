@@ -1,8 +1,8 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 
 -- Table that holds all the configuration information for the
 -- individual class buttons.
-addon.classButtons = {
+HelpMePlay.classButtons = {
     {
         ["id"] = 1,
         ["name"] = addonName .. "DeathKnightButton",
@@ -111,7 +111,7 @@ addon.classButtons = {
 
 -- Table that holds all the configuration information for the
 -- individual spec edit boxes.
-addon.specEditBoxes = {
+HelpMePlay.specEditBoxes = {
     { -- Death Knight
         {
             ["id"] = 250,

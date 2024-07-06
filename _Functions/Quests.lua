@@ -1,4 +1,4 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 local canDualWield = false
 
 -- Iterates through the player's inventory to check for the
@@ -42,9 +42,9 @@ local function CheckForQuestReward(itemLink, destSlot)
     end
 end
 
-addon.IsWeaponRewardValidForSpecID = function(specID, subClassID)
-    if addon.EquipLoc[specID] then
-        for _, v in ipairs(addon.EquipLoc[specID]) do
+HelpMePlay.IsWeaponRewardValidForSpecID = function(specID, subClassID)
+    if HelpMePlay.EquipLoc[specID] then
+        for _, v in ipairs(HelpMePlay.EquipLoc[specID]) do
             if subClassID == v then
                 return true
             end
@@ -62,12 +62,12 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
     for index, itemLink in ipairs(rewards) do
         local inventorySlotID = C_Item.GetItemInventoryTypeByID(itemLink)
         if inventorySlotID then
-            if addon.InventoryType[inventorySlotID] then
+            if HelpMePlay.InventoryType[inventorySlotID] then
                 -- Get the item's class and subclass IDs. We'll use these for determining if
                 -- an item is valid for the player.
                 local equipLoc, _, classID, subClassID = select(4, C_Item.GetItemInfoInstant(itemLink))
                 if classID == 2 then -- Weapon
-                    isRewardValid = addon.IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
+                    isRewardValid = HelpMePlay.IsWeaponRewardValidForSpecID(HelpMePlay.playerSpecID, subClassID)
                 end
 
                 -- isRewardValid is always passed as TRUE to the function; however, if the item
@@ -78,7 +78,7 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
                 -- where the player has a choice.
                 if isRewardValid then
                     -- Get the actual inventory slot ID because sometimes it can be different.
-                    inventorySlotID = addon.InventoryType[inventorySlotID] or 0
+                    inventorySlotID = HelpMePlay.InventoryType[inventorySlotID] or 0
 
                     -- Get the reward's actual item level.
                     local rewardItemLevel = C_Item.GetDetailedItemLevelInfo(itemLink) or 0
@@ -161,7 +161,7 @@ local function GetHighestSellingQuestReward(rewards)
     return bestRewardIndex, bestRewardItemLink
 end
 
-addon.CompleteQuest = function()
+HelpMePlay.CompleteQuest = function()
     if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
 
     -- Show and hide the character paperdoll frame to cache the player's equipped
@@ -171,12 +171,12 @@ addon.CompleteQuest = function()
     C_Timer.After(0.1, function()
         -- Check if the player is in combat. This will cause some trouble if they
         -- are, so let's deal with it now.
-        if InCombatLockdown() then C_Timer.After(1, addon.CompleteQuest) end
+        if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
 
         -- Determine if the player can dual wield. The specialization IDs
         -- are stored in Data\Quests.lua.
-        for _, specID in ipairs(addon.CanDualWield) do
-            if addon.playerSpecID == specID then
+        for _, specID in ipairs(HelpMePlay.CanDualWield) do
+            if HelpMePlay.playerSpecID == specID then
                 canDualWield = true
             end
         end
@@ -210,7 +210,7 @@ addon.CompleteQuest = function()
                 local itemID = C_Item.GetItemInfoInstant(value)
                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
                 local actualItemLevel = C_Item.GetDetailedItemLevelInfo(value) or 0
-                if heirloomMaxLevel and (heirloomMaxLevel >= addon.playerLevel) then
+                if heirloomMaxLevel and (heirloomMaxLevel >= HelpMePlay.playerLevel) then
                     -- If the player has an heirloom equipped in the slot, and they haven't
                     -- outleveled the heirloom, then set the itemlevel for that slot to 999
                     -- to prevent the item from being replaced.

@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local newCharacterButton
@@ -31,9 +31,9 @@ local function IsNCCEnabled()
     return false
 end
 
-addon.NewCharacter = function()
+HelpMePlay.NewCharacter = function()
     if IsNCCEnabled() then
-        newCharacterButton = addon.CreateWidget("BasicButton", {
+        newCharacterButton = HelpMePlay.CreateWidget("BasicButton", {
             name = format("%sNewCharacterButton", addonName),
             parent = UIParent,
             width = 170,
@@ -162,7 +162,7 @@ addon.NewCharacter = function()
             C_EditMode.SetActiveLayout(HelpMePlayDB["NCC_EditModeLayoutID"])
 
             -- Set the button as used and hide it.
-            table.insert(HelpMePlayDB["Characters"], addon.playerGUID)
+            table.insert(HelpMePlayDB["Characters"], HelpMePlay.playerGUID)
             newCharacterButton:Hide()
 
             -- Use a popup the player can use to reload the UI and save
@@ -182,9 +182,9 @@ addon.NewCharacter = function()
             StaticPopup_Show("HMP_NEW_CHARACTER_CONFIG_RELOAD_UI")
         end)
         newCharacterButton:SetScript("OnEnter", function(self)
-            addon.Tooltip_OnEnter(self, "Configure New Character", format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", LHMP:ColorText(select(2, UnitClass("player")), UnitName("player")), LHMP:ColorText("GOLD", "New Character Configuration")))
+            HelpMePlay.Tooltip_OnEnter(self, "Configure New Character", format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", LHMP:ColorText(select(2, UnitClass("player")), UnitName("player")), LHMP:ColorText("GOLD", "New Character Configuration")))
         end)
-        newCharacterButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+        newCharacterButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
     end
 end
 
@@ -192,14 +192,9 @@ eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
         C_Timer.After(1, function()
-            -- Unregister the event for performance.
-	        eventHandler:UnregisterEvent("PLAYER_LOGIN")
-
-            C_Timer.After(1, function()
-                if LHMP:IsNewCharacter(addon.playerLevel, addon.playerClassID, addon.playerGUID, HelpMePlayDB["Characters"]) then
-                    addon.NewCharacter()
-                end
-            end)
+            if LHMP:IsNewCharacter(HelpMePlay.playerLevel, HelpMePlay.playerClassID, HelpMePlay.playerGUID, HelpMePlayDB["Characters"]) then
+                HelpMePlay.NewCharacter()
+            end
 
             -- If the player is on Exile's Reach, then we need to use
             -- a workaround to keep the tutorials and auto push spells
@@ -217,5 +212,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
             end
         end)
+
+        -- Unregister the event for performance.
+        eventHandler:UnregisterEvent("PLAYER_LOGIN")
 	end
 end)

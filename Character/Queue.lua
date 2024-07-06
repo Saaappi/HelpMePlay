@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local queueButton
 
@@ -24,9 +24,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             self:Hide()
         end)
         queueButton:SetScript("OnEnter", function(self)
-            addon.Tooltip_OnEnter(self, "Queue Button", self.lfgDescription)
+            HelpMePlay.Tooltip_OnEnter(self, "Queue Button", self.lfgDescription)
         end)
-        queueButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+        queueButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
         queueButton:SetPoint("TOP", queueButton:GetParent(), "TOP", 0, -20)
         queueButton:Hide()

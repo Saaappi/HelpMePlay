@@ -1,4 +1,4 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 
 BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
 BINDING_NAME_HELPMEPLAY_MOUNTUP = "Mount Up"
@@ -13,7 +13,7 @@ end
 
 function HelpMePlayKeybind(key)
     if key == GetBindingKey("HELPMEPLAY_MOUNTUP") then
-        addon.Mount()
+        HelpMePlay.Mount()
     elseif key == GetBindingKey("HELPMEPLAY_DELETECURSORITEM") then
         DeleteCursorItem()
     elseif key == GetBindingKey("HELPMEPLAY_QUICKQUESTABANDON") then

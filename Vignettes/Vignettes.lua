@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local DressUpModelFrame
@@ -74,7 +74,7 @@ local function CreateFauxPopup(frame, name, quality, GUID, label)
     -- target the rare.
     frame:SetScript("OnClick", function()
         if type == "Vignette" then
-            local vignettePosition = C_VignetteInfo.GetVignettePosition(GUID, addon.mapID)
+            local vignettePosition = C_VignetteInfo.GetVignettePosition(GUID, HelpMePlay.mapID)
             local x, y = vignettePosition:GetXY()
             if C_AddOns.IsAddOnLoaded("TomTom") then
                 local waypoint = {
@@ -85,7 +85,7 @@ local function CreateFauxPopup(frame, name, quality, GUID, label)
                     silent = true,
                     persistent = false
                 }
-                TomTom:AddWaypoint(addon.mapID, x, y, waypoint)
+                TomTom:AddWaypoint(HelpMePlay.mapID, x, y, waypoint)
             end
         end
         local btn = CreateFrame("Button", nil, frame, "SecureActionButtonTemplate")
@@ -103,7 +103,7 @@ local function CreateFauxPopup(frame, name, quality, GUID, label)
 	PlaySound(28625, "Master")
 end
 
-addon.ProcessVignette = function(vignetteGUID)
+HelpMePlay.ProcessVignette = function(vignetteGUID)
     -- If any of these are true, then return.
     if UnitOnTaxi("player") then return end
 
@@ -130,7 +130,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         local spawnUID = LHMP:SplitString(vignetteGUID, "-", 7)
         if (vignetteGUID and spawnUID) and (not processedVignettes[spawnUID]) then
             processedVignettes[spawnUID] = true
-            addon.ProcessVignette(vignetteGUID)
+            HelpMePlay.ProcessVignette(vignetteGUID)
         end
     elseif event == "NAME_PLATE_UNIT_ADDED" then
         if HelpMePlayDB["RareScan"] == false then return end

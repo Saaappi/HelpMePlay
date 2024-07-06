@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local classTalentsButton = {}
 local classID = 0
@@ -36,7 +36,7 @@ local function PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID
             wasSuccessful = C_Traits.SetSelection(activeConfigID, talent.nodeID, talent.selectionEntryID)
         end
         if wasSuccessful then
-            addon.Print(format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
+            HelpMePlay.Print(format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
             wasSuccessful = false
         end
     end
@@ -74,7 +74,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 end)
 
 EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
-    classTalentsButton = addon.CreateWidget("IconButton", {
+    classTalentsButton = HelpMePlay.CreateWidget("IconButton", {
         name = format("%sClassTalentsButton", addonName),
         texture = 132222,
         parent = ClassTalentFrame.TalentsTab.ApplyButton,
@@ -135,9 +135,9 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
         GameTooltip:SetText("Class Talents")
         if HelpMePlayDB["ClassTalents"][classID][specID] and (HelpMePlayDB["ClassTalents"][classID][specID].importString ~= nil and HelpMePlayDB["ClassTalents"][classID][specID].importString ~= "") then
             GameTooltip:AddLine(format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
-            addon.playerClassColor:GenerateHexColor(),
-            addon.playerSpecName,
-            addon.playerClassName,
+            HelpMePlay.playerClassColor:GenerateHexColor(),
+            HelpMePlay.playerSpecName,
+            HelpMePlay.playerClassName,
             HelpMePlayDB["ClassTalents"][classID][specID].importDate,
             HelpMePlayDB["ClassTalents"][classID][specID].importPatch), 1, 1, 1, true)
         else
@@ -145,7 +145,7 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
         end
         GameTooltip:Show()
     end)
-    classTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+    classTalentsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
     if C_AddOns.IsAddOnLoaded("ZygorGuidesViewer") then
         classTalentsButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -50, 0)

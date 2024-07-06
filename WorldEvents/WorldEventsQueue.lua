@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local worldEventQueueButton
@@ -37,8 +37,8 @@ local function SetWorldEventQueueButtonToEvent(event)
     worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
 end
 
-addon.CreateEventQueueButton = function()
-    if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then
+HelpMePlay.CreateEventQueueButton = function()
+    if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < HelpMePlay.Constants["PLAYER_MAX_LEVEL"] then
         if worldEventQueueButton then
             worldEventQueueButton:Hide()
         end
@@ -79,9 +79,9 @@ addon.CreateEventQueueButton = function()
                     else
                         previewIndex = currentEventIndex - 1
                     end
-                    addon.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
+                    HelpMePlay.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
                 end)
-                leftChevron:SetScript("OnLeave", addon.Tooltip_OnLeave)
+                leftChevron:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
                 rightChevron = CreateFrame("Button", nil, worldEventQueueButton)
                 rightChevron:SetSize(20, 20)
@@ -106,9 +106,9 @@ addon.CreateEventQueueButton = function()
                     else
                         previewIndex = currentEventIndex + 1
                     end
-                    addon.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
+                    HelpMePlay.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
                 end)
-                rightChevron:SetScript("OnLeave", addon.Tooltip_OnLeave)
+                rightChevron:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
                 SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
             end
@@ -124,9 +124,9 @@ addon.CreateEventQueueButton = function()
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
         worldEventQueueButton:SetScript("OnEnter", function(self)
-            addon.Tooltip_OnEnter(self, self.name, "\nClick and hold to drag.")
+            HelpMePlay.Tooltip_OnEnter(self, self.name, "\nClick and hold to drag.")
         end)
-        worldEventQueueButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+        worldEventQueueButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
         -- Clear all anchors from the button.
         worldEventQueueButton:ClearAllPoints()
@@ -166,10 +166,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
-        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < addon.Constants["PLAYER_MAX_LEVEL"] then return false end
+        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < HelpMePlay.Constants["PLAYER_MAX_LEVEL"] then return false end
         if PlayerGetTimerunningSeasonID() == 1 then return false end
 
         -- If there are events, then create the button.
-        C_Timer.After(1, function() addon.CreateEventQueueButton() end)
+        C_Timer.After(1, function() HelpMePlay.CreateEventQueueButton() end)
     end
 end)

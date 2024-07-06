@@ -1,17 +1,17 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 
 -- Initiates a deposit action to the guild bank if the player's current money exceeds a certain threshold,
 -- or withdraws from the guild bank if the player's money is below the threshold.
 local function ManageGuildBankFunds(transactionType, amount)
-    C_Timer.After(addon.Constants["TIMER_DELAY"] + 0.4, function()
+    C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"] + 0.4, function()
         if transactionType == "DEPOSIT" then
             DepositGuildBankMoney(amount)
-            addon.Print(format("Deposited %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
+            HelpMePlay.Print(format("Deposited %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
         else
             WithdrawGuildBankMoney(amount)
-            addon.Print(format("Withdrew %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
+            HelpMePlay.Print(format("Withdrew %s.", C_CurrencyInfo.GetCoinTextureString(amount)))
         end
     end)
 end

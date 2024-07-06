@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local gossipButton
@@ -15,22 +15,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if GUID then
                 local npcID = LHMP:SplitString(GUID, "-", 6)
                 if npcID then
-                    --[[ DEPRECATED - 2024/06/30
-                    if LHMP:IsGossipTextNPC(npcID) then
-                        local gossips = LHMP.GossipTextLookupByNPC[npcID]
-                        for _, option in next, options do
-                            for _, gossipID in next, gossips do
-                                if gossipID == option.gossipOptionID then
-                                    C_GossipInfo.SelectOption(gossipID)
-                                end
-                            end
-                        end
-                    end
-                    ]]
                     if LHMP:IsGossipSupportedForNPC(npcID) then
                         local gossips = LHMP:GetGossipsForNPCByID(npcID)
                         for _, gossip in ipairs(gossips) do
-                            local isAllowed = addon.EvaluateConditions(gossip.Conditions)
+                            local isAllowed = HelpMePlay.EvaluateConditions(gossip.Conditions)
                             if isAllowed then
                                 C_GossipInfo.SelectOption(gossip.ID)
                                 if gossip.CanConfirm then
@@ -44,7 +32,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 for _, option in next, options do
                     for _, gossip in next, LHMP.Gossips[0] do
                         if gossip.ID == option.gossipOptionID then
-                            local isAllowed = addon.EvaluateConditions(gossip.Conditions)
+                            local isAllowed = HelpMePlay.EvaluateConditions(gossip.Conditions)
                             if isAllowed then
                                 C_GossipInfo.SelectOption(gossip.ID)
                                 if gossip.CanConfirm then
@@ -59,9 +47,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         -- If the gossip from is visible, then add a button that can be used to
         -- quickly retrieve the NPC's ID, as well as the listed options.
-        if GossipFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(addon.playerGUID).battleTag == addon.Constants["AUTHOR_BATTLETAG"] then
+        if GossipFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(HelpMePlay.playerGUID).battleTag == HelpMePlay.Constants["AUTHOR_BATTLETAG"] then
             if not gossipButton then
-                gossipButton = addon.CreateWidget("IconButton", {
+                gossipButton = HelpMePlay.CreateWidget("IconButton", {
                     name = format("%sGossipInfoButton", addonName),
                     width = 32,
                     height = 32,
@@ -93,12 +81,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
                 end)
                 gossipButton:SetScript("OnEnter", function(self)
-                    addon.Tooltip_OnEnter(self, "Gossip", "Get gossip options for the current NPC.")
+                    HelpMePlay.Tooltip_OnEnter(self, "Gossip", "Get gossip options for the current NPC.")
                 end)
-                gossipButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+                gossipButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
             end
             if not questsButton then
-                questsButton = addon.CreateWidget("IconButton", {
+                questsButton = HelpMePlay.CreateWidget("IconButton", {
                     name = format("%sActiveQuestsInfoButton", addonName),
                     width = 32,
                     height = 32,
@@ -121,9 +109,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
                 end)
                 questsButton:SetScript("OnEnter", function(self)
-                    addon.Tooltip_OnEnter(self, "Quests", "Get a list of your active quests in the current zone.")
+                    HelpMePlay.Tooltip_OnEnter(self, "Quests", "Get a list of your active quests in the current zone.")
                 end)
-                questsButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+                questsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
             end
         end
     end

@@ -1,13 +1,13 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local button
 local canDualWield = false
 
-addon.CreateRemixScrapButton = function()
+HelpMePlay.CreateRemixScrapButton = function()
 	-- When the Scrapping Machine frame is shown, if the button
 	-- hasn't been created, then create it.
 		if not button then
-			button = addon.CreateWidget("ActionButton", {
+			button = HelpMePlay.CreateWidget("ActionButton", {
 				name = format("%sScrappingMachineButton", addonName),
 				parent = ScrappingMachineFrame
 			})
@@ -47,8 +47,8 @@ addon.CreateRemixScrapButton = function()
 
 				-- Determine if the player can dual wield. The specialization IDs
 				-- are stored in Data\Quests.lua.
-				for _, specID in ipairs(addon.CanDualWield) do
-					if addon.playerSpecID == specID then
+				for _, specID in ipairs(HelpMePlay.CanDualWield) do
+					if HelpMePlay.playerSpecID == specID then
 						canDualWield = true
 					end
 				end
@@ -83,7 +83,7 @@ addon.CreateRemixScrapButton = function()
 									-- If it's a weapon, let's check if it's valid for the player's current
 									-- specialization.
 									if classID == 2 then
-										local isItemValid = addon.IsWeaponRewardValidForSpecID(addon.playerSpecID, subClassID)
+										local isItemValid = HelpMePlay.IsWeaponRewardValidForSpecID(HelpMePlay.playerSpecID, subClassID)
 										if isItemValid then
 											-- Set these variables to 0 to start.
 											local start, finish = 0, 0
@@ -139,10 +139,10 @@ addon.CreateRemixScrapButton = function()
 				end
 			end)
 			button:SetScript("OnEnter", function(self)
-				addon.Tooltip_OnEnter(self, "Scrapping Machine", "Click to automatically fill the scrap machine with unwanted items.\n\n" ..
+				HelpMePlay.Tooltip_OnEnter(self, "Scrapping Machine", "Click to automatically fill the scrap machine with unwanted items.\n\n" ..
 				"Use left click to scrap items worse than those you have equipped. Use SHIFT and right click to scrap all armor items regardless of their item level.\n\n" .. "It's a great idea to always double check the addon's decision!")
 			end)
-			button:SetScript("OnLeave", addon.Tooltip_OnLeave)
+			button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 		end
 
 		-- Set the button's icon.
@@ -160,7 +160,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
 		local type = ...
 		if type == 40 and PlayerGetTimerunningSeasonID() == 1 and HelpMePlayDB["ShowRemixScrapButton"] then
-			addon.CreateRemixScrapButton()
+			HelpMePlay.CreateRemixScrapButton()
 		end
 	end
 end)

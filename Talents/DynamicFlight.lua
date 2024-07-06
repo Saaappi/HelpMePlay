@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local dynamicFlightTalentsButton = CreateFrame("Button")
 
 local function PurchaseTalents()
@@ -7,8 +7,8 @@ local function PurchaseTalents()
 
     C_Traits.ResetTree(configID, treeID)
 
-    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
-        for _, node in pairs(addon.DynamicFlightTalents) do
+    C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
+        for _, node in pairs(HelpMePlay.DynamicFlightTalents) do
             local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
             if #nodeInfo.entryIDs > 1 then
                 C_Traits.SetSelection(configID, node.nodeID, node.entryID)
@@ -24,7 +24,7 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
     if HelpMePlayDB["UseDynamicFlightButton"] == false then return end
 
 	if GenericTraitFrame.Header.Title:GetText() == "Dragonriding" then
-        dynamicFlightTalentsButton = addon.CreateWidget("IconButton", {
+        dynamicFlightTalentsButton = HelpMePlay.CreateWidget("IconButton", {
             name = format("%sDynamicFlightTalentsButton", addonName),
             texture = 4728198,
             parent = GenericTraitFrame.Currency,
@@ -43,9 +43,9 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
 
         dynamicFlightTalentsButton:SetScript("OnClick", PurchaseTalents)
         dynamicFlightTalentsButton:SetScript("OnEnter", function(self)
-            addon.Tooltip_OnEnter(self, "Skyriding", "Click to learn your Skyriding talents.")
+            HelpMePlay.Tooltip_OnEnter(self, "Skyriding", "Click to learn your Skyriding talents.")
         end)
-        dynamicFlightTalentsButton:SetScript("OnLeave", addon.Tooltip_OnLeave)
+        dynamicFlightTalentsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 	end
 end)
 

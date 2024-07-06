@@ -6,6 +6,8 @@
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
 ## IconTexture: 236681
 
+# Core/Main
+Core.lua
 Main.lua
 
 _Lib\Embeds.xml
@@ -15,7 +17,6 @@ _Data\Maps.lua
 _Data\Quests.lua
 _Data\Talent_Data.lua
 _Data\TalentImporter.lua
-_Data\Heirloom.lua
 _Data\Mounts.lua
 
 Settings\TalentImporter.lua

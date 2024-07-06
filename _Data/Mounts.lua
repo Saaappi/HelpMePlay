@@ -1,6 +1,6 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 
-addon.SpecialMaps = {
+HelpMePlay.SpecialMaps = {
     [201] = { 373 },
     [203] = { 373 },
     [204] = { 373 },
@@ -10,7 +10,7 @@ addon.SpecialMaps = {
     [321] = { 117, 118, 119, 120 },
 }
 
-addon.MountTypes = {
+HelpMePlay.MountTypes = {
     [230] = "Ground",
     [231] = "Aquatic",
     [241] = "AQ",

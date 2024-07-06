@@ -1,9 +1,9 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 
 ----------------------
 -- Quest Automation --
 ----------------------
-addon.AdventureMaps = {
+HelpMePlay.AdventureMaps = {
     -- Dragon Isles
     [2057] = {
         72266, -- The Waking Shores
@@ -15,7 +15,7 @@ addon.AdventureMaps = {
 
 -- These are the options in the Chromie Time
 -- dropdown.
-addon.CHROMIE_TIME_IDS = {
+HelpMePlay.CHROMIE_TIME_IDS = {
     [16] = "Dragonflight",
     [15] = EXPANSION_NAME7,
     [14] = EXPANSION_NAME8,
@@ -32,7 +32,7 @@ addon.CHROMIE_TIME_IDS = {
 -- Quest Rewards (Item Level) --
 --------------------------------
 -- These are specialization IDs.
-addon.CanDualWield = {
+HelpMePlay.CanDualWield = {
     251, -- Frost DK
     577, -- Havoc DH
     581, -- Vengeance DH
@@ -45,7 +45,7 @@ addon.CanDualWield = {
     72, -- Fury Warrior
 }
 
-addon.InventoryType = {
+HelpMePlay.InventoryType = {
     [1] = 1,            -- Head
     [2] = 2,            -- Neck
     [3] = 3,            -- Shoulder
@@ -80,7 +80,7 @@ addon.InventoryType = {
 -- can (and should) use.
 --
 -- The numbers on the right are subclass IDs from C_Item.GetItemInfo.
-addon.EquipLoc = {
+HelpMePlay.EquipLoc = {
     [62] = { 10 }, -- Arcane Mage
     [63] = { 10 }, -- Fire Mage
     [64] = { 10 }, -- Frost Mage
@@ -137,7 +137,7 @@ addon.EquipLoc = {
 
 -- These are the options in the Quest Rewards
 -- dropdown.
-addon.QUEST_REWARDS_TYPES = {
+HelpMePlay.QUEST_REWARDS_TYPES = {
     [2] = "Sell Price",
     [1] = "Item Level",
     [0] = NONE,

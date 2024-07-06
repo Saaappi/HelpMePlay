@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 
 -- This is the talent importer frame variable.
 local frame
@@ -53,7 +53,7 @@ end
 -- This is the function to build the talent importer frame.
 -- This is called when the Talent Importer button is clicked
 -- from the settings.
-addon.OpenTalentImporter = function()
+HelpMePlay.OpenTalentImporter = function()
     -- If the frame is already visible, then hide it.
     if frame then
         if frame:IsVisible() then
@@ -68,7 +68,7 @@ addon.OpenTalentImporter = function()
     -- If the frame already exists, then it's being reopened, so reset
     -- its height back to the base value.
     if not frame then
-        frame = addon.CreateFrame("Portrait", {
+        frame = HelpMePlay.CreateFrame("Portrait", {
             name = format("%sTalentImporterFrame", addonName),
             parent = UIParent,
             width = frameBaseWidth,
@@ -99,9 +99,9 @@ addon.OpenTalentImporter = function()
     frame:SetPoint("CENTER", frame:GetParent(), "CENTER", 0, 0)
 
     -- Create the class icon buttons if they don't exist.
-    if not _G[addon.classButtons[1].name] then
-        for index, btn in ipairs(addon.classButtons) do
-            local button = addon.CreateWidget("ActionButton", {
+    if not _G[HelpMePlay.classButtons[1].name] then
+        for index, btn in ipairs(HelpMePlay.classButtons) do
+            local button = HelpMePlay.CreateWidget("ActionButton", {
                 name = btn.name,
                 parent = frame
             })
@@ -118,7 +118,7 @@ addon.OpenTalentImporter = function()
                 -- from overlapping when they're recreated.
                 HideEditBoxes()
 
-                for i = 1, #addon.specEditBoxes[button.ID] do
+                for i = 1, #HelpMePlay.specEditBoxes[button.ID] do
                     -- Create the edit box. Don't auto focus them, set their size,
                     -- and select their default font.
                     local editBox = CreateFrame("EditBox", addonName .. "SpecEditBox" .. i, frame, "InputBoxTemplate")
@@ -131,7 +131,7 @@ addon.OpenTalentImporter = function()
                     local texture = editBox:CreateTexture(nil, "BACKGROUND")
                     texture:SetPoint("BOTTOMRIGHT", _G[addonName .. "SpecEditBox" .. i], "BOTTOMLEFT", -10, 0)
                     texture:SetSize(specIconTextureSize, specIconTextureSize)
-                    SetPortraitToTexture(texture, select(4, GetSpecializationInfoByID(addon.specEditBoxes[button.ID][i].id)))
+                    SetPortraitToTexture(texture, select(4, GetSpecializationInfoByID(HelpMePlay.specEditBoxes[button.ID][i].id)))
 
                     -- Create the border texture to overlay the specialization icon
                     -- texture above.
@@ -148,7 +148,7 @@ addon.OpenTalentImporter = function()
 
                     -- If the player already imported a string in the past, go ahead
                     -- and display that in the editbox.
-                    local classTalents = HelpMePlayDB["ClassTalents"][button.classID][addon.specEditBoxes[button.ID][i].id]
+                    local classTalents = HelpMePlayDB["ClassTalents"][button.classID][HelpMePlay.specEditBoxes[button.ID][i].id]
 
                     if classTalents then
                         -- TODO: Remove this at some point.
@@ -166,7 +166,7 @@ addon.OpenTalentImporter = function()
                         end
                         UpdateText(editBox, classTalents.importString, classTalents.importDate, classTalents.importPatch)
                     else
-                        UpdateText(editBox, format("|cffFF0000%s %s.|r", "Please import a loadout for", addon.specEditBoxes[button.ID][i].name), "", "")
+                        UpdateText(editBox, format("|cffFF0000%s %s.|r", "Please import a loadout for", HelpMePlay.specEditBoxes[button.ID][i].name), "", "")
                     end
 
                     -- Set the new talent build when the player presses the enter key.
@@ -177,8 +177,8 @@ addon.OpenTalentImporter = function()
                         -- If classTalents is nil here, then the table for that spec hasn't been
                         -- created yet. Create it as an empty table.
                         if not classTalents then
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id] = {}
-                            classTalents = HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id]
+                            HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id] = {}
+                            classTalents = HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id]
                         end
 
                         -- If the text is empty, then we didn't find a talent import string for
@@ -186,22 +186,22 @@ addon.OpenTalentImporter = function()
                         --
                         -- Initialize the importString and importDate variables so they're not nil.
                         if self:GetText() == "" then
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importDate = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importPatch = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importString = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importDate = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importPatch = self:GetText()
                         else
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importString = self:GetText()
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importDate = date("%m/%d/%Y")
-                            HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id].importPatch = (GetBuildInfo())
-                            classTalents = HelpMePlayDB.ClassTalents[button.classID][addon.specEditBoxes[button.ID][i].id]
+                            HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importString = self:GetText()
+                            HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importDate = date("%m/%d/%Y")
+                            HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importPatch = (GetBuildInfo())
+                            classTalents = HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id]
                             UpdateText(editBox, nil, classTalents.importDate, classTalents.importPatch)
                         end
                     end)
 
                     -- Set the edit box positions.
                     if i == 1 then
-                        editBox:SetPoint("TOPLEFT", addon.classButtons[2].name, "BOTTOMLEFT", 0, -40)
-                        editBox:SetPoint("TOPRIGHT", addon.classButtons[8].name, "BOTTOMRIGHT", 0, -40)
+                        editBox:SetPoint("TOPLEFT", HelpMePlay.classButtons[2].name, "BOTTOMLEFT", 0, -40)
+                        editBox:SetPoint("TOPRIGHT", HelpMePlay.classButtons[8].name, "BOTTOMRIGHT", 0, -40)
                     else
                         editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i - 1), "BOTTOMLEFT", 0, -20)
                     end
@@ -209,7 +209,7 @@ addon.OpenTalentImporter = function()
                     -- Create the back button. This back button just resets the frame,
                     -- so not entirely necessary but I think it's nice. :)
                     if not backButton then
-                        backButton = addon.CreateWidget("BasicButton", {
+                        backButton = HelpMePlay.CreateWidget("BasicButton", {
                             name = format("%sTalentImporterBackButton", addonName),
                             parent = frame,
                             width = 80,
@@ -235,13 +235,13 @@ addon.OpenTalentImporter = function()
                 GameTooltip:SetText(btn.className, btn.classColor.r, btn.classColor.g, btn.classColor.b)
                 GameTooltip:Show()
             end)
-            button:SetScript("OnLeave", addon.Tooltip_OnLeave)
+            button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
             -- Set the class button positions.
             if index == 1 then
                 button:SetPoint("TOPLEFT", button:GetParent(), "TOPLEFT", 10, -60)
             else
-                button:SetPoint("LEFT", addon.classButtons[index-1].name, "RIGHT", 10, 0)
+                button:SetPoint("LEFT", HelpMePlay.classButtons[index-1].name, "RIGHT", 10, 0)
             end
         end
     end

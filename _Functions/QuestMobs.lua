@@ -1,9 +1,9 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local iconSize = 12
 local iconType1 = "UI-HUD-UnitFrame-Target-PortraitOn-Boss-Quest"
 local iconType2 = "BuildanAbomination-32x32"
 
-addon.QUEST_MOBS_ICON_TYPES = {
+HelpMePlay.QUEST_MOBS_ICON_TYPES = {
     [1] = "Quest",
     [2] = "Treasure Goblin",
     [3] = "Custom",
@@ -11,7 +11,7 @@ addon.QUEST_MOBS_ICON_TYPES = {
 }
 
 -- The values displayed here are the parent anchors (the nameplate).
-addon.QUEST_MOBS_POSITION_TYPES = {
+HelpMePlay.QUEST_MOBS_POSITION_TYPES = {
     [1] = "LEFT",
     [2] = "TOPLEFT",
     [3] = "TOP",
@@ -22,7 +22,7 @@ addon.QUEST_MOBS_POSITION_TYPES = {
     [8] = "BOTTOMLEFT",
 }
 
-addon.anchorMapping = {
+HelpMePlay.anchorMapping = {
     LEFT = "RIGHT",
     TOPLEFT = "BOTTOMRIGHT",
     TOP = "BOTTOM",
@@ -33,13 +33,13 @@ addon.anchorMapping = {
     BOTTOMLEFT = "TOPRIGHT",
 }
 
-addon.GetRelativeAnchor = function(anchor)
-    return addon.anchorMapping[anchor]
+HelpMePlay.GetRelativeAnchor = function(anchor)
+    return HelpMePlay.anchorMapping[anchor]
 end
 
-addon.UpdateQuestMobsIcon = function()
+HelpMePlay.UpdateQuestMobsIcon = function()
     local nameplates = C_NamePlate.GetNamePlates()
-    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+    C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
         if nameplates then
             for index = 1, #nameplates do
                 local unit = nameplates[index].namePlateUnitToken
@@ -52,7 +52,7 @@ addon.UpdateQuestMobsIcon = function()
                             end
                         else
                             if nameplate[addonName .. "QuestMobsIcon"] then
-                                local isUnitRelatedToActiveQuest = addon.IsNameplateUnitRelatedToActiveQuest(nameplate.namePlateUnitToken)
+                                local isUnitRelatedToActiveQuest = HelpMePlay.IsNameplateUnitRelatedToActiveQuest(nameplate.namePlateUnitToken)
                                 if isUnitRelatedToActiveQuest then
                                     if HelpMePlayDB["QuestMobsIconID"] == 0 then
                                         nameplate[addonName .. "QuestMobsIcon"]:Hide()
@@ -68,7 +68,7 @@ addon.UpdateQuestMobsIcon = function()
                                     end
                                 end
                             else
-                                addon.UpdateNamePlate(nameplate)
+                                HelpMePlay.UpdateNamePlate(nameplate)
                             end
                         end
                     end
@@ -78,7 +78,7 @@ addon.UpdateQuestMobsIcon = function()
     end)
 end
 
-addon.UpdateQuestMobsIconPosition = function()
+HelpMePlay.UpdateQuestMobsIconPosition = function()
     local nameplates = C_NamePlate.GetNamePlates()
     if nameplates then
         for index = 1, #nameplates do
@@ -93,9 +93,9 @@ addon.UpdateQuestMobsIconPosition = function()
                     else
                         if nameplate[addonName .. "QuestMobsIcon"] then
                             nameplate[addonName .. "QuestMobsIcon"]:ClearAllPoints()
-                            local position = addon.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
+                            local position = HelpMePlay.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
                             if position then
-                                nameplate[addonName .. "QuestMobsIcon"]:SetPoint(addon.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
+                                nameplate[addonName .. "QuestMobsIcon"]:SetPoint(HelpMePlay.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
                             end
                         end
                     end
@@ -106,7 +106,7 @@ addon.UpdateQuestMobsIconPosition = function()
 end
 
 -- Determines if a unit is related to an active quest.
-addon.IsNameplateUnitRelatedToActiveQuest = function(unit)
+HelpMePlay.IsNameplateUnitRelatedToActiveQuest = function(unit)
     if unit then
         local isUnitRelatedToActiveQuest = C_QuestLog.UnitIsRelatedToActiveQuest(unit)
         if isUnitRelatedToActiveQuest then
@@ -117,23 +117,23 @@ addon.IsNameplateUnitRelatedToActiveQuest = function(unit)
 end
 
 -- Adds or removes the Quest Mobs icon from the nameplate.
-addon.UpdateNamePlate = function(nameplate)
+HelpMePlay.UpdateNamePlate = function(nameplate)
     if HelpMePlayDB["QuestMobsIconID"] == 0 or HelpMePlayDB["QuestMobsIconPositionID"] == 0 then
         if nameplate[addonName .. "QuestMobsIcon"] then
             nameplate[addonName .. "QuestMobsIcon"]:Hide()
         end
         return true
     end
-    local isUnitRelatedToActiveQuest = addon.IsNameplateUnitRelatedToActiveQuest(nameplate.namePlateUnitToken)
-    C_Timer.After(addon.Constants["TIMER_DELAY"], function()
+    local isUnitRelatedToActiveQuest = HelpMePlay.IsNameplateUnitRelatedToActiveQuest(nameplate.namePlateUnitToken)
+    C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
         if isUnitRelatedToActiveQuest then
             if not nameplate[addonName .. "QuestMobsIcon"] then
                 local icon = nameplate:CreateTexture()
-                local position = addon.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
+                local position = HelpMePlay.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
                 nameplate[addonName .. "QuestMobsIcon"] = icon
                 icon:ClearAllPoints()
                 icon:SetSize(iconSize, iconSize)
-                icon:SetPoint(addon.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
+                icon:SetPoint(HelpMePlay.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
                 if HelpMePlayDB["QuestMobsIconID"] == 1 then
                     icon:SetAtlas(iconType1)
                 elseif HelpMePlayDB["QuestMobsIconID"] == 2 then
@@ -142,8 +142,8 @@ addon.UpdateNamePlate = function(nameplate)
                     icon:SetTexture(HelpMePlayDB["QuestMobsCustomIcon"])
                 end
             else
-                local position = addon.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
-                nameplate[addonName .. "QuestMobsIcon"]:SetPoint(addon.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
+                local position = HelpMePlay.QUEST_MOBS_POSITION_TYPES[HelpMePlayDB["QuestMobsIconPositionID"]]
+                nameplate[addonName .. "QuestMobsIcon"]:SetPoint(HelpMePlay.GetRelativeAnchor(position), nameplate, position, HelpMePlayDB["QuestMobsIconXOffset"], HelpMePlayDB["QuestMobsIconYOffset"])
                 if HelpMePlayDB["QuestMobsIconID"] == 1 then
                     nameplate[addonName .. "QuestMobsIcon"]:SetAtlas(iconType1)
                 elseif HelpMePlayDB["QuestMobsIconID"] == 2 then

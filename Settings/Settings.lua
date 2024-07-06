@@ -1,4 +1,4 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 
@@ -20,7 +20,7 @@ local function OnSettingChanged(_, setting, value)
     -- Handler for the Quest Mobs icon/position.
     if variable == "QuestMobsIconID" then
         if value == 1 or value == 2 then
-            addon.UpdateQuestMobsIcon()
+            HelpMePlay.UpdateQuestMobsIcon()
         elseif value == 3 then
             StaticPopup_Show("HELPMEPLAY_QUESTMOBS_CUSTOM_ICON")
             StaticPopupDialogs["HMP_QUEST_MOBS_CUSTOM_ICON"] = {
@@ -34,9 +34,9 @@ local function OnSettingChanged(_, setting, value)
                     local input = self.editBox:GetText()
                     if tonumber(input) then
                         HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
-                        addon.UpdateQuestMobsIcon()
+                        HelpMePlay.UpdateQuestMobsIcon()
                     else
-                        addon.Print("Input was invalid.")
+                        HelpMePlay.Print("Input was invalid.")
                     end
                 end,
                 OnCancel = function()
@@ -48,17 +48,17 @@ local function OnSettingChanged(_, setting, value)
     elseif variable == "DepositKeepAmount" or variable == "TrainerProtectionValue" then
         HelpMePlayDB[variable] = value * 10000
     elseif variable == "QuestMobsIconPositionID" then
-        addon.UpdateQuestMobsIconPosition()
+        HelpMePlay.UpdateQuestMobsIconPosition()
     elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
-        addon.UpdateQuestMobsIconPosition()
+        HelpMePlay.UpdateQuestMobsIconPosition()
     elseif variable == "ShowRemixScrapButton" then
-        addon.CreateRemixScrapButton()
+        HelpMePlay.CreateRemixScrapButton()
     elseif variable == "ShowRemixUsablesButton" then
-        addon.CreateRemixUsablesButton()
+        HelpMePlay.CreateRemixUsablesButton()
     elseif variable == "ShowWardrobeButton" then
-        addon.CreateWardrobeButton()
+        HelpMePlay.CreateWardrobeButton()
     elseif variable == "UseWorldEventQueue" then
-        addon.CreateEventQueueButton()
+        HelpMePlay.CreateEventQueueButton()
     end
 end
 
@@ -79,20 +79,20 @@ Settings.RegisterAddOnCategory(category)
 
 -- Add the variable to the namespace, so we can use it to
 -- open the settings in a slash command.
-addon.category = category
-addon.layout = layout
+HelpMePlay.category = category
+HelpMePlay.layout = layout
 
 -- Initialize a section for the addon's version and author text.
 local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
 local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
 layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
 
-eventHandler:RegisterEvent("ADDON_LOADED")
+--[[eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
         local addonLoaded = ...
         if addonLoaded == addonName then
-            C_Timer.After(1, function()
+            C_Timer.After(4, function()]]
                 -- Toggle All Button
                 do
                     local name = ""
@@ -121,7 +121,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    addon.layout:AddInitializer(initializer)
+                    HelpMePlay.layout:AddInitializer(initializer)
                 end
 
                 ----------------------
@@ -241,7 +241,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local variable = "UseWarMode"
                     local name = "War Mode"
                     local tooltipText = "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
-                    LHMP:ColorText("RED", format("This setting doesn't apply to players at or above level %d.", addon.Constants["CHROMIE_TIME_MAX_LEVEL"]))
+                    LHMP:ColorText("RED", format("This setting doesn't apply to players at or above level %d.", HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"]))
                     local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
                     CreateCheckbox(category, setting, tooltipText)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
@@ -812,16 +812,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local tooltipText = "Click to wipe the current character as a 'new character' and re-execute the New Character configuration."
                     local clickHandler = function()
                         for index, GUID in next, HelpMePlayDB["Characters"] do
-                            if GUID == addon.playerGUID then
+                            if GUID == HelpMePlay.playerGUID then
                                 table.remove(HelpMePlayDB["Characters"], index)
                                 break
                             end
                         end
-                        addon.NewCharacter()
+                        HelpMePlay.NewCharacter()
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    addon.layout:AddInitializer(initializer)
+                    HelpMePlay.layout:AddInitializer(initializer)
                 end
 
                 -- Reset Heirlooms Button
@@ -831,12 +831,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local tooltipText = "Click to wipe heirlooms for the current class and specialization.\n\n" ..
                     LHMP:ColorText("RED", "This will force a UI reload.")
                     local clickHandler = function()
-                        HelpMePlayDB["Heirlooms"][addon.playerClassID][addon.playerSpecID] = nil
+                        HelpMePlayDB["Heirlooms"][HelpMePlay.playerClassID][HelpMePlay.playerSpecID] = nil
                         C_UI.Reload()
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    addon.layout:AddInitializer(initializer)
+                    HelpMePlay.layout:AddInitializer(initializer)
                 end
 
                 -------------------------
@@ -874,7 +874,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    addon.layout:AddInitializer(initializer)
+                    HelpMePlay.layout:AddInitializer(initializer)
                 end
 
                 -- Talent Importer
@@ -885,29 +885,13 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local clickHandler = function(_, button)
                         if button == "LeftButton" then
                             HideUIPanel(SettingsPanel)
-                            addon.OpenTalentImporter()
+                            HelpMePlay.OpenTalentImporter()
                         end
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    addon.layout:AddInitializer(initializer)
+                    HelpMePlay.layout:AddInitializer(initializer)
                 end
-
-                -- Heirlooms
-                --[[do
-                    local name = ""
-                    local buttonText = "Talent Importer"
-                    local tooltipText = "Click to open the Talent Importer utility."
-                    local clickHandler = function(_, button)
-                        if button == "LeftButton" then
-                            HideUIPanel(SettingsPanel)
-                            addon.OpenTalentImporter()
-                        end
-                    end
-
-                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    addon.layout:AddInitializer(initializer)
-                end]]
 
                 -- Randomize Adventurer
                 do
@@ -927,9 +911,9 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                         local specName = LHMP:GetRandomSpecIDByClassID(classID)
                                         if class then
                                             if factionID and factionID == 0 then
-                                                addon.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
+                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
                                             elseif factionID and factionID == 1 then
-                                                addon.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
+                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
                                             end
                                         end
                                     end
@@ -939,12 +923,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
 
                     local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    addon.layout:AddInitializer(initializer)
+                    HelpMePlay.layout:AddInitializer(initializer)
                 end
-            end)
+            --end)
 
             -- Unregister the event for performance.
-            eventHandler:UnregisterEvent("ADDON_LOADED")
-        end
-    end
-end)
+            --eventHandler:UnregisterEvent("ADDON_LOADED")
+        --end
+    --end
+--end)

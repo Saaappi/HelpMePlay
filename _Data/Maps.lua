@@ -1,6 +1,6 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 
-addon.NoCutsceneSkipMaps = {
+HelpMePlay.NoCutsceneSkipMaps = {
     [21] = {
         ["Conditions"] = {}
     },

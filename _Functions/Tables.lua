@@ -1,8 +1,8 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 
 -- This function can take any number of tables and
 -- merge them into one table.
-addon.MergeTables = function(...)
+HelpMePlay.MergeTables = function(...)
     local mergedTable = {}
     for i = 1, select("#", ...) do
         local tbl = select(i, ...)

@@ -1,12 +1,12 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 
-addon.Constants = {
+HelpMePlay.Constants = {
     ["AUTHOR_BATTLETAG"] = "Lightsky#11682",
     ["PLAYER_MAX_LEVEL"] = GetMaxLevelForPlayerExpansion(),
     ["TIMER_DELAY"] = 0.1,
 }
 
-addon.ErrorMessages = {
+HelpMePlay.ErrorMessages = {
     ["COMMAND_NOT_FOUND"] = "Your entry is an unknown command.",
     ["IN_COMBAT_LOCKDOWN"] = "This action is not permitted while in combat.",
     ["MOUNT_TYPE_UNKNOWN"] = "{%d} Mount type is unknown. Please screenshot this message and report it on Github.",
@@ -15,4 +15,4 @@ addon.ErrorMessages = {
 
 -- It's not possible to do forward references in Lua during table creation.
 -- So... let's create the Chromie Time max level entry after creation.
-addon.Constants["CHROMIE_TIME_MAX_LEVEL"] = addon.Constants["PLAYER_MAX_LEVEL"] - 10
+HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"] = HelpMePlay.Constants["PLAYER_MAX_LEVEL"] - 10

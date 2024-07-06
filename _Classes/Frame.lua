@@ -1,6 +1,6 @@
-local _, addon = ...
+local _, HelpMePlay = ...
 
-addon.CreateFrame = function(frameType, frameData)
+HelpMePlay.CreateFrame = function(frameType, frameData)
     if frameType == "Portrait" then
         local frame = CreateFrame("Frame", frameData.name, frameData.parent, "PortraitFrameTemplate")
         frame:SetSize(frameData.width, frameData.height)

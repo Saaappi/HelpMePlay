@@ -1,8 +1,8 @@
-local addonName, addon = ...
+local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 
-addon.LoadDynamicFlightTalents = function()
-    addon.DynamicFlightTalents = {
+HelpMePlay.LoadDynamicFlightTalents = function()
+    HelpMePlay.DynamicFlightTalents = {
         { ["nodeID"] = 64066, ["entryID"] = 82387 }, 	-- Take to the Skies
         { ["nodeID"] = 81466, ["entryID"] = 102427 }, 	-- Redirection
         { ["nodeID"] = 64069, ["entryID"] = 82390 }, 	-- Dynamic Stretching
@@ -31,7 +31,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
         local addonLoaded = ...
         if addonLoaded == addonName then
-            addon.LoadDynamicFlightTalents()
+            HelpMePlay.LoadDynamicFlightTalents()
 
             -- Unregister the event for performance.
             eventHandler:UnregisterEvent("ADDON_LOADED")
