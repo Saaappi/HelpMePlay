@@ -362,118 +362,94 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["DepositKeepMeSafe"],
         "Toggle to add approval to every monetary transaction the addon conducts at a guild bank."
     )
+
+    --------------------------
+    -- QUEST MOBS SECTION ----
+    --------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUESTMOBS_SECTION))
+
+    HelpMePlay.AddSettingDropdown(
+        category,
+        "Quest Mobs Icon",
+        "QuestMobsIconID",
+        0,
+        HelpMePlayDB["QuestMobsIconID"],
+        function()
+            local container = Settings.CreateControlTextContainer()
+            container:Add(1, "Quest")
+            container:Add(2, "Treasure Goblin")
+            container:Add(3, "Custom")
+            container:Add(0, NONE)
+            return container:GetData()
+        end,
+        "Select the icon that should appear on the nameplate of NPCs related to active quest(s)."
+    )
+    HelpMePlay.AddSettingDropdown(
+        category,
+        "Quest Mobs Icon Position",
+        "QuestMobsIconPositionID",
+        0,
+        HelpMePlayDB["QuestMobsIconPositionID"],
+        function()
+            local container = Settings.CreateControlTextContainer()
+            container:Add(1, "LEFT")
+            container:Add(2, "TOPLEFT")
+            container:Add(3, "TOP")
+            container:Add(4, "TOPRIGHT")
+            container:Add(5, "RIGHT")
+            container:Add(6, "BOTTOMRIGHT")
+            container:Add(7, "BOTTOM")
+            container:Add(8, "BOTTOMLEFT")
+            container:Add(0, NONE)
+            return container:GetData()
+        end,
+        "Select the position the icon should appear on the nameplate."
+    )
+    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
+        category,
+        "Quest Mobs Icon X Offset",
+        "QuestMobsIconXOffset",
+        -5,
+        HelpMePlayDB["QuestMobsIconXOffset"],
+        -25,
+        25,
+        1,
+        function()
+            return HelpMePlayDB["QuestMobsIconXOffset"]
+        end,
+        "Use the slider to set the icon's X offset."
+    )
+    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
+        category,
+        "Quest Mobs Icon Y Offset",
+        "QuestMobsIconYOffset",
+        0,
+        HelpMePlayDB["QuestMobsIconYOffset"],
+        -25,
+        25,
+        1,
+        function()
+            return HelpMePlayDB["QuestMobsIconYOffset"]
+        end,
+        "Use the slider to set the icon's Y offset."
+    )
+
+    ------------------------
+    -- WARDROBE SECTION ----
+    ------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(WARDROBE_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Wardrobe Button",
+        "ShowWardrobeButton",
+        false,
+        HelpMePlayDB["ShowWardrobeButton"],
+        "Toggle to show or hide the Wardrobe button on the character frame."
+    )
 end
 
 --[[
-                --------------------------
-                -- QUEST MOBS SECTION ----
-                --------------------------
-                -- Initialize a section for quest mobs.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUESTMOBS_SECTION))
-
-                -- Quest Mobs Icon
-                do
-                    local variable = "QuestMobsIconID"
-                    local name = "Quest Mobs Icon"
-                    local tooltipText = "Select the icon that should appear on the nameplate of NPCs related to active quest(s)."
-
-                    local function GetOptions()
-                        local container = CreateControlTextContainer()
-                        container:Add(1, "Quest")
-                        container:Add(2, "Treasure Goblin")
-                        container:Add(3, "Custom")
-                        container:Add(0, NONE)
-                        return container:GetData()
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateDropDown(category, setting, GetOptions, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Quest Mobs Icon Position
-                do
-                    local variable = "QuestMobsIconPositionID"
-                    local name = "Quest Mobs Icon Position"
-                    local tooltipText = "Select the position the icon should appear on the nameplate."
-
-                    local function GetOptions()
-                        local container = CreateControlTextContainer()
-                        container:Add(1, "LEFT")
-                        container:Add(2, "TOPLEFT")
-                        container:Add(3, "TOP")
-                        container:Add(4, "TOPRIGHT")
-                        container:Add(5, "RIGHT")
-                        container:Add(6, "BOTTOMRIGHT")
-                        container:Add(7, "BOTTOM")
-                        container:Add(8, "BOTTOMLEFT")
-                        container:Add(0, NONE)
-                        return container:GetData()
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateDropDown(category, setting, GetOptions, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Quest Mobs Icon X Offset
-                do
-                    local variable = "QuestMobsIconXOffset"
-                    local name = "X Offset"
-                    local tooltipText = "Use the slider to set the icon's X offset."
-                    local minValue = -25
-                    local maxValue = 25
-                    local step = 1
-
-                    local function GetValue()
-                        return HelpMePlayDB[variable]
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    local options = Settings.CreateSliderOptions(minValue, maxValue, step)
-                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
-                    CreateSlider(category, setting, options, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                    setting:SetValue(HelpMePlayDB[variable])
-                end
-
-                -- Quest Mobs Icon Y Offset
-                do
-                    local variable = "QuestMobsIconYOffset"
-                    local name = "Y Offset"
-                    local tooltipText = "Use the slider to set the icon's Y offset."
-                    local minValue = -25
-                    local maxValue = 25
-                    local step = 1
-
-                    local function GetValue()
-                        return HelpMePlayDB[variable]
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    local options = Settings.CreateSliderOptions(minValue, maxValue, step)
-                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
-                    CreateSlider(category, setting, options, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                    setting:SetValue(HelpMePlayDB[variable])
-                end
-
-                ------------------------
-                -- WARDROBE SECTION ----
-                ------------------------
-                -- Initialize a section for wardrobe.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(WARDROBE_SECTION))
-
-                -- Wardrobe Button
-                do
-                    local variable = "ShowWardrobeButton"
-                    local name = "Wardrobe Button"
-                    local tooltipText = "Toggle to show or hide the Wardrobe button."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
                 -------------------------------------------
                 -- NEW CHARACTER CONFIGURATION SECTION ----
                 -------------------------------------------
