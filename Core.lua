@@ -68,7 +68,7 @@ local function OnEvent(_, event, arg1, arg2)
 		HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
     end
     if event == "ZONE_CHANGED" or event == "ZONE_CHANGED_NEW_AREA" then
-        HelpMePlay.GetBestMapForUnit(nil)
+        HelpMePlay.GetBestMapByMapID(nil)
     end
 end
 
