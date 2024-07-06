@@ -31,9 +31,9 @@ function HelpMePlay.RegisterSettings()
     HelpMePlay.Layout = layout
 
     -- Initialize a section for the addon's version and author text.
-    local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
-    local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
-    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
+    --local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
+    --local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
+    --layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
 
     -- Toggle All Button
     HelpMePlay.AddSettingButton(
@@ -70,7 +70,6 @@ function HelpMePlay.RegisterSettings()
     -- Initialize a section for remix stuff.
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
 
-    -- Remix Usables Button
     HelpMePlay.AddSettingCheckbox(
         category,
         "Remix Usables Button",
@@ -87,125 +86,99 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["ShowRemixScrapButton"],
         "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
     )
+
+    ------------------------
+    -- GENERAL SECTION -----
+    ------------------------
+    -- Initialize a section for remix stuff.
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Chat Icons",
+        "ShowChatIcons",
+        false,
+        HelpMePlayDB["ShowChatIcons"],
+        "Toggle to show item and appearance collection status icons in the chat frame."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Emotes",
+        "UseEmotes",
+        false,
+        HelpMePlayDB["UseEmotes"],
+        "Automatically use the appropriate emote against quest-related non-player characters."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Gossip",
+        "AcceptGossip",
+        false,
+        HelpMePlayDB["AcceptGossip"],
+        "Automatically select the appropriate quest-related gossip options from non-player characters." ..
+        LHMP:ColorText("RED", "Not all gossips are supported!")
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Mute Talking Head",
+        "MuteTalkingHead",
+        false,
+        HelpMePlayDB["MuteTalkingHead"],
+        "Toggle to silence the talking head popup."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Open Containers",
+        "OpenContainers",
+        false,
+        HelpMePlayDB["OpenContainers"],
+        "Toggle to automatically open containers when you loot them.\n\n" ..
+        LHMP:ColorText("RED", "Not all items are supported!")
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Rare Scan",
+        "RareScan",
+        false,
+        HelpMePlayDB["RareScan"],
+        "Toggle if you wish to receive a popup notification and sound for nearby rares."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Skip Cutscenes",
+        "SkipCutscenes",
+        false,
+        HelpMePlayDB["SkipCutscenes"],
+        "Toggle skipping cutscenes and in-game movies."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Skyriding",
+        "UseDynamicFlightButton",
+        false,
+        HelpMePlayDB["UseDynamicFlightButton"],
+        "Toggle to add a button to the Skyriding UI to quickly learn its traits."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "War Mode",
+        "UseWarMode",
+        false,
+        HelpMePlayDB["UseWarMode"],
+        "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
+        LHMP:ColorText("RED", format("This setting doesn't apply to players at or above level %d.", HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"]))
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Always Compare Items",
+        "AlwaysCompareItems",
+        false,
+        HelpMePlayDB["AlwaysCompareItems"],
+        "Toggle if you wish to have the item comparison tooltips always visible when you hover an item."
+    )
 end
 
---[[eventHandler:RegisterEvent("ADDON_LOADED")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
-    if event == "ADDON_LOADED" then
-        local addonLoaded = ...
-        if addonLoaded == addonName then
-            C_Timer.After(4, function()
-
-                
-                
-
-                ------------------------
-                -- GENERAL SECTION -----
-                ------------------------
-                -- Initialize a section for general stuff.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_SECTION))
-
-                -- Chat Icons
-                do
-                    local variable = "ShowChatIcons"
-                    local name = "Chat Icons"
-                    local tooltipText = "Toggle to show item and appearance collection status icons in the chat frame."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Emotes
-                do
-                    local variable = "UseEmotes"
-                    local name = "Emotes"
-                    local tooltipText = "Automatically use the appropriate emote against quest-related non-player characters."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Gossip
-                do
-                    local variable = "AcceptGossip"
-                    local name = "Gossip"
-                    local tooltipText = "Automatically select the appropriate quest-related gossip options from non-player characters."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Mute Talking Head
-                do
-                    local variable = "MuteTalkingHead"
-                    local name = "Mute Talking Head"
-                    local tooltipText = "Toggle to hide and prevent the talking head popup."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Open Containers
-                do
-                    local variable = "OpenContainers"
-                    local name = "Open Containers"
-                    local tooltipText = "Toggle to automatically open (supported) container items when you loot them."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Rare Scan
-                do
-                    local variable = "RareScan"
-                    local name = "Rare Scan"
-                    local tooltipText = "Toggle if you wish to receive a popup notification and sound for nearby rares."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Skip Cutscenes
-                do
-                    local variable = "SkipCutscenes"
-                    local name = "Skip Cutscenes"
-                    local tooltipText = "Toggle skipping cutscenes and in-game movies."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Skyriding
-                do
-                    local variable = "UseDynamicFlightButton"
-                    local name = "Skyriding"
-                    local tooltipText = "Toggle to add a button to the Skyriding UI to quickly learn its traits."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- War Mode
-                do
-                    local variable = "UseWarMode"
-                    local name = "War Mode"
-                    local tooltipText = "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
-                    LHMP:ColorText("RED", format("This setting doesn't apply to players at or above level %d.", HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"]))
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Always Compare Items
-                do
-                    local variable = "AlwaysCompareItems"
-                    local name = "Always Compare Items"
-                    local tooltipText = "Toggle if you wish to have the item comparison tooltips always visible when you hover an item."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
+--[[
                 ------------------------
                 -- QUEST SECTION -------
                 ------------------------
