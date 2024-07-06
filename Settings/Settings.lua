@@ -771,3 +771,131 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     return setting
     --setting:SetValue(HelpMePlayDB[variable])
 end
+
+function HelpMePlay.SettingsRegistration()
+    SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
+end
+
+function HelpMePlay.Init()
+    if HelpMePlayDB == nil then
+        HelpMePlayDB = {}
+    end
+    if HelpMePlayDB_Character == nil then
+        HelpMePlayDB_Character = {}
+    end
+
+    local oldVariables = {
+        AcceptAndCompleteAllQuests,
+        AGE,
+        DebugModeEnabled,
+        DynamicFlightTrait1,
+        DynamicFlightTrait2,
+        Enabled,
+        GuideGossips,
+        GuideQuestItems,
+        GuideQuests,
+        Heirlooms,
+        IgnoredCreatures,
+        Junker,
+        MerchantItems,
+        MinimapIconEnabled,
+        NCCEnabled,
+        NONE,
+        OpenHolidayItems,
+        PlayerTalents,
+        ShouldRepair,
+        TheMawEnabled,
+        UseHeirloomAutomation
+    }
+    for _, key in next, oldVariables do
+        if HelpMePlayDB[key] ~= nil then
+            HelpMePlayDB[key] = nil
+        end
+    end
+
+    local defaults = {
+        AcceptAndCompleteQuests = false,
+        AcceptGossip = false,
+        AcceptReadyChecks = false,
+        AcceptRoleChecks = false,
+        AlwaysCompareItems = true,
+        AutoLoot = false,
+        AutoPushSpells = true,
+        ChromieTimeExpansionID = 0,
+        ClassColorFrames = false,
+        ClearAllTracking = false,
+        CreateLootWindow = false,
+        CreateWhisperWindow = false,
+        DepositKeepAmount = 0,
+        DepositKeepMeSafe = true,
+        DisableDialog = false,
+        DisableTutorials = false,
+        IgnoreDailyQuests = false,
+        IgnoreRepeatableQuests = false,
+        LootUnderMouse = false,
+        MuteTalkingHead = false,
+        NCC_ActionBar2 = false,
+        NCC_ActionBar3 = false,
+        NCC_ActionBar4 = false,
+        NCC_ActionBar5 = false,
+        NCC_ActionBar6 = false,
+        NCC_ActionBar7 = false,
+        NCC_ActionBar8 = false,
+        NCC_EditModeLayoutID = 1,
+        OpenContainers = false,
+        PurchaseQuestItems = false,
+        QuestMobsCustomIcon = "",
+        QuestMobsIconID = 0,
+        QuestMobsIconPositionID = 1,
+        QuestMobsIconXOffset = -5,
+        QuestMobsIconYOffset = 0,
+        QuestRewardSelectionTypeID = 0,
+        RareScan = false,
+        shouldAutomaticRepair = false,
+        ShowChatIcons = false,
+        ShowRemixScrapButton = false,
+        ShowRemixUsablesButton = false,
+        ShowWardrobeButton = false,
+        SkipCutscenes = false,
+        TrainerProtectionValue = 0,
+        UseAdventureMaps = false,
+        UseDynamicFlightButton = false,
+        UseEmotes = false,
+        UsePartyPlay = false,
+        UsePlayerChoice = false,
+        UseWarMode = false,
+        UseWorldEventQueue = false,
+    }
+    for key, value in next, defaults do
+        if HelpMePlayDB[key] == nil then
+            HelpMePlayDB[key] = value
+        end
+    end
+
+    if HelpMePlayDB["Positions"] == nil then
+        HelpMePlayDB["Positions"] = {}
+    end
+    if HelpMePlayDB["Characters"] == nil then
+        HelpMePlayDB["Characters"] = {}
+    end
+    if HelpMePlayDB["ClassTalents"] == nil then
+        HelpMePlayDB["ClassTalents"] = {}
+        for i = 1, MAX_CLASSES do
+            HelpMePlayDB["ClassTalents"][i] = {}
+        end
+    end
+    if HelpMePlayDB["TempSettings"] == nil then
+        HelpMePlayDB["TempSettings"] = {}
+    end
+	if HelpMePlayDB["Mounts"] == nil then
+        HelpMePlayDB["Mounts"] = {
+            Ground = {},
+            Aquatic = {},
+            Flying = {},
+            Dynamic = {},
+            AQ = {},
+            Vashjir = {},
+            Unused = {}
+        }
+    end
+end

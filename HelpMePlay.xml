@@ -2,7 +2,6 @@
     <Script file="Settings\Settings.lua" />
 
     <Script file="Core.lua" />
-    <Script file="Main.lua" />
 
     <Script file="_Data\Constants.lua" />
     <Script file="_Data\Maps.lua" />
