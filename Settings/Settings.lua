@@ -14,11 +14,12 @@ local UTILITIES_SECTION = "Utilities"
 
 function HelpMePlay.RegisterSettings()
     local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
+    Settings.RegisterAddOnCategory(category)
 
     -- Add the variable to the namespace, so we can use it to
     -- open the settings in a slash command.
-    HelpMePlay.Category = category
-    HelpMePlay.Layout = layout
+    HelpMePlay.SettingsCategory = category
+    HelpMePlay.SettingsLayout = layout
 
     HelpMePlay.AddSettingButton(
         "Toggle All",
@@ -682,8 +683,6 @@ function HelpMePlay.RegisterSettings()
         "Don't know what to create next? Click to randomly generate a faction, race, class, and specialization combination for your next adventurer!",
         true
     )
-
-    Settings.RegisterAddOnCategory(category)
 end
 
 function HelpMePlay.OnSettingChanged(_, setting, value)
@@ -739,7 +738,7 @@ end
 
 function HelpMePlay.AddSettingButton(controlLabel, buttonText, onClick, tooltip, addSearchTags)
     local button = CreateSettingsButtonInitializer(controlLabel, buttonText, onClick, tooltip, addSearchTags)
-    HelpMePlay.Layout:AddInitializer(button)
+    HelpMePlay.SettingsLayout:AddInitializer(button)
 end
 
 function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)

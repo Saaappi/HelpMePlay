@@ -20,7 +20,6 @@ end
 local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
-            HelpMePlay.RegisterSettings()
             eventFrame:UnregisterEvent(event)
 		end
 	end
@@ -87,7 +86,7 @@ end)
 SlashCmdList["HELPMEPLAY_SLASHCMD"] = function(cmd)
 	if not cmd or cmd == "" then
         if not InCombatLockdown() then
-            Settings.OpenToCategory(HelpMePlay.Category:GetID())
+            Settings.OpenToCategory(HelpMePlay.SettingsCategory:GetID())
         else
             HelpMePlay.Print(HelpMePlay.ErrorMessages["IN_COMBAT_LOCKDOWN"])
         end
