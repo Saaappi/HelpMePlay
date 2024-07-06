@@ -1,4 +1,4 @@
-local _, HelpMePlay = ...
+local addonName, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
 local REMIX_SECTION = "Remix: Mists of Pandaria"
@@ -13,8 +13,7 @@ local NEW_CHARACTER_SECTION = "New Character Configuration"
 local UTILITIES_SECTION = "Utilities"
 
 function HelpMePlay.RegisterSettings()
-    local category, layout = Settings.RegisterVerticalLayoutCategory("HelpMePlay")
-    Settings.RegisterAddOnCategory(category)
+    local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
 
     -- Add the variable to the namespace, so we can use it to
     -- open the settings in a slash command.
@@ -683,6 +682,8 @@ function HelpMePlay.RegisterSettings()
         "Don't know what to create next? Click to randomly generate a faction, race, class, and specialization combination for your next adventurer!",
         true
     )
+
+    Settings.RegisterAddOnCategory(category)
 end
 
 function HelpMePlay.OnSettingChanged(_, setting, value)
@@ -771,3 +772,6 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     return setting
     --setting:SetValue(HelpMePlayDB[variable])
 end
+
+--SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
+HelpMePlay.RegisterSettings()

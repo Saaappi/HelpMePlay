@@ -24,7 +24,6 @@ _Data\TalentImporter.lua
 _Data\Mounts.lua
 
 Settings\TalentImporter.lua
-#Settings\Settings.lua
 
 _Classes\Tooltip.lua
 _Classes\Button.lua
@@ -78,5 +77,6 @@ ChatIcons\ChatIcons.lua
 
 Mounts\Mounts.lua
 
+# Remix: Mists of Pandaria
 Remix\ScrappingMachine.lua
 Remix\Usables.lua
