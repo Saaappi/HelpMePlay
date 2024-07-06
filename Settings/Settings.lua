@@ -5,10 +5,7 @@ local LHMP = LibStub("LibHelpMePlay")
 -- Local references to Blizzard settings functions.
 local RegisterAddOnSetting = Settings.RegisterAddOnSetting
 local SetOnValueChangedCallback = Settings.SetOnValueChangedCallback
-local CreateCheckbox = Settings.CreateCheckbox or Settings.CreateCheckBox
 local CreateSlider = Settings.CreateSlider
-local CreateDropDown = Settings.CreateDropDown
-local CreateControlTextContainer = Settings.CreateControlTextContainer
 
 local REMIX_SECTION = "Remix: Mists of Pandaria"
 local GENERAL_SECTION = GENERAL
@@ -275,83 +272,69 @@ function HelpMePlay.RegisterSettings()
         format("Select how quest rewards should be chosen.\n\n" ..
         "If Item Level is selected, then chosen quest rewards are automatically equipped by %s.", addonName)
     )
+
+    -------------------
+    -- LFG SECTION ----
+    -------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(LFG_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Event Queue Button",
+        "UseWorldEventQueue",
+        false,
+        HelpMePlayDB["UseWorldEventQueue"],
+        "Toggle to add a button to the top middle of your screen. This button can be used to quickly queue into ongoing events.\n\n" ..
+        LHMP:ColorText("RED", "Not all events are supported!")
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Ready Checks",
+        "AcceptReadyChecks",
+        false,
+        HelpMePlayDB["AcceptReadyChecks"],
+        "Toggle to automatically accept ready checks."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Role Checks",
+        "AcceptRoleChecks",
+        false,
+        HelpMePlayDB["AcceptRoleChecks"],
+        "Toggle to automatically accept role checks."
+    )
+
+    ------------------------
+    -- MERCHANT SECTION ----
+    ------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(MERCHANT_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Automatic Repair",
+        "shouldAutomaticRepair",
+        false,
+        HelpMePlayDB["shouldAutomaticRepair"],
+        "Toggle to allow or prevent the addon from using your character's funds for automatic repair."
+    )
+    HelpMePlay.AddSettingSlider(
+        category,
+        "Trainer Protection Value",
+        "TrainerProtectionValue",
+        0,
+        HelpMePlayDB["TrainerProtectionValue"],
+        0,
+        1000,
+        10,
+        function()
+            return HelpMePlayDB["TrainerProtectionValue"] / 10000
+        end,
+        "Set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
+        LHMP:ColorText("RED", "This slider steps in increments of 10.")
+    )
 end
 
 --[[
-                -------------------
-                -- LFG SECTION ----
-                -------------------
-                -- Initialize a section for LFG.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(LFG_SECTION))
-
-                -- Event Queue
-                do
-                    local variable = "UseWorldEventQueue"
-                    local name = "Event Queue"
-                    local tooltipText = "Toggle to add a button to the top middle of your screen. This button can be used to quickly queue into ongoing events."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Ready Checks
-                do
-                    local variable = "AcceptReadyChecks"
-                    local name = "Ready Checks"
-                    local tooltipText = "Toggle to automatically accept ready checks."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Role Checks
-                do
-                    local variable = "AcceptRoleChecks"
-                    local name = "Role Checks"
-                    local tooltipText = "Toggle to automatically accept role checks."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                ------------------------
-                -- MERCHANT SECTION ----
-                ------------------------
-                -- Initialize a section for merchants.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(MERCHANT_SECTION))
-
-                -- REPAIRS
-                do
-                    local variable = "shouldAutomaticRepair"
-                    local name = "Automatic Repair"
-                    local tooltipText = "Toggle to allow or prevent the addon from using your character's funds for automatic repair."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- TRAINER PROTECTION VALUE
-                do
-                    local variable = "TrainerProtectionValue"
-                    local name = "Trainer Protection Value"
-                    local tooltipText = "Set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
-                    "This slider moves in increments of 10."
-                    local minValue = 0
-                    local maxValue = 1000
-                    local step = 10
-
-                    local function GetValue()
-                        return HelpMePlayDB[variable] / 10000
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    local options = Settings.CreateSliderOptions(minValue, maxValue, step)
-                    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, GetValue)
-                    CreateSlider(category, setting, options, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                    setting:SetValue(HelpMePlayDB[variable])
-                end
-
                 --------------------------
                 -- GUILD BANK SECTION ----
                 --------------------------
@@ -905,6 +888,15 @@ function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, def
     return setting
 end
 
-function HelpMePlay.AddSettingSlider()
+function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defaultValue, currentValue, minValue, maxValue, increment, value, tooltip)
+    local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
 
+    local options = Settings.CreateSliderOptions(minValue, maxValue, increment)
+    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, value)
+
+    Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
+    Settings.CreateSlider(category, setting, options, tooltip)
+
+    return setting
+    --setting:SetValue(HelpMePlayDB[variable])
 end
