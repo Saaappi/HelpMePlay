@@ -73,6 +73,8 @@ SlashCmdList["HELPMEPLAY_SLASHCMD"] = function(cmd)
         else
             HelpMePlay.Print(HelpMePlay.ErrorMessages["IN_COMBAT_LOCKDOWN"])
         end
+    elseif cmd == "?" then
+        HelpMePlay.Print(format("Name: %s\nAuthor: %s\nVersion: %s", addonName, C_AddOns.GetAddOnMetadata(addonName, "Author"), C_AddOns.GetAddOnMetadata(addonName, "Version")))
     else
         HelpMePlay.Print(HelpMePlay.ErrorMessages["COMMAND_NOT_FOUND"])
 	end

@@ -21,11 +21,6 @@ function HelpMePlay.RegisterSettings()
     HelpMePlay.Category = category
     HelpMePlay.Layout = layout
 
-    -- Initialize a section for the addon's version and author text.
-    --local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
-    --local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
-    --layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
-
     HelpMePlay.AddSettingButton(
         "Toggle All",
         "Toggle All",
