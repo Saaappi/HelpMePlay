@@ -773,10 +773,12 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
 end
 
 function HelpMePlay.SettingsRegistration()
+    print("A")
     SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
 end
 
 function HelpMePlay.Init()
+    print("A")
     if HelpMePlayDB == nil then
         HelpMePlayDB = {}
     end
@@ -898,4 +900,6 @@ function HelpMePlay.Init()
             Unused = {}
         }
     end
+
+    HelpMePlay.SettingsRegistration()
 end

@@ -6,7 +6,6 @@
     <Script file="_Data\Constants.lua" />
     <Script file="_Data\Maps.lua" />
     <Script file="_Data\Quests.lua" />
-    <Script file="_Data\Talent_Data.lua" />
     <Script file="_Data\TalentImporter.lua" />
     <Script file="_Data\Mounts.lua" />
 
