@@ -22,17 +22,10 @@ function HelpMePlay.Init()
     HelpMePlay.RegisterSettings()
 end
 
-function HelpMePlay_OnEvent(self, event, arg1)
-    if event == "ADDON_LOADED" then
-        if addonName == arg1 then
-            HelpMePlay.Init()
-        end
-    end
-end
-
 local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
+            HelpMePlay.Init()
             eventFrame:UnregisterEvent(event)
 		end
 	end
@@ -79,7 +72,7 @@ local function OnEvent(_, event, arg1, arg2)
     end
 end
 
---eventFrame:RegisterEvent("ADDON_LOADED")
+eventFrame:RegisterEvent("ADDON_LOADED")
 eventFrame:RegisterEvent("PLAYER_LEVEL_CHANGED")
 eventFrame:RegisterEvent("PLAYER_LOGIN")
 eventFrame:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")

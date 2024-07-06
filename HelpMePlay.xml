@@ -66,15 +66,4 @@
 
     <Script file="Remix\ScrappingMachine.lua" />
     <Script file="Remix\Usables.lua" />
-
-    <Frame name="HelpMePlay_CoreFrame">
-        <Scripts>
-            <OnLoad>
-                self:RegisterEvent("ADDON_LOADED")
-            </OnLoad>
-            <OnEvent>
-                HelpMePlay_OnEvent(self, event, ...)
-            </OnEvent>
-        </Scripts>
-    </Frame>
 </Ui>
