@@ -6,11 +6,15 @@
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
 ## IconTexture: 236681
 
+# LibHelpMePlay
+_Lib\Embeds.xml
+
+# Settings
+Settings\Settings.lua
+
 # Core/Main
 Core.lua
 Main.lua
-
-_Lib\Embeds.xml
 
 _Data\Constants.lua
 _Data\Maps.lua
@@ -20,7 +24,7 @@ _Data\TalentImporter.lua
 _Data\Mounts.lua
 
 Settings\TalentImporter.lua
-Settings\Settings.lua
+#Settings\Settings.lua
 
 _Classes\Tooltip.lua
 _Classes\Button.lua

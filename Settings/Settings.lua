@@ -10,58 +10,6 @@ local CreateSlider = Settings.CreateSlider
 local CreateDropDown = Settings.CreateDropDown
 local CreateControlTextContainer = Settings.CreateControlTextContainer
 
-local function OnSettingChanged(_, setting, value)
-    -- Get the variable name from the setting.
-    local variable = setting:GetVariable()
-
-    -- Set the variable to the value.
-    HelpMePlayDB[variable] = value
-
-    -- Handler for the Quest Mobs icon/position.
-    if variable == "QuestMobsIconID" then
-        if value == 1 or value == 2 then
-            HelpMePlay.UpdateQuestMobsIcon()
-        elseif value == 3 then
-            StaticPopup_Show("HELPMEPLAY_QUESTMOBS_CUSTOM_ICON")
-            StaticPopupDialogs["HMP_QUEST_MOBS_CUSTOM_ICON"] = {
-                text = "Please enter the texture ID for your custom icon. The texture ID can be found in the URL at |cffFFD100https://www.wowhead.com/icons/|r.\n\n" ..
-                "Search for an icon, click it, then take the number after |cffFFD100icon=|r in the URL.",
-                button1 = YES,
-                button2 = NO,
-                explicitAcknowledge = true,
-                hasEditBox = true,
-                OnAccept = function(self)
-                    local input = self.editBox:GetText()
-                    if tonumber(input) then
-                        HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
-                        HelpMePlay.UpdateQuestMobsIcon()
-                    else
-                        HelpMePlay.Print("Input was invalid.")
-                    end
-                end,
-                OnCancel = function()
-                end,
-                preferredIndex = 3
-            }
-            StaticPopup_Show("HMP_QUEST_MOBS_CUSTOM_ICON")
-        end
-    elseif variable == "DepositKeepAmount" or variable == "TrainerProtectionValue" then
-        HelpMePlayDB[variable] = value * 10000
-    elseif variable == "QuestMobsIconPositionID" then
-        HelpMePlay.UpdateQuestMobsIconPosition()
-    elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
-        HelpMePlay.UpdateQuestMobsIconPosition()
-    elseif variable == "ShowRemixScrapButton" then
-        HelpMePlay.CreateRemixScrapButton()
-    elseif variable == "ShowRemixUsablesButton" then
-        HelpMePlay.CreateRemixUsablesButton()
-    elseif variable == "ShowWardrobeButton" then
-        HelpMePlay.CreateWardrobeButton()
-    elseif variable == "UseWorldEventQueue" then
-        HelpMePlay.CreateEventQueueButton()
-    end
-end
-
 local REMIX_SECTION = "Remix: Mists of Pandaria"
 local GENERAL_SECTION = GENERAL
 local QUEST_SECTION = "Quest"
@@ -73,56 +21,57 @@ local WARDROBE_SECTION = "Wardrobe"
 local NEW_CHARACTER_SECTION = "New Character Configuration"
 local UTILITIES_SECTION = "Utilities"
 
--- Register the addon to the Settings panel as a category.
-local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
-Settings.RegisterAddOnCategory(category)
+function HelpMePlay.RegisterSettings()
+    local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
+    Settings.RegisterAddOnCategory(category)
 
--- Add the variable to the namespace, so we can use it to
--- open the settings in a slash command.
-HelpMePlay.category = category
-HelpMePlay.layout = layout
+    -- Add the variable to the namespace, so we can use it to
+    -- open the settings in a slash command.
+    HelpMePlay.category = category
 
--- Initialize a section for the addon's version and author text.
-local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
-local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
-layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
+    -- Initialize a section for the addon's version and author text.
+    local author = C_AddOns.GetAddOnMetadata(addonName, "Author")
+    local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
+
+    -- Toggle All Button
+    do
+        local name = ""
+        local buttonText = "Toggle All"
+        local tooltipText = "Click to toggle all settings off. Click again to restore the settings to their previous state."
+        local clickHandler = function()
+            if next(HelpMePlayDB["TempSettings"]) == nil then
+                for key, value in next, HelpMePlayDB do
+                    if type(HelpMePlayDB[key]) == "boolean" then
+                        HelpMePlayDB["TempSettings"][key] = value
+                        Settings.SetValue(key, false)
+                    elseif key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
+                        HelpMePlayDB["TempSettings"][key] = value / 10000
+                        Settings.SetValue(key, 0)
+                    elseif type(HelpMePlayDB[key]) == "number" then
+                        HelpMePlayDB["TempSettings"][key] = value
+                        Settings.SetValue(key, 0)
+                    end
+                end
+            else
+                for key, value in next, HelpMePlayDB["TempSettings"] do
+                    Settings.SetValue(key, value)
+                end
+                HelpMePlayDB["TempSettings"] = {}
+            end
+        end
+
+        local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
+        HelpMePlay.layout:AddInitializer(initializer)
+    end
+end
 
 --[[eventHandler:RegisterEvent("ADDON_LOADED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "ADDON_LOADED" then
         local addonLoaded = ...
         if addonLoaded == addonName then
-            C_Timer.After(4, function()]]
-                -- Toggle All Button
-                do
-                    local name = ""
-                    local buttonText = "Toggle All"
-                    local tooltipText = "Click to toggle all settings off. Click again to restore the settings to their previous state."
-                    local clickHandler = function()
-                        if next(HelpMePlayDB["TempSettings"]) == nil then
-                            for key, value in next, HelpMePlayDB do
-                                if type(HelpMePlayDB[key]) == "boolean" then
-                                    HelpMePlayDB["TempSettings"][key] = value
-                                    Settings.SetValue(key, false)
-                                elseif key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
-                                    HelpMePlayDB["TempSettings"][key] = value / 10000
-                                    Settings.SetValue(key, 0)
-                                elseif type(HelpMePlayDB[key]) == "number" then
-                                    HelpMePlayDB["TempSettings"][key] = value
-                                    Settings.SetValue(key, 0)
-                                end
-                            end
-                        else
-                            for key, value in next, HelpMePlayDB["TempSettings"] do
-                                Settings.SetValue(key, value)
-                            end
-                            HelpMePlayDB["TempSettings"] = {}
-                        end
-                    end
-
-                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    HelpMePlay.layout:AddInitializer(initializer)
-                end
+            C_Timer.After(4, function()
 
                 ----------------------
                 -- REMIX SECTION -----
@@ -931,4 +880,73 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             --eventHandler:UnregisterEvent("ADDON_LOADED")
         --end
     --end
---end)
+--end)]]
+
+function HelpMePlay.OnSettingChanged(_, setting, value)
+    -- Get the variable name from the setting.
+    local variable = setting:GetVariable()
+
+    -- Set the variable to the value.
+    HelpMePlayDB[variable] = value
+
+    -- Handler for the Quest Mobs icon/position.
+    if variable == "QuestMobsIconID" then
+        if value == 1 or value == 2 then
+            HelpMePlay.UpdateQuestMobsIcon()
+        elseif value == 3 then
+            StaticPopup_Show("HELPMEPLAY_QUESTMOBS_CUSTOM_ICON")
+            StaticPopupDialogs["HMP_QUEST_MOBS_CUSTOM_ICON"] = {
+                text = "Please enter the texture ID for your custom icon. The texture ID can be found in the URL at |cffFFD100https://www.wowhead.com/icons/|r.\n\n" ..
+                "Search for an icon, click it, then take the number after |cffFFD100icon=|r in the URL.",
+                button1 = YES,
+                button2 = NO,
+                explicitAcknowledge = true,
+                hasEditBox = true,
+                OnAccept = function(self)
+                    local input = self.editBox:GetText()
+                    if tonumber(input) then
+                        HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
+                        HelpMePlay.UpdateQuestMobsIcon()
+                    else
+                        HelpMePlay.Print("Input was invalid.")
+                    end
+                end,
+                OnCancel = function()
+                end,
+                preferredIndex = 3
+            }
+            StaticPopup_Show("HMP_QUEST_MOBS_CUSTOM_ICON")
+        end
+    elseif variable == "DepositKeepAmount" or variable == "TrainerProtectionValue" then
+        HelpMePlayDB[variable] = value * 10000
+    elseif variable == "QuestMobsIconPositionID" then
+        HelpMePlay.UpdateQuestMobsIconPosition()
+    elseif variable == "QuestMobsIconXOffset" or variable == "QuestMobsIconXOffset" then
+        HelpMePlay.UpdateQuestMobsIconPosition()
+    elseif variable == "ShowRemixScrapButton" then
+        HelpMePlay.CreateRemixScrapButton()
+    elseif variable == "ShowRemixUsablesButton" then
+        HelpMePlay.CreateRemixUsablesButton()
+    elseif variable == "ShowWardrobeButton" then
+        HelpMePlay.CreateWardrobeButton()
+    elseif variable == "UseWorldEventQueue" then
+        HelpMePlay.CreateEventQueueButton()
+    end
+end
+
+function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)
+    local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
+
+    Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
+    Settings.CreateCheckBox(category, setting, tooltip)
+
+    return setting
+end
+
+function HelpMePlay.AddSettingDropdown()
+
+end
+
+function HelpMePlay.AddSettingSlider()
+
+end
