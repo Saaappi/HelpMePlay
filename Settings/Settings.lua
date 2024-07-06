@@ -1,4 +1,4 @@
-local addonName, HelpMePlay = ...
+local _, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
 local REMIX_SECTION = "Remix: Mists of Pandaria"
@@ -13,7 +13,7 @@ local NEW_CHARACTER_SECTION = "New Character Configuration"
 local UTILITIES_SECTION = "Utilities"
 
 function HelpMePlay.RegisterSettings()
-    local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
+    local category, layout = Settings.RegisterVerticalLayoutCategory("HelpMePlay")
     Settings.RegisterAddOnCategory(category)
 
     -- Add the variable to the namespace, so we can use it to
@@ -26,7 +26,6 @@ function HelpMePlay.RegisterSettings()
     --local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
     --layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(format("|cffFFD100Author:|r %s\n|cffFFD100Version:|r %s", author, version)))
 
-    -- Toggle All Button
     HelpMePlay.AddSettingButton(
         "Toggle All",
         "Toggle All",

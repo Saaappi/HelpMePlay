@@ -31,24 +31,8 @@ local function ClearOldSavedVariables()
 	end
 end
 
-local function GetBestMapForPlayer(id)
-	local mapID = id or C_Map.GetBestMapForUnit("player")
-	if mapID then
-		local mapInfo = C_Map.GetMapInfo(mapID)
-		if mapInfo and mapInfo.mapType == 3 then
-			HelpMePlay.playerMapID = mapID
-		elseif mapInfo and mapInfo.mapType > 3 then
-			GetBestMapForPlayer(mapInfo.parentMapID)
-		end
-	end
-end
-
 eventHandler:RegisterEvent("ADDON_LOADED")
-eventHandler:RegisterEvent("PLAYER_LEVEL_CHANGED")
 eventHandler:RegisterEvent("PLAYER_LOGIN")
-eventHandler:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
-eventHandler:RegisterEvent("ZONE_CHANGED")
-eventHandler:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "ADDON_LOADED" then
 		local addonLoaded = ...
@@ -275,29 +259,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			eventHandler:UnregisterEvent("ADDON_LOADED")
 		end
 	end
-	if event == "PLAYER_LEVEL_CHANGED" then
-		local _, newLevel = ...
-		if newLevel then
-			HelpMePlay.playerLevel = newLevel
-		end
-	end
 	if event == "PLAYER_LOGIN" then
 		C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"] + 0.4, function()
-			--[[HelpMePlay.playerClassName, HelpMePlay.playerClassFileName, HelpMePlay.playerClassID = UnitClass("player")
-			HelpMePlay.playerClassColor = C_ClassColor.GetClassColor(HelpMePlay.playerClassFileName)
-			HelpMePlay.playerLevel = UnitLevel("player")
-			HelpMePlay.playerSpecID = PlayerUtil.GetCurrentSpecID()
-			HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
-			HelpMePlay.playerGUID = UnitGUID("player")
-			HelpMePlay.playerMapID = C_Map.GetBestMapForUnit("player")]]
-
-			--[[local faction = UnitFactionGroup("player")
-			if faction == "Alliance" then
-				HelpMePlay.playerFactionID = 1
-			elseif faction == "Horde" then
-				HelpMePlay.playerFactionID = 0
-			end]]
-
 			-- Get the player's mounts so we can use them.
 			HelpMePlay.RefreshMountsByType("Ground")
 			HelpMePlay.RefreshMountsByType("Flying")
@@ -311,13 +274,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			eventHandler:UnregisterEvent("PLAYER_LOGIN")
 		end
 		)
-	end
-	if event == "PLAYER_SPECIALIZATION_CHANGED" then
-		HelpMePlay.playerSpecID = PlayerUtil.GetCurrentSpecID()
-		HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
-	end
-	if event == "ZONE_CHANGED" or event == "ZONE_CHANGED_NEW_AREA" then
-		GetBestMapForPlayer(nil)
 	end
 end
 )

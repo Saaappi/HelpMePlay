@@ -17,13 +17,19 @@ function HelpMePlay.Print(text)
     print(text)
 end
 
-local function OnEvent(_, event, arg1)
+local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
             HelpMePlay.RegisterSettings()
             eventFrame:UnregisterEvent(event)
 		end
 	end
+    if event == "PLAYER_LEVEL_CHANGED" then
+        local newLevel = arg2
+		if newLevel then
+			HelpMePlay.playerLevel = newLevel
+		end
+    end
     if event == "PLAYER_LOGIN" then
         HelpMePlay.playerClassName, HelpMePlay.playerClassFileName, HelpMePlay.playerClassID = UnitClass("player")
         HelpMePlay.playerClassColor = C_ClassColor.GetClassColor(HelpMePlay.playerClassFileName)
@@ -43,10 +49,21 @@ local function OnEvent(_, event, arg1)
         end
         eventFrame:UnregisterEvent(event)
     end
+    if event == "PLAYER_SPECIALIZATION_CHANGED" then
+        HelpMePlay.playerSpecID = PlayerUtil.GetCurrentSpecID()
+		HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
+    end
+    if event == "ZONE_CHANGED" or event == "ZONE_CHANGED_NEW_AREA" then
+        HelpMePlay.GetBestMapForUnit(nil)
+    end
 end
 
 eventFrame:RegisterEvent("ADDON_LOADED")
+eventFrame:RegisterEvent("PLAYER_LEVEL_CHANGED")
 eventFrame:RegisterEvent("PLAYER_LOGIN")
+eventFrame:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
+eventFrame:RegisterEvent("ZONE_CHANGED")
+eventFrame:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 eventFrame:SetScript("OnEvent", OnEvent)
 
 SlashCmdList["HELPMEPLAY_SLASHCMD"] = function(cmd)
