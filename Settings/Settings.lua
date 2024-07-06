@@ -447,181 +447,257 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["ShowWardrobeButton"],
         "Toggle to show or hide the Wardrobe button on the character frame."
     )
+
+    -------------------------------------------
+    -- NEW CHARACTER CONFIGURATION SECTION ----
+    -------------------------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(NEW_CHARACTER_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Action Bar 2",
+        "NCC_ActionBar2",
+        false,
+        HelpMePlayDB["NCC_ActionBar2"],
+        "Toggle to enable Action Bar 2 on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Action Bar 3",
+        "NCC_ActionBar3",
+        false,
+        HelpMePlayDB["NCC_ActionBar3"],
+        "Toggle to enable Action Bar 3 on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Action Bar 4",
+        "NCC_ActionBar4",
+        false,
+        HelpMePlayDB["NCC_ActionBar4"],
+        "Toggle to enable Action Bar 4 on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Action Bar 5",
+        "NCC_ActionBar5",
+        false,
+        HelpMePlayDB["NCC_ActionBar5"],
+        "Toggle to enable Action Bar 5 on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Action Bar 6",
+        "NCC_ActionBar6",
+        false,
+        HelpMePlayDB["NCC_ActionBar6"],
+        "Toggle to enable Action Bar 6 on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Action Bar 7",
+        "NCC_ActionBar7",
+        false,
+        HelpMePlayDB["NCC_ActionBar7"],
+        "Toggle to enable Action Bar 7 on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Action Bar 8",
+        "NCC_ActionBar8",
+        false,
+        HelpMePlayDB["NCC_ActionBar8"],
+        "Toggle to enable Action Bar 8 on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Clear All Tracking",
+        "ClearAllTracking",
+        false,
+        HelpMePlayDB["ClearAllTracking"],
+        "Toggle to clear all tracking options from the minimap on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Auto Loot",
+        "AutoLoot",
+        false,
+        HelpMePlayDB["AutoLoot"],
+        "Toggle to enable Auto Loot on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Disable Tutorials",
+        "DisableTutorials",
+        false,
+        HelpMePlayDB["DisableTutorials"],
+        "Toggle to disable tutorial popups on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Auto Push Spells",
+        "AutoPushSpells",
+        false,
+        HelpMePlayDB["AutoPushSpells"],
+        "Toggle to disable new spells from being automatically added to your action bar on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Class Color Frames",
+        "ClassColorFrames",
+        false,
+        HelpMePlayDB["ClassColorFrames"],
+        "Toggle to color the party and raid frames by class color on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Loot Under Mouse",
+        "LootUnderMouse",
+        false,
+        HelpMePlayDB["LootUnderMouse"],
+        "Toggle to keep the loot window under your mouse on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Disable Dialog",
+        "DisableDialog",
+        false,
+        HelpMePlayDB["DisableDialog"],
+        "Toggle to silence dialog on each new character."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Create Whisper Window",
+        "CreateWhisperWindow",
+        false,
+        HelpMePlayDB["CreateWhisperWindow"],
+        "Toggle to create a new window on your chat frame for Whispers and Blizzard Whispers."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Create Loot Window",
+        "CreateLootWindow",
+        false,
+        HelpMePlayDB["CreateLootWindow"],
+        "Toggle to create a new window on your chat frame for loot events."
+    )
+    HelpMePlay.AddSettingDropdown(
+        category,
+        "Edit Mode",
+        "NCC_EditModeLayoutID",
+        0,
+        HelpMePlayDB["NCC_EditModeLayoutID"],
+        function()
+            local function GetEditModeLayouts()
+                local layouts={{1,"Modern"},{2,"Classic"}}
+                local customLayouts = C_EditMode.GetLayouts()
+                for index, design in ipairs(customLayouts.layouts) do
+                    table.insert(layouts, (index + 2), { (index + 2), design.layoutName })
+                end
+                return layouts
+            end
+            local container = Settings.CreateControlTextContainer()
+            local layouts = GetEditModeLayouts()
+            for _, design in next, layouts do
+                container:Add(design[1], design[2])
+            end
+            return container:GetData()
+        end,
+        "Select the default edit mode layout you would like to use on each new character."
+    )
+    HelpMePlay.AddSettingButton(
+        "Reset Configuration",
+        "Reset Configuration",
+        function()
+            for index, GUID in next, HelpMePlayDB["Characters"] do
+                if GUID == HelpMePlay.playerGUID then
+                    table.remove(HelpMePlayDB["Characters"], index)
+                    break
+                end
+            end
+            HelpMePlay.NewCharacter()
+        end,
+        "Click to reset the character configuration for the current character.",
+        true
+    )
+
+    -------------------------
+    -- UTILITIES SECTION ----
+    -------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(UTILITIES_SECTION))
+
+    HelpMePlay.AddSettingButton(
+        "Open Issue",
+        "Open Issue",
+        function()
+            StaticPopupDialogs["HELPMEPLAY_OPEN_ISSUE"] = {
+                text = "Hey! Thanks for being willing to open an issue. You rock! |T648207:16|t",
+                button1 = CLOSE,
+                OnShow = function(self)
+                    local function HidePopup(self) self:GetParent():Hide() end
+                    self.editBox:SetScript("OnKeyUp", function(self, key)
+                        if IsControlKeyDown() and key == "C" then HidePopup(self) end
+                    end)
+                    self.editBox:SetText("https://github.com/Saaappi/HelpMePlay/issues/new")
+                    self.editBox:HighlightText()
+                end,
+                timeout = 0,
+                showAlert = false,
+                whileDead = false,
+                hideOnEscape = true,
+                hasEditBox = true,
+                enterClicksFirstButton = true,
+                preferredIndex = 3,
+            }
+            StaticPopup_Show("HELPMEPLAY_OPEN_ISSUE")
+        end,
+        "Click to get the Github issue page.",
+        true
+    )
+    HelpMePlay.AddSettingButton(
+        "Talent Importer",
+        "Talent Importer",
+        function(_, button)
+            if button == "LeftButton" then
+                HideUIPanel(SettingsPanel)
+                HelpMePlay.OpenTalentImporter()
+            end
+        end,
+        "Click to open the Talent Importer utility.",
+        true
+    )
+    HelpMePlay.AddSettingButton(
+        "Randomize Adventurer",
+        "Randomize Adventurer",
+        function(_, button)
+            if button == "LeftButton" then
+                local raceID = LHMP:GetRandomRaceID()
+                if raceID then
+                    local factionID = LHMP:GetRaceFactionByID(raceID)
+                    local race = C_CreatureInfo.GetRaceInfo(raceID)
+                    if race then
+                        local classID = LHMP:GetRandomClassByRaceID(raceID)
+                        if classID then
+                            local class = C_CreatureInfo.GetClassInfo(classID)
+                            local specName = LHMP:GetRandomSpecIDByClassID(classID)
+                            if class then
+                                if factionID and factionID == 0 then
+                                    HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
+                                elseif factionID and factionID == 1 then
+                                    HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end,
+        "Don't know what to create next? Click to randomly generate a faction, race, class, and specialization combination for your next adventurer!",
+        true
+    )
 end
 
 --[[
-                -------------------------------------------
-                -- NEW CHARACTER CONFIGURATION SECTION ----
-                -------------------------------------------
-                -- Initialize a section for new character configuration.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(NEW_CHARACTER_SECTION))
-
-                -- Action Bar 2
-                do
-                    local barID = 2
-                    local variable = "NCC_ActionBar" .. barID
-                    local name = "Action Bar " .. barID
-                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Action Bar 3
-                do
-                    local barID = 3
-                    local variable = "NCC_ActionBar" .. barID
-                    local name = "Action Bar " .. barID
-                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Action Bar 4
-                do
-                    local barID = 4
-                    local variable = "NCC_ActionBar" .. barID
-                    local name = "Action Bar " .. barID
-                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Action Bar 5
-                do
-                    local barID = 5
-                    local variable = "NCC_ActionBar" .. barID
-                    local name = "Action Bar " .. barID
-                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Action Bar 6
-                do
-                    local barID = 6
-                    local variable = "NCC_ActionBar" .. barID
-                    local name = "Action Bar " .. barID
-                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Action Bar 7
-                do
-                    local barID = 7
-                    local variable = "NCC_ActionBar" .. barID
-                    local name = "Action Bar " .. barID
-                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Action Bar 8
-                do
-                    local barID = 8
-                    local variable = "NCC_ActionBar" .. barID
-                    local name = "Action Bar " .. barID
-                    local tooltipText = "Toggle to enable Action Bar " .. barID .. " on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Clear All Tracking
-                do
-                    local variable = "ClearAllTracking"
-                    local name = "Clear All Tracking"
-                    local tooltipText = "Toggle to clear all tracking options from the minimap on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Auto Loot
-                do
-                    local variable = "AutoLoot"
-                    local name = "Auto Loot"
-                    local tooltipText = "Toggle to enable Auto Loot on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Disable Tutorials
-                do
-                    local variable = "DisableTutorials"
-                    local name = "Disable Tutorials"
-                    local tooltipText = "Toggle to disable tutorial popups on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Auto Push Spells
-                do
-                    local variable = "AutoPushSpells"
-                    local name = "Auto Push Spells"
-                    local tooltipText = "Toggle to disable new spells from being automatically added to your action bar on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Class Color Frames
-                do
-                    local variable = "ClassColorFrames"
-                    local name = "Class Color Frames"
-                    local tooltipText = "Toggle to color the party and raid frames by class color on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Loot Under Mouse
-                do
-                    local variable = "LootUnderMouse"
-                    local name = "Loot Under Mouse"
-                    local tooltipText = "Toggle to keep the loot window under your mouse on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Disable Dialog
-                do
-                    local variable = "DisableDialog"
-                    local name = "Disable Dialog"
-                    local tooltipText = "Toggle to silence dialog on each new character."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Create Whisper Window
-                do
-                    local variable = "CreateWhisperWindow"
-                    local name = "Create Whisper Window"
-                    local tooltipText = "Toggle to create a new window on your chat frame for Whispers and Blizzard Whispers."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Create Loot Window
-                do
-                    local variable = "CreateLootWindow"
-                    local name = "Create Loot Window"
-                    local tooltipText = "Toggle to create a new window on your chat frame for loot events."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
 
                 -- Edit Mode
                 do
@@ -650,127 +726,6 @@ end
                     local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
                     CreateDropDown(category, setting, GetOptions, tooltipText)
                     SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Reset New Character Configuration Button
-                do
-                    local name = ""
-                    local buttonText = "Reset Configuration"
-                    local tooltipText = "Click to wipe the current character as a 'new character' and re-execute the New Character configuration."
-                    local clickHandler = function()
-                        for index, GUID in next, HelpMePlayDB["Characters"] do
-                            if GUID == HelpMePlay.playerGUID then
-                                table.remove(HelpMePlayDB["Characters"], index)
-                                break
-                            end
-                        end
-                        HelpMePlay.NewCharacter()
-                    end
-
-                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    HelpMePlay.layout:AddInitializer(initializer)
-                end
-
-                -- Reset Heirlooms Button
-                do
-                    local name = ""
-                    local buttonText = "Reset Heirlooms"
-                    local tooltipText = "Click to wipe heirlooms for the current class and specialization.\n\n" ..
-                    LHMP:ColorText("RED", "This will force a UI reload.")
-                    local clickHandler = function()
-                        HelpMePlayDB["Heirlooms"][HelpMePlay.playerClassID][HelpMePlay.playerSpecID] = nil
-                        C_UI.Reload()
-                    end
-
-                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    HelpMePlay.layout:AddInitializer(initializer)
-                end
-
-                -------------------------
-                -- UTILITIES SECTION ----
-                -------------------------
-                -- Initialize a section for utilities.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(UTILITIES_SECTION))
-
-                -- Open Issue Button
-                do
-                    local name = ""
-                    local buttonText = "Open Issue"
-                    local tooltipText = "Click to get the Github issue page."
-                    local clickHandler = function()
-                        StaticPopupDialogs["HELPMEPLAY_OPEN_ISSUE"] = {
-                            text = "Hey! Thanks for being willing to open an issue. You rock! |T648207:16|t",
-                            button1 = CLOSE,
-                            OnShow = function(self)
-                                local function HidePopup(self) self:GetParent():Hide() end
-                                self.editBox:SetScript("OnKeyUp", function(self, key)
-                                    if IsControlKeyDown() and key == "C" then HidePopup(self) end
-                                end)
-                                self.editBox:SetText("https://github.com/Saaappi/HelpMePlay/issues/new")
-                                self.editBox:HighlightText()
-                            end,
-                            timeout = 0,
-                            showAlert = false,
-                            whileDead = false,
-                            hideOnEscape = true,
-                            hasEditBox = true,
-                            enterClicksFirstButton = true,
-                            preferredIndex = 3,
-                        }
-                        StaticPopup_Show("HELPMEPLAY_OPEN_ISSUE")
-                    end
-
-                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    HelpMePlay.layout:AddInitializer(initializer)
-                end
-
-                -- Talent Importer
-                do
-                    local name = ""
-                    local buttonText = "Talent Importer"
-                    local tooltipText = "Click to open the Talent Importer utility."
-                    local clickHandler = function(_, button)
-                        if button == "LeftButton" then
-                            HideUIPanel(SettingsPanel)
-                            HelpMePlay.OpenTalentImporter()
-                        end
-                    end
-
-                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    HelpMePlay.layout:AddInitializer(initializer)
-                end
-
-                -- Randomize Adventurer
-                do
-                    local name = ""
-                    local buttonText = "Randomize Adventurer"
-                    local tooltipText = "Don't know what to create next? Click to randomly generate a race, class, and specialization combination for your next adventurer!"
-                    local clickHandler = function(_, button)
-                        if button == "LeftButton" then
-                            local raceID = LHMP:GetRandomRaceID()
-                            if raceID then
-                                local factionID = LHMP:GetRaceFactionByID(raceID)
-                                local race = C_CreatureInfo.GetRaceInfo(raceID)
-                                if race then
-                                    local classID = LHMP:GetRandomClassByRaceID(raceID)
-                                    if classID then
-                                        local class = C_CreatureInfo.GetClassInfo(classID)
-                                        local specName = LHMP:GetRandomSpecIDByClassID(classID)
-                                        if class then
-                                            if factionID and factionID == 0 then
-                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
-                                            elseif factionID and factionID == 1 then
-                                                HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
-                                            end
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                    end
-
-                    local initializer = CreateSettingsButtonInitializer(name, buttonText, clickHandler, tooltipText, true)
-                    HelpMePlay.layout:AddInitializer(initializer)
                 end
             --end)
 
