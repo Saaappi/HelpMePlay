@@ -1,5 +1,4 @@
 local addonName, HelpMePlay = ...
-local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 
 -- Local references to Blizzard settings functions.

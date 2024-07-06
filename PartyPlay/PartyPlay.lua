@@ -6,7 +6,7 @@ local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonPrefix)
 
 if not isRegistered then
     if HelpMePlayDB["UsePartyPlay"] then
-        HelpMePlay.Print("The addon was unable to register with the server. Please reload.")
+        HelpMePlay.Print(HelpMePlay.ErrorMessages["MESSAGE_REGISTRATION_FAILED"])
     end
 end
 
@@ -28,7 +28,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 	end
 	if event == "GROUP_JOINED" then
         if HelpMePlayDB["UsePartyPlay"] then
-            HelpMePlay.Print("[|cffFF7900WARNING|r] You've joined a group with Party Play enabled.")
+            HelpMePlay.Print(HelpMePlay.ErrorMessages["GROUP_JOINED_PARTY_PLAY_ENABLED"])
         end
 	end
 	if event == "QUEST_ACCEPTED" then
