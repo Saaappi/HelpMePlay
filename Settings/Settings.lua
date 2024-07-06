@@ -1,11 +1,6 @@
 local addonName, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
--- Local references to Blizzard settings functions.
-local RegisterAddOnSetting = Settings.RegisterAddOnSetting
-local SetOnValueChangedCallback = Settings.SetOnValueChangedCallback
-local CreateSlider = Settings.CreateSlider
-
 local REMIX_SECTION = "Remix: Mists of Pandaria"
 local GENERAL_SECTION = GENERAL
 local QUEST_SECTION = "Quest"
@@ -695,44 +690,6 @@ function HelpMePlay.RegisterSettings()
         true
     )
 end
-
---[[
-
-                -- Edit Mode
-                do
-                    local variable = "NCC_EditModeLayoutID"
-                    local name = "Edit Mode"
-                    local tooltipText = "Select the default edit mode layout you would like to use on each new character."
-
-                    local function GetEditModeLayouts()
-                        local layouts={{1,"Modern"},{2,"Classic"}}
-                        local customLayouts = C_EditMode.GetLayouts()
-                        for index, design in ipairs(customLayouts.layouts) do
-                            table.insert(layouts, (index + 2), { (index + 2), design.layoutName })
-                        end
-                        return layouts
-                    end
-
-                    local function GetOptions()
-                        local container = CreateControlTextContainer()
-                        local layouts = GetEditModeLayouts()
-                        for _, design in next, layouts do
-                            container:Add(design[1], design[2])
-                        end
-                        return container:GetData()
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateDropDown(category, setting, GetOptions, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-            --end)
-
-            -- Unregister the event for performance.
-            --eventHandler:UnregisterEvent("ADDON_LOADED")
-        --end
-    --end
---end)]]
 
 function HelpMePlay.OnSettingChanged(_, setting, value)
     local variableName = setting:GetVariable()
