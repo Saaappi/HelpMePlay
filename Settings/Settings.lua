@@ -67,7 +67,6 @@ function HelpMePlay.RegisterSettings()
     ----------------------
     -- REMIX SECTION -----
     ----------------------
-    -- Initialize a section for remix stuff.
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
 
     HelpMePlay.AddSettingCheckbox(
@@ -90,7 +89,6 @@ function HelpMePlay.RegisterSettings()
     ------------------------
     -- GENERAL SECTION -----
     ------------------------
-    -- Initialize a section for remix stuff.
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GENERAL_SECTION))
 
     HelpMePlay.AddSettingCheckbox(
@@ -115,7 +113,7 @@ function HelpMePlay.RegisterSettings()
         "AcceptGossip",
         false,
         HelpMePlayDB["AcceptGossip"],
-        "Automatically select the appropriate quest-related gossip options from non-player characters." ..
+        "Automatically select the appropriate quest-related gossip options from non-player characters.\n\n" ..
         LHMP:ColorText("RED", "Not all gossips are supported!")
     )
     HelpMePlay.AddSettingCheckbox(
@@ -174,135 +172,112 @@ function HelpMePlay.RegisterSettings()
         "AlwaysCompareItems",
         false,
         HelpMePlayDB["AlwaysCompareItems"],
-        "Toggle if you wish to have the item comparison tooltips always visible when you hover an item."
+        "Toggle if you wish to have the item comparison tooltips always visible or not when you hover an item."
+    )
+
+    ------------------------
+    -- QUEST SECTION -------
+    ------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUEST_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Accept and Complete Quests",
+        "AcceptAndCompleteQuests",
+        false,
+        HelpMePlayDB["AcceptAndCompleteQuests"],
+        "Toggle to accept and complete quests."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Ignore Daily Quests",
+        "IgnoreDailyQuests",
+        false,
+        HelpMePlayDB["IgnoreDailyQuests"],
+        "Toggle to ignore daily quests."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Ignore Repeatable Quests",
+        "IgnoreRepeatableQuests",
+        false,
+        HelpMePlayDB["IgnoreRepeatableQuests"],
+        "Toggle to ignore repeatable quests."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Adventure Maps",
+        "UseAdventureMaps",
+        false,
+        HelpMePlayDB["UseAdventureMaps"],
+        "Toggle to automatically accept quests from adventure maps.\n\n" ..
+        LHMP:ColorText("RED", "The current support is only for the adventure map in The Waking Shores.")
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Purchase Quest Items",
+        "PurchaseQuestItems",
+        false,
+        HelpMePlayDB["PurchaseQuestItems"],
+        "Toggle to automatically purchase quest items from merchants."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Player Choice",
+        "UsePlayerChoice",
+        false,
+        HelpMePlayDB["UsePlayerChoice"],
+        "Toggle to allow the addon to decide quest-related player choices on your behalf."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Party Play",
+        "UsePartyPlay",
+        false,
+        HelpMePlayDB["UsePartyPlay"],
+        "Toggle to automatically share quests with party members."
+    )
+    HelpMePlay.AddSettingDropdown(
+        category,
+        "Chromie Time",
+        "ChromieTimeExpansionID",
+        0,
+        HelpMePlayDB["ChromieTimeExpansionID"],
+        function()
+            local container = Settings.CreateControlTextContainer()
+            --container:Add(16, EXPANSION_NAME9), -- Dragonflight isn't supported yet (not until The War Within).
+            container:Add(14, EXPANSION_NAME8)
+            container:Add(15, EXPANSION_NAME7)
+            container:Add(10, EXPANSION_NAME6)
+            container:Add(9, EXPANSION_NAME5)
+            container:Add(8, EXPANSION_NAME4)
+            container:Add(5, EXPANSION_NAME3)
+            container:Add(7, EXPANSION_NAME2)
+            container:Add(6, EXPANSION_NAME1)
+            container:Add(0, NONE)
+            return container:GetData()
+        end,
+        "Select the expansion to use when speaking with Chromie in Orgrimmar or Stormwind City."
+    )
+    HelpMePlay.AddSettingDropdown(
+        category,
+        "Quest Rewards",
+        "QuestRewardSelectionTypeID",
+        0,
+        HelpMePlayDB["QuestRewardSelectionTypeID"],
+        function()
+            local container = Settings.CreateControlTextContainer()
+            container:Add(1, "Item Level")
+            container:Add(2, "Sell Price")
+            container:Add(0, NONE)
+            return container:GetData()
+        end,
+        format("Select how quest rewards should be chosen.\n\n" ..
+        "If Item Level is selected, then chosen quest rewards are automatically equipped by %s.", addonName)
     )
 end
 
 --[[
-                ------------------------
-                -- QUEST SECTION -------
-                ------------------------
-                -- Initialize a section for quests.
-                layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(QUEST_SECTION))
-
-                -- Accept and Complete Quests
-                do
-                    local variable = "AcceptAndCompleteQuests"
-                    local name = "Accept and Complete Quests"
-                    local tooltipText = "Toggle to accept and complete quests."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Ignore Daily Quests
-                do
-                    local variable = "IgnoreDailyQuests"
-                    local name = "Ignore Daily Quests"
-                    local tooltipText = "Toggle to ignore daily quests."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Ignore Repeatable Quests
-                do
-                    local variable = "IgnoreRepeatableQuests"
-                    local name = "Ignore Repeatable Quests"
-                    local tooltipText = "Toggle to ignore repeatable quests."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Adventure Maps
-                do
-                    local variable = "UseAdventureMaps"
-                    local name = "Adventure Maps"
-                    local tooltipText = "Toggle to automatically accept quests from adventure maps.\n\n" ..
-                    LHMP:ColorText("RED", "The current support is only for the adventure map in The Waking Shores.")
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Purchase Quest Items
-                do
-                    local variable = "PurchaseQuestItems"
-                    local name = "Purchase Quest Items"
-                    local tooltipText = "Toggle to automatically purchase quest items from merchants."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Player Choice
-                do
-                    local variable = "UsePlayerChoice"
-                    local name = "Player Choice"
-                    local tooltipText = "Toggle to allow the addon to decide quest-related player choices on your behalf."
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Party Play
-                do
-                    local variable = "UsePartyPlay"
-                    local name = "Party Play"
-                    local tooltipText = "Toggle to make playing with friends a little easier.\n\n" ..
-                    LHMP:ColorText("RED", "Party Play, by default, will only auto share quests with party members. Announcements have been removed.")
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateCheckbox(category, setting, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Chromie Time
-                do
-                    local variable = "ChromieTimeExpansionID"
-                    local name = "Chromie Time"
-                    local tooltipText = "Select the expansion to use when speaking with Chromie in Orgrimmar or Stormwind City."
-
-                    local function GetOptions()
-                        local container = CreateControlTextContainer()
-                        --container:Add(16, EXPANSION_NAME9), -- Dragonflight isn't supported yet (not until The War Within).
-                        container:Add(14, EXPANSION_NAME8)
-                        container:Add(15, EXPANSION_NAME7)
-                        container:Add(10, EXPANSION_NAME6)
-                        container:Add(9, EXPANSION_NAME5)
-                        container:Add(8, EXPANSION_NAME4)
-                        container:Add(5, EXPANSION_NAME3)
-                        container:Add(7, EXPANSION_NAME2)
-                        container:Add(6, EXPANSION_NAME1)
-                        container:Add(0, NONE)
-                        return container:GetData()
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateDropDown(category, setting, GetOptions, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
-                -- Quest Rewards
-                do
-                    local variable = "QuestRewardSelectionTypeID"
-                    local name = "Quest Rewards"
-                    local tooltipText = format("Select how quest rewards should be chosen.\n\n" ..
-                    "If Item Level is selected, then chosen quest rewards are automatically equipped by %s.", addonName)
-
-                    local function GetOptions()
-                        local container = CreateControlTextContainer()
-                        container:Add(1, "Item Level")
-                        container:Add(2, "Sell Price")
-                        container:Add(0, NONE)
-                        return container:GetData()
-                    end
-
-                    local setting = RegisterAddOnSetting(category, name, variable, type(HelpMePlayDB[variable]), HelpMePlayDB[variable])
-                    CreateDropDown(category, setting, GetOptions, tooltipText)
-                    SetOnValueChangedCallback(variable, OnSettingChanged)
-                end
-
                 -------------------
                 -- LFG SECTION ----
                 -------------------
@@ -907,8 +882,8 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
     end
 end
 
-function HelpMePlay.AddSettingButton(name, buttonText, onClick, tooltip, addSearchTags)
-    local button = CreateSettingsButtonInitializer(name, buttonText, onClick, tooltip, addSearchTags)
+function HelpMePlay.AddSettingButton(controlLabel, buttonText, onClick, tooltip, addSearchTags)
+    local button = CreateSettingsButtonInitializer(controlLabel, buttonText, onClick, tooltip, addSearchTags)
     HelpMePlay.Layout:AddInitializer(button)
 end
 
@@ -921,8 +896,13 @@ function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, def
     return setting
 end
 
-function HelpMePlay.AddSettingDropdown()
+function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, defaultValue, currentValue, options, tooltip)
+    local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
 
+    Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
+    Settings.CreateDropDown(category, setting, options, tooltip)
+
+    return setting
 end
 
 function HelpMePlay.AddSettingSlider()
