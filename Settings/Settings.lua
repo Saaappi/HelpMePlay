@@ -757,7 +757,7 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
                             HelpMePlayDB["QuestMobsCustomIcon"] = tonumber(input)
                             HelpMePlay.UpdateQuestMobsIcon()
                         else
-                            HelpMePlay.Print("Input was invalid.")
+                            HelpMePlay.Print(HelpMePlay.ErrorMessages["INVALID_INPUT"])
                         end
                     end,
                     OnCancel = function()
@@ -782,7 +782,7 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
     if func then
         func()
     else
-        print(format("Unhandled setting change: %s", variableName))
+        print(format(HelpMePlay.ErrorMessages["UNHANDLED_SETTING"], variableName))
     end
 end
 

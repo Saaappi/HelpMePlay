@@ -8,9 +8,11 @@ HelpMePlay.Constants = {
 
 HelpMePlay.ErrorMessages = {
     ["COMMAND_NOT_FOUND"] = "Your entry is an unknown command.",
+    ["INVALID_INPUT"] = "Your input was invalid.",
     ["IN_COMBAT_LOCKDOWN"] = "This action is not permitted while in combat.",
     ["MOUNT_TYPE_UNKNOWN"] = "{%d} Mount type is unknown. Please screenshot this message and report it on Github.",
-    ["HAS_NOT_RECATEGORIZED_MOUNTS"] = "The Mount automation has received a substantial rework. You must use the Categorize Mounts button before this feature will work."
+    ["HAS_NOT_RECATEGORIZED_MOUNTS"] = "The Mount automation has received a substantial rework. You must use the Categorize Mounts button before this feature will work.",
+    ["UNHANDLED_SETTING"] = "Unhandled setting change: %s",
 }
 
 -- It's not possible to do forward references in Lua during table creation.
