@@ -1,0 +1,80 @@
+<Ui>
+    <Script file="Settings\Settings.lua" />
+
+    <Script file="Core.lua" />
+    <Script file="Main.lua" />
+
+    <Script file="_Data\Constants.lua" />
+    <Script file="_Data\Maps.lua" />
+    <Script file="_Data\Quests.lua" />
+    <Script file="_Data\Talent_Data.lua" />
+    <Script file="_Data\TalentImporter.lua" />
+    <Script file="_Data\Mounts.lua" />
+
+    <Script file="Settings\TalentImporter.lua" />
+
+    <Script file="_Classes\Tooltip.lua" />
+    <Script file="_Classes\Button.lua" />
+    <Script file="_Classes\Frame.lua" />
+
+    <Script file="_Functions\EvaluateConditions.lua" />
+    <Script file="_Functions\Tables.lua" />
+    <Script file="_Functions\QuestMobs.lua" />
+    <Script file="_Functions\Quests.lua" />
+    <Script file="_Functions\Mounts.lua" />
+
+    <Script file="_Keybinds\Keybinds.lua" />
+
+    <Script file="Cutscenes\Cutscenes.lua" />
+
+    <Script file="Quests\Events.lua" />
+    <Script file="Quests\QuestMobs.lua" />
+    <Script file="Quests\WarMode.lua" />
+
+    <Script file="Gossip\Gossip.lua" />
+
+    <Script file="PartyPlay\PartyPlay.lua" />
+
+    <Script file="ReadyChecks\ReadyChecks.lua" />
+
+    <Script file="RoleChecks\RoleChecks.lua" />
+
+    <Script file="Merchants\Repair.lua" />
+    <Script file="Merchants\Trainers.lua" />
+    <Script file="Merchants\QuestItems.lua" />
+
+    <Script file="Talents\DynamicFlight.lua" />
+    <Script file="Talents\PlayerTalents.lua" />
+
+    <Script file="Inventory\OpenContainers.lua" />
+
+    <Script file="WorldEvents\WorldEventsQueue.lua" />
+
+    <Script file="GuildBank\GuildBank.lua" />
+
+    <Script file="Character\Queue.lua" />
+    <Script file="Character\NewCharacter.lua" />
+    <Script file="Character\Heirloom.lua" />
+
+    <Script file="Vignettes\Vignettes.lua" />
+
+    <Script file="Wardrobe\Wardrobe.lua" />
+
+    <Script file="ChatIcons\ChatIcons.lua" />
+
+    <Script file="Mounts\Mounts.lua" />
+
+    <Script file="Remix\ScrappingMachine.lua" />
+    <Script file="Remix\Usables.lua" />
+
+    <Frame name="HelpMePlay_CoreFrame">
+        <Scripts>
+            <OnLoad>
+                self:RegisterEvent("ADDON_LOADED")
+            </OnLoad>
+            <OnEvent>
+                HelpMePlay_OnEvent(self, event, ...)
+            </OnEvent>
+        </Scripts>
+    </Frame>
+</Ui>
