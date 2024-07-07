@@ -738,8 +738,6 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
     local func = functions[variableName]
     if func then
         func()
-    else
-        print(format(HelpMePlay.ErrorMessages["UNHANDLED_SETTING"], variableName))
     end
 end
 

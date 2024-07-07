@@ -5,7 +5,10 @@ local function OnEvent(_, event, arg1)
     if event == "PARTY_INVITE_REQUEST" then
         if HelpMePlayDB["AcceptPartyInvites"] == nil or HelpMePlayDB["AcceptPartyInvites"] == false then return end
 
-        AcceptGroup()
+        if not UnitInAnyGroup("player") then
+            AcceptGroup()
+            StaticPopup1Button1:Click()
+        end
     end
 end
 

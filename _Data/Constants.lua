@@ -13,7 +13,6 @@ HelpMePlay.ErrorMessages = {
     ["IN_COMBAT_LOCKDOWN"] = "This action is not permitted while in combat.",
     ["MOUNT_TYPE_UNKNOWN"] = "{%d} Mount type is unknown. Please screenshot this message and report it on Github.",
     ["HAS_NOT_RECATEGORIZED_MOUNTS"] = "The Mount automation has received a substantial rework. You must use the Categorize Mounts button before this feature will work.",
-    ["UNHANDLED_SETTING"] = "Unhandled setting change: %s",
     ["MESSAGE_REGISTRATION_FAILED"] = "The addon was unable to register with the server. Please reload.",
     ["GROUP_JOINED_PARTY_PLAY_ENABLED"] = format("[%s] You've joined a group with Party Play enabled.", LHMP:ColorText("RED", "WARNING")),
 }
