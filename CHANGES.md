@@ -14,4 +14,5 @@
 ### Fixed
 - Fixed a bug that prevented the addon from loading completely when it's the only addon enabled.
 - Fixed a bug where mount automation could sometimes cause a stack overflow.
+- Fixed a bug with sliders in the settings; these widgets should now behave as intended.
 - Fixed a bug on the Player Talent button tooltip.

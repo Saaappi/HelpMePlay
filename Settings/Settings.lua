@@ -312,12 +312,12 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["shouldAutomaticRepair"],
         "Toggle to allow or prevent the addon from using your character's funds for automatic repair."
     )
-    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
+    HelpMePlay.AddSettingSlider(
         category,
         "Trainer Protection Value",
         "TrainerProtectionValue",
         0,
-        HelpMePlayDB["TrainerProtectionValue"],
+        HelpMePlayDB["TrainerProtectionValue"] / 10000,
         0,
         1000,
         10,
@@ -333,12 +333,12 @@ function HelpMePlay.RegisterSettings()
     --------------------------
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GUILDBANK_SECTION))
 
-    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
+    HelpMePlay.AddSettingSlider(
         category,
         "Deposit Keep Amount",
         "DepositKeepAmount",
         0,
-        HelpMePlayDB["DepositKeepAmount"],
+        HelpMePlayDB["DepositKeepAmount"] / 10000,
         0,
         1000,
         10,
@@ -400,7 +400,7 @@ function HelpMePlay.RegisterSettings()
         end,
         "Select the position the icon should appear on the nameplate."
     )
-    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
+    HelpMePlay.AddSettingSlider(
         category,
         "Quest Mobs Icon X Offset",
         "QuestMobsIconXOffset",
@@ -414,7 +414,7 @@ function HelpMePlay.RegisterSettings()
         end,
         "Use the slider to set the icon's X offset."
     )
-    HelpMePlay.AddSettingSlider( -- TODO: Fix slider code.
+    HelpMePlay.AddSettingSlider(
         category,
         "Quest Mobs Icon Y Offset",
         "QuestMobsIconYOffset",
@@ -768,7 +768,10 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
 
     local options = Settings.CreateSliderOptions(minValue, maxValue, increment)
-    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, value)
+    --options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, value)
+    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
+        return value
+    end)
 
     Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateSlider(category, setting, options, tooltip)
