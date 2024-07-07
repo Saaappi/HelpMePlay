@@ -11,4 +11,5 @@
 ### Deprecated
 ### Removed
 ### Fixed
+- Fixed a bug that prevented the addon from loading completely when it's the only addon enabled.
 - Fixed a bug where mount automation could sometimes cause a stack overflow.
