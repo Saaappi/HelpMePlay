@@ -36,7 +36,7 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.playerClassColor = C_ClassColor.GetClassColor(HelpMePlay.playerClassFileName)
         HelpMePlay.playerLevel = UnitLevel("player")
         HelpMePlay.playerSpecID = PlayerUtil.GetCurrentSpecID()
-        HelpMePlay.playerSpecName = select(2, GetSpecializationInfo(HelpMePlay.playerSpecID))
+        HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
         HelpMePlay.playerGUID = UnitGUID("player")
         HelpMePlay.playerMapID = HelpMePlay.GetBestMapByMapID(C_Map.GetBestMapForUnit("player"))
 
