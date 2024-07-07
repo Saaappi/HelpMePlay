@@ -14,6 +14,7 @@ local function GetActiveEventsFromCalendarByDate(date)
     if numEvents > 0 then
         if timerunningSeasonID == 1 then
             local worldEvent = LHMP:GetWorldEvent(1525)
+            print(worldEvent.dungeonQueueID)
             table.insert(events, { name = LFG_TYPE_HEROIC_DUNGEON, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
             return events
         end
@@ -46,7 +47,7 @@ local function SetWorldEventQueueButtonToEvent(event)
 end
 
 HelpMePlay.CreateEventQueueButton = function()
-    if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < HelpMePlay.Constants["PLAYER_MAX_LEVEL"] then
+    if HelpMePlayDB["UseWorldEventQueue"] == false then
         if worldEventQueueButton then
             worldEventQueueButton:Hide()
         end
