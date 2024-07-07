@@ -1,11 +1,6 @@
 local addonName, HelpMePlay = ...
 local eventFrame = CreateFrame("Frame")
 
-local function IsPlayerAvailable()
-    if not IsPlayerInWorld() then C_Timer.After(0.5, IsPlayerAvailable) end
-    return true
-end
-
 function HelpMePlay.GetBestMapByMapID(uiMapID)
     local mapID = uiMapID or C_Map.GetBestMapForUnit("player")
     if mapID then
@@ -25,17 +20,15 @@ end
 local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
-            if IsPlayerAvailable() then
-                C_Timer.After(10, function()
-                    local count = 0
-                    for k, v in next, HelpMePlay do
-                        print(k)
-                        count = count + 1
-                    end
-                    print(count)
-                end)
-                --HelpMePlay.Init()
-            end
+            C_Timer.After(1, function()
+                local count = 0
+                for k, v in next, HelpMePlay do
+                    print(k)
+                    count = count + 1
+                end
+                print(count)
+                HelpMePlay.Init()
+            end)
             eventFrame:UnregisterEvent(event)
 		end
 	end
@@ -63,13 +56,13 @@ local function OnEvent(_, event, arg1, arg2)
             HelpMePlay.playerFactionID = -1
         end
 
-        HelpMePlay.RefreshMountsByType("Ground")
+        --[[HelpMePlay.RefreshMountsByType("Ground")
         HelpMePlay.RefreshMountsByType("Flying")
         HelpMePlay.RefreshMountsByType("Dynamic")
         HelpMePlay.RefreshMountsByType("Aquatic")
         HelpMePlay.RefreshMountsByType("AQ")
         HelpMePlay.RefreshMountsByType("Vashjir")
-        HelpMePlay.RefreshMountsByType("Unused")
+        HelpMePlay.RefreshMountsByType("Unused")]]
 
         eventFrame:UnregisterEvent(event)
     end

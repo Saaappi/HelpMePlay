@@ -9,4 +9,13 @@
 # LibHelpMePlay
 _Lib\Embeds.xml
 
-HelpMePlay.xml
+# Settings UI
+Settings\Settings.lua
+
+# Data
+# Files containing tabular variables with values referenced throughout the addon.
+_Data\Constants.lua
+
+Core.lua
+
+#HelpMePlay.xml

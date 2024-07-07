@@ -1,4 +1,8 @@
-<Ui>
+<!-- See license.txt for license and copyright information -->
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+    <Include file="_Lib\Embeds.xml" />
+
     <Script file="Settings\Settings.lua" />
 
     <Script file="_Data\Constants.lua" />

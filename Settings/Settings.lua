@@ -17,7 +17,7 @@ function HelpMePlay.RegisterSettings()
     Settings.RegisterAddOnCategory(category)
 
     HelpMePlay.SettingsCategory = category
-    HelpMePlay.SettingscategoryID = category:GetID()
+    HelpMePlay.SettingsCategoryID = category:GetID()
     HelpMePlay.SettingsLayout = layout
 
     HelpMePlay.AddSettingButton(
@@ -737,7 +737,7 @@ end
 
 function HelpMePlay.AddSettingButton(controlLabel, buttonText, onClick, tooltip, addSearchTags)
     local button = CreateSettingsButtonInitializer(controlLabel, buttonText, onClick, tooltip, addSearchTags)
-    HelpMePlay.Settingslayout:AddInitializer(button)
+    HelpMePlay.SettingsLayout:AddInitializer(button)
 end
 
 function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)
@@ -771,7 +771,6 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
 end
 
 function HelpMePlay.Init()
-    print("A")
     if HelpMePlayDB == nil then
         HelpMePlayDB = {}
     end
@@ -894,5 +893,6 @@ function HelpMePlay.Init()
         }
     end
 
-    SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
+    --SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
+    HelpMePlay.RegisterSettings()
 end
