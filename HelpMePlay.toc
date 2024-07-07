@@ -60,8 +60,35 @@ Quests\Events.lua
 Quests\QuestMobs.lua
 Quests\WarMode.lua
 
+# Gossip Module
+Gossip\Gossip.lua
+
+# World Events Module
+WorldEvents\WorldEventsQueue.lua
+
+# Wardrobe Module
+Wardrobe\Wardrobe.lua
+
 # Cutscenes Module
 Cutscenes\Cutscenes.lua
+
+# Vignettes Module
+Vignettes\Vignettes.lua
+
+# Talents Module
+Talents\PlayerTalents.lua
+Talents\Skyriding.lua
+
+# Inventory Module
+Inventory\OpenContainers.lua
+
+# Merchant Module
+Merchant\QuestItems.lua
+Merchant\Trainers.lua
+Merchant\Repair.lua
+
+# Party Play Module
+PartyPlay\PartyPlay.lua
 
 # Remix: Mists of Pandaria Module
 Remix\ScrappingMachine.lua
@@ -73,5 +100,3 @@ _Keybinds\Keybinds.lua
 # Core
 # Start the addon load process and other setup events.
 Core.lua
-
-#HelpMePlay.xml
