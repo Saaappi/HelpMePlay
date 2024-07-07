@@ -1,5 +1,6 @@
 local addonName, HelpMePlay = ...
 local eventFrame = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 
 function HelpMePlay.GetBestMapByMapID(uiMapID)
     local mapID = uiMapID or C_Map.GetBestMapForUnit("player")
@@ -47,7 +48,7 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.playerGUID = UnitGUID("player")
         HelpMePlay.playerMapID = HelpMePlay.GetBestMapByMapID(C_Map.GetBestMapForUnit("player"))
 
-        local faction = UnitFactionGroup("player")
+        local faction = LHMP:GetUnlocalizedUnitFaction("player")
         if faction == "Alliance" then
             HelpMePlay.playerFactionID = 1
         elseif faction == "Horde" then
@@ -56,13 +57,13 @@ local function OnEvent(_, event, arg1, arg2)
             HelpMePlay.playerFactionID = -1
         end
 
-        --[[HelpMePlay.RefreshMountsByType("Ground")
+        HelpMePlay.RefreshMountsByType("Ground")
         HelpMePlay.RefreshMountsByType("Flying")
         HelpMePlay.RefreshMountsByType("Dynamic")
         HelpMePlay.RefreshMountsByType("Aquatic")
         HelpMePlay.RefreshMountsByType("AQ")
         HelpMePlay.RefreshMountsByType("Vashjir")
-        HelpMePlay.RefreshMountsByType("Unused")]]
+        HelpMePlay.RefreshMountsByType("Unused")
 
         eventFrame:UnregisterEvent(event)
     end

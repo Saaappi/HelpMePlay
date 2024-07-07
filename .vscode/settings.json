@@ -1,0 +1,6 @@
+{
+    "Lua.diagnostics.disable": [
+        "inject-field",
+        "undefined-field"
+    ]
+}

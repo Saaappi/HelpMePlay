@@ -6,16 +6,72 @@
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
 ## IconTexture: 236681
 
-# LibHelpMePlay
-_Lib\Embeds.xml
+# Libraries
+_Lib\LibHelpMePlay\Embeds.xml
 
 # Settings UI
+# This is where all the settings are stored.
 Settings\Settings.lua
 
 # Data
 # Files containing tabular variables with values referenced throughout the addon.
 _Data\Constants.lua
+_Data\TalentImporter.lua
+_Data\Mounts.lua
+_Data\Quests.lua
+_Data\Maps.lua
 
+# Functions
+# Files containing functions used in corresponding files throughout the addon.
+_Functions\QuestMobs.lua
+_Functions\Quests.lua
+_Functions\Tables.lua
+_Functions\EvaluateConditions.lua
+
+# Classes
+# These are template class files used to create frames, widgets, and tooltips.
+_Classes\Tooltip.lua
+_Classes\Button.lua
+_Classes\Frame.lua
+
+# Talent Importer
+Settings\TalentImporter.lua
+
+# Chat Icons Module
+ChatIcons\ChatIcons.lua
+
+# LFG Module
+LFG\ReadyChecks.lua
+LFG\RoleChecks.lua
+
+# Guild Bank Module
+GuildBank\GuildBank.lua
+
+# Character Module
+Character\NewCharacter.lua
+Character\Heirloom.lua
+Character\Queue.lua
+
+# Mounts Module
+Mounts\Mounts.lua
+
+# Quests Module
+Quests\Events.lua
+Quests\QuestMobs.lua
+Quests\WarMode.lua
+
+# Cutscenes Module
+Cutscenes\Cutscenes.lua
+
+# Remix: Mists of Pandaria Module
+Remix\ScrappingMachine.lua
+Remix\Usables.lua
+
+# Keybindings Module
+_Keybinds\Keybinds.lua
+
+# Core
+# Start the addon load process and other setup events.
 Core.lua
 
 #HelpMePlay.xml

@@ -1,5 +1,4 @@
----@diagnostic disable: deprecated
-local addonName, HelpMePlay = ...
+local _, _ = ...
 
 -- Set the major and minor version.
 local MAJOR, MINOR = "LibHelpMePlay", 1
