@@ -6,16 +6,24 @@ local leftChevron
 local rightChevron
 local activeEvents
 local currentEventIndex = 1
+local timerunningSeasonID = PlayerGetTimerunningSeasonID()
 
 local function GetActiveEventsFromCalendarByDate(date)
     local events = {}
     local numEvents = C_Calendar.GetNumDayEvents(0, date.monthDay)
     if numEvents > 0 then
+        if timerunningSeasonID == 1 then
+            local worldEvent = LHMP:GetWorldEvent(1525)
+            table.insert(events, { name = LFG_TYPE_HEROIC_DUNGEON, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
+            return events
+        end
         for index = 1, numEvents do
             local event = C_Calendar.GetDayEvent(0, date.monthDay, index)
             if event and LHMP:IsEventQueueable(event.eventID) then
                 local worldEvent = LHMP:GetWorldEvent(event.eventID)
-                table.insert(events, { name = event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture, conditions = worldEvent.conditions })
+                if HelpMePlay.playerLevel >= worldEvent.minLevel and event.eventID ~= 1525 then
+                    table.insert(events, { name = event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
+                end
             end
         end
     end
@@ -166,8 +174,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         -- Unregister the event for performance.
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
 
-        if HelpMePlayDB["UseWorldEventQueue"] == false or UnitLevel("player") < HelpMePlay.Constants["PLAYER_MAX_LEVEL"] then return false end
-        if PlayerGetTimerunningSeasonID() == 1 then return false end
+        if HelpMePlayDB["UseWorldEventQueue"] == false then return false end
 
         -- If there are events, then create the button.
         C_Timer.After(1, function() HelpMePlay.CreateEventQueueButton() end)

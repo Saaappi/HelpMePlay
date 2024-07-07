@@ -2,6 +2,8 @@
 
 ### Added
 - Added queue support for the **Trial of Style** event.
+- Added queue support for **Heroic Timerunning** dungeons.
+  - **_Author's Note: This is primarily meant for boosters or those who like to spam dungeons._**
 - Added support to automatically open the Trial of Style prizes when _Open Containers_ is enabled.
 - Added support for automatically accepting party invitations.
 - Added a missing gossip on the Timeless Isle for Horde Timerunners.

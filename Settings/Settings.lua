@@ -808,6 +808,7 @@ function HelpMePlay.Init()
         PlayerTalents,
         ShouldRepair,
         TheMawEnabled,
+        TimerunningHeroicDungeonQueue,
         UseHeirloomAutomation
     }
     for _, key in next, oldVariables do
@@ -903,6 +904,5 @@ function HelpMePlay.Init()
         }
     end
 
-    --SettingsRegistrar:AddRegistrant(HelpMePlay.RegisterSettings)
     HelpMePlay.RegisterSettings()
 end
