@@ -21,15 +21,7 @@ end
 local function OnEvent(_, event, arg1, arg2)
 	if event == "ADDON_LOADED" then
 		if addonName == arg1 then
-            C_Timer.After(1, function()
-                local count = 0
-                for k, v in next, HelpMePlay do
-                    print(k)
-                    count = count + 1
-                end
-                print(count)
-                HelpMePlay.Init()
-            end)
+            HelpMePlay.Init()
             eventFrame:UnregisterEvent(event)
 		end
 	end
