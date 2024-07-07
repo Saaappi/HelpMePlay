@@ -43,6 +43,7 @@ ChatIcons\ChatIcons.lua
 # LFG Module
 LFG\ReadyChecks.lua
 LFG\RoleChecks.lua
+LFG\PartyInvite.lua
 
 # Guild Bank Module
 GuildBank\GuildBank.lua

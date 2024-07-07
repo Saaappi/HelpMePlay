@@ -276,6 +276,14 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
+        "Accept Party Invites",
+        "AcceptPartyInvites",
+        false,
+        HelpMePlayDB["AcceptPartyInvites"],
+        "Toggle to automatically accept party invitations."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
         "Ready Checks",
         "AcceptReadyChecks",
         false,
@@ -810,6 +818,7 @@ function HelpMePlay.Init()
     local defaults = {
         AcceptAndCompleteQuests = false,
         AcceptGossip = false,
+        AcceptPartyInvites = false,
         AcceptReadyChecks = false,
         AcceptRoleChecks = false,
         AlwaysCompareItems = true,
