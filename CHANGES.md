@@ -1,20 +1,20 @@
 ## Version 3.0.0B8.5 - 2024/07/MM
 
 ### Added
-- Added queue support for the **Trial of Style** event.
-- Added queue support for **Heroic Timerunning** dungeons.
-  - **_Author's Note: This is primarily meant for boosters or those who like to spam dungeons._**
-- Added support to automatically open the Trial of Style prizes when _Open Containers_ is enabled.
-- Added support for automatically accepting party invitations.
-- Added a missing gossip on the Timeless Isle for Horde Timerunners.
+- Enabled queue support for the Trial of Style event.
+- Implemented queue support for Heroic Timerunning dungeons.
+- Added functionality to automatically open Trial of Style prizes when the "Open Containers" option is enabled.
+- Introduced support for automatically accepting party invitations.
+- Included a missing gossip option on the Timeless Isle for Horde Timerunners.
 ### Changed or Updated
-- The Wardrobe button has received a visual and location update. It's not anchored off the Character Frame (and is no longer one of the ugly tabs).
-- The Wardrobe button can now be toggled using the _Wardrobe Button_ setting under the **Wardrobe** section in the settings.
-- _Event Queue_, _Ready Checks_, and _Role Checks_ have been moved to their own **LFG** section in the settings.
+- The Wardrobe button has been visually updated and repositioned. It is now anchored separately from the Character Frame and no longer among the less appealing tabs.
+- You can now toggle the Wardrobe button using the "Wardrobe Button" setting located within the Wardrobe section of the settings.
+- The settings for Event Queue, Ready Checks, and Role Checks have been relocated to their own dedicated LFG (Looking for Group) section within the settings menu.
 ### Deprecated
 ### Removed
 ### Fixed
-- Fixed a bug that prevented the addon from loading completely when it's the only addon enabled.
-- Fixed a bug where mount automation could sometimes cause a stack overflow.
-- Fixed a bug with sliders in the settings; these widgets should now behave as intended.
-- Fixed a bug on the Player Talent button tooltip.
+- Addressed an issue where the Heirloom button could persist on the screen after closing the Collections Journal with the "Heirlooms" tab open.
+- Resolved an issue that caused the addon to fail loading completely when it was the only addon enabled.
+- Corrected an issue where automated mount actions could sometimes lead to excessive program recursion.
+- Fixed an issue with sliders in the settings menu to ensure they now function correctly.
+- Rectified a tooltip issue on the Player Talent button.
