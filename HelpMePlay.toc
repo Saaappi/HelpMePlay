@@ -23,7 +23,6 @@ _Data\Maps.lua
 
 # Functions
 # Files containing functions used in corresponding files throughout the addon.
-_Functions\QuestMobs.lua
 _Functions\Quests.lua
 _Functions\Tables.lua
 _Functions\EvaluateConditions.lua
