@@ -6,25 +6,16 @@ local leftChevron
 local rightChevron
 local activeEvents
 local currentEventIndex = 1
-local timerunningSeasonID = PlayerGetTimerunningSeasonID()
 
 local function GetActiveEventsFromCalendarByDate(date)
     local events = {}
     local numEvents = C_Calendar.GetNumDayEvents(0, date.monthDay)
     if numEvents > 0 then
-        if timerunningSeasonID == 1 then
-            local worldEvent = LHMP:GetWorldEvent(1525)
-            print(worldEvent.dungeonQueueID)
-            table.insert(events, { name = LFG_TYPE_HEROIC_DUNGEON, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
-            return events
-        end
         for index = 1, numEvents do
             local event = C_Calendar.GetDayEvent(0, date.monthDay, index)
             if event and LHMP:IsEventQueueable(event.eventID) then
                 local worldEvent = LHMP:GetWorldEvent(event.eventID)
-                if HelpMePlay.playerLevel >= worldEvent.minLevel and event.eventID ~= 1525 then
-                    table.insert(events, { name = event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
-                end
+                table.insert(events, { name = worldEvent.name or event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
             end
         end
     end

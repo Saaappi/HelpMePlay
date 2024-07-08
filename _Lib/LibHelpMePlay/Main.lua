@@ -151,6 +151,19 @@ function LHMP:IsEventQueueable(eventID)
     if not LHMP.WorldEvents[eventID] then
         return false
     end
+    local event = LHMP.WorldEvents[eventID]
+    if not UnitLevel("player") >= event.conditions.minLevel then
+        return false
+    end
+
+    local isTimerunner = PlayerGetTimerunningSeasonID()
+    if event.conditions.isForTimerunning and isTimerunner ~= 1 then
+        return false
+    else
+        if isTimerunner == 1 then
+            return false
+        end
+    end
     return true
 end
 function LHMP:GetWorldEvent(eventID)
