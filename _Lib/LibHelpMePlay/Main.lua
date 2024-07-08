@@ -159,10 +159,8 @@ function LHMP:IsEventQueueable(eventID)
     local isTimerunner = PlayerGetTimerunningSeasonID()
     if event.conditions.isForTimerunning and isTimerunner ~= 1 then
         return false
-    else
-        if isTimerunner == 1 then
-            return false
-        end
+    elseif (not event.conditions.isForTimerunning) and isTimerunner == 1 then
+        return false
     end
     return true
 end
