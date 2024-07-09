@@ -148,7 +148,6 @@ end
 -- WORLD EVENTS --
 ------------------
 function LHMP:IsEventQueueable(eventID)
-    print("A")
     if not LHMP.WorldEvents[eventID] then
         return false
     end
@@ -158,14 +157,12 @@ function LHMP:IsEventQueueable(eventID)
     if UnitLevel("player") < event.conditions.minLevel then
         return false
     end
-    print("B")
 
     if event.conditions.isForTimerunning and isTimerunner ~= 1 then
         return false
     elseif (not event.conditions.isForTimerunning) and isTimerunner == 1 then
         return false
     end
-    print("C")
     return true
 end
 function LHMP:GetWorldEvent(eventID)

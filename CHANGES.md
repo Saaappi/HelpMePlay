@@ -18,3 +18,4 @@
 - Corrected an issue where automated mount actions could sometimes lead to excessive program recursion.
 - Fixed an issue with sliders in the settings menu to ensure they now function correctly.
 - Rectified a tooltip issue on the Player Talent button.
+- Mount automation will now continue uninterrupted even while the player is in motion. (This reverts a change made in a previous build.)

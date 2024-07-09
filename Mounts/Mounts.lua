@@ -124,7 +124,7 @@ end
 
 function HelpMePlay.Mount()
     -- Check if the player is in combat.
-    if InCombatLockdown() or IsPlayerMoving() then return false end
+    if InCombatLockdown() then return false end
 
     -- The mount automation received a rework and the player must
     -- manually recategorize their mounts. If they haven't done
