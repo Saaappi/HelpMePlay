@@ -19,3 +19,4 @@
 - Fixed an issue with sliders in the settings menu to ensure they now function correctly.
 - Rectified a tooltip issue on the Player Talent button.
 - Mount automation will now continue uninterrupted even while the player is in motion. (This reverts a change made in a previous build.)
+- Mounts inaccessible to the current character should no longer be summoned.
