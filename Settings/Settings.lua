@@ -797,6 +797,7 @@ function HelpMePlay.Init()
         GuideGossips,
         GuideQuestItems,
         GuideQuests,
+        HasRecategorizedMounts,
         Heirlooms,
         IgnoredCreatures,
         Junker,
@@ -902,6 +903,11 @@ function HelpMePlay.Init()
             Vashjir = {},
             Unused = {}
         }
+    end
+
+    if not HelpMePlayDB["HasNotRecategorizedMounts"] then
+        HelpMePlayDB["HasNotRecategorizedMounts"] = true
+        HelpMePlay.ResetAllMounts()
     end
 
     HelpMePlay.RegisterSettings()

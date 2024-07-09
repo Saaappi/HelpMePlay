@@ -90,6 +90,7 @@ function HelpMePlay.SummonMountByType(type)
             if isUsable then
                 C_MountJournal.SummonByID(mountID)
             else
+                print(format("%d could not be used.", mountID))
                 HelpMePlay.SummonMountByType(type)
             end
         end)
@@ -97,12 +98,16 @@ function HelpMePlay.SummonMountByType(type)
 end
 
 function HelpMePlay.CategorizeMountByID(mountID)
-    local name, spellID, icon, isActive, _, sourceType, isFavorite, isFactionSpecific, factionID, shouldHideOnChar, isCollected, _, isForDragonriding = C_MountJournal.GetMountInfoByID(mountID)
+    local name, _, _, _, _, _, _, _, factionID, shouldHideOnChar, isCollected = C_MountJournal.GetMountInfoByID(mountID)
     if isCollected then
-        local creatureDisplayInfoID, description, source, isSelfMount, mountTypeID, uiModelSceneID, animID, spellVisualKitID, disablePlayerMountPreview = C_MountJournal.GetMountInfoExtraByID(mountID)
+        local mountTypeID = select(5, C_MountJournal.GetMountInfoExtraByID(mountID))
         if mountTypeID then
             local mountTypeName = HelpMePlay.GetMountTypeNameByID(mountTypeID)
             if mountTypeName ~= "UNK" then
+                -- We need to verify the mount is usable by the player period.
+                if factionID ~= nil and factionID ~= HelpMePlay.playerFactionID then return false end
+                if shouldHideOnChar then return false end
+
                 table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID})
             else
                 HelpMePlay.Print(format(HelpMePlay.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
@@ -125,14 +130,6 @@ end
 function HelpMePlay.Mount()
     -- Check if the player is in combat.
     if InCombatLockdown() then return false end
-
-    -- The mount automation received a rework and the player must
-    -- manually recategorize their mounts. If they haven't done
-    -- that yet, then return.
-    if not HelpMePlayDB["HasRecategorizedMounts"] then
-        HelpMePlay.Print(HelpMePlay.ErrorMessages["HAS_NOT_RECATEGORIZED_MOUNTS"])
-        return false
-    end
 
     -- If the player is already mounted, then dismount them and return.
     -- This will save me from creating a keybind for dismount.
@@ -240,15 +237,14 @@ end
 eventFrame:RegisterEvent("NEW_MOUNT_ADDED")
 eventFrame:SetScript("OnEvent", OnEvent)
 
-local function ResetAllMounts()
+function HelpMePlay.ResetAllMounts()
     -- Wipe out the mount tables.
-    for _, mounts in ipairs(HelpMePlayDB["Mounts"]) do
-        mounts = {}
+    for key in pairs(HelpMePlayDB["Mounts"]) do
+        HelpMePlayDB["Mounts"][key] = {}
     end
 
     -- Categorize the mounts.
-    local mounts = C_MountJournal.GetMountIDs()
-    for _, mountID in ipairs(mounts) do
+    for _, mountID in ipairs(C_MountJournal.GetMountIDs()) do
         HelpMePlay.CategorizeMountByID(mountID)
     end
 
@@ -274,13 +270,8 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
         button:SetPoint("TOPRIGHT", MountJournalSummonRandomFavoriteButton, "TOPLEFT", -125, 0)
 
         button:SetScript("OnClick", function()
-            if not InCombatLockdown() and not IsPlayerMoving() then
-                -- TODO: Remove this before official launch.
-                if not HelpMePlayDB["HasRecategorizedMounts"] then
-                    HelpMePlayDB["HasRecategorizedMounts"] = true
-                end
-
-                ResetAllMounts()
+            if not InCombatLockdown() then
+                HelpMePlay.ResetAllMounts()
             end
         end)
         button:SetScript("OnEnter", function(self)
