@@ -11,6 +11,7 @@
 - You can now toggle the Wardrobe button using the "Wardrobe Button" setting located within the Wardrobe section of the settings.
 - The settings for Event Queue, Ready Checks, and Role Checks have been relocated to their own dedicated LFG (Looking for Group) section within the settings menu.
 ### Deprecated
+- Deprecated the Rare Scan feature. (This feature will remain unchanged in the addon but will be removed before launch.)
 ### Removed
 ### Fixed
 - Addressed an issue where the Heirloom button could persist on the screen after closing the Collections Journal with the "Heirlooms" tab open.
