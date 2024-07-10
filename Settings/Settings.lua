@@ -77,6 +77,14 @@ function HelpMePlay.RegisterSettings()
 
     HelpMePlay.AddSettingCheckbox(
         category,
+        "Minimap Button",
+        "isMinimapButtonEnabled",
+        false,
+        HelpMePlayDB["isMinimapButtonEnabled"],
+        "Toggle minimap button visibility."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
         "Chat Icons",
         "ShowChatIcons",
         false,
@@ -733,6 +741,7 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
         ShowRemixUsablesButton = function() HelpMePlay.CreateRemixUsablesButton() end,
         UseWorldEventQueue = function() HelpMePlay.CreateEventQueueButton() end,
         ShowWardrobeButton = function() HelpMePlay.CreateWardrobeButton() end,
+        isMinimapButtonEnabled = function() HelpMePlay.CreateMinimapButton() end,
     }
 
     local func = functions[variableName]
@@ -801,8 +810,10 @@ function HelpMePlay.Init()
         HasRecategorizedMounts,
         Heirlooms,
         IgnoredCreatures,
+        isMinimapButtonEnabled,
         Junker,
         MerchantItems,
+        minimap,
         MinimapIconEnabled,
         NCCEnabled,
         NONE,
@@ -906,10 +917,15 @@ function HelpMePlay.Init()
         }
     end
 
+    -- TODO: Remove before official launch.
     if not HelpMePlayDB["HasNotRecategorizedMounts"] then
         HelpMePlayDB["HasNotRecategorizedMounts"] = true
         HelpMePlay.ResetAllMounts()
     end
 
     HelpMePlay.RegisterSettings()
+
+    if HelpMePlayDB.isMinimapButtonEnabled then
+        HelpMePlay.CreateMinimapButton()
+    end
 end
