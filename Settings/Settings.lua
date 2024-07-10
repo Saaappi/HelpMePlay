@@ -789,35 +789,36 @@ function HelpMePlay.Init()
     end
 
     local oldVariables = {
-        AcceptAndCompleteAllQuests,
-        AGE,
-        ButtonReset_RemixUsables,
-        DebugModeEnabled,
-        DynamicFlightTrait1,
-        DynamicFlightTrait2,
-        Enabled,
-        GuideGossips,
-        GuideQuestItems,
-        GuideQuests,
-        HasRecategorizedMounts,
-        Heirlooms,
-        IgnoredCreatures,
-        isMinimapButtonEnabled,
-        Junker,
-        MerchantItems,
-        minimap,
-        MinimapIconEnabled,
-        NCCEnabled,
-        NONE,
-        OpenHolidayItems,
-        PlayerTalents,
-        ShouldRepair,
-        TheMawEnabled,
-        TimerunningHeroicDungeonQueue,
-        UseHeirloomAutomation
+        "AcceptAndCompleteAllQuests",
+        "AGE",
+        "ButtonReset_RemixUsables",
+        "DebugModeEnabled",
+        "DynamicFlightTrait1",
+        "DynamicFlightTrait2",
+        "Enabled",
+        "GuideGossips",
+        "GuideQuestItems",
+        "GuideQuests",
+        "HasNotRecategorizedMounts",
+        "HasRecategorizedMounts",
+        "Heirlooms",
+        "IgnoredCreatures",
+        "isMinimapButtonEnabled",
+        "Junker",
+        "MerchantItems",
+        "minimap",
+        "MinimapIconEnabled",
+        "NCCEnabled",
+        "NONE",
+        "OpenHolidayItems",
+        "PlayerTalents",
+        "ShouldRepair",
+        "TheMawEnabled",
+        "TimerunningHeroicDungeonQueue",
+        "UseHeirloomAutomation"
     }
     for _, key in next, oldVariables do
-        if HelpMePlayDB[key] ~= nil then
+        if HelpMePlayDB[key] then
             HelpMePlayDB[key] = nil
         end
     end
@@ -907,12 +908,6 @@ function HelpMePlay.Init()
             Vashjir = {},
             Unused = {}
         }
-    end
-
-    -- TODO: Remove before official launch.
-    if not HelpMePlayDB["HasNotRecategorizedMounts"] then
-        HelpMePlayDB["HasNotRecategorizedMounts"] = true
-        HelpMePlay.ResetAllMounts()
     end
 
     HelpMePlay.RegisterSettings()
