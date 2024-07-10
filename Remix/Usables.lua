@@ -19,7 +19,7 @@ HelpMePlay.CreateRemixUsablesButton = function()
 		-- There was a new scaling solution implemented into this widget type
 		-- so reset the button's position to its default so as not to potentially
 		-- have it hidden when B8.4 is installed.
-		if not HelpMePlayDB["ButtonReset_RemixUsables"] then
+		--[[if not HelpMePlayDB["ButtonReset_RemixUsables"] then
 			HelpMePlayDB["ButtonReset_RemixUsables"] = true
 			HelpMePlay.ResetWidgetPosition("RemixUseItemButton", {
 				anchor = "CENTER",
@@ -28,7 +28,7 @@ HelpMePlay.CreateRemixUsablesButton = function()
 				xOff = 0,
 				yOff = 0
 			})
-		end
+		end]]
 
 		button:ClearAllPoints()
 		if HelpMePlayDB.Positions["RemixUseItemButton"] then

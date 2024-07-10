@@ -790,6 +790,7 @@ function HelpMePlay.Init()
     local oldVariables = {
         AcceptAndCompleteAllQuests,
         AGE,
+        ButtonReset_RemixUsables,
         DebugModeEnabled,
         DynamicFlightTrait1,
         DynamicFlightTrait2,

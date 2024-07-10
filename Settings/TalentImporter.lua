@@ -78,9 +78,6 @@ HelpMePlay.OpenTalentImporter = function()
         frame:SetHeight(frameBaseHeight)
     end
 
-    -- TODO: Is there a better way to hide these editboxes so they're
-    -- not recreated on every creation? Is the frame:Hide() redundant?
-    --
     -- By default, selecting the close button doesn't hide the children.
     -- This may or may not be intended, so for right now I loop, hide the
     -- editboxes, then set them to nil. Afterward, I hide the frame; the
@@ -155,15 +152,15 @@ HelpMePlay.OpenTalentImporter = function()
                         -- I'm splitting the importDate field into two separate fields.
                         -- This field will be nil until the user enters a new loadout.
                         -- As such, set the importPatch field to the current patch.
-                        if not classTalents.importPatch then
+                        --[[if not classTalents.importPatch then
                             classTalents.importPatch = (GetBuildInfo())
-                        end
+                        end]]
 
                         -- TODO: Remove this at some point.
                         -- Let's trim the importDate field to remove the patch information.
-                        if string.match(classTalents.importDate, "(.-) %(.-%)") then
+                        --[[if string.match(classTalents.importDate, "(.-) %(.-%)") then
                             classTalents.importDate = string.match(classTalents.importDate, "(.-) %(.-%)")
-                        end
+                        end]]
                         UpdateText(editBox, classTalents.importString, classTalents.importDate, classTalents.importPatch)
                     else
                         UpdateText(editBox, format("|cffFF0000%s %s.|r", "Please import a loadout for", HelpMePlay.specEditBoxes[button.ID][i].name), "", "")
