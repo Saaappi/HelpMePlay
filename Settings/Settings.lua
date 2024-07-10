@@ -77,14 +77,6 @@ function HelpMePlay.RegisterSettings()
 
     HelpMePlay.AddSettingCheckbox(
         category,
-        "Minimap Button",
-        "isMinimapButtonEnabled",
-        false,
-        HelpMePlayDB["isMinimapButtonEnabled"],
-        "Toggle minimap button visibility."
-    )
-    HelpMePlay.AddSettingCheckbox(
-        category,
         "Chat Icons",
         "ShowChatIcons",
         false,
