@@ -8,3 +8,4 @@
 - Removed the **Rare Scan** feature.
 ### Fixed
 - Resolved an issue where the role verification process could register duplicate acceptances.
+- Tooltip headers no longer stretch to an obscene length.
