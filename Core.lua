@@ -49,11 +49,6 @@ local function OnEvent(_, event, arg1, arg2)
             HelpMePlay.playerFactionID = -1
         end
 
-        for i = 1, GetNumTitles() do
-            print(i)
-            print(GetTitleName(i))
-        end
-
         HelpMePlay.RefreshMountsByType("Ground")
         HelpMePlay.RefreshMountsByType("Flying")
         HelpMePlay.RefreshMountsByType("Dynamic")
