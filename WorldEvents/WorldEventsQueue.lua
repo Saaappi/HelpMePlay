@@ -52,6 +52,11 @@ HelpMePlay.CreateEventQueueButton = function()
         worldEventQueueButton = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
         worldEventQueueButton:RegisterForClicks("LeftButtonUp")
 
+        local extraActionButtonBinding = GetBindingKey("EXTRAACTIONBUTTON1")
+        if extraActionButtonBinding then
+            SetBindingClick(extraActionButtonBinding, worldEventQueueButton:GetName(), "LeftButton")
+        end
+
         -- There are multiple events active, so let's make the chevron
         -- buttons so the player can toggle between the active events.
         if (#activeEvents > 1) then
@@ -124,7 +129,7 @@ HelpMePlay.CreateEventQueueButton = function()
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
         worldEventQueueButton:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, self.name, "\nClick and hold to drag.")
+            HelpMePlay.Tooltip_OnEnter(self, self.name, "\nClick and hold to drag. Use your Extra Action Button keybind to click the button.")
         end)
         worldEventQueueButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 

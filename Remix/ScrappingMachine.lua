@@ -59,14 +59,14 @@ HelpMePlay.CreateRemixScrapButton = function()
 					for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
 						if btn == "RightButton" and IsShiftKeyDown() then
 							local item = Item:CreateFromBagAndSlot(bagID, slotID)
-							if not item:IsItemEmpty() then
+							if not item:IsItemEmpty() and C_Item.CanScrapItem(item:GetItemLocation()) then
 								local inventoryType = item:GetInventoryType()
 								if inventoryType ~= 0 then
-									C_Container.UseContainerItem(bagID, slotID)
 									numScrappableItems = numScrappableItems + 1
+									C_Container.UseContainerItem(bagID, slotID)
+									if numScrappableItems == 9 then return true end
 								end
 							end
-							if numScrappableItems == 9 then return true end
 						else
 							local itemLink = C_Container.GetContainerItemLink(bagID, slotID)
 							if itemLink then
@@ -137,6 +137,8 @@ HelpMePlay.CreateRemixScrapButton = function()
 						end
 					end
 				end
+
+				ScrapNow()
 			end)
 			button:SetScript("OnEnter", function(self)
 				HelpMePlay.Tooltip_OnEnter(self, "Scrapping Machine", "Click to automatically fill the scrap machine with unwanted items.\n\n" ..

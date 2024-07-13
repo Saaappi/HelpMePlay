@@ -3,9 +3,9 @@
 ### Added
 ### Changed or Updated
 - Changed the Heroic Timerunning event icon and name.
+- Players can now use their Extra Action Button keybind to click the World Event queue button.
 ### Deprecated
 ### Removed
 - Removed the **Rare Scan** feature.
 ### Fixed
-- Resolved an issue where the role verification process could register duplicate acceptances.
 - Tooltip headers no longer stretch to an obscene length.
