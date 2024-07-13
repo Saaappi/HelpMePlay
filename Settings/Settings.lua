@@ -812,6 +812,7 @@ function HelpMePlay.Init()
         "NONE",
         "OpenHolidayItems",
         "PlayerTalents",
+        "RareScan",
         "ShouldRepair",
         "TheMawEnabled",
         "TimerunningHeroicDungeonQueue",
