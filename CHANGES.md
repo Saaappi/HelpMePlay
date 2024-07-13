@@ -6,3 +6,4 @@
 ### Removed
 - Removed the **Rare Scan** feature.
 ### Fixed
+- Fixed a bug that caused the role check to sometimes be accepted twice.
