@@ -5,8 +5,7 @@ eventHandler:RegisterEvent("READY_CHECK")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "READY_CHECK" then
 		if HelpMePlayDB["AcceptReadyChecks"] == false then return false end
-
 		ConfirmReadyCheck(1)
-		ReadyCheckFrameYesButton:Click("LeftButton")
+		CompleteLFGReadyCheck(1)
 	end
 end)
