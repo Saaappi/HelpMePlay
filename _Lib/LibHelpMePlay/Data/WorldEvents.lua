@@ -95,9 +95,9 @@ LHMP.WorldEvents = {
         }
     },
     [1525] = {
-        ["name"] = "Random Heroic Timerunning Dungeon",
+        ["name"] = format("Random Heroic Timerunning Dungeon: %s", EXPANSION_NAME4),
         ["dungeonQueueID"] = 2539,
-        ["texture"] = 2026009,
+        ["texture"] = 328269,
         ["conditions"] = {
             ["minLevel"] = 10,
             ["isForTimerunning"] = true,
