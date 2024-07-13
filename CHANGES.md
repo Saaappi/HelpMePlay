@@ -2,6 +2,7 @@
 
 ### Added
 ### Changed or Updated
+- Changed the Heroic Timerunning event icon and name.
 ### Deprecated
 ### Removed
 - Removed the **Rare Scan** feature.
