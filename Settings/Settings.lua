@@ -119,14 +119,6 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
-        "Rare Scan",
-        "RareScan",
-        false,
-        HelpMePlayDB["RareScan"],
-        "Toggle if you wish to receive a popup notification and sound for nearby rares."
-    )
-    HelpMePlay.AddSettingCheckbox(
-        category,
         "Skip Cutscenes",
         "SkipCutscenes",
         false,
@@ -584,7 +576,7 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["NCC_EditModeLayoutID"],
         function()
             local function GetEditModeLayouts()
-                local layouts={{1,"Modern"},{2,"Classic"}}
+                local layouts = {{1,"Modern"},{2,"Classic"}}
                 local customLayouts = C_EditMode.GetLayouts()
                 for index, design in ipairs(customLayouts.layouts) do
                     table.insert(layouts, (index + 2), { (index + 2), design.layoutName })
@@ -809,6 +801,7 @@ function HelpMePlay.Init()
         "minimap",
         "MinimapIconEnabled",
         "NCCEnabled",
+        "NCC_PlayerTitleID",
         "NONE",
         "OpenHolidayItems",
         "PlayerTalents",
@@ -862,7 +855,6 @@ function HelpMePlay.Init()
         QuestMobsIconXOffset = -5,
         QuestMobsIconYOffset = 0,
         QuestRewardSelectionTypeID = 0,
-        RareScan = false,
         shouldAutomaticRepair = false,
         ShowChatIcons = false,
         ShowRemixScrapButton = false,
@@ -912,8 +904,4 @@ function HelpMePlay.Init()
     end
 
     HelpMePlay.RegisterSettings()
-
-    if HelpMePlayDB.isMinimapButtonEnabled then
-        HelpMePlay.CreateMinimapButton()
-    end
 end
