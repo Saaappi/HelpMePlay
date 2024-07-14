@@ -2,12 +2,12 @@
 
 ### Added
 ### Changed or Updated
-- Changed the Heroic Timerunning event icon and name.
-- Players can now use their Extra Action Button keybind to click the World Event queue button.
-- Changed the Remix scrap button icon and updated its tooltip to make its purpose clearer.
-- Updated the World Event queue tooltip.
+- Revised the icon and title of the World Event queue button for Random Heroic Timerunning dungeons.
+- Enhanced player accessibility by enabling the use of the Extra Action Button keybind to interact with the World Event queue button.
+- Updated the icon and clarified the tooltip for the Remix scrap button to improve usability.
+- Refined the tooltip for the World Event queue button.
 ### Deprecated
 ### Removed
 - Removed the **Rare Scan** feature.
 ### Fixed
-- Tooltip headers no longer stretch to an obscene length.
+- Adjusted tooltip headers to maintain concise formatting.
