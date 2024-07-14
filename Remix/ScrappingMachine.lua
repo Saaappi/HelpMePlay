@@ -137,8 +137,6 @@ HelpMePlay.CreateRemixScrapButton = function()
 						end
 					end
 				end
-
-				ScrapNow()
 			end)
 			button:SetScript("OnEnter", function(self)
 				HelpMePlay.Tooltip_OnEnter(self, "Scrapping Machine", "Click to automatically fill the scrap machine with unwanted items.\n\n" ..
