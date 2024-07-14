@@ -148,19 +148,6 @@ HelpMePlay.OpenTalentImporter = function()
                     local classTalents = HelpMePlayDB["ClassTalents"][button.classID][HelpMePlay.specEditBoxes[button.ID][i].id]
 
                     if classTalents then
-                        -- TODO: Remove this at some point.
-                        -- I'm splitting the importDate field into two separate fields.
-                        -- This field will be nil until the user enters a new loadout.
-                        -- As such, set the importPatch field to the current patch.
-                        --[[if not classTalents.importPatch then
-                            classTalents.importPatch = (GetBuildInfo())
-                        end]]
-
-                        -- TODO: Remove this at some point.
-                        -- Let's trim the importDate field to remove the patch information.
-                        --[[if string.match(classTalents.importDate, "(.-) %(.-%)") then
-                            classTalents.importDate = string.match(classTalents.importDate, "(.-) %(.-%)")
-                        end]]
                         UpdateText(editBox, classTalents.importString, classTalents.importDate, classTalents.importPatch)
                     else
                         UpdateText(editBox, format("|cffFF0000%s %s.|r", "Please import a loadout for", HelpMePlay.specEditBoxes[button.ID][i].name), "", "")
