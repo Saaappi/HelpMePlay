@@ -129,7 +129,7 @@ HelpMePlay.CreateEventQueueButton = function()
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
         worldEventQueueButton:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, self.name, "\nClick and hold to drag. Use your Extra Action Button keybind to click the button.")
+            HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can use the same keybind as your Extra Action Button for quick use.\n\nClick and hold to drag.")
         end)
         worldEventQueueButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
