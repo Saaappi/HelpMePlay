@@ -1,5 +1,6 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 local button
 local canDualWield = false
 
@@ -140,7 +141,7 @@ HelpMePlay.CreateRemixScrapButton = function()
 			end)
 			button:SetScript("OnEnter", function(self)
 				HelpMePlay.Tooltip_OnEnter(self, "Scrapping Machine", "Click to automatically fill the scrap machine with unwanted items.\n\n" ..
-				"An unwanted item is any item at or below the item level of an equipped item of the same type.\n\nLeft click to scrap only the items with an item level lower than what you have equipped. Alternatively, use SHIFT+RMB to scrap all items regardless of their item level.\n\n" .. "It's a great idea to always double check the addon's decision!")
+				"An unwanted item is any item at or below the item level of an equipped item of the same type.\n\nLeft click to scrap only the items with an item level lower than what you have equipped. Alternatively, use SHIFT+RMB to scrap all items regardless of their item level.\n\n" .. LHMP:ColorText("UNCOMMON", "It's a great idea to always double check the addon's decision!"))
 			end)
 			button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 		end
