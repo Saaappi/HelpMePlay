@@ -15,21 +15,6 @@ HelpMePlay.CreateRemixUsablesButton = function()
 			saveName = "RemixUseItemButton"
 		})
 
-		-- TODO: Remove before official launch.
-		-- There was a new scaling solution implemented into this widget type
-		-- so reset the button's position to its default so as not to potentially
-		-- have it hidden when B8.4 is installed.
-		--[[if not HelpMePlayDB["ButtonReset_RemixUsables"] then
-			HelpMePlayDB["ButtonReset_RemixUsables"] = true
-			HelpMePlay.ResetWidgetPosition("RemixUseItemButton", {
-				anchor = "CENTER",
-				parent = UIParent,
-				relativeAnchor = "CENTER",
-				xOff = 0,
-				yOff = 0
-			})
-		end]]
-
 		button:ClearAllPoints()
 		if HelpMePlayDB.Positions["RemixUseItemButton"] then
 			local pos = HelpMePlayDB.Positions["RemixUseItemButton"]
@@ -70,14 +55,12 @@ end
 eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
 	if event == "PLAYER_LOGIN" then
-		--C_Timer.After(1, function()
-			if PlayerGetTimerunningSeasonID() == 1 and HelpMePlayDB["ShowRemixUsablesButton"] then
-				HelpMePlay.CreateRemixUsablesButton()
-			end
+		if PlayerGetTimerunningSeasonID() == 1 and HelpMePlayDB["ShowRemixUsablesButton"] then
+			HelpMePlay.CreateRemixUsablesButton()
+		end
 
-			-- Unregister the event for performance.
-			eventHandler:UnregisterEvent("PLAYER_LOGIN")
-		--end)
+		-- Unregister the event for performance.
+		eventHandler:UnregisterEvent("PLAYER_LOGIN")
 	end
 end
 )
