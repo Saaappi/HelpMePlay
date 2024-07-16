@@ -188,6 +188,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if HelpMePlayDB["UseWorldEventQueue"] == false then return false end
 
         -- If there are events, then create the button.
-        C_Timer.After(1, function() HelpMePlay.CreateEventQueueButton() end)
+        C_Timer.After(3, function() HelpMePlay.CreateEventQueueButton() end)
     end
 end)

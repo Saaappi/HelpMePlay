@@ -40,7 +40,7 @@ HelpMePlay.CreateRemixUsablesButton = function()
 		button:SetAttribute("macrotext", macrotext)
 
 		button:SetScript("OnEnter", function(self)
-			HelpMePlay.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", format("Click to combine gems and add threads to your %s.\n\nYour %s will be equipped if it's not already.\n\nClick and hold to drag.", cloak, cloak))
+			HelpMePlay.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", format("Click to combine gems and add threads to your %s.\n\nYour cloak will be equipped if it's not already.\n\nClick and hold to drag.", cloak, cloak))
 		end)
 		button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 	end
