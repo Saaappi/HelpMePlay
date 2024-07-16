@@ -11,3 +11,4 @@
 - Removed the **Rare Scan** feature.
 ### Fixed
 - Adjusted tooltip headers to maintain concise formatting.
+- Resolved an issue during the login process that could cause the World Event system to not detect active events.

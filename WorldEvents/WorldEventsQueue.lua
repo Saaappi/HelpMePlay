@@ -1,14 +1,29 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
-local LHMP = LibStub("LibHelpMePlay")
-local worldEventQueueButton
-local leftChevron
-local rightChevron
-local activeEvents
 local currentEventIndex = 1
 
-local function GetActiveEventsFromCalendarByDate(date)
+-- LibHelpMePlay
+local LHMP = LibStub("LibHelpMePlay")
+
+-- Queue Button Variables
+local button
+local leftChevron
+local rightChevron
+
+-- One-Time (Per Session) Variables
+local hasCalendarOpenedInCurrentSession = false
+
+local function GetActiveEventsFromCalendarByDate()
+    -- If the calendar hasn't been opened during the current
+    -- session, then open it so the current date can be
+    -- catalogued.
+    if not hasCalendarOpenedInCurrentSession then
+        ShowUIPanel(CalendarFrame, true)
+        HideUIPanel(CalendarFrame)
+    end
+
     local events = {}
+    local date = C_DateAndTime.GetCurrentCalendarTime()
     local numEvents = C_Calendar.GetNumDayEvents(0, date.monthDay)
     if numEvents > 0 then
         for index = 1, numEvents do
@@ -27,43 +42,42 @@ end
 --
 -- This allows the player to select the event they're interested in rather
 -- than being forced to participate in an event they may not want to do.
-local function SetWorldEventQueueButtonToEvent(event)
+local function SetEvent(event)
     if type(event.texture) == "string" then
-        worldEventQueueButton.icon:SetAtlas(event.texture)
+        button.icon:SetAtlas(event.texture)
     else
-        worldEventQueueButton.icon:SetTexture(event.texture)
+        button.icon:SetTexture(event.texture)
     end
-    worldEventQueueButton.name = event.name
-    worldEventQueueButton.dungeonQueueID = event.dungeonQueueID
+    button.name = event.name
+    button.dungeonQueueID = event.dungeonQueueID
 end
 
 HelpMePlay.CreateEventQueueButton = function()
     if HelpMePlayDB["UseWorldEventQueue"] == false then
-        if worldEventQueueButton then
-            worldEventQueueButton:Hide()
+        if button then
+            button:Hide()
         end
         return
     end
 
-    local currentDate = C_DateAndTime.GetCurrentCalendarTime()
-    activeEvents = GetActiveEventsFromCalendarByDate(currentDate)
+    local events = GetActiveEventsFromCalendarByDate()
 
-    if not worldEventQueueButton then
-        worldEventQueueButton = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
-        worldEventQueueButton:RegisterForClicks("LeftButtonUp")
+    if not button then
+        button = CreateFrame("Button", addonName .. "button", UIParent, "ActionButtonTemplate")
+        button:RegisterForClicks("LeftButtonUp")
 
         local extraActionButtonBinding = GetBindingKey("EXTRAACTIONBUTTON1")
         if extraActionButtonBinding then
-            SetBindingClick(extraActionButtonBinding, worldEventQueueButton:GetName(), "LeftButton")
+            SetBindingClick(extraActionButtonBinding, button:GetName(), "LeftButton")
         end
 
         -- There are multiple events active, so let's make the chevron
         -- buttons so the player can toggle between the active events.
-        if (#activeEvents > 1) then
+        if (#events > 1) then
             if not leftChevron then
-                leftChevron = CreateFrame("Button", nil, worldEventQueueButton)
+                leftChevron = CreateFrame("Button", nil, button)
                 leftChevron:SetSize(20, 20)
-                leftChevron:SetPoint("RIGHT", worldEventQueueButton, "LEFT", -2, 0)
+                leftChevron:SetPoint("RIGHT", button, "LEFT", -2, 0)
                 leftChevron.texture = leftChevron:CreateTexture()
                 leftChevron.texture:SetAtlas("common-icon-backarrow")
                 leftChevron:SetNormalTexture(leftChevron.texture)
@@ -71,96 +85,96 @@ HelpMePlay.CreateEventQueueButton = function()
 
                 leftChevron:SetScript("OnClick", function()
                     if currentEventIndex == 1 then
-                        currentEventIndex = #activeEvents
+                        currentEventIndex = #events
                     else
                         currentEventIndex = currentEventIndex - 1
                     end
-                    SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
+                    SetEvent(events[currentEventIndex])
                 end)
                 leftChevron:SetScript("OnEnter", function(self)
                     local previewIndex = 0
                     if currentEventIndex == 1 then
-                        previewIndex = #activeEvents
+                        previewIndex = #events
                     else
                         previewIndex = currentEventIndex - 1
                     end
-                    HelpMePlay.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
+                    HelpMePlay.Tooltip_OnEnter(self, events[previewIndex].name, "")
                 end)
                 leftChevron:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
-                rightChevron = CreateFrame("Button", nil, worldEventQueueButton)
+                rightChevron = CreateFrame("Button", nil, button)
                 rightChevron:SetSize(20, 20)
-                rightChevron:SetPoint("LEFT", worldEventQueueButton, "RIGHT", 2, 0)
+                rightChevron:SetPoint("LEFT", button, "RIGHT", 2, 0)
                 rightChevron.texture = rightChevron:CreateTexture()
                 rightChevron.texture:SetAtlas("common-icon-forwardarrow")
                 rightChevron:SetNormalTexture(rightChevron.texture)
                 rightChevron:SetHighlightAtlas("common-icon-forwardarrow", "ADD")
 
                 rightChevron:SetScript("OnClick", function()
-                    if currentEventIndex == (#activeEvents) then
+                    if currentEventIndex == (#events) then
                         currentEventIndex = 1
                     else
                         currentEventIndex = currentEventIndex + 1
                     end
-                    SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
+                    SetEvent(events[currentEventIndex])
                 end)
                 rightChevron:SetScript("OnEnter", function(self)
                     local previewIndex = 0
-                    if currentEventIndex == (#activeEvents) then
+                    if currentEventIndex == (#events) then
                         previewIndex = 1
                     else
                         previewIndex = currentEventIndex + 1
                     end
-                    HelpMePlay.Tooltip_OnEnter(self, activeEvents[previewIndex].name, "")
+                    HelpMePlay.Tooltip_OnEnter(self, events[previewIndex].name, "")
                 end)
                 rightChevron:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
-                SetWorldEventQueueButtonToEvent(activeEvents[currentEventIndex])
+                SetEvent(events[currentEventIndex])
             end
-        elseif (#activeEvents == 1) then
-            SetWorldEventQueueButtonToEvent(activeEvents[1])
+        elseif (#events == 1) then
+            SetEvent(events[1])
         else
             -- There aren't any events, so hide the button and return.
-            worldEventQueueButton:Hide()
+            button:Hide()
             return
         end
 
-        worldEventQueueButton:SetScript("OnClick", function(self)
+        button:SetScript("OnClick", function(self)
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
-        worldEventQueueButton:SetScript("OnEnter", function(self)
+        button:SetScript("OnEnter", function(self)
             HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can use the same keybind as your Extra Action Button for quick use.\n\nClick and hold to drag.")
         end)
-        worldEventQueueButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+        button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
         -- Clear all anchors from the button.
-        worldEventQueueButton:ClearAllPoints()
+        button:ClearAllPoints()
 
         -- Make the World Event queue button movable.
-        worldEventQueueButton:SetMovable(true)
-        worldEventQueueButton:EnableMouse(true)
-        worldEventQueueButton:RegisterForDrag("LeftButton")
-        worldEventQueueButton:SetScript("OnDragStart", function(self)
+        button:SetMovable(true)
+        button:EnableMouse(true)
+        button:RegisterForDrag("LeftButton")
+        button:SetScript("OnDragStart", function(self)
             self:StartMoving()
         end)
-        worldEventQueueButton:SetScript("OnDragStop", function(self)
+        button:SetScript("OnDragStop", function(self)
             self:StopMovingOrSizing()
             local anchor, parent, relativeAnchor, x, y = self:GetPoint()
-            HelpMePlayDB.Positions["WorldEventQueueButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+            HelpMePlayDB.Positions["button"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
         end)
 
         -- If the player has moved the queue button, then set its position to
         -- their location. Otherwise, default to the top center of the screen.
-        if HelpMePlayDB.Positions["WorldEventQueueButton"] then
-            local pos = HelpMePlayDB.Positions["WorldEventQueueButton"]
-            worldEventQueueButton:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
+        if HelpMePlayDB.Positions["button"] then
+            local pos = HelpMePlayDB.Positions["button"]
+            button:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
         else
-            worldEventQueueButton:SetPoint("TOP", worldEventQueueButton:GetParent(), "TOP", 0, -20)
+            button:SetPoint("TOP", button:GetParent(), "TOP", 0, -20)
         end
-        worldEventQueueButton:Show()
+        button:Show()
     else
-        if not worldEventQueueButton:IsVisible() then
-            worldEventQueueButton:Show()
+        if not button:IsVisible() then
+            button:Show()
         end
     end
 end
