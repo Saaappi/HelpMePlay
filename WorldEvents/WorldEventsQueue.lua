@@ -71,10 +71,10 @@ HelpMePlay.CreateEventQueueButton = function()
     local events = GetActiveEventsFromCalendarByDate()
 
     if not button then
-        button = CreateFrame("Button", addonName .. "button", UIParent, "ActionButtonTemplate")
+        button = CreateFrame("Button", addonName .. "WorldEventQueueButton", UIParent, "ActionButtonTemplate")
         button:RegisterForClicks("LeftButtonUp")
 
-        local extraActionButtonBinding = GetBindingKey("EXTRAACTIONBUTTON1")
+        local extraActionButtonBinding = GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE")
         if extraActionButtonBinding then
             SetBindingClick(extraActionButtonBinding, button:GetName(), "LeftButton")
         end
@@ -151,7 +151,7 @@ HelpMePlay.CreateEventQueueButton = function()
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
         button:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can use the same keybind as your Extra Action Button for quick use.\n\nClick and hold to drag.")
+            HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can set a keybind in the Keybindings menu for quick use.\n\nClick and hold to drag.")
         end)
         button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
