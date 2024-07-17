@@ -75,9 +75,9 @@ HelpMePlay.CreateEventQueueButton = function()
         button:RegisterForClicks("LeftButtonUp")
 
         local extraActionButtonBinding = GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE")
-        if extraActionButtonBinding then
+        --[[if extraActionButtonBinding then
             SetBindingClick(extraActionButtonBinding, button:GetName(), "LeftButton")
-        end
+        end]]
 
         -- There are multiple events active, so let's make the chevron
         -- buttons so the player can toggle between the active events.
@@ -151,7 +151,12 @@ HelpMePlay.CreateEventQueueButton = function()
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
         button:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can set a keybind in the Keybindings menu for quick use.\n\nClick and hold to drag.")
+            if extraActionButtonBinding then
+                HelpMePlay.Tooltip_OnEnter(self, self.name, format("%s Use |cff06BEC6%s|r for quick use.\n\nClick and hold to drag.", LHMP:ColorText("UNCOMMON", "TIP:"), extraActionButtonBinding))
+            else
+                print(extraActionButtonBinding)
+                HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can set a keybind in the Keybindings menu for quick use.\n\nClick and hold to drag.")
+            end
         end)
         button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
