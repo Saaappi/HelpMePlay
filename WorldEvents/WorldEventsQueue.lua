@@ -75,9 +75,6 @@ HelpMePlay.CreateEventQueueButton = function()
         button:RegisterForClicks("LeftButtonUp")
 
         local extraActionButtonBinding = GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE")
-        --[[if extraActionButtonBinding then
-            SetBindingClick(extraActionButtonBinding, button:GetName(), "LeftButton")
-        end]]
 
         -- There are multiple events active, so let's make the chevron
         -- buttons so the player can toggle between the active events.
