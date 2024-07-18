@@ -136,6 +136,7 @@ HelpMePlay.CreateEventQueueButton = function()
             LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
         button:SetScript("OnEnter", function(self)
+            extraActionButtonBinding = GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE")
             if extraActionButtonBinding then
                 HelpMePlay.Tooltip_OnEnter(self, self.name, format("%s Use |cff06BEC6%s|r for quick use.\n\nClick and hold to drag.", LHMP:ColorText("UNCOMMON", "TIP:"), extraActionButtonBinding))
             else
