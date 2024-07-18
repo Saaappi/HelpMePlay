@@ -97,3 +97,4 @@ _Keybinds\Keybinds.lua
 # Core
 # Start the addon load process and other setup events.
 Core.lua
+MainMenuBar.lua
