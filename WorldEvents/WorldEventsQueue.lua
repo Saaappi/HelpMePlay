@@ -10,24 +10,12 @@ local button
 local leftChevron
 local rightChevron
 
--- One-Time (Per Session) Variables
-local hasCalendarOpenedInCurrentSession = false
-
-local function OpenCalendar()
-    -- This function requests information from the server about
-    -- the calendar. Without it, it's possible not to know
-    -- the current day's event(s).
-    C_Calendar.OpenCalendar()
-end
-
 local function GetActiveEventsFromCalendarByDate()
     -- If the calendar hasn't been opened during the current
-    -- session, then open it so the current date can be
+    -- session, then load it so the current date can be
     -- catalogued.
-    if not hasCalendarOpenedInCurrentSession and IsPlayerInWorld() then
-        OpenCalendar()
-    else
-        C_Timer.After(0.5, GetActiveEventsFromCalendarByDate)
+    if not CalendarFrame then
+        C_AddOns.LoadAddOn("Blizzard_Calendar")
     end
 
     local events = {}
