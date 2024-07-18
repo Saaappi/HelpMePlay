@@ -1,6 +1,8 @@
 ## Version 3.0.0 - 2024/07/MM
 
 ### Added
+- Implemented a new button adjacent to Blizzard's micro menu for opening the settings.
+  - _**Author's Note**: This enhancement aims to improve usability for players utilizing non-English keyboard layouts.
 - Implemented keybind support for the World Event queue button.
 ### Changed or Updated
 - Revised the icon and title of the World Event queue button for Random Heroic Timerunning dungeons.
