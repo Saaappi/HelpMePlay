@@ -171,14 +171,27 @@ HelpMePlay.CreateEventQueueButton = function()
     end
 end
 
+HelpMePlay.IsCalendarLoaded = function()
+    local function DelayedUpdate()
+        if type(CalendarFrame) ~= "table" or not CalendarFrame:IsShown() then
+            local date = C_DateAndTime.GetCurrentCalendarTime()
+            C_Calendar.SetAbsMonth(date.month, date.year)
+            C_Calendar.OpenCalendar()
+        end
+    end
+
+    DelayedUpdate()
+    C_Timer.After(10, DelayedUpdate)
+end
+
 local function OnEvent(self, event, ...)
     if event == "PLAYER_LOGIN" then
         eventHandler:UnregisterEvent(event)
         if HelpMePlayDB["UseWorldEventQueue"] == false then return false end
 
-        C_Calendar.OpenCalendar()
+        HelpMePlay.IsCalendarLoaded()
 
-        C_Timer.After(1, HelpMePlay.CreateEventQueueButton)
+        C_Timer.After(10, HelpMePlay.CreateEventQueueButton)
     end
 end
 
