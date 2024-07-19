@@ -1,5 +1,7 @@
 ## Version 3.0.0 - 2024/07/23
 
+Please review the README for a full list of the addon's features. In addition to what's available, here's what changed going into the official launch.
+
 ### Added
 - Implemented a new button adjacent to Blizzard's micro menu for opening the settings.
   - _**Author's Note**: This enhancement aims to improve usability for players utilizing non-English keyboard layouts.
