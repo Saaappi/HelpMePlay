@@ -1,4 +1,4 @@
-## Version 3.0.0 - 2024/07/MM
+## Version 3.0.0 - 2024/07/23
 
 ### Added
 - Implemented a new button adjacent to Blizzard's micro menu for opening the settings.
