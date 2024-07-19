@@ -2,6 +2,7 @@
 ## Title: HelpMePlay
 ## Version: 3.0.0
 ## Author: LightskyGG
+## Dependencies: Blizzard_Calendar
 ## SavedVariables: HelpMePlayDB
 ## SavedVariablesPerCharacter: HelpMePlayDB_Character
 ## IconTexture: 236681

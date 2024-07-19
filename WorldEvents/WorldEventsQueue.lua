@@ -11,13 +11,6 @@ local leftChevron
 local rightChevron
 
 local function GetActiveEventsFromCalendarByDate()
-    -- If the calendar hasn't been opened during the current
-    -- session, then load it so the current date can be
-    -- catalogued.
-    if not CalendarFrame then
-        C_AddOns.LoadAddOn("Blizzard_Calendar")
-    end
-
     local events = {}
     local date = C_DateAndTime.GetCurrentCalendarTime()
     local numEvents = C_Calendar.GetNumDayEvents(0, date.monthDay)
@@ -178,15 +171,16 @@ HelpMePlay.CreateEventQueueButton = function()
     end
 end
 
-eventHandler:RegisterEvent("PLAYER_LOGIN")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
+local function OnEvent(self, event, ...)
     if event == "PLAYER_LOGIN" then
-        -- Unregister the event for performance.
-        eventHandler:UnregisterEvent("PLAYER_LOGIN")
-
+        eventHandler:UnregisterEvent(event)
         if HelpMePlayDB["UseWorldEventQueue"] == false then return false end
 
-        -- If there are events, then create the button.
-        C_Timer.After(3, function() HelpMePlay.CreateEventQueueButton() end)
+        C_Calendar.OpenCalendar()
+
+        C_Timer.After(1, HelpMePlay.CreateEventQueueButton)
     end
-end)
+end
+
+eventHandler:RegisterEvent("PLAYER_LOGIN")
+eventHandler:SetScript("OnEvent", OnEvent)
