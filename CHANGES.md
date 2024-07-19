@@ -8,6 +8,7 @@
 - Revised the icon and title of the World Event queue button for Random Heroic Timerunning dungeons.
 - Updated the icon and clarified the tooltip for the Remix scrap button to improve usability.
 - Refined the tooltip for the World Event queue button.
+- The Remix section in the settings is now hidden for non-Timerunners.
 ### Deprecated
 ### Removed
 - Removed the **Rare Scan** feature.

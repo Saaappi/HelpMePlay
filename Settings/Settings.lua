@@ -48,27 +48,29 @@ function HelpMePlay.RegisterSettings()
         true
     )
 
-    ----------------------
-    -- REMIX SECTION -----
-    ----------------------
-    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
+    if PlayerGetTimerunningSeasonID() == 1 then
+        ----------------------
+        -- REMIX SECTION -----
+        ----------------------
+        layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
 
-    HelpMePlay.AddSettingCheckbox(
-        category,
-        "Remix Usables Button",
-        "ShowRemixUsablesButton",
-        false,
-        HelpMePlayDB["ShowRemixUsablesButton"],
-        "Toggle to show the usables button. This button can be used to combine gems and add threads to your cloak."
-    )
-    HelpMePlay.AddSettingCheckbox(
-        category,
-        "Remix Scrap Button",
-        "ShowRemixScrapButton",
-        false,
-        HelpMePlayDB["ShowRemixScrapButton"],
-        "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
-    )
+        HelpMePlay.AddSettingCheckbox(
+            category,
+            "Remix Usables Button",
+            "ShowRemixUsablesButton",
+            false,
+            HelpMePlayDB["ShowRemixUsablesButton"],
+            "Toggle to show the usables button. This button can be used to combine gems and add threads to your cloak."
+        )
+        HelpMePlay.AddSettingCheckbox(
+            category,
+            "Remix Scrap Button",
+            "ShowRemixScrapButton",
+            false,
+            HelpMePlayDB["ShowRemixScrapButton"],
+            "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
+        )
+    end
 
     ------------------------
     -- GENERAL SECTION -----
