@@ -47,27 +47,27 @@
 
 ### LFG
 - Event Queue Button
-  - asdf
+  - Add a movable button to your screen that can be used to quickly queue for supported event activities.
 - Accept Party Invites
-  - asdf
+  - Toggle to automatically accept _any_ party invitation.
 - Ready Checks
-  - asdf
+  - Toggle to automatically accept ready checks.
 - Role Checks
-  - asdf
+  - Toggle to automatically accept role checks.
 - Quick Proposal
-  - asdf
+  - Select whether or not a left mouse click anywhere on the screen (not used by something else like an action button) will accept the queue.
 
 ### Merchant
 - Automatic Repair
-  - asdf
+  - Toggle whether to automatically repair at merchants.
 - Trainer Protection Value
-  - asdf
+  - If the addon is allowed to train on your behalf, select the **MINIMUM** amount of gold you must have before the addon can train for you. 0 will disable the feature.
 
 ### Guild Bank
 - Deposit Keep Amount
-  - asdf
+  - To automatically deposit gold into a guild bank, specify the desired amount to retain after each transaction. If your balance falls below this threshold, the addon will withdraw gold from the bank to maintain this set amount.
 - Keep Me Safe
-  - asdf
+  - When enabled, this setting restricts all transactions for a guild that you do not own. To enable automatic transactions while this setting is enabled, you must log into the Guild Master character.
 
 ### Quest Mobs
 - Quest Mobs Icon
