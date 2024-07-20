@@ -71,43 +71,46 @@
 
 ### Quest Mobs
 - Quest Mobs Icon
-  - asdf
+  - Select the icon that should appear on the nameplate for NPCs related to an active quest.
 - Quest Mobs Icon Position
-  - asdf
+  - Select the position the icon should be placed relative to the nameplate.
 - Quest Mobs Icon X Offset
-  - asdf
+  - Select the x offset for the icon.
 - Quest Mobs Icon Y Offset
-  - asdf
+  - Select the y offset for the icon.
 
 ### Wardrobe
 - Wardrobe Button
-  - asdf
+  - Toggle the Wardrobe (transmogrification) button that will anchor to the Character Frame. Using the button will quickly learn all unknown appearances in your inventory, then re-equip your original gear.
 
 ### New Character Configuration
 - Action Bar 2-8
-  - asdf
+  - Toggle the action bars that should be enabled during New Character Configuration.
 - Clear All Tracking
-  - asdf
+  - Toggle whether minimap tracking should be disabled during New Character Configuration.
 - Auto Loot
-  - asdf
+  - Toggle whether Auto Loot should be enabled during New Character Configuration.
 - Disable Tutorials
-  - asdf
+  - Toggle whether tutorial popups should be disabled during New Character Configuration.
 - Auto Push Spells
-  - asdf
+  - Toggle whether new spells should be pushed to the action bar during New Character Configuration. (You should leave this checked if you want new spells pushed to your action bar, otherwise uncheck it.)
 - Class Color Frames
-  - asdf
+  - Toggle PvP and PvE frames being colored by class during New Character Configuration.
 - Loot Under Mouse
-  - asdf
+  - Toggle whether the loot window should open under the mouse during New Character Configuration.
 - Disable Dialog
-  - asdf
+  - Toggle whether dialog should be disabled during New Character Configuration.
 - Create Whisper Window
-  - asdf
+  - Toggle the creation (or destruction) of a Whisper window on the chat frame during New Character Configuration.
 - Create Loot Window
-  - asdf
+  - Toggle the creation (or destruction) of a Loot window on the chat frame during New Character Configuration.
 - Edit Mode
-  - asdf
+  - Select which Edit Mode layout should be used during New Character Configuration.
 
 ### Utilities
 - Open Issue
+  - Click to quickly snatch the URL for the Github page to open an issue.
 - Talent Importer
+  - Click to launch the Talent Importer utility, where you can save talent loadouts to quickly use on alts at the click of a button!
 - Randomize Adventurer
+  - If you're an altoholic and don't know what to play next, click the button and the addon will make a random selection for you. Click as many times as you need.
