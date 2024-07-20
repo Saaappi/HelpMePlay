@@ -107,16 +107,27 @@ HelpMePlay.NewCharacter = function()
 
             -- Create Whisper Window
             if HelpMePlayDB["CreateWhisperWindow"] then
-                -- The new Whispers window.
-                local window = FCF_OpenNewWindow(WHISPER)
-                ChatFrame_RemoveAllMessageGroups(window)
-                ChatFrame_RemoveAllChannels(window)
-                ChatFrame_AddMessageGroup(window, "BN_WHISPER")
-                ChatFrame_AddMessageGroup(window, "WHISPER")
+                local windowExists = false
+                for i = 1, 10 do
+                    local name = GetChatWindowInfo(i)
+                    if name == WHISPER then
+                        windowExists = true
+                        break
+                    end
+                end
 
-                -- The General window.
-                ChatFrame_RemoveMessageGroup(ChatFrame1, "BN_WHISPER")
-                ChatFrame_RemoveMessageGroup(ChatFrame1, "WHISPER")
+                if not windowExists then
+                -- The new Whispers window.
+                    local window = FCF_OpenNewWindow(WHISPER)
+                    ChatFrame_RemoveAllMessageGroups(window)
+                    ChatFrame_RemoveAllChannels(window)
+                    ChatFrame_AddMessageGroup(window, "BN_WHISPER")
+                    ChatFrame_AddMessageGroup(window, "WHISPER")
+
+                    -- The General window.
+                    ChatFrame_RemoveMessageGroup(ChatFrame1, "BN_WHISPER")
+                    ChatFrame_RemoveMessageGroup(ChatFrame1, "WHISPER")
+                end
             else
                 -- If the setting is disabled, then remove the Whisper window.
                 for index = 1, 10 do
@@ -132,18 +143,29 @@ HelpMePlay.NewCharacter = function()
 
             -- Create Loot Window
             if HelpMePlayDB["CreateLootWindow"] then
-                -- The new Loot window.
-                local window = FCF_OpenNewWindow("Loot")
-                ChatFrame_RemoveAllMessageGroups(window)
-                ChatFrame_RemoveAllChannels(window)
-                ChatFrame_AddMessageGroup(window, "CURRENCY")
-                ChatFrame_AddMessageGroup(window, "LOOT")
-                ChatFrame_AddMessageGroup(window, "MONEY")
+                local windowExists = false
+                for i = 1, 10 do
+                    local name = GetChatWindowInfo(i)
+                    if name == "Loot" then
+                        windowExists = true
+                        break
+                    end
+                end
 
-                -- The General window.
-                ChatFrame_RemoveMessageGroup(ChatFrame1, "CURRENCY")
-                ChatFrame_RemoveMessageGroup(ChatFrame1, "LOOT")
-                ChatFrame_RemoveMessageGroup(ChatFrame1, "MONEY")
+                if not windowExists then
+                    -- The new Loot window.
+                    local window = FCF_OpenNewWindow("Loot")
+                    ChatFrame_RemoveAllMessageGroups(window)
+                    ChatFrame_RemoveAllChannels(window)
+                    ChatFrame_AddMessageGroup(window, "CURRENCY")
+                    ChatFrame_AddMessageGroup(window, "LOOT")
+                    ChatFrame_AddMessageGroup(window, "MONEY")
+
+                    -- The General window.
+                    ChatFrame_RemoveMessageGroup(ChatFrame1, "CURRENCY")
+                    ChatFrame_RemoveMessageGroup(ChatFrame1, "LOOT")
+                    ChatFrame_RemoveMessageGroup(ChatFrame1, "MONEY")
+                end
             else
                 -- If the setting is disabled, then remove the Loot window.
                 for index = 1, 10 do

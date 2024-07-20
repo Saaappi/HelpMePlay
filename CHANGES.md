@@ -17,3 +17,4 @@ Please review the README for a full list of the addon's features. In addition to
 ### Fixed
 - Adjusted tooltip headers to maintain concise formatting.
 - Resolved an issue during the login process that could cause the World Event system to not detect active events.
+- Addressed an issue where the Loot and Whisper windows could be inadvertently recreated upon resetting the New Character configuration.
