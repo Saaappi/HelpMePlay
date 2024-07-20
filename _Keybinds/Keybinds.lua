@@ -18,7 +18,13 @@ function HelpMePlayKeybind(key)
     elseif key == GetBindingKey("HELPMEPLAY_DELETECURSORITEM") then
         DeleteCursorItem()
     elseif key == GetBindingKey("HELPMEPLAY_QUICKQUESTABANDON") then
-        local focus = GetMouseFocus() -- This changes to GetMouseFoci() in 11.0
+        local patch = GetBuildInfo()
+        local focus
+        if patch == "11.0.0" or patch == "11.0.2" then
+            focus = GetMouseFoci()
+        else
+            focus = GetMouseFocus()
+        end
         if focus then
             local focusedIndexInfo = C_QuestLog.GetInfo(focus.questLogIndex)
             if focusedIndexInfo then
