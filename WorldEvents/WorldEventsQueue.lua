@@ -174,9 +174,9 @@ end
 HelpMePlay.IsCalendarLoaded = function()
     local function DelayedUpdate()
         if type(CalendarFrame) ~= "table" or not CalendarFrame:IsShown() then
+            C_Calendar.OpenCalendar()
             local date = C_DateAndTime.GetCurrentCalendarTime()
             C_Calendar.SetAbsMonth(date.month, date.year)
-            C_Calendar.OpenCalendar()
         end
     end
 
@@ -191,7 +191,7 @@ local function OnEvent(self, event, ...)
 
         HelpMePlay.IsCalendarLoaded()
 
-        C_Timer.After(10, HelpMePlay.CreateEventQueueButton)
+        C_Timer.After(15, HelpMePlay.CreateEventQueueButton)
     end
 end
 
