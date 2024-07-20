@@ -42,15 +42,15 @@ function LHMP:ColorText(color, text)
     color = string.upper(color)
     if LHMP.Colors[color] then
         return format("|cff%s%s|r", LHMP.Colors[color], text)
+    elseif C_ClassColor.GetClassColor(color) then
+        local classColor = C_ClassColor.GetClassColor(color):GenerateHexColor()
+        return format("|c%s%s|r", classColor, text)
     else
-        -- A class color was given instead.
-        local className = color
-        if C_ClassColor.GetClassColor(className) then
-            local classColor = C_ClassColor.GetClassColor(className):GenerateHexColor()
-            return format("|c%s%s|r", classColor, text)
-        end
+        -- A color value from the LHMP.Colors table was not supplied,
+        -- nor a class name value. Therefore, just color the text with
+        -- the hex code provided.
+        return format("|cff%s%s|r", color, text)
     end
-    return ""
 end
 function LHMP:SplitString(str, separator, nth)
     local strings = {}
