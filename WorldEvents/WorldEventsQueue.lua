@@ -189,6 +189,19 @@ local function OnEvent(self, event, ...)
         eventHandler:UnregisterEvent(event)
         if HelpMePlayDB["UseWorldEventQueue"] == false then return false end
 
+        eventHandler:RegisterEvent("LFG_PROPOSAL_SHOW")
+        if HelpMePlayDB["QuickProposal"] == 1 then
+            WorldFrame:HookScript("OnMouseUp", function(_, button)
+                if LFGDungeonReadyPopup:IsShown() then
+                    local hasResponded = select(8, GetLFGProposal())
+                    if button == "LeftButton" and (not hasResponded) then
+                        AcceptProposal()
+                    end
+                    return
+                end
+            end)
+        end
+
         HelpMePlay.IsCalendarLoaded()
 
         C_Timer.After(15, HelpMePlay.CreateEventQueueButton)

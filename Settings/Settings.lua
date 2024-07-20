@@ -292,6 +292,22 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["AcceptRoleChecks"],
         "Toggle to automatically accept role checks."
     )
+    HelpMePlay.AddSettingDropdown(
+        category,
+        "Quick Proposal",
+        "QuickProposal",
+        0,
+        HelpMePlayDB["QuickProposal"],
+        function()
+            local container = Settings.CreateControlTextContainer()
+            container:Add(1, YES)
+            container:Add(0, NO)
+            return container:GetData()
+        end,
+        "Select whether or not the left mouse button can be used to quickly accept LFG proposals.\n\n" ..
+        "If set to Yes, then the left mouse button can click anywhere on the screen to accept the proposal.\n\n" ..
+        LHMP:ColorText("RED", "NOTE: ") .. "Changing the setting will require a UI reload."
+    )
 
     ------------------------
     -- MERCHANT SECTION ----
@@ -728,6 +744,21 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
         UseWorldEventQueue = function() HelpMePlay.CreateEventQueueButton() end,
         ShowWardrobeButton = function() HelpMePlay.CreateWardrobeButton() end,
         isMinimapButtonEnabled = function() HelpMePlay.CreateMinimapButton() end,
+        QuickProposal = function()
+            StaticPopupDialogs["HMP_QUICK_PROPOSAL_CHANGED"] = {
+                text = format("The %s setting has changed. Would you like to reload the UI?", LHMP:ColorText("HEIRLOOM", "Quick Proposal")),
+                button1 = YES,
+                button2 = NO,
+                explicitAcknowledge = true,
+                OnAccept = function()
+                    C_UI.Reload()
+                end,
+                OnCancel = function()
+                end,
+                preferredIndex = 3
+            }
+            StaticPopup_Show("HMP_QUICK_PROPOSAL_CHANGED")
+        end,
     }
 
     local func = functions[variableName]
@@ -763,7 +794,6 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
 
     local options = Settings.CreateSliderOptions(minValue, maxValue, increment)
-    --options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, value)
     options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
         return value
     end)
@@ -857,6 +887,7 @@ function HelpMePlay.Init()
         QuestMobsIconXOffset = -5,
         QuestMobsIconYOffset = 0,
         QuestRewardSelectionTypeID = 0,
+        QuickProposal = 0,
         shouldAutomaticRepair = false,
         ShowChatIcons = false,
         ShowRemixScrapButton = false,

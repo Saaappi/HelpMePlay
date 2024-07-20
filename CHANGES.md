@@ -6,6 +6,7 @@ Please review the README for a full list of the addon's features. In addition to
 - Implemented a new button adjacent to Blizzard's micro menu for opening the settings.
   - _**Author's Note**: This enhancement aims to improve usability for players utilizing non-English keyboard layouts.
 - Implemented keybind support for the World Event queue button.
+- Implemented a new feature named **Quick Proposal**. With this feature enabled, players can now accept LFG proposals by simply left-clicking anywhere on the screen.
 ### Changed or Updated
 - Revised the icon and title of the World Event queue button for Random Heroic Timerunning dungeons.
 - Updated the icon and clarified the tooltip for the Remix scrap button to improve usability.
