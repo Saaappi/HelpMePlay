@@ -1,29 +1,29 @@
 ## Features
 ### Remix: Mists of Pandaria
 - Remix Usables Button
-  - asdf
+  - Add a button to your screen that facilitates efficient gem combination and thread integration for enhancing your Cloak of Infinite Potential.
 - Remix Scrap Button
-  - asdf
+  - Implement a button adjacent to the Unraveling Sands interface for seamless addition of unwanted items to the scrapping frame.
 
 ### General
 - Chat Icons
-  - asdf
-- Emotes
-  - asdf
-- Gossip
-  - asdf
+  - Prefixes the icon of looted items in the chat frame.
+- Emotes **[This feature is a work in progress!]**
+  - Enable quick emote functionality for supported NPCs upon hovering over them in the game world.
+- Gossip **[This feature is a work in progress!]**
+  - Enable quick selection of gossip options for supported NPCs to quickly finish quests.
 - Mute Talking Head
-  - asdf
+  - Disable the talking head popups permanently.
 - Open Containers
-  - asdf
+  - Automatically open supported container items, such as the Handful of Treats, during Hallow's End.
 - Skip Cutscenes
-  - asdf
+  - Automatically skip unwanted in-game cinematics and movies.
 - Skyriding
-  - asdf
+  - Add a button within the Skyriding talent interface for streamlined talent selection.
 - War Mode
-  - asdf
+  - When enabled, War Mode will automatically toggle upon entering Orgrimmar or Stormwind City while between levels 20 and 60.
 - Always Compare Items
-  - asdf
+  - By default, Blizzard displays the comparison tooltip when hovering over any equippable item. To toggle this functionality, uncheck the corresponding button.
 
 ### Quest
 - Accept and Complete Quests
@@ -34,9 +34,9 @@
   - asdf
 - Adventure Maps
   - asdf
-- Purchase Quest Items
+- Purchase Quest Items **[This feature is a work in progress!]**
   - asdf
-- Player Choice
+- Player Choice **[This feature is a work in progress!]**
   - asdf
 - Party Play
   - asdf
