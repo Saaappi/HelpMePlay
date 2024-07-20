@@ -23,27 +23,27 @@
 - War Mode
   - When enabled, War Mode will automatically toggle upon entering Orgrimmar or Stormwind City while between levels 20 and 60.
 - Always Compare Items
-  - By default, Blizzard displays the comparison tooltip when hovering over any equippable item. To toggle this functionality, uncheck the corresponding button.
+  - By default, Blizzard displays the comparison tooltip when hovering over any equippable item. To toggle this functionality, uncheck this button.
 
 ### Quest
 - Accept and Complete Quests
-  - asdf
+  - Toggle to accept and complete _any_ quest.
 - Ignore Daily Quests
-  - asdf
+  - Toggle to have the addon ignore accepting daily quests. (_If a daily quest is already in your quest log, the addon will not ignore completing it._)
 - Ignore Repeatable Quests
-  - asdf
+  - Toggle to have the addon ignore accepting repeatable quests. (_If a daily quest is already in your quest log, the addon will not ignore completing it._)
 - Adventure Maps
-  - asdf
+  - Toggle support for accepting quests from adventure maps. (_Currently, the only map supported is the map in Wingrest Embassy in The Waking Shores._)
 - Purchase Quest Items **[This feature is a work in progress!]**
-  - asdf
+  - Toggle support for expedited purchasing of quest-related items from merchants.
 - Player Choice **[This feature is a work in progress!]**
-  - asdf
+  - Toggle support for the addon to make player decisions on your behalf. (_These are decisions like which Draenor Outpost to build in a zone._)
 - Party Play
-  - asdf
+  - Toggle support for sharing quests in a group.
 - Chromie Time
-  - asdf
+  - Select the expansion to use when speaking with Chromie in Orgrimmar or Stormwind City.
 - Quest Rewards
-  - asdf
+  - Select how the addon should choose quest rewards. When using Item Level, if the reward is better than what you have equipped, the item will automatically equip.
 
 ### LFG
 - Event Queue Button
