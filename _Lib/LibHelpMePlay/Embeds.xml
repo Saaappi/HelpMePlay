@@ -1,12 +1,5 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
     <Script file="LibStub\LibStub.lua"/>
     <Script file="Main.lua"/>
-    <Script file="Data\Colors.lua"/>
-    <Script file="Data\Gossips.lua"/>
-    <Script file="Data\Emotes.lua"/>
-	<Script file="Data\Containers.lua"/>
-    <Script file="Data\Players.lua"/>
-    <Script file="Data\WorldEvents.lua"/>
-    <Script file="Data\QuestItems.lua"/>
-    <Script file="Data\Quests.lua"/>
+    <Script file="Data\Datas.lua"/>
 </Ui>

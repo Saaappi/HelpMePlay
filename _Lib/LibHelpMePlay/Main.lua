@@ -126,10 +126,12 @@ end
 -- QUESTS --
 ------------
 function LHMP:IsQuestIgnored(questID)
-    if not LHMP.IgnoredQuests[questID] then
-        return false
+    for _, id in next, LHMP.IgnoredQuests do
+        if id == questID then
+            return true
+        end
     end
-    return true
+    return false
 end
 
 ----------------

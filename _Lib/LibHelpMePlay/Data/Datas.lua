@@ -3,6 +3,268 @@ if not LHMP then
     return false
 end
 
+LHMP.Colors = {
+    COMMON = "FFFFFF",
+    UNCOMMON = "1EFF00",
+    RARE = "0070DD",
+    EPIC = "A335EE",
+    LEGENDARY = "FF8000",
+    ARTIFACT = "E6CC80",
+    HEIRLOOM = "00CCFF",
+    GOLD = "FFD100",
+    RED = "FF0000"
+}
+
+LHMP.Containers = {
+    21746,
+    37586,
+    54537,
+    117392,
+    117393,
+    117394,
+    147573,
+    147574,
+    147575,
+    147576,
+    211279,
+    216874,
+    223908,
+    223909,
+    223910,
+    223911
+}
+
+LHMP.Emotes = {
+    [153580] = "WAVE"
+}
+
+LHMP.RaceFactions = {
+    [1] = 1,
+    [2] = 0,
+    [3] = 1,
+    [4] = 1,
+    [5] = 0,
+    [6] = 0,
+    [7] = 1,
+    [8] = 0,
+    [9] = 0,
+    [10] = 0,
+    [11] = 1,
+    [22] = 1,
+    [25] = 1,
+    [26] = 0,
+    [27] = 0,
+    [28] = 0,
+    [29] = 1,
+    [30] = 1,
+    [31] = 0,
+    [32] = 1,
+    [34] = 1,
+    [35] = 0,
+    [36] = 0,
+    [37] = 1,
+    [52] = 1,
+    [70] = 0
+}
+
+LHMP.RaceClassCombinations = {
+    [1] = {1, 2, 3, 4, 5, 6, 8, 9, 10},
+    [2] = {1, 3, 4, 5, 6, 7, 8, 9, 10},
+    [3] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+    [4] = {1, 3, 4, 5, 6, 8, 9, 10, 11, 12},
+    [5] = {1, 3, 4, 5, 6, 8, 9, 10},
+    [6] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+    [7] = {1, 3, 4, 5, 6, 8, 9, 10},
+    [8] = {1, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+    [9] = {1, 3, 4, 5, 6, 7, 8, 9, 10},
+    [10] = {1, 2, 3, 4, 5, 6, 8, 9, 10, 12},
+    [11] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+    [22] = {1, 3, 4, 5, 6, 8, 9, 10, 11},
+    [25] = {1, 3, 4, 5, 6, 7, 8, 9, 10},
+    [26] = {1, 3, 4, 5, 6, 7, 8, 9, 10},
+    [27] = {1, 3, 4, 5, 6, 8, 9, 10},
+    [28] = {1, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+    [29] = {1, 3, 4, 5, 6, 8, 9, 10},
+    [30] = {1, 2, 3, 4, 5, 6, 8, 9, 10},
+    [31] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+    [32] = {1, 3, 4, 5, 6, 7, 8, 9, 10},
+    [34] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+    [35] = {1, 3, 4, 5, 6, 7, 8, 9, 10},
+    [36] = {1, 3, 4, 5, 6, 7, 8, 9, 10},
+    [37] = {1, 3, 4, 5, 6, 8, 9, 10},
+    [52] = {13},
+    [70] = {13}
+}
+
+LHMP.HeroClasses = {6, 12, 13}
+
+LHMP.PlayerChoices = {
+    [234] = 1,
+    [688] = 1
+}
+
+LHMP.QuestMerchants = {
+    [54982] = {
+        {
+            Index = 1,
+            Quantity = 3,
+            Conditions = {
+                "QUEST_ACTIVE = 29627",
+                "QUEST_OBJECTIVE_INCOMPLETE = 29627,3",
+            }
+        }
+    },
+    [54981] = {
+        {
+            Index = 1,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 29627",
+                "QUEST_OBJECTIVE_INCOMPLETE = 29627,2",
+            }
+        }
+    },
+    [73306] = {
+        {
+            Index = 6,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 33343",
+                "QUEST_OBJECTIVE_INCOMPLETE = 33343,1",
+            }
+        }
+    },
+    [156800] = {
+        {
+            Index = 1,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 55194",
+                "QUEST_OBJECTIVE_INCOMPLETE = 55194,1",
+            }
+        }
+    },
+    [167213] = {
+        {
+            Index = 1,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 59950",
+                "QUEST_OBJECTIVE_INCOMPLETE = 59950,1",
+            }
+        }
+    }
+}
+
+LHMP.IgnoredQuests = {
+    59583, -- Welcome to Stormwind
+    60343, -- Welcome to Orgrimmar
+}
+
+-- If the event should use the title from the calendar, then simply
+-- omit the <name> property from the event's table below.
+--
+-- The texture can be an atlas or a texture ID.
+LHMP.WorldEvents = {
+    [559] = {
+        ["dungeonQueueID"] = 744,
+        ["texture"] = 630783,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [562] = {
+        ["dungeonQueueID"] = 995,
+        ["texture"] = 630787,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [587] = {
+        ["dungeonQueueID"] = 1146,
+        ["texture"] = 630784,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [643] = {
+        ["dungeonQueueID"] = 1453,
+        ["texture"] = 630786,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [1056] = {
+        ["dungeonQueueID"] = 1971,
+        ["texture"] = 2838050,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [1263] = {
+        ["dungeonQueueID"] = 2274,
+        ["texture"] = 1408999,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [423] = {
+        ["dungeonQueueID"] = 288,
+        ["texture"] = 135450,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [341] = {
+        ["dungeonQueueID"] = 286,
+        ["texture"] = 368565,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [372] = {
+        ["dungeonQueueID"] = 287,
+        ["texture"] = 132621,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [324] = {
+        ["dungeonQueueID"] = 285,
+        ["texture"] = 133661,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [691] = {
+        ["dungeonQueueID"] = 1515,
+        ["texture"] = 357813,
+        ["conditions"] = {
+            ["minLevel"] = 70,
+            ["isForTimerunning"] = false,
+        }
+    },
+    [1525] = {
+        ["name"] = format("Random Heroic Timerunning Dungeon: %s", EXPANSION_NAME4),
+        ["dungeonQueueID"] = 2539,
+        ["texture"] = 328269,
+        ["conditions"] = {
+            ["minLevel"] = 10,
+            ["isForTimerunning"] = true,
+        }
+    }
+}
+
 LHMP.Gossips = {
     -- Non-NPC Gossips
     [0] = {
