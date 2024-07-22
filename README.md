@@ -96,7 +96,7 @@
 
 #### New Character Configuration
 
-New Character Configuration is a template for how each new character should be configured. You can see all the options you have below.
+New Character Configuration serves as a comprehensive template outlining the configuration specifications for each new character. The objective is to minimize the setup time required for new characters.
 
 - Action Bar 2-8
   - Toggle the action bars that should be enabled during New Character Configuration.
