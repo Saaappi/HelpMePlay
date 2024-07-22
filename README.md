@@ -150,6 +150,6 @@ Categories:
 - Open Issue
   - Click to quickly snatch the URL for the Github page to open an issue.
 - Talent Importer
-  - Click to launch the Talent Importer utility, where you can save talent loadouts to quickly use on alts at the click of a button!
+  - Click to launch the Talent Importer utility, where you can save talent loadouts to quickly use on alts at the click of a button! (The button to select a random talent from your saved loadout is in the talent interface.)
 - Randomize Adventurer
   - If you're an altoholic and don't know what to play next, click the button and the addon will make a random selection for you. Click as many times as you need.
