@@ -147,6 +147,12 @@ Categories:
 - Skyriding
 - Vashj'ir
 
+### Keybindings Module
+- Mount Up: _This keybinding is explained in the Mount Module section above._
+- Delete Cursor Item: To swiftly delete an item, set a keybind, pick up the item from your inventory, and use the keybind. (**WARNING**: This keybind does NOT have a confirmation, so be careful!)
+- Quick Quest Abandon: Abandon quests by zone or individually by setting a keybind, hovering the zone or quest in your quest log, and using the keybind. (There is NOT a confirmation when abandoning individual quests, but there is confirmation when abandoning quests for an entire zone or section.)
+- World Event Queue: This keybind is used to click the World Event queue button. (This button is explained in the LFG section.)
+
 ### Utilities
 
 - Open Issue
