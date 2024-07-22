@@ -121,6 +121,14 @@ New Character Configuration serves as a comprehensive template outlining the con
 - Edit Mode
   - Select which Edit Mode layout should be used during New Character Configuration.
 
+#### Heirlooms
+
+HelpMePlay introduces a new button positioned next to the Heirloom journal, facilitating swift equipping of any generated heirlooms. This effectively cuts down the setup process for heirlooms by approximately 50%.
+
+#### Queue
+
+In contrast to the World Event queue button, the Character Queue button is ad-hoc, appearing conditionally to facilitate quickly queuing for a specific dungeon.
+
 ### Utilities
 
 - Open Issue
