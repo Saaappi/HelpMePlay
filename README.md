@@ -83,7 +83,9 @@
 - Wardrobe Button
   - Toggle the Wardrobe (transmogrification) button that will anchor to the Character Frame. Using the button will quickly learn all unknown appearances in your inventory, then re-equip your original gear.
 
-### New Character Configuration
+### Character Module
+#### New Character Configuration
+New Character Configuration is a template for how each new character should be configured. You can see all the options you have below.
 - Action Bar 2-8
   - Toggle the action bars that should be enabled during New Character Configuration.
 - Clear All Tracking
@@ -114,3 +116,5 @@
   - Click to launch the Talent Importer utility, where you can save talent loadouts to quickly use on alts at the click of a button!
 - Randomize Adventurer
   - If you're an altoholic and don't know what to play next, click the button and the addon will make a random selection for you. Click as many times as you need.
+
+### Character
