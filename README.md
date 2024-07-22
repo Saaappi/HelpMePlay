@@ -1,13 +1,13 @@
 ## Features
 
-### Remix: Mists of Pandaria
+### Remix: Mists of Pandaria Module
 
 - Remix Usables Button
   - Add a button to your screen that facilitates efficient gem combination and thread integration for enhancing your Cloak of Infinite Potential.
 - Remix Scrap Button
   - Implement a button adjacent to the Unraveling Sands interface for seamless addition of unwanted items to the scrapping frame.
 
-### General
+### General Module
 
 - Chat Icons
   - Prefixes the icon of looted items in the chat frame.
@@ -28,7 +28,7 @@
 - Always Compare Items
   - By default, Blizzard displays the comparison tooltip when hovering over any equippable item. To toggle this functionality, uncheck this button.
 
-### Quest
+### Quest Module
 
 - Accept and Complete Quests
   - Toggle to accept and complete _any_ quest.
@@ -49,7 +49,7 @@
 - Quest Rewards
   - Select how the addon should choose quest rewards. When using Item Level, if the reward is better than what you have equipped, the item will automatically equip.
 
-### LFG
+### LFG Module
 
 - Event Queue Button
   - Add a movable button to your screen that can be used to quickly queue for supported event activities.
@@ -62,21 +62,21 @@
 - Quick Proposal
   - Select whether or not a left mouse click anywhere on the screen (not used by something else like an action button) will accept the queue.
 
-### Merchant
+### Merchant Module
 
 - Automatic Repair
   - Toggle whether to automatically repair at merchants.
 - Trainer Protection Value
   - If the addon is allowed to train on your behalf, select the **MINIMUM** amount of gold you must have before the addon can train for you. 0 will disable the feature.
 
-### Guild Bank
+### Guild Bank Module
 
 - Deposit Keep Amount
   - To automatically deposit gold into a guild bank, specify the desired amount to retain after each transaction. If your balance falls below this threshold, the addon will withdraw gold from the bank to maintain this set amount.
 - Keep Me Safe
   - When enabled, this setting restricts all transactions for a guild that you do not own. To enable automatic transactions while this setting is enabled, you must log into the Guild Master character.
 
-### Quest Mobs
+### Quest Mobs Module
 
 - Quest Mobs Icon
   - Select the icon that should appear on the nameplate for NPCs related to an active quest.
@@ -87,7 +87,7 @@
 - Quest Mobs Icon Y Offset
   - Select the y offset for the icon.
 
-### Wardrobe
+### Wardrobe Module
 
 - Wardrobe Button
   - Toggle the Wardrobe (transmogrification) button that will anchor to the Character Frame. Using the button will quickly learn all unknown appearances in your inventory, then re-equip your original gear.
@@ -129,6 +129,22 @@ HelpMePlay introduces a new button positioned next to the Heirloom journal, faci
 
 In contrast to the World Event queue button, the Character Queue button is ad-hoc, appearing conditionally to facilitate quickly queuing for a specific dungeon.
 
+### Mount Module
+
+The mount subsystem is a comprehensive and intelligent solution for selecting a random mount based on the character's environment and properties. For example, a level 5 character will use the chauffered chopper mount appropriate for the player's faction, whereas a level 70 character in Northern Stranglethorn would use a Skyriding mount. However, if your character is underwater or swimming at the surface, then an aquatic mount is selected.
+
+Another characteristic of the mount subsystem is that it will try to use each mount in a category once before reusing previous mounts. (Mount categories can be seen below. Used mounts are NOT remembered between sessions!)
+
+To use the mount subsystem, open the Mount Journal and use the "Categorize Mounts" button at the top of the journal. Additionally, open your keybindings, scroll down to the **HelpMePlay** section, and set a keybind for the "Mount Up" bind. (This binding is used for both mounting and unmounting!)
+
+Categories:
+- AQ
+- Aquatic
+- Flying
+- Ground
+- Skyriding
+- Vashj'ir
+
 ### Utilities
 
 - Open Issue
@@ -137,5 +153,3 @@ In contrast to the World Event queue button, the Character Queue button is ad-ho
   - Click to launch the Talent Importer utility, where you can save talent loadouts to quickly use on alts at the click of a button!
 - Randomize Adventurer
   - If you're an altoholic and don't know what to play next, click the button and the addon will make a random selection for you. Click as many times as you need.
-
-### Character
