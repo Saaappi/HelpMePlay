@@ -1,3 +1,5 @@
+The addon settings can be opened through the Escape menu (Options -> AddOns), via the `/hmp` slash command, or using the button adjacent to Blizzard's micro menu.
+
 ## Features
 
 ### Remix: Mists of Pandaria Module
