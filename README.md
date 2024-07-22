@@ -1,4 +1,4 @@
-The addon settings can be opened through the Escape menu (Options -> AddOns), via the `/hmp` slash command, or using the button adjacent to Blizzard's micro menu.
+The addon settings can be opened through the Escape menu (Options -> AddOns), via the `/hmp` or `/helpmeplay` slash commands, or using the button adjacent to Blizzard's micro menu.
 
 ## Features
 
