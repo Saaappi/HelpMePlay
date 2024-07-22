@@ -1,11 +1,14 @@
 ## Features
+
 ### Remix: Mists of Pandaria
+
 - Remix Usables Button
   - Add a button to your screen that facilitates efficient gem combination and thread integration for enhancing your Cloak of Infinite Potential.
 - Remix Scrap Button
   - Implement a button adjacent to the Unraveling Sands interface for seamless addition of unwanted items to the scrapping frame.
 
 ### General
+
 - Chat Icons
   - Prefixes the icon of looted items in the chat frame.
 - Emotes **[This feature is a work in progress!]**
@@ -26,6 +29,7 @@
   - By default, Blizzard displays the comparison tooltip when hovering over any equippable item. To toggle this functionality, uncheck this button.
 
 ### Quest
+
 - Accept and Complete Quests
   - Toggle to accept and complete _any_ quest.
 - Ignore Daily Quests
@@ -46,6 +50,7 @@
   - Select how the addon should choose quest rewards. When using Item Level, if the reward is better than what you have equipped, the item will automatically equip.
 
 ### LFG
+
 - Event Queue Button
   - Add a movable button to your screen that can be used to quickly queue for supported event activities.
 - Accept Party Invites
@@ -58,18 +63,21 @@
   - Select whether or not a left mouse click anywhere on the screen (not used by something else like an action button) will accept the queue.
 
 ### Merchant
+
 - Automatic Repair
   - Toggle whether to automatically repair at merchants.
 - Trainer Protection Value
   - If the addon is allowed to train on your behalf, select the **MINIMUM** amount of gold you must have before the addon can train for you. 0 will disable the feature.
 
 ### Guild Bank
+
 - Deposit Keep Amount
   - To automatically deposit gold into a guild bank, specify the desired amount to retain after each transaction. If your balance falls below this threshold, the addon will withdraw gold from the bank to maintain this set amount.
 - Keep Me Safe
   - When enabled, this setting restricts all transactions for a guild that you do not own. To enable automatic transactions while this setting is enabled, you must log into the Guild Master character.
 
 ### Quest Mobs
+
 - Quest Mobs Icon
   - Select the icon that should appear on the nameplate for NPCs related to an active quest.
 - Quest Mobs Icon Position
@@ -80,12 +88,16 @@
   - Select the y offset for the icon.
 
 ### Wardrobe
+
 - Wardrobe Button
   - Toggle the Wardrobe (transmogrification) button that will anchor to the Character Frame. Using the button will quickly learn all unknown appearances in your inventory, then re-equip your original gear.
 
 ### Character Module
+
 #### New Character Configuration
+
 New Character Configuration is a template for how each new character should be configured. You can see all the options you have below.
+
 - Action Bar 2-8
   - Toggle the action bars that should be enabled during New Character Configuration.
 - Clear All Tracking
@@ -110,6 +122,7 @@ New Character Configuration is a template for how each new character should be c
   - Select which Edit Mode layout should be used during New Character Configuration.
 
 ### Utilities
+
 - Open Issue
   - Click to quickly snatch the URL for the Github page to open an issue.
 - Talent Importer
