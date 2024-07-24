@@ -9,3 +9,4 @@ Please review the README for a full list of the addon's features. In addition to
 ### Removed
 ### Fixed
 - Resolved an issue where the Settings failed to generate checkboxes and dropdown menus.
+- Addressed an issue with the Quick Quest Abandon keybind, restoring its intended functionality.

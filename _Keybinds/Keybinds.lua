@@ -18,22 +18,19 @@ function HelpMePlayKeybind(key)
     elseif key == GetBindingKey("HELPMEPLAY_DELETECURSORITEM") then
         DeleteCursorItem()
     elseif key == GetBindingKey("HELPMEPLAY_QUICKQUESTABANDON") then
-        local patch = GetBuildInfo()
-        local focus
-        if patch == "11.0.0" or patch == "11.0.2" then
-            focus = GetMouseFoci()
-        else
-            focus = GetMouseFocus()
-        end
-        if focus then
-            local focusedIndexInfo = C_QuestLog.GetInfo(focus.questLogIndex)
-            if focusedIndexInfo then
-                if focusedIndexInfo.isHeader then
+        local mouseFoci = GetMouseFoci()
+        if mouseFoci then
+            local focus = mouseFoci[1]
+            if focus and focus.info then -- Not a header
+                AbandonQuestByID(focus.info.questID)
+            else
+                local info = C_QuestLog.GetInfo(focus.questLogIndex)
+                if info and info.isHeader then
                     -- This is a header that has quests beneath it. As such,
                     -- let's give the player a popup to choose if they want to
                     -- abandon all the quests in the zone.
                     StaticPopupDialogs["HMP_QUICK_QUEST_ABANDON_CONFIRMATION"] = {
-                        text = format("You're about to abandon all quests within |cffFFD100%s|r. Do you want to continue?", focus:GetText()),
+                        text = format("You're about to abandon all quests within |cffFFD100%s|r. Do you want to continue?", info.title),
                         button1 = YES,
                         button2 = NO,
                         explicitAcknowledge = true,
@@ -41,13 +38,11 @@ function HelpMePlayKeybind(key)
                             local startingIndex = focus.questLogIndex + 1
                             local endingIndex = C_QuestLog.GetNumQuestLogEntries()
                             for i = startingIndex, endingIndex do
-                                local childIndexInfo = C_QuestLog.GetInfo(i)
-                                if childIndexInfo then
-                                    if not childIndexInfo.isHeader then
-                                        AbandonQuestByID(childIndexInfo.questID)
-                                    else
-                                        return
-                                    end
+                                local child = C_QuestLog.GetInfo(i)
+                                if child and (not child.isHeader) then
+                                    AbandonQuestByID(child.questID)
+                                else
+                                    return
                                 end
                             end
                         end,
@@ -56,10 +51,19 @@ function HelpMePlayKeybind(key)
                         preferredIndex = 3
                     }
                     StaticPopup_Show("HMP_QUICK_QUEST_ABANDON_CONFIRMATION")
-                else
-                    AbandonQuestByID(focusedIndexInfo.questID)
                 end
             end
+        end
+        if focus then
+            if focus.info.isHeader then
+            --local focusedIndexInfo = C_QuestLog.GetInfo(focus.questLogIndex)
+            --if focusedIndexInfo then
+                --if focusedIndexInfo.isHeader then
+                
+            else
+                AbandonQuestByID(focus.info.questID)
+            end
+            --end
         end
     elseif key == GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE") then
         local buttonName = format("%sWorldEventQueueButton", addonName)
