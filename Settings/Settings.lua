@@ -774,7 +774,7 @@ function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, def
     local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
 
     Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
-    Settings.CreateCheckBox(category, setting, tooltip)
+    Settings.CreateCheckbox(category, setting, tooltip)
 
     return setting
 end
@@ -783,7 +783,7 @@ function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, def
     local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
 
     Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
-    Settings.CreateDropDown(category, setting, options, tooltip)
+    Settings.CreateDropdown(category, setting, options, tooltip)
 
     return setting
 end
