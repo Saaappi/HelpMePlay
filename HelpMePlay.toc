@@ -1,6 +1,6 @@
 ## Interface: 110000, 110002
 ## Title: HelpMePlay
-## Version: 3.0.1
+## Version: 3.0.2
 ## Author: LightskyGG
 ## Dependencies: Blizzard_Calendar
 ## SavedVariables: HelpMePlayDB
