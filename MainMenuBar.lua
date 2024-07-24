@@ -1,7 +1,16 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
+local LHMP = LibStub("LibHelpMePlay")
 
 local atlas = "Quest-Campaign-Available"
+local nextUpdate = {
+    year = 2024,
+    month = 8,
+    monthDay = 6,
+    weekday = 3,
+    hour = 0,
+    minute = 0
+}
 
 local function OnEvent(_, event, ...)
     if event == "PLAYER_LOGIN" then
@@ -30,7 +39,12 @@ local function OnEvent(_, event, ...)
             end
         end)
         button:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), "")
+            local currentDate = C_DateAndTime.GetCurrentCalendarTime()
+            if C_DateAndTime.CompareCalendarTime(currentDate, nextUpdate) == -1 then -- Addon is outdated
+                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("RED", HelpMePlay.ErrorMessages["ADDON_VERSION_OUTDATED"]))
+            else
+                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), "")
+            end
         end)
         button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
     end
