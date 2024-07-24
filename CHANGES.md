@@ -7,3 +7,6 @@
 ### Removed
 ### Fixed
 - Resolved the issue where the Skyriding talent button was not appearing in the Skyriding talents frame.
+- Addressed two issues within the Player Talent subsystem.
+  - The talent button is now correctly displayed within the talent frame.
+  - Hero Talents are currently ignored (for now), ensuring that talents enumerate as intended.

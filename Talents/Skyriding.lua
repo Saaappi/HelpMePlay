@@ -39,13 +39,13 @@ local function PurchaseTalents()
                 for _, entryID in next, nodeInfo.entryIDs do
                     local entryInfo = C_Traits.GetEntryInfo(configID, entryID)
                     local definitionInfo = C_Traits.GetDefinitionInfo(entryInfo.definitionID)
-                    local spellName = (GetSpellInfo(definitionInfo.spellID))
+                    local spellName = C_Spell.GetSpellName(definitionInfo.spellID))
                     print(nodeInfo.ID .. "-" .. entryID .. " (" .. spellName .. ")")
                 end
             else
                 local entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[1])
                 local definitionInfo = C_Traits.GetDefinitionInfo(entryInfo.definitionID)
-                local spellName = (GetSpellInfo(definitionInfo.spellID))
+                local spellName = C_Spell.GetSpellName(definitionInfo.spellID))
                 print(nodeInfo.ID .. "-" .. nodeInfo.entryIDs[1] .. " (" .. spellName .. ")")
             end
         end]]

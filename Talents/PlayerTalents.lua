@@ -4,12 +4,22 @@ local classTalentsButton = {}
 local classID = 0
 local specID = 0
 
+local function AreAllTalentNodeConditionsMet(activeConfigID, node)
+    for _, conditionID in next, node.conditionIDs do
+        local condition = C_Traits.GetConditionInfo(activeConfigID, conditionID)
+        if not condition.isMet then
+            return false
+        end
+    end
+    return true
+end
+
 local function GetSpellLinkFromEntryID(activeConfigID, entryID)
     local entryInfo = C_Traits.GetEntryInfo(activeConfigID, entryID)
     if entryInfo then
         local definitionInfo = C_Traits.GetDefinitionInfo(entryInfo.definitionID)
         if definitionInfo and definitionInfo.spellID then
-            local spellLink = GetSpellLink(definitionInfo.spellID)
+            local spellLink = C_Spell.GetSpellLink(definitionInfo.spellID)
             if spellLink then
                 return spellLink
             end
@@ -27,13 +37,16 @@ end
 
 local function PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID)
     local wasSuccessful = false
-    local node = {}
-    for _, talent in pairs(loadoutEntryInfo) do
-        node = C_Traits.GetNodeInfo(activeConfigID, talent.nodeID)
-        if node.type == 0 and node.canPurchaseRank then
-            wasSuccessful = C_Traits.PurchaseRank(activeConfigID, talent.nodeID)
-        elseif node.type == 2 and node.canPurchaseRank then
-            wasSuccessful = C_Traits.SetSelection(activeConfigID, talent.nodeID, talent.selectionEntryID)
+    for _, talent in next, loadoutEntryInfo do
+        local node = C_Traits.GetNodeInfo(activeConfigID, talent.nodeID)
+        if node.type == 0 and AreAllTalentNodeConditionsMet(activeConfigID, node) then
+            if node.canPurchaseRank then
+                wasSuccessful = C_Traits.PurchaseRank(activeConfigID, talent.nodeID)
+            end
+        elseif node.type == 2 and AreAllTalentNodeConditionsMet(activeConfigID, node) then
+            if node.canPurchaseRank then
+                wasSuccessful = C_Traits.SetSelection(activeConfigID, talent.nodeID, talent.selectionEntryID)
+            end
         end
         if wasSuccessful then
             HelpMePlay.Print(format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
@@ -73,11 +86,11 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     end
 end)
 
-EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
+EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
     classTalentsButton = HelpMePlay.CreateWidget("IconButton", {
         name = format("%sClassTalentsButton", addonName),
         texture = 132222,
-        parent = ClassTalentFrame.TalentsTab.ApplyButton,
+        parent = PlayerSpellsFrame.TalentsFrame.ApplyButton,
         anchor = "RIGHT",
         relativeAnchor = "LEFT",
         xOff = -20,
@@ -89,7 +102,7 @@ EventRegistry:RegisterCallback("TalentFrame.TalentTab.Show", function()
     })
 
     classTalentsButton:ClearAllPoints()
-    classTalentsButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -20, 0)
+    classTalentsButton:SetPoint("RIGHT", classTalentsButton:GetParent(), "LEFT", -20, 0)
 
     classTalentsButton:SetScript("OnClick", function()
         if HelpMePlayDB["ClassTalents"][classID][specID] then
