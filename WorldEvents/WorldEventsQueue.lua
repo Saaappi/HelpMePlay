@@ -17,9 +17,12 @@ local function GetActiveEventsFromCalendarByDate()
     if numEvents > 0 then
         for index = 1, numEvents do
             local event = C_Calendar.GetDayEvent(0, date.monthDay, index)
-            if event and LHMP:IsEventQueueable(event.eventID) then
-                local worldEvent = LHMP:GetWorldEvent(event.eventID)
-                table.insert(events, { name = worldEvent.name or event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
+            local endTime = event.endTime
+            if C_DateAndTime.CompareCalendarTime(date, endTime) == 1 then -- The end time is at a later time.
+                if event and LHMP:IsEventQueueable(event.eventID) then
+                    local worldEvent = LHMP:GetWorldEvent(event.eventID)
+                    table.insert(events, { name = worldEvent.name or event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
+                end
             end
         end
     end
@@ -133,7 +136,6 @@ HelpMePlay.CreateEventQueueButton = function()
             if extraActionButtonBinding then
                 HelpMePlay.Tooltip_OnEnter(self, self.name, format("%s Use |cff06BEC6%s|r for quick use.\n\nClick and hold to drag.", LHMP:ColorText("UNCOMMON", "TIP:"), extraActionButtonBinding))
             else
-                print(extraActionButtonBinding)
                 HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can set a keybind in the Keybindings menu for quick use.\n\nClick and hold to drag.")
             end
         end)
@@ -204,7 +206,7 @@ local function OnEvent(self, event, ...)
 
         HelpMePlay.IsCalendarLoaded()
 
-        C_Timer.After(15, HelpMePlay.CreateEventQueueButton)
+        C_Timer.After(12, HelpMePlay.CreateEventQueueButton)
     end
 end
 
