@@ -267,7 +267,7 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
         })
 
         button:ClearAllPoints()
-        button:SetPoint("TOPRIGHT", MountJournalSummonRandomFavoriteButton, "TOPLEFT", -125, 0)
+        button:SetPoint("TOPRIGHT", MountJournalSummonRandomFavoriteButton, "TOPRIGHT", -310, 0)
 
         button:SetScript("OnClick", function()
             if not InCombatLockdown() then

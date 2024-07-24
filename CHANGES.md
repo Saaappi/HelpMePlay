@@ -4,6 +4,7 @@ Please review the README for a full list of the addon's features. In addition to
 
 ### Added
 ### Changed or Updated
+- Changed the location of the Categorize Mounts button to accommodate Blizzard's new Skyriding button.
 ### Deprecated
 ### Removed
 ### Fixed
