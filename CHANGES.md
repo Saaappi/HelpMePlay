@@ -5,6 +5,7 @@
 ### Changed or Updated
 ### Deprecated
 ### Removed
+- Removed a debug print within the Mount subsystem; sorry about that.
 ### Fixed
 - Resolved the issue where the Skyriding talent button was not appearing in the Skyriding talents frame.
 - Addressed two issues within the Player Talent subsystem.

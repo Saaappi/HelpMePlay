@@ -90,7 +90,6 @@ function HelpMePlay.SummonMountByType(type)
             if isUsable then
                 C_MountJournal.SummonByID(mountID)
             else
-                print(format("%d could not be used.", mountID))
                 HelpMePlay.SummonMountByType(type)
             end
         end)
