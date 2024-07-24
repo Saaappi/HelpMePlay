@@ -4,7 +4,7 @@
 - Implemented support for the "new" Skyriding talents.
 ### Changed or Updated
 - The Remix button to combine gems and use threads has been updated to process items based on left and right mouse clicks, incorporating modifier keys for additional item processing.
-  - _**Author's Note:** The tooltip has been updated to reflect the combinations necessary to use the button. This is in light of a change made in 11.0, where secure buttons now now limited to 255 characters. ([ref](https://github.com/Stanzilla/WoWUIBugs/issues/552#issuecomment-2192109095))_
+  - _**Author's Note:** The tooltip has been updated to reflect the combinations necessary to use the button. This is in light of a change made in 11.0, where secure buttons are now limited to 255 characters. ([ref](https://github.com/Stanzilla/WoWUIBugs/issues/552#issuecomment-2192109095))_
 ### Deprecated
 ### Removed
 - Removed a debug print within the Mount subsystem; sorry about that.
