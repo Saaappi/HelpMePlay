@@ -1,9 +1,28 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
-local remixItems = {210681, 210714, 210715, 210716, 210717, 210718, 211106, 211107, 211123, 211124, 216639, 216640, 216641, 216643, 216644, 219273, 220367, 220368, 220370, 220371, 220372, 220374, 226142, 226143, 226144, 226145, 210984, 217722, 219282, 219264, 219275, 219276, 219274, 219277, 219280, 210982, 219281, 210983, 219262, 219278, 219258, 219279, 219256, 219269, 219267, 210990, 210985, 219266, 219263, 210989, 219272, 219257, 219259, 219260, 219271, 219268, 210987, 210986, 219265, 219261, 219270}
 local button
 local lastTime
 local cloak = "|cffe6cc80|Hitem:210333::::::::10:253:::::::::|h[Cloak of Infinite Potential]|h|r"
+local macroText = ""
+
+-- Remix item tables.
+local uncommonGems = {210681, 210714, 210715, 210716, 210717, 220367, 220371}
+local rareGems = {216644, 220372, 216643, 216640, 216639, 220368, 216641}
+local epicGems = {220374, 220370, 210718, 211123, 211106, 211124, 211107}
+local commonThreads = {210984, 217722, 210982, 210983, 210990, 210985, 210989, 210987, 210986}
+local uncommonThreads = {226145, 219264, 219262, 219258, 219256, 219263, 219261, 219257, 219260, 219259}
+local rareThreads = {219273, 226144, 219269, 219267, 219266, 219272, 219271, 219268, 219265, 219270}
+local epicThreads = {226142, 226143, 219282, 219275, 219276, 219274, 219277, 219280, 219281, 219278, 219279}
+
+local stringDescriptions = {
+	"|cff94CEA8Left Click (No Modifier)|r: Gems (|cff1EFF00Uncommon|r)",
+	"|cff94CEA8Left Click (Shift)|r: Gems (|cff0070DDRare|r)",
+	"|cff94CEA8Left Click (Ctrl)|r: Gems (|cffA335EEEpic|r)",
+	"|cff9CDCFERight Click (No Modifier)|r: Threads (Common)",
+	"|cff9CDCFERight Click (Shift)|r: Threads (|cff1EFF00Uncommon|r)",
+	"|cff9CDCFERight Click (Ctrl)|r: Threads (|cff0070DDRare|r)",
+	"|cff9CDCFERight Click (Alt)|r: Threads (|cffA335EEEpic|r/|cffFF8000Legendary|r)"
+}
 
 HelpMePlay.CreateRemixUsablesButton = function()
 	if not button then
@@ -23,7 +42,42 @@ HelpMePlay.CreateRemixUsablesButton = function()
 			button:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 		end
 
-		button:SetScript("PreClick", function()
+		button:SetScript("PreClick", function(_, btn)
+			-- Reset macroText back to a blank string.
+			macroText = ""
+
+			-- Set the attribute of the button based on which button is used.
+			if btn == "LeftButton" and (not IsModifierKeyDown()) then
+				for _, itemID in next, uncommonGems do
+					macroText = macroText .. format("/use item:%s\n", itemID)
+				end
+			elseif btn == "LeftButton" and IsShiftKeyDown() then
+				for _, itemID in next, rareGems do
+					macroText = macroText .. format("/use item:%s\n", itemID)
+				end
+			elseif btn == "LeftButton" and IsControlKeyDown() then
+				for _, itemID in next, epicGems do
+					macroText = macroText .. format("/use item:%s\n", itemID)
+				end
+			elseif btn == "RightButton" and (not IsModifierKeyDown()) then
+				for _, itemID in next, commonThreads do
+					macroText = macroText .. format("/use item:%s\n", itemID)
+				end
+			elseif btn == "RightButton" and IsShiftKeyDown() then
+				for _, itemID in next, uncommonThreads do
+					macroText = macroText .. format("/use item:%s\n", itemID)
+				end
+			elseif btn == "RightButton" and IsControlKeyDown() then
+				for _, itemID in next, rareThreads do
+					macroText = macroText .. format("/use item:%s\n", itemID)
+				end
+			elseif btn == "RightButton" and IsAltKeyDown() then
+				for _, itemID in next, epicThreads do
+					macroText = macroText .. format("/use item:%s\n", itemID)
+				end
+			end
+			button:SetAttribute("macrotext", macroText)
+
 			lastTime = GetTime()
 
 			-- Equip the cloak if it's not equipped.
@@ -36,11 +90,18 @@ HelpMePlay.CreateRemixUsablesButton = function()
 		end)
 
 		button:SetAttribute("type", "macro")
-		local macrotext = "/use item:" .. table.concat(remixItems, "\n/use item:")
-		button:SetAttribute("macrotext", macrotext)
+		--[[for _, itemID in next, remixItems do
+			macroText = macroText .. format("/use item:%s\n", itemID)
+		end]]
+		--local macroText = "/use item:" .. table.concat(remixItems, "\n/use item:")
+		--button:SetAttribute("macrotext", macroText)
 
 		button:SetScript("OnEnter", function(self)
-			HelpMePlay.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", format("Click to combine gems and add threads to your %s.\n\nYour cloak will be equipped if it's not already.\n\nClick and hold to drag.", cloak, cloak))
+			local combinedString = ""
+			for _, description in next, stringDescriptions do
+				combinedString = combinedString .. description .. "\n"
+			end
+			HelpMePlay.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", format("Click to combine gems and add threads to your %s.\n\nYour cloak will be equipped if it's not already.\n\n%s\n\nClick and hold to drag.", cloak, combinedString))
 		end)
 		button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 	end
