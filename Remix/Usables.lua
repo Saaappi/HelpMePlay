@@ -18,6 +18,7 @@ local stringDescriptions = {
 	"|cff94CEA8Left Click (No Modifier)|r: Gems (|cff1EFF00Uncommon|r)",
 	"|cff94CEA8Left Click (Shift)|r: Gems (|cff0070DDRare|r)",
 	"|cff94CEA8Left Click (Ctrl)|r: Gems (|cffA335EEEpic|r)",
+	"",
 	"|cff9CDCFERight Click (No Modifier)|r: Threads (Common)",
 	"|cff9CDCFERight Click (Shift)|r: Threads (|cff1EFF00Uncommon|r)",
 	"|cff9CDCFERight Click (Ctrl)|r: Threads (|cff0070DDRare|r)",
