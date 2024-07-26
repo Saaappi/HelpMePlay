@@ -1,4 +1,4 @@
-## Version 3.0.3 - 2024/07/25
+## Version 3.0.3 - 2024/07/26
 
 ### Added
 - When manually converting items for their appearances, the addon will now automatically accept the associated popup.
