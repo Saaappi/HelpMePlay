@@ -13,33 +13,29 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, 
     local function GetItemIconHMP(itemLink)
         local texture = C_Item.GetItemIconByID(itemLink)
         local collectedTexture
-        local item = { C_Item.GetItemInfo(itemLink) }
-        if item and texture then
-            local itemType = item[6]
+        local itemType, _, _, _, _, _, _, _, bindType = select(6, C_Item.GetItemInfo(itemLink))
+        if texture then
             if itemType == "Armor" or itemType == "Weapon" then
                 local sourceID = select(2, C_TransmogCollection.GetItemInfo(itemLink))
                 if sourceID then
                     local isCollected = select(5, C_TransmogCollection.GetAppearanceSourceInfo(sourceID))
-                    local canPlayerCollectSource = select(2, C_TransmogCollection.PlayerCanCollectSource(sourceID))
-                    local bindType = item[14]
-                    if bindType == 1 then -- Soulbound
-                        if not isCollected then
-                            if canPlayerCollectSource then
-                                collectedTexture = format("%s\\UNKNOWN", iconPath)
-                            else
-                                collectedTexture = format("%s\\UNKNOWABLE_SOULBOUND", iconPath)
-                            end
+                    local canCollect = select(2, C_TransmogCollection.PlayerCanCollectSource(sourceID))
+                    if bindType == 1 and (not isCollected) then -- Soulbound
+                        if canCollect then
+                            collectedTexture = format("%s\\UNKNOWN", iconPath)
+                        else
+                            collectedTexture = format("%s\\UNKNOWABLE_SOULBOUND", iconPath)
                         end
-                    elseif bindType == 0 then -- BoE
-                        if not isCollected then
-                            if canPlayerCollectSource then
-                                collectedTexture = format("%s\\UNKNOWN", iconPath)
-                            else
-                                collectedTexture = format("%s\\UNKNOWABLE_BY_CHARACTER", iconPath)
-                            end
+                    elseif bindType == 2 and (not isCollected) then -- BoE
+                        if canCollect then
+                            collectedTexture = format("%s\\UNKNOWN", iconPath)
+                        else
+                            collectedTexture = format("%s\\UNKNOWABLE_BY_CHARACTER", iconPath)
                         end
                     end
-                    collectedTexture = format("%s\\KNOWN", iconPath)
+                    if isCollected then
+                        collectedTexture = format("%s\\KNOWN", iconPath)
+                    end
                     return format("\124T%s:12\124t %s \124T%s:12\124t", texture, itemLink, collectedTexture)
                 end
             end

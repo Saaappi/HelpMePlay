@@ -1,5 +1,7 @@
 local addonName, HelpMePlay = ...
+local eventHandler = CreateFrame("Frame")
 local transmogrificationButton
+local buttonClicked = false
 
 local transmogrificationSlotIDs = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 18, 19 }
 
@@ -17,6 +19,7 @@ local function EquipOriginalItems(equippedItems)
 					C_Item.EquipItemByName(item.itemLink)
 				end
 			end
+			buttonClicked = false
 		end)
 	end
 end
@@ -39,7 +42,13 @@ local function LearnTransmog(equippedItems)
 									if canCollectSource then
 										C_Item.EquipItemByName(itemLink)
 										if StaticPopup1:IsVisible() then
-											StaticPopup1Button1:Click("LeftButton")
+											local text = StaticPopup1Text:GetText()
+											if text == CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM then
+												StaticPopup1Button2:Click("LeftButton")
+												ClearCursor()
+											else
+												StaticPopup1Button1:Click("LeftButton")
+											end
 										end
 									end
 								end
@@ -55,6 +64,7 @@ end
 
 local function Main()
     if not InCombatLockdown() then
+		buttonClicked = true
         local equippedItems = {}
         for _, slotID in ipairs(transmogrificationSlotIDs) do
             if type(slotID) == "table" then
@@ -104,6 +114,17 @@ HelpMePlay.CreateWardrobeButton = function()
 		end
     end
 end
+
+local function OnEvent(_, event, ...)
+	if event == "CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM" then
+		if not buttonClicked and HelpMePlayDB["ShowWardrobeButton"] then
+			StaticPopup1Button1:Click()
+		end
+	end
+end
+
+eventHandler:RegisterEvent("CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM")
+eventHandler:SetScript("OnEvent", OnEvent)
 
 EventRegistry:RegisterCallback("CharacterFrame.Show", function()
 	if HelpMePlayDB["ShowWardrobeButton"] then

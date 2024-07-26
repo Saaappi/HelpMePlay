@@ -1,15 +1,11 @@
-## Version 3.0.2 - 2024/07/24
+## Version 3.0.3 - 2024/07/25
 
 ### Added
-- Implemented support for the "new" Skyriding talents.
+- When manually converting items to learn their appearances, the addon will now automatically accept the popup.
+  - _**Author's Note**: This is only true when the Wardrobe Button is enabled._
 ### Changed or Updated
-- The Remix button to combine gems and use threads has been updated to process items based on left and right mouse clicks, incorporating modifier keys for additional item processing.
-  - _**Author's Note:** The tooltip has been updated to reflect the combinations necessary to use the button. This is in light of a change made in 11.0, where secure buttons are now limited to 255 characters. ([ref](https://github.com/Stanzilla/WoWUIBugs/issues/552#issuecomment-2192109095))_
 ### Deprecated
 ### Removed
-- Removed a debug print within the Mount subsystem; sorry about that.
 ### Fixed
-- Resolved the issue where the Skyriding talent button was not appearing in the Skyriding talents frame.
-- Addressed two issues within the Player Talent subsystem.
-  - The talent button is now correctly displayed within the talent frame.
-  - Hero Talents are currently ignored (for now), ensuring that talents enumerate as intended.
+- Fixed an issue where the **Chat Icons** feature used the incorrect icon for unknown appearances.
+- Fixed the Wardrobe button using items with an appearance that must first be converted to a Warbound item. 
