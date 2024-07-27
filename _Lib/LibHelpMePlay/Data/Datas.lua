@@ -326,17 +326,36 @@ LHMP.Gossips = {
     -- Death Knights
     [28406] = {{ID = 37188, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12733"}}},
     [29173] = {{ID = 36227, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12801"}}},
-    -- Pandaria: Remix
+    ----------------------
+    -- MISTS OF PANDARIA -
+    ----------------------
+    -- Remix
     [216591] = {{ID = 120607, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79432"}}},
     [217538] = {
         {ID = 120604, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79440"}},
         {ID = 120948, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79440"}}
     },
-    -- Pandaria: Alliance Intro
-    -- Pandaria: Horde Intro
+    -- Introduction (Alliance)
+    [165505] = {{ID = 54294, CanConfirm = false, Conditions = {"LEVEL_LOWER = 40", "QUEST_ACTIVE = 29548"}}},
+    -- Introduction (Horde)
     [3310] = {{ID = 30402, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31853", "QUEST_OBJECTIVE_INCOMPLETE = 31853,1", "LEVEL_LOWER = 30"}}},
     [55054] = {{ID = 41023, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29690"}}},
-    -- Pandaria
+    -- The Jade Forest
+    [66292] = {{ID = 40614, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29548"}}},
+    [54763] = {{ID = 39167, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29579"}}},
+    [54914] = {
+        {ID = 39493, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29620"}},
+        {ID = 40364, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29620"}}
+    },
+    -- Krasarang Wilds
+    -- Kun-Lai Summit
+    [60980] = {{ID = 33096, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
+    [60979] = {{ID = 37429, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
+    [60997] = {{ID = 37075, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30883"}}},
+    [61004] = {{ID = 37431, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30907"}}},
+    [61006] = {{ID = 37430, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30907"}}},
+    [61007] = {{ID = 37432, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30907"}}},
+    -- Dread Wastes
     [62202] = {
         {
             ID = 35586,
@@ -357,15 +376,9 @@ LHMP.Gossips = {
     [62666] = {{ID = 35825, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31129"}}},
     [62771] = {{ID = 40853, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31084"}}},
     [64259] = {{ID = 40852, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31189"}}},
-    [60980] = {{ID = 33096, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
-    [60979] = {{ID = 37429, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
-    [60997] = {{ID = 37075, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30883"}}},
-    [61004] = {{ID = 37431, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30907"}}},
-    [61006] = {{ID = 37430, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30907"}}},
-    [61007] = {{ID = 37432, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30907"}}},
     [62151] = {{ID = 33893, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31211"}}},
+    -- Landfall Campaign (Alliance)
     [67940] = {{ID = 121752, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32248"}}},
-    [68599] = {{ID = 41933, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     [68526] = {
         {ID = 41352, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32380"}},
         {ID = 41353, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32381"}},
@@ -398,6 +411,7 @@ LHMP.Gossips = {
     },
     [68130] = {{ID = 41837, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32334"}}},
     [68545] = {{ID = 40881, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32336"}}},
+    -- Isle of Thunder Campaign (Alliance)
     [70360] = {{ID = 41772, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32681"}}},
     [70370] = {{ID = 41766, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32644"}}},
     [67992] = {
@@ -409,13 +423,7 @@ LHMP.Gossips = {
     [69810] = {{ID = 41898, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32652"}}},
     [70297] = {{ID = 41662, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32655"}}},
     [69615] = {{ID = 42150, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32656"}}},
-    [165505] = {{ID = 54294, CanConfirm = false, Conditions = {"LEVEL_LOWER = 40", "QUEST_ACTIVE = 29548"}}},
-    [66292] = {{ID = 40614, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29548"}}},
-    [54763] = {{ID = 39167, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29579"}}},
-    [54914] = {
-        {ID = 39493, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29620"}},
-        {ID = 40364, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29620"}}
-    },
+    --
     [54944] = {{ID = 40241, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29632"}}},
     [54924] = {{ID = 40594, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29633"}}},
     [54925] = {{ID = 40595, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29634"}}},
@@ -574,6 +582,9 @@ LHMP.Gossips = {
     ----------------------
     -- Highmaul
     [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}}, -- Gharg
+    ----------------------
+    ----------------------
+    -- LEGION ------------
     ----------------------
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
