@@ -391,6 +391,25 @@ LHMP.Gossips = {
     [65974] = {{ID = 41756, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31778"}}},
     [56340] = {{ID = 40184, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
     [56336] = {{ID = 40464, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
+    [56478] = {{ID = 40187, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
+    [56477] = {{ID = 40186, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
+    [55688] = {{ID = 39795, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29823"}}},
+    [56525] = {{ID = 40650, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29967"}}},
+    [60952] = {{ID = 34466, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30015", "LEVEL_LOWER = 30"}}},
+    [54959] = {{ID = 40054, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
+    [56585] = {{ID = 40057, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
+    [56592] = {{ID = 40154, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
+    [56591] = {
+        {ID = 40056, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}},
+        {ID = 40060, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}
+    },
+    [59727] = {{ID = 28345, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30499", "LEVEL_LOWER = 30"}}},
+    [59305] = {{ID = 40695, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
+    [56841] = {{ID = 40230, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
+    [56838] = {{ID = 40583, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
+    [56840] = {{ID = 40301, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
+    [64207] = {{ID = 28426, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30485", "LEVEL_LOWER = 30"}}},
+    [59899] = {{ID = 29679, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30648", "LEVEL_LOWER = 30"}}},
     -- Valley of the Four Winds
     [56133] = {
         {ID = 40440, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29919"}},
@@ -428,6 +447,11 @@ LHMP.Gossips = {
     },
     [58461] = {{ID = 40247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30186"}}},
     [59857] = {{ID = 39267, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30627"}}},
+    [56192] = {
+        {ID = 40435, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
+        {ID = 40431, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
+        {ID = 40430, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}}
+    },
     -- Krasarang Wilds
     [58376] = {
         {ID = 40644, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30082"}},
@@ -555,34 +579,6 @@ LHMP.Gossips = {
     [69615] = {{ID = 42150, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32656"}}},
     -- Timeless Isle
     [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}},
-    -- Scenario: Dark Heart of Pandaria
-    [71358] = {{ID = 42205, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}},
-    ------------------------
-    ------------------------
-    [56478] = {{ID = 40187, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
-    [56477] = {{ID = 40186, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29941"}}},
-    [55688] = {{ID = 39795, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29823"}}},
-    [56525] = {{ID = 40650, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29967"}}},
-    [60952] = {{ID = 34466, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30015", "LEVEL_LOWER = 30"}}},
-    [54959] = {{ID = 40054, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
-    [56585] = {{ID = 40057, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
-    [56592] = {{ID = 40154, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}},
-    [56591] = {
-        {ID = 40056, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}},
-        {ID = 40060, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29903"}}
-    },
-    [59727] = {{ID = 28345, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30499", "LEVEL_LOWER = 30"}}},
-    [59305] = {{ID = 40695, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
-    [56841] = {{ID = 40230, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
-    [56838] = {{ID = 40583, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
-    [56840] = {{ID = 40301, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30484"}}},
-    [64207] = {{ID = 28426, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30485", "LEVEL_LOWER = 30"}}},
-    [59899] = {{ID = 29679, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30648", "LEVEL_LOWER = 30"}}},
-    [56192] = {
-        {ID = 40435, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
-        {ID = 40431, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
-        {ID = 40430, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}}
-    },
     ----------------------
     -- WARLORDS OF DRAENOR
     ----------------------
