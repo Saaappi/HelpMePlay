@@ -266,69 +266,28 @@ LHMP.WorldEvents = {
 }
 
 LHMP.Gossips = {
-    -- Non-NPC Gossips
+    -------------------------
+    -- Game Object Gossips --
+    -------------------------
     [0] = {
-        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}},
-        {ID = 40006, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 39082, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 39808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}}, -- Cho's "Art" (The Jade Forest)
+        {ID = 40006, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
+        {ID = 39082, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
+        {ID = 39808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
+        {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
     },
-    -- Exile's Reach
-    [153211] = {{ID = 49526, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55763"}}},
-    [162998] = {
-        {ID = 51269, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58923"}},
-        {ID = 51271, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58923"}}
-    },
-    [156943] = {{ID = 50819, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55981"}}},
-    [161350] = {{ID = 51352, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55992"}}},
-    [154169] = {{ID = 51396, CanConfirm = false, Conditions = {"NONE = NONE"}}},
-    [162943] = {
-        {ID = 51265, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58915"}},
-        {ID = 51265, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59972"}}
-    },
-    [156886] = {
-        {ID = 51802, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59354"}},
-        {ID = 51803, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59355"}}
-    },
-    [161666] = {
-        {ID = 49525, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60168"}},
-        {ID = 49523, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60168", "QUEST_OBJECTIVE_INCOMPLETE = 60168,3"}}
-    },
-    [164835] = {{ID = 51237, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59347"}}},
-    [162972] = {
-        {ID = 51266, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58917"}},
-        {ID = 51267, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58917"}}
-    },
-    [163209] = {{ID = 51202, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58962"}}},
-    [167298] = {{ID = 52949, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59944"}}},
-    [167179] = {
-        {ID = 52641, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59958"}},
-        {ID = 52643, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59958"}}
-    },
-    [167598] = {{ID = 54297, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59978"}}},
-    [167663] = {{ID = 52784, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59984"}}},
-    [168431] = {{ID = 51745, CanConfirm = false, Conditions = {"NONE = NONE"}}},
-    [167309] = {
-        {ID = 52664, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59952"}},
-        {ID = 52665, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59955"}}
-    },
-    [167215] = {
-        {ID = 52668, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60162"}},
-        {ID = 52666, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60162", "QUEST_OBJECTIVE_INCOMPLETE = 60162,3"}}
-    },
-    [167184] = {
-        {ID = 52644, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59967"}},
-        {ID = 52645, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59967"}}
-    },
-    [167537] = {{ID = 52640, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59956"}}},
-    [167478] = {{ID = 52639, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59970"}}},
+    -------------------------
+    -- THE BURNING CRUSADE --
+    -------------------------
+    -------------------------
+    -- WRATH OF THE LICH KING
+    -------------------------
     -- Death Knights
     [28406] = {{ID = 37188, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12733"}}},
     [29173] = {{ID = 36227, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12801"}}},
-    ----------------------
-    -- MISTS OF PANDARIA -
-    ----------------------
+    -------------------------
+    -- MISTS OF PANDARIA ----
+    -------------------------
     -- Remix
     [216591] = {{ID = 120607, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79432"}}},
     [217538] = {
@@ -579,15 +538,14 @@ LHMP.Gossips = {
     [69615] = {{ID = 42150, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32656"}}},
     -- Timeless Isle
     [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}},
-    ----------------------
-    -- WARLORDS OF DRAENOR
-    ----------------------
-    -- Highmaul
+    -------------------------
+    -- WARLORDS OF DRAENOR --
+    -------------------------
+    -- Raid: Highmaul
     [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}}, -- Gharg
-    ----------------------
-    ----------------------
-    -- LEGION ------------
-    ----------------------
+    -------------------------
+    -- LEGION ---------------
+    -------------------------
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {
@@ -606,13 +564,74 @@ LHMP.Gossips = {
     [96653] = {{ID = 44646, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39663"}}},
     [97644] = {{ID = 44913, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40373"}}},
     [100429] = {{ID = 45043, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 44463"}}},
-    ----------------------
-    -- DRAGONFLIGHT ------
-    ----------------------
+    -------------------------
+    -- SHADOWLANDS ----------
+    -------------------------
+    -- Exile's Reach
+    [153211] = {{ID = 49526, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55763"}}},
+    [162998] = {
+        {ID = 51269, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58923"}},
+        {ID = 51271, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58923"}}
+    },
+    [156943] = {{ID = 50819, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55981"}}},
+    [161350] = {{ID = 51352, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55992"}}},
+    [154169] = {{ID = 51396, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    [162943] = {
+        {ID = 51265, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58915"}},
+        {ID = 51265, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59972"}}
+    },
+    [156886] = {
+        {ID = 51802, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59354"}},
+        {ID = 51803, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59355"}}
+    },
+    [161666] = {
+        {ID = 49525, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60168"}},
+        {ID = 49523, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60168", "QUEST_OBJECTIVE_INCOMPLETE = 60168,3"}}
+    },
+    [164835] = {{ID = 51237, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59347"}}},
+    [162972] = {
+        {ID = 51266, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58917"}},
+        {ID = 51267, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58917"}}
+    },
+    [163209] = {{ID = 51202, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58962"}}},
+    [167298] = {{ID = 52949, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59944"}}},
+    [167179] = {
+        {ID = 52641, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59958"}},
+        {ID = 52643, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59958"}}
+    },
+    [167598] = {{ID = 54297, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59978"}}},
+    [167663] = {{ID = 52784, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59984"}}},
+    [168431] = {{ID = 51745, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    [167309] = {
+        {ID = 52664, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59952"}},
+        {ID = 52665, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59955"}}
+    },
+    [167215] = {
+        {ID = 52668, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60162"}},
+        {ID = 52666, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60162", "QUEST_OBJECTIVE_INCOMPLETE = 60162,3"}}
+    },
+    [167184] = {
+        {ID = 52644, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59967"}},
+        {ID = 52645, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59967"}}
+    },
+    [167537] = {{ID = 52640, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59956"}}},
+    [167478] = {{ID = 52639, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59970"}}},
+    -------------------------
+    -- DRAGONFLIGHT ---------
+    -------------------------
     -- Evokers
     [182317] = {{ID = 54978, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65060"}}},
     [184165] = {{ID = 51921, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65071"}}},
     [182258] = {{ID = 55597, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65701"}}},
     [182610] = {{ID = 51849, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65100"}}},
     [182611] = {{ID = 51850, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65100"}}},
+    -------------------------
+    -- THE WAR WITHIN -------
+    -------------------------
+    -------------------------
+    -- MIDNIGHT -------------
+    -------------------------
+    -------------------------
+    -- THE LAST TITAN -------
+    -------------------------
 }
