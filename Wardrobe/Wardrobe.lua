@@ -116,7 +116,7 @@ HelpMePlay.CreateWardrobeButton = function()
 end
 
 local function OnEvent(_, event, ...)
-	if event == "CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM" or event == "EQUIP_BIND_CONFIRM" or event == "USE_NO_REFUND_CONFIRM" then
+	if event == "CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM" or event == "EQUIP_BIND_CONFIRM" or event == "MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL" or event == "USE_NO_REFUND_CONFIRM" then
 		if not buttonClicked and HelpMePlayDB["ShowWardrobeButton"] then
 			StaticPopup1Button1:Click()
 		end
@@ -125,6 +125,7 @@ end
 
 eventHandler:RegisterEvent("CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM")
 eventHandler:RegisterEvent("EQUIP_BIND_CONFIRM")
+eventHandler:RegisterEvent("MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL")
 eventHandler:RegisterEvent("USE_NO_REFUND_CONFIRM")
 eventHandler:SetScript("OnEvent", OnEvent)
 
