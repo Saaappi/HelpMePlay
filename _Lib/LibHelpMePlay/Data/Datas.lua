@@ -569,6 +569,12 @@ LHMP.Gossips = {
         {ID = 40431, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
         {ID = 40430, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}}
     },
+    ----------------------
+    -- WARLORDS OF DRAENOR
+    ----------------------
+    -- Highmaul
+    [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}}, -- Gharg
+    ----------------------
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {
