@@ -116,10 +116,15 @@ HelpMePlay.CreateWardrobeButton = function()
 end
 
 local function OnEvent(_, event, ...)
-	if event == "CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM" or event == "EQUIP_BIND_CONFIRM" or event == "MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL" or event == "USE_NO_REFUND_CONFIRM" then
-		if not buttonClicked and HelpMePlayDB["ShowWardrobeButton"] then
-			StaticPopup1Button1:Click()
-		end
+	local events = {
+		CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM = true,
+		EQUIP_BIND_CONFIRM = true,
+		MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL = true,
+		USE_NO_REFUND_CONFIRM = true
+	}
+
+	if events[event] and (not buttonClicked) and HelpMePlayDB["ShowWardrobeButton"] then
+		StaticPopup1Button1:Click()
 	end
 end
 
