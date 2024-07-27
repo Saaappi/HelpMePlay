@@ -370,6 +370,19 @@ LHMP.Gossips = {
     [56209] = {{ID = 40636, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29920"}}},
     [56210] = {{ID = 40637, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29920"}}},
     [56206] = {{ID = 40541, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29920"}}},
+    [59395] = {{ID = 39183, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
+    [59401] = {{ID = 40697, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
+    [59397] = {{ID = 39805, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
+    [59392] = {
+        {ID = 39631, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495", "QUEST_OBJECTIVE_INCOMPLETE = 30495,4", "LEVEL_LOWER = 30"}},
+        {ID = 39632, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}},
+        {ID = 39633, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29932"}}
+    },
+    [59400] = {{ID = 39806, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
+    [57242] = {{ID = 40586, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29932"}}},
+    [59572] = {{ID = 39293, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30568"}}},
+    [59563] = {{ID = 39488, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30568"}}},
+    [64244] = {{ID = 38770, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31303"}}},
     -- Valley of the Four Winds
     [56133] = {
         {ID = 40440, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29919"}},
@@ -407,6 +420,10 @@ LHMP.Gossips = {
     },
     [58461] = {{ID = 40247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30186"}}},
     -- Krasarang Wilds
+    [58376] = {
+        {ID = 40644, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30082"}},
+        {ID = 40648, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30082"}}
+    },
     -- Kun-Lai Summit
     [60980] = {{ID = 33096, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
     [60979] = {{ID = 37429, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
@@ -484,23 +501,6 @@ LHMP.Gossips = {
     [69615] = {{ID = 42150, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32656"}}},
     ------------------------
     ------------------------
-    [59395] = {{ID = 39183, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
-    [59401] = {{ID = 40697, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
-    [59397] = {{ID = 39805, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
-    [59392] = {
-        {ID = 39631, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495", "QUEST_OBJECTIVE_INCOMPLETE = 30495,4", "LEVEL_LOWER = 30"}},
-        {ID = 39632, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}},
-        {ID = 39633, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29932"}}
-    },
-    [59400] = {{ID = 39806, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30495"}}},
-    [57242] = {{ID = 40586, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29932"}}},
-    [59572] = {{ID = 39293, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30568"}}},
-    [59563] = {{ID = 39488, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30568"}}},
-    [64244] = {{ID = 38770, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31303"}}},
-    [58376] = {
-        {ID = 40644, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30082"}},
-        {ID = 40648, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30082"}}
-    },
     [59151] = {{ID = 41038, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30178"}}},
     [55597] = {{ID = 39799, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30347"}}},
     [58547] = {{ID = 40208, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30269"}}},
@@ -606,6 +606,9 @@ LHMP.Gossips = {
     [96653] = {{ID = 44646, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 39663"}}},
     [97644] = {{ID = 44913, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40373"}}},
     [100429] = {{ID = 45043, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 44463"}}},
+    ----------------------
+    -- DRAGONFLIGHT ------
+    ----------------------
     -- Evokers
     [182317] = {{ID = 54978, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65060"}}},
     [184165] = {{ID = 51921, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65071"}}},
