@@ -217,6 +217,32 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
             QUEST_GOSSIP()
+        elseif type == 30 then -- Garrison Architect
+            local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
+            if garrisonLevel ~= 1 then return false end
+
+            if HelpMePlay.playerFactionID == 0 then
+                if not C_QuestLog.IsOnQuest(34461) then return false end
+            else
+                if not C_QuestLog.IsOnQuest(34587) then return false end
+            end
+
+            if HelpMePlayDB_Character.IsGarrisonBarracksPlaced then return false end
+
+            -- Get available plots and attempt to place the Barracks.
+            local plots = C_Garrison.GetPlotsForBuilding(26)
+            if plots then
+                for _, plotID in next, plots do
+                    local buildingID = C_Garrison.GetOwnedBuildingInfo(plotID)
+                    if buildingID == nil then
+                        C_Garrison.PlaceBuilding(plotID, 26)
+                        PlaySound(SOUNDKIT.UI_GARRISON_ARCHITECT_TABLE_UPGRADE_START)
+                        HelpMePlayDB_Character.IsGarrisonBarracksPlaced = true
+                        HideUIPanel(GarrisonBuildingFrame)
+                        return
+                    end
+                end
+            end
         elseif type == 45 then -- Chromie Time
             if HelpMePlayDB["ChromieTimeExpansionID"] == 0 or HelpMePlay.playerLevel >= HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"] then return end
 
