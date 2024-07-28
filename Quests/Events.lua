@@ -247,6 +247,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
             if garrisonLevel ~= 1 then return end
 
+            if HelpMePlay.playerFactionID == 0 then
+                if not C_QuestLog.IsOnQuest(34775) then return end
+            else
+                if not C_QuestLog.IsOnQuest(34692) then return end
+            end
+
             if HelpMePlayDB_Character.IsFirstGarrisonMissionSent then return end
 
             C_Timer.After(0.5, function()
