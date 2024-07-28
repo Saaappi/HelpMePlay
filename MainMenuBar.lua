@@ -49,7 +49,7 @@ local function OnEvent(_, event, ...)
             if C_DateAndTime.CompareCalendarTime(currentDate, nextUpdate) == -1 then -- Addon is outdated
                 HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("RED", HelpMePlay.ErrorMessages["ADDON_VERSION_OUTDATED"]))
             else
-                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("GOLD", "Click to open the addon settings. Shift-click to open the Talent Importer utility. Ctrl-click to reset character configuration."))
+                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("GOLD", "Click to open the addon settings.\nShift-click to open the Talent Importer utility.\nCtrl-click to reset character configuration."))
             end
         end)
         button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
