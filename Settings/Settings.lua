@@ -12,6 +12,16 @@ local WARDROBE_SECTION = "Wardrobe"
 local NEW_CHARACTER_SECTION = "New Character Configuration"
 local UTILITIES_SECTION = "Utilities"
 
+function HelpMePlay.ResetCharacterConfiguration()
+    for index, GUID in next, HelpMePlayDB["Characters"] do
+        if GUID == HelpMePlay.playerGUID then
+            table.remove(HelpMePlayDB["Characters"], index)
+            break
+        end
+    end
+    HelpMePlay.NewCharacter()
+end
+
 function HelpMePlay.RegisterSettings()
     local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
     Settings.RegisterAddOnCategory(category)
@@ -628,13 +638,7 @@ function HelpMePlay.RegisterSettings()
         "Reset Configuration",
         "Reset Configuration",
         function()
-            for index, GUID in next, HelpMePlayDB["Characters"] do
-                if GUID == HelpMePlay.playerGUID then
-                    table.remove(HelpMePlayDB["Characters"], index)
-                    break
-                end
-            end
-            HelpMePlay.NewCharacter()
+            HelpMePlay.ResetCharacterConfiguration()
         end,
         "Click to reset the character configuration for the current character.",
         true
