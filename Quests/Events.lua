@@ -219,15 +219,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             QUEST_GOSSIP()
         elseif type == 30 then -- Garrison Architect
             local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
-            if garrisonLevel ~= 1 then return false end
+            if garrisonLevel ~= 1 then return end
 
             if HelpMePlay.playerFactionID == 0 then
-                if not C_QuestLog.IsOnQuest(34461) then return false end
+                if not C_QuestLog.IsOnQuest(34461) then return end
             else
-                if not C_QuestLog.IsOnQuest(34587) then return false end
+                if not C_QuestLog.IsOnQuest(34587) then return end
             end
 
-            if HelpMePlayDB_Character.IsGarrisonBarracksPlaced then return false end
+            if HelpMePlayDB_Character.IsGarrisonBarracksPlaced then return end
 
             -- Get available plots and attempt to place the Barracks.
             local plots = C_Garrison.GetPlotsForBuilding(26)
@@ -243,6 +243,32 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
                 end
             end
+        elseif type == 32 then -- Garrison Mission Table
+            local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
+            if garrisonLevel ~= 1 then return end
+
+            if HelpMePlayDB_Character.IsFirstGarrisonMissionSent then return end
+
+            C_Timer.After(0.5, function()
+                GarrisonMissionTutorialFrame:Hide()
+
+                -- Retrieve available Garrison followers and missions.
+                local missions = C_Garrison.GetAvailableMissions(1)
+                local followers = C_Garrison.GetFollowers(1)
+
+                if #followers == 0 then return end
+
+                for _, mission in next, missions do
+                    if not mission.inProgress then
+                        local followerID = followers[1].followerID
+                        C_Garrison.AddFollowerToMission(mission.missionID, followerID)
+                        C_Garrison.StartMission(mission.missionID)
+                        C_Garrison.CloseMissionNPC()
+                        HideUIPanel(GarrisonMissionFrame)
+                        break
+                    end
+                end
+            end)
         elseif type == 45 then -- Chromie Time
             if HelpMePlayDB["ChromieTimeExpansionID"] == 0 or HelpMePlay.playerLevel >= HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"] then return end
 
