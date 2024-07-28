@@ -1,4 +1,4 @@
-## Version 3.0.4 - 2024/07/??
+## Version 3.0.4 - 2024/08/06
 
 ### Added
 - The Architect Table in the Garrison will now automatically designate a plot for the Barracks, provided that the player's Garrison is at level 1 and they are currently on the "Build Your Barracks" quest.
