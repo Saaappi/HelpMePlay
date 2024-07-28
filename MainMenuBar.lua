@@ -31,19 +31,23 @@ local function OnEvent(_, event, ...)
         button:SetPushedAtlas("Quest-Campaign-Available-Trivial")
 
         button:SetScript("OnClick", function()
-            if SettingsPanel:IsVisible() then
-                HideUIPanel(SettingsPanel)
-                PlaySound(SOUNDKIT.IG_MAINMENU_OPEN)
+            if not IsShiftKeyDown() then
+                if SettingsPanel:IsVisible() then
+                    HideUIPanel(SettingsPanel)
+                    PlaySound(SOUNDKIT.IG_MAINMENU_OPEN)
+                else
+                    Settings.OpenToCategory(HelpMePlay.SettingsCategoryID)
+                end
             else
-                Settings.OpenToCategory(HelpMePlay.SettingsCategoryID)
+                HelpMePlay.OpenTalentImporter()
             end
         end)
         button:SetScript("OnEnter", function(self)
             local currentDate = C_DateAndTime.GetCurrentCalendarTime()
             if C_DateAndTime.CompareCalendarTime(currentDate, nextUpdate) == -1 then -- Addon is outdated
-                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("RED", HelpMePlay.ErrorMessages["ADDON_VERSION_OUTDATED"]))
+                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), format("%s\n\n%s", LHMP:ColorText("GOLD", "Click to open the addon settings. Shift-click to open the Talent Importer utility."), LHMP:ColorText("RED", HelpMePlay.ErrorMessages["ADDON_VERSION_OUTDATED"])))
             else
-                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), "")
+                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("GOLD", "Click to open the addon settings. Shift-click to open the Talent Importer utility."))
             end
         end)
         button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
