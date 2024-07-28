@@ -218,6 +218,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
             QUEST_GOSSIP()
         elseif type == 30 then -- Garrison Architect
+            if HelpMePlayDB.GarrisonArchitectTable == false then return end
+
             local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
             if garrisonLevel ~= 1 then return end
 
@@ -244,6 +246,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 end
             end
         elseif type == 32 then -- Garrison Mission Table
+            if HelpMePlayDB.GarrisonMissionTable == false then return end
+
             local garrisonLevel = C_Garrison.GetGarrisonInfo(2)
             if garrisonLevel ~= 1 then return end
 

@@ -199,6 +199,22 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
+        "Garrison: Architect Table",
+        "GarrisonArchitectTable",
+        false,
+        HelpMePlayDB["GarrisonArchitectTable"],
+        "Toggle to automatically process placing your Barracks in the Garrison during the corresponding quest."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Garrison: Mission Table",
+        "GarrisonMissionTable",
+        false,
+        HelpMePlayDB["GarrisonMissionTable"],
+        "Toggle to automatically process the first mission on your Garrison mission table during the corresponding quest."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
         "Player Choice",
         "UsePlayerChoice",
         false,
@@ -865,6 +881,8 @@ function HelpMePlay.Init()
         DepositKeepMeSafe = true,
         DisableDialog = false,
         DisableTutorials = false,
+        GarrisonArchitectTable = false,
+        GarrisonMissionTable = false,
         IgnoreDailyQuests = false,
         IgnoreRepeatableQuests = false,
         LootUnderMouse = false,
