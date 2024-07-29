@@ -8,8 +8,9 @@ local iconPath = format("Interface\\AddOns\\%s\\ChatIcons\\Icons", addonName)
 -- parses it anyway (and how it's returned to the chat frame.)
 --
 -- Icon Credit: AmiYuy (Can I Mog It?) ♥
-ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(self, event, message, ...)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(_, _, message, ...)
     if HelpMePlayDB["ShowChatIcons"] == false then return end
+
     local function GetItemIconHMP(itemLink)
         local texture = C_Item.GetItemIconByID(itemLink)
         local collectedTexture

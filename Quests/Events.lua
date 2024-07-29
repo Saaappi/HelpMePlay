@@ -2,6 +2,8 @@ local _, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 
+local lootPatterns = { LOOT_ITEM_SELF, LOOT_ITEM_PUSHED_SELF }
+
 local function QUEST_GOSSIP()
     if not IsShiftKeyDown() then
         if HelpMePlayDB["AcceptAndCompleteQuests"] then
@@ -148,7 +150,7 @@ local function QUEST_PROGRESS()
 end
 
 eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
-eventHandler:RegisterEvent("BAG_UPDATE")
+eventHandler:RegisterEvent("CHAT_MSG_LOOT")
 eventHandler:RegisterEvent("PLAYER_CHOICE_UPDATE")
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:RegisterEvent("QUEST_ACCEPTED")
@@ -177,22 +179,34 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
         end
     end
-    if event == "BAG_UPDATE" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then
-            return false
+    if event == "CHAT_MSG_LOOT" then
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
+
+        local message, playerName = ...
+        playerName = string.split("-", playerName)
+
+        local function FindItem(itemLink)
+            print(itemLink)
+            for bagID = 0, 4 do
+                for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
+                    local bagItemLink = C_Container.GetContainerItemLink(bagID, slotID)
+                    if bagItemLink and bagItemLink == itemLink then
+                        print(bagItemLink)
+                        --[[local questInfo = C_Container.GetContainerItemQuestInfo(bagID, slotID)
+                        if questInfo and questInfo.questID and (not questInfo.isActive) then
+                            C_Container.UseContainerItem(bagID, slotID)
+                            return
+                        end]]
+                    end
+                end
+            end
         end
 
-        local exitParentLoop = false
-        for bagID = 0, 4 do
-            for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
-                local questInfo = C_Container.GetContainerItemQuestInfo(bagID, slotID)
-                if questInfo and questInfo.questID and (not questInfo.isActive) then
-                    exitParentLoop = true
-                    C_Container.UseContainerItem(bagID, slotID)
-                    break
-                end
-                if exitParentLoop then
-                    break
+        if playerName == HelpMePlay.playerName then
+            for _, pattern in ipairs(lootPatterns) do
+                local itemLink = string.match(message, string.sub(pattern, 1, -3) .. "(.*)")
+                if itemLink then
+                    FindItem(itemLink)
                 end
             end
         end
