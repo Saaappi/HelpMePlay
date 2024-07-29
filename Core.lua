@@ -32,7 +32,6 @@ local function OnEvent(_, event, arg1, arg2)
 		end
     end
     if event == "PLAYER_LOGIN" then
-        HelpMePlay.playerName = UnitName("player")
         HelpMePlay.playerClassName, HelpMePlay.playerClassFileName, HelpMePlay.playerClassID = UnitClass("player")
         HelpMePlay.playerClassColor = C_ClassColor.GetClassColor(HelpMePlay.playerClassFileName)
         HelpMePlay.playerLevel = UnitLevel("player")

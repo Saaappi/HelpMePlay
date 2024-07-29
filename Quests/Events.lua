@@ -182,32 +182,29 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "CHAT_MSG_LOOT" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
-        local message, playerName = ...
-        playerName = string.split("-", playerName)
+        local message, _, _, _, _, _, _, _, _, _, _, playerGUID = ...
+        if playerGUID ~= HelpMePlay.playerGUID then return end
 
         local function FindItem(itemLink)
-            print(itemLink)
             for bagID = 0, 4 do
                 for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
                     local bagItemLink = C_Container.GetContainerItemLink(bagID, slotID)
                     if bagItemLink and bagItemLink == itemLink then
-                        print(bagItemLink)
-                        --[[local questInfo = C_Container.GetContainerItemQuestInfo(bagID, slotID)
+                        local questInfo = C_Container.GetContainerItemQuestInfo(bagID, slotID)
                         if questInfo and questInfo.questID and (not questInfo.isActive) then
                             C_Container.UseContainerItem(bagID, slotID)
                             return
-                        end]]
+                        end
                     end
                 end
             end
         end
 
-        if playerName == HelpMePlay.playerName then
-            for _, pattern in ipairs(lootPatterns) do
-                local itemLink = string.match(message, string.sub(pattern, 1, -3) .. "(.*)")
-                if itemLink then
-                    FindItem(itemLink)
-                end
+        local itemLink = ""
+        for _, pattern in ipairs(lootPatterns) do
+            itemLink = string.match(message, string.sub(pattern, 1, -3) .. "(.*)")
+            if itemLink then
+                FindItem(itemLink)
             end
         end
     end
