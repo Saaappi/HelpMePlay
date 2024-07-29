@@ -21,6 +21,7 @@ _Data\TalentImporter.lua
 _Data\Mounts.lua
 _Data\Quests.lua
 _Data\Maps.lua
+_Data\Tooltips.lua
 
 # Functions
 # Files containing functions used in corresponding files throughout the addon.
