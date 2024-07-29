@@ -8,6 +8,7 @@ local LFG_SECTION = "LFG"
 local MERCHANT_SECTION = MERCHANT
 local GUILDBANK_SECTION = GUILD_BANK
 local QUESTMOBS_SECTION = "Quest Mobs"
+local PET_BATTLES_SECTION = "Pet Battles"
 local WARDROBE_SECTION = "Wardrobe"
 local NEW_CHARACTER_SECTION = "New Character Configuration"
 local UTILITIES_SECTION = "Utilities"
@@ -466,6 +467,20 @@ function HelpMePlay.RegisterSettings()
     )
 
     ------------------------
+    -- PET BATTLES SECTION -
+    ------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(PET_BATTLES_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Bandage Button",
+        "ShowPetBattleBandageButton",
+        false,
+        HelpMePlayDB["ShowPetBattleBandageButton"],
+        "Toggle to show or hide the pet battle bandage button."
+    )
+
+    ------------------------
     -- WARDROBE SECTION ----
     ------------------------
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(WARDROBE_SECTION))
@@ -763,7 +778,7 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
         ShowRemixUsablesButton = function() HelpMePlay.CreateRemixUsablesButton() end,
         UseWorldEventQueue = function() HelpMePlay.CreateEventQueueButton() end,
         ShowWardrobeButton = function() HelpMePlay.CreateWardrobeButton() end,
-        isMinimapButtonEnabled = function() HelpMePlay.CreateMinimapButton() end,
+        ShowPetBattleBandageButton = function() HelpMePlay.CreatePetBattleBandageButton() end,
         QuickProposal = function()
             StaticPopupDialogs["HMP_QUICK_PROPOSAL_CHANGED"] = {
                 text = format("The %s setting has changed. Would you like to reload the UI?", LHMP:ColorText("HEIRLOOM", "Quick Proposal")),
@@ -912,6 +927,7 @@ function HelpMePlay.Init()
         QuickProposal = 0,
         shouldAutomaticRepair = false,
         ShowChatIcons = false,
+        ShowPetBattleBandageButton = false,
         ShowRemixScrapButton = false,
         ShowRemixUsablesButton = false,
         ShowWardrobeButton = false,

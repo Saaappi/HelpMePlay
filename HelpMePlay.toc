@@ -89,6 +89,9 @@ Merchant\Repair.lua
 # Party Play Module
 PartyPlay\PartyPlay.lua
 
+# Pet Battles Module
+PetBattles\Bandage.lua
+
 # Remix: Mists of Pandaria Module
 Remix\ScrappingMachine.lua
 Remix\Usables.lua

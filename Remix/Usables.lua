@@ -91,11 +91,6 @@ HelpMePlay.CreateRemixUsablesButton = function()
 		end)
 
 		button:SetAttribute("type", "macro")
-		--[[for _, itemID in next, remixItems do
-			macroText = macroText .. format("/use item:%s\n", itemID)
-		end]]
-		--local macroText = "/use item:" .. table.concat(remixItems, "\n/use item:")
-		--button:SetAttribute("macrotext", macroText)
 
 		button:SetScript("OnEnter", function(self)
 			local combinedString = ""
@@ -124,8 +119,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 		-- Unregister the event for performance.
 		eventHandler:UnregisterEvent("PLAYER_LOGIN")
 	end
-end
-)
+end)
 
 hooksecurefunc(UIErrorsFrame, "TryDisplayMessage", function()
 	if GetTime() == lastTime then
