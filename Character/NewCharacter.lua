@@ -107,6 +107,9 @@ HelpMePlay.NewCharacter = function()
 
             -- Create Whisper Window
             if HelpMePlayDB["CreateWhisperWindow"] then
+                -- Set the whisper mode to keep messages in their intended window.
+                C_CVar.SetCVar("whisperMode", "inline")
+
                 local windowExists = false
                 for i = 1, 10 do
                     local name = GetChatWindowInfo(i)
@@ -129,6 +132,9 @@ HelpMePlay.NewCharacter = function()
                     ChatFrame_RemoveMessageGroup(ChatFrame1, "WHISPER")
                 end
             else
+                -- Set the whisper mode to "pop out" to new windows.
+                C_CVar.SetCVar("whisperMode", "popout")
+
                 -- If the setting is disabled, then remove the Whisper window.
                 for index = 1, 10 do
                     local window = _G["ChatFrame" .. index]
