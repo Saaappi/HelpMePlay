@@ -13,6 +13,8 @@ local NEW_CHARACTER_SECTION = "New Character Configuration"
 local UTILITIES_SECTION = "Utilities"
 
 function HelpMePlay.ResetCharacterConfiguration()
+    if HelpMePlayNewCharacterButton and HelpMePlayNewCharacterButton:IsVisible() then return end
+
     for index, GUID in next, HelpMePlayDB["Characters"] do
         if GUID == HelpMePlay.playerGUID then
             table.remove(HelpMePlayDB["Characters"], index)
