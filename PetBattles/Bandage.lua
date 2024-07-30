@@ -3,12 +3,17 @@ local eventFrame = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local button
 
+local bandageID = 86143
+local reviveSpellID = 125439
+local reviveSpellName = C_Spell.GetSpellInfo(125439).name
+local safariHatID = 92738
+
 HelpMePlay.CreatePetBattleBandageButton = function()
 	if not button then
 		button = HelpMePlay.CreateWidget("SecureButton", {
 			name = format("%s%s", addonName, "PetBattleBandageButton"),
 			scale = 0.65,
-			icon = 133675,
+			icon = 656581,
 			isMovable = true,
 			saveName = "PetBattleBandageButton"
 		})
@@ -21,23 +26,43 @@ HelpMePlay.CreatePetBattleBandageButton = function()
 			button:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 		end
 
-		button:SetScript("PreClick", function(_, _, isDown)
-            -- Check if any of the pets are injured. If not, then we return
-            -- so as not to waste a bandage.
-            local useBandage = false
-            for i = 1, 3 do
-                local health = C_PetBattles.GetHealth(1, i)
-                if health < 100 then
-                    useBandage = true
-                    break
-                end
-            end
-            if not useBandage then return end
+		button:SetScript("PreClick", function(self, btn)
+			if InCombatLockdown() then return end
+
+			local attributeType, attribute, text = "", "", ""
+
+			-- Clear the attributes from the button.
+			self:SetAttribute("type", nil)
+
+			if btn == "LeftButton" then
+				-- Check if any of the pets are injured. If not, then we return
+				-- so as not to waste a bandage.
+				local isInjured = false
+				for i = 1, 3 do
+					local petGUID = C_PetJournal.GetPetLoadOutInfo(i)
+					if petGUID then
+						local currentHealth, maxHealth = C_PetJournal.GetPetStats(petGUID)
+						if currentHealth < maxHealth then
+							isInjured = true
+							break
+						end
+					end
+				end
+				if not isInjured then return end
+
+				-- Check if the Revive Battle Pets ability is available.
+				local cooldown = select(2, GetSpellCooldown(reviveSpellID))
+				if cooldown == 0 then
+					attributeType, attribute, text = "macro", "macrotext", "/cast " .. reviveSpellName
+				else
+					attributeType, attribute, text = "macro", "macrotext", "/use item:" .. bandageID
+				end
+			elseif btn == "RightButton" then
+				attributeType, attribute, text = "toy", "toy", safariHatID
+			end
+			self:SetAttribute("type", attributeType)
+        	self:SetAttribute(attribute, text)
 		end)
-
-		button:SetAttribute("type", "macro")
-        button:SetAttribute("macrotext", format("/use item:%d", 86143))
-
 		button:SetScript("OnEnter", function(self)
 			HelpMePlay.Tooltip_OnEnter(self, LHMP:ColorText("COMMON", "Pet Battles"), HelpMePlay.Tooltips.PetBattleBandageButton)
 		end)

@@ -3,6 +3,7 @@
 ### Added
 - The Architect Table in the Garrison will now automatically designate a plot for the Barracks, provided that the player's Garrison is at level 1 and they are currently on the "Build Your Barracks" quest.
 - The Mission Table in the Garrison will now have its first mission automated, provided the player has yet to send their first mission, the player's Garrison is level 1, and the player is currently on the "Delegating on Draenor" (Alliance) or "Mission Probable" (Horde) quest.
+- Introduced a new feature that adds a "Pet Battles" button, designed to streamline the process of equipping your Safari Hat and healing any injured battle pets.
 ### Changed or Updated
 - Users can now shift-click on the micro menu button to access the Talent Importer utility and control-click to reset their character configuration. The tooltip has been updated to indicate this new functionality.
 ### Deprecated
