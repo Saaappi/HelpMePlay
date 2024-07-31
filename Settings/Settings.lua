@@ -6,7 +6,7 @@ local GENERAL_SECTION = GENERAL
 local QUEST_SECTION = "Quest"
 local LFG_SECTION = "LFG"
 local MERCHANT_SECTION = MERCHANT
-local GUILDBANK_SECTION = GUILD_BANK
+local WARBAND_BANK_SECTION = "Warband Bank"
 local QUESTMOBS_SECTION = "Quest Mobs"
 local PET_BATTLES_SECTION = "Pet Battles"
 local WARDROBE_SECTION = "Wardrobe"
@@ -366,9 +366,9 @@ function HelpMePlay.RegisterSettings()
     )
 
     --------------------------
-    -- GUILD BANK SECTION ----
+    -- WARBAND BANK SECTION --
     --------------------------
-    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(GUILDBANK_SECTION))
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(WARBAND_BANK_SECTION))
 
     HelpMePlay.AddSettingSlider(
         category,
@@ -383,7 +383,7 @@ function HelpMePlay.RegisterSettings()
             return HelpMePlayDB["DepositKeepAmount"] / 10000
         end,
         "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
-        "Visiting a guild bank while below this threshold will instead attempt a withdrawal, provided the guild bank has the funds.\n\n" ..
+        "Visiting your Warband bank while below this threshold will instead attempt a withdrawal, provided the bank has the funds.\n\n" ..
         LHMP:ColorText("RED", "This slider moves in increments of 10.")
     )
     HelpMePlay.AddSettingCheckbox(
@@ -392,7 +392,7 @@ function HelpMePlay.RegisterSettings()
         "DepositKeepMeSafe",
         false,
         HelpMePlayDB["DepositKeepMeSafe"],
-        "Toggle to add approval to every monetary transaction the addon conducts at a guild bank."
+        "Toggle to add approval to every monetary transaction the addon conducts at your Warband bank."
     )
 
     --------------------------
