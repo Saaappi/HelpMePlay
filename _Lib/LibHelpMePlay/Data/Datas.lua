@@ -621,6 +621,12 @@ LHMP.Gossips = {
     -------------------------
     -- DRAGONFLIGHT ---------
     -------------------------
+    -- The Harbinger Questline
+    [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
+    [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
+    [215157] = {{ID = 120248, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
+    [215158] = {{ID = 120249, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
+    [214657] = {{ID = 120568, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79021"}}},
     -- Evokers
     [182317] = {{ID = 54978, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65060"}}},
     [184165] = {{ID = 51921, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65071"}}},
