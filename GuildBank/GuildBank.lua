@@ -50,6 +50,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             if type == 8 then
                 if C_Bank.CanDepositMoney(2) then
                     local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"])
+                    if transactionAmount == 0 then return end
+
                     if HelpMePlayDB["DepositKeepMeSafe"] then
                         HandleTransaction(transactionAmount)
                     else
