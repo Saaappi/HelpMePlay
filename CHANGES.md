@@ -1,10 +1,10 @@
 ## Version 3.0.4 - 2024/08/06
 
 ### Added
-- The Architect Table in the Garrison will now automatically designate a plot for the Barracks, provided that the player's Garrison is at level 1 and they are currently on the "Build Your Barracks" quest.
-- The Mission Table in the Garrison will now have its first mission automated, provided the player has yet to send their first mission, the player's Garrison is level 1, and the player is currently on the "Delegating on Draenor" (Alliance) or "Mission Probable" (Horde) quest.
+- The Architect Table in the Garrison will now automatically designate a plot for the Barracks, provided that the player's Garrison is at level 1 and they are currently on the [Build Your Barracks](https://www.wowhead.com/quest=34461/build-your-barracks) quest.
+- The Mission Table in the Garrison will now have its first mission automated, provided the player has yet to send their first mission, the player's Garrison is level 1, and the player is currently on the [Delegating on Draenor](https://www.wowhead.com/quest=34692/delegating-on-draenor) (Alliance) or [Mission Probable](https://www.wowhead.com/quest=34775/mission-probable) (Horde) quest.
 - Introduced a new feature that adds a "Pet Battles" button, designed to streamline the process of equipping your Safari Hat and healing any injured battle pets.
-- Gossip support has been added for the **The Harbinger** and **The War Within** questlines.
+- Gossip support has been added for the [The Harbinger](https://www.wowhead.com/storyline/hunt-for-the-harbinger-5519) and [The War Within](https://www.wowhead.com/storyline/dalaran-intro-5638) questlines.
 ### Changed or Updated
 - Users can now shift-click on the micro menu button to access the Talent Importer utility and control-click to reset their character configuration. The tooltip has been updated to indicate this new functionality.
 - Renamed the **Guild Bank** section to **Warband Bank**.
