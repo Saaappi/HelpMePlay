@@ -17,8 +17,8 @@ local function GetActiveEventsFromCalendarByDate()
     if numEvents > 0 then
         for index = 1, numEvents do
             local event = C_Calendar.GetDayEvent(0, date.monthDay, index)
-            local endTime = event.endTime
-            if C_DateAndTime.CompareCalendarTime(date, endTime) == 1 then -- The end time is at a later time.
+            local startTime, endTime = event.startTime, event.endTime
+            if C_DateAndTime.CompareCalendarTime(date, startTime) == -1 and C_DateAndTime.CompareCalendarTime(date, endTime) == 1 then
                 if event and LHMP:IsEventQueueable(event.eventID) then
                     local worldEvent = LHMP:GetWorldEvent(event.eventID)
                     table.insert(events, { name = worldEvent.name or event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })

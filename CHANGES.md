@@ -18,3 +18,4 @@
 - Resolved an issue where, after the creation of the whisper window, new whispers continued to appear in separate windows.
   - _**Author's Note**: A bug persists, but it originates from Blizzard's end, not from my add-on._
 - Resolved an issue where items initiating a quest were being used each time the player looted.
+- Resolved an issue where events were prematurely appearing in the World Event queue button.
