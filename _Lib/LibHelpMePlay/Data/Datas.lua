@@ -273,6 +273,12 @@ LHMP.Gossips = {
     -------------------------
     -- Dungeon: Blackrock Depths
     [9039] = {{ID = 28044, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    -- Raid: Molten Core
+    [54404] = {
+        {ID = 30419, CanConfirm = false, Conditions = {"NONE = NONE"}},
+        {ID = 31924, CanConfirm = false, Conditions = {"NONE = NONE"}},
+        {ID = 30449, CanConfirm = false, Conditions = {"NONE = NONE"}}
+    },
     -------------------------
     -- THE BURNING CRUSADE --
     -------------------------
