@@ -39,6 +39,7 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
         HelpMePlay.playerGUID = UnitGUID("player")
         HelpMePlay.playerMapID = HelpMePlay.GetBestMapByMapID(C_Map.GetBestMapForUnit("player"))
+        HelpMePlay.playerName = UnitName("player")
 
         local faction = LHMP:GetUnlocalizedUnitFaction("player")
         if faction == "Alliance" then
