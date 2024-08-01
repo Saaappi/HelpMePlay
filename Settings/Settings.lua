@@ -236,10 +236,10 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
-        "Party Play",
-        "UsePartyPlay",
+        "Share Quests",
+        "ShareQuests",
         false,
-        HelpMePlayDB["UsePartyPlay"],
+        HelpMePlayDB["ShareQuests"],
         "Toggle to automatically share quests with party members."
     )
     HelpMePlay.AddSettingDropdown(
@@ -876,7 +876,8 @@ function HelpMePlay.Init()
         "ShouldRepair",
         "TheMawEnabled",
         "TimerunningHeroicDungeonQueue",
-        "UseHeirloomAutomation"
+        "UseHeirloomAutomation",
+        "UsePartyPlay"
     }
     for _, key in next, oldVariables do
         if HelpMePlayDB[key] then
@@ -926,6 +927,7 @@ function HelpMePlay.Init()
         QuestRewardSelectionTypeID = 0,
         QuickProposal = 0,
         shouldAutomaticRepair = false,
+        ShareQuests = false,
         ShowChatIcons = false,
         ShowPetBattleBandageButton = false,
         ShowRemixScrapButton = false,
@@ -936,7 +938,6 @@ function HelpMePlay.Init()
         UseAdventureMaps = false,
         UseDynamicFlightButton = false,
         UseEmotes = false,
-        UsePartyPlay = false,
         UsePlayerChoice = false,
         UseWarMode = false,
         UseWorldEventQueue = false,

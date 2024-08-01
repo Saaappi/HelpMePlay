@@ -60,6 +60,7 @@ Mounts\Mounts.lua
 # Quests Module
 Quests\Events.lua
 Quests\QuestMobs.lua
+Quests\ShareQuests.lua
 Quests\WarMode.lua
 
 # Gossip Module
@@ -85,9 +86,6 @@ Inventory\OpenContainers.lua
 Merchant\QuestItems.lua
 Merchant\Trainers.lua
 Merchant\Repair.lua
-
-# Party Play Module
-PartyPlay\PartyPlay.lua
 
 # Pet Battles Module
 PetBattles\Bandage.lua

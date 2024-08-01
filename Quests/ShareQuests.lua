@@ -5,7 +5,7 @@ local addonPrefix = "HMP"
 local isRegistered = C_ChatInfo.RegisterAddonMessagePrefix(addonPrefix)
 
 if not isRegistered then
-    if HelpMePlayDB["UsePartyPlay"] then
+    if HelpMePlayDB["ShareQuests"] then
         HelpMePlay.Print(HelpMePlay.ErrorMessages["MESSAGE_REGISTRATION_FAILED"])
     end
 end
@@ -27,12 +27,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 		end
 	end
 	if event == "GROUP_JOINED" then
-        if HelpMePlayDB["UsePartyPlay"] then
+        if HelpMePlayDB["ShareQuests"] then
             HelpMePlay.Print(HelpMePlay.ErrorMessages["GROUP_JOINED_PARTY_PLAY_ENABLED"])
         end
 	end
 	if event == "QUEST_ACCEPTED" then
-        if HelpMePlayDB["UsePartyPlay"] then
+        if HelpMePlayDB["ShareQuests"] then
             local questID = ...
             if questID then
                 if UnitInParty("player") and isRegistered then

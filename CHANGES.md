@@ -9,6 +9,8 @@
 - Users can now shift-click on the micro menu button to access the Talent Importer utility and control-click to reset their character configuration. The tooltip has been updated to indicate this new functionality.
 - Renamed the **Guild Bank** section to **Warband Bank**.
   - _**Author's Note**: The add-on will now deposit gold into your Warband bank instead of the guild bank. Please note that there is no option to revert or redirect these funds to the guild bank. The **Keep Me Safe** feature will remain in the add-on, allowing players to decline a transaction if desired._
+- Renamed the **Party Play** setting to **Share Quests**.
+  - _**Author's Note**: The setting previously served multiple functions beyond quest-sharing. To clearly reflect its primary purpose, it is being renamed to provide immediate clarity._
 ### Deprecated
 ### Removed
 ### Fixed
