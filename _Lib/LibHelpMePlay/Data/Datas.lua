@@ -269,6 +269,11 @@ LHMP.Gossips = {
         {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
     },
     -------------------------
+    -- VANILLA --------------
+    -------------------------
+    -- Dungeon: Blackrock Depths
+    [9039] = {{ID = 28044, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    -------------------------
     -- THE BURNING CRUSADE --
     -------------------------
     -------------------------
