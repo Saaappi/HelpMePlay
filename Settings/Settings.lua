@@ -671,7 +671,7 @@ function HelpMePlay.RegisterSettings()
         "Open Issue",
         function()
             StaticPopupDialogs["HELPMEPLAY_OPEN_ISSUE"] = {
-                text = format("Hi, %s! Thank you for taking the time to open an issue. I really appreciate it! %s", HelpMePlay.playerName, CreateAtlasMarkup("delves-scenario-heart-icon", 8, 8)),
+                text = format("Hi, %s! Thank you for taking the time to open an issue. I really appreciate it! %s", HelpMePlay.playerName, CreateAtlasMarkup("delves-scenario-heart-icon", 16, 16)),
                 button1 = CLOSE,
                 OnShow = function(self)
                     local function HidePopup(self) self:GetParent():Hide() end
