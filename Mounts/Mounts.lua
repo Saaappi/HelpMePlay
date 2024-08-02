@@ -171,7 +171,7 @@ function HelpMePlay.Mount()
                 C_MountJournal.SummonByID(mountID)
             end
         end
-    elseif IsSubmerged() and IsOutdoors() then -- Aquatic Mounts
+    elseif (GetMirrorTimerInfo(2)) == "BREATH" and IsOutdoors() then -- Aquatic Mounts
         -- If the player is submerged/swimming and they're outdoors,
         -- then summon an aquatic mount.
         --
