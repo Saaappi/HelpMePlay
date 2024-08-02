@@ -119,8 +119,7 @@ local function OnEvent(_, event, ...)
 	local events = {
 		CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM = true,
 		EQUIP_BIND_CONFIRM = true,
-		MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL = true,
-		USE_NO_REFUND_CONFIRM = true
+		MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL = true
 	}
 
 	if events[event] and (not buttonClicked) and HelpMePlayDB["ShowWardrobeButton"] then
@@ -131,7 +130,6 @@ end
 eventHandler:RegisterEvent("CONVERT_TO_BIND_TO_ACCOUNT_CONFIRM")
 eventHandler:RegisterEvent("EQUIP_BIND_CONFIRM")
 eventHandler:RegisterEvent("MERCHANT_CONFIRM_TRADE_TIMER_REMOVAL")
-eventHandler:RegisterEvent("USE_NO_REFUND_CONFIRM")
 eventHandler:SetScript("OnEvent", OnEvent)
 
 EventRegistry:RegisterCallback("CharacterFrame.Show", function()
