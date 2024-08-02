@@ -40,7 +40,6 @@ local function CheckLevel(string, condition)
 end
 
 HelpMePlay.EvaluateConditions = function(conditions)
-    local warModeAuras = { 269083, 282559 }
     local numConditions = #conditions
     for _, condition in ipairs(conditions) do
         local cond = condition:match("([%w_]+)")
@@ -116,18 +115,12 @@ HelpMePlay.EvaluateConditions = function(conditions)
                 numConditions = numConditions - 1
             end
         elseif cond == "CHROMIE_TIME_ACTIVE" then
-            local chromieTimeID = condition:match("= (.+)")
-            if chromieTimeID and tonumber(chromieTimeID) then
-                if UnitChromieTimeID("player") == chromieTimeID then
-                    numConditions = numConditions - 1
-                end
+            if UnitChromieTimeID("player") == HelpMePlayDB["ChromieTimeExpansionID"] then
+                numConditions = numConditions - 1
             end
         elseif cond == "CHROMIE_TIME_INACTIVE" then
-            local chromieTimeID = condition:match("= (.+)")
-            if chromieTimeID and tonumber(chromieTimeID) then
-                if not UnitChromieTimeID("player") == chromieTimeID then
-                    numConditions = numConditions - 1
-                end
+            if UnitChromieTimeID("player") ~= HelpMePlayDB["ChromieTimeExpansionID"] then
+                numConditions = numConditions - 1
             end
         elseif cond == "HAS_ITEM" then
             local itemID = condition:match("= (.+)")

@@ -273,6 +273,8 @@ LHMP.Gossips = {
     -------------------------
     -- Elwynn Forest
     [240] = {{ID = 38407, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 35"}}},
+    -- Stormwind City
+    [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Dungeon: Blackrock Depths
     [9039] = {{ID = 28044, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -- Raid: Molten Core
