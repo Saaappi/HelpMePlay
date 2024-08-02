@@ -129,32 +129,6 @@ HelpMePlay.EvaluateConditions = function(conditions)
                     numConditions = numConditions - 1
                 end
             end
-        elseif cond == "WAR_MODE_ACTIVE" then
-            -- Blizzard made me this way...
-            local isEnlisted = false
-            for _, spellID in ipairs(warModeAuras) do
-                local aura = C_UnitAuras.GetPlayerAuraBySpellID(spellID)
-                if aura then
-                    isEnlisted = true
-                    break
-                end
-            end
-            if isEnlisted then
-                numConditions = numConditions - 1
-            end
-        elseif cond == "WAR_MODE_INACTIVE" then
-            -- Blizzard made me this way...
-            local isEnlisted = false
-            for _, spellID in ipairs(warModeAuras) do
-                local aura = C_UnitAuras.GetPlayerAuraBySpellID(spellID)
-                if aura then
-                    isEnlisted = true
-                    break
-                end
-            end
-            if not isEnlisted then
-                numConditions = numConditions - 1
-            end
         elseif cond == "HAS_ITEM" then
             local itemID = condition:match("= (.+)")
             if itemID and tonumber(itemID) then

@@ -271,6 +271,8 @@ LHMP.Gossips = {
     -------------------------
     -- VANILLA --------------
     -------------------------
+    -- Elwynn Forest
+    [240] = {{ID = 38407, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 35"}}},
     -- Dungeon: Blackrock Depths
     [9039] = {{ID = 28044, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -- Raid: Molten Core
