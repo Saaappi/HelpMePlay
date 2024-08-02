@@ -11,6 +11,7 @@
   - _**Author's Note**: The add-on will now deposit gold into your Warband bank instead of the guild bank. Please note that there is no option to revert the setting to use the guild bank. The **Keep Me Safe** feature will remain in the add-on, allowing players to decline a transaction if desired._
 - Renamed the **Party Play** setting to **Share Quests**.
   - _**Author's Note**: The setting previously served multiple functions, in a much earlier build, beyond quest-sharing. To clearly reflect its primary purpose, it is being renamed to provide immediate clarity._
+- Combat lockdown no longer prevents the mount subsystem from dismounting the player.
 ### Deprecated
 ### Removed
 - Removed the **Trial of Style** event from the World Event system.

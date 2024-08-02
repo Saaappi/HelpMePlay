@@ -127,9 +127,6 @@ function HelpMePlay.RefreshMountsByType(type)
 end
 
 function HelpMePlay.Mount()
-    -- Check if the player is in combat.
-    if InCombatLockdown() then return false end
-
     -- If the player is already mounted, then dismount them and return.
     -- This will save me from creating a keybind for dismount.
     if IsMounted() and (not IsFlying()) then
@@ -138,6 +135,9 @@ function HelpMePlay.Mount()
     elseif IsMounted() and IsFlying() then
         return
     end
+
+    -- Check if the player is in combat.
+    if InCombatLockdown() then return false end
 
     -- Get some information about the player's inventory. We'll use these
     -- values to determine if we need to summon a vendor mount or not.
