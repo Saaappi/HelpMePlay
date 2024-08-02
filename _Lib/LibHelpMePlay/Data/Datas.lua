@@ -551,6 +551,7 @@ LHMP.Gossips = {
     -------------------------
     -- Dalaran
     [99210] = {{ID = 44840, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    [99182] = {{ID = 44787, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -- Demon Hunters
     [99914] = {{ID = 45047, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 40379"}}},
     [99915] = {
