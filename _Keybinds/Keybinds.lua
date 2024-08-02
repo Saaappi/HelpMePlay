@@ -5,6 +5,7 @@ BINDING_NAME_HELPMEPLAY_MOUNTUP = "Mount Up"
 BINDING_NAME_HELPMEPLAY_DELETECURSORITEM = "Delete Cursor Item"
 BINDING_NAME_HELPMEPLAY_QUICKQUESTABANDON = "Quick Quest Abandon"
 BINDING_NAME_HELPMEPLAY_QUICKWORLDEVENTQUEUE = "World Event Queue"
+BINDING_NAME_HELPMEPLAY_QUICKPETBATTLEBUTTON = "Pet Bandage Button"
 
 local function AbandonQuestByID(questID)
     C_QuestLog.SetSelectedQuest(questID)
@@ -67,6 +68,11 @@ function HelpMePlayKeybind(key)
         end
     elseif key == GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE") then
         local buttonName = format("%sWorldEventQueueButton", addonName)
+        if _G[buttonName]:IsVisible() then
+            _G[buttonName]:Click("LeftButton")
+        end
+    elseif key == GetBindingKey("HELPMEPLAY_QUICKPETBATTLEBUTTON") then
+        local buttonName = format("%sPetBattleBandageButton", addonName)
         if _G[buttonName]:IsVisible() then
             _G[buttonName]:Click("LeftButton")
         end

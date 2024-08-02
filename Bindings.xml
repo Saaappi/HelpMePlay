@@ -13,4 +13,7 @@
 	<Binding name="HELPMEPLAY_QUICKWORLDEVENTQUEUE" category="HelpMePlay">
 		HelpMePlayKeybind(GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE"))
 	</Binding>
+	<Binding name="HELPMEPLAY_QUICKPETBATTLEBUTTON" category="HelpMePlay">
+		HelpMePlayKeybind(GetBindingKey("HELPMEPLAY_QUICKPETBATTLEBUTTON"))
+	</Binding>
 </Bindings>
