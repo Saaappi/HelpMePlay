@@ -139,6 +139,17 @@ function HelpMePlay.Mount()
     -- Check if the player is in combat.
     if InCombatLockdown() then return false end
 
+    -- Determine which Flight Mode the player has enabled.
+    local activeFlightStyleSpellID = 0
+    local flightStyleSpells = {404464, 404468}
+    for _, spellID in next, flightStyleSpells do
+        local aura = C_UnitAuras.GetPlayerAuraBySpellID(spellID)
+        if aura and aura.name then
+            activeFlightStyleSpellID = spellID
+            break
+        end
+    end
+
     -- Get some information about the player's inventory. We'll use these
     -- values to determine if we need to summon a vendor mount or not.
     local numTotalSlots = 0
@@ -209,18 +220,18 @@ function HelpMePlay.Mount()
                 --
                 -- Pick a random mount to use instead based on the player's
                 -- level.
-                if HelpMePlay.playerLevel >= 10 and HelpMePlay.playerLevel < 30 then
+                if HelpMePlay.playerLevel >= 10 and HelpMePlay.playerLevel < 20 then
                     HelpMePlay.SummonMountByType("Ground")
-                elseif HelpMePlay.playerLevel >= 30 and HelpMePlay.playerLevel < 60 then
+                elseif HelpMePlay.playerLevel >= 20 and HelpMePlay.playerLevel < 40 then
                     HelpMePlay.SummonMountByType("Flying")
                 else
                     HelpMePlay.SummonMountByType("Dynamic")
                 end
             end
         end
-    elseif IsAdvancedFlyableArea() and IsOutdoors() and (not IsShiftKeyDown()) then -- Skyriding Mounts
+    elseif IsAdvancedFlyableArea() and IsOutdoors() and activeFlightStyleSpellID == 404464 then -- Skyriding Mounts
         HelpMePlay.SummonMountByType("Dynamic")
-    elseif (IsFlyableArea() and HelpMePlay.playerLevel >= 30) and IsOutdoors() then -- Static Flying Mounts
+    elseif IsFlyableArea() and IsOutdoors() and activeFlightStyleSpellID == 404468 then -- Static Flying Mounts
         HelpMePlay.SummonMountByType("Flying")
     else -- Ground Mounts
         HelpMePlay.SummonMountByType("Ground")
