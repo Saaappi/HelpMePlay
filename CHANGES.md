@@ -13,6 +13,7 @@
   - _**Author's Note**: The setting previously served multiple functions, in a much earlier build, beyond quest-sharing. To clearly reflect its primary purpose, it is being renamed to provide immediate clarity._
 - Combat lockdown no longer prevents the Mount subsystem from dismounting the player.
 - The SHIFT key is no longer effective for selecting a static flight mount instead of a skyriding mount.
+- Aquatic mounts are now only summoned when the player is submerged underwater, rather than merely being in water.
 ### Deprecated
 ### Removed
 - Removed the **Trial of Style** event from the World Event system.
