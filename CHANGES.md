@@ -11,7 +11,8 @@
   - _**Author's Note**: The add-on will now deposit gold into your Warband bank instead of the guild bank. Please note that there is no option to revert the setting to use the guild bank. The **Keep Me Safe** feature will remain in the add-on, allowing players to decline a transaction if desired._
 - Renamed the **Party Play** setting to **Share Quests**.
   - _**Author's Note**: The setting previously served multiple functions, in a much earlier build, beyond quest-sharing. To clearly reflect its primary purpose, it is being renamed to provide immediate clarity._
-- Combat lockdown no longer prevents the mount subsystem from dismounting the player.
+- Combat lockdown no longer prevents the Mount subsystem from dismounting the player.
+- The SHIFT key is no longer effective for selecting a static flight mount instead of a skyriding mount.
 ### Deprecated
 ### Removed
 - Removed the **Trial of Style** event from the World Event system.
@@ -21,4 +22,5 @@
   - _**Author's Note**: A bug persists, but it originates from Blizzard's end, not from my add-on._
 - Resolved an issue where items initiating a quest were being used each time the player looted.
 - Resolved an issue where events were prematurely appearing in the World Event queue button.
-- Fixed a bug with War Mode not enabling upon entering Orgrimmar or Stormwind City.
+- Corrected a bug that prevented War Mode from activating when entering Orgrimmar or Stormwind City.
+- Resolved an issue in the Mount subsystem that led to the selection of incorrect mounts.
