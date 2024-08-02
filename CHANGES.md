@@ -25,3 +25,4 @@
 - Resolved an issue where events were prematurely appearing in the World Event queue button.
 - Corrected a bug that prevented War Mode from activating when entering Orgrimmar or Stormwind City.
 - Resolved an issue in the Mount subsystem that led to the selection of incorrect mounts.
+- Resolved an issue that was preventing the activation of Chromie Time.
