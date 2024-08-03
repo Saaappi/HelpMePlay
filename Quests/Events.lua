@@ -217,7 +217,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if choiceInfo then
             local playerChoice = LHMP:GetPlayerChoiceByID(choiceInfo.choiceID)
             if playerChoice then
-                C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[playerChoice].buttons[playerChoice].id)
+                C_PlayerChoice.SendPlayerChoiceResponse(choiceInfo.options[playerChoice].buttons[1].id)
                 HideUIPanel(PlayerChoiceFrame)
             end
         end

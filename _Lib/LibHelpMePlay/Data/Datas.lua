@@ -102,6 +102,7 @@ LHMP.HeroClasses = {6, 12, 13}
 -- to get the ID for below.
 LHMP.PlayerChoices = {
     [51] = 1,
+    [55] = 2,
     [234] = 1,
     [688] = 1
 }
@@ -565,6 +566,10 @@ LHMP.Gossips = {
     [78568] = {{ID = 42452, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 35747"}}},
     -- Shadowmoon Valley
     [72871] = {{ID = 42039, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33112"}}},
+    -- Gorgrond
+    [81018] = {{ID = 42547, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
+    [81013] = {{ID = 42546, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
+    [81020] = {{ID = 42548, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
     -- Raid: Highmaul
     [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -------------------------
