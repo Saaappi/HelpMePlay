@@ -6,9 +6,9 @@ local atlas = "Quest-Campaign-Available"
 local nextUpdate = {
     year = 2024,
     month = 8,
-    monthDay = 6,
+    monthDay = 20,
     weekday = 3,
-    hour = 0,
+    hour = 13,
     minute = 0
 }
 

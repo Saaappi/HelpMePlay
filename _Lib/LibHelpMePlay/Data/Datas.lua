@@ -275,6 +275,8 @@ LHMP.Gossips = {
     [240] = {{ID = 38407, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 35"}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
+    -- Loch Modan
+    [1573] = {{ID = 31712, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26131"}}},
     -- Dungeon: Blackrock Depths
     [9039] = {{ID = 28044, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -- Raid: Molten Core
