@@ -551,11 +551,15 @@ LHMP.Gossips = {
     -- Introduction (Alliance)
     [150122] = {{ID = 50005, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 34398"}}},
     [79243] = {{ID = 43035, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 34586"}}},
+    [84455] = {{ID = 42666, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35176"}}},
+    [81441] = {{ID = 42677, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35176"}}},
     -- Introduction (Horde)
     -- Introduction (Neutral)
     [78423] = {{ID = 43231, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 34398"}}},
     [78556] = {{ID = 43152, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 34423"}}},
     [78568] = {{ID = 42452, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 35747"}}},
+    -- Shadowmoon Valley
+    [72871] = {{ID = 42039, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33112"}}},
     -- Raid: Highmaul
     [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -------------------------
