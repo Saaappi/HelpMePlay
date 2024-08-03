@@ -570,6 +570,9 @@ LHMP.Gossips = {
     [81018] = {{ID = 42547, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
     [81013] = {{ID = 42546, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
     [81020] = {{ID = 42548, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
+    [81074] = {{ID = 43219, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35686"}}},
+    [81056] = {{ID = 43078, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35665"}}},
+    [83569] = {{ID = 42758, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 36508"}}},
     -- Raid: Highmaul
     [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -------------------------
