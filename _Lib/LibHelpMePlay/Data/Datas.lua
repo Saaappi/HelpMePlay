@@ -98,7 +98,10 @@ LHMP.RaceClassCombinations = {
 
 LHMP.HeroClasses = {6, 12, 13}
 
+-- Use /dump C_PlayerChoice.GetCurrentPlayerChoiceInfo().choiceID
+-- to get the ID for below.
 LHMP.PlayerChoices = {
+    [51] = 1,
     [234] = 1,
     [688] = 1
 }
