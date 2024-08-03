@@ -548,11 +548,21 @@ LHMP.Gossips = {
     -------------------------
     -- WARLORDS OF DRAENOR --
     -------------------------
+    -- Introduction (Alliance)
+    [150122] = {{ID = 50005, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 34398"}}},
+    [79243] = {{ID = 43035, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 34586"}}},
+    -- Introduction (Horde)
+    -- Introduction (Neutral)
+    [78423] = {{ID = 43231, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 34398"}}},
+    [78556] = {{ID = 43152, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 34423"}}},
+    [78568] = {{ID = 42452, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 35747"}}},
     -- Raid: Highmaul
     [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -------------------------
     -- LEGION ---------------
     -------------------------
+    -- Introduction (Alliance)
+    [107934] = {{ID = 47484, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 42782"}}},
     -- Dalaran
     [99210] = {{ID = 44840, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     [99182] = {{ID = 44787, CanConfirm = false, Conditions = {"NONE = NONE"}}},
