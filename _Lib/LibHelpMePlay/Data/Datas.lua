@@ -700,6 +700,22 @@ LHMP.Gossips = {
     [198040] = {{ID = 107284, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 68796"}}},
     [193364] = {{ID = 55584, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 68798", "QUEST_OBJECTIVE_INCOMPLETE = 68798,2"}}},
     [189089] = {{ID = 54942, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66435"}}},
+    [190334] = {{ID = 55167, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66438"}}},
+    [190423] = {{ID = 55168, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66438"}}},
+    [190352] = {{ID = 54908, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66442"}}},
+    [185904] = {{ID = 55258, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66115"}}},
+    [189260] = {{ID = 55290, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66115"}}},
+    [187278] = {{ID = 107159, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66124"}}},
+    [192795] = {{ID = 107399, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 72241", "QUEST_OBJECTIVE_INCOMPLETE = 72241,1"}}},
+    [186331] = {{ID = 55311, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66048"}}},
+    [186493] = {
+        {ID = 55309, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66048"}},
+        {ID = 55310, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66048"}}
+    },
+    [187466] = {{ID = 55307, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66124"}}},
+    [187187] = {{ID = 54628, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66078"}}},
+    [187189] = {{ID = 54628, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66078"}}},
+    [189507] = {{ID = 54996, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66048"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
