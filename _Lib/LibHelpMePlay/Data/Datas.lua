@@ -573,6 +573,9 @@ LHMP.Gossips = {
     [81074] = {{ID = 43219, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35686"}}},
     [81056] = {{ID = 43078, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35665"}}},
     [83569] = {{ID = 42758, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 36508"}}},
+    [81674] = {{ID = 42953, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35128"}}},
+    [81213] = {{ID = 42653, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 36223"}}},
+    [83933] = {{ID = 42956, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35139"}}},
     -- Raid: Highmaul
     [84971] = {{ID = 43135, CanConfirm = false, Conditions = {"NONE = NONE"}}},
     -------------------------
@@ -656,6 +659,13 @@ LHMP.Gossips = {
     -------------------------
     -- DRAGONFLIGHT ---------
     -------------------------
+    -- Introduction (Alliance)
+    [189569] = {{ID = 55659, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66577"}}},
+    [198401] = {{ID = 107417, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66589"}}},
+    [189767] = {{ID = 55651, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66589"}}},
+    [189765] = {{ID = 55650, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66589"}}},
+    [189763] = {{ID = 55649, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66589"}}},
+    [193450] = {{ID = 55739, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66596"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
