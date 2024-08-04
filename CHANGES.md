@@ -26,3 +26,4 @@
 - Corrected a bug that prevented War Mode from activating when entering Orgrimmar or Stormwind City.
 - Resolved an issue in the Mount subsystem that led to the selection of incorrect mounts.
 - Resolved an issue that was preventing the activation of Chromie Time.
+- Resolved an issue that caused an error during the removal of quest popups.

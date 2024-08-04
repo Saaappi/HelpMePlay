@@ -309,7 +309,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 local numPopups = GetNumAutoQuestPopUps()
                 if numPopups > 0 then
                     AcknowledgeAutoAcceptQuest()
-                    AutoQuestPopupTracker_RemovePopUp(questID)
+                    RemoveAutoQuestPopUp(questID)
                 end
             end)
         end
