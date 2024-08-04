@@ -266,11 +266,18 @@ LHMP.Gossips = {
     -- Game Object Gossips --
     -------------------------
     [0] = {
-        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}}, -- Cho's "Art" (The Jade Forest)
-        {ID = 40006, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
-        {ID = 39082, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
-        {ID = 39808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
-        {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}}, -- Ancient Statue (The Jade Forest)
+        -- Cho's "Art" (The Jade Forest)
+        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}},
+        -- Ancient Statue (The Jade Forest)
+        {ID = 40006, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 39082, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 39808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        -- Embassy Visitor Log (The Waking Shores)
+        {ID = 55746, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 55757, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 55762, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 55773, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
     },
     -------------------------
     -- VANILLA --------------
@@ -666,6 +673,32 @@ LHMP.Gossips = {
     [189765] = {{ID = 55650, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66589"}}},
     [189763] = {{ID = 55649, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66589"}}},
     [193450] = {{ID = 55739, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66596"}}},
+    -- The Waking Shores
+    [193362] = {
+        {ID = 55636, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 70125"}},
+        {ID = 55637, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69912"}}
+    },
+    [193393] = {{ID = 55674, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}}},
+    [193372] = {{ID = 55872, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69914"}}},
+    [193363] = {{ID = 55900, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65760"}}},
+    [190564] = {{ID = 55298, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65992"}}},
+    [190563] = {{ID = 55297, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65992"}}},
+    [188299] = {{ID = 55335, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65992"}}},
+    [187406] = {{ID = 55225, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65997"}}},
+    [190269] = {{ID = 55259, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66001"}}},
+    [186795] = {{ID = 54941, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66114"}}},
+    [187290] = {{ID = 107094, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66114"}}},
+    [189261] = {{ID = 55288, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66115"}}},
+    [189262] = {{ID = 55289, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66115"}}},
+    [193287] = {{ID = 55643, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 68795"}}},
+    [192574] = {
+        {ID = 55059, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 67100"}},
+        {ID = 55062, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 67100"}},
+        {ID = 55066, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 67100"}}
+    },
+    [194076] = {{ID = 63862, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 70132"}}},
+    [198040] = {{ID = 107284, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 68796"}}},
+    [193364] = {{ID = 55584, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 68798", "QUEST_OBJECTIVE_INCOMPLETE = 68798,2"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
