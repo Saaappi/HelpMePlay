@@ -161,6 +161,6 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
     classTalentsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
     if C_AddOns.IsAddOnLoaded("ZygorGuidesViewer") then
-        classTalentsButton:SetPoint("RIGHT", ClassTalentFrame.TalentsTab.ApplyButton, "LEFT", -50, 0)
+        classTalentsButton:SetPoint("RIGHT", PlayerSpellsFrame.TalentsFrame.ApplyButton, "LEFT", -50, 0)
     end
 end)
