@@ -284,6 +284,11 @@ LHMP.Gossips = {
     -------------------------
     -- Elwynn Forest
     [240] = {{ID = 38407, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 35"}}},
+    -- Westfall
+    [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
+    [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
+    [42386] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
+    [42391] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
