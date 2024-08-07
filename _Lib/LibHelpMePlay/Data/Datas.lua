@@ -108,6 +108,26 @@ LHMP.PlayerChoices = {
 }
 
 LHMP.QuestMerchants = {
+    [2664] = {
+        {
+            Index = 1,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 26600",
+                "QUEST_OBJECTIVE_INCOMPLETE = 26600,1",
+            }
+        }
+    },
+    [2491] = {
+        {
+            Index = 1,
+            Quantity = 1,
+            Conditions = {
+                "QUEST_ACTIVE = 26600",
+                "QUEST_OBJECTIVE_INCOMPLETE = 26600,2",
+            }
+        }
+    },
     [54982] = {
         {
             Index = 1,
@@ -266,6 +286,8 @@ LHMP.Gossips = {
     -- Game Object Gossips --
     -------------------------
     [0] = {
+        -- Totem of Hir'eek (The Cape of Stranglethorn)
+        {ID = 38325, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26809"}},
         -- Cho's "Art" (The Jade Forest)
         {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}},
         -- Ancient Statue (The Jade Forest)
