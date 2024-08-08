@@ -210,6 +210,15 @@ LHMP.Gossips = {
     [42883] = {{ID = 36967, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26775"}}},
     -- The Cape of Stranglethorn
     [43377] = {{ID = 38572, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26595"}}},
+    [43505] = {
+        {ID = 38304, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}},
+        {ID = 38306, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}}
+    },
+    [2663] = {{ID = 38527, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}}},
+    [2487] = {
+        {ID = 38529, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}},
+        {ID = 38530, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}},
+    },
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
