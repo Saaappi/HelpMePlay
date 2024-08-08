@@ -230,6 +230,10 @@ LHMP.Gossips = {
     [43636] = {{ID = 39613, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26664"}}},
     [43660] = {{ID = 38351, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
     [43661] = {{ID = 38489, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
+    [737] = {
+        {ID = 40380, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26697"}},
+        {ID = 40381, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26703"}}
+    },
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
