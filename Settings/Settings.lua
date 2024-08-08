@@ -747,8 +747,10 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
                 HelpMePlay.UpdateQuestMobsIcon()
             elseif value == 3 then
                 StaticPopupDialogs["HMP_QUEST_MOBS_CUSTOM_ICON"] = {
-                    text = "Please enter the texture ID for your custom icon. The texture ID can be found in the URL at |cffFFD100https://www.wowhead.com/icons/|r.\n\n" ..
-                    "Search for an icon, click it, then take the number after |cffFFD100icon=|r in the URL.",
+                    text = "Please enter the texture ID for your custom icon.\n\n" ..
+                    "The texture ID can be found in the URL on Wowhead. Please see the example below.\n\n" ..
+                    "https://www.wowhead.com/icon=|cff33BBB0626003|r/classicon-paladin\n\n" ..
+                    "The highlighted number is what you put in the text field below.",
                     button1 = YES,
                     button2 = NO,
                     explicitAcknowledge = true,
