@@ -234,6 +234,9 @@ LHMP.Gossips = {
         {ID = 40380, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26697"}},
         {ID = 40381, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26703"}}
     },
+    [49635] = {{ID = 39916, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 28749"}}},
+    -- Western Plaguelands
+    [46006] = {{ID = 39847, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27165", "LEVEL_LOWER = 20"}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
