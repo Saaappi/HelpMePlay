@@ -12,6 +12,8 @@ local nextUpdate = {
     minute = 0
 }
 
+local isElvUILoaded = false
+
 local function OnEvent(_, event, ...)
     if event == "PLAYER_LOGIN" then
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
@@ -30,6 +32,12 @@ local function OnEvent(_, event, ...)
         button:SetHighlightAtlas(atlas, "ADD")
         button:SetPushedAtlas("Quest-Campaign-Available-Trivial")
 
+        -- Handle ElvUI mouseover setting for the Micro Bar.
+        if C_AddOns.IsAddOnLoaded("ElvUI") and ElvDB.profiles.Default.actionbar.microbar.enabled and ElvDB.profiles.Default.actionbar.microbar.mouseover then
+            isElvUILoaded = true
+            button:SetAlpha(0)
+        end
+
         button:SetScript("OnClick", function()
             if IsShiftKeyDown() then
                 HelpMePlay.OpenTalentImporter()
@@ -45,6 +53,9 @@ local function OnEvent(_, event, ...)
             end
         end)
         button:SetScript("OnEnter", function(self)
+            if isElvUILoaded then
+                self:SetAlpha(1)
+            end
             local currentDate = C_DateAndTime.GetCurrentCalendarTime()
             if C_DateAndTime.CompareCalendarTime(currentDate, nextUpdate) == -1 then -- Addon is outdated
                 HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("RED", HelpMePlay.ErrorMessages["ADDON_VERSION_OUTDATED"]))
@@ -52,7 +63,12 @@ local function OnEvent(_, event, ...)
                 HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), HelpMePlay.Tooltips.MicroMenuButton)
             end
         end)
-        button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+        button:SetScript("OnLeave", function(self)
+            if isElvUILoaded then
+                self:SetAlpha(0)
+            end
+            HelpMePlay.Tooltip_OnLeave()
+        end)
     end
 end
 eventHandler:RegisterEvent("PLAYER_LOGIN")
