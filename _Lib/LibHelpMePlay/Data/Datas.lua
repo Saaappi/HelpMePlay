@@ -158,8 +158,16 @@ LHMP.Gossips = {
     -- Game Object Gossips --
     -------------------------
     [0] = {
+        -------------------------
+        -- VANILLA --------------
+        -------------------------
         -- Totem of Hir'eek (The Cape of Stranglethorn)
         {ID = 38325, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26809"}},
+        -- Ruined Lifeboat (The Cape of Stranglethorn)
+        {ID = 38201, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26602"}},
+        -------------------------
+        -- MISTS OF PANDARIA ----
+        -------------------------
         -- Cho's "Art" (The Jade Forest)
         {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}},
         -- Ancient Statue (The Jade Forest)
@@ -167,6 +175,9 @@ LHMP.Gossips = {
         {ID = 39082, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
         {ID = 39808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
         {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        -------------------------
+        -- DRAGONFLIGHT ---------
+        -------------------------
         -- Embassy Visitor Log (The Waking Shores)
         {ID = 55746, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
         {ID = 55757, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
@@ -197,6 +208,8 @@ LHMP.Gossips = {
         {ID = 37129, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26775"}}
     },
     [42883] = {{ID = 36967, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26775"}}},
+    -- The Cape of Stranglethorn
+    [43377] = {{ID = 38572, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26595"}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
