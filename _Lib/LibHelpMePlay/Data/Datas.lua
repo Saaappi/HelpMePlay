@@ -165,6 +165,12 @@ LHMP.Gossips = {
         {ID = 38325, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26809"}},
         -- Ruined Lifeboat (The Cape of Stranglethorn)
         {ID = 38201, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26602"}},
+        -- Grog Barrel (The Cape of Stranglethorn)
+        {ID = 39383, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
+        -- Gunpowder Barrel (The Cape of Stranglethorn)
+        {ID = 38808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
+        -- Cannonball Crate (The Cape of Stranglethorn)
+        {ID = 38809, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
         -------------------------
         -- MISTS OF PANDARIA ----
         -------------------------
@@ -209,16 +215,21 @@ LHMP.Gossips = {
     },
     [42883] = {{ID = 36967, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26775"}}},
     -- The Cape of Stranglethorn
-    [43377] = {{ID = 38572, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26595"}}},
+    [43377] = {{ID = 38572, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26595"}}},
     [43505] = {
-        {ID = 38304, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}},
-        {ID = 38306, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}}
+        {ID = 38304, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}},
+        {ID = 38306, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}}
     },
-    [2663] = {{ID = 38527, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}}},
+    [2663] = {{ID = 38527, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}}},
     [2487] = {
-        {ID = 38529, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}},
-        {ID = 38530, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26630"}},
+        {ID = 38529, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}},
+        {ID = 38530, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}},
     },
+    [43605] = {{ID = 38569, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26649"}}},
+    [43659] = {{ID = 37799, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
+    [43636] = {{ID = 39613, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26664"}}},
+    [43660] = {{ID = 38351, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
+    [43661] = {{ID = 38489, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
