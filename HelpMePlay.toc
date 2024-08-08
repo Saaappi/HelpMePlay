@@ -94,6 +94,9 @@ PetBattles\Bandage.lua
 Remix\ScrappingMachine.lua
 Remix\Usables.lua
 
+# Token UI (Currency)
+#BlizzardTokenUI.lua
+
 # Keybindings Module
 _Keybinds\Keybinds.lua
 
