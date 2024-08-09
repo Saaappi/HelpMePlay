@@ -171,6 +171,8 @@ LHMP.Gossips = {
         {ID = 38808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
         -- Cannonball Crate (The Cape of Stranglethorn)
         {ID = 38809, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
+        -- Mereldar Plague Cauldron (Eastern Plaguelands)
+        {ID = 38411, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27454"}},
         -------------------------
         -- MISTS OF PANDARIA ----
         -------------------------
