@@ -105,6 +105,17 @@ HelpMePlay.NewCharacter = function()
                 C_CVar.SetCVar("Sound_EnableDialog", 1)
             end
 
+            -- Reduce Camera Obstruction
+            if HelpMePlayDB["ReduceCameraObstruction"] then
+                C_CVar.SetCVar("occludedSilhouettePlayer", 1)
+                C_CVar.SetCVar("cameraIndirectVisibility", 1)
+                C_CVar.SetCVar("cameraIndirectOffset", 10)
+            else
+                C_CVar.SetCVar("occludedSilhouettePlayer", 0)
+                C_CVar.SetCVar("cameraIndirectVisibility", 0)
+                C_CVar.SetCVar("cameraIndirectOffset", 0)
+            end
+
             -- Create Whisper Window
             if HelpMePlayDB["CreateWhisperWindow"] then
                 -- Set the whisper mode to keep messages in their intended window.

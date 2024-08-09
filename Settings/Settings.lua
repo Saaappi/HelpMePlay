@@ -613,6 +613,14 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
+        "Reduce Camera Obstruction",
+        "ReduceCameraObstruction",
+        false,
+        HelpMePlayDB["ReduceCameraObstruction"],
+        "Toggle to not allow the camera to collide with objects like trees, lamps, and more. This setting will also add a silhouette when your character is obstructed.\n\n" .. LHMP:ColorText("RED", "This feature is still a work in progress for Blizzard. Please do not open issues regarding its performance.")
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
         "Create Whisper Window",
         "CreateWhisperWindow",
         false,
@@ -928,6 +936,7 @@ function HelpMePlay.Init()
         QuestMobsIconYOffset = 0,
         QuestRewardSelectionTypeID = 0,
         QuickProposal = 0,
+        ReduceCameraObstruction = false,
         shouldAutomaticRepair = false,
         ShareQuests = false,
         ShowChatIcons = false,

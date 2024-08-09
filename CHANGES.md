@@ -2,6 +2,7 @@
 
 ### Added
 - Implemented support for gossip and quest merchants across multiple zones.
+- A new option, **Reduce Camera Obstruction**, has been added to the New Character Configuration section.
 ### Changed or Updated
 - The button next to the Micro Menu now adheres to the **Mouseover** setting in ElvUI. _(Closes #85)_
 - Clarified the text in the popup when selecting a custom **Quest Mobs** icon.
