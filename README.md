@@ -89,6 +89,11 @@ The addon settings can be opened through the Escape menu (Options -> AddOns), vi
 - Quest Mobs Icon Y Offset
   - Select the y offset for the icon.
 
+### Pet Battles Module
+
+- Bandage Button
+  - Activate the Pet Battles bandage button to quickly equip your Safari Hat toy and heal injured battle pets. The button will first use the **Revive Battle Pets** spell before applying any bandages.
+
 ### Wardrobe Module
 
 - Wardrobe Button
