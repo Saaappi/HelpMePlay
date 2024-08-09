@@ -187,10 +187,10 @@ LHMP.Gossips = {
         -- DRAGONFLIGHT ---------
         -------------------------
         -- Embassy Visitor Log (The Waking Shores)
-        {ID = 55746, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 55757, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 55762, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 55773, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 55746, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
+        {ID = 55757, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
+        {ID = 55762, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
+        {ID = 55773, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
     },
     -------------------------
     -- VANILLA --------------
