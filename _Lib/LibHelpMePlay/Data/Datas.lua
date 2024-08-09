@@ -689,6 +689,12 @@ LHMP.Gossips = {
     [189507] = {{ID = 54996, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66048"}}},
     [186681] = {{ID = 55405, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65939"}}},
     [186933] = {{ID = 54627, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66044"}}},
+    [217220] = {
+        {ID = 120740, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65118"}},
+        {ID = 120741, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65120"}},
+        {ID = 120742, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 65133"}},
+        {ID = 120770, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77345"}}
+    },
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
