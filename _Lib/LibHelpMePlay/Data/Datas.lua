@@ -245,6 +245,13 @@ LHMP.Gossips = {
     [45148] = {{ID = 38735, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27153"}}},
     [45149] = {{ID = 38829, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27153"}}},
     [45152] = {{ID = 38251, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27154"}}},
+    -- Eastern Plaguelands
+    [45400] = {
+        {ID = 37586, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27373"}},
+        {ID = 37587, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27448"}}
+    },
+    [45451] = {{ID = 37583, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27381"}}},
+    [11063] = {{ID = 29395, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27388"}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
