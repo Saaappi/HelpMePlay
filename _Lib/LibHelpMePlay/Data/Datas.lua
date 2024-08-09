@@ -696,6 +696,7 @@ LHMP.Gossips = {
         {ID = 120770, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77345"}},
         {ID = 120773, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 68796"}}
     },
+    [187393] = {{ID = 54942, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66435"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
