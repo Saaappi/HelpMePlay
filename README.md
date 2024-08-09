@@ -140,11 +140,11 @@ In contrast to the World Event queue button, the Character Queue button is ad-ho
 
 ### Mount Module
 
-The mount subsystem is a comprehensive and intelligent solution for selecting a random mount based on the character's environment and properties. For example, a level 5 character will use the chauffered chopper mount appropriate for the player's faction, whereas a level 70 character in Northern Stranglethorn would use a Skyriding mount. However, if your character is underwater or swimming at the surface, then an aquatic mount is selected.
+The mount subsystem is a comprehensive and intelligent solution for selecting a random mount based on the character's environment and properties. For example, a level 5 character will use the chauffered chopper mount appropriate for the player's faction, whereas a level 70 character in Northern Stranglethorn would use a Skyriding mount. However, if your character is submerged underwater, then an aquatic mount is selected.
 
-Another characteristic of the mount subsystem is that it will try to use each mount in a category once before reusing previous mounts. (Mount categories can be seen below. Used mounts are NOT remembered between sessions!)
+Another characteristic of the mount subsystem is that it will try to use each mount in a category once before reusing previous mounts. (Mount categories can be seen below. Used mounts are **NOT** remembered between sessions!)
 
-To use the mount subsystem, open the Mount Journal and use the "Categorize Mounts" button at the top of the journal. Additionally, open your keybindings, scroll down to the **HelpMePlay** section, and set a keybind for the "Mount Up" bind. (This binding is used for both mounting and unmounting!)
+To use the mount subsystem, open the Mount Journal and use the **Categorize Mounts** button at the top of the journal. Additionally, open your keybindings, scroll down to the **HelpMePlay** section, and set a keybind for the "Mount Up" bind. (This binding is used for both mounting and dismounting.)
 
 Categories:
 - AQ
