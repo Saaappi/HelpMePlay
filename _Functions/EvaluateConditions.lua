@@ -62,7 +62,6 @@ HelpMePlay.EvaluateConditions = function(conditions)
             end
         elseif cond == "QUEST_INCOMPLETE" then
             local questID = condition:match("= (.+)")
-            print(C_QuestLog.IsQuestFlaggedCompleted(questID))
             if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
                 numConditions = numConditions - 1
             end
@@ -120,6 +119,31 @@ HelpMePlay.EvaluateConditions = function(conditions)
             end
         elseif cond == "CHROMIE_TIME_INACTIVE" then
             if UnitChromieTimeID("player") ~= HelpMePlayDB["ChromieTimeExpansionID"] then
+                numConditions = numConditions - 1
+            end
+        elseif cond == "BUFF_ACTIVE" then
+            local spellID = condition:match("= (.+)")
+            for i = 1, 40 do
+                local aura = C_UnitAuras.GetAuraDataByIndex("player", i, "HELPFUL")
+                if aura and aura.spellId == spellID then
+                    numConditions = numConditions - 1
+                    break
+                else
+                    break
+                end
+            end
+        elseif cond == "BUFF_INACTIVE" then
+            local isActive = false
+            local spellID = condition:match("= (.+)")
+            for i = 1, 40 do
+                local aura = C_UnitAuras.GetAuraDataByIndex("player", i, "HELPFUL")
+                if aura and aura.spellId == spellID then
+                    isActive = true
+                    break
+                end
+            end
+
+            if not isActive then
                 numConditions = numConditions - 1
             end
         elseif cond == "HAS_ITEM" then

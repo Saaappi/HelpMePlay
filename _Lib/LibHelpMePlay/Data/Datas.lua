@@ -237,6 +237,14 @@ LHMP.Gossips = {
     [49635] = {{ID = 39916, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 28749"}}},
     -- Western Plaguelands
     [46006] = {{ID = 39847, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27165", "LEVEL_LOWER = 20"}}},
+    [44456] = {{ID = 39187, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26953", "BUFF_INACTIVE = 83456"}}},
+    [45212] = {{ID = 38631, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27174"}}},
+    [45162] = {{ID = 38252, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27156"}}},
+    [45150] = {{ID = 37536, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27153"}}},
+    [45151] = {{ID = 37875, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27153"}}},
+    [45148] = {{ID = 38735, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27153"}}},
+    [45149] = {{ID = 38829, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27153"}}},
+    [45152] = {{ID = 38251, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27154"}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
     -- Loch Modan
