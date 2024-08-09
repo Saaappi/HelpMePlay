@@ -121,6 +121,8 @@ New Character Configuration serves as a comprehensive template outlining the con
   - Toggle whether the loot window should open under the mouse during New Character Configuration.
 - Disable Dialog
   - Toggle whether dialog should be disabled during New Character Configuration.
+- Reduce Camera Obstruction
+  - Toggle to not allow the camera to collide with objects like trees, lamps, and more.
 - Create Whisper Window
   - Toggle the creation (or destruction) of a Whisper window on the chat frame during New Character Configuration.
 - Create Loot Window
