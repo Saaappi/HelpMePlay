@@ -102,7 +102,8 @@ function HelpMePlay.RegisterSettings()
         "UseEmotes",
         false,
         HelpMePlayDB["UseEmotes"],
-        "Automatically use the appropriate emote against quest-related non-player characters."
+        "Automatically use the appropriate emote against quest-related non-player characters.\n\n" ..
+        HelpMePlay.Tooltips.FeatureIsWorkInProgress
     )
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -111,7 +112,7 @@ function HelpMePlay.RegisterSettings()
         false,
         HelpMePlayDB["AcceptGossip"],
         "Automatically select the appropriate quest-related gossip options from non-player characters.\n\n" ..
-        LHMP:ColorText("RED", "Not all gossips are supported!")
+        HelpMePlay.Tooltips.FeatureIsWorkInProgress
     )
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -208,7 +209,8 @@ function HelpMePlay.RegisterSettings()
         "PurchaseQuestItems",
         false,
         HelpMePlayDB["PurchaseQuestItems"],
-        "Toggle to automatically purchase quest items from merchants."
+        "Toggle to automatically purchase quest items from merchants.\n\n" ..
+        HelpMePlay.Tooltips.FeatureIsWorkInProgress
     )
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -232,7 +234,8 @@ function HelpMePlay.RegisterSettings()
         "UsePlayerChoice",
         false,
         HelpMePlayDB["UsePlayerChoice"],
-        "Toggle to allow the addon to decide quest-related player choices on your behalf."
+        "Toggle to allow the addon to decide quest-related player choices on your behalf.\n\n" ..
+        HelpMePlay.Tooltips.FeatureIsWorkInProgress
     )
     HelpMePlay.AddSettingCheckbox(
         category,
