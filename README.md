@@ -71,12 +71,12 @@ The addon settings can be opened through the Escape menu (Options -> AddOns), vi
 - Trainer Protection Value
   - If the addon is allowed to train on your behalf, select the **MINIMUM** amount of gold you must have before the addon can train for you. 0 will disable the feature.
 
-### Guild Bank Module
+### Warbank Module
 
 - Deposit Keep Amount
-  - To automatically deposit gold into a guild bank, specify the desired amount to retain after each transaction. If your balance falls below this threshold, the addon will withdraw gold from the bank to maintain this set amount.
+  - To automatically deposit gold into your Warbank, specify the desired amount to retain after each transaction. If your balance falls below this threshold, the addon will withdraw gold from the bank to maintain this set amount.
 - Keep Me Safe
-  - When enabled, this setting restricts all transactions for a guild that you do not own. To enable automatic transactions while this setting is enabled, you must log into the Guild Master character.
+  - When enabled, this setting forces the player to confirm or deny every monetary transaction for the Warbank.
 
 ### Quest Mobs Module
 

@@ -3,7 +3,7 @@
 ### Added
 - Implemented support for gossip and quest merchants across multiple zones.
 ### Changed or Updated
-- The button next to the Micro Menu now adheres to the **Mouseover** setting in ElvUI.
+- The button next to the Micro Menu now adheres to the **Mouseover** setting in ElvUI. _(Closes #85)_
 - Clarified the text in the popup when selecting a custom **Quest Mobs** icon.
 - The collection icon for appearances will now evaluate all sources associated with an item to determine the appropriate icon to display. _(Closes #87)_
 ### Deprecated
