@@ -42,28 +42,28 @@ local function HandleTransaction(transactionAmount)
     end
 end
 
-eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
-    if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
+local function OnEvent(_, event, ...)
+    if event == "BANKFRAME_OPENED" or (event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" and ... == 8) then
         if HelpMePlayDB["DepositKeepAmount"] > 0 then
-            local type = ...
-            if type == 8 then
-                if C_Bank.CanDepositMoney(2) then
-                    local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"])
-                    if transactionAmount == 0 then return end
+            if C_Bank.CanDepositMoney(2) then
+                local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"])
+                if transactionAmount == 0 then return end
 
-                    if HelpMePlayDB["DepositKeepMeSafe"] then
-                        HandleTransaction(transactionAmount)
+                if HelpMePlayDB["DepositKeepMeSafe"] then
+                    HandleTransaction(transactionAmount)
+                else
+                    if transactionAmount > 0 then
+                        ManageGuildBankFunds("DEPOSIT", transactionAmount)
                     else
-                        if transactionAmount > 0 then
-                            ManageGuildBankFunds("DEPOSIT", transactionAmount)
-                        else
-                            transactionAmount = -transactionAmount
-                            ManageGuildBankFunds("WITHDRAW", transactionAmount)
-                        end
+                        transactionAmount = -transactionAmount
+                        ManageGuildBankFunds("WITHDRAW", transactionAmount)
                     end
                 end
             end
         end
     end
-end)
+end
+
+eventHandler:RegisterEvent("BANKFRAME_OPENED")
+eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
+eventHandler:SetScript("OnEvent", OnEvent)

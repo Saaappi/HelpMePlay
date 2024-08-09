@@ -8,3 +8,7 @@
 ### Deprecated
 ### Removed
 ### Fixed
+- Resolved an issue that caused the Warband Bank automation to fail when interacting with the Warband Bank Distance Inhibitor.
+
+## Superseded Updates
+### 3.0.4H1 - 2024/08/09
