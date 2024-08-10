@@ -706,6 +706,15 @@ LHMP.Gossips = {
         {ID = 108977, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 72443"}},
         {ID = 108976, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 72443"}}
     },
+    -- In the Halls of Titans Questline
+    [191853] = {{ID = 55194, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66174"}}},
+    -- Bronze Reconciliation Questline
+    [205882] = {{ID = 110335, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77417"}}},
+    [207634] = {
+        {ID = 110339, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76407"}},
+        {ID = 110477, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76421"}}
+    },
+    [208035] = {{ID = 110423, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76422"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
