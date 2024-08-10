@@ -10,6 +10,7 @@
 ### Deprecated
 ### Removed
 ### Fixed
+- Resolved an issue that inhibited equipping identical heirloom items (e.g., two Swift Hands of Justice) with a single click of the **Equip Heirlooms** button.
 
 ## Superseded Updates
 ### 3.0.4H1 - 2024/08/09
