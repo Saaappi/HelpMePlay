@@ -715,6 +715,17 @@ LHMP.Gossips = {
         {ID = 110477, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76421"}}
     },
     [208035] = {{ID = 110423, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76422"}}},
+    -- Reforging the Tyr's Guard Questline
+    [204576] = {{ID = 110100, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75633"}}},
+    [204538] = {{ID = 110602, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76171"}}},
+    [204539] = {{ID = 110608, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76171"}}},
+    [204541] = {{ID = 110597, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76171"}}},
+    [204540] = {{ID = 110599, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76171"}}},
+    [205837] = {{ID = 110380, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75952"}}},
+    [205878] = {{ID = 110333, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75951"}}},
+    [206124] = {{ID = 110080, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75953"}}},
+    [204602] = {{ID = 110145, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75635"}}},
+    [204599] = {{ID = 110194, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75637"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
