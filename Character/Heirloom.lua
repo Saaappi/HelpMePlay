@@ -2,6 +2,56 @@ local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local button
 
+local function GetAvailableSlot(inventoryType)
+    local invSlots = HelpMePlay.InventoryType[inventoryType]
+    if invSlots then
+        if type(invSlots) == "table" then
+            for _, invSlotId in ipairs(invSlots) do
+                local invSlot = Item:CreateFromEquipmentSlot(invSlotId)
+                local invSlotItemId = invSlot:GetItemID()
+                if invSlot:IsItemEmpty() or (not C_Heirloom.IsItemHeirloom(invSlotItemId)) then
+                    return invSlotId
+                end
+            end
+        else
+            local invSlot = invSlots
+            return invSlot
+        end
+    end
+end
+
+local function Equip()
+    local hasEquippedItem = false
+    for bagId = 0, 4 do
+        local numSlots = C_Container.GetContainerNumSlots(bagId)
+        for slotId = 1, numSlots do
+            local item = Item:CreateFromBagAndSlot(bagId, slotId)
+            if not item:IsItemEmpty() then
+                local itemId = item:GetItemID()
+                if C_Heirloom.IsItemHeirloom(itemId) then
+                    local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemId))
+                    if heirloomMaxLevel and (heirloomMaxLevel > HelpMePlay.playerLevel) then
+                        local itemLink = item:GetItemLink()
+                        local inventoryType = item:GetInventoryType()
+                        if inventoryType then
+                            local invSlotId = GetAvailableSlot(inventoryType)
+                            C_Item.EquipItemByName(itemLink, invSlotId)
+                            hasEquippedItem = true
+                            break
+                        end
+                    end
+                end
+            end
+        end
+        if hasEquippedItem then
+            break
+        end
+    end
+    if hasEquippedItem then
+        C_Timer.After(0.25, Equip)
+    end
+end
+
 local function CreateButton()
     if PlayerGetTimerunningSeasonID() == 1 then return false end
     if HelpMePlay.playerLevel == HelpMePlay.Constants["MAX_PLAYER_LEVEL"] then return false end
@@ -20,21 +70,7 @@ local function CreateButton()
 
         button:SetScript("PreClick", function(_, _, isDown)
             if not isDown then
-                for bag = 0, 4 do
-                    for slot = 1, C_Container.GetContainerNumSlots(bag) do
-                        local item = Item:CreateFromBagAndSlot(bag, slot)
-                        if not item:IsItemEmpty() then
-                            local itemID = item:GetItemID()
-                            if C_Heirloom.IsItemHeirloom(itemID) then
-                                local itemLink = item:GetItemLink()
-                                local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
-                                if heirloomMaxLevel > HelpMePlay.playerLevel then
-                                    EquipItemByName(itemLink)
-                                end
-                            end
-                        end
-                    end
-                end
+                Equip()
             end
         end)
         button:SetScript("OnEnter", function(self)
