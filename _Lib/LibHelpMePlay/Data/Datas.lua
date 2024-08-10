@@ -726,6 +726,16 @@ LHMP.Gossips = {
     [206124] = {{ID = 110080, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75953"}}},
     [204602] = {{ID = 110145, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75635"}}},
     [204599] = {{ID = 110194, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75637"}}},
+    -- Tyr's Return Questline
+    [208707] = {
+        {ID = 110939, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77340"}},
+        {ID = 111128, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77340"}}
+    },
+    [208705] = {{ID = 111124, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77340"}}},
+    [208706] = {{ID = 111125, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77340"}}},
+    [208709] = {{ID = 111127, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77340"}}},
+    [208796] = {{ID = 111046, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77344"}}},
+    [208839] = {{ID = 111059, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77344"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
