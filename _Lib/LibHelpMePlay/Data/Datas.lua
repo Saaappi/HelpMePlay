@@ -191,6 +191,8 @@ LHMP.Gossips = {
         {ID = 55757, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
         {ID = 55762, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
         {ID = 55773, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
+        -- Forge Console (Thaldraszus)
+        {ID = 108982, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 72444"}},
     },
     -------------------------
     -- VANILLA --------------
@@ -697,6 +699,13 @@ LHMP.Gossips = {
         {ID = 120773, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 68796"}}
     },
     [187393] = {{ID = 54942, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 66435"}}},
+    -- Valdrakken
+    [214051] = {{ID = 120505, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 78865"}}},
+    -- Tyr's Fall Questline
+    [200078] = {
+        {ID = 108977, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 72443"}},
+        {ID = 108976, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 72443"}}
+    },
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
