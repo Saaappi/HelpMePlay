@@ -164,6 +164,28 @@ HelpMePlay.EvaluateConditions = function(conditions)
                     if breakParentLoop then break end
                 end
             end
+        elseif cond == "MISSING_ITEM" then
+            local hasItem = false
+            local itemID = condition:match("= (.+)")
+            if itemID and tonumber(itemID) then
+                local breakParentLoop = false
+                for bagID = 0, 4 do
+                    for slotID = 1, C_Container.GetContainerNumSlots(bagID) do
+                        local containerItemID = C_Container.GetContainerItemID(bagID, slotID)
+                        if containerItemID then
+                            if containerItemID == tonumber(itemID) then
+                                hasItem = true
+                                breakParentLoop = true
+                                break
+                            end
+                        end
+                    end
+                    if breakParentLoop then break end
+                end
+                if not hasItem then
+                    numConditions = numConditions - 1
+                end
+            end
         end
     end
     if numConditions == 0 then
