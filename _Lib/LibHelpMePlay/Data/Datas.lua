@@ -273,7 +273,7 @@ LHMP.Gossips = {
         {ID = 30449, CanConfirm = false, Conditions = {"NONE = NONE"}}
     },
     -------------------------
-    -- THE BURNING CRUSADE --  30721
+    -- THE BURNING CRUSADE --
     -------------------------
     -- Shadowmoon Valley (Outland)
     [21727] = {{ID = 34446, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10583"}}},
@@ -295,6 +295,7 @@ LHMP.Gossips = {
         {ID = 33459, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}},
         {ID = 34482, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}}
     },
+    [21685] = {{ID = 34153, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10588"}}},
     -------------------------
     -- WRATH OF THE LICH KING
     -------------------------
