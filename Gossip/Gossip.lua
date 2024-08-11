@@ -103,7 +103,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local numEntries = C_QuestLog.GetNumQuestLogEntries()
                     for i = 1, numEntries do
                         local info = C_QuestLog.GetInfo(i)
-                        if info and (not info.isHeader) then
+                        if info and
+                            info.hasLocalPOI and
+                            not info.isHeader then
+
                             print(format("%s: %s", LHMP:ColorText("GOLD", info.questID), info.title))
                         end
                     end
