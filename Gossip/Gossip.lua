@@ -1,6 +1,7 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
+local userGossipButton
 local gossipButton
 local questsButton
 
@@ -8,6 +9,7 @@ eventHandler:RegisterEvent("GOSSIP_SHOW")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "GOSSIP_SHOW" then
         if HelpMePlayDB["AcceptGossip"] == false then return end
+        if IsShiftKeyDown() then return end
 
         local options = C_GossipInfo.GetOptions()
         if options then
@@ -23,6 +25,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 C_GossipInfo.SelectOption(gossip.ID)
                                 if gossip.CanConfirm then
                                     StaticPopup1Button1:Click("LeftButton")
+                                end
+                            end
+                        end
+                    end
+                    if HelpMePlayDB.PlayerGossips[npcID] then
+                        for _, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[npcID]) do
+                            for _, option in ipairs(options) do
+                                if option.gossipOptionID == gossipOptionID then
+                                    C_GossipInfo.SelectOption(option.gossipOptionID)
+                                    break
                                 end
                             end
                         end
@@ -117,5 +129,77 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 questsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
             end
         end
+    end
+end)
+
+GossipFrame:HookScript("OnShow", function(self)
+    if not userGossipButton then
+        userGossipButton = HelpMePlay.CreateWidget("BasicButton", {
+            name = format("%sUserGossipButton", addonName),
+            parent = UIParent,
+            width = 120,
+            height = 25,
+            text = "Gossip",
+        })
+
+        userGossipButton:ClearAllPoints()
+        userGossipButton:SetPoint("BOTTOM", GossipFrame, "TOP", 0, 2)
+
+        userGossipButton:SetScript("OnClick", function()
+            StaticPopupDialogs["HMP_CUSTOM_GOSSIP_OPTION"] = {
+                text = "Please enter the index of the option you would like to add.\n\n" ..
+                LHMP:ColorText("RED", "Please keep in mind, the addon has priority in the Gossip subsystem."),
+                button1 = YES,
+                button2 = NO,
+                explicitAcknowledge = true,
+                hasEditBox = true,
+                OnAccept = function(self)
+                    local input = self.editBox:GetText()
+                    if tonumber(input) then
+                        input = tonumber(input)
+                        local GUID = UnitGUID("target")
+                        if GUID then
+                            local npcID = LHMP:SplitString(GUID, "-", 6)
+                            if npcID then
+                                local options = C_GossipInfo.GetOptions()
+                                if options then
+                                    if not HelpMePlayDB.PlayerGossips[npcID] then
+                                        HelpMePlayDB.PlayerGossips[npcID] = {}
+                                    end
+                                    for index, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[npcID]) do
+                                        if gossipOptionID == options[input].gossipOptionID then
+                                            table.remove(HelpMePlayDB.PlayerGossips[npcID], index)
+                                            return
+                                        end
+                                    end
+                                    table.insert(HelpMePlayDB.PlayerGossips[npcID], options[input].gossipOptionID)
+                                end
+                            end
+                        end
+                    end
+                end,
+                OnCancel = function()
+                end,
+                preferredIndex = 3
+            }
+            StaticPopup_Show("HMP_CUSTOM_GOSSIP_OPTION")
+        end)
+        userGossipButton:SetScript("OnEnter", function(self)
+            if UnitExists("target") and
+                not UnitIsPlayer("target") then
+
+                HelpMePlay.Tooltip_OnEnter(self, "Gossip", format("Click to add or remove a custom gossip option for %s.", LHMP:ColorText("UNCOMMON", UnitName("target"))))
+            end
+        end)
+        userGossipButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+    end
+    userGossipButton:Show()
+end)
+
+GossipFrame:HookScript("OnHide", function()
+    if userGossipButton and
+        userGossipButton:IsVisible() then
+
+        userGossipButton:Hide()
     end
 end)

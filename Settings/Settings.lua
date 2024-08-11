@@ -931,6 +931,7 @@ function HelpMePlay.Init()
         NCC_ActionBar8 = false,
         NCC_EditModeLayoutID = 1,
         OpenContainers = false,
+        PlayerGossips = {},
         PurchaseQuestItems = false,
         QuestMobsCustomIcon = "",
         QuestMobsIconID = 0,
