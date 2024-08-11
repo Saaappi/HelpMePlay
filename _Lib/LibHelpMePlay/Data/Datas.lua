@@ -275,6 +275,15 @@ LHMP.Gossips = {
     -------------------------
     -- THE BURNING CRUSADE --
     -------------------------
+    -- Nagrand (Outland)
+    [18417] = {
+        {ID = 34530, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
+        {ID = 34755, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
+        {ID = 33588, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
+        {ID = 34692, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
+        {ID = 33281, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
+        {ID = 33283, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}}
+    },
     -- Shadowmoon Valley (Outland)
     [21727] = {{ID = 34446, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10583"}}},
     [21774] = {{ID = 33587, CanConfirm = false, Conditions = {"MISSING_ITEM = 30721"}}},
