@@ -128,6 +128,9 @@ LHMP.QuestMerchants = {
     },
     [167213] = {
         { Index = 1, Quantity = 1, Conditions = {"QUEST_ACTIVE = 59950", "QUEST_OBJECTIVE_INCOMPLETE = 59950,1"}}
+    },
+    [209192] = {
+        { Index = 1, Quantity = 1, Conditions = {"QUEST_ACTIVE = 79223", "QUEST_OBJECTIVE_INCOMPLETE = 79223,1"}}
     }
 }
 
@@ -736,6 +739,24 @@ LHMP.Gossips = {
     [208709] = {{ID = 111127, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77340"}}},
     [208796] = {{ID = 111046, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77344"}}},
     [208839] = {{ID = 111059, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77344"}}},
+    -- Reconciliation Questline
+    [207888] = {{ID = 110909, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77163"}}},
+    -- Azerothian Archives Questline
+    [209192] = {
+        {ID = 120339, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79223"}},
+        {ID = 120371, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77331"}}
+    },
+    [208362] = {{ID = 110629, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77100"}}},
+    [208398] = {{ID = 110763, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77151"}}},
+    [200010] = {{ID = 110789, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77154"}}},
+    [205413] = {{ID = 110375, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76026"}}},
+    [208055] = {{ID = 110432, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 76032"}}},
+    [204215] = {{ID = 110787, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75604"}}},
+    [215736] = {{ID = 120336, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 75604"}}},
+    [208167] = {{ID = 120351, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77331"}}},
+    [208355] = {{ID = 120361, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77331"}}},
+    [208614] = {{ID = 120366, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77331"}}},
+    [206107] = {{ID = 120356, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77331"}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79011"}}},
