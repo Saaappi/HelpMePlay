@@ -14,5 +14,7 @@
 - Resolved an issue that inhibited equipping identical heirloom items (e.g., two Swift Hands of Justice) with a single click of the **Equip Heirlooms** button.
 
 ## Superseded Updates
+### 3.0.4H2 - 2024/08/11
+- Resolved an issue where the Warband Bank automation performed duplicate transactions when the 'Keep Me Safe' feature was turned off.
 ### 3.0.4H1 - 2024/08/09
 - Resolved an issue that caused the Warband Bank automation to fail when interacting with the Warband Bank Distance Inhibitor.
