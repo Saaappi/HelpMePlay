@@ -46,8 +46,8 @@ LFG\ReadyChecks.lua
 LFG\RoleChecks.lua
 LFG\PartyInvite.lua
 
-# Guild Bank Module
-GuildBank\GuildBank.lua
+# Warband Bank Module
+WarbandBank\WarbandBank.lua
 
 # Character Module
 Character\NewCharacter.lua

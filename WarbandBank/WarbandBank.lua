@@ -1,5 +1,6 @@
 local _, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
+local isTransactionInProgress = false
 
 local function ManageGuildBankFunds(transactionType, transactionAmount)
     C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"] + 0.4, function()
@@ -10,12 +11,13 @@ local function ManageGuildBankFunds(transactionType, transactionAmount)
             C_Bank.WithdrawMoney(2, transactionAmount)
             HelpMePlay.Print(format("Withdrew %s.", C_CurrencyInfo.GetCoinTextureString(transactionAmount)))
         end
+        isTransactionInProgress = false
     end)
 end
 
 local function ShowConfirmDialog(transactionAmount, transactionType)
     StaticPopupDialogs["HELPMEPLAY_DEPOSIT_KEEP_ME_SAFE"] = {
-        text = format("You're about to %s %s to your Warband bank. Do you wish to continue?", string.lower(transactionType), C_CurrencyInfo.GetCoinTextureString(transactionAmount)),
+        text = format("You're about to %s %s to/from your Warband bank. Do you wish to continue?", string.lower(transactionType), C_CurrencyInfo.GetCoinTextureString(transactionAmount)),
         button1 = YES,
         button2 = NO,
         OnAccept = function()
@@ -45,9 +47,11 @@ end
 local function OnEvent(_, event, ...)
     if event == "BANKFRAME_OPENED" or (event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" and ... == 8) then
         if HelpMePlayDB["DepositKeepAmount"] > 0 then
-            if C_Bank.CanDepositMoney(2) then
+            if C_Bank.CanDepositMoney(2) and (not isTransactionInProgress) then
                 local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"])
                 if transactionAmount == 0 then return end
+
+                isTransactionInProgress = true
 
                 if HelpMePlayDB["DepositKeepMeSafe"] then
                     HandleTransaction(transactionAmount)
