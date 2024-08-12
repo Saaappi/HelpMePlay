@@ -240,8 +240,11 @@ GossipFrame:HookScript("OnShow", function(self)
     if isExpanded then
         collapseButton:Show()
         userGossipButton:Show()
+        expandButton:Hide()
     else
         expandButton:Show()
+        collapseButton:Hide()
+        userGossipButton:Hide()
     end
 end)
 
