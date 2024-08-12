@@ -18,22 +18,26 @@ local function CheckForQuestReward(itemLink, destSlot)
     -- busted. :)
     local itemID = C_Item.GetItemInfoInstant(itemLink)
 
-    for bagID = 0, 4 do
-        local numSlots = C_Container.GetContainerNumSlots(bagID)
+    for bagId = 0, 4 do
+        local numSlots = C_Container.GetContainerNumSlots(bagId)
         if numSlots > 0 then
-            for slotID = 1, numSlots do
-                local containerItemID = C_Container.GetContainerItemID(bagID, slotID)
+            for slotId = 1, numSlots do
+                local containerItemID = C_Container.GetContainerItemID(bagId, slotId)
                 if containerItemID then
                     if containerItemID == itemID then
-                        if canDualWield and destSlot ~= 0 then
-                            -- In cases where the player can dual wield, we want to ensure
-                            -- the reward is equipped to the most optimal slot. If one slot
-                            -- is a 30 item level upgrade and the second is a 10 item level
-                            -- upgrade, then the 30 item level upgrade slot should be used.
-                            C_Item.EquipItemByName(itemLink, destSlot)
-                            destSlot = 0
-                        else
-                            C_Item.EquipItemByName(itemLink)
+                        local containerItemLink = C_Container.GetContainerItemLink(bagId, slotId)
+                        local equippedItemLink = GetInventoryItemLink("player", destSlot)
+                        if C_Item.GetDetailedItemLevelInfo(containerItemLink) > C_Item.GetDetailedItemLevelInfo(equippedItemLink) then
+                            if canDualWield and destSlot ~= 0 then
+                                -- In cases where the player can dual wield, we want to ensure
+                                -- the reward is equipped to the most optimal slot. If one slot
+                                -- is a 30 item level upgrade and the second is a 10 item level
+                                -- upgrade, then the 30 item level upgrade slot should be used.
+                                C_Item.EquipItemByName(itemLink, destSlot)
+                                destSlot = 0
+                            else
+                                C_Item.EquipItemByName(itemLink, destSlot)
+                            end
                         end
                     end
                 end
