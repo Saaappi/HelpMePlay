@@ -207,6 +207,7 @@ LHMP.Gossips = {
     [34761] = {{ID = 38299, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 483"}}},
     -- Elwynn Forest
     [240] = {{ID = 38407, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 35"}}},
+    -- Darkshore
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
