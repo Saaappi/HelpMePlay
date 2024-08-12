@@ -210,7 +210,7 @@ HelpMePlay.CompleteQuest = function()
                 local itemID = C_Item.GetItemInfoInstant(value)
                 local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
                 local actualItemLevel = C_Item.GetDetailedItemLevelInfo(value) or 0
-                if heirloomMaxLevel and (heirloomMaxLevel >= HelpMePlay.playerLevel) then
+                if heirloomMaxLevel and (heirloomMaxLevel >= HelpMePlay.playerLevel or HelpMePlay.playerLevel == HelpMePlay.Constants["PLAYER_MAX_LEVEL"]) then
                     -- If the player has an heirloom equipped in the slot, and they haven't
                     -- outleveled the heirloom, then set the itemlevel for that slot to 999
                     -- to prevent the item from being replaced.
