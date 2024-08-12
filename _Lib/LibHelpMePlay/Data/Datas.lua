@@ -167,6 +167,8 @@ LHMP.Gossips = {
         -------------------------
         -- VANILLA --------------
         -------------------------
+        -- Grovekeeper's Incense (Darkshore)
+        {ID = 37215, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13569"}},
         -- Totem of Hir'eek (The Cape of Stranglethorn)
         {ID = 38325, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26809"}},
         -- Ruined Lifeboat (The Cape of Stranglethorn)
@@ -208,6 +210,10 @@ LHMP.Gossips = {
     -- Elwynn Forest
     [240] = {{ID = 38407, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 35"}}},
     -- Darkshore
+    [33037] = {{ID = 35901, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13547"}}},
+    [33035] = {{ID = 35900, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13547"}}},
+    [33033] = {{ID = 35899, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13547"}}},
+    [33001] = {{ID = 37276, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13547"}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
