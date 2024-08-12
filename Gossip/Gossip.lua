@@ -6,6 +6,7 @@ local gossipButton
 local questsButton
 local expandButton
 local collapseButton
+local isExpanded = false
 
 eventHandler:RegisterEvent("GOSSIP_SHOW")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
@@ -149,6 +150,7 @@ GossipFrame:HookScript("OnShow", function(self)
             collapseButton:Show()
             userGossipButton:Show()
             self:Hide()
+            isExpanded = true
         end)
         expandButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to show the NPC utilities.", "") end)
         expandButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
@@ -168,6 +170,7 @@ GossipFrame:HookScript("OnShow", function(self)
             expandButton:Show()
             userGossipButton:Hide()
             self:Hide()
+            isExpanded = false
         end)
         collapseButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to hide the NPC utilities.", "") end)
         collapseButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
@@ -234,9 +237,12 @@ GossipFrame:HookScript("OnShow", function(self)
         userGossipButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
     end
 
-    expandButton:Show()
-    collapseButton:Hide()
-    userGossipButton:Hide()
+    if isExpanded then
+        collapseButton:Show()
+        userGossipButton:Show()
+    else
+        expandButton:Show()
+    end
 end)
 
 GossipFrame:HookScript("OnHide", function()
