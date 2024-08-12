@@ -112,7 +112,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 })
 
                 questsButton:ClearAllPoints()
-                questsButton:SetPoint("TOP", gossipButton, "BOTTOM", 0, 5)
+                questsButton:SetPoint("TOP", gossipButton, "BOTTOM", 0, -5)
 
                 questsButton:SetScript("OnClick", function()
                     local numEntries = C_QuestLog.GetNumQuestLogEntries()
