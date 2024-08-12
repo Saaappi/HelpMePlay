@@ -4,6 +4,8 @@ local LHMP = LibStub("LibHelpMePlay")
 local userGossipButton
 local gossipButton
 local questsButton
+local expandButton
+local collapseButton
 
 eventHandler:RegisterEvent("GOSSIP_SHOW")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
@@ -109,7 +111,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 })
 
                 questsButton:ClearAllPoints()
-                questsButton:SetPoint("TOP", gossipButton, "BOTTOM", 0, -5)
+                questsButton:SetPoint("TOP", gossipButton, "BOTTOM", 0, 5)
 
                 questsButton:SetScript("OnClick", function()
                     local numEntries = C_QuestLog.GetNumQuestLogEntries()
@@ -133,17 +135,55 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 end)
 
 GossipFrame:HookScript("OnShow", function(self)
+    if not expandButton then
+        expandButton = CreateFrame("Button", nil, GossipFrame)
+        expandButton:SetSize(20, 20)
+        expandButton:SetPoint("BOTTOMLEFT", GossipFrame, "TOPLEFT", 50, 10)
+        expandButton.texture = expandButton:CreateTexture()
+        expandButton.texture:SetAtlas("common-icon-forwardarrow")
+        expandButton:SetNormalTexture(expandButton.texture)
+        expandButton:SetHighlightAtlas("common-icon-forwardarrow", "ADD")
+
+        expandButton:SetScript("OnClick", function(self)
+            PlaySound(SOUNDKIT.IG_QUEST_LOG_OPEN)
+            collapseButton:Show()
+            userGossipButton:Show()
+            self:Hide()
+        end)
+        expandButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to show the NPC utilities.", "") end)
+        expandButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+    end
+
+    if not collapseButton then
+        collapseButton = CreateFrame("Button", nil, GossipFrame)
+        collapseButton:SetSize(20, 20)
+        collapseButton:SetPoint("BOTTOMLEFT", GossipFrame, "TOPLEFT", 50, 10)
+        collapseButton.texture = collapseButton:CreateTexture()
+        collapseButton.texture:SetAtlas("common-icon-backarrow")
+        collapseButton:SetNormalTexture(collapseButton.texture)
+        collapseButton:SetHighlightAtlas("common-icon-backarrow", "ADD")
+
+        collapseButton:SetScript("OnClick", function(self)
+            PlaySound(SOUNDKIT.IG_QUEST_LOG_CLOSE)
+            expandButton:Show()
+            userGossipButton:Hide()
+            self:Hide()
+        end)
+        collapseButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to hide the NPC utilities.", "") end)
+        collapseButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+    end
+
     if not userGossipButton then
-        userGossipButton = HelpMePlay.CreateWidget("BasicButton", {
+        userGossipButton = HelpMePlay.CreateWidget("ActionButton", {
             name = format("%sUserGossipButton", addonName),
-            parent = UIParent,
-            width = 120,
-            height = 25,
-            text = "Gossip",
+            parent = collapseButton,
         })
+        userGossipButton:SetScale(0.75)
 
         userGossipButton:ClearAllPoints()
-        userGossipButton:SetPoint("BOTTOM", GossipFrame, "TOP", 0, 2)
+        userGossipButton:SetPoint("LEFT", collapseButton, "RIGHT", 10, 0)
+
+        userGossipButton.icon:SetTexture(135975)
 
         userGossipButton:SetScript("OnClick", function()
             StaticPopupDialogs["HMP_CUSTOM_GOSSIP_OPTION"] = {
@@ -193,13 +233,20 @@ GossipFrame:HookScript("OnShow", function(self)
         end)
         userGossipButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
     end
-    userGossipButton:Show()
+
+    expandButton:Show()
+    collapseButton:Hide()
+    userGossipButton:Hide()
 end)
 
 GossipFrame:HookScript("OnHide", function()
-    if userGossipButton and
-        userGossipButton:IsVisible() then
-
+    if expandButton then
+        expandButton:Hide()
+    end
+    if collapseButton then
+        collapseButton:Hide()
+    end
+    if userGossipButton then
         userGossipButton:Hide()
     end
 end)
