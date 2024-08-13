@@ -821,7 +821,8 @@ function HelpMePlay.AddSettingButton(controlLabel, buttonText, onClick, tooltip,
 end
 
 function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)
-    local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
+    --local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
+    local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
 
     Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateCheckbox(category, setting, tooltip)
@@ -830,7 +831,8 @@ function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, def
 end
 
 function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, defaultValue, currentValue, options, tooltip)
-    local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
+    --local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
+    local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
 
     Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateDropdown(category, setting, options, tooltip)
@@ -839,7 +841,8 @@ function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, def
 end
 
 function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defaultValue, currentValue, minValue, maxValue, increment, value, tooltip)
-    local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
+    --local setting = Settings.RegisterAddOnSetting(category, controlLabel, variableName, type(defaultValue), currentValue)
+    local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
 
     local options = Settings.CreateSliderOptions(minValue, maxValue, increment)
     options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
