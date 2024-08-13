@@ -18,7 +18,10 @@ local function IsNCCEnabled()
         "AutoPushSpells",
         "ClassColorFrames",
         "LootUnderMouse",
-        "DisableDialog"
+        "DisableDialog",
+        "ReduceCameraObstruction",
+        "CreateWhisperWindow",
+        "CreateLootWindow"
     }
     for _, variable in next, variables do
         if HelpMePlayDB[variable] then
