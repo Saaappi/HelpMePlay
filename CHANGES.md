@@ -15,6 +15,8 @@
 - Resolved an issue where heirlooms on max-level characters were being replaced by items with significantly lower item levels.
 
 ## Superseded Updates
+### 3.0.4H3 - 2024/08/13
+- Following the release of update 11.0.2, a minor adjustment was required to resolve an issue with the settings.
 ### 3.0.4H2 - 2024/08/11
 - Resolved an issue where the Warband Bank automation performed duplicate transactions when the 'Keep Me Safe' feature was turned off.
 ### 3.0.4H1 - 2024/08/09
