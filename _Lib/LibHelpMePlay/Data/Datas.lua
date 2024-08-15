@@ -781,6 +781,7 @@ LHMP.Gossips = {
     [208709] = {{ID = 111127, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77340"}}},
     [208796] = {{ID = 111046, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77344"}}},
     [208839] = {{ID = 111059, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77344"}}},
+    [209890] = {{ID = 111070, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77341"}}},
     -- Reconciliation Questline
     [207888] = {{ID = 110909, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 77163"}}},
     -- Azerothian Archives Questline
