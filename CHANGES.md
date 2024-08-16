@@ -8,6 +8,7 @@
 - The button next to the Micro Menu now adheres to the **Mouseover** setting in ElvUI. _(Closes #85)_
 - Clarified the text in the popup when selecting a custom **Quest Mobs** icon.
 - The collection icon for appearances will now evaluate all sources associated with an item to determine the appropriate icon to display. _(Closes #87)_
+- The Back to the Orphanage quest (for each faction) are now ignored.
 ### Deprecated
 ### Removed
 - Removed the Remix modules for Mists of Pandaria.

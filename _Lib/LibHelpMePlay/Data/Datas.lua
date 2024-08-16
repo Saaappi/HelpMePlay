@@ -138,6 +138,8 @@ LHMP.QuestMerchants = {
 }
 
 LHMP.IgnoredQuests = {
+    10966, -- Back to the Orphanage [A]
+    10967, -- Back to the Orphanage [H]
     59583, -- Welcome to Stormwind
     60343, -- Welcome to Orgrimmar
 }
