@@ -11,6 +11,7 @@ local QUESTMOBS_SECTION = "Quest Mobs"
 local PET_BATTLES_SECTION = "Pet Battles"
 local WARDROBE_SECTION = "Wardrobe"
 local NEW_CHARACTER_SECTION = "New Character Configuration"
+local HEALTH_SECTION = "Health"
 local UTILITIES_SECTION = "Utilities"
 
 function HelpMePlay.ResetCharacterConfiguration()
@@ -673,6 +674,33 @@ function HelpMePlay.RegisterSettings()
     )
 
     -------------------------
+    -- HEALTH SECTION -------
+    -------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(HEALTH_SECTION))
+
+    HelpMePlay.AddSettingCVarDropdown(
+        category,
+        "Water Reminder",
+        "UseWaterReminder",
+        false,
+        HelpMePlayDB["UseWaterReminder"],
+        "Toggle to allow the addon to remind you when to sip on water... in real life!",
+        "Water Reminder Sound",
+        "WaterReminderSoundId",
+        0,
+        HelpMePlayDB["WaterReminderSoundId"],
+        "Select a sound to play when reminding you to sip on water.",
+        function()
+            local container = Settings.CreateControlTextContainer()
+            container:Add(23332, "Water Drop")
+            container:Add(224306, "Water Impact")
+            container:Add(3, "Custom")
+            container:Add(0, NONE)
+            return container:GetData()
+        end
+    )
+
+    -------------------------
     -- UTILITIES SECTION ----
     -------------------------
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(UTILITIES_SECTION))
@@ -748,12 +776,12 @@ function HelpMePlay.RegisterSettings()
     )
 end
 
-function HelpMePlay.OnSettingChanged(_, setting, value)
+function HelpMePlay.OnSettingChanged(setting, value)
     local variableName = setting:GetVariable()
-    HelpMePlayDB[variableName] = value
+    --HelpMePlayDB[variableName] = value
 
     local functions = {
-        QuestMobsIconID = function()
+        HelpMePlay_QuestMobsIconID = function()
             if value == 1 or value == 2 then
                 HelpMePlay.UpdateQuestMobsIcon()
             elseif value == 3 then
@@ -782,17 +810,17 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
                 StaticPopup_Show("HMP_QUEST_MOBS_CUSTOM_ICON")
             end
         end,
-        DepositKeepAmount = function() HelpMePlayDB[variableName] = value * 10000 end,
-        TrainerProtectionValue = function() HelpMePlayDB[variableName] = value * 10000 end,
-        QuestMobsIconPositionID = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
-        QuestMobsIconXOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
-        QuestMobsIconYOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
-        ShowRemixScrapButton = function() HelpMePlay.CreateRemixScrapButton() end,
-        ShowRemixUsablesButton = function() HelpMePlay.CreateRemixUsablesButton() end,
-        UseWorldEventQueue = function() HelpMePlay.CreateEventQueueButton() end,
-        ShowWardrobeButton = function() HelpMePlay.CreateWardrobeButton() end,
-        ShowPetBattleBandageButton = function() HelpMePlay.CreatePetBattleBandageButton() end,
-        QuickProposal = function()
+        HelpMePlay_DepositKeepAmount = function() HelpMePlayDB[variableName] = value * 10000 end,
+        HelpMePlay_TrainerProtectionValue = function() HelpMePlayDB[variableName] = value * 10000 end,
+        HelpMePlay_QuestMobsIconPositionID = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
+        HelpMePlay_QuestMobsIconXOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
+        HelpMePlay_QuestMobsIconYOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
+        HelpMePlay_ShowRemixScrapButton = function() HelpMePlay.CreateRemixScrapButton() end,
+        HelpMePlay_ShowRemixUsablesButton = function() HelpMePlay.CreateRemixUsablesButton() end,
+        HelpMePlay_UseWorldEventQueue = function() HelpMePlay.CreateEventQueueButton() end,
+        HelpMePlay_ShowWardrobeButton = function() HelpMePlay.CreateWardrobeButton() end,
+        HelpMePlay_ShowPetBattleBandageButton = function() HelpMePlay.CreatePetBattleBandageButton() end,
+        HelpMePlay_QuickProposal = function()
             StaticPopupDialogs["HMP_QUICK_PROPOSAL_CHANGED"] = {
                 text = format("The %s setting has changed. Would you like to reload the UI?", LHMP:ColorText("HEIRLOOM", "Quick Proposal")),
                 button1 = YES,
@@ -807,6 +835,34 @@ function HelpMePlay.OnSettingChanged(_, setting, value)
             }
             StaticPopup_Show("HMP_QUICK_PROPOSAL_CHANGED")
         end,
+        HelpMePlay_WaterReminderSoundId = function()
+            if value == 3 then
+                StaticPopupDialogs["HMP_WATER_REMINDER_CUSTOM_SOUND"] = {
+                    text = "Please enter the sound ID for your custom sound.\n\n" ..
+                    "The sound ID can be found in the URL on Wowhead. Please see the example below.\n\n" ..
+                    "https://www.wowhead.com/sound=|cff33BBB0888|r/levelup\n\n" ..
+                    "The highlighted number is what you put in the text field below.",
+                    button1 = YES,
+                    button2 = NO,
+                    explicitAcknowledge = true,
+                    hasEditBox = true,
+                    OnAccept = function(self)
+                        local input = self.editBox:GetText()
+                        if tonumber(input) then
+                            HelpMePlayDB["WaterReminderSoundId"] = tonumber(input)
+                        else
+                            HelpMePlay.Print(HelpMePlay.ErrorMessages["INVALID_INPUT"])
+                        end
+                    end,
+                    OnCancel = function()
+                    end,
+                    preferredIndex = 3
+                }
+                StaticPopup_Show("HMP_WATER_REMINDER_CUSTOM_SOUND")
+            else
+                PlaySound(value, "Master", false, false)
+            end
+        end
     }
 
     local func = functions[variableName]
@@ -822,8 +878,9 @@ end
 
 function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)
     local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
+    setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
-    Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
+    --Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateCheckbox(category, setting, tooltip)
 
     return setting
@@ -831,22 +888,38 @@ end
 
 function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, defaultValue, currentValue, options, tooltip)
     local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
+    setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
-    Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
+    --Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateDropdown(category, setting, options, tooltip)
 
     return setting
 end
 
+function HelpMePlay.AddSettingCVarDropdown(category, cbLabel, cbVariableName, cbDefaultValue, cbCurrentValue, cbTooltip, dropdownLabel, dropdownVariableName, dropdownDefaultValue, dropdownCurrentValue, dropdownTooltip, options)
+    local cbSetting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, cbVariableName), cbVariableName, HelpMePlayDB, type(cbDefaultValue), cbLabel, cbCurrentValue)
+    local dropdownSetting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, dropdownVariableName), dropdownVariableName, HelpMePlayDB, type(dropdownDefaultValue), dropdownLabel, dropdownCurrentValue)
+
+    dropdownSetting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
+
+    local initializer = CreateSettingsCheckboxDropdownInitializer(
+        cbSetting, cbLabel, cbTooltip,
+        dropdownSetting, options, dropdownLabel, dropdownTooltip
+    )
+    initializer:AddSearchTags(cbLabel, dropdownLabel)
+    HelpMePlay.SettingsLayout:AddInitializer(initializer)
+end
+
 function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defaultValue, currentValue, minValue, maxValue, increment, value, tooltip)
     local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
+    setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
     local options = Settings.CreateSliderOptions(minValue, maxValue, increment)
     options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
         return value
     end)
 
-    Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
+    --Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateSlider(category, setting, options, tooltip)
 
     return setting
@@ -892,7 +965,9 @@ function HelpMePlay.Init()
         "TheMawEnabled",
         "TimerunningHeroicDungeonQueue",
         "UseHeirloomAutomation",
-        "UsePartyPlay"
+        "UsePartyPlay",
+        "CBLabel",
+        "DropdownLabel"
     }
     for _, key in next, oldVariables do
         if HelpMePlayDB[key] then
@@ -955,7 +1030,9 @@ function HelpMePlay.Init()
         UseEmotes = false,
         UsePlayerChoice = false,
         UseWarMode = false,
+        UseWaterReminder = false,
         UseWorldEventQueue = false,
+        WaterReminderSoundId = 0,
     }
     for key, value in next, defaults do
         if HelpMePlayDB[key] == nil then
