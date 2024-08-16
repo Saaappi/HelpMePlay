@@ -1,4 +1,4 @@
-local addonName, HelpMePlay = ...
+--[[local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local button
@@ -164,4 +164,4 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			HelpMePlay.CreateRemixScrapButton()
 		end
 	end
-end)
+end)]]

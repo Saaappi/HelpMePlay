@@ -1,4 +1,4 @@
-local addonName, HelpMePlay = ...
+--[[local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local button
 local lastTime
@@ -125,4 +125,4 @@ hooksecurefunc(UIErrorsFrame, "TryDisplayMessage", function()
 	if GetTime() == lastTime then
 		UIErrorsFrame:Clear()
 	end
-end)
+end)]]

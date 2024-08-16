@@ -1,7 +1,7 @@
 local addonName, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
-local REMIX_SECTION = "Remix: Mists of Pandaria"
+--local REMIX_SECTION = "Remix: Mists of Pandaria"
 local GENERAL_SECTION = GENERAL
 local QUEST_SECTION = "Quest"
 local LFG_SECTION = "LFG"
@@ -64,7 +64,7 @@ function HelpMePlay.RegisterSettings()
     ----------------------
     -- REMIX SECTION -----
     ----------------------
-    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
+    --[[layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(REMIX_SECTION))
 
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -81,7 +81,7 @@ function HelpMePlay.RegisterSettings()
         false,
         HelpMePlayDB["ShowRemixScrapButton"],
         "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
-    )
+    )]]
 
     ------------------------
     -- GENERAL SECTION -----
@@ -887,6 +887,8 @@ function HelpMePlay.Init()
         "PlayerTalents",
         "RareScan",
         "ShouldRepair",
+        "ShowRemixScrapButton",
+        "ShowRemixUsablesButton",
         "TheMawEnabled",
         "TimerunningHeroicDungeonQueue",
         "UseHeirloomAutomation",
@@ -945,8 +947,6 @@ function HelpMePlay.Init()
         ShareQuests = false,
         ShowChatIcons = false,
         ShowPetBattleBandageButton = false,
-        ShowRemixScrapButton = false,
-        ShowRemixUsablesButton = false,
         ShowWardrobeButton = false,
         SkipCutscenes = false,
         TrainerProtectionValue = 0,
