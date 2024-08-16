@@ -560,7 +560,10 @@ LHMP.Gossips = {
         {ID = 41051, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32321"}},
         {ID = 41925, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32321"}}
     },
-    [68130] = {{ID = 41837, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32334"}}},
+    [68130] = {
+        {ID = 41837, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32334"}},
+        {ID = 41838, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32334"}}
+    },
     [68545] = {{ID = 40881, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32336"}}},
     -- Isle of Thunder Campaign (Alliance)
     [70360] = {{ID = 41772, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32681"}}},
