@@ -149,26 +149,11 @@ local function QUEST_PROGRESS()
     end
 end
 
-eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
-eventHandler:RegisterEvent("CHAT_MSG_LOOT")
-eventHandler:RegisterEvent("PLAYER_CHOICE_UPDATE")
-eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
-eventHandler:RegisterEvent("QUEST_ACCEPTED")
-eventHandler:RegisterEvent("QUEST_AUTOCOMPLETE")
-eventHandler:RegisterEvent("QUEST_COMPLETE")
-eventHandler:RegisterEvent("QUEST_DETAIL")
-eventHandler:RegisterEvent("QUEST_GREETING")
-eventHandler:RegisterEvent("QUEST_LOG_UPDATE")
-eventHandler:RegisterEvent("QUEST_PROGRESS")
-eventHandler:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
+local function OnEvent(_, event, ...)
+    -- ADVENTURE_MAP_OPEN
     if event == "ADVENTURE_MAP_OPEN" then
-        if HelpMePlayDB["UseAdventureMaps"] == false then
-            return false
-        end
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then
-            return false
-        end
+        if HelpMePlayDB["UseAdventureMaps"] == false then return false end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return false end
 
         local adventureMapID = C_AdventureMap.GetMapID()
         if adventureMapID then
@@ -179,6 +164,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
         end
     end
+
+    -- CHAT_MSG_LOOT
     if event == "CHAT_MSG_LOOT" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
@@ -208,10 +195,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
         end
     end
+
+    -- PLAYER_CHOICE_UPDATE
     if event == "PLAYER_CHOICE_UPDATE" then
-        if HelpMePlayDB["UsePlayerChoice"] == false then
-            return false
-        end
+        if HelpMePlayDB["UsePlayerChoice"] == false then return false end
 
         local choiceInfo = C_PlayerChoice.GetCurrentPlayerChoiceInfo()
         if choiceInfo then
@@ -222,6 +209,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
         end
     end
+
+    -- PLAYER_INTERACTION_MANAGER_FRAME_SHOW
     if event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" then
         local type = ...
         if type == 3 then
@@ -299,6 +288,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end
     end
 
+    -- QUEST_ACCEPTED
     if event == "QUEST_ACCEPTED" then
         -- Automatically hides the quest popup when one is accepted.
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
@@ -315,6 +305,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end
     end
 
+    -- QUEST_AUTOCOMPLETE
     if event == "QUEST_AUTOCOMPLETE" then
         -- Automatically hides the quest popup when one is completed.
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
@@ -327,24 +318,28 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         end
     end
 
+    -- QUEST_COMPLETE
     if event == "QUEST_COMPLETE" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         QUEST_COMPLETE()
     end
 
+    -- QUEST_DETAIL
     if event == "QUEST_DETAIL" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         QUEST_DETAIL()
     end
 
+    -- QUEST_GREETING
     if event == "QUEST_GREETING" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
         QUEST_GREETING()
     end
 
+    -- QUEST_LOG_UPDATE
     if event == "QUEST_LOG_UPDATE" then
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
         if WorldMapFrame:IsShown() then return end
@@ -352,18 +347,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         QUEST_LOG_UPDATE()
     end
 
+    -- QUEST_PROGRESS
     if event == "QUEST_PROGRESS" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then
-            return false
-        end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return false end
 
         QUEST_PROGRESS()
     end
 
+    -- UPDATE_MOUSEOVER_UNIT
     if event == "UPDATE_MOUSEOVER_UNIT" then
-        if HelpMePlayDB["UseEmotes"] == false then
-            return false
-        end
+        if HelpMePlayDB["UseEmotes"] == false then return false end
 
         local GUID = UnitGUID("mouseover")
 		if GUID then
@@ -376,7 +369,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			end
 		end
     end
-end)
+end
 
 -- This is for muting the talking head. They can be annoying, so let's
 -- close it immediately if the setting is enabled.
@@ -385,3 +378,17 @@ hooksecurefunc(TalkingHeadFrame, "PlayCurrent", function(self)
 
 	self:CloseImmediately()
 end)
+
+eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
+eventHandler:RegisterEvent("CHAT_MSG_LOOT")
+eventHandler:RegisterEvent("PLAYER_CHOICE_UPDATE")
+eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
+eventHandler:RegisterEvent("QUEST_ACCEPTED")
+eventHandler:RegisterEvent("QUEST_AUTOCOMPLETE")
+eventHandler:RegisterEvent("QUEST_COMPLETE")
+eventHandler:RegisterEvent("QUEST_DETAIL")
+eventHandler:RegisterEvent("QUEST_GREETING")
+eventHandler:RegisterEvent("QUEST_LOG_UPDATE")
+eventHandler:RegisterEvent("QUEST_PROGRESS")
+eventHandler:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
+eventHandler:SetScript("OnEvent", OnEvent)
