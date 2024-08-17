@@ -17,6 +17,7 @@
 ### Fixed
 - Resolved an issue that inhibited equipping identical heirloom items (e.g., two Swift Hands of Justice) with a single click of the **Equip Heirlooms** button.
 - Resolved an issue where heirlooms on max-level characters were being replaced by items with significantly lower item levels.
+- The **Toggle All** button should now be operating as expected.
 
 ## Superseded Updates
 ### 3.0.4H4 - 2024/08/16
