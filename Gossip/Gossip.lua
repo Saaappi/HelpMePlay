@@ -4,6 +4,7 @@ local LHMP = LibStub("LibHelpMePlay")
 local userGossipButton
 local gossipButton
 local questsButton
+local objectivesButton
 local expandButton
 local collapseButton
 local isExpanded = false
@@ -130,6 +131,51 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     HelpMePlay.Tooltip_OnEnter(self, "Quests", "Get a list of your active quests in the current zone.")
                 end)
                 questsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+            end
+            if not objectivesButton then
+                objectivesButton = HelpMePlay.CreateWidget("IconButton", {
+                    name = format("%sObjectiveInfoButton", addonName),
+                    width = 32,
+                    height = 32,
+                    parent = questsButton,
+                    texture = 134331,
+                    useFontString = false,
+                    fontStringText = ""
+                })
+
+                objectivesButton:ClearAllPoints()
+                objectivesButton:SetPoint("TOP", questsButton, "BOTTOM", 0, -5)
+
+                objectivesButton:SetScript("OnClick", function()
+                    StaticPopupDialogs["HMP_QUEST_OBJECTIVE_POPUP"] = {
+                        text = "Please enter a quest ID.",
+                        button1 = SUBMIT,
+                        button2 = CANCEL,
+                        explicitAcknowledge = true,
+                        hasEditBox = true,
+                        OnAccept = function(self)
+                            local input = self.editBox:GetText()
+                            if tonumber(input) then
+                                local objectives = C_QuestLog.GetQuestObjectives(input)
+                                if objectives then
+                                    for _, objective in ipairs(objectives) do
+                                        print(format("%s, %s", objective.text, objective.finished))
+                                    end
+                                end
+                            else
+                                HelpMePlay.Print(HelpMePlay.ErrorMessages["INVALID_INPUT"])
+                            end
+                        end,
+                        OnCancel = function()
+                        end,
+                        preferredIndex = 3
+                    }
+                    StaticPopup_Show("HMP_QUEST_OBJECTIVE_POPUP")
+                end)
+                objectivesButton:SetScript("OnEnter", function(self)
+                    HelpMePlay.Tooltip_OnEnter(self, "Quest Objectives", "Click to get a quest's objective(s).")
+                end)
+                objectivesButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
             end
         end
     end
