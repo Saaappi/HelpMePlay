@@ -220,6 +220,7 @@ LHMP.Gossips = {
     [34392] = {{ID = 36843, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13885"}}},
     -- Ashenvale
     [34289] = {{ID = 37319, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13886", "QUEST_OBJECTIVE_INCOMPLETE = 13886,1"}}},
+    [34377] = {{ID = 37711, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13935", "QUEST_OBJECTIVE_INCOMPLETE = 13935,1"}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},

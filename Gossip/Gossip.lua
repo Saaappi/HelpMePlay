@@ -159,7 +159,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 local objectives = C_QuestLog.GetQuestObjectives(input)
                                 if objectives then
                                     for _, objective in ipairs(objectives) do
-                                        print(format("%s, %s", objective.text, objective.finished))
+                                        print(format("%s, %s", objective.text, tostring(objective.finished)))
                                     end
                                 end
                             else
