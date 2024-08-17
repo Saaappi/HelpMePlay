@@ -27,16 +27,18 @@ local function CheckForQuestReward(itemLink, destSlot)
                     if containerItemID == itemID then
                         local containerItemLink = C_Container.GetContainerItemLink(bagId, slotId)
                         local equippedItemLink = GetInventoryItemLink("player", destSlot)
-                        if C_Item.GetDetailedItemLevelInfo(containerItemLink) > C_Item.GetDetailedItemLevelInfo(equippedItemLink) then
-                            if canDualWield and destSlot ~= 0 then
-                                -- In cases where the player can dual wield, we want to ensure
-                                -- the reward is equipped to the most optimal slot. If one slot
-                                -- is a 30 item level upgrade and the second is a 10 item level
-                                -- upgrade, then the 30 item level upgrade slot should be used.
-                                C_Item.EquipItemByName(itemLink, destSlot)
-                                destSlot = 0
-                            else
-                                C_Item.EquipItemByName(itemLink, destSlot)
+                        if containerItemLink and equippedItemLink then
+                            if C_Item.GetDetailedItemLevelInfo(containerItemLink) > C_Item.GetDetailedItemLevelInfo(equippedItemLink) then
+                                if canDualWield and destSlot ~= 0 then
+                                    -- In cases where the player can dual wield, we want to ensure
+                                    -- the reward is equipped to the most optimal slot. If one slot
+                                    -- is a 30 item level upgrade and the second is a 10 item level
+                                    -- upgrade, then the 30 item level upgrade slot should be used.
+                                    C_Item.EquipItemByName(itemLink, destSlot)
+                                    destSlot = 0
+                                else
+                                    C_Item.EquipItemByName(itemLink, destSlot)
+                                end
                             end
                         end
                     end
