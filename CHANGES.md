@@ -18,6 +18,8 @@
 - Resolved an issue that inhibited equipping identical heirloom items (e.g., two Swift Hands of Justice) with a single click of the **Equip Heirlooms** button.
 - Resolved an issue where heirlooms on max-level characters were being replaced by items with significantly lower item levels.
 - The **Toggle All** button should now be operating as expected.
+- Quests that are ignored will no longer be automatically completed.
+  - _**Author's Note:** Previously, ignored quests would stop automation only before they were accepted. However, if the player returned to the quest giver with an ignored quest in a completed state, the addon would automatically turn in the quest. Moving forward, the addon will neither accept nor complete ignored quests.
 
 ## Superseded Updates
 ### 3.0.4H4 - 2024/08/16

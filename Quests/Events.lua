@@ -8,20 +8,23 @@ local function QUEST_GOSSIP()
     if not IsShiftKeyDown() then
         if HelpMePlayDB["AcceptAndCompleteQuests"] then
             -- Let's deal with completed quests first.
-            for _, quest in next, C_GossipInfo.GetActiveQuests() do
-                if quest.isComplete and (not C_QuestLog.IsWorldQuest(quest.questID)) then
-                    C_GossipInfo.SelectActiveQuest(quest.questID)
-                    HelpMePlay.CompleteQuest()
+            for _, quest in ipairs(C_GossipInfo.GetActiveQuests()) do
+                if not LHMP:IsQuestIgnored(quest.questID) then
+                    if quest.isComplete and (not C_QuestLog.IsWorldQuest(quest.questID)) then
+                        C_GossipInfo.SelectActiveQuest(quest.questID)
+                        HelpMePlay.CompleteQuest()
+                    end
                 end
             end
 
             -- Accept all available quests now.
-            for _, quest in next, C_GossipInfo.GetAvailableQuests() do
-                if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
-                elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
-                else
-                    if LHMP:IsQuestIgnored(quest.questID) then return false end
-                    C_GossipInfo.SelectAvailableQuest(quest.questID)
+            for _, quest in ipairs(C_GossipInfo.GetAvailableQuests()) do
+                if not LHMP:IsQuestIgnored(quest.questID) then
+                    if HelpMePlayDB["IgnoreRepeatableQuests"] and quest.repeatable then
+                    elseif HelpMePlayDB["IgnoreDailyQuests"] and quest.frequency == Enum.QuestFrequency.Daily then
+                    else
+                        C_GossipInfo.SelectAvailableQuest(quest.questID)
+                    end
                 end
             end
         end
@@ -34,6 +37,7 @@ local function QUEST_COMPLETE()
     if not IsShiftKeyDown() and not InCombatLockdown() then
         local questID = GetQuestID()
         if questID then
+            if LHMP:IsQuestIgnored(questID) then return end
             if HelpMePlayDB["AcceptAndCompleteQuests"] then
                 local numQuestChoices = GetNumQuestChoices()
                 if numQuestChoices > 1 then
@@ -71,11 +75,11 @@ local function QUEST_DETAIL()
         else
             local questID = GetQuestID()
             if questID then
+                if LHMP:IsQuestIgnored(questID) then return end
                 if HelpMePlayDB["AcceptAndCompleteQuests"] then
                     if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
                     elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
                     else
-                        if LHMP:IsQuestIgnored(questID) then return false end
                         AcceptQuest()
                     end
                 end
@@ -91,9 +95,12 @@ local function QUEST_GREETING()
         if HelpMePlayDB["AcceptAndCompleteQuests"] then
             -- Let's deal with active and complete quests first.
             for index = 1, GetNumActiveQuests() do
-                local isComplete = select(2, GetActiveTitle(index))
-                if isComplete and (not C_QuestLog.IsWorldQuest(GetActiveQuestID(index))) then
-                    SelectActiveQuest(index)
+                local questID = GetActiveQuestID(index)
+                if not LHMP:IsQuestIgnored(questID) then
+                    local isComplete = select(2, GetActiveTitle(index))
+                    if isComplete and (not C_QuestLog.IsWorldQuest(questID)) then
+                        SelectActiveQuest(index)
+                    end
                 end
             end
 
@@ -101,11 +108,12 @@ local function QUEST_GREETING()
             for index = 1, GetNumAvailableQuests() do
                 local questID = select(5, GetAvailableQuestInfo(index))
                 if questID then
-                    if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
-                    elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
-                    else
-                        if LHMP:IsQuestIgnored(questID) then return false end
-                        SelectAvailableQuest(index)
+                    if not LHMP:IsQuestIgnored(questID) then
+                        if HelpMePlayDB["IgnoreRepeatableQuests"] and C_QuestLog.IsRepeatableQuest(questID) then
+                        elseif HelpMePlayDB["IgnoreDailyQuests"] and QuestIsDaily() then
+                        else
+                            SelectAvailableQuest(index)
+                        end
                     end
                 end
             end
