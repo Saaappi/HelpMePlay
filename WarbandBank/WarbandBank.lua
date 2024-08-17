@@ -48,7 +48,7 @@ local function OnEvent(_, event, ...)
     if event == "BANKFRAME_OPENED" or (event == "PLAYER_INTERACTION_MANAGER_FRAME_SHOW" and ... == 8) then
         if HelpMePlayDB["DepositKeepAmount"] > 0 then
             if C_Bank.CanDepositMoney(2) and (not isTransactionInProgress) then
-                local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"])
+                local transactionAmount = GetMoney() - (HelpMePlayDB["DepositKeepAmount"] * 10000)
                 if transactionAmount == 0 then return end
 
                 isTransactionInProgress = true

@@ -154,13 +154,13 @@ HelpMePlay.CreateEventQueueButton = function()
         button:SetScript("OnDragStop", function(self)
             self:StopMovingOrSizing()
             local anchor, parent, relativeAnchor, x, y = self:GetPoint()
-            HelpMePlayDB.Positions["button"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+            HelpMePlayDB.Positions["WorldEventQueueButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
         end)
 
         -- If the player has moved the queue button, then set its position to
         -- their location. Otherwise, default to the top center of the screen.
-        if HelpMePlayDB.Positions["button"] then
-            local pos = HelpMePlayDB.Positions["button"]
+        if HelpMePlayDB.Positions["WorldEventQueueButton"] then
+            local pos = HelpMePlayDB.Positions["WorldEventQueueButton"]
             button:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
         else
             button:SetPoint("TOP", button:GetParent(), "TOP", 0, -20)

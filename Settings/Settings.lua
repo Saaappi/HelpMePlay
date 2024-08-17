@@ -49,45 +49,31 @@ function HelpMePlay.RegisterSettings()
                         -- to false.
                         local settingName = format("%s_%s", addonName, key)
                         Settings.SetValue(settingName, false)
+                    elseif type(value) == "number" and value > 0 and key ~= "QuickProposal" then
+                        -- Store the current setting value (which is greater than 0).
+                        HelpMePlayDB["TempSettings"][key] = value
+
+                        -- Get the setting name by combining the addon's name
+                        -- with the table key. Set the value of the current setting
+                        -- to 0.
+                        local settingName = format("%s_%s", addonName, key)
+                        Settings.SetValue(settingName, 0)
                     end
                 end
             else
                 for key, value in pairs(HelpMePlayDB["TempSettings"]) do
-                    -- Get the setting name by combining the addon's name
-                    -- with the table key. Set the value of the current setting
-                    -- to its original value.
                     local settingName = format("%s_%s", addonName, key)
-                    Settings.SetValue(settingName, value)
+                    if type(value) == "boolean" then
+                        -- Get the setting name by combining the addon's name
+                        -- with the table key. Set the value of the current setting
+                        -- to its original value.
+                        Settings.SetValue(settingName, value)
+                    elseif type(value) == "number" and key ~= "QuickProposal" then
+                        Settings.SetValue(settingName, value)
+                    end
                 end
                 HelpMePlayDB.TempSettings = {}
             end
-            --[[if next(HelpMePlayDB["TempSettings"]) == nil then
-                for key, value in pairs(HelpMePlayDB) do
-                    if type(value) == "boolean" then
-                        HelpMePlayDB["TempSettings"][key] = value
-                        Settings.SetValue("HelpMePlay_" .. key, false, true)
-                    elseif type(value) == "number" then
-                        if key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
-                            HelpMePlayDB["TempSettings"][key] = value
-                            Settings.SetValue("HelpMePlay_" .. key, 0, true)
-                        else
-                            HelpMePlayDB["TempSettings"][key] = value
-                            Settings.SetValue("HelpMePlay_" .. key, 0, true)
-                        end
-                    end
-                end
-            else
-                for key, value in pairs(HelpMePlayDB["TempSettings"]) do
-                    if Settings.GetValue("HelpMePlay_" .. key) ~= nil then
-                        if key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
-                            Settings.SetValue("HelpMePlay_" .. key, value / 10000, true)
-                        elseif key ~= "QuickProposal" then
-                            Settings.SetValue("HelpMePlay_" .. key, value, true)
-                        end
-                    end
-                end
-                HelpMePlayDB["TempSettings"] = {}
-            end]]
         end,
         "Click to toggle all settings off. Click again to restore the settings to their previous state.",
         true
@@ -840,8 +826,8 @@ function HelpMePlay.OnSettingChanged(setting, value)
                 StaticPopup_Show("HMP_QUEST_MOBS_CUSTOM_ICON")
             end
         end,
-        HelpMePlay_DepositKeepAmount = function() HelpMePlayDB[variableName] = value * 10000 end,
-        HelpMePlay_TrainerProtectionValue = function() HelpMePlayDB[variableName] = value * 10000 end,
+        HelpMePlay_DepositKeepAmount = function() HelpMePlayDB["DepositKeepAmount"] = value end,
+        HelpMePlay_TrainerProtectionValue = function() HelpMePlayDB["TrainerProtectionValue"] = value end,
         HelpMePlay_QuestMobsIconPositionID = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
         HelpMePlay_QuestMobsIconXOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
         HelpMePlay_QuestMobsIconYOffset = function() HelpMePlay.UpdateQuestMobsIconPosition() end,
@@ -995,9 +981,11 @@ function HelpMePlay.Init()
         "TimerunningHeroicDungeonQueue",
         "UseHeirloomAutomation",
         "UsePartyPlay",
+        "HelpMePlay_DepositKeepAmount",
+        "HelpMePlay_TrainerProtectionValue",
     }
-    for _, key in next, oldVariables do
-        if HelpMePlayDB[key] then
+    for _, key in ipairs(oldVariables) do
+        if HelpMePlayDB[key] or not HelpMePlayDB[key] then
             HelpMePlayDB[key] = nil
         end
     end
