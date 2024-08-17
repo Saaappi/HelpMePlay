@@ -835,6 +835,7 @@ function HelpMePlay.OnSettingChanged(setting, value)
             }
             StaticPopup_Show("HMP_QUICK_PROPOSAL_CHANGED")
         end,
+        HelpMePlay_UseWaterReminder = function() HelpMePlay.SendReminderProxy() end,
         HelpMePlay_WaterReminderSoundId = function()
             if value == 3 then
                 StaticPopupDialogs["HMP_WATER_REMINDER_CUSTOM_SOUND"] = {
@@ -880,7 +881,6 @@ function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, def
     local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
     setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
-    --Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateCheckbox(category, setting, tooltip)
 
     return setting
@@ -890,7 +890,6 @@ function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, def
     local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
     setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
-    --Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateDropdown(category, setting, options, tooltip)
 
     return setting
@@ -900,6 +899,7 @@ function HelpMePlay.AddSettingCVarDropdown(category, cbLabel, cbVariableName, cb
     local cbSetting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, cbVariableName), cbVariableName, HelpMePlayDB, type(cbDefaultValue), cbLabel, cbCurrentValue)
     local dropdownSetting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, dropdownVariableName), dropdownVariableName, HelpMePlayDB, type(dropdownDefaultValue), dropdownLabel, dropdownCurrentValue)
 
+    cbSetting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
     dropdownSetting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
     local initializer = CreateSettingsCheckboxDropdownInitializer(
@@ -919,7 +919,6 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
         return value
     end)
 
-    --Settings.SetOnValueChangedCallback(variableName, HelpMePlay.OnSettingChanged)
     Settings.CreateSlider(category, setting, options, tooltip)
 
     return setting
@@ -966,8 +965,6 @@ function HelpMePlay.Init()
         "TimerunningHeroicDungeonQueue",
         "UseHeirloomAutomation",
         "UsePartyPlay",
-        "CBLabel",
-        "DropdownLabel"
     }
     for _, key in next, oldVariables do
         if HelpMePlayDB[key] then

@@ -1,6 +1,7 @@
-## Version 3.0.5 - 2024/08/27
+## Version 3.1.0 - 2024/08/27
 
 ### Added
+- Introduced a new **Water Reminder** feature to support player hydration!
 - Implemented support for gossip and quest merchants across multiple zones.
 - A new option, **Reduce Camera Obstruction**, has been added to the New Character Configuration section.
 - Implemented a new button in the Gossip Frame that allows for the addition of custom gossip options for non-player characters.

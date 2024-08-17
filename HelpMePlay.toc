@@ -1,6 +1,6 @@
 ## Interface: 110002
 ## Title: HelpMePlay
-## Version: 3.0.5
+## Version: 3.1.0
 ## Author: LightskyGG
 ## Dependencies: Blizzard_Calendar
 ## SavedVariables: HelpMePlayDB
@@ -89,6 +89,9 @@ Merchant\Repair.lua
 
 # Pet Battles Module
 PetBattles\Bandage.lua
+
+# Health Module
+Health\WaterReminder.lua
 
 # Remix: Mists of Pandaria Module
 #Remix\ScrappingMachine.lua
