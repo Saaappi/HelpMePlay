@@ -34,7 +34,7 @@ function HelpMePlay.RegisterSettings()
     HelpMePlay.SettingsCategoryID = category:GetID()
     HelpMePlay.SettingsLayout = layout
 
-    HelpMePlay.AddSettingButton(
+    --[[HelpMePlay.AddSettingButton(
         "Toggle All",
         "Toggle All",
         function()
@@ -60,7 +60,7 @@ function HelpMePlay.RegisterSettings()
         end,
         "Click to toggle all settings off. Click again to restore the settings to their previous state.",
         true
-    )
+    )]]
 
     ----------------------
     -- REMIX SECTION -----
@@ -965,6 +965,7 @@ function HelpMePlay.Init()
         "TimerunningHeroicDungeonQueue",
         "UseHeirloomAutomation",
         "UsePartyPlay",
+        "TempSettings",
     }
     for _, key in next, oldVariables do
         if HelpMePlayDB[key] then
@@ -1048,9 +1049,6 @@ function HelpMePlay.Init()
         for i = 1, MAX_CLASSES do
             HelpMePlayDB["ClassTalents"][i] = {}
         end
-    end
-    if HelpMePlayDB["TempSettings"] == nil then
-        HelpMePlayDB["TempSettings"] = {}
     end
 	if HelpMePlayDB["Mounts"] == nil then
         HelpMePlayDB["Mounts"] = {
