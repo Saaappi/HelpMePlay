@@ -34,33 +34,64 @@ function HelpMePlay.RegisterSettings()
     HelpMePlay.SettingsCategoryID = category:GetID()
     HelpMePlay.SettingsLayout = layout
 
-    --[[HelpMePlay.AddSettingButton(
+    HelpMePlay.AddSettingButton(
         "Toggle All",
         "Toggle All",
         function()
             if next(HelpMePlayDB["TempSettings"]) == nil then
-                for key, value in next, HelpMePlayDB do
-                    if type(HelpMePlayDB[key]) == "boolean" then
+                for key, value in pairs(HelpMePlayDB) do
+                    if type(value) == "boolean" and value then
+                        -- Store the current setting value (which is true).
                         HelpMePlayDB["TempSettings"][key] = value
-                        Settings.SetValue(key, false)
-                    elseif key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
-                        HelpMePlayDB["TempSettings"][key] = value / 10000
-                        Settings.SetValue(key, 0)
-                    elseif type(HelpMePlayDB[key]) == "number" then
-                        HelpMePlayDB["TempSettings"][key] = value
-                        Settings.SetValue(key, 0)
+
+                        -- Get the setting name by combining the addon's name
+                        -- with the table key. Set the value of the current setting
+                        -- to false.
+                        local settingName = format("%s_%s", addonName, key)
+                        Settings.SetValue(settingName, false)
                     end
                 end
             else
-                for key, value in next, HelpMePlayDB["TempSettings"] do
-                    Settings.SetValue(key, value)
+                for key, value in pairs(HelpMePlayDB["TempSettings"]) do
+                    -- Get the setting name by combining the addon's name
+                    -- with the table key. Set the value of the current setting
+                    -- to its original value.
+                    local settingName = format("%s_%s", addonName, key)
+                    Settings.SetValue(settingName, value)
+                end
+                HelpMePlayDB.TempSettings = {}
+            end
+            --[[if next(HelpMePlayDB["TempSettings"]) == nil then
+                for key, value in pairs(HelpMePlayDB) do
+                    if type(value) == "boolean" then
+                        HelpMePlayDB["TempSettings"][key] = value
+                        Settings.SetValue("HelpMePlay_" .. key, false, true)
+                    elseif type(value) == "number" then
+                        if key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
+                            HelpMePlayDB["TempSettings"][key] = value
+                            Settings.SetValue("HelpMePlay_" .. key, 0, true)
+                        else
+                            HelpMePlayDB["TempSettings"][key] = value
+                            Settings.SetValue("HelpMePlay_" .. key, 0, true)
+                        end
+                    end
+                end
+            else
+                for key, value in pairs(HelpMePlayDB["TempSettings"]) do
+                    if Settings.GetValue("HelpMePlay_" .. key) ~= nil then
+                        if key == "DepositKeepAmount" or key == "TrainerProtectionValue" then
+                            Settings.SetValue("HelpMePlay_" .. key, value / 10000, true)
+                        elseif key ~= "QuickProposal" then
+                            Settings.SetValue("HelpMePlay_" .. key, value, true)
+                        end
+                    end
                 end
                 HelpMePlayDB["TempSettings"] = {}
-            end
+            end]]
         end,
         "Click to toggle all settings off. Click again to restore the settings to their previous state.",
         true
-    )]]
+    )
 
     ----------------------
     -- REMIX SECTION -----
@@ -778,7 +809,6 @@ end
 
 function HelpMePlay.OnSettingChanged(setting, value)
     local variableName = setting:GetVariable()
-    --HelpMePlayDB[variableName] = value
 
     local functions = {
         HelpMePlay_QuestMobsIconID = function()
@@ -965,7 +995,6 @@ function HelpMePlay.Init()
         "TimerunningHeroicDungeonQueue",
         "UseHeirloomAutomation",
         "UsePartyPlay",
-        "TempSettings",
     }
     for _, key in next, oldVariables do
         if HelpMePlayDB[key] then
@@ -1049,6 +1078,9 @@ function HelpMePlay.Init()
         for i = 1, MAX_CLASSES do
             HelpMePlayDB["ClassTalents"][i] = {}
         end
+    end
+    if HelpMePlayDB["TempSettings"] == nil then
+        HelpMePlayDB["TempSettings"] = {}
     end
 	if HelpMePlayDB["Mounts"] == nil then
         HelpMePlayDB["Mounts"] = {

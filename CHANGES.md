@@ -11,9 +11,9 @@
 - The collection icon for appearances will now evaluate all sources associated with an item to determine the appropriate icon to display. _(Closes #87)_
 - The Back to the Orphanage quest (for each faction) is now ignored.
 ### Deprecated
+- Deprecated the **Keep Me Safe** feature.
 ### Removed
 - Removed the Remix modules for Mists of Pandaria.
-- Removed the **Toggle All** button from the settings.
 ### Fixed
 - Resolved an issue that inhibited equipping identical heirloom items (e.g., two Swift Hands of Justice) with a single click of the **Equip Heirlooms** button.
 - Resolved an issue where heirlooms on max-level characters were being replaced by items with significantly lower item levels.
