@@ -225,6 +225,8 @@ LHMP.Gossips = {
         {ID = 38020, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26482"}},
         {ID = 38287, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26482"}}
     },
+    -- Stonetalon Mountains
+    [41071] = {{ID = 38774, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25669", "QUEST_OBJECTIVE_INCOMPLETE = 25669,1"}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
