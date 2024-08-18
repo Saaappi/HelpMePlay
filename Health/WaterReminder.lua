@@ -24,7 +24,7 @@ local function SendReminder()
             PlaySound(HelpMePlayDB["WaterReminderSoundId"], "Master", false, false)
         end
         if HelpMePlayDB["UseWaterReminder"] then
-            local randNumMinutes = GetRandomNumMinutes(20, 30)
+            local randNumMinutes = GetRandomNumMinutes(15, 25)
             DEFAULT_CHAT_FRAME:AddMessage(format("\n%s", LHMP:ColorText("HEIRLOOM", GetRandomMessage())))
             C_Timer.After(randNumMinutes, SendReminder)
         end
