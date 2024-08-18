@@ -2,10 +2,14 @@ local _, HelpMePlay = ...
 
 HelpMePlay.Strings = {
     WaterReminder = {
-        "Hey, you! Listen! You should drink some water.",
+        "Hey! Listen! You should sip some water.",
         "Remember, even the mightiest heroes need to hydrate.",
-        "Stay refreshed and alert—don't forget to sip some water between your adventures!",
+        "Drinking water is essential to a healthy lifestyle.",
         "Take a break from the action and rehydrate.",
-        "Your quest awaits, but first, ensure you're well-hydrated. Grab some water and keep going strong!"
+        "Hydrate to feel great!",
+        "Don't forget to drink water and stay hydrated.",
+        "A little water goes a long way. Take a sip!",
+        "I bet you're feeling thirsty. Drink some water!",
+        "Water is your best friend--have a drink now."
     }
 }
