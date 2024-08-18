@@ -701,7 +701,8 @@ function HelpMePlay.RegisterSettings()
         "UseWaterReminder",
         false,
         HelpMePlayDB["UseWaterReminder"],
-        "Toggle to allow the addon to remind you when to sip on water... in real life!",
+        "Use the check button to toggle reminders on or off. Use the dropdown to select a sound to play for the reminder.\n\n" ..
+        "A message will always be sent to the chat window if reminders are toggled on.",
         "Water Reminder Sound",
         "WaterReminderSoundId",
         0,
