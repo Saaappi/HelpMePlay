@@ -227,6 +227,12 @@ LHMP.Gossips = {
     },
     -- Stonetalon Mountains
     [41071] = {{ID = 38774, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25669", "QUEST_OBJECTIVE_INCOMPLETE = 25669,1"}}},
+    -- Southern Barrens
+    [38383] = {{ID = 38139, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25191"}}},
+    [38619] = {{ID = 37512, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 24934", "LEVEL_LOWER = 20"}}},
+    [38622] = {{ID = 37724, CanConfirm = false, Conditions = {"QUEST_COMPLETE = 24934", "LEVEL_LOWER = 20"}}},
+    [37570] = {{ID = 37335, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 24601", "QUEST_OBJECTIVE_INCOMPLETE = 24601,1"}}},
+    [37743] = {{ID = 38196, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25057", "QUEST_OBJECTIVE_INCOMPLETE = 25057,1"}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},

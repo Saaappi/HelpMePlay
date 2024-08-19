@@ -66,12 +66,12 @@ local function QUEST_DETAIL()
             -- This type of quest is triggered when the player enters a specific
             -- area. It's presented in a way like the player has a choice, but
             -- they don't. Just accept the quest.
-            AcceptQuest()
+            C_Timer.After(0.25, function() AcceptQuest() end)
         elseif QuestGetAutoAccept() then
             -- This type of quest is auto accepted. It's presented like the player
             -- has a choice in the matter, but they really don't. In such case,
             -- we'll acknowledge the auto accept quest so the window is closed.
-            AcknowledgeAutoAcceptQuest()
+            C_Timer.After(0.25, function() AcknowledgeAutoAcceptQuest() end)
         else
             local questID = GetQuestID()
             if questID then
@@ -303,7 +303,7 @@ local function OnEvent(_, event, ...)
 
         local questID = ...
         if questID then
-            C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
+            C_Timer.After(0.25, function()
                 local numPopups = GetNumAutoQuestPopUps()
                 if numPopups > 0 then
                     AcknowledgeAutoAcceptQuest()
@@ -321,7 +321,7 @@ local function OnEvent(_, event, ...)
         local questID = ...
         if questID then
             if HelpMePlayDB["AcceptAndCompleteQuests"] then
-                ShowQuestComplete(questID)
+                C_Timer.After(0.25, function() ShowQuestComplete(questID) end)
             end
         end
     end
