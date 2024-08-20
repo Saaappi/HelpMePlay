@@ -51,17 +51,20 @@ HelpMePlay.EvaluateConditions = function(conditions)
                 numConditions = numConditions - 1
             end
         elseif cond == "QUESTS_ACTIVE" then
-            local numQuests = 0
             local quests = condition:match("= (.+)")
+            local numQuests = 0
+
             for _ in string.gmatch(quests, "%d+") do
                 numQuests = numQuests + 1
             end
+
             for quest in string.gmatch(quests, "%d+") do
                 local questId = tonumber(quest)
                 if C_QuestLog.IsOnQuest(questId) then
                     numQuests = numQuests - 1
                 end
             end
+
             if numQuests == 0 then
                 numConditions = numConditions - 1
             end
@@ -94,19 +97,22 @@ HelpMePlay.EvaluateConditions = function(conditions)
             local quests = {}
             local objectives = {}
             local pattern = "{{(%d+),(%d+)}"
-            for group1, group2 in string.gmatch(string, pattern) do
-                table.insert(quests, tonumber(group1))
-                table.insert(objectives, tonumber(group2))
+
+            for questId, objectiveIndex in string.gmatch(string, pattern) do
+                table.insert(quests, tonumber(questId))
+                table.insert(objectives, tonumber(objectiveIndex))
             end
+
             local numQuests = #quests
-            for index, questId in ipairs(quests) do
+            for i, questId in ipairs(quests) do
                 if C_QuestLog.IsOnQuest(questId) then
                     local questObjectives = C_QuestLog.GetQuestObjectives(questId)
-                    if objectives and questObjectives[index].finished then
+                    if objectives and questObjectives[i].finished then
                         numQuests = numQuests - 1
                     end
                 end
             end
+
             if numQuests == 0 then
                 numConditions = numConditions - 1
             end
