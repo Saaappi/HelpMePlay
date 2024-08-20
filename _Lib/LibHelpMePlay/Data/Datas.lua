@@ -241,6 +241,7 @@ LHMP.Gossips = {
     },
     [35902] = {{ID = 37927, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14284", "QUEST_OBJECTIVE_INCOMPLETE = 14284,1"}}},
     [36056] = {{ID = 37413, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14318"}}},
+    [36398] = {{ID = 37290, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14394"}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
