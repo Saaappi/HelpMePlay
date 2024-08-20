@@ -243,8 +243,8 @@ LHMP.Gossips = {
     [36056] = {{ID = 37413, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14318"}}},
     [36398] = {{ID = 37290, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14394"}}},
     -- Feralas
-    [41383] = {{ID = 38510, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25304"}}},
-    [39723] = {{ID = 38132, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 25399,25458", "QUEST_OBJECTIVES_COMPLETE = {{25399,1}, {25458,1}}", "LEVEL_LOWER = 20"}}},
+    [41383] = {{ID = 38510, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {25304}}}}},
+    [39723] = {{ID = 38132, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUESTS_ACTIVE", {25399,25458}}, {"QUEST_OBJECTIVES_COMPLETE", {{25399,1}, {25458,1}}}}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
