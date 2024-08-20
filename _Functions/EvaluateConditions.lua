@@ -50,6 +50,21 @@ HelpMePlay.EvaluateConditions = function(conditions)
             if C_QuestLog.IsOnQuest(questID) then
                 numConditions = numConditions - 1
             end
+        elseif cond == "QUESTS_ACTIVE" then
+            local numQuests = 0
+            local quests = condition:match("= (.+)")
+            for _ in string.gmatch(quests, "%d+") do
+                numQuests = numQuests + 1
+            end
+            for quest in string.gmatch(quests, "%d+") do
+                local questId = tonumber(quest)
+                if C_QuestLog.IsOnQuest(questId) then
+                    numQuests = numQuests - 1
+                end
+            end
+            if numQuests == 0 then
+                numConditions = numConditions - 1
+            end
         elseif cond == "QUEST_INACTIVE" then
             local questID = condition:match("= (.+)")
             if not C_QuestLog.IsOnQuest(questID) then
@@ -73,6 +88,27 @@ HelpMePlay.EvaluateConditions = function(conditions)
                 if objectives and objectives[tonumber(objectiveIndex)].finished then
                     numConditions = numConditions - 1
                 end
+            end
+        elseif cond == "QUEST_OBJECTIVES_COMPLETE" then
+            local string = condition:match("= (.+)")
+            local quests = {}
+            local objectives = {}
+            local pattern = "{{(%d+),(%d+)}"
+            for group1, group2 in string.gmatch(string, pattern) do
+                table.insert(quests, tonumber(group1))
+                table.insert(objectives, tonumber(group2))
+            end
+            local numQuests = #quests
+            for index, questId in ipairs(quests) do
+                if C_QuestLog.IsOnQuest(questId) then
+                    local questObjectives = C_QuestLog.GetQuestObjectives(questId)
+                    if objectives and questObjectives[index].finished then
+                        numQuests = numQuests - 1
+                    end
+                end
+            end
+            if numQuests == 0 then
+                numConditions = numConditions - 1
             end
         elseif cond == "QUEST_OBJECTIVE_INCOMPLETE" then
             local string = condition:match("= (.+)")
