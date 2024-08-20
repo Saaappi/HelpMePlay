@@ -23,7 +23,7 @@ function HelpMePlayKeybind(key)
             local focus = mouseFoci[1]
             if focus and focus.info then -- Not a header
                 AbandonQuestByID(focus.info.questID)
-            else
+            elseif focus and focus.questLogIndex then
                 local info = C_QuestLog.GetInfo(focus.questLogIndex)
                 if info and info.isHeader then
                     -- This is a header that has quests beneath it. As such,
