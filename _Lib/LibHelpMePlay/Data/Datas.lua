@@ -208,7 +208,7 @@ LHMP.Gossips = {
     -- VANILLA --------------
     -------------------------
     -- Teldrassil
-    [34761] = {{ID = 38299, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 483"}}},
+    [34761] = {{ID = 38299, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 10}, {"QUEST_ACTIVE", {483}}}}},
     -- Elwynn Forest
     [240] = {{ID = 38407, CanConfirm = false, Conditions = {"LEVEL_LOWER = 10", "QUEST_ACTIVE = 35"}}},
     -- Darkshore
