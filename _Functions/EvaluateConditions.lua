@@ -1,44 +1,6 @@
 local _, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
-local function CheckLevel(string, condition)
-    local level = string:match("= (.+)")
-    if level and tonumber(level) then
-        level = tonumber(level)
-        if condition == "<" then
-            if HelpMePlay.playerLevel < level then
-                return true
-            end
-        elseif condition == "<=" then
-            if HelpMePlay.playerLevel <= level then
-                return true
-            end
-        elseif condition == "==" then
-            if HelpMePlay.playerLevel == level then
-                return true
-            end
-        elseif condition == ">=" then
-            if HelpMePlay.playerLevel >= level then
-                return true
-            end
-        elseif condition == ">" then
-            if HelpMePlay.playerLevel > level then
-                return true
-            end
-        end
-    else
-        local lowLevel, highLevel = string.split(",", level)
-        if lowLevel and highLevel then
-            lowLevel = tonumber(lowLevel)
-            highLevel = tonumber(highLevel)
-            if HelpMePlay.playerLevel >= lowLevel and HelpMePlay.playerLevel <= highLevel then
-                return true
-            end
-        end
-    end
-    return false
-end
-
 HelpMePlay.EvaluateConditions = function(conditions)
     local numConditions = #conditions
     if numConditions > 0 then
@@ -73,6 +35,32 @@ HelpMePlay.EvaluateConditions = function(conditions)
             elseif cond == "LEVEL_LOWER" then
                 local level = condition[2]
                 if HelpMePlay.playerLevel < level then
+                    numConditions = numConditions - 1
+                end
+            elseif cond == "LEVEL_LOWER_OR_EQUAL" then
+                local level = condition[2]
+                if HelpMePlay.playerLevel <= level then
+                    numConditions = numConditions - 1
+                end
+            elseif cond == "LEVEL_EQUAL" then
+                local level = condition[2]
+                if HelpMePlay.playerLevel == level then
+                    numConditions = numConditions - 1
+                end
+            elseif cond == "LEVEL_GREATER" then
+                local level = condition[2]
+                if HelpMePlay.playerLevel > level then
+                    numConditions = numConditions - 1
+                end
+            elseif cond == "LEVEL_GREATER_OR_EQUAL" then
+                local level = condition[2]
+                if HelpMePlay.playerLevel >= level then
+                    numConditions = numConditions - 1
+                end
+            elseif cond == "LEVEL_BETWEEN" then
+                local lowerLevel = condition[2][1]
+                local higherLevel = condition[2][2]
+                if HelpMePlay.playerLevel >= lowerLevel and HelpMePlay.playerLevel <= higherLevel then
                     numConditions = numConditions - 1
                 end
             end
@@ -133,31 +121,6 @@ HelpMePlay.EvaluateConditions = function(conditions)
                     if objectives and (not objectives[tonumber(objectiveIndex)].finished) then
                         numConditions = numConditions - 1
                     end
-                end
-            elseif cond == "LEVEL_LOWER_OR_EQUAL" then
-                local isTrue = CheckLevel(condition, "<=")
-                if isTrue then
-                    numConditions = numConditions - 1
-                end
-            elseif cond == "LEVEL_EQUAL" then
-                local isTrue = CheckLevel(condition, "==")
-                if isTrue then
-                    numConditions = numConditions - 1
-                end
-            elseif cond == "LEVEL_GREATER_OR_EQUAL" then
-                local isTrue = CheckLevel(condition, ">=")
-                if isTrue then
-                    numConditions = numConditions - 1
-                end
-            elseif cond == "LEVEL_GREATER" then
-                local isTrue = CheckLevel(condition, ">")
-                if isTrue then
-                    numConditions = numConditions - 1
-                end
-            elseif cond == "LEVEL_BETWEEN" then
-                local isTrue = CheckLevel(condition, ">=<=")
-                if isTrue then
-                    numConditions = numConditions - 1
                 end
             elseif cond == "CHROMIE_TIME_ACTIVE" then
                 if UnitChromieTimeID("player") == HelpMePlayDB["ChromieTimeExpansionID"] then
