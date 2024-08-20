@@ -30,7 +30,7 @@ function HelpMePlayKeybind(key)
                     -- let's give the player a popup to choose if they want to
                     -- abandon all the quests in the zone.
                     StaticPopupDialogs["HMP_QUICK_QUEST_ABANDON_CONFIRMATION"] = {
-                        text = format("You're about to abandon all quests within |cffFFD100%s|r. Do you want to continue?", info.title),
+                        text = string.format("You're about to abandon all quests within |cffFFD100%s|r. Do you want to continue?", info.title),
                         button1 = YES,
                         button2 = NO,
                         explicitAcknowledge = true,
@@ -55,7 +55,7 @@ function HelpMePlayKeybind(key)
             end
         end
     elseif key == GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE") then
-        local buttonName = format("%sWorldEventQueueButton", addonName)
+        local buttonName = string.format("%sWorldEventQueueButton", addonName)
         if _G[buttonName]:IsVisible() then
             _G[buttonName]:Click("LeftButton")
         end

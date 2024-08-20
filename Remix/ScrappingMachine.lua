@@ -9,7 +9,7 @@ HelpMePlay.CreateRemixScrapButton = function()
 	-- hasn't been created, then create it.
 		if not button then
 			button = HelpMePlay.CreateWidget("ActionButton", {
-				name = format("%sScrappingMachineButton", addonName),
+				name = string.format("%sScrappingMachineButton", addonName),
 				parent = ScrappingMachineFrame
 			})
 

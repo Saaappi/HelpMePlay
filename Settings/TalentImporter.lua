@@ -45,7 +45,7 @@ local function UpdateText(editBox, text, importDate, importPatch)
     if text then
         editBox:SetText(text)
     end
-    editBox.importDateText:SetText(format("%s |cffFFD100(%s)|r", importDate, importPatch))
+    editBox.importDateText:SetText(string.format("%s |cffFFD100(%s)|r", importDate, importPatch))
 
     return true
 end
@@ -69,7 +69,7 @@ HelpMePlay.OpenTalentImporter = function()
     -- its height back to the base value.
     if not frame then
         frame = HelpMePlay.CreateFrame("Portrait", {
-            name = format("%sTalentImporterFrame", addonName),
+            name = string.format("%sTalentImporterFrame", addonName),
             parent = UIParent,
             width = frameBaseWidth,
             height = frameBaseHeight,
@@ -150,7 +150,7 @@ HelpMePlay.OpenTalentImporter = function()
                     if classTalents then
                         UpdateText(editBox, classTalents.importString, classTalents.importDate, classTalents.importPatch)
                     else
-                        UpdateText(editBox, format("|cffFF0000%s %s.|r", "Please import a loadout for", HelpMePlay.specEditBoxes[button.ID][i].name), "", "")
+                        UpdateText(editBox, string.format("|cffFF0000%s %s.|r", "Please import a loadout for", HelpMePlay.specEditBoxes[button.ID][i].name), "", "")
                     end
 
                     -- Set the new talent build when the player presses the enter key.
@@ -194,7 +194,7 @@ HelpMePlay.OpenTalentImporter = function()
                     -- so not entirely necessary but I think it's nice. :)
                     if not backButton then
                         backButton = HelpMePlay.CreateWidget("BasicButton", {
-                            name = format("%sTalentImporterBackButton", addonName),
+                            name = string.format("%sTalentImporterBackButton", addonName),
                             parent = frame,
                             width = 80,
                             height = 25,

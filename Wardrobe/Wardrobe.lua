@@ -90,7 +90,7 @@ end
 HelpMePlay.CreateWardrobeButton = function()
 	if not transmogrificationButton then
 		transmogrificationButton = HelpMePlay.CreateWidget("ActionButton", {
-			name = format("%sWardrobeButton", addonName),
+			name = string.format("%sWardrobeButton", addonName),
 			parent = CharacterFrame
 		})
 

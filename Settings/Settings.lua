@@ -47,7 +47,7 @@ function HelpMePlay.RegisterSettings()
                         -- Get the setting name by combining the addon's name
                         -- with the table key. Set the value of the current setting
                         -- to false.
-                        local settingName = format("%s_%s", addonName, key)
+                        local settingName = string.format("%s_%s", addonName, key)
                         Settings.SetValue(settingName, false)
                     elseif type(value) == "number" and value > 0 and key ~= "QuickProposal" then
                         -- Store the current setting value (which is greater than 0).
@@ -56,13 +56,13 @@ function HelpMePlay.RegisterSettings()
                         -- Get the setting name by combining the addon's name
                         -- with the table key. Set the value of the current setting
                         -- to 0.
-                        local settingName = format("%s_%s", addonName, key)
+                        local settingName = string.format("%s_%s", addonName, key)
                         Settings.SetValue(settingName, 0)
                     end
                 end
             else
                 for key, value in pairs(HelpMePlayDB["TempSettings"]) do
-                    local settingName = format("%s_%s", addonName, key)
+                    local settingName = string.format("%s_%s", addonName, key)
                     if type(value) == "boolean" then
                         -- Get the setting name by combining the addon's name
                         -- with the table key. Set the value of the current setting
@@ -172,7 +172,7 @@ function HelpMePlay.RegisterSettings()
         false,
         HelpMePlayDB["UseWarMode"],
         "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
-        LHMP:ColorText("RED", format("This setting doesn't apply to players at or above level %d.", HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"]))
+        LHMP:ColorText("RED", string.format("This setting doesn't apply to players at or above level %d.", HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"]))
     )
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -298,7 +298,7 @@ function HelpMePlay.RegisterSettings()
             container:Add(0, NONE)
             return container:GetData()
         end,
-        format("Select how quest rewards should be chosen.\n\n" ..
+        string.format("Select how quest rewards should be chosen.\n\n" ..
         "If Item Level is selected, then chosen quest rewards are automatically equipped by %s.", addonName)
     )
 
@@ -728,7 +728,7 @@ function HelpMePlay.RegisterSettings()
         "Open Issue",
         function()
             StaticPopupDialogs["HELPMEPLAY_OPEN_ISSUE"] = {
-                text = format("Hi, %s! Thank you for taking the time to open an issue. I really appreciate it! %s\n\n%s: You will need a GitHub account to open an issue. It's free!", HelpMePlay.playerName, CreateAtlasMarkup("delves-scenario-heart-icon", 16, 16), LHMP:ColorText("RED", "NOTE")),
+                text = string.format("Hi, %s! Thank you for taking the time to open an issue. I really appreciate it! %s\n\n%s: You will need a GitHub account to open an issue. It's free!", HelpMePlay.playerName, CreateAtlasMarkup("delves-scenario-heart-icon", 16, 16), LHMP:ColorText("RED", "NOTE")),
                 button1 = CLOSE,
                 OnShow = function(self)
                     local function HidePopup(self) self:GetParent():Hide() end
@@ -779,9 +779,9 @@ function HelpMePlay.RegisterSettings()
                             local specName = LHMP:GetRandomSpecIDByClassID(classID)
                             if class then
                                 if factionID and factionID == 0 then
-                                    HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
+                                    HelpMePlay.Print(string.format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-horde-up", 16, 16), race.raceName, specName, class.className))
                                 elseif factionID and factionID == 1 then
-                                    HelpMePlay.Print(format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
+                                    HelpMePlay.Print(string.format("%s %s %s %s", CreateAtlasMarkup("bfa-landingbutton-alliance-up", 16, 16), race.raceName, specName, class.className))
                                 end
                             end
                         end
@@ -839,7 +839,7 @@ function HelpMePlay.OnSettingChanged(setting, value)
         HelpMePlay_ShowPetBattleBandageButton = function() HelpMePlay.CreatePetBattleBandageButton() end,
         HelpMePlay_QuickProposal = function()
             StaticPopupDialogs["HMP_QUICK_PROPOSAL_CHANGED"] = {
-                text = format("The %s setting has changed. Would you like to reload the UI?", LHMP:ColorText("HEIRLOOM", "Quick Proposal")),
+                text = string.format("The %s setting has changed. Would you like to reload the UI?", LHMP:ColorText("HEIRLOOM", "Quick Proposal")),
                 button1 = YES,
                 button2 = NO,
                 explicitAcknowledge = true,
@@ -895,7 +895,7 @@ function HelpMePlay.AddSettingButton(controlLabel, buttonText, onClick, tooltip,
 end
 
 function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, defaultValue, currentValue, tooltip)
-    local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
+    local setting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
     setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
     Settings.CreateCheckbox(category, setting, tooltip)
@@ -904,7 +904,7 @@ function HelpMePlay.AddSettingCheckbox(category, controlLabel, variableName, def
 end
 
 function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, defaultValue, currentValue, options, tooltip)
-    local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
+    local setting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
     setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
     Settings.CreateDropdown(category, setting, options, tooltip)
@@ -913,8 +913,8 @@ function HelpMePlay.AddSettingDropdown(category, controlLabel, variableName, def
 end
 
 function HelpMePlay.AddSettingCVarDropdown(category, cbLabel, cbVariableName, cbDefaultValue, cbCurrentValue, cbTooltip, dropdownLabel, dropdownVariableName, dropdownDefaultValue, dropdownCurrentValue, dropdownTooltip, options)
-    local cbSetting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, cbVariableName), cbVariableName, HelpMePlayDB, type(cbDefaultValue), cbLabel, cbCurrentValue)
-    local dropdownSetting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, dropdownVariableName), dropdownVariableName, HelpMePlayDB, type(dropdownDefaultValue), dropdownLabel, dropdownCurrentValue)
+    local cbSetting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, cbVariableName), cbVariableName, HelpMePlayDB, type(cbDefaultValue), cbLabel, cbCurrentValue)
+    local dropdownSetting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, dropdownVariableName), dropdownVariableName, HelpMePlayDB, type(dropdownDefaultValue), dropdownLabel, dropdownCurrentValue)
 
     cbSetting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
     dropdownSetting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
@@ -928,7 +928,7 @@ function HelpMePlay.AddSettingCVarDropdown(category, cbLabel, cbVariableName, cb
 end
 
 function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defaultValue, currentValue, minValue, maxValue, increment, value, tooltip)
-    local setting = Settings.RegisterAddOnSetting(category, format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
+    local setting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, variableName), variableName, HelpMePlayDB, type(defaultValue), controlLabel, currentValue)
     setting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
 
     local options = Settings.CreateSliderOptions(minValue, maxValue, increment)

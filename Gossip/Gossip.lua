@@ -66,7 +66,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if GossipFrame:IsVisible() and C_BattleNet.GetAccountInfoByGUID(HelpMePlay.playerGUID).battleTag == HelpMePlay.Constants["AUTHOR_BATTLETAG"] then
             if not gossipButton then
                 gossipButton = HelpMePlay.CreateWidget("IconButton", {
-                    name = format("%sGossipInfoButton", addonName),
+                    name = string.format("%sGossipInfoButton", addonName),
                     width = 32,
                     height = 32,
                     parent = GossipFrame,
@@ -83,16 +83,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     local GUID = UnitGUID("target")
                     if GUID then
                         local npcID = LHMP:SplitString(GUID, "-", 6)
-                        print(format("%d - %s", npcID, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
+                        print(string.format("%d - %s", npcID, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
                     else
-                        print(format("%d - %s", 0, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()))) -- This is for gossips associated to non-NPCs.
+                        print(string.format("%d - %s", 0, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()))) -- This is for gossips associated to non-NPCs.
                     end
 
                     -- Gossips
                     local options = C_GossipInfo.GetOptions()
                     if options then
                         for _, option in ipairs(options) do
-                            print(format("%s: %s", LHMP:ColorText("UNCOMMON", option.gossipOptionID), option.name))
+                            print(string.format("%s: %s", LHMP:ColorText("UNCOMMON", option.gossipOptionID), option.name))
                         end
                     end
                 end)
@@ -103,7 +103,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
             if not questsButton then
                 questsButton = HelpMePlay.CreateWidget("IconButton", {
-                    name = format("%sActiveQuestsInfoButton", addonName),
+                    name = string.format("%sActiveQuestsInfoButton", addonName),
                     width = 32,
                     height = 32,
                     parent = gossipButton,
@@ -116,14 +116,16 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                 questsButton:SetPoint("TOP", gossipButton, "BOTTOM", 0, -5)
 
                 questsButton:SetScript("OnClick", function()
-                    local numEntries = C_QuestLog.GetNumQuestLogEntries()
-                    for i = 1, numEntries do
-                        local info = C_QuestLog.GetInfo(i)
-                        if info and
-                            info.hasLocalPOI and
-                            not info.isHeader then
-
-                            print(format("%s: %s", LHMP:ColorText("GOLD", info.questID), info.title))
+                    local numWatchedQuests = C_QuestLog.GetNumQuestWatches()
+                    if numWatchedQuests > 0 then
+                        for index = 1, numWatchedQuests do
+                            local questId = C_QuestLog.GetQuestIDForQuestWatchIndex(index)
+                            local logIndex = C_QuestLog.GetLogIndexForQuestID(questId)
+                            local info = C_QuestLog.GetInfo(logIndex)
+                            if info then
+                                local formattedQuestId = LHMP:ColorText("GOLD", questId)
+                                print(string.format("%s: %s", formattedQuestId, info.title))
+                            end
                         end
                     end
                 end)
@@ -134,7 +136,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
             end
             if not objectivesButton then
                 objectivesButton = HelpMePlay.CreateWidget("IconButton", {
-                    name = format("%sObjectiveInfoButton", addonName),
+                    name = string.format("%sObjectiveInfoButton", addonName),
                     width = 32,
                     height = 32,
                     parent = questsButton,
@@ -159,7 +161,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                                 local objectives = C_QuestLog.GetQuestObjectives(input)
                                 if objectives then
                                     for _, objective in ipairs(objectives) do
-                                        print(format("%s, %s", objective.text, tostring(objective.finished)))
+                                        print(string.format("%s, %s", objective.text, tostring(objective.finished)))
                                     end
                                 end
                             else
@@ -224,7 +226,7 @@ GossipFrame:HookScript("OnShow", function(self)
 
     if not userGossipButton then
         userGossipButton = HelpMePlay.CreateWidget("ActionButton", {
-            name = format("%sUserGossipButton", addonName),
+            name = string.format("%sUserGossipButton", addonName),
             parent = collapseButton,
         })
         userGossipButton:SetScale(0.75)
@@ -277,7 +279,7 @@ GossipFrame:HookScript("OnShow", function(self)
             if UnitExists("target") and
                 not UnitIsPlayer("target") then
 
-                HelpMePlay.Tooltip_OnEnter(self, "Gossip", format("Click to add or remove a custom gossip option for %s.", LHMP:ColorText("UNCOMMON", UnitName("target"))))
+                HelpMePlay.Tooltip_OnEnter(self, "Gossip", string.format("Click to add or remove a custom gossip option for %s.", LHMP:ColorText("UNCOMMON", UnitName("target"))))
             end
         end)
         userGossipButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)

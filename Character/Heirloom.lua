@@ -58,7 +58,7 @@ local function CreateButton()
 
     if not button then
         button = HelpMePlay.CreateWidget("SecureButton", {
-            name = format("%s%s", addonName, "EquipHeirloomsButton"),
+            name = string.format("%s%s", addonName, "EquipHeirloomsButton"),
             scale = 0.65,
             icon = 1805932,
             isMovable = false,

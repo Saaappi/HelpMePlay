@@ -109,7 +109,7 @@ function HelpMePlay.CategorizeMountByID(mountID)
 
                 table.insert(HelpMePlayDB["Mounts"][mountTypeName], {name = name, mountID = mountID})
             else
-                HelpMePlay.Print(format(HelpMePlay.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
+                HelpMePlay.Print(string.format(HelpMePlay.ErrorMessages["MOUNT_TYPE_UNKNOWN"], mountTypeID))
             end
         end
     end
@@ -267,7 +267,7 @@ end
 EventRegistry:RegisterCallback("MountJournal.OnShow", function()
     if not button then
         button = HelpMePlay.CreateWidget("IconButton", {
-            name = format("%sCategorizeMountsButton", addonName),
+            name = string.format("%sCategorizeMountsButton", addonName),
             width = 32,
             height = 32,
             parent = MountJournalSummonRandomFavoriteButton,
@@ -285,7 +285,7 @@ EventRegistry:RegisterCallback("MountJournal.OnShow", function()
             end
         end)
         button:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, "Categorize Mounts", format("Categorize all of your known mounts. Mounts will be summoned based on your current location, player level, and other character attributes.\n\n" ..
+            HelpMePlay.Tooltip_OnEnter(self, "Categorize Mounts", string.format("Categorize all of your known mounts. Mounts will be summoned based on your current location, player level, and other character attributes.\n\n" ..
             "Current Keybind: %s", GetBindingKey("HELPMEPLAY_MOUNTUP") or "Not Set"))
         end)
         button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)

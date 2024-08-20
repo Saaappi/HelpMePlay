@@ -17,7 +17,7 @@ local isElvUILoaded = false
 local function OnEvent(_, event, ...)
     if event == "PLAYER_LOGIN" then
         eventHandler:UnregisterEvent("PLAYER_LOGIN")
-        local button = CreateFrame("Button", format("%sMicroButton", addonName), UIParent)
+        local button = CreateFrame("Button", string.format("%sMicroButton", addonName), UIParent)
         button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 
         button:SetWidth(18)
@@ -26,7 +26,7 @@ local function OnEvent(_, event, ...)
         button:ClearAllPoints()
         button:SetPoint("BOTTOMRIGHT", CharacterMicroButton, "BOTTOMLEFT", 0, 0)
 
-        button.icon = button:CreateTexture(format("%sIcon", button:GetName()), "OVERLAY")
+        button.icon = button:CreateTexture(string.format("%sIcon", button:GetName()), "OVERLAY")
         button.icon:SetAtlas(atlas)
         button:SetNormalTexture(button.icon)
         button:SetHighlightAtlas(atlas, "ADD")
@@ -58,9 +58,9 @@ local function OnEvent(_, event, ...)
             end
             local currentDate = C_DateAndTime.GetCurrentCalendarTime()
             if C_DateAndTime.CompareCalendarTime(currentDate, nextUpdate) == -1 then -- Addon is outdated
-                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("RED", HelpMePlay.ErrorMessages["ADDON_VERSION_OUTDATED"]))
+                HelpMePlay.Tooltip_OnEnter(self, string.format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), LHMP:ColorText("RED", HelpMePlay.ErrorMessages["ADDON_VERSION_OUTDATED"]))
             else
-                HelpMePlay.Tooltip_OnEnter(self, format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), HelpMePlay.Tooltips.MicroMenuButton)
+                HelpMePlay.Tooltip_OnEnter(self, string.format("|cffFFFFFF%s|r (v%s)", addonName, C_AddOns.GetAddOnMetadata(addonName, "Version")), HelpMePlay.Tooltips.MicroMenuButton)
             end
         end)
         button:SetScript("OnLeave", function(self)

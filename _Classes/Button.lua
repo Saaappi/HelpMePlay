@@ -22,35 +22,35 @@ HelpMePlay.CreateWidget = function(widgetType, widgetData)
         iconButton:RegisterForClicks("LeftButtonUp")
 
         local parent = iconButton:GetName()
-        iconButton.icon = iconButton:CreateTexture(format("%sIcon", parent), "ARTWORK")
+        iconButton.icon = iconButton:CreateTexture(string.format("%sIcon", parent), "ARTWORK")
         iconButton.icon:SetTexture(widgetData.texture)
         iconButton.icon:SetAllPoints()
 
-        iconButton.blackCover = iconButton:CreateTexture(format("%sBlackCover", parent), "OVERLAY")
+        iconButton.blackCover = iconButton:CreateTexture(string.format("%sBlackCover", parent), "OVERLAY")
         iconButton.blackCover:SetColorTexture(0, 0, 0, 0.6)
 
-        iconButton.border = iconButton:CreateTexture(format("%sBorder", parent), "OVERLAY")
+        iconButton.border = iconButton:CreateTexture(string.format("%sBorder", parent), "OVERLAY")
         iconButton.border:SetSize(widgetData.width + 10, widgetData.height + 10)
         iconButton.border:SetPoint("CENTER")
         iconButton.border:SetAtlas("Forge-ColorSwatchHighlight", false)
 
-        iconButton.highlightTexture = iconButton:CreateTexture(format("%sHighlightTexture", parent), "OVERLAY", nil, 1)
+        iconButton.highlightTexture = iconButton:CreateTexture(string.format("%sHighlightTexture", parent), "OVERLAY", nil, 1)
         iconButton.highlightTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
         iconButton.highlightTexture:SetSize(widgetData.width + 6, widgetData.height + 6)
         iconButton.highlightTexture:SetPoint("CENTER")
         iconButton:SetHighlightTexture(iconButton.highlightTexture, "ADD")
 
-        iconButton.pushedTexture = iconButton:CreateTexture(format("%sPushedTexture", parent), "OVERLAY", nil, 1)
+        iconButton.pushedTexture = iconButton:CreateTexture(string.format("%sPushedTexture", parent), "OVERLAY", nil, 1)
         iconButton.pushedTexture:SetAtlas("UI-HUD-ActionBar-IconFrame-Mouseover", false)
         iconButton.pushedTexture:SetSize(widgetData.width + 4, widgetData.height + 4)
         iconButton.pushedTexture:SetPoint("CENTER")
         iconButton:SetPushedTexture(iconButton.pushedTexture)
 
         if (not iconButton.buttonName) and widgetData.useFontString then
-            iconButton.buttonName = iconButton:CreateFontString(format("%sButtonName", parent), "ARTWORK", "GameFontNormal")
+            iconButton.buttonName = iconButton:CreateFontString(string.format("%sButtonName", parent), "ARTWORK", "GameFontNormal")
             iconButton.buttonName:SetPoint("RIGHT", iconButton.border, "LEFT", -2, 0)
             iconButton.buttonName:SetMaxLines(2)
-            iconButton.buttonName:SetText(format("|cffFFFFFF%s|r", widgetData.fontStringText))
+            iconButton.buttonName:SetText(string.format("|cffFFFFFF%s|r", widgetData.fontStringText))
             iconButton.buttonName:SetJustifyH("RIGHT")
             iconButton.buttonName:SetWordWrap(true)
         end

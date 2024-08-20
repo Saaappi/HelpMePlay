@@ -31,7 +31,7 @@ CurrencyTransferMenu:HookScript("OnShow", function(self)
         button:SetScript("OnEnter", function(self)
             if currencyID then
                 local name = C_CurrencyInfo.GetCurrencyInfo(currencyID).name
-                HelpMePlay.Tooltip_OnEnter(self, "Transfer Currency", format("Click to transfer all %s to the current character.", LHMP:ColorText("UNCOMMON", name)))
+                HelpMePlay.Tooltip_OnEnter(self, "Transfer Currency", string.format("Click to transfer all %s to the current character.", LHMP:ColorText("UNCOMMON", name)))
             else
                 HelpMePlay.Tooltip_OnEnter(self, "Transfer Currency", "Click to transfer all of the active currency to the current character.")
             end

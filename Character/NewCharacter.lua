@@ -37,7 +37,7 @@ end
 HelpMePlay.NewCharacter = function()
     if IsNCCEnabled() then
         newCharacterButton = HelpMePlay.CreateWidget("BasicButton", {
-            name = format("%sNewCharacterButton", addonName),
+            name = string.format("%sNewCharacterButton", addonName),
             parent = UIParent,
             width = 170,
             height = 25,
@@ -224,7 +224,7 @@ HelpMePlay.NewCharacter = function()
             StaticPopup_Show("HMP_NEW_CHARACTER_CONFIG_RELOAD_UI")
         end)
         newCharacterButton:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, "Configure New Character", format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", LHMP:ColorText(select(2, UnitClass("player")), UnitName("player")), LHMP:ColorText("GOLD", "New Character Configuration")))
+            HelpMePlay.Tooltip_OnEnter(self, "Configure New Character", string.format("Click to configure new character settings for %s. These settings can be configured under %s in the settings.", LHMP:ColorText(select(2, UnitClass("player")), UnitName("player")), LHMP:ColorText("GOLD", "New Character Configuration")))
         end)
         newCharacterButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
     end

@@ -1,7 +1,7 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 
-local iconString = format("%sQuestMobsIcon", addonName)
+local iconString = string.format("%sQuestMobsIcon", addonName)
 local iconType1 = "UI-HUD-UnitFrame-Target-PortraitOn-Boss-Quest"
 local iconType2 = "BuildanAbomination-32x32"
 

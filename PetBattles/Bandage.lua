@@ -11,7 +11,7 @@ local safariHatID = 92738
 HelpMePlay.CreatePetBattleBandageButton = function()
 	if not button then
 		button = HelpMePlay.CreateWidget("SecureButton", {
-			name = format("%s%s", addonName, "PetBattleBandageButton"),
+			name = string.format("%s%s", addonName, "PetBattleBandageButton"),
 			scale = 0.65,
 			icon = 656581,
 			isMovable = true,

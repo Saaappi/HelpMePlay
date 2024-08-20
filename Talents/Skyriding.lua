@@ -57,7 +57,7 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
 
 	if GenericTraitFrame.Header.Title:GetText() == GENERIC_TRAIT_FRAME_DRAGONRIDING_TITLE then
         dynamicFlightTalentsButton = HelpMePlay.CreateWidget("IconButton", {
-            name = format("%sSkyridingTalentButton", addonName),
+            name = string.format("%sSkyridingTalentButton", addonName),
             texture = 4728198,
             parent = GenericTraitFrame.Currency,
             anchor = "TOPRIGHT",

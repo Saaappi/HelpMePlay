@@ -41,20 +41,20 @@ end
 function LHMP:ColorText(color, text)
     color = string.upper(color)
     if LHMP.Colors[color] then
-        return format("|cff%s%s|r", LHMP.Colors[color], text)
+        return string.format("|cff%s%s|r", LHMP.Colors[color], text)
     elseif C_ClassColor.GetClassColor(color) then
         local classColor = C_ClassColor.GetClassColor(color):GenerateHexColor()
-        return format("|c%s%s|r", classColor, text)
+        return string.format("|c%s%s|r", classColor, text)
     else
         -- A color value from the LHMP.Colors table was not supplied,
         -- nor a class name value. Therefore, just color the text with
         -- the hex code provided.
-        return format("|cff%s%s|r", color, text)
+        return string.format("|cff%s%s|r", color, text)
     end
 end
 function LHMP:SplitString(str, separator, nth)
     local strings = {}
-    local pattern = ("([^%s]+)"):format(separator)
+    local pattern = ("([^%s]+)"):string.format(separator)
     for string in str:gmatch(pattern) do
         table.insert(strings, string)
     end

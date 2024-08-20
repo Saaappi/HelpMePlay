@@ -49,7 +49,7 @@ local function PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID
             end
         end
         if wasSuccessful then
-            HelpMePlay.Print(format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
+            HelpMePlay.Print(string.format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
             wasSuccessful = false
         end
     end
@@ -88,7 +88,7 @@ end)
 
 EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
     classTalentsButton = HelpMePlay.CreateWidget("IconButton", {
-        name = format("%sClassTalentsButton", addonName),
+        name = string.format("%sClassTalentsButton", addonName),
         texture = 132222,
         parent = PlayerSpellsFrame.TalentsFrame.ApplyButton,
         anchor = "RIGHT",
@@ -147,7 +147,7 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
         GameTooltip:SetOwner(classTalentsButton, "ANCHOR_CURSOR_RIGHT")
         GameTooltip:SetText("Class Talents")
         if HelpMePlayDB["ClassTalents"][classID][specID] and (HelpMePlayDB["ClassTalents"][classID][specID].importString ~= nil and HelpMePlayDB["ClassTalents"][classID][specID].importString ~= "") then
-            GameTooltip:AddLine(format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
+            GameTooltip:AddLine(string.format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
             HelpMePlay.playerClassColor:GenerateHexColor(),
             HelpMePlay.playerSpecName,
             HelpMePlay.playerClassName,

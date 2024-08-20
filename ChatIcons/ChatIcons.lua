@@ -1,5 +1,5 @@
 local addonName, _ = ...
-local iconPath = format("Interface\\AddOns\\%s\\ChatIcons\\Icons", addonName)
+local iconPath = string.format("Interface\\AddOns\\%s\\ChatIcons\\Icons", addonName)
 
 local function IsAppearanceCollected(visualID)
     local sources = C_TransmogCollection.GetAppearanceSources(visualID)
@@ -25,22 +25,22 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(_, _, message, ...)
 
     local function GetCollectedTexture(bindType, isCollected, canCollect, iconPath)
         if isCollected then
-            return format("%s\\KNOWN", iconPath)
+            return string.format("%s\\KNOWN", iconPath)
         end
 
         if bindType == 1 then
             -- Soulbound
             if canCollect then
-                return format("%s\\UNKNOWN", iconPath)
+                return string.format("%s\\UNKNOWN", iconPath)
             else
-                return format("%s\\UNKNOWABLE_SOULBOUND", iconPath)
+                return string.format("%s\\UNKNOWABLE_SOULBOUND", iconPath)
             end
         elseif bindType == 2 then
             -- Bind-on-equip
             if canCollect then
-                return format("%s\\UNKNOWN", iconPath)
+                return string.format("%s\\UNKNOWN", iconPath)
             else
-                return format("%s\\UNKNOWABLE_BY_CHARACTER", iconPath)
+                return string.format("%s\\UNKNOWABLE_BY_CHARACTER", iconPath)
             end
         end
     end
@@ -65,10 +65,10 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_LOOT", function(_, _, message, ...)
             local isCollected, canCollectAppearance = GetItemInfoData(itemLink)
             if isCollected ~= nil then
                 local collectedTexture = GetCollectedTexture(bindType, isCollected, canCollectAppearance, iconPath)
-                return format("\124T%s:12\124t %s \124T%s:12\124t", texture, itemLink, collectedTexture)
+                return string.format("\124T%s:12\124t %s \124T%s:12\124t", texture, itemLink, collectedTexture)
             end
         end
-        return format("\124T%s:12\124t %s", texture, itemLink)
+        return string.format("\124T%s:12\124t %s", texture, itemLink)
     end
     message = message:gsub("(\124c%x+\124Hitem:.-\124h\124r)", GetItemIconHMP)
     return false, message, ...

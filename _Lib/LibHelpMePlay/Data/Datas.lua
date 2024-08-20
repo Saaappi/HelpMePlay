@@ -159,7 +159,7 @@ LHMP.WorldEvents={
     [341]={["dungeonQueueID"]=286,["texture"]=368565,["conditions"]={["minLevel"]=70,["isForTimerunning"]=false}},
     [372]={["dungeonQueueID"]=287,["texture"]=132621,["conditions"]={["minLevel"]=70,["isForTimerunning"]=false}},
     [324]={["dungeonQueueID"]=285,["texture"]=133661,["conditions"]={["minLevel"]=70,["isForTimerunning"]=false}},
-    [1525]={["name"]=format("Random Heroic Timerunning Dungeon: %s",EXPANSION_NAME4),["dungeonQueueID"]=2539,["texture"]=328269,["conditions"]={["minLevel"]=10,["isForTimerunning"]=true}}}
+    [1525]={["name"]=string.format("Random Heroic Timerunning Dungeon: %s",EXPANSION_NAME4),["dungeonQueueID"]=2539,["texture"]=328269,["conditions"]={["minLevel"]=10,["isForTimerunning"]=true}}}
 
 LHMP.Gossips = {
     -------------------------
@@ -234,6 +234,13 @@ LHMP.Gossips = {
     [37570] = {{ID = 37335, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 24601", "QUEST_OBJECTIVE_INCOMPLETE = 24601,1"}}},
     [37743] = {{ID = 38196, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25057", "QUEST_OBJECTIVE_INCOMPLETE = 25057,1"}}},
     [39155] = {{ID = 36883, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25120", "QUEST_OBJECTIVE_INCOMPLETE = 25120,1"}}},
+    -- Desolace
+    [35773] = {
+        {ID = 38386, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14256", "QUEST_OBJECTIVE_INCOMPLETE = 14256,1"}},
+        {ID = 38387, CanConfirm = false, Conditions = {"MISSING_ITEM = 49064"}}
+    },
+    [35902] = {{ID = 37927, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14284", "QUEST_OBJECTIVE_INCOMPLETE = 14284,1"}}},
+    [36056] = {{ID = 37413, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14318"}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},

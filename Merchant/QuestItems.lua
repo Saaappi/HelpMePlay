@@ -53,7 +53,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         for i = 1, GetMerchantNumItems() do
                             local name = GetMerchantItemInfo(i)
                             if name then
-                                print(format("%s: %s", LHMP:ColorText("UNCOMMON", i), name))
+                                print(string.format("%s: %s", LHMP:ColorText("UNCOMMON", i), name))
                             end
                         end
                     end)

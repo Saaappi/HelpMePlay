@@ -134,7 +134,7 @@ HelpMePlay.CreateEventQueueButton = function()
         button:SetScript("OnEnter", function(self)
             extraActionButtonBinding = GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE")
             if extraActionButtonBinding then
-                HelpMePlay.Tooltip_OnEnter(self, self.name, format("%s Use |cff06BEC6%s|r for quick use.\n\nClick and hold to drag.", LHMP:ColorText("UNCOMMON", "TIP:"), extraActionButtonBinding))
+                HelpMePlay.Tooltip_OnEnter(self, self.name, string.format("%s Use |cff06BEC6%s|r for quick use.\n\nClick and hold to drag.", LHMP:ColorText("UNCOMMON", "TIP:"), extraActionButtonBinding))
             else
                 HelpMePlay.Tooltip_OnEnter(self, self.name, LHMP:ColorText("UNCOMMON", "TIP: ") .. "You can set a keybind in the Keybindings menu for quick use.\n\nClick and hold to drag.")
             end

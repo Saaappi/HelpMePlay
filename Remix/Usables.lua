@@ -28,7 +28,7 @@ local stringDescriptions = {
 HelpMePlay.CreateRemixUsablesButton = function()
 	if not button then
 		button = HelpMePlay.CreateWidget("SecureButton", {
-			name = format("%s%s", addonName, "RemixUseItemButton"),
+			name = string.format("%s%s", addonName, "RemixUseItemButton"),
 			scale = 0.65,
 			icon = 626190,
 			isMovable = true,
@@ -50,31 +50,31 @@ HelpMePlay.CreateRemixUsablesButton = function()
 			-- Set the attribute of the button based on which button is used.
 			if btn == "LeftButton" and (not IsModifierKeyDown()) then
 				for _, itemID in next, uncommonGems do
-					macroText = macroText .. format("/use item:%s\n", itemID)
+					macroText = macroText .. string.format("/use item:%s\n", itemID)
 				end
 			elseif btn == "LeftButton" and IsShiftKeyDown() then
 				for _, itemID in next, rareGems do
-					macroText = macroText .. format("/use item:%s\n", itemID)
+					macroText = macroText .. string.format("/use item:%s\n", itemID)
 				end
 			elseif btn == "LeftButton" and IsControlKeyDown() then
 				for _, itemID in next, epicGems do
-					macroText = macroText .. format("/use item:%s\n", itemID)
+					macroText = macroText .. string.format("/use item:%s\n", itemID)
 				end
 			elseif btn == "RightButton" and (not IsModifierKeyDown()) then
 				for _, itemID in next, commonThreads do
-					macroText = macroText .. format("/use item:%s\n", itemID)
+					macroText = macroText .. string.format("/use item:%s\n", itemID)
 				end
 			elseif btn == "RightButton" and IsShiftKeyDown() then
 				for _, itemID in next, uncommonThreads do
-					macroText = macroText .. format("/use item:%s\n", itemID)
+					macroText = macroText .. string.format("/use item:%s\n", itemID)
 				end
 			elseif btn == "RightButton" and IsControlKeyDown() then
 				for _, itemID in next, rareThreads do
-					macroText = macroText .. format("/use item:%s\n", itemID)
+					macroText = macroText .. string.format("/use item:%s\n", itemID)
 				end
 			elseif btn == "RightButton" and IsAltKeyDown() then
 				for _, itemID in next, epicThreads do
-					macroText = macroText .. format("/use item:%s\n", itemID)
+					macroText = macroText .. string.format("/use item:%s\n", itemID)
 				end
 			end
 			button:SetAttribute("macrotext", macroText)
@@ -97,7 +97,7 @@ HelpMePlay.CreateRemixUsablesButton = function()
 			for _, description in next, stringDescriptions do
 				combinedString = combinedString .. description .. "\n"
 			end
-			HelpMePlay.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", format("Click to combine gems and add threads to your %s.\n\nYour cloak will be equipped if it's not already.\n\n%s\n\nClick and hold to drag.", cloak, combinedString))
+			HelpMePlay.Tooltip_OnEnter(self, "Remix: Mists of Pandaria", string.format("Click to combine gems and add threads to your %s.\n\nYour cloak will be equipped if it's not already.\n\n%s\n\nClick and hold to drag.", cloak, combinedString))
 		end)
 		button:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 	end
