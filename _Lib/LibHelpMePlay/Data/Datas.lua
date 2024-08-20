@@ -187,22 +187,22 @@ LHMP.Gossips = {
         -- MISTS OF PANDARIA ----
         -------------------------
         -- Cho's "Art" (The Jade Forest)
-        {ID = 33294, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31130"}},
+        {ID = 33294, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31130}}}},
         -- Ancient Statue (The Jade Forest)
-        {ID = 40006, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 39082, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 39808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
-        {ID = 39083, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29743"}},
+        {ID = 40006, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29743}}}},
+        {ID = 39082, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29743}}}},
+        {ID = 39808, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29743}}}},
+        {ID = 39083, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29743}}}},
         -------------------------
         -- DRAGONFLIGHT ---------
         -------------------------
         -- Embassy Visitor Log (The Waking Shores)
-        {ID = 55746, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
-        {ID = 55757, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
-        {ID = 55762, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
-        {ID = 55773, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 69911"}},
+        {ID = 55746, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {69911}}}},
+        {ID = 55757, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {69911}}}},
+        {ID = 55762, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {69911}}}},
+        {ID = 55773, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {69911}}}},
         -- Forge Console (Thaldraszus)
-        {ID = 108982, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 72444"}},
+        {ID = 108982, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {72444}}}},
     },
     -------------------------
     -- VANILLA --------------
