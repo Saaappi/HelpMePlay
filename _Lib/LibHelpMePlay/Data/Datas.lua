@@ -170,19 +170,19 @@ LHMP.Gossips = {
         -- VANILLA --------------
         -------------------------
         -- Grovekeeper's Incense (Darkshore)
-        {ID = 37215, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 13569"}},
+        {ID = 37215, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {13569}}}},
         -- Totem of Hir'eek (The Cape of Stranglethorn)
-        {ID = 38325, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26809"}},
+        {ID = 38325, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26809}}}},
         -- Ruined Lifeboat (The Cape of Stranglethorn)
-        {ID = 38201, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26602"}},
+        {ID = 38201, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26602}}}},
         -- Grog Barrel (The Cape of Stranglethorn)
-        {ID = 39383, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
+        {ID = 39383, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26663}}}},
         -- Gunpowder Barrel (The Cape of Stranglethorn)
-        {ID = 38808, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
+        {ID = 38808, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26663}}}},
         -- Cannonball Crate (The Cape of Stranglethorn)
-        {ID = 38809, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26663"}},
+        {ID = 38809, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26663}}}},
         -- Mereldar Plague Cauldron (Eastern Plaguelands)
-        {ID = 38411, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27454"}},
+        {ID = 38411, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {27454}}}},
         -------------------------
         -- MISTS OF PANDARIA ----
         -------------------------
