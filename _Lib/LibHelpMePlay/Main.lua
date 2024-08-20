@@ -54,7 +54,7 @@ function LHMP:ColorText(color, text)
 end
 function LHMP:SplitString(str, separator, nth)
     local strings = {}
-    local pattern = ("([^%s]+)"):string.format(separator)
+    local pattern = ("([^%s]+)"):format(separator)
     for string in str:gmatch(pattern) do
         table.insert(strings, string)
     end
