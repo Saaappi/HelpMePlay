@@ -851,21 +851,21 @@ LHMP.Gossips = {
     [208614] = {{ID = 120366, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77331}}}}},
     [206107] = {{ID = 120356, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77331}}}}},
     -- The Harbinger Questline
-    [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79009"}}},
-    [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79011"}}},
-    [215157] = {{ID = 120248, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79011"}}},
-    [215158] = {{ID = 120249, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79011"}}},
-    [214657] = {{ID = 120568, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79021"}}},
+    [214615] = {{ID = 120217, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79009}}}}},
+    [215142] = {{ID = 120247, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79011}}}}},
+    [215157] = {{ID = 120248, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79011}}}}},
+    [215158] = {{ID = 120249, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79011}}}}},
+    [214657] = {{ID = 120568, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79021}}}}},
     -- Evokers
-    [182317] = {{ID = 54978, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 65060"}}},
-    [184165] = {{ID = 51921, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 65071"}}},
-    [182258] = {{ID = 55597, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 65701"}}},
-    [182610] = {{ID = 51849, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 65100"}}},
-    [182611] = {{ID = 51850, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 65100"}}},
+    [182317] = {{ID = 54978, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65060}}}}},
+    [184165] = {{ID = 51921, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65071}}}}},
+    [182258] = {{ID = 55597, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65071}}}}},
+    [182610] = {{ID = 51849, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65100}}}}},
+    [182611] = {{ID = 51850, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65100}}}}},
     -------------------------
     -- THE WAR WITHIN -------
     -------------------------
     -- Pre-Patch Questline
-    [213624] = {{ID = 120882, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 78715"}}},
-    [214669] = {{ID = 121542, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 80500"}}},
+    [213624] = {{ID = 120882, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78715}}}}},
+    [214669] = {{ID = 121542, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80500}}}}},
 }}
