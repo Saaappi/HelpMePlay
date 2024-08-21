@@ -834,10 +834,4 @@ LHMP.Gossips = {
     -- Pre-Patch Questline
     [213624] = {{ID = 120882, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 78715"}}},
     [214669] = {{ID = 121542, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 80500"}}},
-    -------------------------
-    -- MIDNIGHT -------------
-    -------------------------
-    -------------------------
-    -- THE LAST TITAN -------
-    -------------------------
 }
