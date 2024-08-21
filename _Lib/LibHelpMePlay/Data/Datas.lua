@@ -252,37 +252,37 @@ LHMP.Gossips = {
     [42391] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {26209}}}}},
     -- Northern Stranglethorn
     [44017] = {
-        {ID = 37876, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26773"}},
-        {ID = 37877, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26775"}}
+        {ID = 37876, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26773}}}},
+        {ID = 37877, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26775}}}}
     },
-    [42881] = {{ID = 37412, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26775"}}},
+    [42881] = {{ID = 37412, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26775}}}}},
     [42882] = {
-        {ID = 36965, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26775"}},
-        {ID = 36966, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26775"}},
-        {ID = 37129, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26775"}}
+        {ID = 36965, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26775}}}},
+        {ID = 36966, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26775}}}},
+        {ID = 37129, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26775}}}}
     },
-    [42883] = {{ID = 36967, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26775"}}},
+    [42883] = {{ID = 36967, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {26775}}}}},
     -- The Cape of Stranglethorn
-    [43377] = {{ID = 38572, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26595"}}},
+    [43377] = {{ID = 38572, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26595}}}}},
     [43505] = {
-        {ID = 38304, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}},
-        {ID = 38306, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}}
+        {ID = 38304, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26630}}}},
+        {ID = 38306, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26630}}}}
     },
-    [2663] = {{ID = 38527, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}}},
+    [2663] = {{ID = 38527, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26630}}}}},
     [2487] = {
-        {ID = 38529, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}},
-        {ID = 38530, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26630"}},
+        {ID = 38529, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26630}}}},
+        {ID = 38530, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26630}}}},
     },
-    [43605] = {{ID = 38569, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26649"}}},
-    [43659] = {{ID = 37799, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
-    [43636] = {{ID = 39613, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26664"}}},
-    [43660] = {{ID = 38351, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
-    [43661] = {{ID = 38489, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26662"}}},
+    [43605] = {{ID = 38569, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26649}}}}},
+    [43659] = {{ID = 37799, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26662}}}}},
+    [43636] = {{ID = 39613, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26664}}}}},
+    [43660] = {{ID = 38351, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26662}}}}},
+    [43661] = {{ID = 38489, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26662}}}}},
     [737] = {
-        {ID = 40380, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26697"}},
-        {ID = 40381, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26703"}}
+        {ID = 40380, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26697}}}},
+        {ID = 40381, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26703}}}}
     },
-    [49635] = {{ID = 39916, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 28749"}}},
+    [49635] = {{ID = 39916, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {28749}}}}},
     -- Western Plaguelands
     [46006] = {{ID = 39847, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 27165", "LEVEL_LOWER = 20"}}},
     [44456] = {{ID = 39187, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26953", "BUFF_INACTIVE = 83456"}}},
