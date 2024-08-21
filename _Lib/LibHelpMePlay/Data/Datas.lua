@@ -305,25 +305,17 @@ LHMP.Gossips = {
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {{"CHROMIE_TIME_INACTIVE"}}}},
     -- Loch Modan
     [1573] = {{ID = 31712, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26131}}}}},
-    -- Dungeon: Blackrock Depths
-    [9039] = {{ID = 28044, CanConfirm = false, Conditions = {}}},
-    -- Raid: Molten Core
-    [54404] = {
-        {ID = 30419, CanConfirm = false, Conditions = {}},
-        {ID = 31924, CanConfirm = false, Conditions = {}},
-        {ID = 30449, CanConfirm = false, Conditions = {}}
-    },
     -------------------------
     -- THE BURNING CRUSADE --
     -------------------------
     -- Nagrand (Outland)
     [18417] = {
-        {ID = 34530, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
-        {ID = 34755, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
-        {ID = 33588, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
-        {ID = 34692, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
-        {ID = 33281, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}},
-        {ID = 33283, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10646"}}
+        {ID = 34530, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10646}}}},
+        {ID = 34755, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10646}}}},
+        {ID = 33588, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10646}}}},
+        {ID = 34692, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10646}}}},
+        {ID = 33281, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10646}}}},
+        {ID = 33283, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10646}}}}
     },
     -- Shadowmoon Valley (Outland)
     [21727] = {{ID = 34446, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10583"}}},
