@@ -615,17 +615,17 @@ LHMP.Gossips = {
     },
     [68545] = {{ID = 40881, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32336}}}}},
     -- Isle of Thunder Campaign (Alliance)
-    [70360] = {{ID = 41772, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32681"}}},
-    [70370] = {{ID = 41766, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32644"}}},
+    [70360] = {{ID = 41772, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32681}}}}},
+    [70370] = {{ID = 41766, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32644}}}}},
     [67992] = {
-        {ID = 41768, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32654"}},
-        {ID = 41767, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32652"}},
-        {ID = 41765, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32656"}}
+        {ID = 41768, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32654}}}},
+        {ID = 41767, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32652}}}},
+        {ID = 41765, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32656}}}}
     },
-    [69949] = {{ID = 41587, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32654"}}},
-    [69810] = {{ID = 41898, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32652"}}},
-    [70297] = {{ID = 41662, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32655"}}},
-    [69615] = {{ID = 42150, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32656"}}},
+    [69949] = {{ID = 41587, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32654}}}}},
+    [69810] = {{ID = 41898, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32652}}}}},
+    [70297] = {{ID = 41662, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32655}}}}},
+    [69615] = {{ID = 42150, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32656}}}}},
     -- Timeless Isle
     [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}},
     -------------------------
