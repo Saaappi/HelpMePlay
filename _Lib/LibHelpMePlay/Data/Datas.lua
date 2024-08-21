@@ -424,45 +424,45 @@ LHMP.Gossips = {
     [59899] = {{ID = 29679, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUEST_ACTIVE", {30648}}}}},
     -- Valley of the Four Winds
     [56133] = {
-        {ID = 40440, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29919"}},
-        {ID = 40423, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29952"}},
-        {ID = 39238, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30078"}}
+        {ID = 40440, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29919}}}},
+        {ID = 40423, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29952}}}},
+        {ID = 39238, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30078}}}}
     },
-    [56113] = {{ID = 40669, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29577"}}},
+    [56113] = {{ID = 40669, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29577}}}}},
     [56474] = {
-        {ID = 40623, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30051"}},
-        {ID = 40622, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30172"}}
+        {ID = 40623, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30051}}}},
+        {ID = 40622, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30172}}}}
     },
     [62377] = {
-        {ID = 36036, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30053"}},
-        {ID = 36034, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30050"}}
+        {ID = 36036, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30053}}}},
+        {ID = 36034, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30050}}}}
     },
-    [62385] = {{ID = 35295, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30053"}}},
+    [62385] = {{ID = 35295, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30053}}}}},
     [57385] = {
-        {ID = 40211, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30053"}},
-        {ID = 40209, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30052"}}
+        {ID = 40211, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30053}}}},
+        {ID = 40209, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30052}}}}
     },
-    [57123] = {{ID = 40362, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}}},
-    [57124] = {{ID = 40362, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}}},
-    [57126] = {{ID = 40473, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}}},
-    [57127] = {{ID = 40261, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}}},
-    [57121] = {{ID = 40474, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}}},
-    [57122] = {{ID = 40508, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}}},
+    [57123] = {{ID = 40362, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}}},
+    [57124] = {{ID = 40362, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}}},
+    [57126] = {{ID = 40473, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}}},
+    [57127] = {{ID = 40261, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}}},
+    [57121] = {{ID = 40474, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}}},
+    [57122] = {{ID = 40508, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}}},
     [57120] = {
-        {ID = 40360, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}},
-        {ID = 40361, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29982"}}
+        {ID = 40360, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}},
+        {ID = 40361, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29982}}}}
     },
     [56714] = {
-        {ID = 41438, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29984"}},
-        {ID = 41439, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29987"}},
-        {ID = 41440, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29989"}}
+        {ID = 41438, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29984}}}},
+        {ID = 41439, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29987}}}},
+        {ID = 41440, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29989}}}}
     },
-    [58461] = {{ID = 40247, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30186"}}},
-    [59857] = {{ID = 39267, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30627"}}},
+    [58461] = {{ID = 40247, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30186}}}}},
+    [59857] = {{ID = 39267, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30627}}}}},
     [56192] = {
-        {ID = 40435, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
-        {ID = 40431, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}},
-        {ID = 40430, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 29912"}}
+        {ID = 40435, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29912}}}},
+        {ID = 40431, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29912}}}},
+        {ID = 40430, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29912}}}}
     },
     -- Krasarang Wilds
     [58376] = {
