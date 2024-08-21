@@ -574,8 +574,8 @@ LHMP.Gossips = {
     [155707] = {{ID = 49933, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {56617}}}}},
     -- Vale of Eternal Blossoms
     [78709] = {
-        {ID = 42526, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32806"}},
-        {ID = 42524, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32807"}}
+        {ID = 42526, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32806}}}},
+        {ID = 42524, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32807}}}}
     },
     -- Landfall Campaign (Alliance)
     [67940] = {{ID = 121752, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32248"}}},
