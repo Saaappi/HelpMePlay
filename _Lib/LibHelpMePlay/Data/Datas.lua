@@ -318,26 +318,26 @@ LHMP.Gossips = {
         {ID = 33283, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10646}}}}
     },
     -- Shadowmoon Valley (Outland)
-    [21727] = {{ID = 34446, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10583"}}},
-    [21774] = {{ID = 33587, CanConfirm = false, Conditions = {"MISSING_ITEM = 30721"}}},
+    [21727] = {{ID = 34446, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10583}}}}},
+    [21774] = {{ID = 33587, CanConfirm = false, Conditions = {{"MISSING_ITEM", {30721}}}}},
     [21183] = {
-        {ID = 34734, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10519"}},
-        {ID = 34710, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10519"}},
-        {ID = 34709, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10519"}},
-        {ID = 34708, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10519"}},
-        {ID = 33825, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10519"}},
-        {ID = 35045, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10519"}},
-        {ID = 33837, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10519"}}
+        {ID = 34734, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10519}}}},
+        {ID = 34710, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10519}}}},
+        {ID = 34709, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10519}}}},
+        {ID = 34708, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10519}}}},
+        {ID = 33825, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10519}}}},
+        {ID = 35045, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10519}}}},
+        {ID = 33837, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10519}}}}
     },
     [20563] = {
-        {ID = 33911, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}},
-        {ID = 33671, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}},
-        {ID = 33897, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}},
-        {ID = 33912, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}},
-        {ID = 33459, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}},
-        {ID = 34482, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10577"}}
+        {ID = 33911, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10577}}}},
+        {ID = 33671, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10577}}}},
+        {ID = 33897, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10577}}}},
+        {ID = 33912, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10577}}}},
+        {ID = 33459, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10577}}}},
+        {ID = 34482, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10577}}}}
     },
-    [21685] = {{ID = 34153, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 10588"}}},
+    [21685] = {{ID = 34153, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {10588}}}}},
     -------------------------
     -- WRATH OF THE LICH KING
     -------------------------
