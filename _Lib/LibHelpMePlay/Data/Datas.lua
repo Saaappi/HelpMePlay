@@ -578,42 +578,42 @@ LHMP.Gossips = {
         {ID = 42524, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32807}}}}
     },
     -- Landfall Campaign (Alliance)
-    [67940] = {{ID = 121752, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32248"}}},
+    [67940] = {{ID = 121752, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32248}}}}},
     [68526] = {
-        {ID = 41352, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32380"}},
-        {ID = 41353, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32381"}},
-        {ID = 41354, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32381"}},
-        {ID = 41355, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32381"}}
+        {ID = 41352, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32380}}}},
+        {ID = 41353, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32381}}}},
+        {ID = 41354, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32381}}}},
+        {ID = 41355, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32381}}}}
     },
-    [68539] = {{ID = 41359, CanConfirm = false, Conditions = {"HAS_ITEM = 92977"}}},
-    [68537] = {{ID = 41404, CanConfirm = false, Conditions = {"HAS_ITEM = 92975"}}},
-    [68540] = {{ID = 41361, CanConfirm = false, Conditions = {"HAS_ITEM = 92976"}}},
+    [68539] = {{ID = 41359, CanConfirm = false, Conditions = {{"HAS_ITEM", {92977}}}}},
+    [68537] = {{ID = 41404, CanConfirm = false, Conditions = {{"HAS_ITEM", {92975}}}}},
+    [68540] = {{ID = 41361, CanConfirm = false, Conditions = {{"HAS_ITEM", {92976}}}}},
     [68741] = {
-        {ID = 41244, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32382"}},
-        {ID = 41242, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32193"}},
-        {ID = 41241, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32315"}},
-        {ID = 41240, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32370"}},
-        {ID = 41239, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32393"}},
-        {ID = 41237, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32355"}},
-        {ID = 41236, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32400"}}
+        {ID = 41244, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32382}}}},
+        {ID = 41242, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32193}}}},
+        {ID = 41241, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32315}}}},
+        {ID = 41240, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32370}}}},
+        {ID = 41239, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32393}}}},
+        {ID = 41237, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32355}}}},
+        {ID = 41236, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32400}}}}
     },
     [68108] = {
-        {ID = 41503, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32362"}},
-        {ID = 40954, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32362"}},
-        {ID = 40956, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32362"}}
+        {ID = 41503, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32362}}}},
+        {ID = 40954, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32362}}}},
+        {ID = 40956, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32362}}}}
     },
-    [67848] = {{ID = 40720, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32414"}}},
-    [68651] = {{ID = 40723, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32460"}}},
-    [68687] = {{ID = 41763, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32423"}}},
+    [67848] = {{ID = 40720, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32414}}}}},
+    [68651] = {{ID = 40723, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32460}}}}},
+    [68687] = {{ID = 41763, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32423}}}}},
     [68004] = {
-        {ID = 41051, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32321"}},
-        {ID = 41925, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32321"}}
+        {ID = 41051, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32321}}}},
+        {ID = 41925, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32321}}}}
     },
     [68130] = {
-        {ID = 41837, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32334"}},
-        {ID = 41838, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32334"}}
+        {ID = 41837, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32334}}}},
+        {ID = 41838, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32334}}}}
     },
-    [68545] = {{ID = 40881, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32336"}}},
+    [68545] = {{ID = 40881, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32336}}}}},
     -- Isle of Thunder Campaign (Alliance)
     [70360] = {{ID = 41772, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32681"}}},
     [70370] = {{ID = 41766, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32644"}}},
