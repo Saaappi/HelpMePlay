@@ -407,13 +407,13 @@ LHMP.Gossips = {
     [56477] = {{ID = 40186, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29941}}}}},
     [55688] = {{ID = 39795, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29823}}}}},
     [56525] = {{ID = 40650, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29967}}}}},
-    [60952] = {{ID = 34466, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUEST_ACTIVE", {30015}}}},
-    [54959] = {{ID = 40054, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}},
-    [56585] = {{ID = 40057, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}},
+    [60952] = {{ID = 34466, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUEST_ACTIVE", {30015}}}}},
+    [54959] = {{ID = 40054, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}}},
+    [56585] = {{ID = 40057, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}}},
     [56592] = {{ID = 40154, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}},
     [56591] = {
-        {ID = 40056, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}},
-        {ID = 40060, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}
+        {ID = 40056, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}},
+        {ID = 40060, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {29903}}}}
     },
     [59727] = {{ID = 28345, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUEST_ACTIVE", {30499}}}}},
     [59305] = {{ID = 40695, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30484}}}}},
