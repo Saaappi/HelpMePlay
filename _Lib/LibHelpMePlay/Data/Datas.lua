@@ -683,54 +683,54 @@ LHMP.Gossips = {
     -- SHADOWLANDS ----------
     -------------------------
     -- Exile's Reach
-    [153211] = {{ID = 49526, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55763"}}},
+    [153211] = {{ID = 49526, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {55763}}}}},
     [162998] = {
-        {ID = 51269, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58923"}},
-        {ID = 51271, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58923"}}
+        {ID = 51269, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {58923}}}},
+        {ID = 51271, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {58923}}}}
     },
-    [156943] = {{ID = 50819, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55981"}}},
-    [161350] = {{ID = 51352, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 55992"}}},
-    [154169] = {{ID = 51396, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    [156943] = {{ID = 50819, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {55981}}}}},
+    [161350] = {{ID = 51352, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {55992}}}}},
+    [154169] = {{ID = 51396, CanConfirm = false, Conditions = {}}},
     [162943] = {
-        {ID = 51265, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58915"}},
-        {ID = 51265, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59972"}}
+        {ID = 51265, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {58915}}}},
+        {ID = 51265, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59972}}}}
     },
     [156886] = {
-        {ID = 51802, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59354"}},
-        {ID = 51803, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59355"}}
+        {ID = 51802, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59354}}}},
+        {ID = 51803, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59355}}}}
     },
     [161666] = {
-        {ID = 49525, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60168"}},
-        {ID = 49523, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60168", "QUEST_OBJECTIVE_INCOMPLETE = 60168,3"}}
+        {ID = 49525, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {60168}}}},
+        {ID = 49523, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {60168}}, {"QUEST_OBJECTIVE_INCOMPLETE", {60168,3}}}}
     },
-    [164835] = {{ID = 51237, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59347"}}},
+    [164835] = {{ID = 51237, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59347}}}}},
     [162972] = {
-        {ID = 51266, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58917"}},
-        {ID = 51267, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58917"}}
+        {ID = 51266, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {58917}}}},
+        {ID = 51267, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {58917}}}}
     },
-    [163209] = {{ID = 51202, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 58962"}}},
-    [167298] = {{ID = 52949, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59944"}}},
+    [163209] = {{ID = 51202, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {58962}}}}},
+    [167298] = {{ID = 52949, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59944}}}}},
     [167179] = {
-        {ID = 52641, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59958"}},
-        {ID = 52643, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59958"}}
+        {ID = 52641, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59958}}}},
+        {ID = 52643, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59958}}}}
     },
-    [167598] = {{ID = 54297, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59978"}}},
-    [167663] = {{ID = 52784, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59984"}}},
-    [168431] = {{ID = 51745, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    [167598] = {{ID = 54297, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59978}}}}},
+    [167663] = {{ID = 52784, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59984}}}}},
+    [168431] = {{ID = 51745, CanConfirm = false, Conditions = {}}},
     [167309] = {
-        {ID = 52664, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59952"}},
-        {ID = 52665, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59955"}}
+        {ID = 52664, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59952}}}},
+        {ID = 52665, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59955}}}}
     },
     [167215] = {
-        {ID = 52668, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60162"}},
-        {ID = 52666, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 60162", "QUEST_OBJECTIVE_INCOMPLETE = 60162,3"}}
+        {ID = 52668, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {60162}}}},
+        {ID = 52666, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {60162}}, {"QUEST_OBJECTIVE_INCOMPLETE", {60162,3}}}}
     },
     [167184] = {
-        {ID = 52644, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59967"}},
-        {ID = 52645, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59967"}}
+        {ID = 52644, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59967}}}},
+        {ID = 52645, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59967}}}}
     },
-    [167537] = {{ID = 52640, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59956"}}},
-    [167478] = {{ID = 52639, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 59970"}}},
+    [167537] = {{ID = 52640, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59956}}}}},
+    [167478] = {{ID = 52639, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {59970}}}}},
     -------------------------
     -- DRAGONFLIGHT ---------
     -------------------------
