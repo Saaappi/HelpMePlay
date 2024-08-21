@@ -512,14 +512,14 @@ LHMP.Gossips = {
     },
     -- Krasarang Wilds
     [58376] = {
-        {ID = 40644, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30082"}},
-        {ID = 40648, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30082"}}
+        {ID = 40644, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30082}}}},
+        {ID = 40648, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30082}}}}
     },
-    [59151] = {{ID = 41038, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30178"}}},
-    [55597] = {{ID = 39799, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30347"}}},
-    [58547] = {{ID = 40208, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30269"}}},
-    [59653] = {{ID = 39489, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30273"}}},
-    [58976] = {{ID = 40353, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30359"}}},
+    [59151] = {{ID = 41038, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30178}}}}},
+    [55597] = {{ID = 39799, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30347}}}}},
+    [58547] = {{ID = 40208, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30269}}}}},
+    [59653] = {{ID = 39489, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30273}}}}},
+    [58976] = {{ID = 40353, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30359}}}}},
     -- Kun-Lai Summit
     [60980] = {{ID = 33096, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
     [60979] = {{ID = 37429, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 30881"}}},
