@@ -396,12 +396,12 @@ function HelpMePlay.RegisterSettings()
         "Deposit Keep Amount",
         "DepositKeepAmount",
         0,
-        HelpMePlayDB["DepositKeepAmount"] / 10000,
+        HelpMePlayDB["DepositKeepAmount"],
         0,
         1000,
         10,
         function()
-            return HelpMePlayDB["DepositKeepAmount"] / 10000
+            return HelpMePlayDB["DepositKeepAmount"]
         end,
         "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
         "Visiting your Warband bank while below this threshold will instead attempt a withdrawal, provided the bank has the funds.\n\n" ..
