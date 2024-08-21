@@ -342,8 +342,8 @@ LHMP.Gossips = {
     -- WRATH OF THE LICH KING
     -------------------------
     -- Death Knights
-    [28406] = {{ID = 37188, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12733"}}},
-    [29173] = {{ID = 36227, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 12801"}}},
+    [28406] = {{ID = 37188, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {12733}}}}},
+    [29173] = {{ID = 36227, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {12801}}}}},
     -------------------------
     -- MISTS OF PANDARIA ----
     -------------------------
