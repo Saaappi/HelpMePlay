@@ -302,16 +302,16 @@ LHMP.Gossips = {
     [45451] = {{ID = 37583, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {27381}}}}},
     [11063] = {{ID = 29395, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {27388}}}}},
     -- Stormwind City
-    [167032] = {{ID = 51901, CanConfirm = false, Conditions = {"CHROMIE_TIME_INACTIVE"}}},
+    [167032] = {{ID = 51901, CanConfirm = false, Conditions = {{"CHROMIE_TIME_INACTIVE"}}}},
     -- Loch Modan
-    [1573] = {{ID = 31712, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26131"}}},
+    [1573] = {{ID = 31712, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26131}}}}},
     -- Dungeon: Blackrock Depths
-    [9039] = {{ID = 28044, CanConfirm = false, Conditions = {"NONE = NONE"}}},
+    [9039] = {{ID = 28044, CanConfirm = false, Conditions = {}}},
     -- Raid: Molten Core
     [54404] = {
-        {ID = 30419, CanConfirm = false, Conditions = {"NONE = NONE"}},
-        {ID = 31924, CanConfirm = false, Conditions = {"NONE = NONE"}},
-        {ID = 30449, CanConfirm = false, Conditions = {"NONE = NONE"}}
+        {ID = 30419, CanConfirm = false, Conditions = {}},
+        {ID = 31924, CanConfirm = false, Conditions = {}},
+        {ID = 30449, CanConfirm = false, Conditions = {}}
     },
     -------------------------
     -- THE BURNING CRUSADE --
