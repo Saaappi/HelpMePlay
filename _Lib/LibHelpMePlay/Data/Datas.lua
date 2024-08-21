@@ -627,32 +627,32 @@ LHMP.Gossips = {
     [70297] = {{ID = 41662, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32655}}}}},
     [69615] = {{ID = 42150, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {32656}}}}},
     -- Timeless Isle
-    [73306] = {{ID = 41556, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33343", "QUEST_OBJECTIVE_INCOMPLETE = 33343,1"}}},
+    [73306] = {{ID = 41556, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {33343}}, {"QUEST_OBJECTIVE_INCOMPLETE", {33343,1}}}}},
     -------------------------
     -- WARLORDS OF DRAENOR --
     -------------------------
     -- Introduction (Alliance)
-    [150122] = {{ID = 50005, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 34398"}}},
-    [79243] = {{ID = 43035, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 34586"}}},
-    [84455] = {{ID = 42666, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35176"}}},
-    [81441] = {{ID = 42677, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35176"}}},
+    [150122] = {{ID = 50005, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {34398}}}}},
+    [79243] = {{ID = 43035, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {34586}}}}},
+    [84455] = {{ID = 42666, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35176}}}}},
+    [81441] = {{ID = 42677, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35176}}}}},
     -- Introduction (Horde)
     -- Introduction (Neutral)
-    [78423] = {{ID = 43231, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 34398"}}},
-    [78556] = {{ID = 43152, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 34423"}}},
-    [78568] = {{ID = 42452, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 35747"}}},
+    [78423] = {{ID = 43231, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {34398}}}}},
+    [78556] = {{ID = 43152, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {34423}}}}},
+    [78568] = {{ID = 42452, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {35747}}}}},
     -- Shadowmoon Valley
-    [72871] = {{ID = 42039, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 33112"}}},
+    [72871] = {{ID = 42039, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {33112}}}}},
     -- Gorgrond
-    [81018] = {{ID = 42547, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
-    [81013] = {{ID = 42546, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
-    [81020] = {{ID = 42548, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35050"}}},
-    [81074] = {{ID = 43219, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35686"}}},
-    [81056] = {{ID = 43078, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35665"}}},
-    [83569] = {{ID = 42758, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 36508"}}},
-    [81674] = {{ID = 42953, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35128"}}},
-    [81213] = {{ID = 42653, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 36223"}}},
-    [83933] = {{ID = 42956, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 35139"}}},
+    [81018] = {{ID = 42547, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35050}}}}},
+    [81013] = {{ID = 42546, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35050}}}}},
+    [81020] = {{ID = 42548, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35050}}}}},
+    [81074] = {{ID = 43219, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35686}}}}},
+    [81056] = {{ID = 43078, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35665}}}}},
+    [83569] = {{ID = 42758, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {36508}}}}},
+    [81674] = {{ID = 42953, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35128}}}}},
+    [81213] = {{ID = 42653, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {36223}}}}},
+    [83933] = {{ID = 42956, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {35139}}}}},
     -------------------------
     -- LEGION ---------------
     -------------------------
