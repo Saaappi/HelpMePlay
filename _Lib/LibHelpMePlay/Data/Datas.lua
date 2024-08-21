@@ -222,8 +222,8 @@ LHMP.Gossips = {
     [34289] = {{ID = 37319, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {13886}}, {"QUEST_OBJECTIVES_COMPLETE", {{13886,1}}}}}},
     [34377] = {{ID = 37711, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {13935}}, {"QUEST_OBJECTIVES_COMPLETE", {{13935,1}}}}}},
     [34618] = {
-        {ID = 38020, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26482"}},
-        {ID = 38287, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26482"}}
+        {ID = 38020, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26482}}}},
+        {ID = 38287, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {26482}}}}
     },
     -- Stonetalon Mountains
     [41071] = {{ID = 38774, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {25669}}, {"QUEST_OBJECTIVES_COMPLETE", {{25669,1}}}}}},
@@ -231,25 +231,25 @@ LHMP.Gossips = {
     [38383] = {{ID = 38139, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {25191}}}}},
     [38619] = {{ID = 37512, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUEST_ACTIVE", {24934}}}}},
     [38622] = {{ID = 37724, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUEST_COMPLETE", {24934}}}}},
-    [37570] = {{ID = 37335, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 24601", "QUEST_OBJECTIVE_INCOMPLETE = 24601,1"}}},
-    [37743] = {{ID = 38196, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25057", "QUEST_OBJECTIVE_INCOMPLETE = 25057,1"}}},
-    [39155] = {{ID = 36883, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 25120", "QUEST_OBJECTIVE_INCOMPLETE = 25120,1"}}},
+    [37570] = {{ID = 37335, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {24601}}, {"QUEST_OBJECTIVES_COMPLETE", {{24601,1}}}}}},
+    [37743] = {{ID = 38196, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {25057}}, {"QUEST_OBJECTIVES_COMPLETE", {{25057,1}}}}}},
+    [39155] = {{ID = 36883, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {25120}}, {"QUEST_OBJECTIVES_COMPLETE", {{25120,1}}}}}},
     -- Desolace
     [35773] = {
-        {ID = 38386, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14256", "QUEST_OBJECTIVE_INCOMPLETE = 14256,1"}},
-        {ID = 38387, CanConfirm = false, Conditions = {"MISSING_ITEM = 49064"}}
+        {ID = 38386, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {14256}}, {"QUEST_OBJECTIVES_COMPLETE", {{14256,1}}}}},
+        {ID = 38387, CanConfirm = false, Conditions = {{"MISSING_ITEM", {49064}}}}
     },
-    [35902] = {{ID = 37927, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14284", "QUEST_OBJECTIVE_INCOMPLETE = 14284,1"}}},
-    [36056] = {{ID = 37413, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14318"}}},
-    [36398] = {{ID = 37290, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 14394"}}},
+    [35902] = {{ID = 37927, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {14284}}, {"QUEST_OBJECTIVES_COMPLETE", {{14284,1}}}}}},
+    [36056] = {{ID = 37413, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {14318}}}}},
+    [36398] = {{ID = 37290, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {14394}}}}},
     -- Feralas
     [41383] = {{ID = 38510, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {25304}}}}},
     [39723] = {{ID = 38132, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUESTS_ACTIVE", {25399,25458}}, {"QUEST_OBJECTIVES_COMPLETE", {{25399,1}, {25458,1}}}}}},
     -- Westfall
-    [42383] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
-    [42384] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
-    [42386] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
-    [42391] = {{ID = 38008, CanConfirm = true, Conditions = {"QUEST_ACTIVE = 26209"}}},
+    [42383] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {26209}}}}},
+    [42384] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {26209}}}}},
+    [42386] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {26209}}}}},
+    [42391] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUEST_ACTIVE", {26209}}}}},
     -- Northern Stranglethorn
     [44017] = {
         {ID = 37876, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 26773"}},
