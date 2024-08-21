@@ -562,28 +562,16 @@ LHMP.Gossips = {
     [61397] = {{ID = 37888, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30890}}}}},
     [61396] = {{ID = 37889, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {30890}}}}},
     -- Dread Wastes
-    [62202] = {
-        {
-            ID = 35586,
-            CanConfirm = false,
-            Conditions = {"QUEST_ACTIVE = 31006", "QUEST_OBJECTIVE_INCOMPLETE = 31006,1", "LEVEL_LOWER = 30"}
-        }
-    },
-    [62538] = {
-        {
-            ID = 35587,
-            CanConfirm = true,
-            Conditions = {"QUEST_ACTIVE = 31007", "QUEST_OBJECTIVE_INCOMPLETE = 31007,1", "LEVEL_LOWER = 30"}
-        }
-    },
-    [63876] = {{ID = 28603, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31091"}}},
-    [62667] = {{ID = 35828, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31129"}}},
-    [62845] = {{ID = 35823, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31129"}}},
-    [62666] = {{ID = 35825, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31129"}}},
-    [62771] = {{ID = 40853, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31084"}}},
-    [64259] = {{ID = 40852, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31189"}}},
-    [62151] = {{ID = 33893, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 31211"}}},
-    [155707] = {{ID = 49933, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 56617"}}},
+    [62202] = {{ID = 35586, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUEST_ACTIVE", {31006}}, {"QUEST_OBJECTIVE_INCOMPLETE", {31006,1}}}}},
+    [62538] = {{ID = 35587, CanConfirm = true, Conditions = {{"LEVEL_LOWER", 30}, {"QUEST_ACTIVE", {31007}}, {"QUEST_OBJECTIVE_INCOMPLETE", {31007,1}}}}},
+    [63876] = {{ID = 28603, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31091}}}}},
+    [62667] = {{ID = 35828, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31129}}}}},
+    [62845] = {{ID = 35823, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31129}}}}},
+    [62666] = {{ID = 35825, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31129}}}}},
+    [62771] = {{ID = 40853, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31084}}}}},
+    [64259] = {{ID = 40852, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31189}}}}},
+    [62151] = {{ID = 33893, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {31211}}}}},
+    [155707] = {{ID = 49933, CanConfirm = false, Conditions = {{"QUEST_ACTIVE", {56617}}}}},
     -- Vale of Eternal Blossoms
     [78709] = {
         {ID = 42526, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 32806"}},
