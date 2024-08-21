@@ -32,6 +32,8 @@ local function OnEvent(_, event, arg1, arg2)
 		end
     end
     if event == "PLAYER_LOGIN" then
+        eventFrame:UnregisterEvent(event)
+
         HelpMePlay.playerClassName, HelpMePlay.playerClassFileName, HelpMePlay.playerClassID = UnitClass("player")
         HelpMePlay.playerClassColor = C_ClassColor.GetClassColor(HelpMePlay.playerClassFileName)
         HelpMePlay.playerLevel = UnitLevel("player")
@@ -58,7 +60,11 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.RefreshMountsByType("Vashjir")
         HelpMePlay.RefreshMountsByType("Unused")
 
-        eventFrame:UnregisterEvent(event)
+        -- If the Deposit Keep Amount is greater than 1,000, then
+        -- reset its value to 1,000.
+        if HelpMePlayDB["DepositKeepAmount"] > 1000 then
+            HelpMePlayDB["DepositKeepAmount"] = 1000
+        end
     end
     if event == "PLAYER_SPECIALIZATION_CHANGED" then
         HelpMePlay.playerSpecID = PlayerUtil.GetCurrentSpecID()
