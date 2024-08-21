@@ -347,12 +347,6 @@ LHMP.Gossips = {
     -------------------------
     -- MISTS OF PANDARIA ----
     -------------------------
-    -- Remix
-    [216591] = {{ID = 120607, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79432"}}},
-    [217538] = {
-        {ID = 120604, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79440"}},
-        {ID = 120948, CanConfirm = false, Conditions = {"QUEST_ACTIVE = 79440"}}
-    },
     -- Introduction (Alliance)
     [165505] = {{ID = 54294, CanConfirm = false, Conditions = {"LEVEL_LOWER = 40", "QUEST_ACTIVE = 29548"}}},
     -- Introduction (Horde)
