@@ -795,61 +795,61 @@ LHMP.Gossips = {
     },
     [187393] = {{ID = 54942, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66435}}}}},
     -- Valdrakken
-    [214051] = {{ID = 120505, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 78865"}}},
+    [214051] = {{ID = 120505, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78865}}}}},
     -- Tyr's Fall Questline
     [200078] = {
-        {ID = 108977, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 72443"}},
-        {ID = 108976, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 72443"}}
+        {ID = 108977, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72443}}}},
+        {ID = 108976, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72443}}}}
     },
     -- In the Halls of Titans Questline
-    [191853] = {{ID = 55194, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 66174"}}},
+    [191853] = {{ID = 55194, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66174}}}}},
     -- Bronze Reconciliation Questline
-    [205882] = {{ID = 110335, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77417"}}},
+    [205882] = {{ID = 110335, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77417}}}}},
     [207634] = {
-        {ID = 110339, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76407"}},
-        {ID = 110477, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76421"}}
+        {ID = 110339, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76407}}}},
+        {ID = 110477, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76421}}}}
     },
-    [208035] = {{ID = 110423, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76422"}}},
+    [208035] = {{ID = 110423, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76422}}}}},
     -- Reforging the Tyr's Guard Questline
-    [204576] = {{ID = 110100, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75633"}}},
-    [204538] = {{ID = 110602, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76171"}}},
-    [204539] = {{ID = 110608, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76171"}}},
-    [204541] = {{ID = 110597, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76171"}}},
-    [204540] = {{ID = 110599, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76171"}}},
-    [205837] = {{ID = 110380, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75952"}}},
-    [205878] = {{ID = 110333, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75951"}}},
-    [206124] = {{ID = 110080, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75953"}}},
-    [204602] = {{ID = 110145, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75635"}}},
-    [204599] = {{ID = 110194, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75637"}}},
+    [204576] = {{ID = 110100, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75633}}}}},
+    [204538] = {{ID = 110602, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76171}}}}},
+    [204539] = {{ID = 110608, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76171}}}}},
+    [204541] = {{ID = 110597, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76171}}}}},
+    [204540] = {{ID = 110599, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76171}}}}},
+    [205837] = {{ID = 110380, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75952}}}}},
+    [205878] = {{ID = 110333, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75951}}}}},
+    [206124] = {{ID = 110080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75953}}}}},
+    [204602] = {{ID = 110145, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75635}}}}},
+    [204599] = {{ID = 110194, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75637}}}}},
     -- Tyr's Return Questline
     [208707] = {
-        {ID = 110939, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77340"}},
-        {ID = 111128, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77340"}}
+        {ID = 110939, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77340}}}},
+        {ID = 111128, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77340}}}}
     },
-    [208705] = {{ID = 111124, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77340"}}},
-    [208706] = {{ID = 111125, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77340"}}},
-    [208709] = {{ID = 111127, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77340"}}},
-    [208796] = {{ID = 111046, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77344"}}},
-    [208839] = {{ID = 111059, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77344"}}},
-    [209890] = {{ID = 111070, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77341"}}},
+    [208705] = {{ID = 111124, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77340}}}}},
+    [208706] = {{ID = 111125, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77340}}}}},
+    [208709] = {{ID = 111127, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77340}}}}},
+    [208796] = {{ID = 111046, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77344}}}}},
+    [208839] = {{ID = 111059, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77344}}}}},
+    [209890] = {{ID = 111070, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77341}}}}},
     -- Reconciliation Questline
-    [207888] = {{ID = 110909, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77163"}}},
+    [207888] = {{ID = 110909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77340}}}}},
     -- Azerothian Archives Questline
     [209192] = {
-        {ID = 120339, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79223"}},
-        {ID = 120371, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77331"}}
+        {ID = 120339, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79223}}}},
+        {ID = 120371, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77331}}}}
     },
-    [208362] = {{ID = 110629, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77100"}}},
-    [208398] = {{ID = 110763, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77151"}}},
-    [200010] = {{ID = 110789, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77154"}}},
-    [205413] = {{ID = 110375, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76026"}}},
-    [208055] = {{ID = 110432, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 76032"}}},
-    [204215] = {{ID = 110787, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75604"}}},
-    [215736] = {{ID = 120336, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 75604"}}},
-    [208167] = {{ID = 120351, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77331"}}},
-    [208355] = {{ID = 120361, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77331"}}},
-    [208614] = {{ID = 120366, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77331"}}},
-    [206107] = {{ID = 120356, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 77331"}}},
+    [208362] = {{ID = 110629, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77100}}}}},
+    [208398] = {{ID = 110763, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77151}}}}},
+    [200010] = {{ID = 110789, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77154}}}}},
+    [205413] = {{ID = 110375, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76026}}}}},
+    [208055] = {{ID = 110432, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {76032}}}}},
+    [204215] = {{ID = 110787, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75604}}}}},
+    [215736] = {{ID = 120336, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {75604}}}}},
+    [208167] = {{ID = 120351, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77331}}}}},
+    [208355] = {{ID = 120361, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77331}}}}},
+    [208614] = {{ID = 120366, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77331}}}}},
+    [206107] = {{ID = 120356, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {77331}}}}},
     -- The Harbinger Questline
     [214615] = {{ID = 120217, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79009"}}},
     [215142] = {{ID = 120247, CanConfirm = false, Conditions = {"QUESTS_ACTIVE = 79011"}}},
