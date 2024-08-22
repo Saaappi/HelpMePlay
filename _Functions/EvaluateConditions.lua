@@ -74,8 +74,8 @@ HelpMePlay.EvaluateConditions = function(conditions)
                 local numQuests = #quests
 
                 for _, quest in ipairs(quests) do
-                    local questId = quest[1]
-                    local objectiveIndex = quest[2]
+                    local questId = quests[1]
+                    local objectiveIndex = quests[2]
 
                     if C_QuestLog.IsOnQuest(questId) then
                         local objectives = C_QuestLog.GetQuestObjectives(questId)

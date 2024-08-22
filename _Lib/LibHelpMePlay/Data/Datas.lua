@@ -109,31 +109,34 @@ LHMP.PlayerChoices = {
 
 LHMP.QuestMerchants = {
     [2664] = {
-        { Index = 1, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 26600", "QUEST_OBJECTIVES_INCOMPLETE = 26600,1"}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {26600}}, {"QUEST_OBJECTIVES_INCOMPLETE", {26600,1}}}}
     },
     [2491] = {
-        { Index = 1, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 26600", "QUEST_OBJECTIVES_INCOMPLETE = 26600,2"}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {26600}}, {"QUEST_OBJECTIVES_INCOMPLETE", {26600,2}}}}
     },
     [19678] = {
-        { Index = 2, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 10664", "QUEST_OBJECTIVES_INCOMPLETE = 10664,3"}}
+        { Index = 2, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {10664}}, {"QUEST_OBJECTIVES_INCOMPLETE", {10664,3}}}}
+    },
+    [40832] = {
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {25517}}, {"QUEST_OBJECTIVES_INCOMPLETE", {25517,1}}}}
     },
     [54982] = {
-        { Index = 1, Quantity = 3, Conditions = {"QUESTS_ACTIVE = 29627", "QUEST_OBJECTIVES_INCOMPLETE = 29627,3"}}
+        { Index = 1, Quantity = 3, Conditions = {{"QUESTS_ACTIVE", {29627}}, {"QUEST_OBJECTIVES_INCOMPLETE", {29627,3}}}}
     },
     [54981] = {
-        { Index = 1, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 29627", "QUEST_OBJECTIVES_INCOMPLETE = 29627,2"}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {29627}}, {"QUEST_OBJECTIVES_INCOMPLETE", {29627,2}}}}
     },
     [73306] = {
-        { Index = 6, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 33343", "QUEST_OBJECTIVES_INCOMPLETE = 33343,1"}}
+        { Index = 6, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {33343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {33343,1}}}}
     },
     [156800] = {
-        { Index = 1, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 55194", "QUEST_OBJECTIVES_INCOMPLETE = 55194,1"}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {55194}}, {"QUEST_OBJECTIVES_INCOMPLETE", {55194,1}}}}
     },
     [167213] = {
-        { Index = 1, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 59950", "QUEST_OBJECTIVES_INCOMPLETE = 59950,1"}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {59950}}, {"QUEST_OBJECTIVES_INCOMPLETE", {59950,1}}}}
     },
     [209192] = {
-        { Index = 1, Quantity = 1, Conditions = {"QUESTS_ACTIVE = 79223", "QUEST_OBJECTIVES_INCOMPLETE = 79223,1"}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79223}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79223,1}}}}
     }
 }
 
@@ -292,6 +295,8 @@ LHMP.Gossips = {
     [41383] = {{ID = 38510, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25304}}}}},
     [39723] = {{ID = 38132, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUESTS_ACTIVE", {25399,25458}}, {"QUEST_OBJECTIVES_COMPLETE", {{25399,1}, {25458,1}}}}}},
     [40367] = {{ID = 37491, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25437,25481}}}}},
+    -- Thousand Needles
+    [40832] = {{ID = 38546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25517}}, {"QUEST_OBJECTIVES_INCOMPLETE", {25517,1}}}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
