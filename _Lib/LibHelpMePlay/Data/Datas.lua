@@ -301,6 +301,10 @@ LHMP.Gossips = {
     [47620] = {{ID = 39078, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,2}}}}},
     [47619] = {{ID = 39781, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,3}}}}},
     [47602] = {{ID = 39780, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,1}}}}},
+    -- Dustwallow Marsh
+    [23602] = {{ID = 36821, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27210}}, {"QUEST_OBJECTIVES_INCOMPLETE", {27210,1}}}}},
+    [4979] = {{ID = 35789, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27212}}, {"QUEST_OBJECTIVES_INCOMPLETE", {27212,1}}}}},
+    [23704] = {{ID = 35260, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27239}}}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
