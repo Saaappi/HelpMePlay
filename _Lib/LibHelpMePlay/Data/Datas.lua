@@ -297,6 +297,10 @@ LHMP.Gossips = {
     [40367] = {{ID = 37491, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25437,25481}}}}},
     -- Thousand Needles
     [40832] = {{ID = 38546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25517}}, {"QUEST_OBJECTIVES_INCOMPLETE", {25517,1}}}}},
+    [40726] = {{ID = 37885, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25532}}}}},
+    [47620] = {{ID = 39078, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,2}}}}},
+    [47619] = {{ID = 39781, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,3}}}}},
+    [47602] = {{ID = 39780, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,1}}}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
