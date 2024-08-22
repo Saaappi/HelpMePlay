@@ -232,6 +232,8 @@ LHMP.Gossips = {
         {ID = 38809, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26663}}}},
         -- Mereldar Plague Cauldron (Eastern Plaguelands)
         {ID = 38411, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27454}}}},
+        -- Portal to Wildheart Point (Felwood)
+        {ID = 39709, CanConfirm = false, Conditions = {}},
         -------------------------
         -- MISTS OF PANDARIA ----
         -------------------------
@@ -305,6 +307,7 @@ LHMP.Gossips = {
     [23602] = {{ID = 36821, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27210}}, {"QUEST_OBJECTIVES_INCOMPLETE", {27210,1}}}}},
     [4979] = {{ID = 35789, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27212}}, {"QUEST_OBJECTIVES_INCOMPLETE", {27212,1}}}}},
     [23704] = {{ID = 35260, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27239}}}}},
+    [4968] = {{ID = 29819, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27240}}}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
