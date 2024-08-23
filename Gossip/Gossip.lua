@@ -19,10 +19,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
         if options then
             local GUID = UnitGUID("target")
             if GUID then
-                local npcID = LHMP:SplitString(GUID, "-", 6)
-                if npcID then
-                    if LHMP:IsGossipSupportedForNPC(npcID) then
-                        local gossips = LHMP:GetGossipsForNPCByID(npcID)
+                local npcId = LHMP:SplitString(GUID, "-", 6)
+                if npcId then
+                    if LHMP:IsGossipSupportedForNPC(npcId) then
+                        local gossips = LHMP:GetGossipsForNPCByID(npcId)
                         for _, gossip in ipairs(gossips) do
                             local isAllowed = HelpMePlay.EvaluateConditions(gossip.Conditions)
                             if isAllowed then
@@ -33,8 +33,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             end
                         end
                     end
-                    if HelpMePlayDB.PlayerGossips[npcID] then
-                        for _, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[npcID]) do
+                    if HelpMePlayDB.PlayerGossips[npcId] then
+                        for _, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[npcId]) do
                             for _, option in ipairs(options) do
                                 if option.gossipOptionID == gossipOptionID then
                                     C_GossipInfo.SelectOption(option.gossipOptionID)
@@ -82,8 +82,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     -- NPC ID
                     local GUID = UnitGUID("target")
                     if GUID then
-                        local npcID = LHMP:SplitString(GUID, "-", 6)
-                        print(string.format("%d - %s", npcID, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
+                        local npcId = LHMP:SplitString(GUID, "-", 6)
+                        print(string.format("%d - %s", npcId, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
                     else
                         print(string.format("%d - %s", 0, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()))) -- This is for gossips associated to non-NPCs.
                     end

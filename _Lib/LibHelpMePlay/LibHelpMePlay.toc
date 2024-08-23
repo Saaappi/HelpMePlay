@@ -1,15 +1,9 @@
 ## Author: LightskyGG
-## Interface: 100207
+## Interface: 110002
 ## Title: LibHelpMePlay
 ## Version: 1.0.0
 ## IconTexture: 236681
 
 Main.lua
-Data\Colors.lua
-Data\Gossips.lua
-Data\Emotes.lua
-Data\Containers.lua
-Data\Players.lua
-Data\WorldEvents.lua
-Data\QuestItems.lua
-Data\Quests.lua
+Data\Datas.lua
+Data\Gossip.lua

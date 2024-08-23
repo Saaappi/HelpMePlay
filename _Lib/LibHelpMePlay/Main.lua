@@ -87,39 +87,39 @@ end
 -------------
 -- GOSSIPS --
 -------------
-function LHMP:IsGossipSupportedForNPC(npcID)
-    if not LHMP.Gossips[npcID] then
+function LHMP:IsGossipSupportedForNPC(npcId)
+    if not LHMP.Gossips[npcId] then
         return false
     end
     return true
 end
-function LHMP:IsGossipTextNPC(npcID)
-    if not LHMP.GossipTextLookupByNPC[npcID] then
+function LHMP:IsGossipTextNPC(npcId)
+    if not LHMP.GossipTextLookupByNPC[npcId] then
         return false
     end
     return true
 end
-function LHMP:GetGossipsForNPCByID(npcID)
-    if not LHMP.Gossips[npcID] then
+function LHMP:GetGossipsForNPCByID(npcId)
+    if not LHMP.Gossips[npcId] then
         return false
     end
-    return LHMP.Gossips[npcID]
+    return LHMP.Gossips[npcId]
 end
 
 ------------
 -- EMOTES --
 ------------
-function LHMP:IsEmoteSupportedForNPC(npcID)
-    if not LHMP.Emotes[npcID] then
+function LHMP:IsEmoteSupportedForNPC(npcId)
+    if not LHMP.Emotes[npcId] then
         return false
     end
     return true
 end
-function LHMP:GetEmoteForNPC(npcID)
-    if not LHMP.Emotes[npcID] then
+function LHMP:GetEmoteForNPC(npcId)
+    if not LHMP.Emotes[npcId] then
         return false
     end
-    return LHMP.Emotes[npcID]
+    return LHMP.Emotes[npcId]
 end
 
 ------------
