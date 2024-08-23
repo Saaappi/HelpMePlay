@@ -1,16 +1,23 @@
-local addonName, HelpMePlay = ...
+local _, HelpMePlay = ...
 
 ----------------------
 -- Quest Automation --
 ----------------------
+-- C_AdventureMap.GetMapID() for the map ID, then
+-- use C_AdventureMap.GetZoneChoiceInfo(choiceIndex)
+-- to get the quest IDs... or just look them up on WH.
 HelpMePlay.AdventureMaps = {
-    -- Dragon Isles
-    [2057] = {
+    [2057] = { -- Dragon Isles
         72266, -- The Waking Shores
         72267, -- Ohn'ahran Plains
         72268, -- The Azure Span
         72269, -- Thaldraszus
     },
+    [2276] = { -- Khaz Algar
+        83550, -- The Ringing Deeps
+        83551, -- Hallowfall
+        83552, -- Azj-Kahet
+    }
 }
 
 -- These are the options in the Chromie Time

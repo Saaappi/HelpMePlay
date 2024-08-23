@@ -164,7 +164,7 @@ local function OnEvent(_, event, ...)
         if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return false end
 
         local adventureMapID = C_AdventureMap.GetMapID()
-        if adventureMapID then
+        if adventureMapID and HelpMePlay.AdventureMaps[adventureMapID] then
             for _, questID in ipairs(HelpMePlay.AdventureMaps[adventureMapID]) do
                 if not C_QuestLog.IsQuestFlaggedCompleted(questID) then
                     C_AdventureMap.StartQuest(questID)
