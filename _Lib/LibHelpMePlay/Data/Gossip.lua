@@ -678,7 +678,7 @@ LHMP.Gossips = {
     -- The War Within Questline
     [213624] = {{ID = 120882, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78715}}}}},
     [214669] = {{ID = 121542, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80500}}}}},
-    [213625] = {{ID = 123201, CanConfirm = true, Conditions = {{"QUESTS_COMPLETE", {81930}}, {"QUESTS_INACTIVE", {78714,78715}}}}},
+    [213625] = {{ID = 123201, CanConfirm = true, Conditions = {{"QUESTS_COMPLETE", {81930}}, {"QUESTS_INACTIVE", {78714,78715}}, {"QUESTS_ACTIVE", {78716}}}}},
     [213627] = {
         {ID = 121395, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78717}}}},
         {ID = 120143, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78722}}}},
