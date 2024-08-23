@@ -218,8 +218,7 @@ function HelpMePlay.RegisterSettings()
         "UseAdventureMaps",
         false,
         HelpMePlayDB["UseAdventureMaps"],
-        "Toggle to automatically accept quests from adventure maps.\n\n" ..
-        LHMP:ColorText("RED", "The current support is only for the adventure map in The Waking Shores.")
+        "Toggle to automatically accept quests from adventure maps."
     )
     HelpMePlay.AddSettingCheckbox(
         category,
