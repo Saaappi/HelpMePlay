@@ -686,4 +686,11 @@ LHMP.Gossips = {
     },
     [220018] = {{ID = 121860, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78721}}}}},
     [219956] = {{ID = 124153, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80321}}}}},
+    -- Isle of Dorn
+    [219757] = {{ID = 121391, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78536}}}}},
+    [219014] = {{ID = 122786, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,1}}}}},
+    [212369] = {{ID = 120909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,2}}}}},
+    [212370] = {{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,3}}}}},
+    [206017] = {{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,4}}}}},
+    [217861] = {{ID = 122306, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78459}}}}},
 }
