@@ -47,6 +47,12 @@ LHMP.Gossips = {
         {ID = 55773, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
         -- Forge Console (Thaldraszus)
         {ID = 108982, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72444}}}},
+        -------------------------
+        -- THE WAR WITHIN -------
+        -------------------------
+        {ID = 121544, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}},
+        {ID = 121546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}},
+        {ID = 121673, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}},
     },
     -------------------------
     -- VANILLA --------------
@@ -690,4 +696,11 @@ LHMP.Gossips = {
     [212369] = {{ID = 120909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,2}}}}},
     [212370] = {{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,3}}}}},
     [206017] = {{ID = 122129, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,4}}}}},
+    [223652] = {{ID = 122467, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
+    [223648] = {{ID = 122466, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
+    [214459] = {{ID = 120276, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
+    [223649] = {{ID = 122463, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
+    [217879] = {{ID = 122307, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78461}}}}},
+    [214460] = {{ID = 120275, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
+    [216094] = {{ID = 121126, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}},
 }
