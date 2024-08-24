@@ -65,6 +65,9 @@ local function OnEvent(_, event, arg1, arg2)
         if HelpMePlayDB["DepositKeepAmount"] > 1000 then
             HelpMePlayDB["DepositKeepAmount"] = 1000
         end
+        if HelpMePlayDB["TrainerProtectionValue"] > 1000 then
+            HelpMePlayDB["TrainerProtectionValue"] = 1000
+        end
     end
     if event == "PLAYER_SPECIALIZATION_CHANGED" then
         HelpMePlay.playerSpecID = PlayerUtil.GetCurrentSpecID()

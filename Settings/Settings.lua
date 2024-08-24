@@ -374,12 +374,12 @@ function HelpMePlay.RegisterSettings()
         "Trainer Protection Value",
         "TrainerProtectionValue",
         0,
-        HelpMePlayDB["TrainerProtectionValue"] / 10000,
+        HelpMePlayDB["TrainerProtectionValue"],
         0,
         1000,
         10,
         function()
-            return HelpMePlayDB["TrainerProtectionValue"] / 10000
+            return HelpMePlayDB["TrainerProtectionValue"]
         end,
         "Set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
         LHMP:ColorText("RED", "This slider steps in increments of 10.")
