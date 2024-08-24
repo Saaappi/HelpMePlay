@@ -5,10 +5,10 @@ local LHMP = LibStub("LibHelpMePlay")
 local atlas = "Quest-Campaign-Available"
 local nextUpdate = {
     year = 2024,
-    month = 8,
-    monthDay = 27,
+    month = 9,
+    monthDay = 10,
     weekday = 3,
-    hour = 13,
+    hour = 9,
     minute = 0
 }
 
