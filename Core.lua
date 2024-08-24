@@ -61,12 +61,12 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.RefreshMountsByType("Unused")
 
         -- If the Deposit Keep Amount is greater than 1,000, then
-        -- reset its value to 1,000.
+        -- reset its value to 0.
         if HelpMePlayDB["DepositKeepAmount"] > 1000 then
-            HelpMePlayDB["DepositKeepAmount"] = 1000
+            HelpMePlayDB["DepositKeepAmount"] = 0
         end
         if HelpMePlayDB["TrainerProtectionValue"] > 1000 then
-            HelpMePlayDB["TrainerProtectionValue"] = 1000
+            HelpMePlayDB["TrainerProtectionValue"] = 0
         end
     end
     if event == "PLAYER_SPECIALIZATION_CHANGED" then
