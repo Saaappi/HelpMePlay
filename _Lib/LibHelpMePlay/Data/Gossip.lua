@@ -50,9 +50,11 @@ LHMP.Gossips = {
         -------------------------
         -- THE WAR WITHIN -------
         -------------------------
-        {ID = 121544, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}},
-        {ID = 121546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}},
-        {ID = 121673, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}},
+        {ID = 121544, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 1 (Isle of Dorn)
+        {ID = 121546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 2 (Isle of Dorn)
+        {ID = 121673, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 3 (Isle of Dorn)
+        -- Explorers' League Supplies (Isle of Dorn)
+        {ID = 122660, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78464,3}}}}
     },
     -------------------------
     -- VANILLA --------------
@@ -706,4 +708,14 @@ LHMP.Gossips = {
     [214462] = {{ID = 120267, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
     [214461] = {{ID = 120274, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
     [214463] = {{ID = 120277, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
+    [213030] = {
+        {ID = 120958, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}}},
+        {ID = 120969, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}}}
+    },
+    [223923] = {{ID = 122493, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82465}}}}},
+    -- Delves: Earthcrawl Mines
+    [215685] = {
+        {ID = 120330, CanConfirm = false, Conditions = {}},
+        {ID = 120383, CanConfirm = false, Conditions = {}}
+    },
 }
