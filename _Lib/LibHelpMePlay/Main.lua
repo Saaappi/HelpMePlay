@@ -87,24 +87,24 @@ end
 -------------
 -- GOSSIPS --
 -------------
-function LHMP:IsGossipSupportedForNPC(npcId)
-    if not LHMP.Gossips[npcId] then
+function LHMP:IsGossipSupportedForId(id)
+    if not LHMP.Gossips[id] then
         return false
     end
     return true
 end
-function LHMP:IsGossipTextNPC(npcId)
-    if not LHMP.GossipTextLookupByNPC[npcId] then
+function LHMP:GetGossipsById(id)
+    if not LHMP.Gossips[id] then
+        return false
+    end
+    return LHMP.Gossips[id]
+end
+--[[function LHMP:IsGossipTextNPC(id)
+    if not LHMP.GossipTextLookupByNPC[id] then
         return false
     end
     return true
-end
-function LHMP:GetGossipsForNPCByID(npcId)
-    if not LHMP.Gossips[npcId] then
-        return false
-    end
-    return LHMP.Gossips[npcId]
-end
+end]]
 
 ------------
 -- EMOTES --

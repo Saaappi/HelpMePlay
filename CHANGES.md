@@ -9,6 +9,8 @@
 - The button next to the Micro Menu now adheres to the **Mouseover** setting in ElvUI. _(Closes #85)_
 - Clarified the text in the popup when selecting a custom **Quest Mobs** icon.
 - The collection icon for appearances will now evaluate all sources associated with an item to determine the appropriate icon to display. _(Closes #87)_
+- The Gossip system is now more intelligent, and is capable of differentiating a Game Object from an NPC.
+  - _**Author's Note**: Not every (currently supported) object-related gossip has been updated to support the new model._
 - The Back to the Orphanage quest (for each faction) is now ignored.
 ### Deprecated
 - Deprecated the **Keep Me Safe** feature.

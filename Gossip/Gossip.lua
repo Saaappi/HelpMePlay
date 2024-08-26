@@ -17,12 +17,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
         local options = C_GossipInfo.GetOptions()
         if options then
-            local GUID = UnitGUID("target")
+            local GUID = UnitGUID("npc")
             if GUID then
-                local npcId = LHMP:SplitString(GUID, "-", 6)
-                if npcId then
-                    if LHMP:IsGossipSupportedForNPC(npcId) then
-                        local gossips = LHMP:GetGossipsForNPCByID(npcId)
+                local id = LHMP:SplitString(GUID, "-", 6)
+                if id then
+                    if LHMP:IsGossipSupportedForId(id) then
+                        local gossips = LHMP:GetGossipsById(id)
                         for _, gossip in ipairs(gossips) do
                             local isAllowed = HelpMePlay.EvaluateConditions(gossip.Conditions)
                             if isAllowed then
@@ -33,8 +33,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                             end
                         end
                     end
-                    if HelpMePlayDB.PlayerGossips[npcId] then
-                        for _, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[npcId]) do
+                    if HelpMePlayDB.PlayerGossips[id] then
+                        for _, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[id]) do
                             for _, option in ipairs(options) do
                                 if option.gossipOptionID == gossipOptionID then
                                     C_GossipInfo.SelectOption(option.gossipOptionID)
@@ -44,20 +44,20 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         end
                     end
                 end
-            else
-                for _, option in next, options do
-                    for _, gossip in next, LHMP.Gossips[0] do
-                        if gossip.ID == option.gossipOptionID then
-                            local isAllowed = HelpMePlay.EvaluateConditions(gossip.Conditions)
-                            if isAllowed then
-                                C_GossipInfo.SelectOption(gossip.ID)
-                                if gossip.CanConfirm then
-                                    StaticPopup1Button1:Click("LeftButton")
+                --[[elseif npcType == "GameObject" then
+                    for _, option in next, options do
+                        for _, gossip in next, LHMP.Gossips[0] do
+                            if gossip.ID == option.gossipOptionID then
+                                local isAllowed = HelpMePlay.EvaluateConditions(gossip.Conditions)
+                                if isAllowed then
+                                    C_GossipInfo.SelectOption(gossip.ID)
+                                    if gossip.CanConfirm then
+                                        StaticPopup1Button1:Click("LeftButton")
+                                    end
                                 end
                             end
                         end
-                    end
-                end
+                    end]]
             end
         end
 
