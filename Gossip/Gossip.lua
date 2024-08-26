@@ -139,18 +139,24 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         button2 = CANCEL,
                         explicitAcknowledge = true,
                         hasEditBox = true,
-                        OnAccept = function(self)
-                            local input = self.editBox:GetText()
-                            if tonumber(input) then
-                                local objectives = C_QuestLog.GetQuestObjectives(input)
-                                if objectives then
-                                    for _, objective in ipairs(objectives) do
-                                        print(string.format("%s, %s", objective.text, tostring(objective.finished)))
+                        OnShow = function(self)
+                            local function HidePopup(self) self:GetParent():Hide() end
+                            self.editBox:SetScript("OnKeyUp", function(self, key)
+                                if key == "ENTER" then
+                                    local input = self:GetText()
+                                    if tonumber(input) then
+                                        local objectives = C_QuestLog.GetQuestObjectives(input)
+                                        if objectives then
+                                            for index, objective in ipairs(objectives) do
+                                                print(string.format("|cff1EFF00{%s}:|r %s, %s", index, objective.text, tostring(objective.finished)))
+                                            end
+                                        end
+                                    else
+                                        HelpMePlay.Print(HelpMePlay.ErrorMessages["INVALID_INPUT"])
                                     end
+                                    HidePopup(self)
                                 end
-                            else
-                                HelpMePlay.Print(HelpMePlay.ErrorMessages["INVALID_INPUT"])
-                            end
+                            end)
                         end,
                         OnCancel = function()
                         end,
