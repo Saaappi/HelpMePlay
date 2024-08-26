@@ -33,9 +33,13 @@ local function OnEvent(_, event, ...)
         button:SetPushedAtlas("Quest-Campaign-Available-Trivial")
 
         -- Handle ElvUI mouseover setting for the Micro Bar.
-        if C_AddOns.IsAddOnLoaded("ElvUI") and ElvDB.profiles.Default.actionbar.microbar.enabled and ElvDB.profiles.Default.actionbar.microbar.mouseover then
-            isElvUILoaded = true
-            button:SetAlpha(0)
+        if C_AddOns.IsAddOnLoaded("ElvUI") then
+            local elvUI = unpack(ElvUI)
+            local abModule = elvUI:GetModule("ActionBars")
+            if abModule.db.microbar.enabled and abModule.db.microbar.mouseover then
+                isElvUILoaded = true
+                button:SetAlpha(0)
+            end
         end
 
         button:SetScript("OnClick", function()
