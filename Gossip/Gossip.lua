@@ -44,20 +44,6 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         end
                     end
                 end
-                --[[elseif npcType == "GameObject" then
-                    for _, option in next, options do
-                        for _, gossip in next, LHMP.Gossips[0] do
-                            if gossip.ID == option.gossipOptionID then
-                                local isAllowed = HelpMePlay.EvaluateConditions(gossip.Conditions)
-                                if isAllowed then
-                                    C_GossipInfo.SelectOption(gossip.ID)
-                                    if gossip.CanConfirm then
-                                        StaticPopup1Button1:Click("LeftButton")
-                                    end
-                                end
-                            end
-                        end
-                    end]]
             end
         end
 
