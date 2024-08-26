@@ -9,29 +9,8 @@ LHMP.Gossips = {
     -------------------------
     [0] = {
         -------------------------
-        -- VANILLA --------------
-        -------------------------
-        -- Grovekeeper's Incense (Darkshore)
-        {ID = 37215, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {13569}}}},
-        -- Totem of Hir'eek (The Cape of Stranglethorn)
-        {ID = 38325, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26809}}}},
-        -- Ruined Lifeboat (The Cape of Stranglethorn)
-        {ID = 38201, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26602}}}},
-        -- Grog Barrel (The Cape of Stranglethorn)
-        {ID = 39383, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26663}}}},
-        -- Gunpowder Barrel (The Cape of Stranglethorn)
-        {ID = 38808, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26663}}}},
-        -- Cannonball Crate (The Cape of Stranglethorn)
-        {ID = 38809, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26663}}}},
-        -- Mereldar Plague Cauldron (Eastern Plaguelands)
-        {ID = 38411, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27454}}}},
-        -- Portal to Wildheart Point (Felwood)
-        {ID = 39709, CanConfirm = false, Conditions = {}},
-        -------------------------
         -- MISTS OF PANDARIA ----
         -------------------------
-        -- Cho's "Art" (The Jade Forest)
-        {ID = 33294, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {31130}}}},
         -- Ancient Statue (The Jade Forest)
         {ID = 40006, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29743}}}},
         {ID = 39082, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29743}}}},
@@ -40,11 +19,6 @@ LHMP.Gossips = {
         -------------------------
         -- DRAGONFLIGHT ---------
         -------------------------
-        -- Embassy Visitor Log (The Waking Shores)
-        {ID = 55746, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
-        {ID = 55757, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
-        {ID = 55762, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
-        {ID = 55773, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
         -- Forge Console (Thaldraszus)
         {ID = 108982, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72444}}}},
         -------------------------
@@ -73,6 +47,7 @@ LHMP.Gossips = {
     [33001] = {{ID = 37276, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {13547}}}}},
     [33072] = {{ID = 37858, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {13882}}}}},
     [34392] = {{ID = 36843, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {13885}}}}},
+    [194771] = {{ID = 37215, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {13569}}}}},
     -- Ashenvale
     [34289] = {{ID = 37319, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {13886}}, {"QUEST_OBJECTIVES_COMPLETE", {{13886,1}}}}}},
     [34377] = {{ID = 37711, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {13935}}, {"QUEST_OBJECTIVES_COMPLETE", {{13935,1}}}}}},
@@ -112,6 +87,8 @@ LHMP.Gossips = {
     [4979] = {{ID = 35789, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27212}}, {"QUEST_OBJECTIVES_INCOMPLETE", {27212,1}}}}},
     [23704] = {{ID = 35260, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27239}}}}},
     [4968] = {{ID = 29819, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27240}}}}},
+    -- Felwood
+    [206831] = {{ID = 39709, CanConfirm = false, Conditions = {}}},
     -- Westfall
     [42383] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
     [42384] = {{ID = 38008, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {26209}}}}},
@@ -150,6 +127,11 @@ LHMP.Gossips = {
         {ID = 40381, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26703}}}}
     },
     [49635] = {{ID = 39916, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28749}}}}},
+    [204361] = {{ID = 38325, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26809}}}}},
+    [2289] = {{ID = 38201, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26602}}}}},
+    [204454] = {{ID = 39383, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26663}}}}},
+    [204455] = {{ID = 38808, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26663}}}}},
+    [204456] = {{ID = 38809, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26663}}}}},
     -- Western Plaguelands
     [46006] = {{ID = 39847, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUESTS_ACTIVE", {27165}}}}},
     [44456] = {{ID = 39187, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {26953}}, {"BUFF_INACTIVE", 83456}}}},
@@ -168,6 +150,7 @@ LHMP.Gossips = {
     },
     [45451] = {{ID = 37583, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27381}}}}},
     [11063] = {{ID = 29395, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27388}}}}},
+    [205485] = {{ID = 38411, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27454}}}}},
     -- Stormwind City
     [167032] = {{ID = 51901, CanConfirm = false, Conditions = {{"CHROMIE_TIME_INACTIVE"}}}},
     -- Loch Modan
@@ -226,6 +209,7 @@ LHMP.Gossips = {
         {ID = 39493, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29620}}}},
         {ID = 40364, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29620}}}}
     },
+    [211661] = {{ID = 33294, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {31130}}}}},
     [54944] = {{ID = 40241, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29632}}}}},
     [54924] = {{ID = 40594, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29633}}}}},
     [54925] = {{ID = 40595, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29634}}}}},
@@ -570,6 +554,12 @@ LHMP.Gossips = {
     [193393] = {{ID = 55674, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}}},
     [193372] = {{ID = 55872, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69914}}}}},
     [193363] = {{ID = 55900, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65760}}}}},
+    [378435] = {
+        {ID = 55746, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
+        {ID = 55757, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
+        {ID = 55762, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}},
+        {ID = 55773, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {69911}}}}
+    },
     [190564] = {{ID = 55298, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65992}}}}},
     [190563] = {{ID = 55297, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65992}}}}},
     [188299] = {{ID = 55335, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65992}}}}},
