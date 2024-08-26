@@ -66,12 +66,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 
                 gossipButton:SetScript("OnClick", function()
                     -- NPC ID
-                    local GUID = UnitGUID("target")
+                    local GUID = UnitGUID("npc")
                     if GUID then
-                        local npcId = LHMP:SplitString(GUID, "-", 6)
-                        print(string.format("%d - %s", npcId, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
-                    else
-                        print(string.format("%d - %s", 0, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()))) -- This is for gossips associated to non-NPCs.
+                        local id = LHMP:SplitString(GUID, "-", 6)
+                        print(string.format("%d - %s", id, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
                     end
 
                     -- Gossips
