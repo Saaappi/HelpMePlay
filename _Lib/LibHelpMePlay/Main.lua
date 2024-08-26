@@ -99,12 +99,6 @@ function LHMP:GetGossipsById(id)
     end
     return LHMP.Gossips[id]
 end
---[[function LHMP:IsGossipTextNPC(id)
-    if not LHMP.GossipTextLookupByNPC[id] then
-        return false
-    end
-    return true
-end]]
 
 ------------
 -- EMOTES --
