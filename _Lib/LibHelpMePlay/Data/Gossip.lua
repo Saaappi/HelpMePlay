@@ -54,7 +54,10 @@ LHMP.Gossips = {
         {ID = 121546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 2 (Isle of Dorn)
         {ID = 121673, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 3 (Isle of Dorn)
         -- Explorers' League Supplies (Isle of Dorn)
-        {ID = 122660, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78464,3}}}}
+        {ID = 122660, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78464,3}}}},
+        -- Titan Orb (Isle of Dorn)
+        {ID = 121100, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
+        {ID = 121103, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
     },
     -------------------------
     -- VANILLA --------------
@@ -728,6 +731,9 @@ LHMP.Gossips = {
     [224948] = {{ID = 122723, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82895}}}}},
     [214921] = {{ID = 120785, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78758}}}}},
     [212756] = {{ID = 120672, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78544}}}}},
+    [222260] = {{ID = 122511, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80209}}}}},
+    [222259] = {{ID = 123322, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80209}}}}},
+    [222263] = {{ID = 122512, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80209}}}}},
     -- Delves: Earthcrawl Mines
     [215685] = {
         {ID = 120330, CanConfirm = false, Conditions = {}},
