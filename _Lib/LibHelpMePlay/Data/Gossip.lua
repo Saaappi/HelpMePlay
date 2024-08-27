@@ -789,6 +789,7 @@ LHMP.Gossips = {
 	},
 	[215301] = {{ID = 120554, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79159}}}}},
 	[213286] = {{ID = 120658, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78629}}}}},
+	-- Azj-Kahet
 	-- Delves: Earthcrawl Mines
 	[215685] = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
