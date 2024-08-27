@@ -1,7 +1,8 @@
 ## Version 3.1.1 - 2024/09/10
 
 ### Added
-- Added more gossips and quest merchants for Isle of Dorn, The Ringing Deeps, and Hallowfall.
+- Similar to the custom gossip options, players can now also add custom merchant items for purchase.
+- Additional gossip options and quest merchants have been introduced for Isle of Dorn, The Ringing Deeps, Hallowfall, and Azj-Kahet.
 ### Changed or Updated
 ### Deprecated
 ### Removed
