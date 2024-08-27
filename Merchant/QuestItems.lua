@@ -28,8 +28,10 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                     end
                     if HelpMePlayDB.PlayerQuestMerchants[id] then
                         for _, items in pairs(HelpMePlayDB.PlayerQuestMerchants[id]) do
-                            for _, item in pairs(items) do
-                                BuyMerchantItem(item.index, item.quantity)
+                            for itemId, item in pairs(items) do
+                                if itemId == GetMerchantItemID(item.index) then
+                                    BuyMerchantItem(item.index, item.quantity)
+                                end
                             end
                         end
                     end
