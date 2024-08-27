@@ -137,6 +137,9 @@ LHMP.QuestMerchants = {
     },
     [209192] = {
         { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79223}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79223,1}}}}
+    },
+    [217642] = {
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {78613}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78613,2}}}}
     }
 }
 
