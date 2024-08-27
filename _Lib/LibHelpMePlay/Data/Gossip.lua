@@ -746,6 +746,10 @@ LHMP.Gossips = {
     [213673] = {{ID = 121212, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78741}}}}},
     [213763] = {{ID = 120506, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78760}}}}},
     -- Hallowfall
+    [217826] = {{ID = 120738, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78671}}}}},
+    [214407] = {{ID = 121725, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78937}}}}},
+    [221411] = {{ID = 121757, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78939}}}}},
+    [214404] = {{ID = 120685, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78939}}}}},
     -- Delves: Earthcrawl Mines
     [215685] = {
         {ID = 120330, CanConfirm = false, Conditions = {}},
