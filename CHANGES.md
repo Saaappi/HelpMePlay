@@ -4,10 +4,11 @@
 - Similar to the custom gossip options, players can now also add custom merchant items for purchase.
 - Additional gossip options and quest merchants have been introduced for Isle of Dorn, The Ringing Deeps, Hallowfall, and Azj-Kahet.
 ### Changed or Updated
-- Quests that don't reward an item are now completed while in combat.
+- Quests that do not provide an item as a reward can now be completed while the player is in combat.
 ### Deprecated
 ### Removed
 ### Fixed
+- Addressed a bug where quests offering a single reward would automatically equip that reward, regardless of whether the 'Item Level' option was selected for Quest Rewards.
 
 ## Superseded Updates
 ### 3.1.0.1 - 2024/08/26

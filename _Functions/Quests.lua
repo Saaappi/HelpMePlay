@@ -310,7 +310,9 @@ HelpMePlay.CompleteQuest = function()
                 GetQuestReward(1)
 
                 -- Check the player's inventory for the quest reward they just acquired.
-                C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
+                if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then
+                    C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
+                end
             end
         else
             -- There are either no rewards available, or there are only quest rewards
