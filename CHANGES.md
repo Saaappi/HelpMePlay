@@ -9,6 +9,7 @@
 ### Removed
 ### Fixed
 - Addressed a bug where quests offering a single reward would automatically equip that reward, regardless of whether the 'Item Level' option was selected for Quest Rewards.
+- Resolved an issue that caused several mounts to be uncategorized due to unsupported types in the pre-patch content update.
 
 ## Superseded Updates
 ### 3.1.0.1 - 2024/08/26
