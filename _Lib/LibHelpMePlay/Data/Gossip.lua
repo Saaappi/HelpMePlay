@@ -24,9 +24,6 @@ LHMP.Gossips = {
 		-------------------------
 		-- THE WAR WITHIN -------
 		-------------------------
-		{ID = 121544, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 1 (Isle of Dorn)
-		{ID = 121546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 2 (Isle of Dorn)
-		{ID = 121673, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}, -- Pottery 3 (Isle of Dorn)
 		-- Titan Orb (Isle of Dorn)
 		{ID = 121100, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
 		{ID = 121103, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
@@ -704,6 +701,9 @@ LHMP.Gossips = {
 		{ID = 120958, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}}},
 		{ID = 120969, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}}}
 	},
+	[433930] = {{ID = 121546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}},
+	[433929] = {{ID = 121673, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}},
+	[433922] = {{ID = 121544, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}},
 	[223923] = {{ID = 122493, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82465}}}}},
 	[216109] = {{ID = 120682, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78462}}}}},
 	[216111] = {{ID = 120684, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78462}}}}},
