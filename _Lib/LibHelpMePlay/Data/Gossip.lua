@@ -21,12 +21,6 @@ LHMP.Gossips = {
 		-------------------------
 		-- Forge Console (Thaldraszus)
 		{ID = 108982, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72444}}}},
-		-------------------------
-		-- THE WAR WITHIN -------
-		-------------------------
-		-- Titan Orb (Isle of Dorn)
-		{ID = 121100, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
-		{ID = 121103, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
 	},
 	-------------------------
 	-- VANILLA --------------
@@ -732,6 +726,10 @@ LHMP.Gossips = {
 	[217883] = {{ID = 122368, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78546}}}}},
 	[217880] = {{ID = 120762, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78546}}}}},
 	[217069] = {{ID = 121397, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79542}}}}},
+	[217863] = {
+		{ID = 121100, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
+		{ID = 121103, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}}
+	},
 	-- The Ringing Deeps
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
 	[215563] = {{ID = 121192, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78838}}}}},
