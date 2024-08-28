@@ -168,17 +168,13 @@ local function GetHighestSellingQuestReward(rewards)
 end
 
 HelpMePlay.CompleteQuest = function()
-    if HelpMePlayDB["AcceptAndCompleteQuests"] == false and HelpMePlayDB["AcceptAndCompleteAllQuests"] == false then return end
+    if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
     -- Show and hide the character paperdoll frame to cache the player's equipped
     -- items.
     --ShowUIPanel(CharacterFrame); HideUIPanel(CharacterFrame)
 
     C_Timer.After(0.1, function()
-        -- Check if the player is in combat. This will cause some trouble if they
-        -- are, so let's deal with it now.
-        if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
-
         -- Determine if the player can dual wield. The specialization IDs
         -- are stored in Data\Quests.lua.
         for _, specID in ipairs(HelpMePlay.CanDualWield) do
@@ -233,6 +229,10 @@ HelpMePlay.CompleteQuest = function()
         local numQuestChoices = GetNumQuestChoices()
         if numQuestChoices > 1 then
             if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
+
+            -- Check if the player is in combat. This will cause some trouble if they
+            -- are, so let's deal with it now.
+            if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
 
             local bestRewardIndex = 0
             local bestSellPrice = 0
@@ -297,6 +297,10 @@ HelpMePlay.CompleteQuest = function()
                 end
             end
         elseif numQuestChoices == 1 then
+            -- Check if the player is in combat. This will cause some trouble if they
+            -- are, so let's deal with it now.
+            if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
+
             local itemLink = GetQuestItemLink("choice", 1)
             if itemLink then
                 local rewards = { itemLink }
