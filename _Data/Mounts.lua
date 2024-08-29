@@ -33,5 +33,6 @@ HelpMePlay.MountTypes = {
     [435] = "Unused", -- Soar
     [436] = "Aquatic",
     [437] = "Flying",
-    [444] = "Dynamic"
+    [444] = "Dynamic",
+    [445] = "Flying"
 }
