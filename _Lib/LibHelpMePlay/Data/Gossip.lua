@@ -747,6 +747,15 @@ LHMP.Gossips = {
 	[213673] = {{ID = 121212, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78741}}}}},
 	[213763] = {{ID = 120506, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78760}}}}},
 	[216600] = {{ID = 121058, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79556}}}}},
+	[218474] = {{ID = 120927, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79681}}}}},
+	[216438] = {
+		{ID = 121559, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79504}}}},
+		{ID = 121585, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79505}}}},
+		{ID = 121599, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79507}}}},
+		{ID = 121622, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79508}}}},
+		{ID = 121650, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79510}}}}
+	},
+	[212695] = {{ID = 120147, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78564}}}}},
 	-- Hallowfall
 	[217826] = {{ID = 120738, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78671}}}}},
 	[214407] = {{ID = 121725, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78937}}}}},
