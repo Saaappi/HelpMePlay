@@ -105,11 +105,13 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 					if numWatchedQuests > 0 then
 						for index = 1, numWatchedQuests do
 							local questId = C_QuestLog.GetQuestIDForQuestWatchIndex(index)
-							local logIndex = C_QuestLog.GetLogIndexForQuestID(questId)
-							local info = C_QuestLog.GetInfo(logIndex)
-							if info then
-								local formattedQuestId = LHMP:ColorText("GOLD", questId)
-								print(string.format("%s: %s", formattedQuestId, info.title))
+							if not C_QuestLog.IsComplete(questId) then
+								local logIndex = C_QuestLog.GetLogIndexForQuestID(questId)
+								local info = C_QuestLog.GetInfo(logIndex)
+								if info then
+									local formattedQuestId = LHMP:ColorText("GOLD", questId)
+									print(string.format("%s: %s", formattedQuestId, info.title))
+								end
 							end
 						end
 					end
