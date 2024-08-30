@@ -681,8 +681,8 @@ LHMP.Gossips = {
 	[212370] = {{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,3}}}}},
 	[206017] = {
 		{ID = 122129, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,4}}}},
-		{ID = 123770, CanConfirm = false, Conditions = {{"LEVEL_EQUAL", GetMaxLevelForPlayerExpansion()}}},
-		{ID = 123771, CanConfirm = false, Conditions = {{"LEVEL_EQUAL", GetMaxLevelForPlayerExpansion()}}}
+		{ID = 123770, CanConfirm = false, Conditions = {{"LEVEL_EQUAL", 80}}},
+		{ID = 123771, CanConfirm = false, Conditions = {{"LEVEL_EQUAL", 80}}}
 	},
 	[223652] = {{ID = 122467, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
 	[223648] = {{ID = 122466, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
