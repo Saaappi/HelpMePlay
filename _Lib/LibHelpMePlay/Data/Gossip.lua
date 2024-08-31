@@ -841,6 +841,24 @@ LHMP.Gossips = {
 	[216014] = {{ID = 122835, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79301}}}}},
 	[225927] = {{ID = 122848, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79303}}}}},
 	[226082] = {{ID = 122873, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79303}}}}},
+	[223193] = {{ID = 122456, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82217}}}}},
+	[223194] = {
+		{ID = 122461, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82217}}}},
+		{ID = 122465, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82217}}}}
+	},
+	[213613] = {
+		{ID = 122576, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82479}}}},
+		{ID = 122578, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82479}}}},
+		{ID = 122584, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82479}}}},
+		{ID = 122588, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82479}}}},
+		{ID = 122592, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82479}}}},
+		{ID = 122596, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82479}}}},
+		{ID = 122597, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82479}}}}
+	},
+	[224380] = {{ID = 122601, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82480}}}}},
+	[219173] = {{ID = 122070, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80178}}}}},
+	[219189] = {{ID = 122071, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80179}}}}},
+	[215335] = {{ID = 122492, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79650}}}}},
 	-- Azj-Kahet
 	[219109] = {{ID = 121150, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79139}}}}},
 	[207471] = {
