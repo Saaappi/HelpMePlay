@@ -204,6 +204,10 @@ local function OnEvent(_, event, ...)
         end
     end
 
+    if event == "CONFIRM_BINDER" then
+        StaticPopup1Button1:Click("LeftButton")
+    end
+
     -- PLAYER_CHOICE_UPDATE
     if event == "PLAYER_CHOICE_UPDATE" then
         if HelpMePlayDB["UsePlayerChoice"] == false then return false end
@@ -389,6 +393,7 @@ end)
 
 eventHandler:RegisterEvent("ADVENTURE_MAP_OPEN")
 eventHandler:RegisterEvent("CHAT_MSG_LOOT")
+eventHandler:RegisterEvent("CONFIRM_BINDER")
 eventHandler:RegisterEvent("PLAYER_CHOICE_UPDATE")
 eventHandler:RegisterEvent("PLAYER_INTERACTION_MANAGER_FRAME_SHOW")
 eventHandler:RegisterEvent("QUEST_ACCEPTED")

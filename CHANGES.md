@@ -1,15 +1,18 @@
 ## Version 3.1.1 - 2024/09/10
 
 ### Added
-- Similar to the custom gossip options, players can now also add custom merchant items for purchase.
-- Additional gossip options and quest merchants have been introduced for Isle of Dorn, The Ringing Deeps, Hallowfall, and Azj-Kahet.
+- Players can now create custom merchant items for purchase, in addition to the existing custom gossip options.
+- Enhanced the game experience with new gossip options and quest merchants across Isle of Dorn, The Ringing Deeps, Hallowfall, and Azj-Kahet.
+- The popup for setting your Hearthstone is now automatically accepted.
 ### Changed or Updated
 - Quests that do not provide an item as a reward can now be completed while the player is in combat.
 ### Deprecated
+_No changes_
 ### Removed
+_No changes_
 ### Fixed
-- Addressed a bug where quests offering a single reward would automatically equip that reward, regardless of whether the 'Item Level' option was selected for Quest Rewards.
-- Resolved an issue that caused several mounts to be uncategorized due to unsupported types in the pre-patch content update.
+- Resolved an issue where quests offering a single reward would automatically equip the reward, regardless of the 'Item Level' option selected for Quest Rewards.
+- Corrected a problem that caused several mounts to be uncategorized due to unsupported types in the pre-patch content update.
 
 ## Superseded Updates
 ### 3.1.0.1 - 2024/08/26

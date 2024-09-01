@@ -891,6 +891,19 @@ LHMP.Gossips = {
 		{ID = 120657, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78231}}}}
 	},
 	[217386] = {{ID = 120665, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78244}}}}},
+	[217958] = {
+		{ID = 123219, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83628}}}},
+		{ID = 123220, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83628}}}}
+	},
+	[215724] = {
+		{ID = 123221, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83628}}}},
+		{ID = 123222, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83628}}}}
+	},
+	[227222] = {
+		{ID = 123232, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83639}}}},
+		{ID = 123233, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83639}}}}
+	},
+	[227185] = {{ID = 123235, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83639}}}}},
 	-- Delves: Earthcrawl Mines
 	[215685] = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
