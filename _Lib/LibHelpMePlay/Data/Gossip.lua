@@ -867,7 +867,8 @@ LHMP.Gossips = {
 		{ID = 122858, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78392,3}}}},
 		{ID = 122863, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78392,4}}}},
 		{ID = 120666, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78248}}}},
-		{ID = 123526, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {84022}}}}
+		{ID = 123526, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {84022}}}},
+		{ID = 121590, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79244}}}}
 	},
 	[224734] = {{ID = 124125, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {84682}}}}},
 	[211409] = {
@@ -997,7 +998,6 @@ LHMP.Gossips = {
 	[223763] = {{ID = 121198, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {81913}}}}},
 	[214916] = {{ID = 121537, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79156}}}}},
 	[223764] = {{ID = 121565, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79157}}}}},
-	-- News from Below Questline
 	-- The Machines March to War Questline
 	-- A Light in the Dark Questline
 	-- Delves: Earthcrawl Mines
