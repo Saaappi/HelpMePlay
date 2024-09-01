@@ -998,6 +998,8 @@ LHMP.Gossips = {
 	[214916] = {{ID = 121537, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79156}}}}},
 	[223764] = {{ID = 121565, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79157}}}}},
 	-- News from Below Questline
+	-- The Machines March to War Questline
+	-- A Light in the Dark Questline
 	-- Delves: Earthcrawl Mines
 	[215685] = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
