@@ -983,6 +983,21 @@ LHMP.Gossips = {
 		{ID = 121938, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79107}}}}
 	},
 	[222279] = {{ID = 122017, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83286}}}}},
+	[215126] = {{ID = 122193, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79124}}}}},
+	[215125] = {{ID = 122190, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79124}}}}},
+	[215127] = {{ID = 122144, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79124}}}}},
+	[222716] = {{ID = 122158, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79124}}}}},
+	[215039] = {{ID = 120784, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79129}}}}},
+	[218118] = {{ID = 120807, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79140}}}}},
+	[218745] = {{ID = 120979, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79477}}}}},
+	[218744] = {{ID = 120968, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79477}}}}},
+	[218743] = {{ID = 120977, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79477}}}}},
+	[217835] = {{ID = 121165, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79147}}}}},
+	[223762] = {{ID = 121199, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {81912}}}}},
+	[223763] = {{ID = 121198, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {81913}}}}},
+	[214916] = {{ID = 121537, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79156}}}}},
+	[223764] = {{ID = 121565, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79157}}}}},
+	-- News from Below Questline
 	-- Delves: Earthcrawl Mines
 	[215685] = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
