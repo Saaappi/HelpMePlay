@@ -70,7 +70,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 					local GUID = UnitGUID("npc")
 					if GUID then
 						local id = LHMP:SplitString(GUID, "-", 6)
-						print(string.format("%d - %s", id, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText())))
+						print(string.format("%d - %s - %s", id, LHMP:ColorText("GOLD", GossipFrameTitleText:GetText()), HelpMePlay.playerMapName))
 					end
 
 					-- Gossips

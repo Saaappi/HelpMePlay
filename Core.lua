@@ -8,6 +8,7 @@ function HelpMePlay.GetBestMapByMapID(uiMapID)
         local info = C_Map.GetMapInfo(mapID)
         if info and info.mapType == 3 then
             HelpMePlay.playerMapID = mapID
+            HelpMePlay.playerMapName = C_Map.GetMapInfo(mapID).name
         elseif info and info.mapType > 3 then
             HelpMePlay.GetBestMapByMapID(info.parentMapID)
         end
@@ -41,6 +42,7 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
         HelpMePlay.playerGUID = UnitGUID("player")
         HelpMePlay.playerMapID = HelpMePlay.GetBestMapByMapID(C_Map.GetBestMapForUnit("player"))
+        HelpMePlay.playerMapName = C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).name
         HelpMePlay.playerName = UnitName("player")
 
         local faction = LHMP:GetUnlocalizedUnitFaction("player")
