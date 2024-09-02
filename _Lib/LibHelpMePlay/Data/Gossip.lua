@@ -895,6 +895,7 @@ LHMP.Gossips = {
 	[219173] = {{ID = 122070, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80178}}}}},
 	[219189] = {{ID = 122071, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80179}}}}},
 	[215335] = {{ID = 122492, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79650}}}}},
+	[215527] = {{ID = 121756, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81673}}}}},
 	-- Azj-Kahet
 	[219109] = {{ID = 121150, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79139}}}}},
 	[207471] = {
