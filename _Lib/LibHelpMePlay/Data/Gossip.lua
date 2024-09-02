@@ -678,7 +678,10 @@ LHMP.Gossips = {
 	[219757] = {{ID = 121391, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78536}}}}},
 	[219014] = {{ID = 122786, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,1}}}}},
 	[212369] = {{ID = 120909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,2}}}}},
-	[212370] = {{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,3}}}}},
+	[212370] = {
+		{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,3}}}},
+		{ID = 121503, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79545,2}}}}
+	},
 	[206017] = {
 		{ID = 122129, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,4}}}},
 		{ID = 121598, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81510}}}}
@@ -732,6 +735,33 @@ LHMP.Gossips = {
 	[217863] = {
 		{ID = 121100, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}},
 		{ID = 121103, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79728}}}}
+	},
+	[219431] = {{ID = 121217, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79543}}}}},
+	[217080] = {{ID = 121218, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79543}}}}},
+	[217081] = {
+		{ID = 121219, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79543}}}},
+		{ID = 121405, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79543}}}}
+	},
+	[217072] = {
+		{ID = 121407, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79544}}}},
+		{ID = 121412, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79544}}}},
+		{ID = 122742, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79176}}}}
+	},
+	[217091] = {
+		{ID = 121505, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}},
+		{ID = 121504, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}}
+	},
+	[217090] = {{ID = 121507, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}}},
+	[433720] = {
+		{ID = 121512, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}},
+		{ID = 123981, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}},
+		{ID = 121518, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}},
+		{ID = 121521, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}}
+	},
+	[217088] = {
+		{ID = 121452, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}},
+		{ID = 121528, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}},
+		{ID = 121547, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}}
 	},
 	-- The Ringing Deeps
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
