@@ -763,6 +763,8 @@ LHMP.Gossips = {
 		{ID = 121528, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}},
 		{ID = 121547, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}}}
 	},
+	[220564] = {{ID = 121576, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
+	[217082] = {{ID = 121577, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
 	-- The Ringing Deeps
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
 	[215563] = {{ID = 121192, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78838}}}}},
@@ -820,6 +822,7 @@ LHMP.Gossips = {
 		{ID = 122203, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80578}}}}
 	},
 	[220597] = {{ID = 122201, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80682}}}}},
+	[219477] = {{ID = 121524, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79530}}}}},
 	-- Hallowfall
 	[217826] = {{ID = 120738, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78671}}}}},
 	[214407] = {{ID = 121725, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78937}}}}},
