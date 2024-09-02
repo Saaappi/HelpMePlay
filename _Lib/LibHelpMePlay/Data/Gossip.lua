@@ -679,7 +679,10 @@ LHMP.Gossips = {
 	[219014] = {{ID = 122786, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,1}}}}},
 	[212369] = {{ID = 120909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,2}}}}},
 	[212370] = {{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,3}}}}},
-	[206017] = {{ID = 122129, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,4}}}}},
+	[206017] = {
+		{ID = 122129, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,4}}}},
+		{ID = 121598, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81510}}}}
+	},
 	[223652] = {{ID = 122467, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
 	[223648] = {{ID = 122466, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
 	[214459] = {{ID = 120276, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
@@ -999,10 +1002,18 @@ LHMP.Gossips = {
 	[214916] = {{ID = 121537, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79156}}}}},
 	[223764] = {{ID = 121565, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79157}}}}},
 	-- The Machines March to War Questline
+	[214664] = {
+		{ID = 120642, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79023}}}},
+		{ID = 121305, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79024}}}}
+	},
+	[230643] = {{ID = 121561, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {80145}}}}},
+	[220896] = {{ID = 121606, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {79029}}}}},
 	-- A Light in the Dark Questline
 	-- Delves: Earthcrawl Mines
 	[215685] = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
 		{ID = 120383, CanConfirm = false, Conditions = {}}
 	},
+	-- Delves: The Waterworks
+	[214143] = {{ID = 120018, CanConfirm = false, Conditions = {}}},
 }
