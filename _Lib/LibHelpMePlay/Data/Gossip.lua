@@ -1065,23 +1065,20 @@ LHMP.Gossips = {
 								DELVES
 	===============================================================================
 	--]]
-	-- Earthcrawl Mines
+	-- ===== Earthcrawl Mines =====
 	[215685] = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
 		{ID = 120383, CanConfirm = false, Conditions = {}}
 	},
-	-- The Waterworks
+	-- ===== The Waterworks =====
 	[214143] = {{ID = 120018, CanConfirm = false, Conditions = {}}},
 	--[[ 
 	===============================================================================
 								ALLIED RACES
 	===============================================================================
 	--]]
-	--[[
-		=================
-		Earthen
-		=================
-	]]--
+	-- ===== Earthen =====
+	-- Starter
 	[224809] = {
 		{ID = 122137, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
 		{ID = 122179, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
@@ -1099,4 +1096,6 @@ LHMP.Gossips = {
 	},
 	[227273] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
 	[221912] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
+	-- Heritage
+	-- ===============================================================================
 }
