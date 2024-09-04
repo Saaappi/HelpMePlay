@@ -16,11 +16,6 @@ LHMP.Gossips = {
 		{ID = 39082, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29743}}}},
 		{ID = 39808, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29743}}}},
 		{ID = 39083, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29743}}}},
-		-------------------------
-		-- DRAGONFLIGHT ---------
-		-------------------------
-		-- Forge Console (Thaldraszus)
-		{ID = 108982, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72444}}}},
 	},
 	-------------------------
 	-- VANILLA --------------
@@ -1065,11 +1060,43 @@ LHMP.Gossips = {
 	[214273] = {{ID = 122377, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78948}}}}},
 	[220641] = {{ID = 123406, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
 	[226362] = {{ID = 123407, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
-	-- Delves: Earthcrawl Mines
+	--[[ 
+	===============================================================================
+								DELVES
+	===============================================================================
+	--]]
+	-- Earthcrawl Mines
 	[215685] = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
 		{ID = 120383, CanConfirm = false, Conditions = {}}
 	},
-	-- Delves: The Waterworks
+	-- The Waterworks
 	[214143] = {{ID = 120018, CanConfirm = false, Conditions = {}}},
+	--[[ 
+	===============================================================================
+								ALLIED RACES
+	===============================================================================
+	--]]
+	--[[
+		=================
+		Earthen
+		=================
+	]]--
+	[224809] = {
+		{ID = 122137, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
+		{ID = 122179, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
+		{ID = 123625, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}}
+	},
+	[224797] = {
+		{ID = 122312, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
+		{ID = 122199, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
+		{ID = 123793, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}}
+	},
+	[224810] = {
+		{ID = 122313, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
+		{ID = 122219, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}},
+		{ID = 124010, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79201}}}}
+	},
+	[227273] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
+	[221912] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
 }

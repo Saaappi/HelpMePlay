@@ -42,7 +42,6 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.playerSpecName = select(2, GetSpecializationInfoByID(HelpMePlay.playerSpecID))
         HelpMePlay.playerGUID = UnitGUID("player")
         HelpMePlay.playerMapID = HelpMePlay.GetBestMapByMapID(C_Map.GetBestMapForUnit("player"))
-        HelpMePlay.playerMapName = C_Map.GetMapInfo(C_Map.GetBestMapForUnit("player")).name
         HelpMePlay.playerName = UnitName("player")
 
         local faction = LHMP:GetUnlocalizedUnitFaction("player")
@@ -61,6 +60,10 @@ local function OnEvent(_, event, arg1, arg2)
         HelpMePlay.RefreshMountsByType("AQ")
         HelpMePlay.RefreshMountsByType("Vashjir")
         HelpMePlay.RefreshMountsByType("Unused")
+
+        if HelpMePlay.playerMapID then
+            HelpMePlay.playerMapName = C_Map.GetMapInfo(HelpMePlay.playerMapID).name
+        end
 
         -- If the Deposit Keep Amount is greater than 1,000, then
         -- reset its value to 0.
