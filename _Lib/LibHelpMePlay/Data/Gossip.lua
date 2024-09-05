@@ -657,10 +657,12 @@ LHMP.Gossips = {
 	[182258] = {{ID = 55597, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65071}}}}},
 	[182610] = {{ID = 51849, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65100}}}}},
 	[182611] = {{ID = 51850, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65100}}}}},
-	-------------------------
-	-- THE WAR WITHIN -------
-	-------------------------
-	-- The War Within Questline
+	--[[ 
+	===============================================================================
+								KHAZ ALGAR
+	===============================================================================
+	--]]
+	-- ===== The War Within Questline =====
 	[213624] = {{ID = 120882, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78715}}}}},
 	[214669] = {{ID = 121542, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80500}}}}},
 	[213627] = {
@@ -669,7 +671,8 @@ LHMP.Gossips = {
 	},
 	[220018] = {{ID = 121860, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78721}}}}},
 	[219956] = {{ID = 124153, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80321}}}}},
-	-- Isle of Dorn
+	-- ===============================================================================
+	-- ===== Isle of Dorn =====
 	[219757] = {{ID = 121391, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78536}}}}},
 	[219014] = {{ID = 122786, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,1}}}}},
 	[212369] = {{ID = 120909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,2}}}}},
@@ -760,7 +763,8 @@ LHMP.Gossips = {
 	},
 	[220564] = {{ID = 121576, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
 	[217082] = {{ID = 121577, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
-	-- The Ringing Deeps
+	-- ===============================================================================
+	-- ===== The Ringing Deeps =====
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
 	[215563] = {{ID = 121192, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78838}}}}},
 	[213875] = {{ID = 121195, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78838}}}}},
@@ -818,7 +822,8 @@ LHMP.Gossips = {
 	},
 	[220597] = {{ID = 122201, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80682}}}}},
 	[219477] = {{ID = 121524, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79530}}}}},
-	-- Hallowfall
+	-- ===============================================================================
+	-- ===== Hallowfall =====
 	[217826] = {{ID = 120738, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78671}}}}},
 	[214407] = {{ID = 121725, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78937}}}}},
 	[221411] = {{ID = 121757, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78939}}}}},
@@ -910,7 +915,8 @@ LHMP.Gossips = {
 	[217808] = {{ID = 120735, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79167}}}}},
 	[215333] = {{ID = 120755, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79168}}}}},
 	[218267] = {{ID = 120750, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79168}}}}},
-	-- Azj-Kahet
+	-- ===============================================================================
+	-- ===== Azj-Kahet =====
 	[219109] = {{ID = 121150, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79139}}}}},
 	[207471] = {
 		{ID = 122860, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78392,1}}}},
@@ -1007,7 +1013,8 @@ LHMP.Gossips = {
 	[221697] = {{ID = 122624, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80203}}}}},
 	[219372] = {{ID = 121669, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80203}}}}},
 	[221094] = {{ID = 121776, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80205}}}}},
-	-- Against the Current Questline
+	-- ===============================================================================
+	-- ===== Storyline | The War Within | Against the Current =====
 	[216149] = {{ID = 121591, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79333}}}}},
 	[220963] = {{ID = 122277, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82153}}}}},
 	[221143] = {
@@ -1017,7 +1024,8 @@ LHMP.Gossips = {
 	[217859] = {{ID = 122851, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83271}}}}},
 	[453194] = {{ID = 122852, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83271}}}}},
 	[453366] = {{ID = 122926, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83286}}}}},
-	-- Ties That Bind Questline
+	-- ===============================================================================
+	-- ===== Storyline | The War Within | Ties That Bind =====
 	[214965] = {
 		{ID = 121930, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79107}}}},
 		{ID = 121932, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79107}}}}
@@ -1049,17 +1057,20 @@ LHMP.Gossips = {
 	[223763] = {{ID = 121198, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81913}}}}},
 	[214916] = {{ID = 121537, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79156}}}}},
 	[223764] = {{ID = 121565, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79157}}}}},
-	-- The Machines March to War Questline
+	-- ===============================================================================
+	-- Storyline | The War Within | The Machines March to War =====
 	[214664] = {
 		{ID = 120642, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79023}}}},
 		{ID = 121305, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79024}}}}
 	},
 	[230643] = {{ID = 121561, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80145}}}}},
 	[220896] = {{ID = 121606, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79029}}}}},
-	-- A Light in the Dark Questline
+	-- ===============================================================================
+	-- Storyline | The War Within | A Light in the Dark =====
 	[214273] = {{ID = 122377, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78948}}}}},
 	[220641] = {{ID = 123406, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
 	[226362] = {{ID = 123407, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
+	-- ===============================================================================
 	--[[ 
 	===============================================================================
 								DELVES
