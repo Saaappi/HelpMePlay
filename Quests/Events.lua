@@ -205,7 +205,7 @@ local function OnEvent(_, event, ...)
     end
 
     if event == "CONFIRM_BINDER" then
-        StaticPopup1Button1:Click("LeftButton")
+        C_Timer.After(0.25, function() StaticPopup1Button1:Click("LeftButton") end)
     end
 
     -- PLAYER_CHOICE_UPDATE
