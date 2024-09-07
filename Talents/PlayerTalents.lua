@@ -1,8 +1,8 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local classTalentsButton = {}
-local classID = 0
-local specID = 0
+local classId = 0
+local specId = 0
 
 local function AreAllTalentNodeConditionsMet(activeConfigID, node)
     for _, conditionID in next, node.conditionIDs do
@@ -29,14 +29,14 @@ local function GetSpellLinkFromEntryID(activeConfigID, entryID)
 end
 
 local function GetLoadoutConfigID()
-    local lastSelected = specID and C_ClassTalents.GetLastSelectedSavedConfigID(specID)
+    local lastSelected = specId and C_ClassTalents.GetLastSelectedSavedConfigID(specId)
     local selectionID = ClassTalentFrame and ClassTalentFrame.TalentsTab and ClassTalentFrame.TalentsTab.LoadoutDropDown and ClassTalentFrame.TalentsTab.LoadoutDropDown.GetSelectionID and ClassTalentFrame.TalentsTab.LoadoutDropDown:GetSelectionID()
 
     return selectionID or lastSelected or C_ClassTalents.GetActiveConfigID() or nil
 end
 
-local function PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID)
-    local wasSuccessful = false
+local function PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId)
+    --[[local wasSuccessful = false
     for _, talent in next, loadoutEntryInfo do
         local node = C_Traits.GetNodeInfo(activeConfigID, talent.nodeID)
         if node.type == 0 and AreAllTalentNodeConditionsMet(activeConfigID, node) then
@@ -64,6 +64,22 @@ local function PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID
                 C_ClassTalents.CommitConfig(loadoutConfigID)
             end
         end
+    end]]
+    local removed = 0
+    for index, talent in pairs(loadoutEntryInfo) do
+        local success = false
+        if talent.selectionEntryID then
+            success = C_Traits.SetSelection(activeConfigId, talent.nodeID, talent.selectionEntryID)
+        elseif talent.ranksPurchased then
+            for rank = 1, talent.ranksPurchased do
+                success = C_Traits.PurchaseRank(activeConfigId, talent.nodeID)
+            end
+        end
+        if success then
+            removed = removed + 1
+            loadoutEntryInfo[index] = nil
+            HelpMePlay.Print(string.format(HelpMePlay.Tooltips["LEARNED_TALENT"], GetSpellLinkFromEntryID(activeConfigId, talent.selectionEntryID)))
+        end
     end
 end
 
@@ -77,12 +93,12 @@ eventHandler:RegisterEvent("PLAYER_LOGIN")
 eventHandler:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
 eventHandler:SetScript("OnEvent", function(self, event, ...)
     if event == "PLAYER_LOGIN" then
-        classID = select(3, UnitClass("player"))
-        specID = select(1, PlayerUtil.GetCurrentSpecID())
+        classId = select(3, UnitClass("player"))
+        specId = select(1, PlayerUtil.GetCurrentSpecID())
     end
 
     if event == "PLAYER_SPECIALIZATION_CHANGED" then
-        specID = select(1, PlayerUtil.GetCurrentSpecID())
+        specId = select(1, PlayerUtil.GetCurrentSpecID())
     end
 end)
 
@@ -105,18 +121,18 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
     classTalentsButton:SetPoint("RIGHT", classTalentsButton:GetParent(), "LEFT", -20, 0)
 
     classTalentsButton:SetScript("OnClick", function()
-        if HelpMePlayDB["ClassTalents"][classID][specID] then
+        if HelpMePlayDB["ClassTalents"][classId][specId] then
             -- Check if the imported string is from the current patch. If it's
             -- not, then we need to return an error and the player must import
             -- a new string.
-            if not string.find(HelpMePlayDB["ClassTalents"][classID][specID].importPatch, (GetBuildInfo())) then
+            if not string.find(HelpMePlayDB["ClassTalents"][classId][specId].importPatch, (GetBuildInfo())) then
                 ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH)
                 return false
             end
 
             -- Use Blizzard's ExportUtil to make an import data stream from the
             -- exported string found online.
-            local importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB["ClassTalents"][classID][specID].importString)
+            local importStream = ExportUtil.MakeImportDataStream(HelpMePlayDB["ClassTalents"][classId][specId].importString)
 
             -- Using the new import data stream, determine the specID that is
             -- associated to the data stream. If it doesn't match the current
@@ -129,16 +145,16 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
 
             -- Get the configID for the player's current specialization. This
             -- has nothing to do with an individual loadout's configID.
-            local activeConfigID = C_ClassTalents.GetActiveConfigID()
-            if not activeConfigID then return end
+            local activeConfigId = C_ClassTalents.GetActiveConfigID()
+            if not activeConfigId then return end
 
             -- Get the current tree's info.
-            local treeID = C_ClassTalents.GetTraitTreeForSpec(specID)
+            local treeId = C_ClassTalents.GetTraitTreeForSpec(specId)
 
-            local loadoutContent = ClassTalentImportExportMixin:ReadLoadoutContent(importStream, treeID)
-            local loadoutEntryInfo = ClassTalentImportExportMixin:ConvertToImportLoadoutEntryInfo(activeConfigID, treeID, loadoutContent)
+            local loadoutContent = ClassTalentImportExportMixin:ReadLoadoutContent(importStream, treeId)
+            local loadoutEntryInfo = ClassTalentImportExportMixin:ConvertToImportLoadoutEntryInfo(activeConfigId, treeId, loadoutContent)
 
-            Import(activeConfigID, loadoutEntryInfo, treeID)
+            Import(activeConfigId, loadoutEntryInfo, treeId)
 
             return true
         end
@@ -146,7 +162,7 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
     classTalentsButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(classTalentsButton, "ANCHOR_CURSOR_RIGHT")
         GameTooltip:SetText("Class Talents")
-        if HelpMePlayDB["ClassTalents"][classID][specID] and (HelpMePlayDB["ClassTalents"][classID][specID].importString ~= nil and HelpMePlayDB["ClassTalents"][classID][specID].importString ~= "") then
+        if HelpMePlayDB["ClassTalents"][classId][specId] and (HelpMePlayDB["ClassTalents"][classId][specId].importString ~= nil and HelpMePlayDB["ClassTalents"][classId][specId].importString ~= "") then
             --[[GameTooltip:AddLine(string.format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
             HelpMePlay.playerClassColor:GenerateHexColor(),
             HelpMePlay.playerSpecName,

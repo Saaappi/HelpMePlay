@@ -10,5 +10,6 @@ HelpMePlay.Tooltips = {
     "Click and hold to drag."),
     ["FeatureIsWorkInProgress"] = LHMP:ColorText("RED", "This feature is a work in progress."),
     ["LEARN_RANDOM_TALENT"] = "Click to learn a random talent for your specialization.",
+    ["LEARNED_TALENT"] = "Learned: %s",
     ["SPECIALIZATION_UNSUPPORTED"] = LHMP:ColorText("POOR", "Your current specialization is unsupported.")
 }
