@@ -1,5 +1,5 @@
 local addonName, HelpMePlay = ...
-local dynamicFlightTalentsButton = CreateFrame("Button")
+local skyridingTalentsButton = CreateFrame("Button")
 
 local skyridingTalents = {
     { ["nodeID"] = 64066, ["entryID"] = 82387 }, 	-- Take to the Skies
@@ -18,21 +18,21 @@ local skyridingTalents = {
 }
 
 local function PurchaseTalents()
-    local treeID = GenericTraitFrame:GetTalentTreeID() -- 672 (Skyriding)
-    local configID = C_Traits.GetConfigIDByTreeID(treeID)
+    local treeId = GenericTraitFrame:GetTalentTreeID() -- 672 (Skyriding)
+    local configId = C_Traits.GetConfigIDByTreeID(treeId)
 
-    C_Traits.ResetTree(configID, treeID)
+    C_Traits.ResetTree(configId, treeId)
 
     C_Timer.After(HelpMePlay.Constants["TIMER_DELAY"], function()
         for _, node in pairs(skyridingTalents) do
-            local nodeInfo = C_Traits.GetNodeInfo(configID, node.nodeID)
+            local nodeInfo = C_Traits.GetNodeInfo(configId, node.nodeID)
             if #nodeInfo.entryIDs > 1 then
-                C_Traits.SetSelection(configID, node.nodeID, node.entryID)
+                C_Traits.SetSelection(configId, node.nodeID, node.entryID)
             else
-                C_Traits.PurchaseRank(configID, node.nodeID)
+                C_Traits.PurchaseRank(configId, node.nodeID)
             end
         end
-        C_Traits.CommitConfig(configID)
+        C_Traits.CommitConfig(configId)
     end)
 end
 
@@ -40,31 +40,26 @@ EventRegistry:RegisterCallback("GenericTraitFrame.OnShow", function()
     if HelpMePlayDB["UseDynamicFlightButton"] == false then return end
 
 	if GenericTraitFrame.Header.Title:GetText() == GENERIC_TRAIT_FRAME_DRAGONRIDING_TITLE then
-        dynamicFlightTalentsButton = HelpMePlay.CreateWidget("IconButton", {
+        skyridingTalentsButton = HelpMePlay.CreateWidget("ActionButton", {
             name = string.format("%sSkyridingTalentButton", addonName),
-            texture = 4728198,
             parent = GenericTraitFrame.Currency,
-            anchor = "TOPRIGHT",
-            relativeAnchor = "BOTTOMRIGHT",
-            xOff = 0,
-            yOff = -15,
-            width = 24,
-            height = 24,
-            useFontString = false,
-            fontStringText = ""
         })
 
-        dynamicFlightTalentsButton:ClearAllPoints()
-        dynamicFlightTalentsButton:SetPoint("TOPRIGHT", GenericTraitFrame.Currency, "BOTTOMRIGHT", 0, -15)
+        skyridingTalentsButton:ClearAllPoints()
+        skyridingTalentsButton:SetPoint("TOPRIGHT", GenericTraitFrame.Currency, "BOTTOMRIGHT", 0, -15)
 
-        dynamicFlightTalentsButton:SetScript("OnClick", PurchaseTalents)
-        dynamicFlightTalentsButton:SetScript("OnEnter", function(self)
-            HelpMePlay.Tooltip_OnEnter(self, "Skyriding", "Click to learn your Skyriding talents.")
+        skyridingTalentsButton.icon:SetTexture(4728198)
+
+        skyridingTalentsButton:SetScale(0.6)
+
+        skyridingTalentsButton:SetScript("OnClick", PurchaseTalents)
+        skyridingTalentsButton:SetScript("OnEnter", function(self)
+            HelpMePlay.Tooltip_OnEnter(self, "Skyriding", HelpMePlay.Tooltips["LEARN_SKYRIDING_TALENTS"])
         end)
-        dynamicFlightTalentsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+        skyridingTalentsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 	end
 end)
 
 EventRegistry:RegisterCallback("GenericTraitFrame.OnHide", function()
-    dynamicFlightTalentsButton:Hide()
+    skyridingTalentsButton:Hide()
 end)
