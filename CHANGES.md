@@ -4,7 +4,7 @@
 ### Changed or Updated
 - Hero Talents are now integrated into the talent system automation.
 - The Skyriding Talents sub-system has been rebranded as the **Generic Traits** sub-system.
-  - _**Author's Note**: The setting has been reset to **false** for all users._
+  - _**Author's Note**: The setting has been updated and reset to **false** for all users._
 ### Deprecated
 _No changes_
 ### Removed
