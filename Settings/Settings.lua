@@ -159,11 +159,12 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
-        "Skyriding",
-        "UseDynamicFlightButton",
+        "Generic Traits",
+        "UseGenericTalentsButton",
         false,
-        HelpMePlayDB["UseDynamicFlightButton"],
-        "Toggle to add a button to the Skyriding UI to quickly learn its traits."
+        HelpMePlayDB["UseGenericTalentsButton"],
+        "Toggle to add a button to the generic talents UI to quickly learn its talents.\n\n" ..
+        LHMP:ColorText("RED", "This feature currently only supports Skyriding.")
     )
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -979,6 +980,7 @@ function HelpMePlay.Init()
         "ShowRemixUsablesButton",
         "TheMawEnabled",
         "TimerunningHeroicDungeonQueue",
+        "UseDynamicFlightButton",
         "UseHeirloomAutomation",
         "UsePartyPlay",
         "HelpMePlay_DepositKeepAmount",
@@ -1042,8 +1044,8 @@ function HelpMePlay.Init()
         SkipCutscenes = false,
         TrainerProtectionValue = 0,
         UseAdventureMaps = false,
-        UseDynamicFlightButton = false,
         UseEmotes = false,
+        UseGenericTalentsButton = false,
         UsePlayerChoice = false,
         UseWarMode = false,
         UseWaterReminder = false,

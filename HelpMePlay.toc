@@ -21,6 +21,7 @@ _Data\TalentImporter.lua
 _Data\Mounts.lua
 _Data\Quests.lua
 _Data\Maps.lua
+_Data\Talents.lua
 _Data\Tooltips.lua
 _Data\Strings.lua
 
@@ -78,7 +79,7 @@ Cutscenes\Cutscenes.lua
 
 # Talents Module
 Talents\PlayerTalents.lua
-Talents\Skyriding.lua
+Talents\GenericTalents.lua
 
 # Inventory Module
 Inventory\OpenContainers.lua

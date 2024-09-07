@@ -12,5 +12,5 @@ HelpMePlay.Tooltips = {
     ["LEARN_RANDOM_TALENT"] = LHMP:ColorText("COMMON", "Click to learn a random talent for your specialization."),
     ["LEARNED_TALENT"] = "Learned: %s",
     ["SPECIALIZATION_UNSUPPORTED"] = LHMP:ColorText("POOR", "Your current specialization is unsupported."),
-    ["LEARN_SKYRIDING_TALENTS"] = LHMP:ColorText("COMMON", "Click to learn your Skyriding talents.")
+    ["LEARN_GENERIC_TALENTS"] = LHMP:ColorText("COMMON", "Click to learn %s talents.")
 }
