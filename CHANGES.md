@@ -2,7 +2,7 @@
 
 ### Added
 ### Changed or Updated
-
+- Hero Talents are now integrated into the talent system automation.
 ### Deprecated
 _No changes_
 ### Removed
