@@ -145,22 +145,26 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 end)
 
 EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
-    classTalentsButton = HelpMePlay.CreateWidget("IconButton", {
+    classTalentsButton = HelpMePlay.CreateWidget("ActionButton", {
         name = string.format("%sClassTalentsButton", addonName),
-        texture = 132222,
+        --texture = 132222,
         parent = PlayerSpellsFrame.TalentsFrame.ApplyButton,
-        anchor = "RIGHT",
-        relativeAnchor = "LEFT",
-        xOff = -20,
-        yOff = 0,
-        width = 24,
-        height = 24,
-        useFontString = false,
-        fontStringText = ""
+        --anchor = "RIGHT",
+        --relativeAnchor = "LEFT",
+        --xOff = -20,
+        --yOff = 0,
+        --width = 24,
+        --height = 24,
+        --useFontString = false,
+        --fontStringText = ""
     })
 
     classTalentsButton:ClearAllPoints()
     classTalentsButton:SetPoint("RIGHT", classTalentsButton:GetParent(), "LEFT", -20, 0)
+
+    classTalentsButton.icon:SetTexture(132222)
+
+    classTalentsButton:SetScale(0.6)
 
     classTalentsButton:SetScript("OnClick", function()
         if HelpMePlayDB["ClassTalents"][classId][specId] then
