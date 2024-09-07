@@ -8,5 +8,7 @@ HelpMePlay.Tooltips = {
     ["PetBattleBandageButton"] = LHMP:ColorText("GOLD", "Use left-click to heal your battle pets if they're injured. The " .. LHMP:ColorText("COMMON", "Revive Battle Pets") .. " ability is used before bandages.\n\n" ..
     "Use right-click to equip your " .. LHMP:ColorText("RARE", "[Safari Hat]") .. ".\n\n" ..
     "Click and hold to drag."),
-    ["FeatureIsWorkInProgress"] = LHMP:ColorText("RED", "This feature is a work in progress.")
+    ["FeatureIsWorkInProgress"] = LHMP:ColorText("RED", "This feature is a work in progress."),
+    ["LEARN_RANDOM_TALENT"] = "Click to learn a random talent for your specialization.",
+    ["SPECIALIZATION_UNSUPPORTED"] = LHMP:ColorText("POOR", "Your current specialization is unsupported.")
 }

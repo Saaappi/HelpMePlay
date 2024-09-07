@@ -147,20 +147,21 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
         GameTooltip:SetOwner(classTalentsButton, "ANCHOR_CURSOR_RIGHT")
         GameTooltip:SetText("Class Talents")
         if HelpMePlayDB["ClassTalents"][classID][specID] and (HelpMePlayDB["ClassTalents"][classID][specID].importString ~= nil and HelpMePlayDB["ClassTalents"][classID][specID].importString ~= "") then
-            GameTooltip:AddLine(string.format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
+            --[[GameTooltip:AddLine(string.format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
             HelpMePlay.playerClassColor:GenerateHexColor(),
             HelpMePlay.playerSpecName,
             HelpMePlay.playerClassName,
             HelpMePlayDB["ClassTalents"][classID][specID].importDate,
-            HelpMePlayDB["ClassTalents"][classID][specID].importPatch), 1, 1, 1, true)
+            HelpMePlayDB["ClassTalents"][classID][specID].importPatch), 1, 1, 1, true)]]
+            GameTooltip:AddLine(HelpMePlay.Tooltips["LEARN_RANDOM_TALENT"])
         else
-            GameTooltip:AddLine("|cff56585DYour current specialization is unsupported.|r")
+            GameTooltip:AddLine(HelpMePlay.Tooltips["SPECIALIZATION_UNSUPPORTED"])
         end
         GameTooltip:Show()
     end)
     classTalentsButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
     if C_AddOns.IsAddOnLoaded("ZygorGuidesViewer") then
-        classTalentsButton:SetPoint("RIGHT", PlayerSpellsFrame.TalentsFrame.ApplyButton, "LEFT", -50, 0)
+        classTalentsButton:SetPoint("RIGHT", PlayerSpellsFrame.TalentsFrame.ApplyButton, "LEFT", -60, 0)
     end
 end)
