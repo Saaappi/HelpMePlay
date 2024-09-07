@@ -3,7 +3,9 @@ local eventHandler = CreateFrame("Frame")
 local classTalentsButton = {}
 local classId = 0
 local specId = 0
+local LOADOUT_SERIALIZATION_VERSION = 2
 
+--[[ Disabled - 9/7/2024
 local function AreAllTalentNodeConditionsMet(activeConfigID, node)
     for _, conditionID in next, node.conditionIDs do
         local condition = C_Traits.GetConditionInfo(activeConfigID, conditionID)
@@ -12,11 +14,11 @@ local function AreAllTalentNodeConditionsMet(activeConfigID, node)
         end
     end
     return true
-end
+end]]
 
-local function GetSpellLinkFromEntryID(activeConfigID, entryID)
-    local entryInfo = C_Traits.GetEntryInfo(activeConfigID, entryID)
-    if entryInfo then
+local function GetSpellLinkFromEntryID(activeConfigId, entryId)
+    local entryInfo = C_Traits.GetEntryInfo(activeConfigId, entryId)
+    if entryInfo and entryInfo.definitionID then
         local definitionInfo = C_Traits.GetDefinitionInfo(entryInfo.definitionID)
         if definitionInfo and definitionInfo.spellID then
             local spellLink = C_Spell.GetSpellLink(definitionInfo.spellID)
@@ -28,12 +30,41 @@ local function GetSpellLinkFromEntryID(activeConfigID, entryID)
     return ""
 end
 
+local function ConvertToImportLoadoutEntryInfo(treeId, loadoutContent)
+    local results = {}
+    local treeNodes = C_Traits.GetTreeNodes(treeId)
+    local configId = C_ClassTalents.GetActiveConfigID()
+    local count = 1;
+    for i, treeNodeId in ipairs(treeNodes) do
+        local indexInfo = loadoutContent[i]
+        if indexInfo.isNodeSelected then
+            local treeNode = C_Traits.GetNodeInfo(configId, treeNodeId);
+            local isChoiceNode = treeNode.type == Enum.TraitNodeType.Selection or treeNode.type == Enum.TraitNodeType.SubTreeSelection;
+            local choiceNodeSelection = indexInfo.isChoiceNode and indexInfo.choiceNodeSelection or nil;
+            if indexInfo.isNodeSelected and isChoiceNode ~= indexInfo.isChoiceNode then
+                print(string.format(HelpMePlay.ErrorMessages["IMPORT_STRING_CORRUPTED"], treeNodeId, specId))
+                choiceNodeSelection = 1
+            end
+            local result = {}
+            result.nodeID = treeNode.ID
+            result.ranksPurchased = indexInfo.isPartiallyRanked and indexInfo.partialRanksPurchased or treeNode.maxRanks;
+            result.selectionEntryID = indexInfo.isNodeSelected and isChoiceNode and treeNode.entryIDs[choiceNodeSelection] or nil
+            results[count] = result
+            count = count + 1
+        end
+
+    end
+
+    return results
+end
+
+--[[ Disabled - 9/7/2024
 local function GetLoadoutConfigID()
     local lastSelected = specId and C_ClassTalents.GetLastSelectedSavedConfigID(specId)
     local selectionID = ClassTalentFrame and ClassTalentFrame.TalentsTab and ClassTalentFrame.TalentsTab.LoadoutDropDown and ClassTalentFrame.TalentsTab.LoadoutDropDown.GetSelectionID and ClassTalentFrame.TalentsTab.LoadoutDropDown:GetSelectionID()
 
     return selectionID or lastSelected or C_ClassTalents.GetActiveConfigID() or nil
-end
+end]]
 
 local function PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId)
     --[[local wasSuccessful = false
@@ -78,13 +109,24 @@ local function PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId
         if success then
             removed = removed + 1
             loadoutEntryInfo[index] = nil
-            HelpMePlay.Print(string.format(HelpMePlay.Tooltips["LEARNED_TALENT"], GetSpellLinkFromEntryID(activeConfigId, talent.selectionEntryID)))
+            --HelpMePlay.Print(string.format(HelpMePlay.Tooltips["LEARNED_TALENT"], GetSpellLinkFromEntryID(activeConfigId, talent.selectionEntryID)))
         end
     end
+
+    return removed
 end
 
-local function Import(activeConfigID, loadoutEntryInfo, treeID)
-    PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID)
+local function Import(activeConfigId, loadoutEntryInfo, treeId)
+    --[[PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID)
+
+    return true]]
+    C_Traits.ResetTree(activeConfigId, treeId)
+    while true do
+        local removed = PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId)
+        if removed == 0 then
+            break
+        end
+    end
 
     return true
 end
@@ -137,10 +179,19 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
             -- Using the new import data stream, determine the specID that is
             -- associated to the data stream. If it doesn't match the current
             -- class and specialization, then it can't be used.
-            local loadoutSpecID = select(3, ClassTalentImportExportMixin:ReadLoadoutHeader(importStream))
-            if loadoutSpecID ~= PlayerUtil.GetCurrentSpecID() then
-                ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
-                return false
+            local headerValid, serializationVersion, loadoutSpecId, treeHash = ClassTalentImportExportMixin:ReadLoadoutHeader(importStream)
+
+            if not headerValid then
+                return false, LOADOUT_ERROR_BAD_STRING
+            end
+
+            if serializationVersion ~= LOADOUT_SERIALIZATION_VERSION then
+                return false, LOADOUT_ERROR_SERIALIZATION_VERSION_MISMATCH
+            end
+
+            if loadoutSpecId ~= PlayerUtil.GetCurrentSpecID() then
+                --ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
+                return false, LOADOUT_ERROR_WRONG_SPEC
             end
 
             -- Get the configID for the player's current specialization. This
@@ -152,7 +203,7 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
             local treeId = C_ClassTalents.GetTraitTreeForSpec(specId)
 
             local loadoutContent = ClassTalentImportExportMixin:ReadLoadoutContent(importStream, treeId)
-            local loadoutEntryInfo = ClassTalentImportExportMixin:ConvertToImportLoadoutEntryInfo(activeConfigId, treeId, loadoutContent)
+            local loadoutEntryInfo = ConvertToImportLoadoutEntryInfo(treeId, loadoutContent)
 
             Import(activeConfigId, loadoutEntryInfo, treeId)
 
