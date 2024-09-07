@@ -33,22 +33,6 @@ local function PurchaseTalents()
             end
         end
         C_Traits.CommitConfig(configID)
-        --[[for talentButton in GenericTraitFrame:EnumerateAllTalentButtons() do
-            local nodeInfo = talentButton:GetNodeInfo()
-            if #nodeInfo.entryIDs > 1 then
-                for _, entryID in next, nodeInfo.entryIDs do
-                    local entryInfo = C_Traits.GetEntryInfo(configID, entryID)
-                    local definitionInfo = C_Traits.GetDefinitionInfo(entryInfo.definitionID)
-                    local spellName = C_Spell.GetSpellName(definitionInfo.spellID))
-                    print(nodeInfo.ID .. "-" .. entryID .. " (" .. spellName .. ")")
-                end
-            else
-                local entryInfo = C_Traits.GetEntryInfo(configID, nodeInfo.entryIDs[1])
-                local definitionInfo = C_Traits.GetDefinitionInfo(entryInfo.definitionID)
-                local spellName = C_Spell.GetSpellName(definitionInfo.spellID))
-                print(nodeInfo.ID .. "-" .. nodeInfo.entryIDs[1] .. " (" .. spellName .. ")")
-            end
-        end]]
     end)
 end
 
