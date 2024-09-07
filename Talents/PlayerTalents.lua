@@ -5,31 +5,6 @@ local classId = 0
 local specId = 0
 local LOADOUT_SERIALIZATION_VERSION = 2
 
---[[ Disabled - 9/7/2024
-local function AreAllTalentNodeConditionsMet(activeConfigID, node)
-    for _, conditionID in next, node.conditionIDs do
-        local condition = C_Traits.GetConditionInfo(activeConfigID, conditionID)
-        if not condition.isMet then
-            return false
-        end
-    end
-    return true
-end]]
-
-local function GetSpellLinkFromEntryID(activeConfigId, entryId)
-    local entryInfo = C_Traits.GetEntryInfo(activeConfigId, entryId)
-    if entryInfo and entryInfo.definitionID then
-        local definitionInfo = C_Traits.GetDefinitionInfo(entryInfo.definitionID)
-        if definitionInfo and definitionInfo.spellID then
-            local spellLink = C_Spell.GetSpellLink(definitionInfo.spellID)
-            if spellLink then
-                return spellLink
-            end
-        end
-    end
-    return ""
-end
-
 local function ConvertToImportLoadoutEntryInfo(treeId, loadoutContent)
     local results = {}
     local treeNodes = C_Traits.GetTreeNodes(treeId)
@@ -58,44 +33,7 @@ local function ConvertToImportLoadoutEntryInfo(treeId, loadoutContent)
     return results
 end
 
---[[ Disabled - 9/7/2024
-local function GetLoadoutConfigID()
-    local lastSelected = specId and C_ClassTalents.GetLastSelectedSavedConfigID(specId)
-    local selectionID = ClassTalentFrame and ClassTalentFrame.TalentsTab and ClassTalentFrame.TalentsTab.LoadoutDropDown and ClassTalentFrame.TalentsTab.LoadoutDropDown.GetSelectionID and ClassTalentFrame.TalentsTab.LoadoutDropDown:GetSelectionID()
-
-    return selectionID or lastSelected or C_ClassTalents.GetActiveConfigID() or nil
-end]]
-
 local function PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId)
-    --[[local wasSuccessful = false
-    for _, talent in next, loadoutEntryInfo do
-        local node = C_Traits.GetNodeInfo(activeConfigID, talent.nodeID)
-        if node.type == 0 and AreAllTalentNodeConditionsMet(activeConfigID, node) then
-            if node.canPurchaseRank then
-                wasSuccessful = C_Traits.PurchaseRank(activeConfigID, talent.nodeID)
-            end
-        elseif node.type == 2 and AreAllTalentNodeConditionsMet(activeConfigID, node) then
-            if node.canPurchaseRank then
-                wasSuccessful = C_Traits.SetSelection(activeConfigID, talent.nodeID, talent.selectionEntryID)
-            end
-        end
-        if wasSuccessful then
-            HelpMePlay.Print(string.format("Learned %s!", GetSpellLinkFromEntryID(activeConfigID, talent.selectionEntryID)))
-            wasSuccessful = false
-        end
-    end
-
-    local treeCurrencyInfo = C_Traits.GetTreeCurrencyInfo(activeConfigID, treeID, false)
-    if treeCurrencyInfo then
-        if treeCurrencyInfo[1].quantity > 0 or treeCurrencyInfo[2].quantity > 0 then
-            C_Timer.After(0.1, function() PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID) end)
-        else
-            local loadoutConfigID = GetLoadoutConfigID()
-            if loadoutConfigID then
-                C_ClassTalents.CommitConfig(loadoutConfigID)
-            end
-        end
-    end]]
     local removed = 0
     for index, talent in pairs(loadoutEntryInfo) do
         local success = false
@@ -109,7 +47,6 @@ local function PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId
         if success then
             removed = removed + 1
             loadoutEntryInfo[index] = nil
-            --HelpMePlay.Print(string.format(HelpMePlay.Tooltips["LEARNED_TALENT"], GetSpellLinkFromEntryID(activeConfigId, talent.selectionEntryID)))
         end
     end
 
@@ -117,9 +54,6 @@ local function PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId
 end
 
 local function Import(activeConfigId, loadoutEntryInfo, treeId)
-    --[[PurchaseLoadoutEntryInfo(activeConfigID, loadoutEntryInfo, treeID)
-
-    return true]]
     C_Traits.ResetTree(activeConfigId, treeId)
     while true do
         local removed = PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId)
@@ -208,12 +142,6 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
         GameTooltip:SetOwner(classTalentsButton, "ANCHOR_CURSOR_RIGHT")
         GameTooltip:SetText("Class Talents")
         if HelpMePlayDB["ClassTalents"][classId][specId] and (HelpMePlayDB["ClassTalents"][classId][specId].importString ~= nil and HelpMePlayDB["ClassTalents"][classId][specId].importString ~= "") then
-            --[[GameTooltip:AddLine(string.format("Click to learn a random talent from your loadout for |c%s%s %s|r.\n\n|cffFFD100Last Updated:|r %s (%s)",
-            HelpMePlay.playerClassColor:GenerateHexColor(),
-            HelpMePlay.playerSpecName,
-            HelpMePlay.playerClassName,
-            HelpMePlayDB["ClassTalents"][classID][specID].importDate,
-            HelpMePlayDB["ClassTalents"][classID][specID].importPatch), 1, 1, 1, true)]]
             GameTooltip:AddLine(HelpMePlay.Tooltips["LEARN_RANDOM_TALENT"])
         else
             GameTooltip:AddLine(HelpMePlay.Tooltips["SPECIALIZATION_UNSUPPORTED"])
