@@ -8,7 +8,7 @@
 ### Deprecated
 _No changes_
 ### Removed
-_No changes_
+- The Talents system will no longer display learned talents in the chat window.
 ### Fixed
 - Fixed an issue that caused the talent system to become stuck on top-row talent selection.
 
