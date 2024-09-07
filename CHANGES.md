@@ -2,11 +2,13 @@
 
 ### Added
 ### Changed or Updated
+
 ### Deprecated
 _No changes_
 ### Removed
 _No changes_
 ### Fixed
+- Fixed an issue that caused the talent system to become stuck on top-row talent selection.
 
 ## Superseded Updates
 _No superseded updates_
