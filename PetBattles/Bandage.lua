@@ -4,7 +4,7 @@ local LHMP = LibStub("LibHelpMePlay")
 local button
 
 local bandageID = 86143
-local reviveSpellID = 125439
+local reviveSpellId = 125439
 local reviveSpellName = C_Spell.GetSpellInfo(125439).name
 local safariHatID = 92738
 
@@ -49,7 +49,7 @@ HelpMePlay.CreatePetBattleBandageButton = function()
 
 			if btn == "LeftButton" then
 				if IsAnyPetInjured() then
-					local cooldown = select(2, GetSpellCooldown(reviveSpellID))
+					local cooldown = C_Spell.GetSpellCooldown(reviveSpellId).duration
 					if cooldown == 0 then
 						attributeType, attribute, text = "macro", "macrotext", "/cast " .. reviveSpellName
 					else

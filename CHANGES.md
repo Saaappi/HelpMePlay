@@ -13,6 +13,7 @@ _No changes_
 ### Fixed
 - Resolved an issue where quests offering a single reward would automatically equip the reward, regardless of the 'Item Level' option selected for Quest Rewards.
 - Corrected a problem that caused several mounts to be uncategorized due to unsupported types in the pre-patch content update.
+- Resolved an issue that was causing the Pet Battles bandage button to function improperly.
 
 ## Superseded Updates
 ### 3.1.0.1 - 2024/08/26
