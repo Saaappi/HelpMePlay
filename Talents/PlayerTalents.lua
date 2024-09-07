@@ -147,16 +147,7 @@ end)
 EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
     classTalentsButton = HelpMePlay.CreateWidget("ActionButton", {
         name = string.format("%sClassTalentsButton", addonName),
-        --texture = 132222,
         parent = PlayerSpellsFrame.TalentsFrame.ApplyButton,
-        --anchor = "RIGHT",
-        --relativeAnchor = "LEFT",
-        --xOff = -20,
-        --yOff = 0,
-        --width = 24,
-        --height = 24,
-        --useFontString = false,
-        --fontStringText = ""
     })
 
     classTalentsButton:ClearAllPoints()
@@ -194,7 +185,6 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
             end
 
             if loadoutSpecId ~= PlayerUtil.GetCurrentSpecID() then
-                --ClassTalentImportExportMixin:ShowImportError(LOADOUT_ERROR_WRONG_SPEC)
                 return false, LOADOUT_ERROR_WRONG_SPEC
             end
 
