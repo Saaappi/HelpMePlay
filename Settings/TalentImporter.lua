@@ -7,12 +7,12 @@ local frame
 local backButton
 
 -- This is the default height and width of the talent importer frame.
-local frameBaseHeight = 125
-local frameBaseWidth = 725
+local frameBaseHeight = 300
+local frameBaseWidth = 230.000015259
 
 -- This is the expanded height and width of the talent importer frame.
-local frameExpandedHeight = 375
---local frameExpandedWidth = 0 -- unused
+--local frameExpandedHeight = 350
+local frameExpandedWidth = 600
 
 -- These variables are some minor configuration for the frame.
 local frameTitle = "Talent Importer"
@@ -109,7 +109,7 @@ HelpMePlay.OpenTalentImporter = function()
 
             button:SetScript("OnClick", function()
                 -- Resize the frame to accommodate the edit boxes.
-                button:GetParent():SetHeight(frameExpandedHeight)
+                button:GetParent():SetWidth(frameExpandedWidth)
 
                 -- Delete the editboxes if they already exist to prevent them
                 -- from overlapping when they're recreated.
@@ -205,7 +205,7 @@ HelpMePlay.OpenTalentImporter = function()
                         backButton:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -10, 10)
 
                         backButton:SetScript("OnClick", function(self)
-                            frame:SetHeight(frameBaseHeight)
+                            frame:SetWidth(frameBaseWidth)
                             HideEditBoxes()
                             backButton:Hide()
                         end)
@@ -224,6 +224,12 @@ HelpMePlay.OpenTalentImporter = function()
             -- Set the class button positions.
             if index == 1 then
                 button:SetPoint("TOPLEFT", button:GetParent(), "TOPLEFT", 10, -60)
+            elseif index == 5 then
+                button:SetPoint("TOP", HelpMePlay.classButtons[1].name, "BOTTOM", 0, -10)
+            elseif index == 9 then
+                button:SetPoint("TOP", HelpMePlay.classButtons[5].name, "BOTTOM", 0, -10)
+            elseif index == 13 then
+                button:SetPoint("CENTER", button:GetParent(), "CENTER", 0, -95.000003814697)
             else
                 button:SetPoint("LEFT", HelpMePlay.classButtons[index-1].name, "RIGHT", 10, 0)
             end
