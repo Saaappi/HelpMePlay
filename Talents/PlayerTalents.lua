@@ -232,3 +232,29 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
         classTalentsButton:SetPoint("RIGHT", PlayerSpellsFrame.TalentsFrame.ApplyButton, "LEFT", -60, 0)
     end
 end)
+
+EventRegistry:RegisterCallback("TalentDisplay.TooltipHook", function(_, button)
+    if not button then return end
+    if not C_BattleNet.GetAccountInfoByGUID(HelpMePlay.playerGUID).battleTag == HelpMePlay.Constants["AUTHOR_BATTLETAG"] then return end
+
+    local tooltipString = ""
+    if button.GetNodeInfo then
+        local nodeInfo = button:GetNodeInfo()
+        if nodeInfo then
+            tooltipString = tooltipString .. string.format("Node ID: %d\n", nodeInfo.ID)
+        end
+    end
+    if button.entryID then
+        tooltipString = tooltipString .. string.format("Entry ID: %d\n", button.entryID)
+    end
+    if button.definitionID then
+        local definitionInfo = C_Traits.GetDefinitionInfo(button.definitionID)
+        if definitionInfo and definitionInfo.spellID then
+            tooltipString = tooltipString .. string.format("Spell ID: %d", definitionInfo.spellID)
+        end
+    end
+
+    if tooltipString ~= "" then
+        GameTooltip:AddLine(tooltipString)
+    end
+end)
