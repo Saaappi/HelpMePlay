@@ -5,14 +5,20 @@ HelpMePlay.CreateFrame = function(frameType, frameData)
         local frame = CreateFrame("Frame", frameData.name, frameData.parent, "PortraitFrameTemplate")
         frame:SetSize(frameData.width, frameData.height)
 
-        -- Make the frame movable.
-        frame:SetMovable(true)
-        frame:SetScript("OnMouseDown", function(self)
-            self:StartMoving()
-        end)
-        frame:SetScript("OnMouseUp", function(self)
-            self:StopMovingOrSizing()
-        end)
+        if frameData.movable then
+            -- Make the frame movable.
+            frame:SetMovable(true)
+            frame:SetScript("OnMouseDown", function(self)
+                self:StartMoving()
+            end)
+            frame:SetScript("OnMouseUp", function(self)
+                self:StopMovingOrSizing()
+                if frameData.saveName then
+                    local anchor, parent, relativeAnchor, xOff, yOff = self:GetPoint()
+                    HelpMePlayDB.Positions[frameData.saveName] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, xOff = xOff, yOff = yOff}
+                end
+            end)
+        end
 
         -- Make sure the frame can't be moved off screen.
         frame:SetClampedToScreen(true)

@@ -82,6 +82,8 @@ HelpMePlay.OpenTalentImporter = function()
     if not frame then
         frame = HelpMePlay.CreateFrame("Portrait", {
             name = string.format("%sTalentImporterFrame", addonName),
+            movable = true,
+            saveName = "TalentImporterFrame",
             parent = UIParent,
             width = frameBaseWidth,
             height = frameBaseHeight,
@@ -102,10 +104,17 @@ HelpMePlay.OpenTalentImporter = function()
         frame:Hide()
     end)
 
-    -- Set the frame's title, icon, and position.
+    -- Set the frame's title and portrait
     frame:SetTitle(frameTitle)
     frame:SetPortraitToAsset(frameIcon)
-    frame:SetPoint("CENTER", frame:GetParent(), "CENTER", 0, 0)
+
+    -- Set the frame's position.
+    if HelpMePlayDB.Positions["TalentImporterFrame"] then
+        local pos = HelpMePlayDB.Positions["TalentImporterFrame"]
+		frame:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.xOff, pos.yOff)
+    else
+        frame:SetPoint("CENTER", frame:GetParent(), "CENTER", 0, 75)
+    end
 
     -- Create the class icon buttons if they don't exist.
     if not _G[HelpMePlay.classButtons[1].name] then
