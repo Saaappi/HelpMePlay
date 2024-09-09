@@ -7,6 +7,8 @@
   - _**Author's Note**: The setting has been updated and reset to **false** for all users._
 - The Talent Importer utility has undergone a small visual update, resulting in a more condensed interface.
 - The Talent Importer utility's position is now saved.
+- The Talent Importer utility can no longer be opened in combat.
+  - _**Author's Note**: If the utility is open when entering combat, it will be hidden automatically._
 ### Deprecated
 _No changes_
 ### Removed
