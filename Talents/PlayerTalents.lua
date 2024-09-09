@@ -155,6 +155,7 @@ EventRegistry:RegisterCallback("PlayerSpellsFrame.TalentTab.Show", function()
     end
 end)
 
+--[[ Commenting out because I don't always need the information in the tooltip.
 EventRegistry:RegisterCallback("TalentDisplay.TooltipHook", function(_, button)
     if not button then return end
     if not C_BattleNet.GetAccountInfoByGUID(HelpMePlay.playerGUID).battleTag == HelpMePlay.Constants["AUTHOR_BATTLETAG"] then return end
@@ -179,4 +180,4 @@ EventRegistry:RegisterCallback("TalentDisplay.TooltipHook", function(_, button)
     if tooltipString ~= "" then
         GameTooltip:AddLine(tooltipString)
     end
-end)
+end)]]
