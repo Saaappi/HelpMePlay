@@ -1,5 +1,5 @@
 local addonName, HelpMePlay = ...
-local LHMP = LibStub("LibHelpMePlay")
+local eventFrame = CreateFrame("Frame")
 
 -- This is the talent importer frame variable.
 local frame
@@ -274,3 +274,17 @@ HelpMePlay.OpenTalentImporter = function()
     end
     frame:Show()
 end
+
+local function OnEvent(_, event, ...)
+    if event == "PLAYER_REGEN_DISABLED" then
+        C_Timer.After(0.5, function()
+            if InCombatLockdown() and (frame and frame:IsVisible()) then
+                frame:Hide()
+                return
+            end
+        end)
+    end
+end
+
+eventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
+eventFrame:SetScript("OnEvent", OnEvent)
