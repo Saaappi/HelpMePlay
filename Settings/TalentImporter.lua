@@ -1,4 +1,5 @@
 local addonName, HelpMePlay = ...
+local LHMP = LibStub("LibHelpMePlay")
 
 -- This is the talent importer frame variable.
 local frame
@@ -66,6 +67,11 @@ end
 -- This is called when the Talent Importer button is clicked
 -- from the settings.
 HelpMePlay.OpenTalentImporter = function()
+    if InCombatLockdown() then
+        HelpMePlay.Print(HelpMePlay.ErrorMessages["IN_COMBAT_LOCKDOWN"])
+        return
+    end
+
     -- If the frame is already visible, then hide it.
     if frame then
         if frame:IsVisible() then
