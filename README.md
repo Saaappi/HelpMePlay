@@ -27,6 +27,8 @@ The addon settings can be opened through the Escape menu (Options -> AddOns), vi
   - Add a button within the Skyriding talent interface for streamlined talent selection.
 - War Mode
   - When enabled, War Mode will automatically toggle upon entering Orgrimmar or Stormwind City while between levels 20 and 60.
+- Automatic Innkeeper Bind
+  - Automatically accepts the popup to set your hearthstone.
 - Always Compare Items
   - By default, Blizzard displays the comparison tooltip when hovering over any equippable item. To toggle this functionality, uncheck this button.
 
@@ -75,8 +77,6 @@ The addon settings can be opened through the Escape menu (Options -> AddOns), vi
 
 - Deposit Keep Amount
   - To automatically deposit gold into your Warbank, specify the desired amount to retain after each transaction. If your balance falls below this threshold, the addon will withdraw gold from the bank to maintain this set amount.
-- Keep Me Safe
-  - When enabled, this setting forces the player to confirm or deny every monetary transaction for the Warbank.
 
 ### Quest Mobs Module
 
@@ -129,6 +129,13 @@ New Character Configuration serves as a comprehensive template outlining the con
   - Toggle the creation (or destruction) of a Loot window on the chat frame during New Character Configuration.
 - Edit Mode
   - Select which Edit Mode layout should be used during New Character Configuration.
+
+### Health Module
+
+The Health module was implemented to introduce features to the addon to help maintain the player's health.
+
+- Water Reminder
+  - Toggle a text reminder to drink water. Optionally, you can also choose a sound to play with the text message if that will help you drink more water!
 
 #### Heirlooms
 
