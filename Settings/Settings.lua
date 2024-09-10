@@ -378,20 +378,20 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["shouldAutomaticRepair"],
         "Toggle to allow or prevent the addon from using your character's funds for automatic repair."
     )
-    HelpMePlay.AddSettingSlider(
+    HelpMePlay.AddSettingCVarSlider(
         category,
+        "Trainer Protection Value",
+        "AutoTrainerTransactions",
+        false,
+        HelpMePlayDB["AutoTrainerTransactions"],
+        "Toggle to automate learning new skills from trainers.",
         "Trainer Protection Value",
         "TrainerProtectionValue",
         0,
         HelpMePlayDB["TrainerProtectionValue"],
-        0,
-        1000,
-        10,
-        function()
-            return HelpMePlayDB["TrainerProtectionValue"]
-        end,
         "Set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
-        LHMP:ColorText("RED", "This slider steps in increments of 10.")
+        LHMP:ColorText("RED", "This slider steps in increments of 10."),
+        { minValue = 0, maxValue = 1000, increment = 10 }
     )
 
     --------------------------
@@ -1024,6 +1024,7 @@ function HelpMePlay.Init()
         AutomaticInnkeeperBind = false,
         AutoLoot = false,
         AutoPushSpells = true,
+        AutoTrainerTransactions = false,
         AutoWarbankTransactions = false,
         ChromieTimeExpansionID = 0,
         ClassColorFrames = false,
