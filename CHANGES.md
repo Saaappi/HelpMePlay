@@ -5,12 +5,14 @@
 - Implemented a setting to toggle accepting innkeeper binds.
 ### Changed or Updated
 - Hero Talents are now integrated into the talent system automation.
-- The Skyriding Talents sub-system has been rebranded as the **Generic Traits** sub-system.
+- The Skyriding Talents sub-system has been rebranded as the **Generic Talents** sub-system.
   - _**Author's Note**: The setting has been updated and reset to **false** for all users._
 - The Talent Importer utility has undergone a small visual update, resulting in a more condensed interface.
 - The Talent Importer utility's position is now saved.
 - The Talent Importer utility can no longer be opened in combat.
   - _**Author's Note**: If the utility is open when entering combat, it will be hidden automatically._
+- The **Deposit Keep Amount** and **Trainer Protection Value** sliders are now CVar sliders, complete with a companion check button.
+  - _**Author's Note**: The check button now serves as the primary method to toggle functionality on and off. Setting the sliders to 0 will no longer disable their effects. For example, setting the 'Deposit Keep Amount' to 0 will cause the addon to deposit all of your gold into the Warbank and prevent any withdrawals._
 ### Deprecated
 _No changes_
 ### Removed
