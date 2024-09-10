@@ -413,9 +413,7 @@ function HelpMePlay.RegisterSettings()
         "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
         "Visiting your Warband bank while below this threshold will instead attempt a withdrawal, provided the bank has the funds.\n\n" ..
         LHMP:ColorText("RED", "This slider moves in increments of 10."),
-        0,
-        1000,
-        10
+        { minValue = 0, maxValue = 1000, increment = 10 }
     )
 
     --------------------------
@@ -943,12 +941,12 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     return setting
 end
 
-function HelpMePlay.AddSettingCVarSlider(category, cbLabel, cbVariableName, cbDefaultValue, cbCurrentValue, cbTooltip, sliderLabel, sliderVariableName, sliderDefaultValue, sliderCurrentValue, sliderTooltip, minValue, maxValue, increment)
+function HelpMePlay.AddSettingCVarSlider(category, cbLabel, cbVariableName, cbDefaultValue, cbCurrentValue, cbTooltip, sliderLabel, sliderVariableName, sliderDefaultValue, sliderCurrentValue, sliderTooltip, options)
     local cbSetting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, cbVariableName), cbVariableName, HelpMePlayDB, type(cbDefaultValue), cbLabel, cbCurrentValue)
     local sliderSetting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, sliderVariableName), sliderVariableName, HelpMePlayDB, type(sliderDefaultValue), sliderLabel, sliderCurrentValue)
 
-    local options = Settings.CreateSliderOptions(minValue, maxValue, increment)
-    options:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
+    local sliderOptions = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.increment)
+    sliderOptions:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
         return value
     end)
 
@@ -957,7 +955,7 @@ function HelpMePlay.AddSettingCVarSlider(category, cbLabel, cbVariableName, cbDe
 
     local initializer = CreateSettingsCheckboxSliderInitializer(
         cbSetting, cbLabel, cbTooltip,
-        sliderSetting, options, sliderLabel, sliderTooltip
+        sliderSetting, sliderOptions, sliderLabel, sliderTooltip
     )
     initializer:AddSearchTags(cbLabel, sliderLabel)
     HelpMePlay.SettingsLayout:AddInitializer(initializer)
