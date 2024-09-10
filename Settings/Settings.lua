@@ -177,6 +177,14 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
+        "Automatic Innkeeper Bind",
+        "AutomaticInnkeeperBind",
+        false,
+        HelpMePlayDB["AutomaticInnkeeperBind"],
+        "Toggle to automatically accept innkeeper binds (setting your hearthstone)."
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
         "Always Compare Items",
         "AlwaysCompareItems",
         false,
@@ -999,6 +1007,7 @@ function HelpMePlay.Init()
         AcceptReadyChecks = false,
         AcceptRoleChecks = false,
         AlwaysCompareItems = true,
+        AutomaticInnkeeperBind = false,
         AutoLoot = false,
         AutoPushSpells = true,
         ChromieTimeExpansionID = 0,
