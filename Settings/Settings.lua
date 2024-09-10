@@ -159,7 +159,7 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
-        "Generic Traits",
+        "Generic Talents",
         "UseGenericTalentsButton",
         false,
         HelpMePlayDB["UseGenericTalentsButton"],
