@@ -16,7 +16,7 @@ function HelpMePlay.GetBestMapByMapID(uiMapID)
 end
 
 function HelpMePlay.Print(text)
-    print(text)
+    print(string.format("%s: %s", LHMP:ColorText("HEIRLOOM", addonName), text))
 end
 
 local function OnEvent(_, event, arg1, arg2)

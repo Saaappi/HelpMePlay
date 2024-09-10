@@ -15,6 +15,7 @@
 _No changes_
 ### Removed
 - The Talents system will no longer display learned talents in the chat window.
+- Removed the **Keep Me Safe** feature.
 ### Fixed
 - Fixed an issue that caused the talent system to become stuck on top-row talent selection.
 
