@@ -1,7 +1,8 @@
 ## Version 3.2.0 - 2024/09/24
 
 ### Added
-- Implemented several more Khaz Algar gossips that were missed.
+- Added several additional Khaz Algar gossips that were missed.
+- Implemented a setting to toggle accepting innkeeper binds.
 ### Changed or Updated
 - Hero Talents are now integrated into the talent system automation.
 - The Skyriding Talents sub-system has been rebranded as the **Generic Traits** sub-system.
