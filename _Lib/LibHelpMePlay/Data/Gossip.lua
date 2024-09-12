@@ -1060,7 +1060,7 @@ LHMP.Gossips = {
 	[214916] = {{ID = 121537, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79156}}}}},
 	[223764] = {{ID = 121565, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79157}}}}},
 	-- ===============================================================================
-	-- Storyline | The War Within | The Machines March to War =====
+	-- ===== Storyline | The War Within | The Machines March to War =====
 	[214664] = {
 		{ID = 120642, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79023}}}},
 		{ID = 121305, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79024}}}}
@@ -1068,12 +1068,12 @@ LHMP.Gossips = {
 	[230643] = {{ID = 121561, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80145}}}}},
 	[220896] = {{ID = 121606, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79029}}}}},
 	-- ===============================================================================
-	-- Storyline | The War Within | A Light in the Dark =====
+	-- ===== Storyline | The War Within | A Light in the Dark =====
 	[214273] = {{ID = 122377, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78948}}}}},
 	[220641] = {{ID = 123406, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
 	[226362] = {{ID = 123407, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
 	-- ===============================================================================
-	--[[ 
+	--[[
 	===============================================================================
 								DELVES
 	===============================================================================
@@ -1088,8 +1088,13 @@ LHMP.Gossips = {
 	-- ===== Kriegval's Rest =====
 	[213447] = {{ID = 119802, CanConfirm = false, Conditions = {}}},
 	-- ===== The Waterworks =====
-	[214143] = {{ID = 120018, CanConfirm = false, Conditions = {}}},
-	--[[ 
+	[214143] = {
+		{ID = 120018, CanConfirm = false, Conditions = {}},
+		{ID = 120096, CanConfirm = false, Conditions = {}}
+	},
+	-- ===== Storyline | Delves: Season 1 =====
+	[226763] = {{ID = 123080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81596}}}}},
+	--[[
 	===============================================================================
 								ALLIED RACES
 	===============================================================================
