@@ -1086,8 +1086,14 @@ LHMP.Gossips = {
 	},
 	-- ===== Fungal Folly =====
 	[210677] = {{ID = 111366, CanConfirm = false, Conditions = {}}},
+	[211061] = {{ID = 113928, CanConfirm = false, Conditions = {}}},
+	[211060] = {{ID = 113929, CanConfirm = false, Conditions = {}}},
+	[211027] = {{ID = 113937, CanConfirm = false, Conditions = {}}},
+	[211028] = {{ID = 113939, CanConfirm = false, Conditions = {}}},
+	[211062] = {{ID = 113941, CanConfirm = false, Conditions = {}}},
 	-- ===== Kriegval's Rest =====
 	[213447] = {{ID = 119802, CanConfirm = false, Conditions = {}}},
+	[213775] = {{ID = 119930, CanConfirm = false, Conditions = {}}},
 	-- ===== The Waterworks =====
 	[214143] = {
 		{ID = 120018, CanConfirm = false, Conditions = {}},
