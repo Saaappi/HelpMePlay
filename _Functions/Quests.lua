@@ -170,10 +170,6 @@ end
 HelpMePlay.CompleteQuest = function()
     if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
-    -- Show and hide the character paperdoll frame to cache the player's equipped
-    -- items.
-    --ShowUIPanel(CharacterFrame); HideUIPanel(CharacterFrame)
-
     C_Timer.After(0.1, function()
         -- Determine if the player can dual wield. The specialization IDs
         -- are stored in Data\Quests.lua.
@@ -207,28 +203,26 @@ HelpMePlay.CompleteQuest = function()
         equippedItems[17] = GetInventoryItemLink("player", 17) or 0     -- Off Hand Weapon (Holdable)
 
         -- Convert the equipped items into their item levels.
-        for inventorySlotID, value in pairs(equippedItems) do
-            if value ~= 0 then
-                local itemID = C_Item.GetItemInfoInstant(value)
-                local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemID))
-                local actualItemLevel = C_Item.GetDetailedItemLevelInfo(value) or 0
+        for inventorySlotId, link in pairs(equippedItems) do
+            if not tonumber(link) then
+                local itemId = C_Item.GetItemInfoInstant(link)
+                local heirloomMaxLevel = select(10, C_Heirloom.GetHeirloomInfo(itemId))
+                local itemLevel = C_Item.GetDetailedItemLevelInfo(link) or 0
                 if heirloomMaxLevel and (heirloomMaxLevel >= HelpMePlay.playerLevel) then
                     -- If the player has an heirloom equipped in the slot, and they haven't
-                    -- outleveled the heirloom, then set the itemlevel for that slot to 999
+                    -- outleveled the heirloom, then set the item level for that slot to 999
                     -- to prevent the item from being replaced.
-                    actualItemLevel = 999
+                    itemLevel = 999
                 end
-                equippedItems[inventorySlotID] = actualItemLevel
+                equippedItems[inventorySlotId] = itemLevel
             end
         end
 
-        -- Check the number of quest rewards and choices from the opened quest.
-        --
-        -- A quest "reward" is something given to the player without their decision,
-        -- whereas a quest "choice" is a reward the player can choose.
-        local numQuestChoices = GetNumQuestChoices()
-        if numQuestChoices > 1 then
-            if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end -- Do not process quest rewards.
+        -- A quest "choice" is an item the player can choose. A quest "reward" is an
+        -- unconditional item given to the player.
+        local numChoices = GetNumQuestChoices()
+        if numChoices > 1 then
+            if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end
 
             -- Check if the player is in combat. This will cause some trouble if they
             -- are, so let's deal with it now.
@@ -236,27 +230,27 @@ HelpMePlay.CompleteQuest = function()
 
             local bestRewardIndex = 0
             local bestSellPrice = 0
-            local bestRewardItemLink = ""
-            local destSlot = 0
+            local bestRewardLink = ""
+            local slot = 0
             if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- ITEM LEVEL
                 local rewards = {}
-                for rewardIndex = 1, numQuestChoices do
+                for rewardIndex = 1, numChoices do
                     local itemLink = GetQuestItemLink("choice", rewardIndex)
                     if itemLink then
                         table.insert(rewards, itemLink)
                     end
                 end
-                bestRewardIndex, bestRewardItemLink, destSlot = CheckItemLevelUpgrade(rewards, equippedItems, true)
+                bestRewardIndex, bestRewardLink, slot = CheckItemLevelUpgrade(rewards, equippedItems, true)
             elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE
                 local rewards = {}
-                for rewardIndex = 1, numQuestChoices do
+                for rewardIndex = 1, numChoices do
                     local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
                     local itemLink = GetQuestItemLink("choice", rewardIndex)
                     if quantity and itemLink then
                         table.insert(rewards, { ["itemLink"] = itemLink, ["quantity"] = quantity })
                     end
                 end
-                bestRewardIndex, bestRewardItemLink = GetHighestSellingQuestReward(rewards)
+                bestRewardIndex, bestRewardLink = GetHighestSellingQuestReward(rewards)
             end
 
             -- If the bestRewardIndex variable is unchanged from its default of 0,
@@ -266,19 +260,19 @@ HelpMePlay.CompleteQuest = function()
                     -- If no valid reward was found by item level, then let's use
                     -- sell price as a fallback option.
                     local rewards = {}
-                    for rewardIndex = 1, numQuestChoices do
+                    for rewardIndex = 1, numChoices do
                         local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
                         local itemLink = GetQuestItemLink("choice", rewardIndex)
                         if quantity and itemLink then
                             table.insert(rewards, { ["itemLink"] = itemLink, ["quantity"] = quantity })
                         end
                     end
-                    bestRewardIndex, bestRewardItemLink = GetHighestSellingQuestReward(rewards)
+                    bestRewardIndex, bestRewardLink = GetHighestSellingQuestReward(rewards)
 
                     -- If the bestRewardIndex is STILL 0, then both options failed
                     -- to find a valid reward. Pick something random.
                     if bestRewardIndex == 0 then
-                        GetQuestReward(math.random(1, numQuestChoices))
+                        GetQuestReward(math.random(1, numChoices))
                     end
                     GetQuestReward(bestRewardIndex)
                 elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE
@@ -286,55 +280,51 @@ HelpMePlay.CompleteQuest = function()
                     -- want to get stuck checking for sell price a second time.
                     -- Therefore, if the bestRewardIndex is still 0 and the setting
                     -- is for Sell Price, then pick a random reward.
-                    GetQuestReward(math.random(1, numQuestChoices))
+                    GetQuestReward(math.random(1, numChoices))
                 end
             else
-                if bestRewardItemLink ~= "" and destSlot ~= 0 then
+                if bestRewardLink ~= "" and slot ~= 0 then
                     GetQuestReward(bestRewardIndex)
-
-                    -- Check the player's inventory for the quest reward they just acquired.
-                    C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
+                    C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
                 end
             end
-        elseif numQuestChoices == 1 then
+        elseif numChoices == 1 then
             -- Check if the player is in combat. This will cause some trouble if they
             -- are, so let's deal with it now.
             if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
 
-            local itemLink = GetQuestItemLink("choice", 1)
-            if itemLink then
-                local rewards = { itemLink }
-                local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
-                -- There is only one decision to be made, so let the addon
-                -- make it for the player regardless of their settings.
+            local link = GetQuestItemLink("choice", 1)
+            if link then
+                local rewards = { link }
+                local bestRewardLink, slot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
+
                 GetQuestReward(1)
 
-                -- Check the player's inventory for the quest reward they just acquired.
                 if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then
-                    C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
+                    C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
                 end
             end
         else
-            -- There are either no rewards available, or there are only quest rewards
-            -- (not choices) available.
-            local numQuestRewards = GetNumQuestRewards()
-            if numQuestRewards > 0 then
+            local numRewards = GetNumQuestRewards()
+            if numRewards and numRewards > 0 then
                 local rewards = {}
-                for rewardIndex = 1, numQuestRewards do
-                    local itemLink = GetQuestItemLink("reward", rewardIndex)
-                    if itemLink then
-                        table.insert(rewards, itemLink)
+                for i = 1, numRewards do
+                    local link = GetQuestItemLink("reward", i)
+                    if link then
+                        table.insert(rewards, link)
                     end
                 end
-                local bestRewardItemLink, destSlot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
-                if bestRewardItemLink ~= "" and destSlot ~= 0 then
+
+                local bestRewardLink, slot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
+                if bestRewardLink ~= "" and slot ~= 0 then
                     if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then
-                        C_Timer.After(1, function() CheckForQuestReward(bestRewardItemLink, destSlot) end)
+                        C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
                     end
                 end
             end
-            QuestFrameCompleteButton:Click("LeftButton")
-            QuestFrameCompleteQuestButton:Click("LeftButton")
+
+            CompleteQuest()
+            GetQuestReward(QuestInfoFrame.itemChoice)
         end
     end)
 end
