@@ -1,5 +1,8 @@
 ## Version 3.2.0 - 2024/09/24
 
+### Author's Notes
+- The issue involving quests without rewards not completing in combat has been deemed _not a bug_.
+
 ### Added
 - Added several additional Khaz Algar gossips that were missed.
 - Implemented a setting to toggle accepting innkeeper binds.
