@@ -1099,6 +1099,12 @@ LHMP.Gossips = {
 		{ID = 120018, CanConfirm = false, Conditions = {}},
 		{ID = 120096, CanConfirm = false, Conditions = {}}
 	},
+	[214290] = {
+		{ID = 120081, CanConfirm = false, Conditions = {}},
+		{ID = 120082, CanConfirm = false, Conditions = {}}
+	},
+	-- ===== The Dread Pit =====
+	[220181] = {{ID = 121526, CanConfirm = false, Conditions = {}}},
 	-- ===== Storyline | Delves: Season 1 =====
 	[226763] = {{ID = 123080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81596}}}}},
 	--[[
