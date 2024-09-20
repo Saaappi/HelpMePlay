@@ -1,4 +1,5 @@
 local addonName, HelpMePlay = ...
+local questId = 0
 
 BINDING_HEADER_HELPMEPLAY = "HelpMePlay"
 BINDING_NAME_HELPMEPLAY_MOUNTUP = "Mount Up"
@@ -52,6 +53,13 @@ function HelpMePlayKeybind(key)
                     }
                     StaticPopup_Show("HMP_QUICK_QUEST_ABANDON_CONFIRMATION")
                 end
+            else -- Handle abandoning quests from the quest objective tracker
+                if questId and tonumber(questId) then
+                    if C_QuestLog.IsOnQuest(questId) then
+                        AbandonQuestByID(questId)
+                        questId = 0
+                    end
+                end
             end
         end
     elseif key == GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE") then
@@ -61,3 +69,13 @@ function HelpMePlayKeybind(key)
         end
     end
 end
+
+EventRegistry:RegisterCallback("OnQuestBlockHeader.OnEnter", function(_, _, blockQuestId)
+    if blockQuestId and tonumber(blockQuestId) then
+        questId = blockQuestId
+    end
+end)
+
+hooksecurefunc(QuestObjectiveTracker, "OnBlockHeaderLeave", function()
+    questId = 0
+end)
