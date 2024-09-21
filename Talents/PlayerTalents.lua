@@ -54,7 +54,7 @@ local function PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId
 end
 
 local function Import(activeConfigId, loadoutEntryInfo, treeId)
-    C_Traits.ResetTree(activeConfigId, treeId)
+    --C_Traits.ResetTree(activeConfigId, treeId)
     while true do
         local removed = PurchaseLoadoutEntryInfo(activeConfigId, loadoutEntryInfo, treeId)
         if removed == 0 then
