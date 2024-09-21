@@ -442,9 +442,11 @@ LHMP.Gossips = {
 	[81674] = {{ID = 42953, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {35128}}}}},
 	[81213] = {{ID = 42653, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {36223}}}}},
 	[83933] = {{ID = 42956, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {35139}}}}},
-	-------------------------
-	-- LEGION ---------------
-	-------------------------
+	--[[ 
+	===============================================================================
+								LEGION
+	===============================================================================
+	--]]
 	-- Introduction (Alliance)
 	[107934] = {{ID = 47484, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {42782}}}}},
 	-- Dalaran
@@ -468,6 +470,15 @@ LHMP.Gossips = {
 	[96653] = {{ID = 44646, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39663}}}}},
 	[97644] = {{ID = 44913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40373}}}}},
 	[100429] = {{ID = 45043, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {44463}}}}},
+	-- ===== Professions | Tailoring =====
+	[93524] = {{ID = 44588, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38950}}}}},
+	[93526] = {{ID = 44590, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38952}}}}},
+	[93967] = {
+		{ID = 44594, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38954}}}},
+		{ID = 44595, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38956}}}}
+	},
+	[92456] = {{ID = 44234, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38964}}}}},
+	[96347] = {{ID = 44284, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39602}}}}},
 	-------------------------
 	-- SHADOWLANDS ----------
 	-------------------------
