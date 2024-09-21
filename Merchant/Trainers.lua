@@ -24,7 +24,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			BuyService()
 		end
     elseif event == "TRAINER_UPDATE" then
-        C_Timer.After(0.1, function()
+        C_Timer.After(0.25, function()
             BuyService()
         end)
 	end
