@@ -470,6 +470,24 @@ LHMP.Gossips = {
 	[96653] = {{ID = 44646, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39663}}}}},
 	[97644] = {{ID = 44913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40373}}}}},
 	[100429] = {{ID = 45043, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {44463}}}}},
+	-- ===== Storyline | Suramar | Masquerade =====
+	[104998] = {
+		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
+		{ID = 45204, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}}
+	},
+	[105351] = {
+		{ID = 45628, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45629, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45630, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45631, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45632, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45633, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45634, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45381, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45382, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}}
+	},
+	[105342] = {{ID = 45279, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}}},
+	[114357] = {{ID = 45280, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41989}}}}},
 	-- ===== Professions | Tailoring =====
 	[93524] = {{ID = 44588, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38950}}}}},
 	[93526] = {{ID = 44590, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38952}}}}},
@@ -479,6 +497,11 @@ LHMP.Gossips = {
 	},
 	[92456] = {{ID = 44234, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38964}}}}},
 	[96347] = {{ID = 44284, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39602}}}}},
+	[92183] = {{ID = 44456, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}}},
+	[242641] = {
+		{ID = 44868, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}},
+		{ID = 44869, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}}
+	},
 	-------------------------
 	-- SHADOWLANDS ----------
 	-------------------------
