@@ -489,6 +489,23 @@ LHMP.Gossips = {
 	[105342] = {{ID = 45279, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}}},
 	[114357] = {{ID = 45280, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41989}}}}},
 	[106495] = {{ID = 45323, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42147}}}}},
+	-- ===== Storyline | Legion | Imp Mother Challenge =====
+	[92195] = {{ID = 44544, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {47055}}}}},
+	[97331] = {{ID = 46833, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {47055}}}}},
+	[96806] = {{ID = 46820, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {47055}}}}},
+	[116714] = {{ID = 46671, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45125}}}}},
+	[118450] = {{ID = 47137, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45917}}}}},
+	-- ===== Storyline | Legion | God-Queen Challenge =====
+	[119230] = {{ID = 47482, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45482}}}}},
+	[119232] = {{ID = 47483, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45482}}}}},
+	[119233] = {{ID = 46690, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45482}}}}},
+	[116568] = {
+		{ID = 47302, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45486}}}},
+		{ID = 46830, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45525}}}}
+	},
+	[117107] = {{ID = 46784, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45486}}}}},
+	-- ===== Storyline | The Broken Shore | Legionfall Campaign =====
+	[120215] = {{ID = 47270, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {46734}}}}},
 	-- ===== Storyline | Legion: Professions | Enchanting =====
 	[98683] = {{ID = 44228, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40130}}}}},
 	-- ===== Storyline | Legion: Professions | Tailoring =====
