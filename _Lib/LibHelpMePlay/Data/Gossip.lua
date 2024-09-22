@@ -489,6 +489,8 @@ LHMP.Gossips = {
 	[105342] = {{ID = 45279, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}}},
 	[114357] = {{ID = 45280, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41989}}}}},
 	[106495] = {{ID = 45323, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42147}}}}},
+	-- ===== Storyline | Legion: Professions | Enchanting =====
+	[98683] = {{ID = 44228, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40130}}}}},
 	-- ===== Storyline | Legion: Professions | Tailoring =====
 	[93524] = {{ID = 44588, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38950}}}}},
 	[93526] = {{ID = 44590, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38952}}}}},
