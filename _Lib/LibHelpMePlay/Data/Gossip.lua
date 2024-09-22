@@ -489,7 +489,7 @@ LHMP.Gossips = {
 	[105342] = {{ID = 45279, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}}},
 	[114357] = {{ID = 45280, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41989}}}}},
 	[106495] = {{ID = 45323, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42147}}}}},
-	-- ===== Professions | Tailoring =====
+	-- ===== Storyline | Legion: Professions | Tailoring =====
 	[93524] = {{ID = 44588, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38950}}}}},
 	[93526] = {{ID = 44590, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38952}}}}},
 	[93967] = {
@@ -502,6 +502,11 @@ LHMP.Gossips = {
 	[242641] = {
 		{ID = 44868, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}},
 		{ID = 44869, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}}
+	},
+	[94242] = {
+		{ID = 44793, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}},
+		{ID = 44794, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}},
+		{ID = 44844, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}}
 	},
 	-------------------------
 	-- SHADOWLANDS ----------
