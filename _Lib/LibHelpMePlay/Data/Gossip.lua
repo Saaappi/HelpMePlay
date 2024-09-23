@@ -529,6 +529,13 @@ LHMP.Gossips = {
 	},
 	-- ===== Storyline | Legion: Class Halls | Mage =====
 	[102700] = {{ID = 45566, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42452}}}}},
+	[107622] = {{ID = 45770, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42455}}}}},
+	[107716] = {
+		{ID = 45996, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}},
+		{ID = 45997, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}},
+		{ID = 45998, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}}
+	},
+	[96813] = {{ID = 44179, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42479}}}}},
 	-------------------------
 	-- SHADOWLANDS ----------
 	-------------------------
