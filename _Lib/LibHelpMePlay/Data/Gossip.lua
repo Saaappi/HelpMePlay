@@ -527,6 +527,8 @@ LHMP.Gossips = {
 		{ID = 44794, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}},
 		{ID = 44844, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}}
 	},
+	-- ===== Storyline | Legion: Class Halls | Mage =====
+	[102700] = {{ID = 45566, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42452}}}}},
 	-------------------------
 	-- SHADOWLANDS ----------
 	-------------------------
