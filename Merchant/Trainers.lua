@@ -2,11 +2,13 @@ local _, _ = ...
 local eventHandler = CreateFrame("Frame")
 
 local function BuyService()
+    if HelpMePlayDB["AutoTrainerTransactions"] == false then return false end
+
 	local numServices = GetNumTrainerServices()
     for index = 1, numServices do
         -- The player's money must be greater than the protection value for
         -- the automation to work.
-        if GetMoney() > (HelpMePlayDB["TrainerProtectionValue"] * 10000) and HelpMePlayDB["TrainerProtectionValue"] ~= 0 then
+        if GetMoney() > (HelpMePlayDB["TrainerProtectionValue"] * 10000) then
             SelectTrainerService(index)
             BuyTrainerService(index)
         end
@@ -22,7 +24,7 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 			BuyService()
 		end
     elseif event == "TRAINER_UPDATE" then
-        C_Timer.After(0.1, function()
+        C_Timer.After(0.25, function()
             BuyService()
         end)
 	end

@@ -1,4 +1,5 @@
 local addonName, HelpMePlay = ...
+local eventFrame = CreateFrame("Frame")
 
 -- This is the talent importer frame variable.
 local frame
@@ -7,12 +8,12 @@ local frame
 local backButton
 
 -- This is the default height and width of the talent importer frame.
-local frameBaseHeight = 125
-local frameBaseWidth = 725
+local frameBaseHeight = 300
+local frameBaseWidth = 230.000015259
 
 -- This is the expanded height and width of the talent importer frame.
-local frameExpandedHeight = 375
---local frameExpandedWidth = 0 -- unused
+local frameExpandedHeight = 275
+local frameExpandedWidth = 315
 
 -- These variables are some minor configuration for the frame.
 local frameTitle = "Talent Importer"
@@ -20,11 +21,24 @@ local frameIcon = 132222
 
 -- This is the default height and width of the edit boxes.
 local editBoxHeight = 20
-local editBoxWidth = 375
+local editBoxWidth = 250
 
 -- This variable is the specialization icon texture size.
 local specIconTextureSize = 32
 local borderTextureSize = 37
+
+local function HideClassButtons()
+    for i = 1, 13 do
+        if _G[HelpMePlay.classButtons[i].name] then
+            if _G[HelpMePlay.classButtons[i].name]:IsVisible() then
+                _G[HelpMePlay.classButtons[i].name]:Hide()
+            else
+                _G[HelpMePlay.classButtons[i].name]:Show()
+            end
+        end
+    end
+    return true
+end
 
 -- Hide the edit boxes if they already exist so as not to cause a visual
 -- bug when they're created again.
@@ -41,11 +55,10 @@ local function HideEditBoxes()
 end
 
 -- Function to update the text for an edit box.
-local function UpdateText(editBox, text, importDate, importPatch)
+local function UpdateText(editBox, text)
     if text then
         editBox:SetText(text)
     end
-    editBox.importDateText:SetText(string.format("%s |cffFFD100(%s)|r", importDate, importPatch))
 
     return true
 end
@@ -54,6 +67,11 @@ end
 -- This is called when the Talent Importer button is clicked
 -- from the settings.
 HelpMePlay.OpenTalentImporter = function()
+    if InCombatLockdown() then
+        HelpMePlay.Print(HelpMePlay.ErrorMessages["IN_COMBAT_LOCKDOWN"])
+        return
+    end
+
     -- If the frame is already visible, then hide it.
     if frame then
         if frame:IsVisible() then
@@ -70,6 +88,8 @@ HelpMePlay.OpenTalentImporter = function()
     if not frame then
         frame = HelpMePlay.CreateFrame("Portrait", {
             name = string.format("%sTalentImporterFrame", addonName),
+            movable = true,
+            saveName = "TalentImporterFrame",
             parent = UIParent,
             width = frameBaseWidth,
             height = frameBaseHeight,
@@ -90,10 +110,17 @@ HelpMePlay.OpenTalentImporter = function()
         frame:Hide()
     end)
 
-    -- Set the frame's title, icon, and position.
+    -- Set the frame's title and portrait
     frame:SetTitle(frameTitle)
     frame:SetPortraitToAsset(frameIcon)
-    frame:SetPoint("CENTER", frame:GetParent(), "CENTER", 0, 0)
+
+    -- Set the frame's position.
+    if HelpMePlayDB.Positions["TalentImporterFrame"] then
+        local pos = HelpMePlayDB.Positions["TalentImporterFrame"]
+		frame:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.xOff, pos.yOff)
+    else
+        frame:SetPoint("CENTER", frame:GetParent(), "CENTER", 0, 75)
+    end
 
     -- Create the class icon buttons if they don't exist.
     if not _G[HelpMePlay.classButtons[1].name] then
@@ -109,7 +136,11 @@ HelpMePlay.OpenTalentImporter = function()
 
             button:SetScript("OnClick", function()
                 -- Resize the frame to accommodate the edit boxes.
+                button:GetParent():SetWidth(frameExpandedWidth)
                 button:GetParent():SetHeight(frameExpandedHeight)
+
+                -- Hide the class buttons.
+                HideClassButtons()
 
                 -- Delete the editboxes if they already exist to prevent them
                 -- from overlapping when they're recreated.
@@ -148,9 +179,9 @@ HelpMePlay.OpenTalentImporter = function()
                     local classTalents = HelpMePlayDB["ClassTalents"][button.classID][HelpMePlay.specEditBoxes[button.ID][i].id]
 
                     if classTalents then
-                        UpdateText(editBox, classTalents.importString, classTalents.importDate, classTalents.importPatch)
+                        UpdateText(editBox, classTalents.importString)
                     else
-                        UpdateText(editBox, string.format("|cffFF0000%s %s.|r", "Please import a loadout for", HelpMePlay.specEditBoxes[button.ID][i].name), "", "")
+                        UpdateText(editBox, string.format("|cffFF0000%s %s.|r", "Please import a loadout for", HelpMePlay.specEditBoxes[button.ID][i].name))
                     end
 
                     -- Set the new talent build when the player presses the enter key.
@@ -178,17 +209,21 @@ HelpMePlay.OpenTalentImporter = function()
                             HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importDate = date("%m/%d/%Y")
                             HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id].importPatch = (GetBuildInfo())
                             classTalents = HelpMePlayDB.ClassTalents[button.classID][HelpMePlay.specEditBoxes[button.ID][i].id]
-                            UpdateText(editBox, nil, classTalents.importDate, classTalents.importPatch)
                         end
                     end)
 
                     -- Set the edit box positions.
                     if i == 1 then
-                        editBox:SetPoint("TOPLEFT", HelpMePlay.classButtons[2].name, "BOTTOMLEFT", 0, -40)
-                        editBox:SetPoint("TOPRIGHT", HelpMePlay.classButtons[8].name, "BOTTOMRIGHT", 0, -40)
+                        editBox:SetPoint("TOPLEFT", editBox:GetParent(), "TOPLEFT", 50, -80)
                     else
                         editBox:SetPoint("TOPLEFT", addonName .. "SpecEditBox" .. (i - 1), "BOTTOMLEFT", 0, -20)
                     end
+
+                    editBox:SetScript("OnEnter", function(self)
+                        local specName = select(2, GetSpecializationInfoByID(HelpMePlay.specEditBoxes[button.ID][i].id))
+                        HelpMePlay.Tooltip_OnEnter(self, specName, string.format("%s |cffFFD100(%s)|r", classTalents.importDate, classTalents.importPatch))
+                    end)
+                    editBox:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 
                     -- Create the back button. This back button just resets the frame,
                     -- so not entirely necessary but I think it's nice. :)
@@ -205,8 +240,10 @@ HelpMePlay.OpenTalentImporter = function()
                         backButton:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -10, 10)
 
                         backButton:SetScript("OnClick", function(self)
+                            frame:SetWidth(frameBaseWidth)
                             frame:SetHeight(frameBaseHeight)
                             HideEditBoxes()
+                            HideClassButtons()
                             backButton:Hide()
                         end)
                     else
@@ -224,6 +261,12 @@ HelpMePlay.OpenTalentImporter = function()
             -- Set the class button positions.
             if index == 1 then
                 button:SetPoint("TOPLEFT", button:GetParent(), "TOPLEFT", 10, -60)
+            elseif index == 5 then
+                button:SetPoint("TOP", HelpMePlay.classButtons[1].name, "BOTTOM", 0, -10)
+            elseif index == 9 then
+                button:SetPoint("TOP", HelpMePlay.classButtons[5].name, "BOTTOM", 0, -10)
+            elseif index == 13 then
+                button:SetPoint("CENTER", button:GetParent(), "CENTER", 0, -95.000003814697)
             else
                 button:SetPoint("LEFT", HelpMePlay.classButtons[index-1].name, "RIGHT", 10, 0)
             end
@@ -231,3 +274,17 @@ HelpMePlay.OpenTalentImporter = function()
     end
     frame:Show()
 end
+
+local function OnEvent(_, event, ...)
+    if event == "PLAYER_REGEN_DISABLED" then
+        C_Timer.After(0.5, function()
+            if InCombatLockdown() and (frame and frame:IsVisible()) then
+                frame:Hide()
+                return
+            end
+        end)
+    end
+end
+
+eventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
+eventFrame:SetScript("OnEvent", OnEvent)

@@ -159,11 +159,12 @@ function HelpMePlay.RegisterSettings()
     )
     HelpMePlay.AddSettingCheckbox(
         category,
-        "Skyriding",
-        "UseDynamicFlightButton",
+        "Generic Talents",
+        "UseGenericTalentsButton",
         false,
-        HelpMePlayDB["UseDynamicFlightButton"],
-        "Toggle to add a button to the Skyriding UI to quickly learn its traits."
+        HelpMePlayDB["UseGenericTalentsButton"],
+        "Toggle to add a button to the generic talents UI to quickly learn its talents.\n\n" ..
+        LHMP:ColorText("RED", "This feature currently only supports Skyriding.")
     )
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -173,6 +174,14 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["UseWarMode"],
         "Toggle to automatically enable War Mode when entering or logging into Orgrimmar or Stormwind City.\n\n" ..
         LHMP:ColorText("RED", string.format("This setting doesn't apply to players at or above level %d.", HelpMePlay.Constants["CHROMIE_TIME_MAX_LEVEL"]))
+    )
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Automatic Innkeeper Bind",
+        "AutomaticInnkeeperBind",
+        false,
+        HelpMePlayDB["AutomaticInnkeeperBind"],
+        "Toggle to automatically accept innkeeper binds (setting your hearthstone)."
     )
     HelpMePlay.AddSettingCheckbox(
         category,
@@ -369,20 +378,20 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["shouldAutomaticRepair"],
         "Toggle to allow or prevent the addon from using your character's funds for automatic repair."
     )
-    HelpMePlay.AddSettingSlider(
+    HelpMePlay.AddSettingCVarSlider(
         category,
+        "Trainer Protection Value",
+        "AutoTrainerTransactions",
+        false,
+        HelpMePlayDB["AutoTrainerTransactions"],
+        "Toggle to automate learning new skills from trainers.",
         "Trainer Protection Value",
         "TrainerProtectionValue",
         0,
         HelpMePlayDB["TrainerProtectionValue"],
-        0,
-        1000,
-        10,
-        function()
-            return HelpMePlayDB["TrainerProtectionValue"]
-        end,
         "Set the minimum amount of gold you must have before the addon will automatically train for you.\n\n" ..
-        LHMP:ColorText("RED", "This slider steps in increments of 10.")
+        LHMP:ColorText("RED", "This slider steps in increments of 10."),
+        { minValue = 0, maxValue = 1000, increment = 10 }
     )
 
     --------------------------
@@ -390,29 +399,21 @@ function HelpMePlay.RegisterSettings()
     --------------------------
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(WARBAND_BANK_SECTION))
 
-    HelpMePlay.AddSettingSlider(
+    HelpMePlay.AddSettingCVarSlider(
         category,
+        "Deposit Keep Amount",
+        "AutoWarbankTransactions",
+        false,
+        HelpMePlayDB["AutoWarbankTransactions"],
+        "Toggle to automate monetary transactions at the Warbank based on your character's current funds.",
         "Deposit Keep Amount",
         "DepositKeepAmount",
         0,
         HelpMePlayDB["DepositKeepAmount"],
-        0,
-        1000,
-        10,
-        function()
-            return HelpMePlayDB["DepositKeepAmount"]
-        end,
         "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
         "Visiting your Warband bank while below this threshold will instead attempt a withdrawal, provided the bank has the funds.\n\n" ..
-        LHMP:ColorText("RED", "This slider moves in increments of 10.")
-    )
-    HelpMePlay.AddSettingCheckbox(
-        category,
-        "Keep Me Safe",
-        "DepositKeepMeSafe",
-        false,
-        HelpMePlayDB["DepositKeepMeSafe"],
-        "Toggle to add approval to every monetary transaction the addon conducts at your Warband bank."
+        LHMP:ColorText("RED", "This slider moves in increments of 10."),
+        { minValue = 0, maxValue = 1000, increment = 10 }
     )
 
     --------------------------
@@ -940,6 +941,26 @@ function HelpMePlay.AddSettingSlider(category, controlLabel, variableName, defau
     return setting
 end
 
+function HelpMePlay.AddSettingCVarSlider(category, cbLabel, cbVariableName, cbDefaultValue, cbCurrentValue, cbTooltip, sliderLabel, sliderVariableName, sliderDefaultValue, sliderCurrentValue, sliderTooltip, options)
+    local cbSetting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, cbVariableName), cbVariableName, HelpMePlayDB, type(cbDefaultValue), cbLabel, cbCurrentValue)
+    local sliderSetting = Settings.RegisterAddOnSetting(category, string.format("%s_%s", addonName, sliderVariableName), sliderVariableName, HelpMePlayDB, type(sliderDefaultValue), sliderLabel, sliderCurrentValue)
+
+    local sliderOptions = Settings.CreateSliderOptions(options.minValue, options.maxValue, options.increment)
+    sliderOptions:SetLabelFormatter(MinimalSliderWithSteppersMixin.Label.Right, function(value)
+        return value
+    end)
+
+    cbSetting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
+    sliderSetting:SetValueChangedCallback(HelpMePlay.OnSettingChanged)
+
+    local initializer = CreateSettingsCheckboxSliderInitializer(
+        cbSetting, cbLabel, cbTooltip,
+        sliderSetting, sliderOptions, sliderLabel, sliderTooltip
+    )
+    initializer:AddSearchTags(cbLabel, sliderLabel)
+    HelpMePlay.SettingsLayout:AddInitializer(initializer)
+end
+
 function HelpMePlay.Init()
     if HelpMePlayDB == nil then
         HelpMePlayDB = {}
@@ -953,6 +974,7 @@ function HelpMePlay.Init()
         "AGE",
         "ButtonReset_RemixUsables",
         "DebugModeEnabled",
+        "DepositKeepMeSafe",
         "DynamicFlightTrait1",
         "DynamicFlightTrait2",
         "Enabled",
@@ -965,6 +987,7 @@ function HelpMePlay.Init()
         "IgnoredCreatures",
         "isMinimapButtonEnabled",
         "Junker",
+        "KeepMeSafe",
         "MerchantItems",
         "minimap",
         "MinimapIconEnabled",
@@ -979,6 +1002,7 @@ function HelpMePlay.Init()
         "ShowRemixUsablesButton",
         "TheMawEnabled",
         "TimerunningHeroicDungeonQueue",
+        "UseDynamicFlightButton",
         "UseHeirloomAutomation",
         "UsePartyPlay",
         "HelpMePlay_DepositKeepAmount",
@@ -997,15 +1021,17 @@ function HelpMePlay.Init()
         AcceptReadyChecks = false,
         AcceptRoleChecks = false,
         AlwaysCompareItems = true,
+        AutomaticInnkeeperBind = false,
         AutoLoot = false,
         AutoPushSpells = true,
+        AutoTrainerTransactions = false,
+        AutoWarbankTransactions = false,
         ChromieTimeExpansionID = 0,
         ClassColorFrames = false,
         ClearAllTracking = false,
         CreateLootWindow = false,
         CreateWhisperWindow = false,
         DepositKeepAmount = 0,
-        DepositKeepMeSafe = true,
         DisableDialog = false,
         DisableTutorials = false,
         GarrisonArchitectTable = false,
@@ -1042,8 +1068,8 @@ function HelpMePlay.Init()
         SkipCutscenes = false,
         TrainerProtectionValue = 0,
         UseAdventureMaps = false,
-        UseDynamicFlightButton = false,
         UseEmotes = false,
+        UseGenericTalentsButton = false,
         UsePlayerChoice = false,
         UseWarMode = false,
         UseWaterReminder = false,

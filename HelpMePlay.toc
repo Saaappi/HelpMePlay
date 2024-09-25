@@ -1,6 +1,6 @@
-## Interface: 110002
+## Interface: 110002, 110005
 ## Title: HelpMePlay
-## Version: 3.1.1
+## Version: 3.2.0
 ## Author: LightskyGG
 ## Dependencies: Blizzard_Calendar
 ## SavedVariables: HelpMePlayDB
@@ -21,6 +21,7 @@ _Data\TalentImporter.lua
 _Data\Mounts.lua
 _Data\Quests.lua
 _Data\Maps.lua
+_Data\Talents.lua
 _Data\Tooltips.lua
 _Data\Strings.lua
 
@@ -78,7 +79,7 @@ Cutscenes\Cutscenes.lua
 
 # Talents Module
 Talents\PlayerTalents.lua
-Talents\Skyriding.lua
+Talents\GenericTalents.lua
 
 # Inventory Module
 Inventory\OpenContainers.lua
@@ -97,9 +98,6 @@ Health\WaterReminder.lua
 # Remix: Mists of Pandaria Module
 #Remix\ScrappingMachine.lua
 #Remix\Usables.lua
-
-# Token UI (Currency)
-#BlizzardTokenUI.lua
 
 # Keybindings Module
 _Keybinds\Keybinds.lua

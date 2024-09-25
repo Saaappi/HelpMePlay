@@ -1,6 +1,7 @@
 local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local currentEventIndex = 1
+local previousEventIndex = 1
 
 -- LibHelpMePlay
 local LHMP = LibStub("LibHelpMePlay")
@@ -72,12 +73,15 @@ HelpMePlay.CreateEventQueueButton = function()
                 leftChevron:SetNormalTexture(leftChevron.texture)
                 leftChevron:SetHighlightAtlas("common-icon-backarrow", "ADD")
 
-                leftChevron:SetScript("OnClick", function()
+                leftChevron:SetScript("OnClick", function(self)
                     if currentEventIndex == 1 then
                         currentEventIndex = #events
+                        previousEventIndex = 1
                     else
                         currentEventIndex = currentEventIndex - 1
+                        previousEventIndex = currentEventIndex + 1
                     end
+                    HelpMePlay.Tooltip_OnEnter(self, events[previousEventIndex].name, "")
                     SetEvent(events[currentEventIndex])
                 end)
                 leftChevron:SetScript("OnEnter", function(self)
@@ -99,12 +103,15 @@ HelpMePlay.CreateEventQueueButton = function()
                 rightChevron:SetNormalTexture(rightChevron.texture)
                 rightChevron:SetHighlightAtlas("common-icon-forwardarrow", "ADD")
 
-                rightChevron:SetScript("OnClick", function()
-                    if currentEventIndex == (#events) then
-                        currentEventIndex = 1
+                rightChevron:SetScript("OnClick", function(self)
+                    if currentEventIndex == 1 then
+                        currentEventIndex = #events
+                        previousEventIndex = 1
                     else
-                        currentEventIndex = currentEventIndex + 1
+                        currentEventIndex = currentEventIndex - 1
+                        previousEventIndex = currentEventIndex + 1
                     end
+                    HelpMePlay.Tooltip_OnEnter(self, events[previousEventIndex].name, "")
                     SetEvent(events[currentEventIndex])
                 end)
                 rightChevron:SetScript("OnEnter", function(self)

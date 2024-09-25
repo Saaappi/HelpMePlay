@@ -175,7 +175,7 @@ local function OnEvent(_, event, ...)
 
     -- CHAT_MSG_LOOT
     if event == "CHAT_MSG_LOOT" then
-        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
+        if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return false end
 
         local message, _, _, _, _, _, _, _, _, _, _, playerGUID = ...
         if playerGUID ~= HelpMePlay.playerGUID then return end
@@ -205,6 +205,8 @@ local function OnEvent(_, event, ...)
     end
 
     if event == "CONFIRM_BINDER" then
+        if HelpMePlayDB["AutomaticInnkeeperBind"] == false then return false end
+
         C_Timer.After(0.25, function() StaticPopup1Button1:Click("LeftButton") end)
     end
 

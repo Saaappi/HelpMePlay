@@ -16,22 +16,17 @@ LHMP.Colors = {
 }
 
 LHMP.Containers = {
-    21746,
-    37586,
-    54537,
-    117392,
-    117393,
-    117394,
-    147573,
-    147574,
-    147575,
-    147576,
-    211279,
-    216874,
-    223908,
-    223909,
-    223910,
-    223911
+    21746, -- Lucky Red Envelope
+    37586, -- Handful of Treats
+    54537, -- Heart-Shaped Box
+    117392, -- Loot-Filled Pumpkin
+    117393, -- Keg-Shaped Treasure Chest
+    117394, -- Satchel of Chilled Goods
+    147573, -- Trial of Style Reward: First Place
+    147574, -- Trial of Style Reward: Second Place
+    147575, -- Trial of Style Reward: Third Place
+    147576, -- Trial of Style Consolation Prize
+    216874, -- Loot-Filled Basket
 }
 
 LHMP.Emotes = {

@@ -442,9 +442,11 @@ LHMP.Gossips = {
 	[81674] = {{ID = 42953, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {35128}}}}},
 	[81213] = {{ID = 42653, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {36223}}}}},
 	[83933] = {{ID = 42956, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {35139}}}}},
-	-------------------------
-	-- LEGION ---------------
-	-------------------------
+	--[[ 
+	===============================================================================
+								LEGION
+	===============================================================================
+	--]]
 	-- Introduction (Alliance)
 	[107934] = {{ID = 47484, CanConfirm = true, Conditions = {{"QUESTS_ACTIVE", {42782}}}}},
 	-- Dalaran
@@ -468,6 +470,72 @@ LHMP.Gossips = {
 	[96653] = {{ID = 44646, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39663}}}}},
 	[97644] = {{ID = 44913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40373}}}}},
 	[100429] = {{ID = 45043, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {44463}}}}},
+	-- ===== Storyline | Suramar | Masquerade =====
+	[104998] = {
+		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
+		{ID = 45204, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}}
+	},
+	[105351] = {
+		{ID = 45628, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45629, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45630, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45631, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45632, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45633, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45634, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45381, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}},
+		{ID = 45382, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}}
+	},
+	[105342] = {{ID = 45279, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41834}}}}},
+	[114357] = {{ID = 45280, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41989}}}}},
+	[106495] = {{ID = 45323, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42147}}}}},
+	-- ===== Storyline | Legion | Imp Mother Challenge =====
+	[92195] = {{ID = 44544, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {47055}}}}},
+	[97331] = {{ID = 46833, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {47055}}}}},
+	[96806] = {{ID = 46820, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {47055}}}}},
+	[116714] = {{ID = 46671, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45125}}}}},
+	[118450] = {{ID = 47137, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45917}}}}},
+	-- ===== Storyline | Legion | God-Queen Challenge =====
+	[119230] = {{ID = 47482, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45482}}}}},
+	[119232] = {{ID = 47483, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45482}}}}},
+	[119233] = {{ID = 46690, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45482}}}}},
+	[116568] = {
+		{ID = 47302, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45486}}}},
+		{ID = 46830, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45525}}}}
+	},
+	[117107] = {{ID = 46784, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {45486}}}}},
+	-- ===== Storyline | The Broken Shore | Legionfall Campaign =====
+	[120215] = {{ID = 47270, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {46734}}}}},
+	-- ===== Storyline | Legion: Professions | Enchanting =====
+	[98683] = {{ID = 44228, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40130}}}}},
+	-- ===== Storyline | Legion: Professions | Tailoring =====
+	[93524] = {{ID = 44588, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38950}}}}},
+	[93526] = {{ID = 44590, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38952}}}}},
+	[93967] = {
+		{ID = 44594, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38954}}}},
+		{ID = 44595, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38956}}}}
+	},
+	[92456] = {{ID = 44234, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38964}}}}},
+	[96347] = {{ID = 44284, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39602}}}}},
+	[92183] = {{ID = 44456, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}}},
+	[242641] = {
+		{ID = 44868, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}},
+		{ID = 44869, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38966}}}}
+	},
+	[94242] = {
+		{ID = 44793, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}},
+		{ID = 44794, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}},
+		{ID = 44844, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38970}}}}
+	},
+	-- ===== Storyline | Legion: Class Halls | Mage =====
+	[102700] = {{ID = 45566, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42452}}}}},
+	[107622] = {{ID = 45770, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42455}}}}},
+	[107716] = {
+		{ID = 45996, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}},
+		{ID = 45997, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}},
+		{ID = 45998, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}}
+	},
+	[96813] = {{ID = 44179, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42479}}}}},
 	-------------------------
 	-- SHADOWLANDS ----------
 	-------------------------
@@ -763,6 +831,7 @@ LHMP.Gossips = {
 	},
 	[220564] = {{ID = 121576, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
 	[217082] = {{ID = 121577, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
+	[212407] = {{ID = 120273, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78464,5}}}}},
 	-- ===============================================================================
 	-- ===== The Ringing Deeps =====
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
@@ -797,7 +866,8 @@ LHMP.Gossips = {
 	[213840] = {
 		{ID = 121380, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79565}}}},
 		{ID = 121385, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79565}}}},
-		{ID = 121384, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79565}}}}
+		{ID = 121384, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79565}}}},
+		{ID = 122864, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78874}}}}
 	},
 	[219705] = {
 		{ID = 121387, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79565}}}},
@@ -1059,7 +1129,7 @@ LHMP.Gossips = {
 	[214916] = {{ID = 121537, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79156}}}}},
 	[223764] = {{ID = 121565, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79157}}}}},
 	-- ===============================================================================
-	-- Storyline | The War Within | The Machines March to War =====
+	-- ===== Storyline | The War Within | The Machines March to War =====
 	[214664] = {
 		{ID = 120642, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79023}}}},
 		{ID = 121305, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79024}}}}
@@ -1067,12 +1137,12 @@ LHMP.Gossips = {
 	[230643] = {{ID = 121561, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80145}}}}},
 	[220896] = {{ID = 121606, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79029}}}}},
 	-- ===============================================================================
-	-- Storyline | The War Within | A Light in the Dark =====
+	-- ===== Storyline | The War Within | A Light in the Dark =====
 	[214273] = {{ID = 122377, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78948}}}}},
 	[220641] = {{ID = 123406, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
 	[226362] = {{ID = 123407, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83503}}}}},
 	-- ===============================================================================
-	--[[ 
+	--[[
 	===============================================================================
 								DELVES
 	===============================================================================
@@ -1082,9 +1152,30 @@ LHMP.Gossips = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
 		{ID = 120383, CanConfirm = false, Conditions = {}}
 	},
+	-- ===== Fungal Folly =====
+	[210677] = {{ID = 111366, CanConfirm = false, Conditions = {}}},
+	[211061] = {{ID = 113928, CanConfirm = false, Conditions = {}}},
+	[211060] = {{ID = 113929, CanConfirm = false, Conditions = {}}},
+	[211027] = {{ID = 113937, CanConfirm = false, Conditions = {}}},
+	[211028] = {{ID = 113939, CanConfirm = false, Conditions = {}}},
+	[211062] = {{ID = 113941, CanConfirm = false, Conditions = {}}},
+	-- ===== Kriegval's Rest =====
+	[213447] = {{ID = 119802, CanConfirm = false, Conditions = {}}},
+	[213775] = {{ID = 119930, CanConfirm = false, Conditions = {}}},
 	-- ===== The Waterworks =====
-	[214143] = {{ID = 120018, CanConfirm = false, Conditions = {}}},
-	--[[ 
+	[214143] = {
+		{ID = 120018, CanConfirm = false, Conditions = {}},
+		{ID = 120096, CanConfirm = false, Conditions = {}}
+	},
+	[214290] = {
+		{ID = 120081, CanConfirm = false, Conditions = {}},
+		{ID = 120082, CanConfirm = false, Conditions = {}}
+	},
+	-- ===== The Dread Pit =====
+	[220181] = {{ID = 121526, CanConfirm = false, Conditions = {}}},
+	-- ===== Storyline | Delves: Season 1 =====
+	[226763] = {{ID = 123080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81596}}}}},
+	--[[
 	===============================================================================
 								ALLIED RACES
 	===============================================================================
