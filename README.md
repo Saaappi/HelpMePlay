@@ -1,13 +1,14 @@
 The addon settings can be opened through the Escape menu (Options -> AddOns), via the `/hmp` or `/helpmeplay` slash commands, or using the button adjacent to Blizzard's micro menu.
 
 ## Features
-
+<!--
 ### Remix: Mists of Pandaria Module
 
 - Remix Usables Button
   - Add a button to your screen that facilitates efficient gem combination and thread integration for enhancing your Cloak of Infinite Potential.
 - Remix Scrap Button
   - Implement a button adjacent to the Unraveling Sands interface for seamless addition of unwanted items to the scrapping frame.
+-->
 
 ### General Module
 
@@ -164,7 +165,7 @@ Categories:
 ### Keybindings Module
 - Mount Up: _This keybinding is explained in the Mount Module section above._
 - Delete Cursor Item: To swiftly delete an item, set a keybind, pick up the item from your inventory, and use the keybind. (**WARNING**: This keybind does NOT have a confirmation, so be careful!)
-- Quick Quest Abandon: Abandon quests by zone or individually by setting a keybind, hovering the zone or quest in your quest log, and using the keybind. (There is NOT a confirmation when abandoning individual quests, but there is confirmation when abandoning quests for an entire zone or section.)
+- Quick Quest Abandon: Abandon quests by zone or individually by setting a keybind, hovering the zone or quest in your quest log (or in the Objective Tracker), and using the keybind. (There is NOT a confirmation when abandoning individual quests, but there is confirmation when abandoning quests for an entire zone or section.)
 - World Event Queue: This keybind is used to click the World Event queue button. (This button is explained in the LFG section.)
 
 ### Utilities
