@@ -42,7 +42,7 @@ The addon settings can be opened through the Escape menu (Options -> AddOns), vi
 - Ignore Repeatable Quests
   - Toggle to have the addon ignore accepting repeatable quests. (_If a daily quest is already in your quest log, the addon will not ignore completing it._)
 - Adventure Maps
-  - Toggle support for accepting quests from adventure maps. (_Currently, the only map supported is the map in Wingrest Embassy in The Waking Shores._)
+  - Toggle support for accepting quests from adventure maps.
 - Purchase Quest Items **[This feature is a work in progress!]**
   - Toggle support for expedited purchasing of quest-related items from merchants.
 - Player Choice **[This feature is a work in progress!]**
