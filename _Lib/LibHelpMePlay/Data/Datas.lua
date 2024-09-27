@@ -30,7 +30,7 @@ LHMP.Containers = {
 }
 
 LHMP.Emotes = {
-    [153580] = "WAVE"
+    [153580] = "WAVE" -- Gor'groth
 }
 
 LHMP.RaceFactions = {
