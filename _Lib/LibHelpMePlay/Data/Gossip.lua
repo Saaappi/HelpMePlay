@@ -1173,6 +1173,13 @@ LHMP.Gossips = {
 	},
 	-- ===== The Dread Pit =====
 	[220181] = {{ID = 121526, CanConfirm = false, Conditions = {}}},
+	-- ===== Mycomancer Cavern =====
+	[220354] = {
+		{ID = 121540, CanConfirm = false, Conditions = {}},
+		{ID = 121541, CanConfirm = false, Conditions = {}}
+	},
+	-- ===== The Sinkhole =====
+	[220565] = {{ID = 121578, CanConfirm = false, Conditions = {}}},
 	-- ===== Storyline | Delves: Season 1 =====
 	[226763] = {{ID = 123080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81596}}}}},
 	--[[
