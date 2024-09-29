@@ -1172,6 +1172,10 @@ LHMP.Gossips = {
 		{ID = 120082, CanConfirm = false, Conditions = {}}
 	},
 	-- ===== The Dread Pit =====
+	[219680] = {
+		{ID = 121508, CanConfirm = false, Conditions = {}},
+		{ID = 123392, CanConfirm = false, Conditions = {}}
+	},
 	[220181] = {{ID = 121526, CanConfirm = false, Conditions = {}}},
 	-- ===== Mycomancer Cavern =====
 	[220354] = {
