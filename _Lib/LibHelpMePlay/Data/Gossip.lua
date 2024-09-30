@@ -470,6 +470,9 @@ LHMP.Gossips = {
 	[96653] = {{ID = 44646, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39663}}}}},
 	[97644] = {{ID = 44913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40373}}}}},
 	[100429] = {{ID = 45043, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {44463}}}}},
+	-- ===== Val'sharah =====
+	[91462] = {{ID = 44675, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40122}}}}},
+	[108642] = {{ID = 45772, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42751}}}}},
 	-- ===== Storyline | Suramar | Masquerade =====
 	[104998] = {
 		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
