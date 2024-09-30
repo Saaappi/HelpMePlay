@@ -106,3 +106,6 @@ _Keybinds\Keybinds.lua
 # Start the addon load process and other setup events.
 Core.lua
 MainMenuBar.lua
+
+# Developer Tools
+#UnitSpellCast.lua
