@@ -483,6 +483,8 @@ LHMP.Gossips = {
 	[94974] = {{ID = 44302, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38719}}}}},
 	[94976] = {{ID = 44304, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38719}}}}},
 	[243227] = {{ID = 45050, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38721}}}}},
+	-- ===== Highmountain =====
+	[98825] = {{ID = 44611, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40167}}}}},
 	-- ===== Storyline | Suramar | Masquerade =====
 	[104998] = {
 		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
