@@ -1,4 +1,4 @@
-local _, HelpMePlay = ...
+--[[local _, HelpMePlay = ...
 
 local LHMP = LibStub("LibHelpMePlay")
 if not LHMP then
@@ -6,7 +6,7 @@ if not LHMP then
 end
 local eventFrame = CreateFrame("Frame")
 
-local targetSpellId = 194140
+local targetSpellId = 0
 
 local function OnEvent(_, event, ...)
     if event == "PLAYER_REGEN_DISABLED" then
@@ -24,4 +24,4 @@ end
 
 eventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
 eventFrame:RegisterEvent("UNIT_SPELLCAST_START")
-eventFrame:SetScript("OnEvent", OnEvent)
+eventFrame:SetScript("OnEvent", OnEvent)]]
