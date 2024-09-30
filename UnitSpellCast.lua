@@ -10,18 +10,18 @@ local targetSpellId = 189052
 
 local function OnEvent(_, event, ...)
     if event == "PLAYER_REGEN_DISABLED" then
-        HelpMePlay.Print("Entered combat: " .. date("%H:%M:%S"))
-    elseif event == "UNIT_SPELLCAST_SUCCEEDED" then
-        local unit, castString = ...
+        HelpMePlay.Print("Entered combat: " .. (GetTime()*1000))
+    elseif event == "UNIT_SPELLCAST_START" then
+        local unit, _, spellId = ...
         if string.find(unit, "nameplate") then
-            local spellId = LHMP:SplitString(castString, "-", 6)
+            --local spellId = LHMP:SplitString(castGUID, "-", 6)
             if spellId == targetSpellId then
-                HelpMePlay.Print("Spell cast: " .. date("%H:%M:%S"))
+                HelpMePlay.Print("Spell cast: " .. (GetTime()*1000))
             end
         end
     end
 end
 
 eventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
-eventFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
+eventFrame:RegisterEvent("UNIT_SPELLCAST_START")
 eventFrame:SetScript("OnEvent", OnEvent)]]
