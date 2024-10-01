@@ -27,12 +27,12 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
                         end
                     end
                     if HelpMePlayDB.PlayerQuestMerchants[id] then
-                        for _, items in pairs(HelpMePlayDB.PlayerQuestMerchants[id]) do
-                            for itemId, item in pairs(items) do
-                                if itemId == GetMerchantItemID(item.index) then
-                                    BuyMerchantItem(item.index, item.quantity)
-                                end
-                            end
+                        for itemId, item in pairs(HelpMePlayDB.PlayerQuestMerchants[id]) do
+							if itemId == GetMerchantItemID(item.index) and (item.questId ~= 0 and C_QuestLog.IsOnQuest(item.questId)) then
+								BuyMerchantItem(item.index, item.quantity)
+							elseif itemId == GetMerchantItemID(item.index) then
+								BuyMerchantItem(item.index, item.quantity)
+							end
                         end
                     end
                 end
@@ -134,8 +134,9 @@ MerchantFrame:HookScript("OnShow", function(self)
 
 		userMerchantButton:SetScript("OnClick", function()
 			StaticPopupDialogs["HMP_CUSTOM_MERCHANT_OPTION"] = {
-				text = "Please enter the index and quantity of the item (separated by a comma) you would like to add.\n\n" ..
-				"If you're removing an item, you can omit the comma and the quantity.\n\n" ..
+				text = "Please enter the index, quantity, and quest ID (optional) for the item (separated by commas) you would like to add.\n\n" ..
+				"If you're removing an item, you can omit all but the index.\n\n" ..
+				"Example: 4,1,12345\n\n" ..
 				LHMP:ColorText("RED", "Please keep in mind, the addon has priority in the Merchant subsystem."),
 				button1 = YES,
 				button2 = NO,
@@ -143,9 +144,16 @@ MerchantFrame:HookScript("OnShow", function(self)
 				hasEditBox = true,
 				OnAccept = function(self)
 					local input = self.editBox:GetText()
-					local index, quantity = string.split(",", input)
-					if tonumber(index) then
+					local index, quantity, questId = string.split(",", input)
+
+					-- Check if the player entered a quest id or not.
+					if not questId then questId = 0 end
+
+					-- Process the player's request.
+					if tonumber(index) and tonumber(quantity) and tonumber(questId) then
 						index = tonumber(index)
+						quantity = tonumber(quantity)
+						questId = tonumber(questId)
 						local GUID = UnitGUID("npc")
 						if GUID then
 							local id = LHMP:SplitString(GUID, "-", 6)
@@ -158,7 +166,16 @@ MerchantFrame:HookScript("OnShow", function(self)
 								if itemId then
 									if not HelpMePlayDB.PlayerQuestMerchants[id][itemId] then
 										HelpMePlayDB.PlayerQuestMerchants[id][itemId] = {}
-										table.insert(HelpMePlayDB.PlayerQuestMerchants[id][itemId], {index = index, quantity = quantity})
+										HelpMePlayDB.PlayerQuestMerchants[id][itemId].index = index
+										HelpMePlayDB.PlayerQuestMerchants[id][itemId].quantity = quantity
+										HelpMePlayDB.PlayerQuestMerchants[id][itemId].questId = questId
+
+										-- Buy the item.
+										if questId ~= 0 and C_QuestLog.IsOnQuest(questId) then
+											BuyMerchantItem(index, quantity)
+										else
+											BuyMerchantItem(index, quantity)
+										end
 									else
 										HelpMePlayDB.PlayerQuestMerchants[id][itemId] = nil
 									end
