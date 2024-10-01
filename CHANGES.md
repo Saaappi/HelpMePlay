@@ -4,6 +4,8 @@
   - Added a variety of gossips from around Azeroth.
 ### Changed or Updated
   - Players can now hold SHIFT with their mount button to summon a Skyriding mount prior to level 20.
+  - The Micro Menu button is now movable.
+    - _**Author's Note**: The button has been moved to the center of the screen to encourage players to move it where they want._
 ### Deprecated
 _No changes_
 ### Removed
