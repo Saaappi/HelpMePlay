@@ -3,6 +3,7 @@
 ### Added
   - Added a variety of gossips from around Azeroth.
   - Added compatibility with the [Immersion](https://www.curseforge.com/wow/addons/immersion) addon.
+    - _**Author's Note**: This is for the custom gossip button._
 ### Changed or Updated
   - Players can now hold SHIFT with their mount button to summon a Skyriding mount prior to level 20.
   - The Micro Menu button is now movable.
