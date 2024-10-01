@@ -24,7 +24,25 @@ local function OnEvent(_, event, ...)
         button:SetHeight(25)
 
         button:ClearAllPoints()
-        button:SetPoint("BOTTOMRIGHT", CharacterMicroButton, "BOTTOMLEFT", 0, 0)
+
+        button:SetMovable(true)
+        button:EnableMouse(true)
+        button:RegisterForDrag("LeftButton")
+        button:SetScript("OnDragStart", function(self)
+            self:StartMoving()
+        end)
+        button:SetScript("OnDragStop", function(self)
+            self:StopMovingOrSizing()
+            local anchor, parent, relativeAnchor, x, y = self:GetPoint()
+            HelpMePlayDB.Positions["MicroButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+        end)
+
+		if HelpMePlayDB.Positions["MicroButton"] then
+			local pos = HelpMePlayDB.Positions["MicroButton"]
+			button:SetPoint(pos.anchor, pos.parent, pos.relativeAnchor, pos.x, pos.y)
+		else
+			button:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+		end
 
         button.icon = button:CreateTexture(string.format("%sIcon", button:GetName()), "OVERLAY")
         button.icon:SetAtlas(atlas)
