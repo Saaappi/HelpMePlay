@@ -1,5 +1,8 @@
 ## Version 3.2.1 - 2024/10/08
 
+## Author's Notes
+  - The table hosting custom merchant items has been wiped in this update. You will need to repopulate it manually. I apologize for any inconvenience.
+
 ### Added
   - Added a variety of gossips from around Azeroth.
   - Added compatibility with the [Immersion](https://www.curseforge.com/wow/addons/immersion) addon.
