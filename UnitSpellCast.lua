@@ -6,7 +6,7 @@ if not LHMP then
 end
 local eventFrame = CreateFrame("Frame")
 
-local targetSpellId = 0
+local targetSpellId = 194356
 
 local function OnEvent(_, event, ...)
     if event == "PLAYER_REGEN_DISABLED" then
@@ -14,7 +14,6 @@ local function OnEvent(_, event, ...)
     elseif event == "UNIT_SPELLCAST_START" then
         local unit, _, spellId = ...
         if string.find(unit, "nameplate") then
-            --local spellId = LHMP:SplitString(castGUID, "-", 6)
             if spellId == targetSpellId then
                 HelpMePlay.Print("Spell cast: " .. (GetTime()*1000))
             end
