@@ -502,6 +502,9 @@ LHMP.Gossips = {
 	[96286] = {{ID = 44308, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39381}}}}},
 	[98773] = {{ID = 44839, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39387}}}}},
 	[99619] = {{ID = 44200, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39456}}}}},
+	[96591] = {{ID = 44518, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40170}}}}},
+	[98804] = {{ID = 44518, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40170}}}}},
+	[94434] = {{ID = 44520, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40216}}}}},
 	-- ===== Storyline | Suramar | Masquerade =====
 	[104998] = {
 		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
