@@ -14,6 +14,7 @@
   - Players no longer need to close and reopen the merchant window for custom items to be purchased.
   - Players can now include an optional quest ID when adding a custom merchant item.
     - _**Author's Note:** If a quest ID is included, it will be checked if the player is on the quest before purchasing the item from the merchant._
+  - Like for quests, holding SHIFT now _pauses_ Gossip automation instead of terminating it.
 ### Deprecated
 _No changes_
 ### Removed

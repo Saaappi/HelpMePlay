@@ -23,12 +23,8 @@ local positions = {
 	}
 }
 
-eventHandler:RegisterEvent("GOSSIP_SHOW")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
-	if event == "GOSSIP_SHOW" then
-		if HelpMePlayDB["AcceptGossip"] == false then return end
-		if IsShiftKeyDown() then return end
-
+local function UseGossip()
+	if not IsShiftKeyDown() then
 		local options = C_GossipInfo.GetOptions()
 		if options then
 			local GUID = UnitGUID("npc")
@@ -60,6 +56,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 		end
+	else
+		C_Timer.After(1, UseGossip)
+	end
+end
+
+eventHandler:RegisterEvent("GOSSIP_SHOW")
+eventHandler:SetScript("OnEvent", function(self, event, ...)
+	if event == "GOSSIP_SHOW" then
+		if HelpMePlayDB["AcceptGossip"] == false then return end
 
 		-- If the gossip from is visible, then add a button that can be used to
 		-- quickly retrieve the NPC's ID, as well as the listed options.
@@ -186,6 +191,8 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 				objectivesButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 			end
 		end
+
+		UseGossip()
 	end
 end)
 
