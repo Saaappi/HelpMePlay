@@ -485,6 +485,17 @@ LHMP.Gossips = {
 	[243227] = {{ID = 45050, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38721}}}}},
 	-- ===== Highmountain =====
 	[98825] = {{ID = 44611, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40167}}}}},
+	[99745] = {{ID = 44447, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99746] = {{ID = 44347, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99747] = {{ID = 45092, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99748] = {{ID = 45094, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99781] = {{ID = 45095, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}}},
+	[99782] = {
+		{ID = 45096, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}},
+		{ID = 45097, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}}
+	},
+	[99784] = {{ID = 45098, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}}},
+	[95403] = {{ID = 44135, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39318}}}}},
 	-- ===== Storyline | Suramar | Masquerade =====
 	[104998] = {
 		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
