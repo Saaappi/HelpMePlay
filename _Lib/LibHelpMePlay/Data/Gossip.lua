@@ -705,6 +705,16 @@ LHMP.Gossips = {
 		{ID = 55328, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65688}}}},
 		{ID = 55697, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66493}}}}
 	},
+	[186187] = {{ID = 54821, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65854}}}}},
+	[190229] = {{ID = 55417, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66699}}}}},
+	[190226] = {{ID = 55418, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66699}}}}},
+	[190225] = {{ID = 55419, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66699}}}}},
+	[186224] = {{ID = 54825, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65864}}}}},
+	[187730] = {{ID = 55220, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190136] = {{ID = 55691, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190142] = {{ID = 55692, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190143] = {{ID = 55693, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190074] = {{ID = 55694, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
 	-- ===== Valdrakken =====
 	[214051] = {{ID = 120505, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78865}}}}},
 	-- Tyr's Fall Questline
