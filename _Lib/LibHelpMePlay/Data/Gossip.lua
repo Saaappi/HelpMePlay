@@ -505,6 +505,9 @@ LHMP.Gossips = {
 	[96591] = {{ID = 44518, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40170}}}}},
 	[98804] = {{ID = 44518, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40170}}}}},
 	[94434] = {{ID = 44520, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40216}}}}},
+	[106153] = {{ID = 45373, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42088}}}}},
+	[106115] = {{ID = 45372, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42088}}}}},
+	[106191] = {{ID = 45374, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42088}}}}},
 	-- ===== Storyline | Suramar | Masquerade =====
 	[104998] = {
 		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
@@ -571,9 +574,11 @@ LHMP.Gossips = {
 		{ID = 45998, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}}
 	},
 	[96813] = {{ID = 44179, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42479}}}}},
-	-------------------------
-	-- SHADOWLANDS ----------
-	-------------------------
+	--[[ 
+	===============================================================================
+								SHADOWLANDS
+	===============================================================================
+	--]]
 	-- Exile's Reach
 	[153211] = {{ID = 49526, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {55763}}}}},
 	[162998] = {
@@ -623,9 +628,11 @@ LHMP.Gossips = {
 	},
 	[167537] = {{ID = 52640, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {59956}}}}},
 	[167478] = {{ID = 52639, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {59970}}}}},
-	-------------------------
-	-- DRAGONFLIGHT ---------
-	-------------------------
+	--[[ 
+	===============================================================================
+								DRAGONFLIGHT
+	===============================================================================
+	--]]
 	-- Introduction (Alliance)
 	[189569] = {{ID = 55659, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66577}}}}},
 	[198401] = {{ID = 107417, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66589}}}}},
@@ -692,7 +699,13 @@ LHMP.Gossips = {
 		{ID = 120773, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {68796}}}}
 	},
 	[187393] = {{ID = 54942, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66435}}}}},
-	-- Valdrakken
+	-- ===== The Azure Span =====
+	[192751] = {{ID = 55247, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {67175}}}}},
+	[188915] = {
+		{ID = 55328, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65688}}}},
+		{ID = 55697, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66493}}}}
+	},
+	-- ===== Valdrakken =====
 	[214051] = {{ID = 120505, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78865}}}}},
 	-- Tyr's Fall Questline
 	[200078] = {
