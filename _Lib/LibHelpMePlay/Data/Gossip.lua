@@ -1297,6 +1297,5 @@ LHMP.Gossips = {
 	},
 	[227273] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
 	[221912] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
-	-- Heritage
 	-- ===============================================================================
 }
