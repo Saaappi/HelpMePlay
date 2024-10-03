@@ -734,6 +734,13 @@ LHMP.Gossips = {
 		{ID = 55022, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66213}}}}
 	},
 	[186480] = {{ID = 55314, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65850}}}}},
+	[187674] = {{ID = 55003, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66218}}}}},
+	[193637] = {{ID = 107582, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66223}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{66223,1}}}}}},
+	[186280] = {{ID = 54829, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66027}}}}},
+	[190873] = {{ID = 55174, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66141}}}}},
+	[187501] = {{ID = 54654, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66150}}}}},
+	[196501] = {{ID = 106989, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {70946}}}}},
+	[196773] = {{ID = 107025, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {70970}}}}},
 	-- ===== Valdrakken =====
 	[214051] = {{ID = 120505, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78865}}}}},
 	-- Tyr's Fall Questline

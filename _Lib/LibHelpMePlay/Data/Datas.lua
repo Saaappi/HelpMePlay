@@ -104,55 +104,58 @@ LHMP.PlayerChoices = {
 
 LHMP.QuestMerchants = {
     [2664] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {26600}}, {"QUEST_OBJECTIVES_INCOMPLETE", {26600,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {26600}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{26600,1}}}}}
     },
     [2491] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {26600}}, {"QUEST_OBJECTIVES_INCOMPLETE", {26600,2}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {26600}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{26600,2}}}}}
     },
     [19678] = {
-        { Index = 2, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {10664}}, {"QUEST_OBJECTIVES_INCOMPLETE", {10664,3}}}}
+        { Index = 2, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {10664}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{10664,3}}}}}
     },
     [40832] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {25517}}, {"QUEST_OBJECTIVES_INCOMPLETE", {25517,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {25517}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{25517,1}}}}}
     },
     [54982] = {
-        { Index = 1, Quantity = 3, Conditions = {{"QUESTS_ACTIVE", {29627}}, {"QUEST_OBJECTIVES_INCOMPLETE", {29627,3}}}}
+        { Index = 1, Quantity = 3, Conditions = {{"QUESTS_ACTIVE", {29627}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{29627,3}}}}}
     },
     [54981] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {29627}}, {"QUEST_OBJECTIVES_INCOMPLETE", {29627,2}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {29627}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{29627,2}}}}}
     },
     [73306] = {
-        { Index = 6, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {33343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {33343,1}}}}
+        { Index = 6, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {33343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{33343,1}}}}}
     },
     [156800] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {55194}}, {"QUEST_OBJECTIVES_INCOMPLETE", {55194,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {55194}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{55194,1}}}}}
     },
     [167213] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {59950}}, {"QUEST_OBJECTIVES_INCOMPLETE", {59950,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {59950}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{59950,1}}}}}
     },
     [209192] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79223}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79223,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79223}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{79223,1}}}}}
     },
     [217642] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {78613}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78613,2}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {78613}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78613,2}}}}}
     },
     [216164] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79343,3}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{79343,3}}}}}
     },
     [228184] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {84664}}, {"QUEST_OBJECTIVES_INCOMPLETE", {84664,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {84664}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{84664,1}}}}}
     },
     [212370] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79545}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79545,2}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79545}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{79545,2}}}}}
     },
     [217072] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79176}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79176,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {79176}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{79176,1}}}}}
     },
     [206151] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {76394}}, {"QUEST_OBJECTIVES_INCOMPLETE", {76394,3}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {76394}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{76394,3}}}}}
     },
     [100437] = {
-        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {40520}}, {"QUEST_OBJECTIVES_INCOMPLETE", {40520,1}}}}
+        { Index = 1, Quantity = 1, Conditions = {{"QUESTS_ACTIVE", {40520}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{40520,1}}}}}
+    },
+    [193637] = {
+        { Index = 1, Quantity = 7, Conditions = {{"QUESTS_ACTIVE", {66223}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{66223,1}}}}}
     }
 }
 
