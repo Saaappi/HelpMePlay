@@ -916,6 +916,7 @@ LHMP.Gossips = {
 	[220564] = {{ID = 121576, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
 	[217082] = {{ID = 121577, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
 	[212407] = {{ID = 120273, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78464,5}}}}}},
+	[217241] = {{ID = 122494, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79150}}}}},
 	-- ===============================================================================
 	-- ===== The Ringing Deeps =====
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
@@ -1271,6 +1272,11 @@ LHMP.Gossips = {
 	[220565] = {{ID = 121578, CanConfirm = false, Conditions = {}}},
 	-- ===== Skittering Breach =====
 	[220585] = {{ID = 121408, CanConfirm = false, Conditions = {}}},
+	-- ===== Tak-Rethan Abyss =====
+	[215178] = {{ID = 120255, CanConfirm = false, Conditions = {}}},
+	-- ===== The Underkeep =====
+	[220133] = {{ID = 121502, CanConfirm = false, Conditions = {}}},
+	[455666] = {{ID = 123353, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83761}}}}},
 	-- ===== Storyline | Delves: Season 1 =====
 	[226763] = {{ID = 123080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81596}}}}},
 	--[[
