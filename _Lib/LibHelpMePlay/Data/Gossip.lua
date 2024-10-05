@@ -1270,6 +1270,9 @@ LHMP.Gossips = {
 		{ID = 121541, CanConfirm = false, Conditions = {}}
 	},
 	[220293] = {{ID = 121536, CanConfirm = false, Conditions = {}}},
+	[219872] = {{ID = 121445, CanConfirm = false, Conditions = {}}},
+	[219779] = {{ID = 121493, CanConfirm = false, Conditions = {}}},
+	[220052] = {{ID = 121564, CanConfirm = false, Conditions = {}}},
 	-- ===== The Sinkhole =====
 	[220565] = {{ID = 121578, CanConfirm = false, Conditions = {}}},
 	-- ===== Skittering Breach =====

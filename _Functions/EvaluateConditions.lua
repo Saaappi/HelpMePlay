@@ -58,7 +58,7 @@ HelpMePlay.EvaluateConditions = function(conditions)
                     local questId = quest[1]
                     local objectiveIndex = quest[2]
 
-                    if C_QuestLog.IsOnQuest(questId) then
+                    if C_QuestLog.IsOnQuest(questId) and objectiveIndex then
                         local objectives = C_QuestLog.GetQuestObjectives(questId)
                         if objectives and objectives[objectiveIndex].finished then
                             numQuests = numQuests - 1
@@ -77,7 +77,7 @@ HelpMePlay.EvaluateConditions = function(conditions)
                     local questId = quest[1]
                     local objectiveIndex = quest[2]
 
-                    if C_QuestLog.IsOnQuest(questId) then
+                    if C_QuestLog.IsOnQuest(questId) and objectiveIndex then
                         local objectives = C_QuestLog.GetQuestObjectives(questId)
                         if objectives and (not objectives[objectiveIndex].finished) then
                             numQuests = numQuests - 1
