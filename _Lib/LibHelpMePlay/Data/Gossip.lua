@@ -917,6 +917,8 @@ LHMP.Gossips = {
 	[217082] = {{ID = 121577, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
 	[212407] = {{ID = 120273, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78464,5}}}}}},
 	[217241] = {{ID = 122494, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79150}}}}},
+	[226575] = {{ID = 124159, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82678}}}}},
+	[227675] = {{ID = 123493, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81595}}}}},
 	-- ===============================================================================
 	-- ===== The Ringing Deeps =====
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
