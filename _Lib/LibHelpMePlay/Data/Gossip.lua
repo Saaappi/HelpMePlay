@@ -1239,6 +1239,10 @@ LHMP.Gossips = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
 		{ID = 120383, CanConfirm = false, Conditions = {}}
 	},
+	[216632] = {
+		{ID = 120540, CanConfirm = false, Conditions = {}},
+		{ID = 120541, CanConfirm = false, Conditions = {}}
+	},
 	-- ===== Fungal Folly =====
 	[210677] = {{ID = 111366, CanConfirm = false, Conditions = {}}},
 	[211061] = {{ID = 113928, CanConfirm = false, Conditions = {}}},
