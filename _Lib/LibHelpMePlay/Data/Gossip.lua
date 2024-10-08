@@ -58,17 +58,17 @@ LHMP.Gossips = {
 	[36398] = {{ID = 37290, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {14394}}}}},
 	-- Feralas
 	[41383] = {{ID = 38510, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25304}}}}},
-	[39723] = {{ID = 38132, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUESTS_ACTIVE", {25399,25458}}, {"QUEST_OBJECTIVES_COMPLETE", {{25399,1}, {25458,1}}}}}},
+	[39723] = {{ID = 38132, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 20}, {"QUESTS_ACTIVE", {25399,25458}}, {"QUEST_OBJECTIVES_COMPLETE", {{25399,1},{25458,1}}}}}},
 	[40367] = {{ID = 37491, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25437,25481}}}}},
 	-- Thousand Needles
-	[40832] = {{ID = 38546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25517}}, {"QUEST_OBJECTIVES_INCOMPLETE", {25517,1}}}}},
+	[40832] = {{ID = 38546, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25517}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{25517,1}}}}}},
 	[40726] = {{ID = 37885, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {25532}}}}},
-	[47620] = {{ID = 39078, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,2}}}}},
-	[47619] = {{ID = 39781, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,3}}}}},
-	[47602] = {{ID = 39780, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {28136,1}}}}},
+	[47620] = {{ID = 39078, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{28136,2}}}}}},
+	[47619] = {{ID = 39781, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{28136,3}}}}}},
+	[47602] = {{ID = 39780, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {28136}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{28136,1}}}}}},
 	-- Dustwallow Marsh
-	[23602] = {{ID = 36821, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27210}}, {"QUEST_OBJECTIVES_INCOMPLETE", {27210,1}}}}},
-	[4979] = {{ID = 35789, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27212}}, {"QUEST_OBJECTIVES_INCOMPLETE", {27212,1}}}}},
+	[23602] = {{ID = 36821, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27210}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{27210,1}}}}}},
+	[4979] = {{ID = 35789, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27212}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{27212,1}}}}}},
 	[23704] = {{ID = 35260, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27239}}}}},
 	[4968] = {{ID = 29819, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {27240}}}}},
 	-- Felwood
@@ -221,7 +221,7 @@ LHMP.Gossips = {
 	[59401] = {{ID = 40697, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {30495}}}}},
 	[59397] = {{ID = 39805, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {30495}}}}},
 	[59392] = {
-		{ID = 39631, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUESTS_ACTIVE", {30495}}, {"QUEST_OBJECTIVES_INCOMPLETE", {30495,4}}}},
+		{ID = 39631, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUESTS_ACTIVE", {30495}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{30495,4}}}}},
 		{ID = 39632, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {30495}}}},
 		{ID = 39633, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {29932}}}}
 	},
@@ -351,8 +351,8 @@ LHMP.Gossips = {
 	[61397] = {{ID = 37888, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {30890}}}}},
 	[61396] = {{ID = 37889, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {30890}}}}},
 	-- Dread Wastes
-	[62202] = {{ID = 35586, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUESTS_ACTIVE", {31006}}, {"QUEST_OBJECTIVES_INCOMPLETE", {31006,1}}}}},
-	[62538] = {{ID = 35587, CanConfirm = true, Conditions = {{"LEVEL_LOWER", 30}, {"QUESTS_ACTIVE", {31007}}, {"QUEST_OBJECTIVES_INCOMPLETE", {31007,1}}}}},
+	[62202] = {{ID = 35586, CanConfirm = false, Conditions = {{"LEVEL_LOWER", 30}, {"QUESTS_ACTIVE", {31006}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{31006,1}}}}}},
+	[62538] = {{ID = 35587, CanConfirm = true, Conditions = {{"LEVEL_LOWER", 30}, {"QUESTS_ACTIVE", {31007}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{31007,1}}}}}},
 	[63876] = {{ID = 28603, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {31091}}}}},
 	[62667] = {{ID = 35828, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {31129}}}}},
 	[62845] = {{ID = 35823, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {31129}}}}},
@@ -416,7 +416,7 @@ LHMP.Gossips = {
 	[70297] = {{ID = 41662, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {32655}}}}},
 	[69615] = {{ID = 42150, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {32656}}}}},
 	-- Timeless Isle
-	[73306] = {{ID = 41556, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {33343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {33343,1}}}}},
+	[73306] = {{ID = 41556, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {33343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{33343,1}}}}}},
 	-------------------------
 	-- WARLORDS OF DRAENOR --
 	-------------------------
@@ -470,6 +470,44 @@ LHMP.Gossips = {
 	[96653] = {{ID = 44646, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39663}}}}},
 	[97644] = {{ID = 44913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40373}}}}},
 	[100429] = {{ID = 45043, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {44463}}}}},
+	-- ===== Val'sharah =====
+	[91462] = {{ID = 44675, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40122}}}}},
+	[108642] = {{ID = 45772, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42751}}}}},
+	[91109] = {{ID = 44789, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38377}}}}},
+	[92742] = {{ID = 44776, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38595}}}}},
+	[104739] = {{ID = 45498, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41708}}}}},
+	[104799] = {{ID = 45380, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38743}}}}},
+	[92734] = {{ID = 44454, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38644}}}}},
+	[92620] = {{ID = 44726, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38691}}}}},
+	[94975] = {{ID = 44306, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38719}}}}},
+	[94974] = {{ID = 44302, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38719}}}}},
+	[94976] = {{ID = 44304, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38719}}}}},
+	[243227] = {{ID = 45050, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {38721}}}}},
+	-- ===== Highmountain =====
+	[98825] = {
+		{ID = 44611, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40167}}}},
+		{ID = 44610, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39983}}, {"QUEST_OBJECTIVES_COMPLETE", {{39456,2},{39387,2}}}}}
+	},
+	[99745] = {{ID = 44447, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99746] = {{ID = 44347, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99747] = {{ID = 45092, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99748] = {{ID = 45094, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40339}}}}},
+	[99781] = {{ID = 45095, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}}},
+	[99782] = {
+		{ID = 45096, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}},
+		{ID = 45097, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}}
+	},
+	[99784] = {{ID = 45098, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40345}}}}},
+	[95403] = {{ID = 44135, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39318}}}}},
+	[96286] = {{ID = 44308, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39381}}}}},
+	[98773] = {{ID = 44839, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39387}}}}},
+	[99619] = {{ID = 44200, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {39456}}}}},
+	[96591] = {{ID = 44518, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40170}}}}},
+	[98804] = {{ID = 44518, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40170}}}}},
+	[94434] = {{ID = 44520, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {40216}}}}},
+	[106153] = {{ID = 45373, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42088}}}}},
+	[106115] = {{ID = 45372, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42088}}}}},
+	[106191] = {{ID = 45374, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42088}}}}},
 	-- ===== Storyline | Suramar | Masquerade =====
 	[104998] = {
 		{ID = 45205, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {41762}}}},
@@ -536,9 +574,11 @@ LHMP.Gossips = {
 		{ID = 45998, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42477}}}}
 	},
 	[96813] = {{ID = 44179, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {42479}}}}},
-	-------------------------
-	-- SHADOWLANDS ----------
-	-------------------------
+	--[[ 
+	===============================================================================
+								SHADOWLANDS
+	===============================================================================
+	--]]
 	-- Exile's Reach
 	[153211] = {{ID = 49526, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {55763}}}}},
 	[162998] = {
@@ -558,7 +598,7 @@ LHMP.Gossips = {
 	},
 	[161666] = {
 		{ID = 49525, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {60168}}}},
-		{ID = 49523, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {60168}}, {"QUEST_OBJECTIVES_INCOMPLETE", {60168,3}}}}
+		{ID = 49523, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {60168}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{60168,3}}}}}
 	},
 	[164835] = {{ID = 51237, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {59347}}}}},
 	[162972] = {
@@ -580,7 +620,7 @@ LHMP.Gossips = {
 	},
 	[167215] = {
 		{ID = 52668, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {60162}}}},
-		{ID = 52666, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {60162}}, {"QUEST_OBJECTIVES_INCOMPLETE", {60162,3}}}}
+		{ID = 52666, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {60162}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{60162,3}}}}}
 	},
 	[167184] = {
 		{ID = 52644, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {59967}}}},
@@ -588,9 +628,11 @@ LHMP.Gossips = {
 	},
 	[167537] = {{ID = 52640, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {59956}}}}},
 	[167478] = {{ID = 52639, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {59970}}}}},
-	-------------------------
-	-- DRAGONFLIGHT ---------
-	-------------------------
+	--[[ 
+	===============================================================================
+								DRAGONFLIGHT
+	===============================================================================
+	--]]
 	-- Introduction (Alliance)
 	[189569] = {{ID = 55659, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66577}}}}},
 	[198401] = {{ID = 107417, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66589}}}}},
@@ -629,7 +671,7 @@ LHMP.Gossips = {
 	},
 	[194076] = {{ID = 63862, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {70132}}}}},
 	[198040] = {{ID = 107284, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {68796}}}}},
-	[193364] = {{ID = 55584, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {68798}}, {"QUEST_OBJECTIVES_INCOMPLETE", {68798,2}}}}},
+	[193364] = {{ID = 55584, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {68798}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{68798,2}}}}}},
 	[189089] = {{ID = 54942, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66435}}}}},
 	[190334] = {{ID = 55167, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66438}}}}},
 	[190423] = {{ID = 55168, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66438}}}}},
@@ -637,15 +679,15 @@ LHMP.Gossips = {
 	[185904] = {{ID = 55258, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66115}}}}},
 	[189260] = {{ID = 55290, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66115}}}}},
 	[187278] = {{ID = 107159, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66124}}}}},
-	[192795] = {{ID = 107399, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72241}}, {"QUEST_OBJECTIVES_INCOMPLETE", {72241,1}}}}},
+	[192795] = {{ID = 107399, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {72241}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{72241,1}}}}}},
 	[186331] = {{ID = 55311, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66048}}}}},
 	[186493] = {
 		{ID = 55309, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66048}}}},
 		{ID = 55310, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66048}}}}
 	},
 	[187466] = {{ID = 55307, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66048}}}}},
-	[187187] = {{ID = 54628, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66078}}, {"QUEST_OBJECTIVES_INCOMPLETE", {66078,1}}}}},
-	[187189] = {{ID = 54628, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66078}}, {"QUEST_OBJECTIVES_INCOMPLETE", {66078,1}}}}},
+	[187187] = {{ID = 54628, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66078}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{66078,1}}}}}},
+	[187189] = {{ID = 54628, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66078}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{66078,1}}}}}},
 	[189507] = {{ID = 54996, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66048}}}}},
 	[186681] = {{ID = 55405, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65939}}}}},
 	[186933] = {{ID = 54627, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66044}}}}},
@@ -657,7 +699,49 @@ LHMP.Gossips = {
 		{ID = 120773, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {68796}}}}
 	},
 	[187393] = {{ID = 54942, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66435}}}}},
-	-- Valdrakken
+	-- ===== The Azure Span =====
+	[192751] = {{ID = 55247, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {67175}}}}},
+	[188915] = {
+		{ID = 55328, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65688}}}},
+		{ID = 55697, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66493}}}}
+	},
+	[186187] = {{ID = 54821, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65854}}}}},
+	[190229] = {{ID = 55417, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66699}}}}},
+	[190226] = {{ID = 55418, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66699}}}}},
+	[190225] = {{ID = 55419, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66699}}}}},
+	[186224] = {{ID = 54825, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65864}}}}},
+	[187730] = {{ID = 55220, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190136] = {{ID = 55691, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190142] = {{ID = 55692, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190143] = {{ID = 55693, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[190074] = {{ID = 55694, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65869}}}}},
+	[191741] = {
+		{ID = 55333, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66846}}}},
+		{ID = 54909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66846}}}},
+		{ID = 54912, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66846}}}},
+		{ID = 54915, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66846}}}}
+	},
+	[377551] = {{ID = 55350, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65838}}}}},
+	[377555] = {{ID = 54967, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65838}}}}},
+	[377556] = {{ID = 54968, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65838}}}}},
+	[187873] = {{ID = 55002, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65848}}}}},
+	[186448] = {
+		{ID = 55010, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66213}}}},
+		{ID = 55011, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66213}}}},
+		{ID = 55012, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66213}}}},
+		{ID = 55017, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66213}}}},
+		{ID = 55020, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66213}}}},
+		{ID = 55022, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66213}}}}
+	},
+	[186480] = {{ID = 55314, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {65850}}}}},
+	[187674] = {{ID = 55003, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66218}}}}},
+	[193637] = {{ID = 107582, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66223}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{66223,1}}}}}},
+	[186280] = {{ID = 54829, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66027}}}}},
+	[190873] = {{ID = 55174, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66141}}}}},
+	[187501] = {{ID = 54654, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {66150}}}}},
+	[196501] = {{ID = 106989, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {70946}}}}},
+	[196773] = {{ID = 107025, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {70970}}}}},
+	-- ===== Valdrakken =====
 	[214051] = {{ID = 120505, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78865}}}}},
 	-- Tyr's Fall Questline
 	[200078] = {
@@ -742,14 +826,14 @@ LHMP.Gossips = {
 	-- ===============================================================================
 	-- ===== Isle of Dorn =====
 	[219757] = {{ID = 121391, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78536}}}}},
-	[219014] = {{ID = 122786, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,1}}}}},
-	[212369] = {{ID = 120909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,2}}}}},
+	[219014] = {{ID = 122786, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78457,1}}}}}},
+	[212369] = {{ID = 120909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78457,2}}}}}},
 	[212370] = {
-		{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,3}}}},
-		{ID = 121503, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79545,2}}}}
+		{ID = 120913, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78457,3}}}}},
+		{ID = 121503, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79545}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{79545,2}}}}}
 	},
 	[206017] = {
-		{ID = 122129, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78457,4}}}},
+		{ID = 122129, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78457}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78457,4}}}}},
 		{ID = 121598, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81510}}}}
 	},
 	[223652] = {{ID = 122467, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
@@ -758,7 +842,7 @@ LHMP.Gossips = {
 	[223649] = {{ID = 122463, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82441}}}}},
 	[217879] = {{ID = 122307, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78461}}}}},
 	[214460] = {{ID = 120275, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
-	[223858] = {{ID = 122660, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78464,3}}}}},
+	[223858] = {{ID = 122660, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78464,3}}}}}},
 	[216094] = {{ID = 121126, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78469}}}}},
 	[214462] = {{ID = 120267, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
 	[214461] = {{ID = 120274, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78996}}}}},
@@ -831,7 +915,10 @@ LHMP.Gossips = {
 	},
 	[220564] = {{ID = 121576, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
 	[217082] = {{ID = 121577, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79546}}}}},
-	[212407] = {{ID = 120273, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78464,5}}}}},
+	[212407] = {{ID = 120273, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78464}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78464,5}}}}}},
+	[217241] = {{ID = 122494, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79150}}}}},
+	[226575] = {{ID = 124159, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82678}}}}},
+	[227675] = {{ID = 123493, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81595}}}}},
 	-- ===============================================================================
 	-- ===== The Ringing Deeps =====
 	[212592] = {{ID = 122955, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78837}}}}},
@@ -880,11 +967,11 @@ LHMP.Gossips = {
 	[213841] = {{ID = 121390, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79565}}}}},
 	[224602] = {{ID = 122684, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {82990}}}}},
 	[216164] = {
-		{ID = 123847, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79343,1}}}},
-		{ID = 124026, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {79343,3}}}}
+		{ID = 123847, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{79343,1}}}}},
+		{ID = 124026, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79343}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{79343,3}}}}}
 	},
 	[215737] = {{ID = 121187, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79371}}}}},
-	[222234] = {{ID = 121872, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80509}}, {"QUEST_OBJECTIVES_COMPLETE", {80509,1}}}}},
+	[222234] = {{ID = 121872, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80509}}, {"QUEST_OBJECTIVES_COMPLETE", {{80509,1}}}}}},
 	[223730] = {{ID = 121909, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80514}}}}},
 	[221011] = {
 		{ID = 122206, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80578}}}},
@@ -908,7 +995,7 @@ LHMP.Gossips = {
 	[215667] = {{ID = 120328, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78692}}}}},
 	[215666] = {{ID = 120328, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78692}}}}},
 	[213614] = {{ID = 120324, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78695}}}}},
-	[217642] = {{ID = 122686, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78613}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78613,2}}}}},
+	[217642] = {{ID = 122686, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78613}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78613,2}}}}}},
 	[215727] = {{ID = 120333, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78626}}}}},
 	[214429] = {{ID = 120333, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78626}}}}},
 	[219963] = {{ID = 121459, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78614}}}}},
@@ -916,7 +1003,7 @@ LHMP.Gossips = {
 	[223408] = {{ID = 122374, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78614}}}}},
 	[218515] = {{ID = 120932, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78614}}}}},
 	[214402] = {{ID = 121810, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78624}}}}},
-	[225188] = {{ID = 122699, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80049}}, {"QUEST_OBJECTIVES_INCOMPLETE", {80049, 3}}}}},
+	[225188] = {{ID = 122699, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80049}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{80049, 3}}}}}},
 	[214362] = {{ID = 122705, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80049}}}}},
 	[213107] = {{ID = 121683, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {80049}}}}},
 	[225226] = {
@@ -990,10 +1077,10 @@ LHMP.Gossips = {
 	-- ===== Azj-Kahet =====
 	[219109] = {{ID = 121150, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79139}}}}},
 	[207471] = {
-		{ID = 122860, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78392,1}}}},
-		{ID = 122859, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78392,2}}}},
-		{ID = 122858, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78392,3}}}},
-		{ID = 122863, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {78392,4}}}},
+		{ID = 122860, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78392,1}}}}},
+		{ID = 122859, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78392,2}}}}},
+		{ID = 122858, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78392,3}}}}},
+		{ID = 122863, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78392}}, {"QUEST_OBJECTIVES_INCOMPLETE", {{78392,4}}}}},
 		{ID = 120666, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {78248}}}},
 		{ID = 123526, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {84022}}}},
 		{ID = 121590, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79244}}}}
@@ -1152,6 +1239,10 @@ LHMP.Gossips = {
 		{ID = 120330, CanConfirm = false, Conditions = {}},
 		{ID = 120383, CanConfirm = false, Conditions = {}}
 	},
+	[216632] = {
+		{ID = 120540, CanConfirm = false, Conditions = {}},
+		{ID = 120541, CanConfirm = false, Conditions = {}}
+	},
 	-- ===== Fungal Folly =====
 	[210677] = {{ID = 111366, CanConfirm = false, Conditions = {}}},
 	[211061] = {{ID = 113928, CanConfirm = false, Conditions = {}}},
@@ -1172,7 +1263,29 @@ LHMP.Gossips = {
 		{ID = 120082, CanConfirm = false, Conditions = {}}
 	},
 	-- ===== The Dread Pit =====
+	[219680] = {
+		{ID = 121508, CanConfirm = false, Conditions = {}},
+		{ID = 123392, CanConfirm = false, Conditions = {}}
+	},
 	[220181] = {{ID = 121526, CanConfirm = false, Conditions = {}}},
+	-- ===== Mycomancer Cavern =====
+	[220354] = {
+		{ID = 121540, CanConfirm = false, Conditions = {}},
+		{ID = 121541, CanConfirm = false, Conditions = {}}
+	},
+	[220293] = {{ID = 121536, CanConfirm = false, Conditions = {}}},
+	[219872] = {{ID = 121445, CanConfirm = false, Conditions = {}}},
+	[219779] = {{ID = 121493, CanConfirm = false, Conditions = {}}},
+	[220052] = {{ID = 121564, CanConfirm = false, Conditions = {}}},
+	-- ===== The Sinkhole =====
+	[220565] = {{ID = 121578, CanConfirm = false, Conditions = {}}},
+	-- ===== Skittering Breach =====
+	[220585] = {{ID = 121408, CanConfirm = false, Conditions = {}}},
+	-- ===== Tak-Rethan Abyss =====
+	[215178] = {{ID = 120255, CanConfirm = false, Conditions = {}}},
+	-- ===== The Underkeep =====
+	[220133] = {{ID = 121502, CanConfirm = false, Conditions = {}}},
+	[455666] = {{ID = 123353, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83761}}}}},
 	-- ===== Storyline | Delves: Season 1 =====
 	[226763] = {{ID = 123080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81596}}}}},
 	--[[
@@ -1199,6 +1312,5 @@ LHMP.Gossips = {
 	},
 	[227273] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
 	[221912] = {{ID = 122263, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {79202}}}}},
-	-- Heritage
 	-- ===============================================================================
 }

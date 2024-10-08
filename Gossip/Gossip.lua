@@ -2,20 +2,29 @@ local addonName, HelpMePlay = ...
 local eventHandler = CreateFrame("Frame")
 local LHMP = LibStub("LibHelpMePlay")
 local userGossipButton
-local userMerchantButton
 local gossipButton
 local questsButton
 local objectivesButton
 local expandButton
 local collapseButton
 local isExpanded = false
+local positions = {
+	ImmersionFrame = {
+		anchor = "BOTTOMRIGHT",
+		relativeAnchor = "TOPRIGHT",
+		x = -70,
+		y = 10
+	},
+	GossipFrame = {
+		anchor = "BOTTOMLEFT",
+		relativeAnchor = "TOPLEFT",
+		x = 50,
+		y = 10
+	}
+}
 
-eventHandler:RegisterEvent("GOSSIP_SHOW")
-eventHandler:SetScript("OnEvent", function(self, event, ...)
-	if event == "GOSSIP_SHOW" then
-		if HelpMePlayDB["AcceptGossip"] == false then return end
-		if IsShiftKeyDown() then return end
-
+local function UseGossip()
+	if not IsShiftKeyDown() then
 		local options = C_GossipInfo.GetOptions()
 		if options then
 			local GUID = UnitGUID("npc")
@@ -47,6 +56,15 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 				end
 			end
 		end
+	else
+		C_Timer.After(1, UseGossip)
+	end
+end
+
+eventHandler:RegisterEvent("GOSSIP_SHOW")
+eventHandler:SetScript("OnEvent", function(self, event, ...)
+	if event == "GOSSIP_SHOW" then
+		if HelpMePlayDB["AcceptGossip"] == false then return end
 
 		-- If the gossip from is visible, then add a button that can be used to
 		-- quickly retrieve the NPC's ID, as well as the listed options.
@@ -173,128 +191,138 @@ eventHandler:SetScript("OnEvent", function(self, event, ...)
 				objectivesButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
 			end
 		end
+
+		UseGossip()
 	end
 end)
 
-GossipFrame:HookScript("OnShow", function(self)
-	if not expandButton then
-		expandButton = CreateFrame("Button", nil, GossipFrame)
-		expandButton:SetSize(20, 20)
-		expandButton:SetPoint("BOTTOMLEFT", GossipFrame, "TOPLEFT", 50, 10)
-		expandButton.texture = expandButton:CreateTexture()
-		expandButton.texture:SetAtlas("common-icon-forwardarrow")
-		expandButton:SetNormalTexture(expandButton.texture)
-		expandButton:SetHighlightAtlas("common-icon-forwardarrow", "ADD")
-
-		expandButton:SetScript("OnClick", function(self)
-			PlaySound(SOUNDKIT.IG_QUEST_LOG_OPEN)
-			collapseButton:Show()
-			userGossipButton:Show()
-			self:Hide()
-			isExpanded = true
-		end)
-		expandButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to show the NPC utilities.", "") end)
-		expandButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+-- I had to implement a solution for compatibility with the Immersion addon.
+C_Timer.After(3, function()
+	local parent = ImmersionFrame or GossipFrame
+	local parentName = parent:GetName()
+	if parentName == "ImmersionFrame" then
+		parent = ImmersionFrame.TalkBox.MainFrame
 	end
+	parent:HookScript("OnShow", function(self)
+		if not expandButton then
+			expandButton = CreateFrame("Button", nil, parent)
+			expandButton:SetSize(20, 20)
+			expandButton:SetPoint(positions[parentName].anchor, parent, positions[parentName].relativeAnchor, positions[parentName].x, positions[parentName].y)
+			expandButton.texture = expandButton:CreateTexture()
+			expandButton.texture:SetAtlas("common-icon-forwardarrow")
+			expandButton:SetNormalTexture(expandButton.texture)
+			expandButton:SetHighlightAtlas("common-icon-forwardarrow", "ADD")
 
-	if not collapseButton then
-		collapseButton = CreateFrame("Button", nil, GossipFrame)
-		collapseButton:SetSize(20, 20)
-		collapseButton:SetPoint("BOTTOMLEFT", GossipFrame, "TOPLEFT", 50, 10)
-		collapseButton.texture = collapseButton:CreateTexture()
-		collapseButton.texture:SetAtlas("common-icon-backarrow")
-		collapseButton:SetNormalTexture(collapseButton.texture)
-		collapseButton:SetHighlightAtlas("common-icon-backarrow", "ADD")
+			expandButton:SetScript("OnClick", function(self)
+				PlaySound(SOUNDKIT.IG_QUEST_LOG_OPEN)
+				collapseButton:Show()
+				userGossipButton:Show()
+				self:Hide()
+				isExpanded = true
+			end)
+			expandButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to show the NPC utilities.", "") end)
+			expandButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+		end
 
-		collapseButton:SetScript("OnClick", function(self)
-			PlaySound(SOUNDKIT.IG_QUEST_LOG_CLOSE)
-			expandButton:Show()
-			userGossipButton:Hide()
-			self:Hide()
-			isExpanded = false
-		end)
-		collapseButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to hide the NPC utilities.", "") end)
-		collapseButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
-	end
+		if not collapseButton then
+			collapseButton = CreateFrame("Button", nil, parent)
+			collapseButton:SetSize(20, 20)
+			collapseButton:SetPoint(positions[parentName].anchor, parent, positions[parentName].relativeAnchor, positions[parentName].x, positions[parentName].y)
+			collapseButton.texture = collapseButton:CreateTexture()
+			collapseButton.texture:SetAtlas("common-icon-backarrow")
+			collapseButton:SetNormalTexture(collapseButton.texture)
+			collapseButton:SetHighlightAtlas("common-icon-backarrow", "ADD")
 
-	if not userGossipButton then
-		userGossipButton = HelpMePlay.CreateWidget("ActionButton", {
-			name = string.format("%sUserGossipButton", addonName),
-			parent = collapseButton,
-		})
-		userGossipButton:SetScale(0.75)
+			collapseButton:SetScript("OnClick", function(self)
+				PlaySound(SOUNDKIT.IG_QUEST_LOG_CLOSE)
+				expandButton:Show()
+				userGossipButton:Hide()
+				self:Hide()
+				isExpanded = false
+			end)
+			collapseButton:SetScript("OnEnter", function(self) HelpMePlay.Tooltip_OnEnter(self, "Click to hide the NPC utilities.", "") end)
+			collapseButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+		end
 
-		userGossipButton:ClearAllPoints()
-		userGossipButton:SetPoint("LEFT", collapseButton, "RIGHT", 10, 0)
+		if not userGossipButton then
+			userGossipButton = HelpMePlay.CreateWidget("ActionButton", {
+				name = string.format("%sUserGossipButton", addonName),
+				parent = collapseButton,
+			})
+			userGossipButton:SetScale(0.75)
 
-		userGossipButton.icon:SetTexture(135975)
+			userGossipButton:ClearAllPoints()
+			userGossipButton:SetPoint("LEFT", collapseButton, "RIGHT", 10, 0)
 
-		userGossipButton:SetScript("OnClick", function()
-			StaticPopupDialogs["HMP_CUSTOM_GOSSIP_OPTION"] = {
-				text = "Please enter the index of the option you would like to add.\n\n" ..
-				LHMP:ColorText("RED", "Please keep in mind, the addon has priority in the Gossip subsystem."),
-				button1 = YES,
-				button2 = NO,
-				explicitAcknowledge = true,
-				hasEditBox = true,
-				OnAccept = function(self)
-					local input = self.editBox:GetText()
-					if tonumber(input) then
-						input = tonumber(input)
-						local GUID = UnitGUID("npc")
-						if GUID then
-							local npcID = LHMP:SplitString(GUID, "-", 6)
-							if npcID then
-								local options = C_GossipInfo.GetOptions()
-								if options then
-									if not HelpMePlayDB.PlayerGossips[npcID] then
-										HelpMePlayDB.PlayerGossips[npcID] = {}
-									end
-									for index, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[npcID]) do
-										if gossipOptionID == options[input].gossipOptionID then
-											table.remove(HelpMePlayDB.PlayerGossips[npcID], index)
-											return
+			userGossipButton.icon:SetTexture(135975)
+
+			userGossipButton:SetScript("OnClick", function()
+				StaticPopupDialogs["HMP_CUSTOM_GOSSIP_OPTION"] = {
+					text = "Please enter the index of the option you would like to add.\n\n" ..
+					LHMP:ColorText("RED", "Please keep in mind, the addon has priority in the Gossip subsystem."),
+					button1 = YES,
+					button2 = NO,
+					explicitAcknowledge = true,
+					hasEditBox = true,
+					OnAccept = function(self)
+						local input = self.editBox:GetText()
+						if tonumber(input) then
+							input = tonumber(input)
+							local GUID = UnitGUID("npc")
+							if GUID then
+								local npcID = LHMP:SplitString(GUID, "-", 6)
+								if npcID then
+									local options = C_GossipInfo.GetOptions()
+									if options then
+										if not HelpMePlayDB.PlayerGossips[npcID] then
+											HelpMePlayDB.PlayerGossips[npcID] = {}
 										end
+										for index, gossipOptionID in ipairs(HelpMePlayDB.PlayerGossips[npcID]) do
+											if gossipOptionID == options[input].gossipOptionID then
+												table.remove(HelpMePlayDB.PlayerGossips[npcID], index)
+												return
+											end
+										end
+										table.insert(HelpMePlayDB.PlayerGossips[npcID], options[input].gossipOptionID)
 									end
-									table.insert(HelpMePlayDB.PlayerGossips[npcID], options[input].gossipOptionID)
 								end
 							end
 						end
-					end
-				end,
-				OnCancel = function()
-				end,
-				preferredIndex = 3
-			}
-			StaticPopup_Show("HMP_CUSTOM_GOSSIP_OPTION")
-		end)
-		userGossipButton:SetScript("OnEnter", function(self)
-			if UnitExists("npc") and (not UnitIsPlayer("npc")) then
-				HelpMePlay.Tooltip_OnEnter(self, "Gossip", string.format("Click to add or remove a custom gossip option for %s.", LHMP:ColorText("UNCOMMON", UnitName("npc"))))
-			end
-		end)
-		userGossipButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
-	end
+					end,
+					OnCancel = function()
+					end,
+					preferredIndex = 3
+				}
+				StaticPopup_Show("HMP_CUSTOM_GOSSIP_OPTION")
+			end)
+			userGossipButton:SetScript("OnEnter", function(self)
+				if UnitExists("npc") and (not UnitIsPlayer("npc")) then
+					HelpMePlay.Tooltip_OnEnter(self, "Gossip", string.format("Click to add or remove a custom gossip option for %s.", LHMP:ColorText("UNCOMMON", UnitName("npc"))))
+				end
+			end)
+			userGossipButton:SetScript("OnLeave", HelpMePlay.Tooltip_OnLeave)
+		end
 
-	if isExpanded then
-		collapseButton:Show()
-		userGossipButton:Show()
-		expandButton:Hide()
-	else
-		expandButton:Show()
-		collapseButton:Hide()
-		userGossipButton:Hide()
-	end
-end)
+		if isExpanded then
+			collapseButton:Show()
+			userGossipButton:Show()
+			expandButton:Hide()
+		else
+			expandButton:Show()
+			collapseButton:Hide()
+			userGossipButton:Hide()
+		end
+	end)
 
-GossipFrame:HookScript("OnHide", function()
-	if expandButton then
-		expandButton:Hide()
-	end
-	if collapseButton then
-		collapseButton:Hide()
-	end
-	if userGossipButton then
-		userGossipButton:Hide()
-	end
+	parent:HookScript("OnHide", function()
+		if expandButton then
+			expandButton:Hide()
+		end
+		if collapseButton then
+			collapseButton:Hide()
+		end
+		if userGossipButton then
+			userGossipButton:Hide()
+		end
+	end)
 end)

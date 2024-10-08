@@ -1075,6 +1075,7 @@ function HelpMePlay.Init()
         UseWaterReminder = false,
         UseWorldEventQueue = false,
         WaterReminderSoundId = 0,
+        WipePlayerQuestMerchants = true, -- TODO: Remove in a future release
     }
     for key, value in next, defaults do
         if HelpMePlayDB[key] == nil then
@@ -1107,6 +1108,12 @@ function HelpMePlay.Init()
             Vashjir = {},
             Unused = {}
         }
+    end
+
+    -- TODO: Remove in a future release.
+    if HelpMePlayDB.WipePlayerQuestMerchants then
+        HelpMePlayDB.PlayerQuestMerchants = {}
+        HelpMePlayDB.WipePlayerQuestMerchants = false
     end
 
     HelpMePlay.RegisterSettings()

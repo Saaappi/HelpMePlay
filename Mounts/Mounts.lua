@@ -171,6 +171,9 @@ function HelpMePlay.Mount()
                 C_MountJournal.SummonByID(mountID)
             end
         end
+    elseif HelpMePlay.playerLevel < 20 and IsOutdoors() and IsShiftKeyDown() then
+        -- This is SKYRIDING before flight styles are available.
+        HelpMePlay.SummonMountByType("Dynamic")
     elseif (GetMirrorTimerInfo(2)) == "BREATH" and IsOutdoors() then -- Aquatic Mounts
         -- If the player is submerged/swimming and they're outdoors,
         -- then summon an aquatic mount.

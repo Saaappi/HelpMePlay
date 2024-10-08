@@ -1,30 +1,26 @@
-## Version 3.2.0 - 2024/09/24
+## Version 3.2.1 - 2024/10/08
 
-### Author's Notes
-- The issue involving quests without rewards not completing in combat has been deemed _not a bug_.
+## Author's Notes
+  - The table hosting custom merchant items has been wiped in this update. You will need to repopulate it manually. I apologize for any inconvenience.
 
 ### Added
-- Added several additional Khaz Algar gossips that were missed.
-- Implemented a setting to toggle accepting innkeeper binds.
+  - Added a variety of gossips from around Azeroth.
+  - Added compatibility with the [Immersion](https://www.curseforge.com/wow/addons/immersion) addon.
+    - _**Author's Note**: This is for the custom gossip button._
 ### Changed or Updated
-- Hero Talents are now integrated into the talent system automation.
-- The Skyriding Talents sub-system has been rebranded as the **Generic Talents** sub-system.
-  - _**Author's Note**: The setting has been updated and reset to **false** for all users._
-- The Talent Importer utility has undergone a small visual update, resulting in a more condensed interface.
-- The Talent Importer utility's position is now saved.
-- The Talent Importer utility can no longer be opened in combat.
-  - _**Author's Note**: If the utility is open when entering combat, it will be hidden automatically._
-- The **Deposit Keep Amount** and **Trainer Protection Value** sliders are now CVar sliders, complete with a companion check button.
-  - _**Author's Note**: The check button now serves as the primary method to toggle functionality on and off. Setting the sliders to 0 will no longer disable their effects. For example, setting the 'Deposit Keep Amount' to 0 will cause the addon to deposit all of your gold into the Warbank and prevent any withdrawals._
-- The tooltip for the chevrons on the World Event Queue button now updates immediately upon clicking, eliminating the need to leave and re-enter the region for the tooltip to refresh.
-- Quests can now be quickly abandoned from the Objective Tracker.
+  - Players can now press SHIFT in conjunction with their Mount Up keybind to summon a Skyriding mount prior to level 20.
+  - The Micro Menu button is now movable.
+    - _**Author's Note**: The button has been moved to the center of the screen to encourage players to move it where they want._
+  - Players no longer need to close and reopen the merchant window for custom items to be purchased.
+  - Players can now include an optional quest ID when adding a custom merchant item.
+    - _**Author's Note:** If a quest ID is included, it will be checked if the player is on the quest before purchasing the item from the merchant._
+  - Like for quests, holding SHIFT now _pauses_ Gossip automation instead of terminating it.
 ### Deprecated
 _No changes_
 ### Removed
-- The Talents system will no longer display learned talents in the chat window.
-- Removed the **Keep Me Safe** feature.
+_No changes_
 ### Fixed
-- Fixed an issue that caused the talent system to become stuck on top-row talent selection.
+  - Resolved an issue that prevented the successful purchase of custom merchant items.
 
 ## Superseded Updates
 _No superseded updates_
