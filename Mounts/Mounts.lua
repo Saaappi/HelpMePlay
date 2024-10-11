@@ -6,6 +6,10 @@ local button
 
 local mounts = {}
 
+local minGroundMountLevel = 10
+local minFlyingMountLevel = 20
+local minSkyridingMountLevel = 30
+
 function HelpMePlay.GetPlayerDurability(threshold)
     local slots = { 1, 3, 5, 6, 7, 8, 9, 10, 16, 17 }
     local totalCurrentDurability = 0
@@ -159,7 +163,7 @@ function HelpMePlay.Mount()
         numFreeSlots = numFreeSlots + C_Container.GetContainerNumFreeSlots(bagID)
     end
 
-    if HelpMePlay.playerLevel < 10 and IsOutdoors() and (not LHMP:IsPlayerHeroClass(HelpMePlay.playerClassID)) then -- Chauffer Mount
+    if (HelpMePlay.playerLevel < minGroundMountLevel) and (IsOutdoors() and (not LHMP:IsPlayerHeroClass(HelpMePlay.playerClassID))) then -- Chauffer Mount
         if HelpMePlay.playerFactionID == 1 then
             local mountID = 679
             if HelpMePlay.IsMountCollected(mountID) then
@@ -171,7 +175,7 @@ function HelpMePlay.Mount()
                 C_MountJournal.SummonByID(mountID)
             end
         end
-    elseif HelpMePlay.playerLevel < 20 and IsOutdoors() and IsShiftKeyDown() then
+    elseif (HelpMePlay.playerLevel < minFlyingMountLevel) and (IsOutdoors() and IsShiftKeyDown()) then
         -- This is SKYRIDING before flight styles are available.
         HelpMePlay.SummonMountByType("Dynamic")
     elseif (GetMirrorTimerInfo(2)) == "BREATH" and IsOutdoors() then -- Aquatic Mounts
@@ -200,32 +204,28 @@ function HelpMePlay.Mount()
             C_MountJournal.SummonByID(mountID)
         end
     elseif HelpMePlay.GetFreeInventorySpacePercentage(numFreeSlots, numTotalSlots, 20) or HelpMePlay.GetPlayerDurability(70) then -- Inventory Mounts (to repair/vendor)
-        -- If the player's available bag space is less than or equal
-        -- to 20%, then use a vendor mount.
-        --
-        -- If the player's durability is less than or equal to 70%,
-        -- then use a vendor mount.
-        local mountID = 460
-        if HelpMePlay.IsMountCollected(mountID) then
-            C_MountJournal.SummonByID(mountID)
+        -- First, try to summon a random vendor mount. If that mount isn't available,
+        -- then fallback to using one of the cheap Tundra Mammoths.
+        local numMounts = LHMP:GetTableSize(HelpMePlay.VendorMounts)
+        local rand = math.random(1, numMounts)
+        local mountId = HelpMePlay.VendorMounts[rand]
+
+        if HelpMePlay.IsMountCollected(mountId) then
+            C_MountJournal.SummonByID(mountId)
         else
             if HelpMePlay.playerFactionID == 1 then
-                mountID = 280
+                mountId = 280
             else
-                mountID = 284
+                mountId = 284
             end
-            if HelpMePlay.IsMountCollected(mountID) then
-                C_MountJournal.SummonByID(mountID)
+
+            if HelpMePlay.IsMountCollected(mountId) then
+                C_MountJournal.SummonByID(mountId)
             else
-                -- The player doesn't have the Traveler's Tundra Mammoth
-                -- or the Grand Expedition Yak. Inventory space is an issue
-                -- but we can't do anything about it.
-                --
-                -- Pick a random mount to use instead based on the player's
-                -- level.
-                if HelpMePlay.playerLevel >= 10 and HelpMePlay.playerLevel < 20 then
+                -- The player doesn't have any vendor mount, so just pick a random mount.
+                if HelpMePlay.playerLevel >= minGroundMountLevel and HelpMePlay.playerLevel < minFlyingMountLevel then
                     HelpMePlay.SummonMountByType("Ground")
-                elseif HelpMePlay.playerLevel >= 20 and HelpMePlay.playerLevel < 40 then
+                elseif HelpMePlay.playerLevel >= minFlyingMountLevel and HelpMePlay.playerLevel < minSkyridingMountLevel then
                     HelpMePlay.SummonMountByType("Flying")
                 else
                     HelpMePlay.SummonMountByType("Dynamic")

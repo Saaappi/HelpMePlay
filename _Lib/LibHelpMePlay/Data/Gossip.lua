@@ -1286,6 +1286,8 @@ LHMP.Gossips = {
 	-- ===== The Underkeep =====
 	[220133] = {{ID = 121502, CanConfirm = false, Conditions = {}}},
 	[455666] = {{ID = 123353, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83761}}}}},
+	-- ===== Nightfall Sanctum =====
+	[217572] = {{ID = 120767, CanConfirm = false, Conditions = {}}},
 	-- ===== Storyline | Delves: Season 1 =====
 	[226763] = {{ID = 123080, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {81596}}}}},
 	--[[
