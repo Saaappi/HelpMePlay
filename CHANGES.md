@@ -4,11 +4,16 @@
 **Mounts**
   - Added the [Mighty Caravan Brutosaur](https://www.wowhead.com/item=163042/reins-of-the-mighty-caravan-brutosaur) and the [Grizzly Hills Packmaster](https://www.wowhead.com/spell=457485) to the list of mounts to summon for a vendor.
 ### Changed or Updated
+**Mounts**
+  - Players can now hold SHIFT when above level 30 to use a normal flying mount when they don't want to use a skyriding mount.
+    - _**Author's Note**: Bear in mind, the game will still determine the appropriate type of mount to use._
 ### Deprecated
 _No changes_
 ### Removed
 _No changes_
 ### Fixed
+**Mounts**
+  - When the Flight Style buff is removed from the player, the addon should no longer default to selecting a ground mount.
 
 ## Superseded Updates
 _No superseded updates_

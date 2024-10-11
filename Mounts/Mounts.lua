@@ -232,9 +232,9 @@ function HelpMePlay.Mount()
                 end
             end
         end
-    elseif IsAdvancedFlyableArea() and IsOutdoors() and activeFlightStyleSpellID == 404464 then -- Skyriding Mounts
+    elseif IsAdvancedFlyableArea() and IsOutdoors() and (HelpMePlay.playerLevel > minSkyridingMountLevel) and (not IsShiftKeyDown()) then -- Skyriding Mounts
         HelpMePlay.SummonMountByType("Dynamic")
-    elseif IsFlyableArea() and IsOutdoors() and activeFlightStyleSpellID == 404468 then -- Static Flying Mounts
+    elseif IsFlyableArea() and IsOutdoors() and (HelpMePlay.playerLevel >= minFlyingMountLevel) and IsShiftKeyDown() then -- Static Flying Mounts
         HelpMePlay.SummonMountByType("Flying")
     else -- Ground Mounts
         HelpMePlay.SummonMountByType("Ground")
