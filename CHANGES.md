@@ -16,7 +16,7 @@ _No changes_
 ### Removed
 _No changes_
 ### Fixed
-**Mounts**
+- **Mounts**
   - When the Flight Style buff is removed from the player, the addon should no longer default to selecting a ground mount.
 
 ## Superseded Updates
