@@ -25,17 +25,19 @@ local function OnEvent(_, event, ...)
 
         button:ClearAllPoints()
 
-        button:SetMovable(true)
-        button:EnableMouse(true)
-        button:RegisterForDrag("LeftButton")
-        button:SetScript("OnDragStart", function(self)
-            self:StartMoving()
-        end)
-        button:SetScript("OnDragStop", function(self)
-            self:StopMovingOrSizing()
-            local anchor, parent, relativeAnchor, x, y = self:GetPoint()
-            HelpMePlayDB.Positions["MicroButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
-        end)
+        if not HelpMePlayDB["IsMicroButtonLocked"] then
+            button:SetMovable(true)
+            button:EnableMouse(true)
+            button:RegisterForDrag("LeftButton")
+            button:SetScript("OnDragStart", function(self)
+                self:StartMoving()
+            end)
+            button:SetScript("OnDragStop", function(self)
+                self:StopMovingOrSizing()
+                local anchor, parent, relativeAnchor, x, y = self:GetPoint()
+                HelpMePlayDB.Positions["MicroButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+            end)
+        end
 
 		if HelpMePlayDB.Positions["MicroButton"] then
 			local pos = HelpMePlayDB.Positions["MicroButton"]

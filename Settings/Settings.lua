@@ -2,6 +2,7 @@ local addonName, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
 --local REMIX_SECTION = "Remix: Mists of Pandaria"
+local MICRO_SECTION = "Micro Button"
 local GENERAL_SECTION = GENERAL
 local QUEST_SECTION = "Quest"
 local LFG_SECTION = "LFG"
@@ -100,6 +101,20 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["ShowRemixScrapButton"],
         "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
     )]]
+    
+    ------------------------
+    -- MICRO BUTTON SECTION
+    ------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(MICRO_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Lock Position",
+        "IsMicroButtonLocked",
+        false,
+        HelpMePlayDB["IsMicroButtonLocked"],
+        "Toggle to lock the micro button's position."
+    )
 
     ------------------------
     -- GENERAL SECTION -----
@@ -880,6 +895,38 @@ function HelpMePlay.OnSettingChanged(setting, value)
             else
                 PlaySound(value, "Master", false, false)
             end
+        end,
+        HelpMePlay_IsMicroButtonLocked = function()
+            local button = _G["HelpMePlayMicroButton"]
+            if not value then
+                -- The button was unlocked. Let's configure it to be
+                -- movable.
+                button:SetMovable(true)
+                button:EnableMouse(true)
+                button:RegisterForDrag("LeftButton")
+                button:SetScript("OnDragStart", function(self)
+                    self:StartMoving()
+                end)
+                button:SetScript("OnDragStop", function(self)
+                    self:StopMovingOrSizing()
+                    local anchor, parent, relativeAnchor, x, y = self:GetPoint()
+                    HelpMePlayDB.Positions["MicroButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+                end)
+
+                _G["HelpMePlayMicroButton"].unlockedTexture = _G["HelpMePlayMicroButton"]:CreateTexture(nil, "OVERLAY")
+                _G["HelpMePlayMicroButton"].unlockedTexture:SetPoint("CENTER")
+                _G["HelpMePlayMicroButton"].unlockedTexture:SetSize(18, 25)
+                _G["HelpMePlayMicroButton"].unlockedTexture:SetColorTexture(0.251, 0.749, 0.482, 0.6)
+            else
+                -- The button was locked.
+                button:SetMovable(false)
+                button:EnableMouse(true)
+                button:SetScript("OnDragStart", nil)
+                button:SetScript("OnDragStop", nil)
+                button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+                _G["HelpMePlayMicroButton"].unlockedTexture:Hide()
+            end
         end
     }
 
@@ -1038,6 +1085,7 @@ function HelpMePlay.Init()
         GarrisonMissionTable = false,
         IgnoreDailyQuests = false,
         IgnoreRepeatableQuests = false,
+        IsMicroButtonLocked = true,
         LootUnderMouse = false,
         MuteTalkingHead = false,
         NCC_ActionBar2 = false,
