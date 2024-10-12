@@ -4,6 +4,8 @@
 **Mounts**
   - Added the [Mighty Caravan Brutosaur](https://www.wowhead.com/item=163042/reins-of-the-mighty-caravan-brutosaur) and the [Grizzly Hills Packmaster](https://www.wowhead.com/spell=457485) to the list of mounts to summon for a vendor.
 ### Changed or Updated
+**Micro Button**
+  - The button's position can now be locked in the settings. (This is enabled by default.)
 **Mounts**
   - Players can now hold SHIFT when above level 30 to use a normal flying mount when they don't want to use a skyriding mount.
     - _**Author's Note**: Bear in mind, the game will still determine the appropriate type of mount to use._
