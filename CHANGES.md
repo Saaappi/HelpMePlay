@@ -9,6 +9,8 @@
 **Mounts**
   - Players can now hold SHIFT when above level 30 to use a normal flying mount when they don't want to use a skyriding mount.
     - _**Author's Note**: Bear in mind, the game will still determine the appropriate type of mount to use._
+**Warband Bank**
+  - The cap has been increased to **10,000**. The slider now moves in increments of 100 (up from 10).
 ### Deprecated
 _No changes_
 ### Removed

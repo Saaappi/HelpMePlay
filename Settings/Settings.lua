@@ -427,8 +427,8 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["DepositKeepAmount"],
         "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
         "Visiting your Warband bank while below this threshold will instead attempt a withdrawal, provided the bank has the funds.\n\n" ..
-        LHMP:ColorText("RED", "This slider moves in increments of 10."),
-        { minValue = 0, maxValue = 1000, increment = 10 }
+        LHMP:ColorText("RED", "This slider moves in increments of 100."),
+        { minValue = 0, maxValue = 10000, increment = 100 }
     )
 
     --------------------------
