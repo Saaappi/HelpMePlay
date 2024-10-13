@@ -1283,6 +1283,7 @@ LHMP.Gossips = {
 	[220585] = {{ID = 121408, CanConfirm = false, Conditions = {}}},
 	-- ===== Tak-Rethan Abyss =====
 	[215178] = {{ID = 120255, CanConfirm = false, Conditions = {}}},
+	[214628] = {{ID = 120132, CanConfirm = false, Conditions = {}}},
 	-- ===== The Underkeep =====
 	[220133] = {{ID = 121502, CanConfirm = false, Conditions = {}}},
 	[455666] = {{ID = 123353, CanConfirm = false, Conditions = {{"QUESTS_ACTIVE", {83761}}}}},
