@@ -18,6 +18,8 @@ _No changes_
 ### Fixed
 - **Mounts**
   - When the Flight Style buff is removed from the player, the addon should no longer default to selecting a ground mount.
+- **Quests**
+  - Resolved an issue that prevented rewards from being chosen when _Sell Price_ was selected for quest rewards.
 
 ## Superseded Updates
 _No superseded updates_
