@@ -18,6 +18,8 @@ _No changes_
 ### Removed
 _No changes_
 ### Fixed
+- **Gossip**
+  - Corrected an error that occurred when interacting with Gnawbles in The Ringing Deeps.
 - **Mounts**
   - When the Flight Style buff is removed from the player, the addon should no longer default to selecting a ground mount.
 - **Quests**
