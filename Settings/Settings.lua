@@ -294,7 +294,7 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["ChromieTimeExpansionID"],
         function()
             local container = Settings.CreateControlTextContainer()
-            --container:Add(16, EXPANSION_NAME9), -- Dragonflight isn't supported yet (not until The War Within).
+            container:Add(16, EXPANSION_NAME9)
             container:Add(14, EXPANSION_NAME8)
             container:Add(15, EXPANSION_NAME7)
             container:Add(10, EXPANSION_NAME6)
