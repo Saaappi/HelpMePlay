@@ -171,6 +171,35 @@ HelpMePlay.CompleteQuest = function()
     if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
     C_Timer.After(0.1, function()
+        local numChoices = GetNumQuestChoices()
+        if numChoices >= 1 then
+            if HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE
+                local bestItemIndex, highestSellPrice = 0, 0
+                for index = 1, numChoices do
+                    local count = select(3, GetQuestItemInfo("choice", index))
+                    local itemLink = GetQuestItemLink("choice", index)
+                    if count and itemLink then
+                        local sellPrice = select(11, C_Item.GetItemInfo(itemLink))
+                        if (sellPrice and sellPrice > 0) and sellPrice > highestSellPrice then
+                            bestItemIndex = index
+                            highestSellPrice = sellPrice
+                        end
+                    end
+                end
+
+                if bestItemIndex ~= 0 then
+                    GetQuestReward(bestItemIndex)
+                else
+                    GetQuestReward(math.random(1, numChoices))
+                end
+            end
+        elseif numChoices == 0 or numChoices == 1 then
+            CompleteQuest()
+            GetQuestReward(1)
+        end
+    end)
+
+    --[[C_Timer.After(0.1, function()
         -- Determine if the player can dual wield. The specialization IDs
         -- are stored in Data\Quests.lua.
         for _, specID in ipairs(HelpMePlay.CanDualWield) do
@@ -221,12 +250,12 @@ HelpMePlay.CompleteQuest = function()
         -- A quest "choice" is an item the player can choose. A quest "reward" is an
         -- unconditional item given to the player.
         local numChoices = GetNumQuestChoices()
-        if numChoices > 1 then
+        if numChoices >= 1 then
             if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end
 
             -- Check if the player is in combat. This will cause some trouble if they
             -- are, so let's deal with it now.
-            if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
+            --if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
 
             local bestRewardIndex = 0
             local bestSellPrice = 0
@@ -243,11 +272,11 @@ HelpMePlay.CompleteQuest = function()
                 bestRewardIndex, bestRewardLink, slot = CheckItemLevelUpgrade(rewards, equippedItems, true)
             elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE
                 local rewards = {}
-                for rewardIndex = 1, numChoices do
-                    local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
-                    local itemLink = GetQuestItemLink("choice", rewardIndex)
-                    if quantity and itemLink then
-                        table.insert(rewards, { ["itemLink"] = itemLink, ["quantity"] = quantity })
+                for index = 1, numChoices do
+                    local count = select(3, GetQuestItemInfo("choice", index))
+                    local itemLink = GetQuestItemLink("choice", index)
+                    if count and itemLink then
+                        table.insert(rewards, { ["itemLink"] = itemLink, ["count"] = count })
                     end
                 end
                 bestRewardIndex, bestRewardLink = GetHighestSellingQuestReward(rewards)
@@ -288,22 +317,6 @@ HelpMePlay.CompleteQuest = function()
                     C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
                 end
             end
-        elseif numChoices == 1 then
-            -- Check if the player is in combat. This will cause some trouble if they
-            -- are, so let's deal with it now.
-            if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
-
-            local link = GetQuestItemLink("choice", 1)
-            if link then
-                local rewards = { link }
-                local bestRewardLink, slot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
-
-                GetQuestReward(1)
-
-                if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then
-                    C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
-                end
-            end
         else
             local numRewards = GetNumQuestRewards()
             if numRewards and numRewards > 0 then
@@ -324,7 +337,7 @@ HelpMePlay.CompleteQuest = function()
             end
 
             CompleteQuest()
-            GetQuestReward(QuestInfoFrame.itemChoice)
+            GetQuestReward(1)
         end
-    end)
+    end)]]
 end

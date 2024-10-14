@@ -34,7 +34,7 @@ local function QUEST_GOSSIP()
 end
 
 local function QUEST_COMPLETE()
-    if not IsShiftKeyDown() and not InCombatLockdown() then
+    if not IsShiftKeyDown() then
         local questID = GetQuestID()
         if questID then
             if LHMP:IsQuestIgnored(questID) then return end
