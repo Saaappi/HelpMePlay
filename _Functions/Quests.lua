@@ -146,27 +146,6 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
     return bestRewardIndex, bestRewardItemLink, destSlot
 end
 
-local function GetHighestSellingQuestReward(rewards)
-    local bestSellPrice = 0
-    local bestRewardItemLink = ""
-    local bestRewardIndex = 0
-    for index = 1, #rewards do
-        local reward = rewards[index]
-        if reward then
-            local sellPrice = select(11, C_Item.GetItemInfo(reward.itemLink))
-            if sellPrice > 0 then
-                sellPrice = sellPrice * reward.quantity
-                if sellPrice > bestSellPrice then
-                    bestSellPrice = sellPrice
-                    bestRewardIndex = index
-                    bestRewardItemLink = reward.itemLink
-                end
-            end
-        end
-    end
-    return bestRewardIndex, bestRewardItemLink
-end
-
 HelpMePlay.CompleteQuest = function()
     if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
