@@ -144,28 +144,20 @@ end
 -- WORLD EVENTS --
 ------------------
 function LHMP:IsEventQueueable(eventID)
-    if not LHMP.WorldEvents[eventID] then
-        return false
+    for _, event in ipairs(LHMP.WorldEvents) do
+        if event.eventID == eventID then
+            return true
+        end
     end
-
-    local event = LHMP.WorldEvents[eventID]
-    local isTimerunner = PlayerGetTimerunningSeasonID()
-    if UnitLevel("player") < event.conditions.minLevel then
-        return false
-    end
-
-    if event.conditions.isForTimerunning and isTimerunner ~= 1 then
-        return false
-    elseif (not event.conditions.isForTimerunning) and isTimerunner == 1 then
-        return false
-    end
-    return true
+    return false
 end
 function LHMP:GetWorldEvent(eventID)
-    if not LHMP.WorldEvents[eventID] then
-        return false
+    for _, event in ipairs(LHMP.WorldEvents) do
+        if event.eventID == eventID then
+            return event
+        end
     end
-    return LHMP.WorldEvents[eventID]
+    return false
 end
 
 ---------------
