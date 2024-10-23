@@ -174,7 +174,7 @@ LHMP.WorldEvents = {
     { -- Timewalking Dungeon Event: Classic [US]
         eventID = 1508,
         lfgDungeonID = 2634,
-        texture = 630785,
+        texture = 236761,
         conditions = {
             minLevel = 10
         }
@@ -182,7 +182,7 @@ LHMP.WorldEvents = {
     { -- Timewalking Dungeon Event: Classic [EU]
         eventID = 1583,
         lfgDungeonID = 2634,
-        texture = 630785,
+        texture = 236761,
         conditions = {
             minLevel = 10
         }

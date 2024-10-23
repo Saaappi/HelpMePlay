@@ -22,7 +22,7 @@ local function GetActiveEventsFromCalendarByDate()
             if C_DateAndTime.CompareCalendarTime(date, startTime) == -1 and C_DateAndTime.CompareCalendarTime(date, endTime) == 1 then
                 if event and LHMP:IsEventQueueable(event.eventID) then
                     local worldEvent = LHMP:GetWorldEvent(event.eventID)
-                    table.insert(events, { name = worldEvent.name or event.title, dungeonQueueID = worldEvent.dungeonQueueID, texture = worldEvent.atlas or worldEvent.texture })
+                    table.insert(events, { name = worldEvent.name or event.title, lfgDungeonID = worldEvent.lfgDungeonID, texture = worldEvent.atlas or worldEvent.texture })
                 end
             end
         end
@@ -42,7 +42,7 @@ local function SetEvent(event)
         button.icon:SetTexture(event.texture)
     end
     button.name = event.name
-    button.dungeonQueueID = event.dungeonQueueID
+    button.lfgDungeonID = event.lfgDungeonID
 end
 
 HelpMePlay.CreateEventQueueButton = function()
@@ -136,7 +136,7 @@ HelpMePlay.CreateEventQueueButton = function()
         end
 
         button:SetScript("OnClick", function(self)
-            LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.dungeonQueueID, LFDDungeonList, LFDHiddenByCollapseList)
+            LFG_JoinDungeon(LE_LFG_CATEGORY_LFD, self.lfgDungeonID, LFDDungeonList, LFDHiddenByCollapseList)
         end)
         button:SetScript("OnEnter", function(self)
             extraActionButtonBinding = GetBindingKey("HELPMEPLAY_QUICKWORLDEVENTQUEUE")
