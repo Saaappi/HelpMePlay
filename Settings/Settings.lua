@@ -198,14 +198,6 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["AutomaticInnkeeperBind"],
         "Toggle to automatically accept innkeeper binds (setting your hearthstone)."
     )
-    HelpMePlay.AddSettingCheckbox(
-        category,
-        "Always Compare Items",
-        "AlwaysCompareItems",
-        false,
-        HelpMePlayDB["AlwaysCompareItems"],
-        "Toggle if you wish to have the item comparison tooltips always visible or not when you hover an item."
-    )
 
     ------------------------
     -- QUEST SECTION -------
@@ -1019,6 +1011,7 @@ function HelpMePlay.Init()
     local oldVariables = {
         "AcceptAndCompleteAllQuests",
         "AGE",
+        "AlwaysCompareItems",
         "ButtonReset_RemixUsables",
         "DebugModeEnabled",
         "DepositKeepMeSafe",

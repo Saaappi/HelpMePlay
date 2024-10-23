@@ -1,4 +1,4 @@
-## Interface: 110002, 110005
+## Interface: 110005
 ## Title: HelpMePlay
 ## Version: 3.2.2
 ## Author: LightskyGG

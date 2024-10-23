@@ -23,7 +23,8 @@
 ### Deprecated
 _No changes_
 ### Removed
-_No changes_
+- **General**
+  - Removed the **Always Compare Items** setting because Blizzard fixed the corresponding cvar. Use **/run C_CVar.SetCVar("alwaysCompareItems", 0)** to keep the functionality.
 ### Fixed
 - **Gossip**
   - Corrected an error that occurred when interacting with Gnawbles in The Ringing Deeps.
