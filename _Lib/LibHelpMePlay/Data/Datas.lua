@@ -171,60 +171,148 @@ LHMP.IgnoredQuests = {
 --
 -- The texture can be an atlas or a texture ID.
 LHMP.WorldEvents = {
-    [559] = {
-        ["dungeonQueueID"] = 744,
-        ["texture"] = 630783,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: Classic [US]
+        eventID = 1508,
+        lfgDungeonID = 2634,
+        texture = 236761,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [562] = {
-        ["dungeonQueueID"] = 995,
-        ["texture"] = 630787,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: Classic [EU]
+        eventID = 1583,
+        lfgDungeonID = 2634,
+        texture = 236761,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [587] = {
-        ["dungeonQueueID"] = 1146,
-        ["texture"] = 630784,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: The Burning Crusade [US]
+        eventID = 559,
+        lfgDungeonID = 744,
+        texture = 630783,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [643] = {
-        ["dungeonQueueID"] = 1453,
-        ["texture"] = 630786,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: The Burning Crusade [EU]
+        eventID = 622,
+        lfgDungeonID = 744,
+        texture = 630783,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [1056] = {
-        ["dungeonQueueID"] = 1971,
-        ["texture"] = 2838050,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: The Wrath of the Lich King [US]
+        eventID = 562,
+        lfgDungeonID = 995,
+        texture = 630787,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [1263] = {
-        ["dungeonQueueID"] = 2274,
-        ["texture"] = 1408999,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: The Wrath of the Lich King [EU]
+        eventID = 616,
+        lfgDungeonID = 995,
+        texture = 630787,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [423] = {
-        ["dungeonQueueID"] = 288,
-        ["texture"] = 135450,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: Cataclysm [US]
+        eventID = 587,
+        lfgDungeonID = 1146,
+        texture = 630784,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [341] = {
-        ["dungeonQueueID"] = 286,
-        ["texture"] = 368565,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: Cataclysm [EU]
+        eventID = 628,
+        lfgDungeonID = 1146,
+        texture = 630784,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [372] = {
-        ["dungeonQueueID"] = 287,
-        ["texture"] = 132621,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: Mists of Pandaria [US]
+        eventID = 643,
+        lfgDungeonID = 1453,
+        texture = 630786,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [324] = {
-        ["dungeonQueueID"] = 285,
-        ["texture"] = 133661,
-        ["conditions"] = {["minLevel"] = 70, ["isForTimerunning"] = false}
+    { -- Timewalking Dungeon Event: Mists of Pandaria [EU]
+        eventID = 652,
+        lfgDungeonID = 1453,
+        texture = 630786,
+        conditions = {
+            minLevel = 10
+        }
     },
-    [1525] = {
-        ["name"] = string.format("Random Heroic Timerunning Dungeon: %s", EXPANSION_NAME4),
-        ["dungeonQueueID"] = 2539,
-        ["texture"] = 328269,
-        ["conditions"] = {["minLevel"] = 10, ["isForTimerunning"] = true}
-    }
+    { -- Timewalking Dungeon Event: Warlords of Draenor [US]
+        eventID = 1056,
+        lfgDungeonID = 1971,
+        texture = 2838050,
+        conditions = {
+            minLevel = 10
+        }
+    },
+    { -- Timewalking Dungeon Event: Warlords of Draenor [EU]
+        eventID = 1063,
+        lfgDungeonID = 1971,
+        texture = 2838050,
+        conditions = {
+            minLevel = 10
+        }
+    },
+    { -- Timewalking Dungeon Event: Legion [US]
+        eventID = 1263,
+        lfgDungeonID = 2274,
+        texture = 1408999,
+        conditions = {
+            minLevel = 10
+        }
+    },
+    { -- Timewalking Dungeon Event: Legion [EU]
+        eventID = 1265,
+        lfgDungeonID = 2274,
+        texture = 1408999,
+        conditions = {
+            minLevel = 10
+        }
+    },
+    { -- Love is in the Air
+        eventID = 423,
+        lfgDungeonID = 288,
+        texture = 135450,
+        conditions = {
+            minLevel = 10
+        }
+    },
+    { -- Midsummer Fire Festival
+        eventID = 341,
+        lfgDungeonID = 286,
+        texture = 368565,
+        conditions = {
+            minLevel = 10
+        }
+    },
+    { -- Brewfest
+        eventID = 372,
+        lfgDungeonID = 287,
+        texture = 132621,
+        conditions = {
+            minLevel = 10
+        }
+    },
+    { -- Hallow's End
+        eventID = 324,
+        lfgDungeonID = 285,
+        texture = 133661,
+        conditions = {
+            minLevel = 10
+        }
+    },
 }

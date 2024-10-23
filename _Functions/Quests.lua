@@ -146,27 +146,6 @@ local function CheckItemLevelUpgrade(rewards, equippedItems, isRewardValid)
     return bestRewardIndex, bestRewardItemLink, destSlot
 end
 
-local function GetHighestSellingQuestReward(rewards)
-    local bestSellPrice = 0
-    local bestRewardItemLink = ""
-    local bestRewardIndex = 0
-    for index = 1, #rewards do
-        local reward = rewards[index]
-        if reward then
-            local sellPrice = select(11, C_Item.GetItemInfo(reward.itemLink))
-            if sellPrice > 0 then
-                sellPrice = sellPrice * reward.quantity
-                if sellPrice > bestSellPrice then
-                    bestSellPrice = sellPrice
-                    bestRewardIndex = index
-                    bestRewardItemLink = reward.itemLink
-                end
-            end
-        end
-    end
-    return bestRewardIndex, bestRewardItemLink
-end
-
 HelpMePlay.CompleteQuest = function()
     if HelpMePlayDB["AcceptAndCompleteQuests"] == false then return end
 
@@ -218,18 +197,11 @@ HelpMePlay.CompleteQuest = function()
             end
         end
 
-        -- A quest "choice" is an item the player can choose. A quest "reward" is an
-        -- unconditional item given to the player.
         local numChoices = GetNumQuestChoices()
-        if numChoices > 1 then
+        if numChoices >= 1 then
             if HelpMePlayDB["QuestRewardSelectionTypeID"] == 0 then return end
 
-            -- Check if the player is in combat. This will cause some trouble if they
-            -- are, so let's deal with it now.
-            if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
-
-            local bestRewardIndex = 0
-            local bestSellPrice = 0
+            local bestRewardIndex = 1
             local bestRewardLink = ""
             local slot = 0
             if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- ITEM LEVEL
@@ -242,89 +214,28 @@ HelpMePlay.CompleteQuest = function()
                 end
                 bestRewardIndex, bestRewardLink, slot = CheckItemLevelUpgrade(rewards, equippedItems, true)
             elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE
-                local rewards = {}
-                for rewardIndex = 1, numChoices do
-                    local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
-                    local itemLink = GetQuestItemLink("choice", rewardIndex)
-                    if quantity and itemLink then
-                        table.insert(rewards, { ["itemLink"] = itemLink, ["quantity"] = quantity })
-                    end
-                end
-                bestRewardIndex, bestRewardLink = GetHighestSellingQuestReward(rewards)
-            end
-
-            -- If the bestRewardIndex variable is unchanged from its default of 0,
-            -- then no valid reward was found.
-            if bestRewardIndex == 0 then
-                if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then -- ITEM LEVEL
-                    -- If no valid reward was found by item level, then let's use
-                    -- sell price as a fallback option.
-                    local rewards = {}
-                    for rewardIndex = 1, numChoices do
-                        local quantity = select(3, GetQuestItemInfo("choice", rewardIndex))
-                        local itemLink = GetQuestItemLink("choice", rewardIndex)
-                        if quantity and itemLink then
-                            table.insert(rewards, { ["itemLink"] = itemLink, ["quantity"] = quantity })
+                local bestItemIndex, highestSellPrice = 0, 0
+                for index = 1, numChoices do
+                    local count = select(3, GetQuestItemInfo("choice", index))
+                    local itemLink = GetQuestItemLink("choice", index)
+                    if count and itemLink then
+                        local sellPrice = select(11, C_Item.GetItemInfo(itemLink))
+                        if (sellPrice and sellPrice > 0) and sellPrice > highestSellPrice then
+                            bestItemIndex = index
+                            highestSellPrice = sellPrice
                         end
                     end
-                    bestRewardIndex, bestRewardLink = GetHighestSellingQuestReward(rewards)
+                end
 
-                    -- If the bestRewardIndex is STILL 0, then both options failed
-                    -- to find a valid reward. Pick something random.
-                    if bestRewardIndex == 0 then
-                        GetQuestReward(math.random(1, numChoices))
-                    end
-                    GetQuestReward(bestRewardIndex)
-                elseif HelpMePlayDB["QuestRewardSelectionTypeID"] == 2 then -- SELL PRICE
-                    -- Since the setting is already set to Sell Price, we don't
-                    -- want to get stuck checking for sell price a second time.
-                    -- Therefore, if the bestRewardIndex is still 0 and the setting
-                    -- is for Sell Price, then pick a random reward.
+                if bestItemIndex ~= 0 then
+                    GetQuestReward(bestItemIndex)
+                else
                     GetQuestReward(math.random(1, numChoices))
                 end
-            else
-                if bestRewardLink ~= "" and slot ~= 0 then
-                    GetQuestReward(bestRewardIndex)
-                    C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
-                end
             end
-        elseif numChoices == 1 then
-            -- Check if the player is in combat. This will cause some trouble if they
-            -- are, so let's deal with it now.
-            if InCombatLockdown() then C_Timer.After(1, HelpMePlay.CompleteQuest) end
-
-            local link = GetQuestItemLink("choice", 1)
-            if link then
-                local rewards = { link }
-                local bestRewardLink, slot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
-
-                GetQuestReward(1)
-
-                if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then
-                    C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
-                end
-            end
-        else
-            local numRewards = GetNumQuestRewards()
-            if numRewards and numRewards > 0 then
-                local rewards = {}
-                for i = 1, numRewards do
-                    local link = GetQuestItemLink("reward", i)
-                    if link then
-                        table.insert(rewards, link)
-                    end
-                end
-
-                local bestRewardLink, slot = select(2, CheckItemLevelUpgrade(rewards, equippedItems, true))
-                if bestRewardLink ~= "" and slot ~= 0 then
-                    if HelpMePlayDB["QuestRewardSelectionTypeID"] == 1 then
-                        C_Timer.After(1, function() CheckForQuestReward(bestRewardLink, slot) end)
-                    end
-                end
-            end
-
+        elseif numChoices == 0 or numChoices == 1 then
             CompleteQuest()
-            GetQuestReward(QuestInfoFrame.itemChoice)
+            GetQuestReward(1)
         end
     end)
 end

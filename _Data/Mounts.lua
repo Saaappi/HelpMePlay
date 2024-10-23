@@ -1,4 +1,4 @@
-local addonName, HelpMePlay = ...
+local _, HelpMePlay = ...
 
 HelpMePlay.SpecialMaps = {
     [201] = { 373 },
@@ -35,4 +35,12 @@ HelpMePlay.MountTypes = {
     [437] = "Flying",
     [444] = "Dynamic",
     [445] = "Flying"
+}
+
+HelpMePlay.VendorMounts = {
+    280, -- Traveler's Tundra Mammoth [A]
+    284, -- Traveler's Tundra Mammoth [H]
+    460, -- Grand Expedition Yak
+    1039, -- Mighty Caravan Brutosaur
+    2237, -- Grizzly Hills Packmaster
 }

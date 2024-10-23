@@ -2,6 +2,7 @@ local addonName, HelpMePlay = ...
 local LHMP = LibStub("LibHelpMePlay")
 
 --local REMIX_SECTION = "Remix: Mists of Pandaria"
+local MICRO_SECTION = "Micro Button"
 local GENERAL_SECTION = GENERAL
 local QUEST_SECTION = "Quest"
 local LFG_SECTION = "LFG"
@@ -100,6 +101,20 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["ShowRemixScrapButton"],
         "Toggle to show the scrap button. This button can be used to quickly scrap unwanted items."
     )]]
+    
+    ------------------------
+    -- MICRO BUTTON SECTION
+    ------------------------
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(MICRO_SECTION))
+
+    HelpMePlay.AddSettingCheckbox(
+        category,
+        "Lock Position",
+        "IsMicroButtonLocked",
+        false,
+        HelpMePlayDB["IsMicroButtonLocked"],
+        "Toggle to lock the micro button's position."
+    )
 
     ------------------------
     -- GENERAL SECTION -----
@@ -182,14 +197,6 @@ function HelpMePlay.RegisterSettings()
         false,
         HelpMePlayDB["AutomaticInnkeeperBind"],
         "Toggle to automatically accept innkeeper binds (setting your hearthstone)."
-    )
-    HelpMePlay.AddSettingCheckbox(
-        category,
-        "Always Compare Items",
-        "AlwaysCompareItems",
-        false,
-        HelpMePlayDB["AlwaysCompareItems"],
-        "Toggle if you wish to have the item comparison tooltips always visible or not when you hover an item."
     )
 
     ------------------------
@@ -279,7 +286,7 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["ChromieTimeExpansionID"],
         function()
             local container = Settings.CreateControlTextContainer()
-            --container:Add(16, EXPANSION_NAME9), -- Dragonflight isn't supported yet (not until The War Within).
+            container:Add(16, EXPANSION_NAME9)
             container:Add(14, EXPANSION_NAME8)
             container:Add(15, EXPANSION_NAME7)
             container:Add(10, EXPANSION_NAME6)
@@ -412,8 +419,8 @@ function HelpMePlay.RegisterSettings()
         HelpMePlayDB["DepositKeepAmount"],
         "Set the minimum amount of gold you would like to keep on your character after making a deposit.\n\n" ..
         "Visiting your Warband bank while below this threshold will instead attempt a withdrawal, provided the bank has the funds.\n\n" ..
-        LHMP:ColorText("RED", "This slider moves in increments of 10."),
-        { minValue = 0, maxValue = 1000, increment = 10 }
+        LHMP:ColorText("RED", "This slider moves in increments of 100."),
+        { minValue = 0, maxValue = 10000, increment = 100 }
     )
 
     --------------------------
@@ -880,6 +887,38 @@ function HelpMePlay.OnSettingChanged(setting, value)
             else
                 PlaySound(value, "Master", false, false)
             end
+        end,
+        HelpMePlay_IsMicroButtonLocked = function()
+            local button = _G["HelpMePlayMicroButton"]
+            if not value then
+                -- The button was unlocked. Let's configure it to be
+                -- movable.
+                button:SetMovable(true)
+                button:EnableMouse(true)
+                button:RegisterForDrag("LeftButton")
+                button:SetScript("OnDragStart", function(self)
+                    self:StartMoving()
+                end)
+                button:SetScript("OnDragStop", function(self)
+                    self:StopMovingOrSizing()
+                    local anchor, parent, relativeAnchor, x, y = self:GetPoint()
+                    HelpMePlayDB.Positions["MicroButton"] = {anchor = anchor, parent = parent, relativeAnchor = relativeAnchor, x = x, y = y}
+                end)
+
+                _G["HelpMePlayMicroButton"].unlockedTexture = _G["HelpMePlayMicroButton"]:CreateTexture(nil, "OVERLAY")
+                _G["HelpMePlayMicroButton"].unlockedTexture:SetPoint("CENTER")
+                _G["HelpMePlayMicroButton"].unlockedTexture:SetSize(18, 25)
+                _G["HelpMePlayMicroButton"].unlockedTexture:SetColorTexture(0.251, 0.749, 0.482, 0.6)
+            else
+                -- The button was locked.
+                button:SetMovable(false)
+                button:EnableMouse(true)
+                button:SetScript("OnDragStart", nil)
+                button:SetScript("OnDragStop", nil)
+                button:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+
+                _G["HelpMePlayMicroButton"].unlockedTexture:Hide()
+            end
         end
     }
 
@@ -972,6 +1011,7 @@ function HelpMePlay.Init()
     local oldVariables = {
         "AcceptAndCompleteAllQuests",
         "AGE",
+        "AlwaysCompareItems",
         "ButtonReset_RemixUsables",
         "DebugModeEnabled",
         "DepositKeepMeSafe",
@@ -1038,6 +1078,7 @@ function HelpMePlay.Init()
         GarrisonMissionTable = false,
         IgnoreDailyQuests = false,
         IgnoreRepeatableQuests = false,
+        IsMicroButtonLocked = true,
         LootUnderMouse = false,
         MuteTalkingHead = false,
         NCC_ActionBar2 = false,
